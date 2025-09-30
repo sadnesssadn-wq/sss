@@ -1,0 +1,293 @@
+{
+  "api-dingdong.ems.com.vn": {
+    "target": "api-dingdong.ems.com.vn",
+    "services": {
+      "https": {
+        "status": 200,
+        "final_url": "https://api-dingdong.ems.com.vn/",
+        "headers": {
+          "Date": "Tue, 30 Sep 2025 06:29:59 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "cache-control": "private",
+          "server": "cloudflare",
+          "access-control-allow-origin": "*",
+          "x-aspnetmvc-version": "5.2",
+          "x-aspnet-version": "4.0.30319",
+          "x-powered-by": "ASP.NET",
+          "vary": "Accept-Encoding",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zJ8PKteiMHkl8f71Cd5fCnI1YSi11U8QY8%2BrUxCJkdGyDXZeyFLBJj4WE%2B9QrbvdL1zbIhNcM6jU7kGB%2FyZk16bBTGmMU%2BlV1lVG2vSN5noU1fNTFrQl\"}]}",
+          "cf-cache-status": "DYNAMIC",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "content-encoding": "gzip",
+          "CF-RAY": "9871ab457a400846-IAD",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "size": 3003,
+        "title": "Home Page"
+      },
+      "http": {
+        "status": 200,
+        "final_url": "https://api-dingdong.ems.com.vn/",
+        "headers": {
+          "Date": "Tue, 30 Sep 2025 06:30:05 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "cache-control": "private",
+          "server": "cloudflare",
+          "access-control-allow-origin": "*",
+          "x-aspnetmvc-version": "5.2",
+          "x-aspnet-version": "4.0.30319",
+          "x-powered-by": "ASP.NET",
+          "vary": "Accept-Encoding",
+          "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=AHn6PUEZ7rJc7TJOhEUvE6WiTv1CIOs9zfs%2FspOGwZk0U1vntMTmg%2FtgFY7aHmNA7%2FrjITUy%2Fo2jqtpx8qEufcRJgImCSCR5ID0GZURTdlL1%2F4lise0q\"}]}",
+          "cf-cache-status": "DYNAMIC",
+          "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "content-encoding": "gzip",
+          "CF-RAY": "9871ab668f99d6bc-IAD",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "size": 3003,
+        "title": "Home Page"
+      }
+    },
+    "vulnerabilities": [],
+    "interesting_findings": [
+      "配置文件可访问: /robots.txt"
+    ],
+    "technologies": [
+      "ASP.NET",
+      "jQuery",
+      "Bootstrap"
+    ],
+    "paths": [
+      {
+        "path": "/v1",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/v2",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/api",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/docs",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/swagger",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/graphql",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/health",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/status",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/robots.txt",
+        "status": 200,
+        "protocol": "https"
+      },
+      {
+        "path": "/robots.txt",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/.git/HEAD",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/.env",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/config.json",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/api-docs",
+        "status": 301,
+        "protocol": "http"
+      }
+    ]
+  },
+  "sso.ems.com.vn": {
+    "target": "sso.ems.com.vn",
+    "services": {},
+    "vulnerabilities": [],
+    "interesting_findings": [],
+    "technologies": [],
+    "paths": []
+  },
+  "admin.ems.com.vn": {
+    "target": "admin.ems.com.vn",
+    "services": {},
+    "vulnerabilities": [],
+    "interesting_findings": [
+      "配置文件可访问: /robots.txt"
+    ],
+    "technologies": [],
+    "paths": [
+      {
+        "path": "/dashboard",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/users",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/settings",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/logs",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/config",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/backup",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/robots.txt",
+        "status": 200,
+        "protocol": "https"
+      },
+      {
+        "path": "/robots.txt",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/.git/HEAD",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/.env",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/config.json",
+        "status": 301,
+        "protocol": "http"
+      },
+      {
+        "path": "/api-docs",
+        "status": 301,
+        "protocol": "http"
+      }
+    ]
+  },
+  "portal.ems.com.vn": {
+    "target": "portal.ems.com.vn",
+    "services": {},
+    "vulnerabilities": [],
+    "interesting_findings": [],
+    "technologies": [],
+    "paths": []
+  },
+  "115.146.121.131": {
+    "target": "115.146.121.131",
+    "services": {
+      "https": {
+        "status": 200,
+        "final_url": "https://docws.ems.com.vn",
+        "headers": {
+          "Date": "Tue, 30 Sep 2025 06:31:37 GMT",
+          "Content-Type": "text/html; charset=utf-8",
+          "Transfer-Encoding": "chunked",
+          "Connection": "keep-alive",
+          "Content-Encoding": "gzip",
+          "CF-Ray": "9871adab3ae88bda-IAD",
+          "CF-Cache-Status": "DYNAMIC",
+          "Age": "61731",
+          "Cache-Control": "public, max-age=0, must-revalidate",
+          "Strict-Transport-Security": "max-age=31536000",
+          "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, accept-encoding",
+          "content-security-policy": "default-src 'self' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' blob: *; img-src * 'self' blob: data:; connect-src *; font-src *; frame-src *; object-src 'none'; base-uri 'self' https://static-2v.gitbook.com; form-action 'self' https://static-2v.gitbook.com *; frame-ancestors https: ;",
+          "referrer-policy": "no-referrer-when-downgrade",
+          "x-content-type-options": "nosniff",
+          "x-gitbook-route-site": "docws.ems.com.vn/",
+          "x-gitbook-route-type": "static",
+          "x-gitbook-target": "2v",
+          "x-matched-path": "/sites/static/[mode]/[siteURL]/[siteData]/[pagePath]",
+          "x-nextjs-prerender": "1",
+          "x-nextjs-stale-time": "300",
+          "x-vercel-cache": "HIT",
+          "x-vercel-id": "iad1::iad1::g6rj8-1759213897507-24abd809f884",
+          "Server": "cloudflare",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "size": 175795,
+        "title": "MerchantSite APIs | APIs"
+      }
+    },
+    "vulnerabilities": [],
+    "interesting_findings": [],
+    "technologies": [
+      "IIS"
+    ],
+    "paths": [
+      {
+        "path": "/.git/HEAD",
+        "status": 403,
+        "protocol": "https"
+      },
+      {
+        "path": "/.env",
+        "status": 403,
+        "protocol": "https"
+      }
+    ],
+    "open_ports": [
+      443
+    ]
+  },
+  "115.146.121.135": {
+    "target": "115.146.121.135",
+    "services": {},
+    "vulnerabilities": [],
+    "interesting_findings": [],
+    "technologies": [],
+    "paths": [],
+    "open_ports": [
+      8080
+    ]
+  }
+}
