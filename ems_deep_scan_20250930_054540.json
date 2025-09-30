@@ -1,0 +1,126 @@
+{
+  "target": "ems.com.vn",
+  "scan_time": "20250930_054540",
+  "statistics": {
+    "total_domains": 6,
+    "total_ips": 5,
+    "related_domains": 3
+  },
+  "assets": {
+    "domains": [
+      "analytics.ems.com.vn",
+      "auth.ems.com.vn",
+      "ems.com.vn",
+      "hotro.ems.com.vn",
+      "khachhang.ems.com.vn",
+      "monitor.ems.com.vn"
+    ],
+    "ips": [
+      "104.21.25.27",
+      "172.67.222.13",
+      "222.255.250.226",
+      "222.255.250.227",
+      "222.255.250.247"
+    ],
+    "related_domains": [
+      "emsone.com.vn",
+      "emsvietnam.com",
+      "emsvn.com"
+    ],
+    "dns_records": {
+      "ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ],
+        "MX": [
+          "10 mx.zoho.com.",
+          "20 mx2.zoho.com.",
+          "50 mx3.zoho.com."
+        ],
+        "TXT": [
+          "\"c1kzxea.customer-creator.zoho.com\"",
+          "\"google-site-verification=jsG-nNlqUwqzlGvzfo_AgdOQKEsbqyzvAOPWDOupiWQ\"",
+          "\"v=spf1 include:zoho.com include:transmail.net include:zcsend.net ~all\""
+        ],
+        "NS": [
+          "lex.ns.cloudflare.com.",
+          "rose.ns.cloudflare.com."
+        ],
+        "SOA": [
+          "lex.ns.cloudflare.com. dns.cloudflare.com. 2384683288 10000 2400 604800 1800"
+        ],
+        "CAA": [
+          "0 issue \"comodoca.com\"",
+          "0 issue \"digicert.com; cansignhttpexchanges=yes\"",
+          "0 issue \"entrust.com\"",
+          "0 issue \"entrust.net\"",
+          "0 issue \"globalsign.com\"",
+          "0 issue \"letsencrypt.org\"",
+          "0 issue \"pki.goog; cansignhttpexchanges=yes\"",
+          "0 issue \"ssl.com\"",
+          "0 issuewild \"comodoca.com\"",
+          "0 issuewild \"digicert.com; cansignhttpexchanges=yes\"",
+          "0 issuewild \"entrust.com\"",
+          "0 issuewild \"entrust.net\"",
+          "0 issuewild \"globalsign.com\"",
+          "0 issuewild \"letsencrypt.org\"",
+          "0 issuewild \"pki.goog; cansignhttpexchanges=yes\"",
+          "0 issuewild \"ssl.com\""
+        ]
+      },
+      "analytics.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "auth.ems.com.vn": {
+        "A": [
+          "222.255.250.247"
+        ]
+      },
+      "hotro.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "monitor.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "khachhang.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ],
+        "TXT": [
+          "\"google-site-verification=KTF1p-gLbduJclG4zk4SefmSv7jAP-301WycwGhB0nc\""
+        ]
+      }
+    }
+  }
+}
