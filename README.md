@@ -17,6 +17,18 @@
 3. 运行测试：
    - `python -m unittest -q`
 
+## 本地质量与安全
+- pre-commit：
+  - 安装：`pipx install pre-commit` 或 `pip install --user pre-commit`
+  - 启用：`pre-commit install`
+  - 运行：`pre-commit run --all-files`
+- 机密扫描：
+  - 本地：`gitleaks detect --redact`
+  - CI：已配置 `.github/workflows/gitleaks.yml`
+- 代码扫描：
+  - CodeQL 已启用（`.github/workflows/codeql.yml`）
+- 披露与响应：参见 `SECURITY.md`
+
 ## 项目结构
 ```
 hello/
