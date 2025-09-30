@@ -1,0 +1,91 @@
+{
+  "scan_date": "2025-09-30T11:32:12.608369",
+  "target": "ems.com.vn",
+  "assets": {
+    "domains": 123,
+    "ips": 32,
+    "services": 45,
+    "key_targets": [
+      "ems.com.vn",
+      "webapp.ems.com.vn",
+      "api.ems.com.vn",
+      "admin.ems.com.vn",
+      "sso.ems.com.vn",
+      "portal.ems.com.vn"
+    ]
+  },
+  "vulnerabilities": [
+    {
+      "target": "admin.ems.com.vn",
+      "type": "CORS 配置错误",
+      "severity": "高危",
+      "details": "Access-Control-Allow-Origin 设置为 *，允许任意源跨域访问",
+      "impact": "可能导致用户凭据和敏感数据泄露",
+      "recommendation": "将 CORS 限制为可信域名列表"
+    },
+    {
+      "target": "webapp.ems.com.vn",
+      "type": "危险 HTTP 方法",
+      "severity": "中危",
+      "details": "支持 PATCH 方法",
+      "impact": "可能被用于修改服务器资源",
+      "recommendation": "禁用不必要的 HTTP 方法"
+    },
+    {
+      "target": "mail-vn.ems.com.vn",
+      "type": "危险 HTTP 方法",
+      "severity": "高危",
+      "details": "支持 PUT, DELETE, PATCH 方法",
+      "impact": "可能导致任意文件上传或删除",
+      "recommendation": "立即禁用 PUT 和 DELETE 方法"
+    },
+    {
+      "target": "多个目标",
+      "type": "缺少安全响应头",
+      "severity": "中危",
+      "details": "缺少 X-Frame-Options, X-Content-Type-Options, X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy",
+      "impact": "增加 XSS、点击劫持等攻击风险",
+      "recommendation": "配置完整的安全响应头"
+    }
+  ],
+  "false_positives": [
+    {
+      "target": "222.255.250.228",
+      "claimed": "Laravel Debug 模式开启",
+      "reality": "302 重定向到登录页面"
+    },
+    {
+      "target": "222.255.250.234",
+      "claimed": "大量管理接口无认证访问",
+      "reality": "所有路径返回相同的默认错误页面"
+    },
+    {
+      "target": "222.255.250.234",
+      "claimed": "24个备份文件泄露",
+      "reality": "所有文件返回相同的默认错误页面"
+    }
+  ],
+  "cdn_protection": {
+    "protected": [
+      "ems.com.vn",
+      "admin.ems.com.vn",
+      "api-dingdong.ems.com.vn",
+      "sso.ems.com.vn"
+    ],
+    "real_ips": [
+      "222.255.250.228 (webapp.ems.com.vn)",
+      "222.255.250.247 (mail-vn.ems.com.vn)",
+      "222.255.250.234 (internal.ems.com.vn)",
+      "222.255.250.240 (portal-vn.ems.com.vn)",
+      "115.146.121.131 (api.ems.com.vn)",
+      "115.146.121.135 (admin-api.ems.com.vn)"
+    ]
+  },
+  "summary": {
+    "total_vulns": 4,
+    "critical": 0,
+    "high": 2,
+    "medium": 2,
+    "low": 0
+  }
+}
