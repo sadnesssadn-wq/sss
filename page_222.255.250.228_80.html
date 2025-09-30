@@ -1,0 +1,55 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Đăng nhập hệ thống EMS</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/ContentsAdmin/dist/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/ContentsAdmin/dist/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/ContentsAdmin/dist/css/alter/adminlte.min.css" />
+    <link rel="stylesheet" href="/ContentsAdmin/dist/css/AdminLTE.min.css" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/ContentsAdmin/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/ContentsAdmin/plugins/toastr/toastr.min.css">
+</head>
+<body class="hold-transition login-page" style="overflow: hidden">
+    <div class="login-box">
+        <div class="login-box-body">
+            <p class="login-box-msg">
+                
+            </p>
+            <form id="formLogin">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" data-bind="value: loginEmail" id="txtUserName" name="txtUserName" placeholder="Tài khoản" />
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" data-bind="value: loginPassword" id="txtPass" name="txtPass" placeholder="Mật khẩu" />
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span id="lblError"></span>
+                    </div>
+                    <div class="col-xs-12">
+                        <button type="submit" style="float: left" data-bind="click: login" class="btn btn-primary btn-block btn-flat" onclick="Login()">Đăng nhập</button>
+                    </div>
+                </div>
+            </form>
+            <br />
+        </div>
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="/ContentsAdmin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="/ContentsAdmin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/ContentsAdmin/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/ContentsAdmin/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script type='text/javascript' src="/ContentsAdmin/plugins/toastr/toastr.min.js"></script>
+    <script src="/ContentsAdmin/js/Login.js"></script>
+</body>
+</html>
