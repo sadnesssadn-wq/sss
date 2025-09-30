@@ -1,0 +1,251 @@
+{
+  "target": "ems.com.vn",
+  "scan_time": "20250930_053913",
+  "statistics": {
+    "total_domains": 24,
+    "total_ips": 5,
+    "related_domains": 3
+  },
+  "assets": {
+    "domains": [
+      "*.ems.com.vn",
+      "*.my.ems.com.vn",
+      "analytics.ems.com.vn",
+      "apilogistics.ems.com.vn",
+      "auth.ems.com.vn",
+      "dangky.ems.com.vn",
+      "docs.ems.com.vn",
+      "docs.ws.ems.com.vn",
+      "document.ems.com.vn",
+      "docws.ems.com.vn",
+      "ems.com.vn",
+      "game.ems.com.vn",
+      "gamecds.ems.com.vn",
+      "hotro.ems.com.vn",
+      "huongdan.ems.com.vn",
+      "khachhang.ems.com.vn",
+      "logistics.ems.com.vn",
+      "monitor.ems.com.vn",
+      "my.ems.com.vn",
+      "qllogistics.ems.com.vn",
+      "sale.ems.com.vn",
+      "sales.ems.com.vn",
+      "wiki.ems.com.vn",
+      "zoho.ems.com.vn"
+    ],
+    "ips": [
+      "104.21.25.27",
+      "172.67.222.13",
+      "222.255.250.226",
+      "222.255.250.227",
+      "222.255.250.247"
+    ],
+    "related_domains": [
+      "emsone.com.vn",
+      "emsvietnam.com",
+      "emsvn.com"
+    ],
+    "dns_records": {
+      "ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ],
+        "MX": [
+          "10 mx.zoho.com.",
+          "20 mx2.zoho.com.",
+          "50 mx3.zoho.com."
+        ],
+        "TXT": [
+          "\"c1kzxea.customer-creator.zoho.com\"",
+          "\"google-site-verification=jsG-nNlqUwqzlGvzfo_AgdOQKEsbqyzvAOPWDOupiWQ\"",
+          "\"v=spf1 include:zoho.com include:transmail.net include:zcsend.net ~all\""
+        ],
+        "NS": [
+          "lex.ns.cloudflare.com.",
+          "rose.ns.cloudflare.com."
+        ],
+        "SOA": [
+          "lex.ns.cloudflare.com. dns.cloudflare.com. 2384683288 10000 2400 604800 1800"
+        ],
+        "CAA": [
+          "0 issue \"comodoca.com\"",
+          "0 issue \"digicert.com; cansignhttpexchanges=yes\"",
+          "0 issue \"entrust.com\"",
+          "0 issue \"entrust.net\"",
+          "0 issue \"globalsign.com\"",
+          "0 issue \"letsencrypt.org\"",
+          "0 issue \"pki.goog; cansignhttpexchanges=yes\"",
+          "0 issue \"ssl.com\"",
+          "0 issuewild \"comodoca.com\"",
+          "0 issuewild \"digicert.com; cansignhttpexchanges=yes\"",
+          "0 issuewild \"entrust.com\"",
+          "0 issuewild \"entrust.net\"",
+          "0 issuewild \"globalsign.com\"",
+          "0 issuewild \"letsencrypt.org\"",
+          "0 issuewild \"pki.goog; cansignhttpexchanges=yes\"",
+          "0 issuewild \"ssl.com\""
+        ]
+      },
+      "document.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "docws.ems.com.vn": {
+        "A": [
+          "172.64.147.209",
+          "104.18.40.47"
+        ],
+        "AAAA": [
+          "2606:4700:4402::ac40:93d1",
+          "2606:4700:4407::6812:282f"
+        ],
+        "CNAME": [
+          "hosting.gitbook.io."
+        ],
+        "CAA": [
+          "0 issue \"digicert.com\"",
+          "0 issue \"letsencrypt.org\"",
+          "0 issue \"pki.goog\""
+        ]
+      },
+      "docs.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ]
+      },
+      "wiki.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ]
+      },
+      "my.ems.com.vn": {},
+      "gamecds.ems.com.vn": {
+        "A": [
+          "103.92.30.179"
+        ]
+      },
+      "qllogistics.ems.com.vn": {
+        "A": [
+          "115.146.121.152"
+        ]
+      },
+      "huongdan.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ]
+      },
+      "sales.ems.com.vn": {
+        "A": [
+          "222.255.250.245"
+        ]
+      },
+      "apilogistics.ems.com.vn": {
+        "A": [
+          "115.146.121.135"
+        ]
+      },
+      "sale.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ],
+        "MX": [
+          "10 mx.zoho.com.",
+          "20 mx2.zoho.com.",
+          "50 mx3.zoho.com."
+        ],
+        "TXT": [
+          "\"v=spf1 include:zoho.com ~all\"",
+          "\"zoho-verification=zb29872589.zmverify.zoho.com\""
+        ]
+      },
+      "*.my.ems.com.vn": {},
+      "*.ems.com.vn": {},
+      "hotro.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ]
+      },
+      "monitor.ems.com.vn": {
+        "A": [
+          "104.21.25.27",
+          "172.67.222.13"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "zoho.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3034::6815:191b",
+          "2606:4700:3037::ac43:de0d"
+        ]
+      },
+      "analytics.ems.com.vn": {
+        "A": [
+          "172.67.222.13",
+          "104.21.25.27"
+        ],
+        "AAAA": [
+          "2606:4700:3037::ac43:de0d",
+          "2606:4700:3034::6815:191b"
+        ]
+      },
+      "auth.ems.com.vn": {
+        "A": [
+          "222.255.250.247"
+        ]
+      },
+      "dangky.ems.com.vn": {
+        "A": [
+          "18.136.245.79",
+          "18.139.152.202",
+          "3.1.139.30"
+        ],
+        "CNAME": [
+          "dns.ladipage.com."
+        ]
+      }
+    }
+  }
+}
