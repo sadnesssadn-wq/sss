@@ -1,0 +1,113 @@
+{
+  "scan_time": "2025-09-30T11:28:03.584955",
+  "targets": 7,
+  "vulnerabilities": [
+    {
+      "host": "ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Strict-Transport-Security",
+        "Content-Security-Policy"
+      ]
+    },
+    {
+      "host": "webapp.ems.com.vn",
+      "type": "危险HTTP方法",
+      "methods": [
+        "PATCH"
+      ]
+    },
+    {
+      "host": "webapp.ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Strict-Transport-Security",
+        "Content-Security-Policy"
+      ]
+    },
+    {
+      "host": "admin.ems.com.vn",
+      "type": "CORS配置错误",
+      "details": [
+        {
+          "origin": "https://evil.com",
+          "acao": "*",
+          "credentials": false
+        },
+        {
+          "origin": "null",
+          "acao": "*",
+          "credentials": false
+        },
+        {
+          "origin": "https://localhost",
+          "acao": "*",
+          "credentials": false
+        },
+        {
+          "origin": "file://",
+          "acao": "*",
+          "credentials": false
+        }
+      ]
+    },
+    {
+      "host": "admin.ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Strict-Transport-Security",
+        "Content-Security-Policy"
+      ]
+    },
+    {
+      "host": "internal.ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Strict-Transport-Security",
+        "Content-Security-Policy"
+      ]
+    },
+    {
+      "host": "mail-vn.ems.com.vn",
+      "type": "危险HTTP方法",
+      "methods": [
+        "PUT",
+        "DELETE",
+        "PATCH"
+      ]
+    },
+    {
+      "host": "mail-vn.ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Strict-Transport-Security",
+        "Content-Security-Policy"
+      ]
+    },
+    {
+      "host": "portal-vn.ems.com.vn",
+      "type": "缺少安全头",
+      "missing": [
+        "X-Frame-Options",
+        "X-Content-Type-Options",
+        "X-XSS-Protection",
+        "Content-Security-Policy"
+      ]
+    }
+  ]
+}
