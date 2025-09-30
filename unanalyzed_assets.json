@@ -1,0 +1,30 @@
+{
+  "high_value_not_analyzed": [
+    "admin.ems.com.vn",
+    "staging.edata.ems.com.vn",
+    "sso.ems.com.vn",
+    "apilogistics.ems.com.vn",
+    "api-dingdong.ems.com.vn",
+    "api.ems.com.vn",
+    "portal.ems.com.vn",
+    "staging.ems.com.vn",
+    "monitor.ems.com.vn"
+  ],
+  "alive_targets": [
+    [
+      "api-dingdong.ems.com.vn",
+      "HTTPS",
+      200
+    ]
+  ],
+  "priority_targets": [
+    "sso.ems.com.vn",
+    "admin.ems.com.vn",
+    "portal.ems.com.vn",
+    "staging.edata.ems.com.vn",
+    "apilogistics.ems.com.vn",
+    "api-dingdong.ems.com.vn",
+    "api.ems.com.vn",
+    "staging.ems.com.vn"
+  ]
+}
