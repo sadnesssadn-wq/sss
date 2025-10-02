@@ -1,0 +1,359 @@
+{
+  "target": "ems.com.vn",
+  "generated_time": "2025-10-02T01:42:50.111064",
+  "statistics": {
+    "total_domains": 197,
+    "total_ips": 31,
+    "domain_categories": 16,
+    "ip_categories": 4
+  },
+  "assets": {
+    "domains": {
+      "主域名": [
+        "ems.com.vn",
+        "www.ems.com.vn"
+      ],
+      "管理系统": [
+        "admin.ems.com.vn",
+        "administrator.ems.com.vn",
+        "manage.ems.com.vn",
+        "management.ems.com.vn",
+        "console.ems.com.vn",
+        "control.ems.com.vn",
+        "panel.ems.com.vn",
+        "cpanel.ems.com.vn",
+        "dashboard.ems.com.vn",
+        "portal.ems.com.vn"
+      ],
+      "API接口": [
+        "api.ems.com.vn",
+        "api-dingdong.ems.com.vn",
+        "apilogistics.ems.com.vn:9090",
+        "apis.ems.com.vn:5004",
+        "api-v1.ems.com.vn",
+        "api-v2.ems.com.vn",
+        "api-mobile.ems.com.vn",
+        "rest.ems.com.vn",
+        "restapi.ems.com.vn",
+        "ws.ems.com.vn",
+        "websocket.ems.com.vn",
+        "webhookc2c.ems.com.vn:5555"
+      ],
+      "开发测试": [
+        "dev.ems.com.vn",
+        "development.ems.com.vn",
+        "test.ems.com.vn",
+        "testing.ems.com.vn",
+        "qa.ems.com.vn",
+        "uat.ems.com.vn",
+        "uat-back.emsone.com.vn",
+        "staging.ems.com.vn",
+        "staging.edata.ems.com.vn",
+        "stage.ems.com.vn",
+        "demo.ems.com.vn",
+        "demo.ems.com.vn:100",
+        "sandbox.ems.com.vn",
+        "beta.ems.com.vn",
+        "alpha.ems.com.vn"
+      ],
+      "业务系统": [
+        "logistics.ems.com.vn",
+        "qllogistics.ems.com.vn",
+        "chuyentuyen.ems.com.vn",
+        "bill.ems.com.vn",
+        "billing.ems.com.vn",
+        "invoice.ems.com.vn",
+        "payment.ems.com.vn",
+        "track.ems.com.vn",
+        "tracking.ems.com.vn",
+        "trace.ems.com.vn",
+        "ship.ems.com.vn",
+        "shipping.ems.com.vn",
+        "delivery.ems.com.vn",
+        "warehouse.ems.com.vn",
+        "transport.ems.com.vn",
+        "fleet.ems.com.vn",
+        "rating.ems.com.vn",
+        "sale.ems.com.vn",
+        "sales.ems.com.vn",
+        "shop.ems.com.vn",
+        "store.ems.com.vn",
+        "commerce.ems.com.vn"
+      ],
+      "用户服务": [
+        "dangky.ems.com.vn",
+        "dangkydaily.ems.com.vn",
+        "register.ems.com.vn",
+        "signup.ems.com.vn",
+        "login.ems.com.vn",
+        "signin.ems.com.vn",
+        "sso.ems.com.vn",
+        "auth.ems.com.vn",
+        "oauth.ems.com.vn",
+        "account.ems.com.vn",
+        "accounts.ems.com.vn",
+        "user.ems.com.vn",
+        "users.ems.com.vn",
+        "member.ems.com.vn",
+        "members.ems.com.vn",
+        "customer.ems.com.vn",
+        "khachhang.ems.com.vn",
+        "client.ems.com.vn",
+        "partner.ems.com.vn",
+        "my.ems.com.vn",
+        "profile.ems.com.vn"
+      ],
+      "内部系统": [
+        "internal.ems.com.vn",
+        "intranet.ems.com.vn",
+        "private.ems.com.vn",
+        "secure.ems.com.vn",
+        "vpn.ems.com.vn",
+        "remote.ems.com.vn",
+        "gateway.ems.com.vn",
+        "proxy.ems.com.vn",
+        "firewall.ems.com.vn"
+      ],
+      "监控管理": [
+        "monitor.ems.com.vn",
+        "monitoring.ems.com.vn",
+        "metrics.ems.com.vn",
+        "stats.ems.com.vn",
+        "statistics.ems.com.vn",
+        "analytics.ems.com.vn",
+        "logs.ems.com.vn",
+        "logging.ems.com.vn",
+        "baocao.ems.com.vn",
+        "report.ems.com.vn",
+        "reports.ems.com.vn",
+        "qms.ems.com.vn",
+        "qlts.ems.com.vn",
+        "tas.ems.com.vn",
+        "tas.ems.com.vn:8880"
+      ],
+      "邮件通信": [
+        "mail.ems.com.vn",
+        "mail.ems.com.vn:2082",
+        "mail.ems.com.vn:8880",
+        "email.ems.com.vn",
+        "email.ems.com.vn:2082",
+        "email.ems.com.vn:8080",
+        "webmail.ems.com.vn",
+        "smtp.ems.com.vn",
+        "imap.ems.com.vn",
+        "pop.ems.com.vn",
+        "pop3.ems.com.vn",
+        "mx.ems.com.vn",
+        "mx1.ems.com.vn",
+        "mx2.ems.com.vn",
+        "relay.ems.com.vn",
+        "newsletter.ems.com.vn",
+        "call.ems.com.vn",
+        "chat.ems.com.vn"
+      ],
+      "文档支持": [
+        "docs.ems.com.vn",
+        "document.ems.com.vn",
+        "documentation.ems.com.vn",
+        "docws.ems.com.vn",
+        "docs.ws.ems.com.vn",
+        "help.ems.com.vn",
+        "support.ems.com.vn",
+        "hotro.ems.com.vn",
+        "hotro.ems.com.vn:2086",
+        "huongdan.ems.com.vn",
+        "guide.ems.com.vn",
+        "manual.ems.com.vn",
+        "kb.ems.com.vn",
+        "knowledge.ems.com.vn",
+        "faq.ems.com.vn",
+        "wiki.ems.com.vn",
+        "daotaotructuyen.ems.com.vn"
+      ],
+      "开发工具": [
+        "git.ems.com.vn",
+        "gitlab.ems.com.vn",
+        "github.ems.com.vn",
+        "svn.ems.com.vn",
+        "repo.ems.com.vn",
+        "repository.ems.com.vn",
+        "ci.ems.com.vn",
+        "cd.ems.com.vn",
+        "jenkins.ems.com.vn",
+        "build.ems.com.vn"
+      ],
+      "数据服务": [
+        "db.ems.com.vn",
+        "database.ems.com.vn",
+        "mysql.ems.com.vn",
+        "postgres.ems.com.vn",
+        "mongodb.ems.com.vn",
+        "redis.ems.com.vn",
+        "elastic.ems.com.vn",
+        "elasticsearch.ems.com.vn",
+        "kibana.ems.com.vn",
+        "grafana.ems.com.vn",
+        "edata.ems.com.vn"
+      ],
+      "CDN静态": [
+        "cdn.ems.com.vn",
+        "static.ems.com.vn",
+        "assets.ems.com.vn",
+        "images.ems.com.vn",
+        "img.ems.com.vn",
+        "media.ems.com.vn",
+        "download.ems.com.vn",
+        "files.ems.com.vn",
+        "content.ems.com.vn",
+        "cache.ems.com.vn"
+      ],
+      "移动应用": [
+        "mobile.ems.com.vn",
+        "m.ems.com.vn",
+        "app.ems.com.vn",
+        "android.ems.com.vn",
+        "ios.ems.com.vn",
+        "pda.ems.com.vn"
+      ],
+      "其他服务": [
+        "gamecds.ems.com.vn",
+        "game.ems.com.vn",
+        "dtkn.ems.com.vn",
+        "lcs.ems.com.vn",
+        "chamcong.ems.net.vn",
+        "zoho.ems.com.vn",
+        "old.ems.com.vn",
+        "new.ems.com.vn",
+        "legacy.ems.com.vn",
+        "v1.ems.com.vn",
+        "v2.ems.com.vn",
+        "v3.ems.com.vn"
+      ],
+      "地区分站": [
+        "vn.ems.com.vn",
+        "en.ems.com.vn",
+        "vi.ems.com.vn",
+        "hanoi.ems.com.vn",
+        "hn.ems.com.vn",
+        "hcm.ems.com.vn",
+        "saigon.ems.com.vn"
+      ]
+    },
+    "ips": {
+      "CDN保护": [
+        "104.21.25.27",
+        "104.21.41.129",
+        "104.18.40.47",
+        "172.64.147.209",
+        "172.67.222.13"
+      ],
+      "真实IP-VNPT": [
+        "222.255.250.227",
+        "222.255.250.228",
+        "222.255.250.232",
+        "222.255.250.233",
+        "222.255.250.234",
+        "222.255.250.237",
+        "222.255.250.240",
+        "222.255.250.242",
+        "222.255.250.243",
+        "222.255.250.247"
+      ],
+      "真实IP-FPT": [
+        "115.146.121.131",
+        "115.146.121.133",
+        "115.146.121.135",
+        "115.146.121.141",
+        "115.146.121.145",
+        "115.146.121.147",
+        "115.146.121.150",
+        "115.146.121.151",
+        "115.146.121.152",
+        "115.146.121.154"
+      ],
+      "其他ISP": [
+        "103.74.120.246",
+        "103.92.30.179",
+        "18.139.152.202",
+        "136.143.190.194",
+        "136.143.190.56",
+        "204.141.43.131"
+      ]
+    },
+    "相关域名": [
+      "emsone.com.vn",
+      "emsvietnam.com",
+      "emsvn.com",
+      "ems.net.vn"
+    ],
+    "技术栈": [
+      "Nginx",
+      "Microsoft IIS",
+      "Apache",
+      "Laravel Framework",
+      "ASP.NET",
+      "PHP",
+      "Django",
+      "React",
+      "Vue.js",
+      "jQuery",
+      "Bootstrap",
+      "GitLab",
+      "Cloudflare"
+    ],
+    "重要端口": {
+      "Web服务": [
+        80,
+        443,
+        8080,
+        8088,
+        8443,
+        8880,
+        8888
+      ],
+      "API服务": [
+        3000,
+        5000,
+        5004,
+        5555,
+        9090
+      ],
+      "邮件服务": [
+        25,
+        110,
+        143,
+        587,
+        993,
+        995,
+        2082,
+        2086
+      ],
+      "数据库": [
+        3306,
+        5432,
+        27017,
+        6379
+      ],
+      "管理端口": [
+        22,
+        3389,
+        10000
+      ]
+    }
+  },
+  "priority_targets": {
+    "high": [
+      "uat-back.emsone.com.vn",
+      "staging.ems.com.vn",
+      "dev.ems.com.vn",
+      "internal.ems.com.vn",
+      "api-dingdong.ems.com.vn"
+    ],
+    "medium": [
+      "admin.ems.com.vn",
+      "portal.ems.com.vn",
+      "sso.ems.com.vn",
+      "api.ems.com.vn"
+    ]
+  }
+}

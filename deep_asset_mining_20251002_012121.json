@@ -1,0 +1,60 @@
+{
+  "subdomains": [
+    "admin.ems.com.vn",
+    "demo.ems.com.vn",
+    "www.ems.com.vn",
+    "internal.ems.com.vn",
+    "smtp.ems.com.vn",
+    "api.ems.com.vn",
+    "staging.ems.com.vn",
+    "*.ems.com.vn",
+    "analytics.ems.com.vn",
+    "monitor.ems.com.vn",
+    "pop.ems.com.vn",
+    "tracking.ems.com.vn",
+    "email.ems.com.vn",
+    "ems.com.vn",
+    "docs.ems.com.vn",
+    "ws.ems.com.vn",
+    "mail.ems.com.vn",
+    "logistics.ems.com.vn",
+    "imap.ems.com.vn"
+  ],
+  "ips": [],
+  "services": [
+    {
+      "ip": "222.255.250.228",
+      "services": [
+        {
+          "port": 80,
+          "service": "HTTP"
+        },
+        {
+          "port": 443,
+          "service": "Unknown"
+        }
+      ]
+    },
+    {
+      "ip": "115.146.121.131",
+      "services": [
+        {
+          "port": 443,
+          "service": "Unknown"
+        },
+        {
+          "port": 3000,
+          "service": "Unknown"
+        },
+        {
+          "port": 5000,
+          "service": "HTTP"
+        }
+      ]
+    }
+  ],
+  "related_domains": [
+    "No DNS A records found",
+    "API count exceeded - Increase Quota with Membership"
+  ]
+}
