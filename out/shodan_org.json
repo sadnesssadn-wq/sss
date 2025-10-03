@@ -1,0 +1,1077 @@
+{
+  "fofa": [],
+  "shodan": [
+    {
+      "ip": "113.169.87.136",
+      "port": 23023,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:03:43.051165"
+    },
+    {
+      "ip": "113.161.198.98",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Microsoft HTTPAPI httpd",
+      "timestamp": "2025-10-03T18:03:31.106377"
+    },
+    {
+      "ip": "123.18.78.199",
+      "port": 3702,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "udp",
+      "product": null,
+      "timestamp": "2025-10-03T18:03:31.094051"
+    },
+    {
+      "ip": "14.160.171.148",
+      "port": 12127,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:03:31.080905"
+    },
+    {
+      "ip": "113.160.151.12",
+      "port": 53,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:03:28.748499"
+    },
+    {
+      "ip": "14.249.102.116",
+      "port": 12191,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:03:22.554506"
+    },
+    {
+      "ip": "14.238.1.125",
+      "port": 445,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vdc.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:04:37.692760"
+    },
+    {
+      "ip": "14.228.196.10",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Dahua DHI-XVR5116HS-S2",
+      "timestamp": "2025-10-03T18:03:10.638229"
+    },
+    {
+      "ip": "113.165.79.39",
+      "port": 81,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "KB Vision XVR",
+      "timestamp": "2025-10-03T18:03:02.462666"
+    },
+    {
+      "ip": "14.241.235.140",
+      "port": 161,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "udp",
+      "product": "MikroTik",
+      "timestamp": "2025-10-03T18:03:01.560772"
+    },
+    {
+      "ip": "113.177.46.248",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T18:03:00.876052"
+    },
+    {
+      "ip": "113.160.181.95",
+      "port": 53,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-09-13T15:18:44.457995"
+    },
+    {
+      "ip": "14.225.240.65",
+      "port": 7071,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T18:02:52.657408"
+    },
+    {
+      "ip": "14.170.230.252",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:02:49.908104"
+    },
+    {
+      "ip": "14.186.233.18",
+      "port": 10080,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:02:48.385861"
+    },
+    {
+      "ip": "14.225.214.92",
+      "port": 15502,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T18:02:11.199275"
+    },
+    {
+      "ip": "113.161.113.137",
+      "port": 2000,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik bandwidth-test server",
+      "timestamp": "2025-10-03T18:02:05.652816"
+    },
+    {
+      "ip": "14.173.154.91",
+      "port": 88,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T18:01:54.196353"
+    },
+    {
+      "ip": "123.22.207.234",
+      "port": 37777,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "Dahua DHI-NVR5232HS-4KS2",
+      "timestamp": "2025-10-03T18:01:52.942367"
+    },
+    {
+      "ip": "113.174.97.6",
+      "port": 30029,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:01:49.842703"
+    },
+    {
+      "ip": "14.225.209.14",
+      "port": 443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:01:48.433328"
+    },
+    {
+      "ip": "14.170.235.155",
+      "port": 8291,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik Winbox",
+      "timestamp": "2025-10-03T18:01:43.539795"
+    },
+    {
+      "ip": "14.241.35.80",
+      "port": 500,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "udp",
+      "product": null,
+      "timestamp": "2025-10-03T18:01:43.454370"
+    },
+    {
+      "ip": "113.183.171.177",
+      "port": 81,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T18:01:25.490104"
+    },
+    {
+      "ip": "14.227.146.208",
+      "port": 82,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:01:06.995908"
+    },
+    {
+      "ip": "14.241.142.40",
+      "port": 8080,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T18:01:06.744771"
+    },
+    {
+      "ip": "14.237.227.48",
+      "port": 12110,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:00:34.435134"
+    },
+    {
+      "ip": "113.178.222.134",
+      "port": 12183,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:00:29.810447"
+    },
+    {
+      "ip": "123.31.11.182",
+      "port": 9000,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T18:00:22.806821"
+    },
+    {
+      "ip": "113.161.35.36",
+      "port": 49152,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T18:00:14.612359"
+    },
+    {
+      "ip": "14.238.10.254",
+      "port": 8080,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Cisco TelePresence MCU",
+      "timestamp": "2025-10-03T17:59:48.722110"
+    },
+    {
+      "ip": "14.241.180.233",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:59:47.900873"
+    },
+    {
+      "ip": "14.225.197.74",
+      "port": 443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "vnpthis.vn",
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:59:45.059397"
+    },
+    {
+      "ip": "113.178.48.250",
+      "port": 8081,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "lighttpd",
+      "timestamp": "2025-10-03T17:59:41.934845"
+    },
+    {
+      "ip": "14.187.142.98",
+      "port": 8010,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Socks4A",
+      "timestamp": "2025-10-03T17:59:22.916622"
+    },
+    {
+      "ip": "113.178.55.44",
+      "port": 8443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:59:16.681280"
+    },
+    {
+      "ip": "113.191.89.85",
+      "port": 10013,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:59:08.459104"
+    },
+    {
+      "ip": "123.30.240.105",
+      "port": 22,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "OpenSSH",
+      "timestamp": "2025-10-03T17:59:00.949552"
+    },
+    {
+      "ip": "14.164.225.22",
+      "port": 3702,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "udp",
+      "product": null,
+      "timestamp": "2025-10-03T17:58:51.022721"
+    },
+    {
+      "ip": "113.187.59.35",
+      "port": 8081,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:58:41.817602"
+    },
+    {
+      "ip": "14.180.191.251",
+      "port": 12135,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:58:25.778005"
+    },
+    {
+      "ip": "113.161.105.170",
+      "port": 81,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:59.262728"
+    },
+    {
+      "ip": "14.243.40.65",
+      "port": 500,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "udp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:58.586680"
+    },
+    {
+      "ip": "113.166.127.26",
+      "port": 8291,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik Winbox",
+      "timestamp": "2025-10-03T17:57:55.067519"
+    },
+    {
+      "ip": "113.186.35.167",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:53.697048"
+    },
+    {
+      "ip": "14.237.231.151",
+      "port": 4043,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:42.999295"
+    },
+    {
+      "ip": "123.21.101.176",
+      "port": 1723,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "PPTP",
+      "timestamp": "2025-10-03T17:57:29.533993"
+    },
+    {
+      "ip": "14.225.200.37",
+      "port": 5004,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:57:24.687553"
+    },
+    {
+      "ip": "14.225.214.125",
+      "port": 9399,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:57:18.558630"
+    },
+    {
+      "ip": "113.187.55.127",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:14.830870"
+    },
+    {
+      "ip": "14.225.200.232",
+      "port": 19443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:57:14.005848"
+    },
+    {
+      "ip": "14.225.200.125",
+      "port": 9446,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:57:10.992354"
+    },
+    {
+      "ip": "14.162.180.224",
+      "port": 12127,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:08.275966"
+    },
+    {
+      "ip": "113.178.205.117",
+      "port": 2000,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik bandwidth-test server",
+      "timestamp": "2025-10-03T17:57:07.608637"
+    },
+    {
+      "ip": "123.17.219.250",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:04.020147"
+    },
+    {
+      "ip": "14.161.32.34",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:03.660098"
+    },
+    {
+      "ip": "113.169.220.169",
+      "port": 12191,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:57:02.322928"
+    },
+    {
+      "ip": "14.183.189.204",
+      "port": 2000,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik bandwidth-test server",
+      "timestamp": "2025-10-03T17:56:57.758953"
+    },
+    {
+      "ip": "14.225.46.156",
+      "port": 5985,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "WinRM",
+      "timestamp": "2025-10-03T17:56:49.202063"
+    },
+    {
+      "ip": "113.189.219.226",
+      "port": 2000,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "MikroTik bandwidth-test server",
+      "timestamp": "2025-10-03T17:56:44.753336"
+    },
+    {
+      "ip": "123.27.51.155",
+      "port": 10025,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "localhost"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:56:42.174518"
+    },
+    {
+      "ip": "123.23.57.237",
+      "port": 8291,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "MikroTik Winbox",
+      "timestamp": "2025-10-03T17:56:37.000923"
+    },
+    {
+      "ip": "123.30.186.47",
+      "port": 587,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "generalgateway.com"
+      ],
+      "transport": "tcp",
+      "product": "Exim smtpd",
+      "timestamp": "2025-10-03T17:56:23.172256"
+    },
+    {
+      "ip": "14.175.54.225",
+      "port": 554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:56:17.138145"
+    },
+    {
+      "ip": "14.162.38.23",
+      "port": 111,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-09-18T17:35:04.994158"
+    },
+    {
+      "ip": "14.161.154.151",
+      "port": 1723,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "PPTP",
+      "timestamp": "2025-10-03T17:56:07.909360"
+    },
+    {
+      "ip": "14.160.170.225",
+      "port": 12127,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:56:06.111116"
+    },
+    {
+      "ip": "14.228.30.119",
+      "port": 135,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Microsoft RPC Endpoint Mapper",
+      "timestamp": "2025-10-03T17:55:57.477611"
+    },
+    {
+      "ip": "113.170.128.156",
+      "port": 502,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:57.142363"
+    },
+    {
+      "ip": "113.179.240.40",
+      "port": 12128,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:55.071136"
+    },
+    {
+      "ip": "14.179.202.225",
+      "port": 8099,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:54.186182"
+    },
+    {
+      "ip": "14.225.214.125",
+      "port": 9633,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:55:39.917063"
+    },
+    {
+      "ip": "14.187.22.45",
+      "port": 10021,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:39.367509"
+    },
+    {
+      "ip": "14.225.217.240",
+      "port": 6379,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "Redis key-value store",
+      "timestamp": "2025-10-03T17:55:38.844654"
+    },
+    {
+      "ip": "14.225.200.223",
+      "port": 8004,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:55:36.822861"
+    },
+    {
+      "ip": "113.171.26.42",
+      "port": 443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn",
+        "fhan17-1.fna.fbcdn.net"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:32.912681"
+    },
+    {
+      "ip": "14.235.43.58",
+      "port": 9002,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:32.456412"
+    },
+    {
+      "ip": "123.22.194.4",
+      "port": 8291,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "MikroTik Winbox",
+      "timestamp": "2025-10-03T17:55:32.179533"
+    },
+    {
+      "ip": "14.160.172.44",
+      "port": 12172,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:31.026586"
+    },
+    {
+      "ip": "113.161.40.114",
+      "port": 84,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T17:55:24.145792"
+    },
+    {
+      "ip": "14.173.172.56",
+      "port": 12311,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:22.725228"
+    },
+    {
+      "ip": "14.166.73.130",
+      "port": 82,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T17:55:19.817763"
+    },
+    {
+      "ip": "123.25.218.89",
+      "port": 81,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vdc.vn"
+      ],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T17:55:17.279387"
+    },
+    {
+      "ip": "123.27.227.187",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "localhost"
+      ],
+      "transport": "tcp",
+      "product": "micro_httpd",
+      "timestamp": "2025-10-03T17:55:14.269799"
+    },
+    {
+      "ip": "14.161.44.179",
+      "port": 8054,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "KB Vision XVR",
+      "timestamp": "2025-10-03T17:55:07.302837"
+    },
+    {
+      "ip": "14.226.115.9",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:55:06.727858"
+    },
+    {
+      "ip": "113.168.156.112",
+      "port": 10035,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:55:00.996925"
+    },
+    {
+      "ip": "14.225.200.60",
+      "port": 5672,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:54:58.930464"
+    },
+    {
+      "ip": "113.190.242.202",
+      "port": 161,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "udp",
+      "product": "MikroTik",
+      "timestamp": "2025-10-03T17:54:51.584626"
+    },
+    {
+      "ip": "14.238.36.162",
+      "port": 84,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:54:50.096143"
+    },
+    {
+      "ip": "14.179.104.33",
+      "port": 23424,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Socks4A",
+      "timestamp": "2025-10-03T17:54:50.027885"
+    },
+    {
+      "ip": "123.19.10.157",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:54:48.361372"
+    },
+    {
+      "ip": "14.167.29.139",
+      "port": 443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:54:47.837201"
+    },
+    {
+      "ip": "113.161.40.99",
+      "port": 5222,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:54:39.150120"
+    },
+    {
+      "ip": "14.162.37.155",
+      "port": 32400,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Plex Media Server",
+      "timestamp": "2025-10-03T17:54:38.470475"
+    },
+    {
+      "ip": "113.161.36.9",
+      "port": 8443,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "GoAhead-Webs httpd",
+      "timestamp": "2025-10-03T17:54:31.513432"
+    },
+    {
+      "ip": "123.18.238.226",
+      "port": 80,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [],
+      "transport": "tcp",
+      "product": "Hikvision IP Camera",
+      "timestamp": "2025-10-03T17:54:23.483439"
+    },
+    {
+      "ip": "14.186.237.202",
+      "port": 20090,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "Socks4A",
+      "timestamp": "2025-10-03T17:54:18.018909"
+    },
+    {
+      "ip": "14.225.200.198",
+      "port": 9186,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": "nginx",
+      "timestamp": "2025-10-03T17:54:17.351036"
+    },
+    {
+      "ip": "113.161.17.210",
+      "port": 8554,
+      "org": "Vietnam Posts and Telecommunications Group",
+      "hostnames": [
+        "static.vnpt.vn"
+      ],
+      "transport": "tcp",
+      "product": null,
+      "timestamp": "2025-10-03T17:54:17.116476"
+    }
+  ]
+}

@@ -47,6 +47,15 @@ def env_or_exit(name: str) -> str:
     return v
 
 
+def env_get(name: str, fallback: str | None = None) -> str | None:
+    v = os.environ.get(name)
+    if v:
+        return v
+    if fallback:
+        return os.environ.get(fallback)
+    return None
+
+
 def main() -> None:
     args = parse_args()
     have_task = bool(args.fofa_query) or bool(args.shodan_query)
@@ -57,15 +66,19 @@ def main() -> None:
     output: Dict[str, List[Dict[str, Any]]] = {"fofa": [], "shodan": []}
 
     if args.fofa_query:
-        email = env_or_exit("FOFA_EMAIL")
-        key = env_or_exit("FOFA_KEY")
-        client = FofaClient(email=email, key=key, timeout_seconds=args.timeout)
-        fields = [f.strip() for f in args.fofa_fields.split(",") if f.strip()]
-        try:
-            output["fofa"] = client.search(query=args.fofa_query, size=args.fofa_size, fields=fields)
-        except HttpError as he:
-            print(str(he), file=sys.stderr)
-            sys.exit(3)
+        # Support FOFA_API_KEY fallback when FOFA_KEY is not set
+        email = env_get("FOFA_EMAIL")
+        key = env_get("FOFA_KEY", fallback="FOFA_API_KEY")
+        if not email or not key:
+            print("FOFA skipped: require FOFA_EMAIL and FOFA_KEY (or FOFA_API_KEY)", file=sys.stderr)
+        else:
+            client = FofaClient(email=email, key=key, timeout_seconds=args.timeout)
+            fields = [f.strip() for f in args.fofa_fields.split(",") if f.strip()]
+            try:
+                output["fofa"] = client.search(query=args.fofa_query, size=args.fofa_size, fields=fields)
+            except HttpError as he:
+                print(str(he), file=sys.stderr)
+                sys.exit(3)
 
     if args.shodan_query:
         api_key = env_or_exit("SHODAN_API_KEY")
