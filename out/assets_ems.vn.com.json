@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "host": "doc.ems.vn.com",
+    "port": 0
+  },
+  {
+    "host": "usad.ems.vn.com",
+    "port": 0
+  },
+  {
+    "host": "vn-brokers.ems.vn.com",
+    "port": 0
+  }
+]
