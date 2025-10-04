@@ -1,0 +1,45 @@
+host,severity,ips,non_cf_ips,ports,sources,recommended_actions
+api.ems.com.vn,1,115.146.121.133,115.146.121.133,80;100,shodan:dns;shodan:host,Restrict origin to CF IPs; close public ports; move behind proxy | Close non-standard ports or move to internal/VPN
+apilogistics.ems.com.vn,1,115.146.121.135,115.146.121.135,8080,shodan:dns;shodan:host,Restrict origin to CF IPs; close public ports; move behind proxy | Close non-standard ports or move to internal/VPN
+auth.ems.com.vn,1,222.255.250.247,222.255.250.247,-,dns-brute,Restrict origin to CF IPs; close public ports; move behind proxy
+demo.ems.com.vn,1,115.146.121.133,115.146.121.133,80;100,shodan:dns;shodan:host,Restrict origin to CF IPs; close public ports; move behind proxy | Close non-standard ports or move to internal/VPN
+ems.com.vn,1,104.21.25.27;115.146.121.131;115.146.121.145;222.255.250.242,115.146.121.131;115.146.121.145;222.255.250.242,80;443;1200;3000;3001;5000;5001;5003;5004;5005,crt.sh;shodan:host;shodan:search,Restrict origin to CF IPs; close public ports; move behind proxy | Close non-standard ports or move to internal/VPN
+sso.ems.com.vn,1,115.146.121.151,115.146.121.151,-,dns-brute,Restrict origin to CF IPs; close public ports; move behind proxy
+admin.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+docs.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+document.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+docws.ems.com.vn,2,104.18.40.47,-,80;443;2052;2082;2083;2086;2087;2095;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+email.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+huongdan.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+in.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+logistics.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+mail.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+monitor.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+sale.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+track.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+tracking.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+wiki.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+www.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+zoho.ems.com.vn,2,104.21.25.27;172.67.222.13,-,80;443;2052;2053;2082;2083;2086;2087;2095;2096;8080;8443;8880,shodan:dns;shodan:host,Close non-standard ports or move to internal/VPN
+_dmarc.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+baocao.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+bill.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+dangky.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+dangkydaily.ems.com.vn,3,104.21.25.27,-,-,wayback,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+docs.ws.ems.com.vn,3,-,-,-,crt.sh,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+game.ems.com.vn,3,-,-,-,crt.sh,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+gamecds.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+hoatoc.ems.com.vn,3,-,-,-,wayback,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+imap.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+lists.ems.com.vn,3,-,-,-,wayback,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+my.ems.com.vn,3,-,-,-,crt.sh,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+pda.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+pop.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+portal.ems.com.vn,3,2606:4700:3034::6815:191b,-,-,otx,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+qllogistics.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+sales.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+smtp.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+staging.bill.ems.com.vn,3,-,-,-,wayback,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+staging.ems.com.vn,3,104.21.25.27,-,-,dns-brute,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+webmail.ems.com.vn,3,-,-,-,wayback,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
+ws.ems.com.vn,3,-,-,-,shodan:dns,Verify CF WAF/RateLimit/Bot; ensure only 80/443 exposed
