@@ -18,6 +18,7 @@ import sys
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple, Set
+import re
 
 import requests
 from dotenv import load_dotenv
@@ -393,16 +394,100 @@ def resolve_via_public_dns(host: str) -> List[str]:
     return sorted(ips)
 
 
+def source_rapiddns(domain: str) -> List[Finding]:
+    url = f"https://rapiddns.io/subdomain/{domain}?full=1"
+    try:
+        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=45)
+        if not r.ok:
+            print(f"rapiddns http {r.status_code}")
+            return []
+        html = r.text
+        pattern = re.compile(r">([a-zA-Z0-9_.-]+\.%s)<" % re.escape(domain))
+        hosts = set(pattern.findall(html))
+        return [Finding(host=h.lower(), source="rapiddns") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"rapiddns error: {e}")
+        return []
+
+
+def source_urlscan(domain: str, max_pages: int = 5, size: int = 100) -> List[Finding]:
+    base = "https://urlscan.io/api/v1/search/"
+    findings: Set[str] = set()
+    try:
+        page = 1
+        while page <= max_pages:
+            r = requests.get(base, params={"q": f"domain:{domain}", "page": page, "size": size}, timeout=45)
+            if not r.ok:
+                print(f"urlscan http {r.status_code}")
+                break
+            j = r.json()
+            results = j.get("results", [])
+            if not results:
+                break
+            for it in results:
+                page_data = it.get("page") or {}
+                # pull hostname from page.domain and from URL
+                d = page_data.get("domain")
+                if isinstance(d, str):
+                    h = sanitize_host(d, domain)
+                    if h:
+                        findings.add(h)
+                url = page_data.get("url") or ""
+                m = re.search(r"https?://([^/]+)", str(url))
+                if m:
+                    h2 = sanitize_host(m.group(1), domain)
+                    if h2:
+                        findings.add(h2)
+            page += 1
+    except Exception as e:
+        print(f"urlscan error: {e}")
+    return [Finding(host=h, source="urlscan") for h in sorted(findings)]
+
+
+def source_wayback(domain: str) -> List[Finding]:
+    url = "http://web.archive.org/cdx/search/cdx"
+    try:
+        r = requests.get(url, params={
+            "url": f"*.{domain}/*",
+            "output": "json",
+            "fl": "original",
+            "collapse": "urlkey",
+        }, timeout=60)
+        if not r.ok:
+            print(f"wayback http {r.status_code}")
+            return []
+        data = r.json()
+        if not data or len(data) <= 1:
+            return []
+        hosts: Set[str] = set()
+        for row in data[1:]:
+            if not row:
+                continue
+            url_val = row[0] if isinstance(row, list) else str(row)
+            m = re.search(r"https?://([^/]+)", str(url_val))
+            if m:
+                h = sanitize_host(m.group(1), domain)
+                if h:
+                    hosts.add(h)
+        return [Finding(host=h, source="wayback") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"wayback error: {e}")
+        return []
+
+
 def gather_passive(domain: str) -> List[Finding]:
     findings: List[Finding] = []
     for fn in (
         source_crtsh,
+        source_rapiddns,
         source_bufferover,
         source_threatcrowd,
         source_sonar,
         source_hackertarget,
         source_otx,
         source_certspotter,
+        source_urlscan,
+        source_wayback,
     ):
         part = fn(domain)
         print(f"{fn.__name__} -> {len(part)}")

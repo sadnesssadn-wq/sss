@@ -280,6 +280,41 @@
     "evidence": ""
   },
   {
+    "host": "dangkydaily.ems.com.vn",
+    "port": 0,
+    "ip": "104.21.25.27",
+    "source": "wayback",
+    "evidence": ""
+  },
+  {
+    "host": "hoatoc.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "wayback",
+    "evidence": ""
+  },
+  {
+    "host": "lists.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "wayback",
+    "evidence": ""
+  },
+  {
+    "host": "staging.bill.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "wayback",
+    "evidence": ""
+  },
+  {
+    "host": "webmail.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "wayback",
+    "evidence": ""
+  },
+  {
     "host": "staging.ems.com.vn",
     "port": 0,
     "ip": "104.21.25.27",
