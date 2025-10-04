@@ -1,0 +1,303 @@
+[
+  {
+    "host": "_dmarc.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "admin.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "api.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "apilogistics.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "baocao.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "bill.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "dangky.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "demo.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "docs.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "document.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "docws.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "email.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "gamecds.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "huongdan.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "imap.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "in.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "logistics.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "mail.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "monitor.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "pda.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "pop.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "qllogistics.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "sale.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "sales.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "smtp.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "track.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "tracking.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "wiki.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "ws.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "www.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "zoho.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
+  },
+  {
+    "host": "ems.com.vn",
+    "port": 443,
+    "ip": "222.255.250.242",
+    "source": "shodan:search",
+    "evidence": "Invalid Connection"
+  },
+  {
+    "host": "static.vnpt.vn",
+    "port": 443,
+    "ip": "222.255.250.242",
+    "source": "shodan:search",
+    "evidence": "Invalid Connection"
+  },
+  {
+    "host": "static.vnpt.vn",
+    "port": 80,
+    "ip": "222.255.250.249",
+    "source": "shodan:search",
+    "evidence": "EMSOne"
+  },
+  {
+    "host": "emsone.com.vn",
+    "port": 443,
+    "ip": "222.255.250.253",
+    "source": "shodan:search",
+    "evidence": "EMSOne"
+  },
+  {
+    "host": "docs.ws.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "crt.sh",
+    "evidence": ""
+  },
+  {
+    "host": "ems.com.vn",
+    "port": 0,
+    "ip": "104.21.25.27",
+    "source": "crt.sh",
+    "evidence": ""
+  },
+  {
+    "host": "game.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "crt.sh",
+    "evidence": ""
+  },
+  {
+    "host": "my.ems.com.vn",
+    "port": 0,
+    "ip": "",
+    "source": "crt.sh",
+    "evidence": ""
+  },
+  {
+    "host": "portal.ems.com.vn",
+    "port": 0,
+    "ip": "2606:4700:3034::6815:191b",
+    "source": "otx",
+    "evidence": ""
+  },
+  {
+    "host": "staging.ems.com.vn",
+    "port": 0,
+    "ip": "104.21.25.27",
+    "source": "dns-brute",
+    "evidence": ""
+  },
+  {
+    "host": "sso.ems.com.vn",
+    "port": 0,
+    "ip": "115.146.121.151",
+    "source": "dns-brute",
+    "evidence": ""
+  },
+  {
+    "host": "auth.ems.com.vn",
+    "port": 0,
+    "ip": "222.255.250.247",
+    "source": "dns-brute",
+    "evidence": ""
+  }
+]
