@@ -1,0 +1,4 @@
+host,port,ip,source,evidence
+doc.ems.vn.com,,,shodan:dns,
+usad.ems.vn.com,,,shodan:dns,
+vn-brokers.ems.vn.com,,,shodan:dns,

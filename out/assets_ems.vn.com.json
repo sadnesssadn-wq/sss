@@ -1,14 +1,23 @@
 [
   {
     "host": "doc.ems.vn.com",
-    "port": 0
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
   },
   {
     "host": "usad.ems.vn.com",
-    "port": 0
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
   },
   {
     "host": "vn-brokers.ems.vn.com",
-    "port": 0
+    "port": 0,
+    "ip": "",
+    "source": "shodan:dns",
+    "evidence": ""
   }
 ]
