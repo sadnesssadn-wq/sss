@@ -190,6 +190,48 @@ def query_shodan(domain: str, max_pages: int = 10) -> List[Finding]:
     return findings
 
 
+def enrich_ports_via_shodan(items: Iterable[Finding], domain: str) -> List[Finding]:
+    api_key = os.getenv("SHODAN_API_KEY", "")
+    if not api_key:
+        return []
+    ips: Set[str] = set()
+    hosts: Set[str] = set()
+    for it in items:
+        if it.ip:
+            ips.add(it.ip)
+        elif it.host:
+            hosts.add(it.host)
+    # Resolve hosts lacking IPs
+    for h in list(hosts):
+        res = resolve_via_public_dns(h)
+        if res:
+            ips.add(res[0])
+    results: List[Finding] = []
+    for ip in sorted(ips):
+        try:
+            r = requests.get(
+                f"https://api.shodan.io/shodan/host/{ip}",
+                params={"key": api_key}, timeout=30
+            )
+            if not r.ok:
+                continue
+            j = r.json()
+            ports = j.get("ports", []) or []
+            hostnames = j.get("hostnames", []) or []
+            if not hostnames:
+                # fallback: synthesize hostname by reverse DNS via our records
+                hostnames = [h for h in hosts if ip in resolve_via_public_dns(h)] or [""]
+            for p in ports:
+                for hn in hostnames:
+                    h = hn or ""
+                    if h and (h.endswith("." + domain) or h == domain):
+                        results.append(Finding(host=h, port=int(p), ip=ip, source="shodan:host"))
+        except Exception:
+            continue
+    print(f"enrich_ports_via_shodan -> {len(results)}")
+    return results
+
+
 def normalize_and_dedupe(items: Iterable[Finding]) -> List[Finding]:
     seen = set()
     out: List[Finding] = []
@@ -570,7 +612,10 @@ def main() -> None:
     passive_rows = gather_passive(domain)
     brute_rows = brute_dns(domain)
 
-    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows, *passive_rows, *brute_rows])
+    # Enrich ports via Shodan host API using resolved IPs
+    enriched_ports = enrich_ports_via_shodan([*fofa_rows, *shodan_rows, *passive_rows, *brute_rows], domain)
+
+    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows, *passive_rows, *brute_rows, *enriched_ports])
     write_outputs(merged, out_dir, domain)
     print(f"收集完成：{len(merged)} 条，已输出到 {out_dir}")
 
