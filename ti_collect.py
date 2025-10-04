@@ -19,6 +19,8 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--max", type=int, default=1000, help="Max total records per source")
     p.add_argument("--page-size", type=int, default=100, help="Page size per request")
     p.add_argument("--raw", action="store_true", help="Include raw records in output files")
+    p.add_argument("--shodan-only", action="store_true", help="Only collect from Shodan")
+    p.add_argument("--fofa-only", action="store_true", help="Only collect from FOFA")
     p.add_argument("--out", default="out", help="Output directory")
     return p.parse_args()
 
@@ -38,7 +40,7 @@ def main() -> None:
     results: Dict[str, List[Dict[str, Any]]] = {"fofa": [], "shodan": []}
 
     # Shodan paginated queries
-    if shodan_key:
+    if shodan_key and not args.fofa_only:
         sclient = ShodanClient(api_key=shodan_key)
         queries = [
             f"hostname:{args.domain}",
@@ -53,11 +55,16 @@ def main() -> None:
             json.dump(shodan_collected if args.raw else shodan_collected, f, ensure_ascii=False, indent=2)
 
     # FOFA paginated query
-    if fofa_email and fofa_key:
+    if fofa_email and fofa_key and not args.shodan_only:
         fclient = FofaClient(email=fofa_email, key=fofa_key)
         fquery = f'domain="{args.domain}"'
         fields = ["host", "port", "title", "ip"]
-        fofa_collected = fclient.search_paginated(query=fquery, total_limit=args.max, page_size=args.page_size, fields=fields)
+        try:
+            fofa_collected = fclient.search_paginated(query=fquery, total_limit=args.max, page_size=args.page_size, fields=fields)
+        except Exception as e:
+            # Graceful handling for FOFA errors (e.g., 429 rate limit)
+            sys.stderr.write(f"FOFA error: {e}\n")
+            fofa_collected = []
         results["fofa"] = fofa_collected
         with open(os.path.join(args.out, f"fofa_{args.domain}.json"), "w", encoding="utf-8") as f:
             json.dump(fofa_collected, f, ensure_ascii=False, indent=2)
