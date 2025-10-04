@@ -80,10 +80,16 @@ def query_fofa(domain: str, max_pages: int = 20, page_size: int = 1000) -> List[
             try:
                 r = requests.get(base_url, params=params, timeout=45)
                 if r.status_code != 200:
+                    print(f"FOFA page {page} query '{q}' http {r.status_code}")
+                    try:
+                        print(r.text[:500])
+                    except Exception:
+                        pass
                     break
                 data = r.json()
                 results = data.get("results", [])
                 if not results:
+                    print(f"FOFA page {page} query '{q}' no results")
                     break
                 for item in results:
                     # Expected: [host, ip, port, protocol]
@@ -100,7 +106,8 @@ def query_fofa(domain: str, max_pages: int = 20, page_size: int = 1000) -> List[
                         Finding(host=host, ip=ip, port=port, source="fofa", evidence=protocol)
                     )
                 page += 1
-            except Exception:
+            except Exception as e:
+                print(f"FOFA error on page {page} query '{q}': {e}")
                 break
     return findings
 
@@ -144,10 +151,16 @@ def query_shodan(domain: str, max_pages: int = 10) -> List[Finding]:
                     timeout=45,
                 )
                 if not s.ok:
+                    print(f"Shodan page {page} query '{q}' http {s.status_code}")
+                    try:
+                        print(s.text[:500])
+                    except Exception:
+                        pass
                     break
                 sj = s.json()
                 matches = sj.get("matches", [])
                 if not matches:
+                    print(f"Shodan page {page} query '{q}' no results")
                     break
                 for m in matches:
                     port = m.get("port")
@@ -170,7 +183,8 @@ def query_shodan(domain: str, max_pages: int = 10) -> List[Finding]:
                             Finding(host=host, port=p, ip=ip, source="shodan:search", evidence=evidence)
                         )
                 page += 1
-            except Exception:
+            except Exception as e:
+                print(f"Shodan error on page {page} query '{q}': {e}")
                 break
     return findings
 
