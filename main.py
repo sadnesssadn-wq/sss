@@ -17,7 +17,7 @@ import os
 import sys
 from dataclasses import dataclass, asdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple, Set
 
 import requests
 from dotenv import load_dotenv
@@ -202,6 +202,225 @@ def normalize_and_dedupe(items: Iterable[Finding]) -> List[Finding]:
     return out
 
 
+def sanitize_host(host: str, domain: str) -> str:
+    if not host:
+        return ""
+    host = host.strip().lower().replace("*.", "")
+    if host.endswith("." + domain) or host == domain:
+        return host
+    return ""
+
+
+def source_crtsh(domain: str) -> List[Finding]:
+    url = f"https://crt.sh/?q=%25.{domain}&output=json"
+    try:
+        r = requests.get(url, timeout=45)
+        if not r.ok:
+            print(f"crt.sh http {r.status_code}")
+            return []
+        data = r.json()
+        hosts: Set[str] = set()
+        for row in data:
+            name = row.get("name_value") or ""
+            for raw in str(name).split("\n"):
+                h = sanitize_host(raw, domain)
+                if h:
+                    hosts.add(h)
+        return [Finding(host=h, source="crt.sh") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"crt.sh error: {e}")
+        return []
+
+
+def source_bufferover(domain: str) -> List[Finding]:
+    url = f"https://dns.bufferover.run/dns?q=.{domain}"
+    try:
+        r = requests.get(url, timeout=45)
+        if not r.ok:
+            print(f"bufferover http {r.status_code}")
+            return []
+        j = r.json()
+        hosts: Set[str] = set()
+        for key in ("FDNS_A", "RDNS", "FDNS_AAAA", "CNAME"):
+            arr = j.get(key) or []
+            for item in arr:
+                # format "1.2.3.4,host" or just host
+                if "," in item:
+                    _, h = item.split(",", 1)
+                else:
+                    h = item
+                h = sanitize_host(h, domain)
+                if h:
+                    hosts.add(h)
+        return [Finding(host=h, source="bufferover") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"bufferover error: {e}")
+        return []
+
+
+def source_threatcrowd(domain: str) -> List[Finding]:
+    url = "https://www.threatcrowd.org/searchApi/v2/domain/report/"
+    try:
+        r = requests.get(url, params={"domain": domain}, timeout=45)
+        if not r.ok:
+            print(f"threatcrowd http {r.status_code}")
+            return []
+        j = r.json()
+        hosts: Set[str] = set()
+        for h in j.get("subdomains", []) or []:
+            h = sanitize_host(h, domain)
+            if h:
+                hosts.add(h)
+        return [Finding(host=h, source="threatcrowd") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"threatcrowd error: {e}")
+        return []
+
+
+def source_sonar(domain: str) -> List[Finding]:
+    url = f"https://sonar.omnisint.io/subdomains/{domain}"
+    try:
+        r = requests.get(url, timeout=45)
+        if not r.ok:
+            print(f"sonar http {r.status_code}")
+            return []
+        arr = r.json() or []
+        hosts: Set[str] = set()
+        for sub in arr:
+            h = sanitize_host(f"{sub}.{domain}", domain)
+            if h:
+                hosts.add(h)
+        return [Finding(host=h, source="sonar") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"sonar error: {e}")
+        return []
+
+
+def source_hackertarget(domain: str) -> List[Finding]:
+    url = "https://api.hackertarget.com/hostsearch/"
+    try:
+        r = requests.get(url, params={"q": domain}, timeout=45)
+        if not r.ok:
+            print(f"hackertarget http {r.status_code}")
+            return []
+        hosts: Dict[str, str] = {}
+        for line in r.text.splitlines():
+            if "," in line:
+                h, ip = line.split(",", 1)
+                h = sanitize_host(h, domain)
+                if h:
+                    hosts.setdefault(h, ip.strip())
+        return [Finding(host=h, ip=ip, source="hackertarget") for h, ip in hosts.items()]
+    except Exception as e:
+        print(f"hackertarget error: {e}")
+        return []
+
+
+def source_otx(domain: str) -> List[Finding]:
+    url = f"https://otx.alienvault.com/api/v1/indicators/domain/{domain}/passive_dns"
+    try:
+        r = requests.get(url, timeout=45)
+        if not r.ok:
+            print(f"otx http {r.status_code}")
+            return []
+        j = r.json()
+        hosts: Dict[str, str] = {}
+        for rec in j.get("passive_dns", []) or []:
+            h = sanitize_host(str(rec.get("hostname") or ""), domain)
+            ip = str(rec.get("address") or "")
+            if h:
+                hosts.setdefault(h, ip)
+        return [Finding(host=h, ip=ip, source="otx") for h, ip in hosts.items()]
+    except Exception as e:
+        print(f"otx error: {e}")
+        return []
+
+
+def source_certspotter(domain: str) -> List[Finding]:
+    token = os.getenv("CERTSPOTTER_KEY", "").strip()
+    if not token:
+        return []
+    url = "https://api.certspotter.com/v1/issuances"
+    params = {
+        "domain": domain,
+        "include_subdomains": "true",
+        "match_wildcards": "true",
+        "expand": "dns_names",
+    }
+    headers = {"Authorization": f"Bearer {token}"}
+    try:
+        r = requests.get(url, params=params, headers=headers, timeout=45)
+        if not r.ok:
+            print(f"certspotter http {r.status_code}")
+            try:
+                print(r.text[:500])
+            except Exception:
+                pass
+            return []
+        data = r.json() or []
+        hosts: Set[str] = set()
+        for row in data:
+            for h in row.get("dns_names", []) or []:
+                h = sanitize_host(h, domain)
+                if h:
+                    hosts.add(h)
+        return [Finding(host=h, source="certspotter") for h in sorted(hosts)]
+    except Exception as e:
+        print(f"certspotter error: {e}")
+        return []
+
+
+def resolve_via_public_dns(host: str) -> List[str]:
+    ips: Set[str] = set()
+    try:
+        r = requests.get("https://dns.google/resolve", params={"name": host, "type": "A"}, timeout=20)
+        if r.ok:
+            j = r.json()
+            for ans in j.get("Answer", []) or []:
+                if ans.get("type") == 1 and ans.get("data"):
+                    ips.add(str(ans.get("data")))
+    except Exception:
+        pass
+    try:
+        r6 = requests.get("https://dns.google/resolve", params={"name": host, "type": "AAAA"}, timeout=20)
+        if r6.ok:
+            j6 = r6.json()
+            for ans in j6.get("Answer", []) or []:
+                if ans.get("type") == 28 and ans.get("data"):
+                    ips.add(str(ans.get("data")))
+    except Exception:
+        pass
+    return sorted(ips)
+
+
+def gather_passive(domain: str) -> List[Finding]:
+    findings: List[Finding] = []
+    for fn in (
+        source_crtsh,
+        source_bufferover,
+        source_threatcrowd,
+        source_sonar,
+        source_hackertarget,
+        source_otx,
+        source_certspotter,
+    ):
+        part = fn(domain)
+        print(f"{fn.__name__} -> {len(part)}")
+        findings.extend(part)
+    # enrich IPs for those missing
+    enriched: List[Finding] = []
+    for f in findings:
+        if not f.ip:
+            ips = resolve_via_public_dns(f.host)
+            if ips:
+                enriched.append(Finding(host=f.host, port=f.port, ip=ips[0], source=f.source, evidence=f.evidence))
+            else:
+                enriched.append(f)
+        else:
+            enriched.append(f)
+    return enriched
+
+
 def write_outputs(rows: List[Finding], out_dir: Path, domain: str) -> None:
     ensure_out_dir(out_dir)
     # Simple output (backward-compatible): host,port
@@ -233,8 +452,9 @@ def main() -> None:
 
     fofa_rows = query_fofa(domain)
     shodan_rows = query_shodan(domain)
+    passive_rows = gather_passive(domain)
 
-    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows])
+    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows, *passive_rows])
     write_outputs(merged, out_dir, domain)
     print(f"收集完成：{len(merged)} 条，已输出到 {out_dir}")
 
