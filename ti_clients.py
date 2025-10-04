@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import base64
 import json
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Iterable
 
 import requests
 
@@ -46,6 +46,7 @@ class FofaClient:
         query: str,
         size: int = 100,
         fields: Optional[List[str]] = None,
+        page: int = 1,
     ) -> List[Dict[str, object]]:
         if not query:
             return []
@@ -59,6 +60,7 @@ class FofaClient:
             "qbase64": qbase64,
             "size": max(1, min(size, 10000)),
             "fields": ",".join(fields),
+            "page": max(1, page),
         }
         url = f"{self.base_url}/search/all"
         resp = requests.get(
@@ -86,6 +88,27 @@ class FofaClient:
             mapped.append(entry)
         return mapped
 
+    def search_paginated(
+        self,
+        query: str,
+        total_limit: int = 1000,
+        page_size: int = 100,
+        fields: Optional[List[str]] = None,
+    ) -> List[Dict[str, object]]:
+        collected: List[Dict[str, object]] = []
+        if not query or total_limit <= 0 or page_size <= 0:
+            return collected
+        page = 1
+        while len(collected) < total_limit:
+            batch = self.search(query=query, size=min(page_size, total_limit - len(collected)), fields=fields, page=page)
+            if not batch:
+                break
+            collected.extend(batch)
+            if len(batch) < min(page_size, total_limit):
+                break
+            page += 1
+        return collected
+
 
 class ShodanClient:
     """Minimal Shodan client for query search.
@@ -99,10 +122,10 @@ class ShodanClient:
         self.timeout_seconds = timeout_seconds
         self.base_url = "https://api.shodan.io"
 
-    def search(self, query: str, limit: int = 100) -> List[Dict[str, object]]:
+    def search(self, query: str, limit: int = 100, raw: bool = False, page: int = 1) -> List[Dict[str, object]]:
         if not query:
             return []
-        params = {"key": self.api_key, "query": query}
+        params = {"key": self.api_key, "query": query, "page": max(1, page)}
         url = f"{self.base_url}/shodan/host/search"
         resp = requests.get(
             url,
@@ -120,16 +143,40 @@ class ShodanClient:
         # Normalize minimal fields
         normalized: List[Dict[str, object]] = []
         for m in matches[: max(1, min(limit, 10000))]:
-            normalized.append(
-                {
-                    "ip": m.get("ip_str") or m.get("ip"),
-                    "port": m.get("port"),
-                    "org": m.get("org"),
-                    "hostnames": m.get("hostnames"),
-                    "transport": m.get("transport"),
-                    "product": m.get("product"),
-                    "timestamp": m.get("timestamp"),
-                }
-            )
+            if raw:
+                normalized.append(m)
+            else:
+                normalized.append(
+                    {
+                        "ip": m.get("ip_str") or m.get("ip"),
+                        "port": m.get("port"),
+                        "org": m.get("org"),
+                        "hostnames": m.get("hostnames"),
+                        "transport": m.get("transport"),
+                        "product": m.get("product"),
+                        "timestamp": m.get("timestamp"),
+                    }
+                )
         return normalized
+
+    def search_paginated(
+        self,
+        query: str,
+        total_limit: int = 1000,
+        page_size: int = 100,
+        raw: bool = False,
+    ) -> List[Dict[str, object]]:
+        if not query or total_limit <= 0 or page_size <= 0:
+            return []
+        collected: List[Dict[str, object]] = []
+        page = 1
+        while len(collected) < total_limit:
+            batch = self.search(query=query, limit=min(page_size, total_limit - len(collected)), raw=raw, page=page)
+            if not batch:
+                break
+            collected.extend(batch)
+            if len(batch) < min(page_size, total_limit):
+                break
+            page += 1
+        return collected
 

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/ti_collect.py", line 86, in <module>
+    main()
+    ~~~~^^
+  File "/workspace/ti_collect.py", line 60, in main
+    fofa_collected = fclient.search_paginated(query=fquery, total_limit=args.max, page_size=args.page_size, fields=fields)
+  File "/workspace/ti_clients.py", line 103, in search_paginated
+    batch = self.search(query=query, size=min(page_size, total_limit - len(collected)), fields=fields, page=page)
+  File "/workspace/ti_clients.py", line 76, in search
+    raise HttpError(f"FOFA HTTP {resp.status_code}: {resp.text[:200]}")
+ti_clients.HttpError: FOFA HTTP 429: {"error":true,"errmsg":"[45012] 请求速度过快"}
