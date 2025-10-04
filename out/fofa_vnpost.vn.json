@@ -1,0 +1,1232 @@
+[
+  {
+    "host": "https://developer.vnpost.vn",
+    "port": "443",
+    "title": "TÀI LIỆU HƯỚNG DẪN KẾT NỐI CỔNG API HỆ THỐNG MY VIETNAMPOST",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://webchat-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Caresoft live chat Widget",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://www.vnpost.vn",
+    "port": "443",
+    "title": "Redirecting to https://vietnampost.vn/vi",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://ipostal.vnpost.vn",
+    "port": "443",
+    "title": "    Tổng công ty Bưu điện Việt Nam\n",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "www.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "maps.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "42.117.1.2"
+  },
+  {
+    "host": "https://vnpost.vn",
+    "port": "443",
+    "title": "Vietnam Post - Tổng công ty Bưu điện Việt Nam",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://maps.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "42.117.1.2"
+  },
+  {
+    "host": "khaosat.vnpost.vn",
+    "port": "80",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "accounts-ai.vnpost.vn",
+    "port": "80",
+    "title": "Keycloak Administration Console",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://khaosat.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://bandosuco.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "hopkhonggiay.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "luutrudientu.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://accounts-ai.vnpost.vn",
+    "port": "443",
+    "title": "Keycloak Administration Console",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://luutrudientu.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://hopkhonggiay.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "cancuoc.vnpost.vn",
+    "port": "80",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://cancuoc.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "bandosuco.vnpost.vn",
+    "port": "80",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://mb06.vnpost.vn",
+    "port": "443",
+    "title": "Outlook",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "https://uat-smartads.vnpost.vn",
+    "port": "443",
+    "title": "Vietnam Post | Đăng nhập",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://dev-buutaapp.vnpost.vn",
+    "port": "443",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "uat-apiqlts.vnpost.vn",
+    "port": "80",
+    "title": "Swagger UI",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "mb09.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "https://hue.vnpost.vn",
+    "port": "443",
+    "title": "Bưu điện Thành phố Huế | VNPost Huế",
+    "ip": "103.3.247.7"
+  },
+  {
+    "host": "hue.vnpost.vn",
+    "port": "80",
+    "title": "Bưu điện Thành phố Huế | VNPost Huế",
+    "ip": "103.3.247.7"
+  },
+  {
+    "host": "https://mipo.vnpost.vn",
+    "port": "443",
+    "title": "MiPo - Hỏi gì khó, có MiPo!",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://chatbot-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Chat Bot",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "uat-dsale.vnpost.vn",
+    "port": "80",
+    "title": "Admin",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://marketing-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Marketing App",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://workflow-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Workflow",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "uat-smartads.vnpost.vn",
+    "port": "80",
+    "title": "Vietnam Post | Đăng nhập",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://otp.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://uat-qlts.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://bhxh-yt.vnpost.vn",
+    "port": "443",
+    "title": "Bưu điện Việt Nam - VietNamPost",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://b2bhub.vnpost.vn",
+    "port": "443",
+    "title": "Hệ thống đang bảo trì",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://pre-my.vnpost.vn",
+    "port": "443",
+    "title": "My VietNamPost",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "bhxh-yt.vnpost.vn",
+    "port": "80",
+    "title": "Bưu điện Việt Nam - VietNamPost",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://dev-crm.vnpost.vn",
+    "port": "443",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://kb-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Redirecting to https://vnpost.vn/",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "dev-gateway.vnpost.vn",
+    "port": "80",
+    "title": "404 Not Found",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://uat-apiqlts.vnpost.vn",
+    "port": "443",
+    "title": "Swagger UI",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "dev-buutaapp.vnpost.vn",
+    "port": "80",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "dev-crm.vnpost.vn",
+    "port": "80",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://dev-gateway.vnpost.vn",
+    "port": "443",
+    "title": "404 Not Found",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "b2bhub.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "mb06.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "mipo.vnpost.vn",
+    "port": "80",
+    "title": "MiPo - Hỏi gì khó, có MiPo!",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "uat-qpiqlts.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "uat-qlts.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://uat-qpiqlts.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://mapi-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://dialer-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Whoops! There was an error.",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://api-qttt-uat.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://uat-dsale.vnpost.vn",
+    "port": "443",
+    "title": "Admin",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "otp.vnpost.vn",
+    "port": "80",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://webapi-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Redirecting to https://vnpost.vn/",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://attach-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://search-proxy-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Title",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://dailerapi-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://call-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://zalo-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "api-qttt-uat.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "mb09.vnpost.vn:993",
+    "port": "993",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "webapi-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "zalo-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "marketing-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "dailerapi-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "call-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "attach-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "chatbot-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "mapi-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "search-proxy-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "dialer-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "kb-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "workflow-tongdai.vnpost.vn:10444",
+    "port": "10444",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "angiang.vnpost.vn",
+    "port": "80",
+    "title": "Trang chủ - Bưu điện tỉnh An Giang",
+    "ip": "77.37.78.173"
+  },
+  {
+    "host": "https://angiang.vnpost.vn",
+    "port": "443",
+    "title": "Trang chủ - Bưu điện tỉnh An Giang",
+    "ip": "77.37.78.173"
+  },
+  {
+    "host": "kiengiang.vnpost.vn",
+    "port": "80",
+    "title": "Thông báo đổi tên miền",
+    "ip": "113.163.157.222"
+  },
+  {
+    "host": "https://kiengiang.vnpost.vn",
+    "port": "443",
+    "title": "Thông báo đổi tên miền",
+    "ip": "113.163.157.222"
+  },
+  {
+    "host": "https://dongnai.vnpost.vn",
+    "port": "443",
+    "title": " Bưu điện tỉnh Đồng Nai",
+    "ip": "210.2.86.103"
+  },
+  {
+    "host": "dongnai.vnpost.vn",
+    "port": "80",
+    "title": " Bưu điện tỉnh Đồng Nai",
+    "ip": "210.2.86.103"
+  },
+  {
+    "host": "https://sonla.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "117.7.235.24"
+  },
+  {
+    "host": "sonla.vnpost.vn",
+    "port": "80",
+    "title": "vnpost",
+    "ip": "117.7.235.24"
+  },
+  {
+    "host": "api-pre-my.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "pns.vnpost.vn",
+    "port": "80",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://pns.vnpost.vn",
+    "port": "443",
+    "title": "403 - Truy cập bị từ chối",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "caobang.vnpost.vn:8069",
+    "port": "8069",
+    "title": "Home | My Website",
+    "ip": "113.160.165.144"
+  },
+  {
+    "host": "study.vnpost.vn:18181",
+    "port": "18181",
+    "title": "VNPOST-E-LEARNING",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://my.vnpost.vn",
+    "port": "443",
+    "title": "My VietNamPost",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://hoadon.vnpost.vn",
+    "port": "443",
+    "title": "\t                Cổng thông tin hóa đơn ",
+    "ip": "14.225.39.14"
+  },
+  {
+    "host": "https://mail.vnpost.vn",
+    "port": "443",
+    "title": "Outlook",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "https://pns-update.vnpost.vn",
+    "port": "443",
+    "title": "DingDong - VietnamPost",
+    "ip": "103.63.109.211"
+  },
+  {
+    "host": "study.vnpost.vn:18181",
+    "port": "18181",
+    "title": "",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://eoffice.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "14.225.12.115"
+  },
+  {
+    "host": "htkh.vnpost.vn",
+    "port": "80",
+    "title": "React App",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "vnpost.vn",
+    "port": "80",
+    "title": "Vietnam Post - Tổng công ty Bưu điện Việt Nam",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://htkh.vnpost.vn",
+    "port": "443",
+    "title": "React App",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://cfm2022.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://ssm.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://bienlai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://ssmreport.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://counter-em.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://pud.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "study.vnpost.vn:8000",
+    "port": "8000",
+    "title": "",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://my-uat.vnpost.vn",
+    "port": "443",
+    "title": "My VietNamPost",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "study.vnpost.vn:8000",
+    "port": "8000",
+    "title": "",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://diachi.vnpost.vn",
+    "port": "443",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "vnp-crm.vnpost.vn",
+    "port": "80",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://api-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Redirecting to https://vnpost.vn/",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://vnp-crm.vnpost.vn",
+    "port": "443",
+    "title": "VNPost - Tổng Công Ty Bưu Điện Việt Nam",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "qltb.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "diachi.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "qltb.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://api-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://ssm-uat.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://hcconline.vnpost.vn",
+    "port": "443",
+    "title": "403 - Forbidden: Access is denied.",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://tongdai.vnpost.vn",
+    "port": "443",
+    "title": "Contact Center",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "https://c-c-tongdai.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "123.30.11.221"
+  },
+  {
+    "host": "mb10.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "mb07.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "https://api-my.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "ipostal.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "mb05.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "eform.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "gateway.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "bandosuco-admin.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "crm.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "portal.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://bccp-uat.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "bccp-uat.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "dieutin.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "pns.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "hcconline.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "portal.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "gateway.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "bandosuco-admin.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "eform.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "crm.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://autodiscover.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "www.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "https://thuthapdiachi.vnpost.vn",
+    "port": "443",
+    "title": "VNpostAddress",
+    "ip": "42.117.1.2"
+  },
+  {
+    "host": "thuthapdiachi.vnpost.vn",
+    "port": "80",
+    "title": "VNpostAddress",
+    "ip": "42.117.1.2"
+  },
+  {
+    "host": "kiengiang.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "77.37.78.173"
+  },
+  {
+    "host": "pre-prod.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "117.0.18.110"
+  },
+  {
+    "host": "https://pre-prod.vnpost.vn",
+    "port": "443",
+    "title": "Vietnam Post - Tổng công ty Bưu điện Việt Nam",
+    "ip": "117.0.18.110"
+  },
+  {
+    "host": "my-uat.vnpost.vn",
+    "port": "80",
+    "title": "My VietNamPost",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "kiengiang.vnpost.vn:3306",
+    "port": "3306",
+    "title": "",
+    "ip": "77.37.78.173"
+  },
+  {
+    "host": "msale.vnpost.vn:8080",
+    "port": "8080",
+    "title": "",
+    "ip": "103.199.77.34"
+  },
+  {
+    "host": "bccp-dt.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "pre-pns.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.149.238"
+  },
+  {
+    "host": "ipostal.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "ctt.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "bhxh.vnpost.vn:443",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "study.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://ssm-api.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://ssm-uat-api.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "test.vnpost.vn:8006",
+    "port": "8006",
+    "title": "",
+    "ip": "42.96.61.223"
+  },
+  {
+    "host": "pud.vnpost.vn",
+    "port": "80",
+    "title": "Đăng nhập hệ thống",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://cfm2022.vnpost.vn",
+    "port": "443",
+    "title": "CFM Center | Đăng nhập",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "counter-em.vnpost.vn",
+    "port": "80",
+    "title": "Đăng nhập",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "bccp-api.vnpost.vn",
+    "port": "80",
+    "title": "Đăng nhập",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "cds.vnpost.vn",
+    "port": "80",
+    "title": "\tCustoms Declarations System",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://cds.vnpost.vn",
+    "port": "443",
+    "title": "Redirecting......",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://bccp-dt.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.42"
+  },
+  {
+    "host": "https://quanlybuucuc.vnpost.vn",
+    "port": "443",
+    "title": "Geo CMS - Manage point",
+    "ip": "42.117.1.28"
+  },
+  {
+    "host": "quanlybuucuc.vnpost.vn",
+    "port": "80",
+    "title": "Geo CMS - Manage point",
+    "ip": "42.117.1.28"
+  },
+  {
+    "host": "test.vnpost.vn:8006",
+    "port": "8006",
+    "title": "",
+    "ip": "42.96.61.223"
+  },
+  {
+    "host": "ssm-uat.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "bienlai.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "caobang.vnpost.vn",
+    "port": "80",
+    "title": "BƯU ĐIỆN TỈNH CAO BẰNG",
+    "ip": "113.160.165.144"
+  },
+  {
+    "host": "caobang.vnpost.vn:1723",
+    "port": "1723",
+    "title": "",
+    "ip": "113.160.165.144"
+  },
+  {
+    "host": "https://oeimportapi.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.5"
+  },
+  {
+    "host": "workplace.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "204.141.42.199"
+  },
+  {
+    "host": "https://workplace.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "204.141.42.199"
+  },
+  {
+    "host": "https://mag.vnpost.vn",
+    "port": "443",
+    "title": "Junos&#32;Pulse&#32;Secure&#32;Access&#32;Service",
+    "ip": "115.146.122.91"
+  },
+  {
+    "host": "https://ssm-api.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://ssm.vnpost.vn",
+    "port": "443",
+    "title": "Quản lý dịch vụ - Vnpost",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "study.vnpost.vn:9000",
+    "port": "9000",
+    "title": "Portainer",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "gps.vnpost.vn:81",
+    "port": "81",
+    "title": "301 Moved Permanently",
+    "ip": "42.117.1.6"
+  },
+  {
+    "host": "cds.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "bccp-api.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "counter-em.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.196.16.24"
+  },
+  {
+    "host": "https://gps.vnpost.vn",
+    "port": "443",
+    "title": "HỆ THỐNG GPS QUẢN L&#221; PHƯƠNG TIỆN VẬN TẢI BƯU CH&#205;NH",
+    "ip": "42.117.1.6"
+  },
+  {
+    "host": "gps.vnpost.vn",
+    "port": "80",
+    "title": "HỆ THỐNG GPS QUẢN L&#221; PHƯƠNG TIỆN VẬN TẢI BƯU CH&#205;NH",
+    "ip": "42.117.1.6"
+  },
+  {
+    "host": "msale.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.199.77.34"
+  },
+  {
+    "host": "autodiscover.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "https://study.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "14.225.67.14"
+  },
+  {
+    "host": "https://vps.vnpost.vn",
+    "port": "443",
+    "title": "",
+    "ip": "113.161.53.115"
+  },
+  {
+    "host": "pre-pns.vnpost.vn",
+    "port": "80",
+    "title": "IIS Windows Server",
+    "ip": "103.21.149.238"
+  },
+  {
+    "host": "vps.vnpost.vn",
+    "port": "80",
+    "title": "403 - Forbidden: Access is denied.",
+    "ip": "113.161.53.115"
+  },
+  {
+    "host": "hoadon.vnpost.vn",
+    "port": "80",
+    "title": "\t                Cổng thông tin hóa đơn ",
+    "ip": "14.225.39.14"
+  },
+  {
+    "host": "mail.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "mag.vnpost.vn",
+    "port": "80",
+    "title": "404 Not Found",
+    "ip": "115.146.122.91"
+  },
+  {
+    "host": "pns-update.vnpost.vn:139",
+    "port": "139",
+    "title": "",
+    "ip": "103.63.109.211"
+  },
+  {
+    "host": "autodiscover.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "mail.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.21.151.89"
+  },
+  {
+    "host": "msale.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "103.199.77.34"
+  },
+  {
+    "host": "thuthapdiachi.vnpost.vn",
+    "port": "80",
+    "title": "",
+    "ip": "42.117.1.2"
+  },
+  {
+    "host": "5ph.vnpost.vn:161",
+    "port": "161",
+    "title": "",
+    "ip": "183.91.4.178"
+  },
+  {
+    "host": "dns3.vnpost.vn:53",
+    "port": "53",
+    "title": "",
+    "ip": "103.196.16.4"
+  },
+  {
+    "host": "dns1.vnpost.vn:53",
+    "port": "53",
+    "title": "",
+    "ip": "103.196.16.2"
+  },
+  {
+    "host": "dns2.vnpost.vn:53",
+    "port": "53",
+    "title": "",
+    "ip": "103.196.16.3"
+  }
+]
