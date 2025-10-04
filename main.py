@@ -421,6 +421,36 @@ def gather_passive(domain: str) -> List[Finding]:
     return enriched
 
 
+def detect_wildcard(domain: str) -> Optional[str]:
+    import random, string
+    rnd = ''.join(random.choice(string.ascii_lowercase) for _ in range(16))
+    test = f"{rnd}.{domain}"
+    ips = resolve_via_public_dns(test)
+    return ips[0] if ips else None
+
+
+def brute_dns(domain: str, wordlist: Optional[List[str]] = None, limit: int = 5000) -> List[Finding]:
+    if not wordlist:
+        # a compact built-in list; can be extended
+        wordlist = [
+            "www","api","app","dev","test","stage","staging","pre","preprod","prod","mail","smtp","imap","pop","cdn","static","img","assets","files","admin","portal","vpn","git","jira","jenkins","grafana","kibana","sso","auth","login","office","intra","intranet","ns1","ns2","mx","redis","db","mysql","postgres","mongo","k8s","eks","aks","ops","monitor","status","health","shop","store","pay","payment","billing"
+        ]
+    wordlist = wordlist[:limit]
+    wildcard_ip = detect_wildcard(domain)
+    findings: List[Finding] = []
+    for sub in wordlist:
+        host = f"{sub}.{domain}"
+        ips = resolve_via_public_dns(host)
+        if not ips:
+            continue
+        if wildcard_ip and ips and all(ip == wildcard_ip for ip in ips):
+            # wildcard likely; skip
+            continue
+        findings.append(Finding(host=host, ip=ips[0], source="dns-brute"))
+    print(f"dns-brute -> {len(findings)} (wildcard={'yes' if wildcard_ip else 'no'})")
+    return findings
+
+
 def write_outputs(rows: List[Finding], out_dir: Path, domain: str) -> None:
     ensure_out_dir(out_dir)
     # Simple output (backward-compatible): host,port
@@ -453,8 +483,9 @@ def main() -> None:
     fofa_rows = query_fofa(domain)
     shodan_rows = query_shodan(domain)
     passive_rows = gather_passive(domain)
+    brute_rows = brute_dns(domain)
 
-    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows, *passive_rows])
+    merged = normalize_and_dedupe([*fofa_rows, *shodan_rows, *passive_rows, *brute_rows])
     write_outputs(merged, out_dir, domain)
     print(f"收集完成：{len(merged)} 条，已输出到 {out_dir}")
 
