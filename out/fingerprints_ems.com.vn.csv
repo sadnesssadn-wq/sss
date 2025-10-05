@@ -1,0 +1,218 @@
+host,port,scheme,status,server,powered_by,title,cert_cn,cert_sans,tls,error
+mail.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+monitor.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+www.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+track.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+wiki.ems.com.vn,2096,https,400,cloudflare,,,,,TLSv1.3,
+tracking.ems.com.vn,2096,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+track.ems.com.vn,2096,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+huongdan.ems.com.vn,2096,https,400,cloudflare,,,,,TLSv1.3,
+email.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+sale.ems.com.vn,2096,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+docws.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+docws.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,2096,https,400,cloudflare,,,,,TLSv1.3,
+sale.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+docws.ems.com.vn,443,https,200,cloudflare,,MerchantSite APIs | APIs,,,TLSv1.3,
+docws.ems.com.vn,80,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+document.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+tracking.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+in.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+docws.ems.com.vn,2052,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+docws.ems.com.vn,8880,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+tracking.ems.com.vn,2083,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+sale.ems.com.vn,2083,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+docws.ems.com.vn,2095,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+admin.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+docws.ems.com.vn,2082,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+docws.ems.com.vn,8080,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+huongdan.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+track.ems.com.vn,2083,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+docws.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+document.ems.com.vn,2096,https,400,cloudflare,,,,,TLSv1.3,
+logistics.ems.com.vn,2082,,,,,,,,,ssl:SSLError
+sale.ems.com.vn,2053,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+docs.ems.com.vn,2096,https,400,cloudflare,,,,,TLSv1.3,
+document.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+wiki.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+tracking.ems.com.vn,2053,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+huongdan.ems.com.vn,2053,https,400,cloudflare,,,,,TLSv1.3,
+docs.ems.com.vn,2083,https,400,cloudflare,,,,,TLSv1.3,
+track.ems.com.vn,2053,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+zoho.ems.com.vn,2082,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+document.ems.com.vn,2053,https,400,cloudflare,,,,,TLSv1.3,
+wiki.ems.com.vn,2053,https,400,cloudflare,,,,,TLSv1.3,
+docs.ems.com.vn,2053,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,2053,https,400,cloudflare,,,,,TLSv1.3,
+wiki.ems.com.vn,2082,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+sale.ems.com.vn,2087,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+tracking.ems.com.vn,2087,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+track.ems.com.vn,2087,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+huongdan.ems.com.vn,2082,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+huongdan.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+docs.ems.com.vn,2082,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+document.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+wiki.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+email.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+docs.ems.com.vn,2087,https,400,cloudflare,,,,,TLSv1.3,
+monitor.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+sale.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+tracking.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+document.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+logistics.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+mail.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+www.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+track.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+in.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+huongdan.ems.com.vn,2095,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+admin.ems.com.vn,2095,,,,,,,,,ssl:SSLError
+wiki.ems.com.vn,2095,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+emsone.com.vn,443,https,200,Microsoft-IIS/10.0,ASP.NET,EMSOne,,,TLSv1.2,
+ems.com.vn,443,https,200,cloudflare,"Next.js, ASP.NET",EMS - Tổng công ty chuyển phát nhanh bưu điện,,,TLSv1.3,
+zoho.ems.com.vn,2095,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+sale.ems.com.vn,80,http,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,,
+tracking.ems.com.vn,80,http,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,,
+docs.ems.com.vn,2095,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+wiki.ems.com.vn,80,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+track.ems.com.vn,80,http,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,,
+huongdan.ems.com.vn,80,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+zoho.ems.com.vn,80,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+document.ems.com.vn,80,http,200,cloudflare,,Xin chào! | EMS API Docs,,,,
+monitor.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+docs.ems.com.vn,80,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+email.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+email.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+logistics.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+monitor.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+www.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+mail.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+in.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+admin.ems.com.vn,2096,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+sale.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+tracking.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+email.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+monitor.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+document.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+www.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+logistics.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+mail.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+logistics.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+mail.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+www.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+track.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+in.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+in.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+admin.ems.com.vn,8880,,,,,,,,,ssl:SSLError
+monitor.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+email.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+admin.ems.com.vn,2083,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+sale.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+tracking.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+monitor.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+track.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+document.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+logistics.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+mail.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+in.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+email.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+www.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+admin.ems.com.vn,8080,,,,,,,,,ssl:SSLError
+wiki.ems.com.vn,8880,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+zoho.ems.com.vn,8880,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+sale.ems.com.vn,8443,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+tracking.ems.com.vn,8443,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+huongdan.ems.com.vn,8880,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+huongdan.ems.com.vn,8080,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+track.ems.com.vn,8443,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+docs.ems.com.vn,8880,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+wiki.ems.com.vn,8080,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+huongdan.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+wiki.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+docs.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+document.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,8443,https,400,cloudflare,,,,,TLSv1.3,
+zoho.ems.com.vn,8080,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+sale.ems.com.vn,443,https,530,cloudflare,,Origin DNS error | sale.ems.com.vn | Cloudflare,,,TLSv1.3,
+tracking.ems.com.vn,443,https,530,cloudflare,,Origin DNS error | tracking.ems.com.vn | Cloudflare,,,TLSv1.3,
+docs.ems.com.vn,8080,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+track.ems.com.vn,443,https,530,cloudflare,,Origin DNS error | track.ems.com.vn | Cloudflare,,,TLSv1.3,
+wiki.ems.com.vn,443,https,200,cloudflare,,Giới thiệu | Wiki EMS,,,TLSv1.3,
+zoho.ems.com.vn,443,https,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,TLSv1.3,
+docs.ems.com.vn,443,https,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,TLSv1.3,
+document.ems.com.vn,443,https,200,cloudflare,,Xin chào! | EMS API Docs,,,TLSv1.3,
+logistics.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+huongdan.ems.com.vn,443,https,200,cloudflare,,Giới thiệu | Hướng dẫn,,,TLSv1.3,
+mail.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+admin.ems.com.vn,80,http,404,cloudflare,ASP.NET,,,,,
+admin.ems.com.vn,443,https,404,cloudflare,ASP.NET,,,,TLSv1.3,
+in.ems.com.vn,80,http,200,cloudflare,,EMS eParcel | Hệ thống eParcel,,,,
+in.ems.com.vn,443,https,200,cloudflare,,EMS eParcel | Hệ thống eParcel,,,TLSv1.3,
+logistics.ems.com.vn,80,http,200,cloudflare,,Đăng nhập,,,,
+logistics.ems.com.vn,443,https,200,cloudflare,,Đăng nhập,,,TLSv1.3,
+email.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+monitor.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+sale.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+tracking.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+demo.ems.com.vn,80,http,404,,Express,Error,,,,
+www.ems.com.vn,80,http,200,cloudflare,"Next.js, ASP.NET",EMS - Tổng công ty chuyển phát nhanh bưu điện,,,,
+api.ems.com.vn,80,http,404,,Express,Error,,,,
+huongdan.ems.com.vn,2052,http,200,cloudflare,,Giới thiệu | Hướng dẫn,,,,
+www.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+document.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+mail.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+logistics.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+api.ems.com.vn,100,http,404,Microsoft-IIS/10.0,ASP.NET,,,,,
+demo.ems.com.vn,100,http,404,Microsoft-IIS/10.0,ASP.NET,,,,,
+www.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+track.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+admin.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+in.ems.com.vn,2052,,,,,,,,,ssl:SSLError
+apilogistics.ems.com.vn,8080,http,400,nginx/1.21.3,,400 The plain HTTP request was sent to HTTPS port,,,,
+mail.ems.com.vn,80,,,,,,,,,ssl:SSLError
+email.ems.com.vn,80,,,,,,,,,ssl:SSLError
+email.ems.com.vn,443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+wiki.ems.com.vn,2052,http,200,cloudflare,,Giới thiệu | Wiki EMS,,,,
+docs.ems.com.vn,2052,http,200,cloudflare,,Merchant Api v2.0 | APIs MyEMS,,,,
+mail.ems.com.vn,443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+zoho.ems.com.vn,2052,http,200,cloudflare,,Hướng dẫn CRM | EMS ZOHO,,,,
+in.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+emsone.com.vn,80,http,200,Microsoft-IIS/10.0,ASP.NET,EMSOne,,,,
+monitor.ems.com.vn,80,http,523,cloudflare,,ems.com.vn | 523: Origin is unreachable,,,,
+monitor.ems.com.vn,443,https,523,cloudflare,,ems.com.vn | 523: Origin is unreachable,,,TLSv1.3,
+auth.ems.com.vn,80,http,200,Microsoft-IIS/10.0,ASP.NET,EMS247-Gateway,,,,
+baocao.ems.com.vn,80,http,200,Microsoft-IIS/10.0,ASP.NET,EMS247-Gateway,,,,
+gamecds.ems.com.vn,80,http,500,nginx/1.16.1,,500 Internal Server Error,,,,
+ws.ems.com.vn,80,http,200,cloudflare,,MerchantSite APIs | APIs,,,,
+www.ems.com.vn,443,https,200,cloudflare,"Next.js, ASP.NET",EMS - Tổng công ty chuyển phát nhanh bưu điện,,,TLSv1.3,
+gamecds.ems.com.vn,443,https,500,nginx/1.16.1,,500 Internal Server Error,,,TLSv1.3,
+admin.ems.com.vn,2053,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+email.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+monitor.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+logistics.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+mail.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+www.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+admin.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+in.ems.com.vn,2087,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+qllogistics.ems.com.vn,80,http,200,nginx/1.21.3,,Đăng nhập,,,,
+qllogistics.ems.com.vn,443,https,200,nginx/1.21.3,,Đăng nhập,,,TLSv1.2,
+auth.ems.com.vn,443,https,200,Microsoft-IIS/10.0,ASP.NET,&#x110;&#x103;ng nh&#x1EAD;p - EMS,,,TLSv1.3,
+dangky.ems.com.vn,80,http,200,openresty,,THƯƠNG MẠI ĐIỆN TỬ ĐỒNG GIÁ,,,,
+dangky.ems.com.vn,443,https,200,openresty,,THÆ¯Æ NG Máº I ÄIá»N Tá»¬ Äá»NG GIÃ,,,TLSv1.3,
+monitor.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+email.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+baocao.ems.com.vn,443,https,200,Microsoft-IIS/10.0,ASP.NET,Đăng nhập,,,TLSv1.3,
+mail.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+logistics.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+www.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+bill.ems.com.vn,80,http,200,nginx/1.20.1,PHP/8.3.21,Hệ thống EMS,,,,
+in.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+admin.ems.com.vn,8443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
+bill.ems.com.vn,443,https,200,nginx/1.20.1,PHP/8.3.21,Hệ thống EMS,,,TLSv1.3,
+dangkydaily.ems.com.vn,80,http,523,cloudflare,,ems.com.vn | 523: Origin is unreachable,,,,
+dangkydaily.ems.com.vn,443,https,523,cloudflare,,ems.com.vn | 523: Origin is unreachable,,,TLSv1.3,
+pda.ems.com.vn,80,http,200,Microsoft-IIS/10.0,ASP.NET,Home Page,,,,
+ems.com.vn,80,,,,,,,,,ssl:SSLError
+staging.ems.com.vn,80,,,,,,,,,ssl:SSLError
+staging.ems.com.vn,443,http,400,cloudflare,,400 The plain HTTP request was sent to HTTPS port,,,,
