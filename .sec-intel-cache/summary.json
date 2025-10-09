@@ -1,0 +1,100 @@
+{
+  "nvd": {
+    "total": 1850,
+    "severity": {
+      "MEDIUM": 706,
+      "HIGH": 446,
+      "LOW": 82,
+      "CRITICAL": 124
+    },
+    "cweTop10": [
+      {
+        "cwe": "CWE-79",
+        "count": 277
+      },
+      {
+        "cwe": "CWE-89",
+        "count": 176
+      },
+      {
+        "cwe": "CWE-74",
+        "count": 135
+      },
+      {
+        "cwe": "CWE-119",
+        "count": 56
+      },
+      {
+        "cwe": "CWE-352",
+        "count": 55
+      },
+      {
+        "cwe": "CWE-94",
+        "count": 52
+      },
+      {
+        "cwe": "CWE-78",
+        "count": 51
+      },
+      {
+        "cwe": "CWE-77",
+        "count": 50
+      },
+      {
+        "cwe": "CWE-284",
+        "count": 43
+      },
+      {
+        "cwe": "CWE-862",
+        "count": 42
+      }
+    ]
+  },
+  "kev": {
+    "total": 1435,
+    "last30": 22,
+    "topVendors": [
+      {
+        "vendor": "Microsoft",
+        "count": 344
+      },
+      {
+        "vendor": "Apple",
+        "count": 84
+      },
+      {
+        "vendor": "Cisco",
+        "count": 81
+      },
+      {
+        "vendor": "Adobe",
+        "count": 74
+      },
+      {
+        "vendor": "Google",
+        "count": 65
+      },
+      {
+        "vendor": "Oracle",
+        "count": 40
+      },
+      {
+        "vendor": "Apache",
+        "count": 38
+      },
+      {
+        "vendor": "Ivanti",
+        "count": 30
+      },
+      {
+        "vendor": "VMware",
+        "count": 26
+      },
+      {
+        "vendor": "D-Link",
+        "count": 24
+      }
+    ]
+  },
+  "generatedAt": "2025-10-09T04:33:11.872401Z"
+}
