@@ -1,0 +1,89 @@
+{
+  "total_router_entries": 180,
+  "by_vendor": [
+    [
+      "Cisco",
+      81
+    ],
+    [
+      "D-Link",
+      24
+    ],
+    [
+      "Fortinet",
+      20
+    ],
+    [
+      "Zyxel",
+      12
+    ],
+    [
+      "Juniper",
+      8
+    ],
+    [
+      "NETGEAR",
+      8
+    ],
+    [
+      "TP-Link",
+      6
+    ],
+    [
+      "DrayTek",
+      5
+    ],
+    [
+      "Tenda",
+      3
+    ],
+    [
+      "ASUS",
+      2
+    ],
+    [
+      "MikroTik",
+      2
+    ],
+    [
+      "Dasan",
+      2
+    ],
+    [
+      "Looking Glass",
+      1
+    ],
+    [
+      "Ubiquiti",
+      1
+    ],
+    [
+      "Arcadyan",
+      1
+    ],
+    [
+      "Netis",
+      1
+    ],
+    [
+      "Oracle",
+      1
+    ],
+    [
+      "Realtek",
+      1
+    ],
+    [
+      "Sumavision",
+      1
+    ]
+  ],
+  "by_type_heuristic": {
+    "command_injection": 51,
+    "buffer_overflow": 24,
+    "auth_bypass": 16,
+    "path_traversal": 12,
+    "info_disclosure": 8,
+    "deserialization": 2
+  }
+}

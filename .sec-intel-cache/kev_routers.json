@@ -1,0 +1,2699 @@
+{
+  "vulnerabilities": [
+    {
+      "cveID": "CVE-2015-7755",
+      "vendorProject": "Juniper",
+      "product": "ScreenOS",
+      "vulnerabilityName": "Juniper ScreenOS Improper Authentication Vulnerability",
+      "dateAdded": "2025-10-02",
+      "shortDescription": "Juniper ScreenOS contains an improper authentication vulnerability that could allow unauthorized remote administrative access to the device.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-10-23",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2015-12-Out-of-Cycle-Security-Bulletin-ScreenOS-Multiple-Security-issues-with-ScreenOS-CVE-2015-7755-CVE-2015-7756 ; https://nvd.nist.gov/vuln/detail/CVE-2015-7755",
+      "cwes": [
+        "CWE-287"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-20352",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Denial of Service and Remote Code Execution Vulnerability",
+      "dateAdded": "2025-09-29",
+      "shortDescription": "Cisco IOS and IOS XE contains a stack-based buffer overflow vulnerability in the Simple Network Management Protocol (SNMP) subsystem that could allow for denial of service or remote code execution. A successful exploit could allow a low-privileged attacker to cause the affected system to reload, resulting in a DoS condition, or allow a high-privileged attacker to execute arbitrary code as the root user and obtain full control of the affected system.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-10-20",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-snmp-x4LPhte ; https://nvd.nist.gov/vuln/detail/CVE-2025-20352",
+      "cwes": [
+        "CWE-121"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-20362",
+      "vendorProject": "Cisco",
+      "product": "Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense",
+      "vulnerabilityName": "Cisco Secure Firewall Adaptive Security (ASA) Appliance and Secure Firewall Threat Defense (FTD) Missing Authorization Vulnerability",
+      "dateAdded": "2025-09-25",
+      "shortDescription": "Cisco Secure Firewall Adaptive Security (ASA) Appliance and Secure Firewall Threat Defense (FTD) Software VPN Web Server contain a missing authorization vulnerability. This vulnerability could be chained with CVE-2025-20333.",
+      "requiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor’s instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+      "dueDate": "2025-09-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices ; https://www.cisa.gov/news-events/directives/supplemental-direction-ed-25-03-core-dump-and-hunt-instructions ; https://www.cisa.gov/eviction-strategies-tool/create-from-template ; https://sec.cloudapps.cisco.com/security/center/resources/asa_ftd_continued_attacks ;   https://sec.cloudapps.cisco.com/security/center/private/resources/asa_ftd_continued_attacks#Details ; https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-webvpn-YROOTUW ; https://nvd.nist.gov/vuln/detail/CVE-2025-20362",
+      "cwes": [
+        "CWE-862"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-20333",
+      "vendorProject": "Cisco",
+      "product": "Secure Firewall Adaptive Security Appliance and Secure Firewall Threat Defense",
+      "vulnerabilityName": "Cisco Secure Firewall Adaptive Security Appliance (ASA) and Secure Firewall Threat Defense (FTD) Buffer Overflow Vulnerability",
+      "dateAdded": "2025-09-25",
+      "shortDescription": "Cisco Secure Firewall Adaptive Security (ASA) Appliance and Secure Firewall Threat Defense (FTD) Software VPN Web Server contain a buffer overflow vulnerability that allows for remote code execution. This vulnerability could be chained with CVE-2025-20362.",
+      "requiredAction": "The KEV due date refers to the deadline by which FCEB agencies are expected to review and begin implementing the guidance outlined in Emergency Directive (ED) 25-03 (URL listed below in Notes). Agencies must follow the mitigation steps provided by CISA (URL listed below in Notes) and vendor’s instructions (URL listed below in Notes). Adhere to the applicable BOD 22-01 guidance for cloud services or discontinue use of the product if mitigations are not available.",
+      "dueDate": "2025-09-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "CISA Mitigation Instructions: https://www.cisa.gov/news-events/directives/ed-25-03-identify-and-mitigate-potential-compromise-cisco-devices ; https://www.cisa.gov/news-events/directives/supplemental-direction-ed-25-03-core-dump-and-hunt-instructions ; https://www.cisa.gov/eviction-strategies-tool/create-from-template ; https://sec.cloudapps.cisco.com/security/center/resources/asa_ftd_continued_attacks ;    https://sec.cloudapps.cisco.com/security/center/private/resources/asa_ftd_continued_attacks#Details ; https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-webvpn-z5xP8EUB ; https://nvd.nist.gov/vuln/detail/CVE-2025-20333",
+      "cwes": [
+        "CWE-120"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-50224",
+      "vendorProject": "TP-Link",
+      "product": "TL-WR841N",
+      "vulnerabilityName": "TP-Link TL-WR841N Authentication Bypass by Spoofing Vulnerability",
+      "dateAdded": "2025-09-03",
+      "shortDescription": "TP-Link TL-WR841N contains an authentication bypass by spoofing vulnerability within the httpd service, which listens on TCP port 80 by default, leading to the disclose of stored credentials. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-09-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.tp-link.com/us/support/faq/4308/ ; https://nvd.nist.gov/vuln/detail/CVE-2023-50224",
+      "cwes": [
+        "CWE-290"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-9377",
+      "vendorProject": "TP-Link",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "TP-Link Archer C7(EU) and TL-WR841N/ND(MS) OS Command Injection Vulnerability",
+      "dateAdded": "2025-09-03",
+      "shortDescription": "TP-Link Archer C7(EU) and TL-WR841N/ND(MS) contain an OS command injection vulnerability that exists in the Parental Control page. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-09-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.tp-link.com/us/support/faq/4308/ ; https://nvd.nist.gov/vuln/detail/CVE-2025-9377",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-24363",
+      "vendorProject": "TP-Link",
+      "product": "TL-WA855RE",
+      "vulnerabilityName": "TP-link TL-WA855RE Missing Authentication for Critical Function Vulnerability",
+      "dateAdded": "2025-09-02",
+      "shortDescription": "TP-link TL-WA855RE contains a missing authentication for critical function vulnerability. This vulnerability could allow an unauthenticated attacker (on the same network) to submit a TDDP_RESET POST request for a factory reset and reboot. The attacker can then obtain incorrect access control by setting a new administrative password. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-09-23",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.tp-link.com/us/home-networking/range-extender/tl-wa855re/#overview ; https://www.tp-link.com/us/support/download/tl-wa855re/#FAQs ; https://nvd.nist.gov/vuln/detail/CVE-2020-24363",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-25078",
+      "vendorProject": "D-Link",
+      "product": "DCS-2530L and DCS-2670L Devices",
+      "vulnerabilityName": "D-Link DCS-2530L and DCS-2670L Devices Unspecified Vulnerability",
+      "dateAdded": "2025-08-05",
+      "shortDescription": "D-Link DCS-2530L and DCS-2670L devices contains an unspecified vulnerability that could allow for remote administrator password disclosure. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://support.dlink.com/productinfo.aspx?m=DCS-2530L ; https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10180 ; https://nvd.nist.gov/vuln/detail/CVE-2020-25078",
+      "cwes": []
+    },
+    {
+      "cveID": "CVE-2020-25079",
+      "vendorProject": "D-Link",
+      "product": "DCS-2530L and DCS-2670L Devices",
+      "vulnerabilityName": "D-Link DCS-2530L and DCS-2670L Command Injection Vulnerability",
+      "dateAdded": "2025-08-05",
+      "shortDescription": "D-Link DCS-2530L and DCS-2670L devices contains a command injection vulnerability in the cgi-bin/ddns_enc.cgi. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://support.dlink.com/productinfo.aspx?m=DCS-2530L ; https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10180 ; https://nvd.nist.gov/vuln/detail/CVE-2020-25079",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-40799",
+      "vendorProject": "D-Link",
+      "product": "DNR-322L",
+      "vulnerabilityName": "D-Link DNR-322L Download of Code Without Integrity Check Vulnerability",
+      "dateAdded": "2025-08-05",
+      "shortDescription": "D-Link DNR-322L contains a download of code without integrity check vulnerability that could allow an authenticated attacker to execute OS level commands on the device. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.dlink.com/uk/en/products/dnr-322l-cloud-network-video-recorder ; https://nvd.nist.gov/vuln/detail/CVE-2022-40799",
+      "cwes": [
+        "CWE-494"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-20337",
+      "vendorProject": "Cisco",
+      "product": "Identity Services Engine",
+      "vulnerabilityName": "Cisco Identity Services Engine Injection Vulnerability",
+      "dateAdded": "2025-07-28",
+      "shortDescription": "Cisco Identity Services Engine contains an injection vulnerability in a specific API of Cisco ISE and Cisco ISE-PIC due to insufficient validation of user-supplied input allowing an attacker to exploit this vulnerability by submitting a crafted API request. Successful exploitation could allow an attacker to perform remote code execution and obtaining root privileges on an affected device.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-18",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-unauth-rce-ZAd2GnJ6 ; https://nvd.nist.gov/vuln/detail/CVE-2025-20337",
+      "cwes": [
+        "CWE-74"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-20281",
+      "vendorProject": "Cisco",
+      "product": "Identity Services Engine",
+      "vulnerabilityName": "Cisco Identity Services Engine Injection Vulnerability",
+      "dateAdded": "2025-07-28",
+      "shortDescription": "Cisco Identity Services Engine contains an injection vulnerability in a specific API of Cisco ISE and Cisco ISE-PIC due to insufficient validation of user-supplied input allowing an attacker to exploit this vulnerability by submitting a crafted API request. Successful exploitation could allow an attacker to perform remote code execution and obtaining root privileges on an affected device.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-18",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ise-unauth-rce-ZAd2GnJ6 ; https://nvd.nist.gov/vuln/detail/CVE-2025-20281",
+      "cwes": [
+        "CWE-74"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-25257",
+      "vendorProject": "Fortinet",
+      "product": "FortiWeb",
+      "vulnerabilityName": "Fortinet FortiWeb SQL Injection Vulnerability",
+      "dateAdded": "2025-07-18",
+      "shortDescription": "Fortinet FortiWeb contains a SQL injection vulnerability that may allow an unauthenticated attacker to execute unauthorized SQL code or commands via crafted HTTP or HTTPs requests.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-08-08",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-25-151 ; https://nvd.nist.gov/vuln/detail/CVE-2025-25257",
+      "cwes": [
+        "CWE-89"
+      ]
+    },
+    {
+      "cveID": "CVE-2014-3931",
+      "vendorProject": "Looking Glass",
+      "product": "Multi-Router Looking Glass (MRLG)",
+      "vulnerabilityName": "Multi-Router Looking Glass (MRLG) Buffer Overflow Vulnerability",
+      "dateAdded": "2025-07-07",
+      "shortDescription": "Multi-Router Looking Glass (MRLG) contains a buffer overflow vulnerability that could allow remote attackers to cause an arbitrary memory write and memory corruption.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-07-28",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://mrlg.op-sec.us/ ; https://nvd.nist.gov/vuln/detail/CVE-2014-3931",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-6693",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Use of Hard-Coded Credentials Vulnerability",
+      "dateAdded": "2025-06-25",
+      "shortDescription": "Fortinet FortiOS contains a use of hard-coded credentials vulnerability that could allow an attacker to cipher sensitive data in FortiOS configuration backup file via knowledge of the hard-coded key. ",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-07-16",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://fortiguard.com/advisory/FG-IR-19-007 ; https://nvd.nist.gov/vuln/detail/CVE-2019-6693",
+      "cwes": [
+        "CWE-798"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-0769",
+      "vendorProject": "D-Link",
+      "product": "DIR-859 Router",
+      "vulnerabilityName": " D-Link DIR-859 Router Path Traversal Vulnerability",
+      "dateAdded": "2025-06-25",
+      "shortDescription": "D-Link DIR-859 routers contain a path traversal vulnerability in the file /hedwig.cgi of the component HTTP POST Request Handler. Manipulation of the argument service with the input ../../../../htdocs/webinc/getcfg/DHCPS6.BRIDGE-1.xml allows for the leakage of session data potentially enabling privilege escalation and unauthorized control of the device. This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-07-16",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10371 ; https://nvd.nist.gov/vuln/detail/CVE-2024-0769",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-33538",
+      "vendorProject": "TP-Link",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "TP-Link Multiple Routers Command Injection Vulnerability",
+      "dateAdded": "2025-06-16",
+      "shortDescription": "TP-Link TL-WR940N V2/V4, TL-WR841N V8/V10, and TL-WR740N V1/V2 contain a command injection vulnerability via the component /userRpm/WlanNetworkRpm. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-07-07",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.tp-link.com/nordic/support/faq/3562/ ; https://nvd.nist.gov/vuln/detail/CVE-2023-33538",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-32030",
+      "vendorProject": "ASUS",
+      "product": "Routers",
+      "vulnerabilityName": "ASUS Routers Improper Authentication Vulnerability",
+      "dateAdded": "2025-06-02",
+      "shortDescription": "ASUS Lyra Mini and ASUS GT-AC2900 devices contain an improper authentication vulnerability that allows an attacker to gain unauthorized access to the administrative interface. The impacted products could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-06-23",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.asus.com/us/supportonly/lyra%20mini/helpdesk_bios/ ; https://www.asus.com/us/supportonly/rog%20rapture%20gt-ac2900/helpdesk_bios/; https://nvd.nist.gov/vuln/detail/CVE-2021-32030",
+      "cwes": [
+        "CWE-287"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-39780",
+      "vendorProject": "ASUS",
+      "product": "RT-AX55 Routers",
+      "vulnerabilityName": "ASUS RT-AX55 Routers OS Command Injection Vulnerability",
+      "dateAdded": "2025-06-02",
+      "shortDescription": "ASUS RT-AX55 devices contain an OS command injection vulnerability that could allow a remote, authenticated attacker to execute arbitrary commands. As represented by CVE-2023-41346.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-06-23",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.asus.com/networking-iot-servers/wifi-6/all-series/rt-ax55/helpdesk_bios/?model2Name=RT-AX55 ;   https://www.asus.com/content/asus-product-security-advisory/ ; https://nvd.nist.gov/vuln/detail/CVE-2023-39780",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-12987",
+      "vendorProject": "DrayTek",
+      "product": "Vigor Routers",
+      "vulnerabilityName": "DrayTek Vigor Routers OS Command Injection Vulnerability",
+      "dateAdded": "2025-05-15",
+      "shortDescription": "DrayTek Vigor2960, Vigor300B, and Vigor3900 routers contain an OS command injection vulnerability due to an unknown function of the file /cgi-bin/mainfunction.cgi/apmcfgupload of the component web management interface.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-06-05",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://fw.draytek.com.tw/Vigor2960/Firmware/v1.5.1.5/DrayTek_Vigor2960_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor300B/Firmware/v1.5.1.5/DrayTek_Vigor300B_V1.5.1.5_01release-note.pdf ; https://fw.draytek.com.tw/Vigor3900/Firmware/v1.5.1.5/DrayTek_Vigor3900_V1.5.1.5_01release-note.pdf ; https://nvd.nist.gov/vuln/detail/CVE-2024-12987",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-32756",
+      "vendorProject": "Fortinet",
+      "product": "Multiple Products",
+      "vulnerabilityName": "Fortinet Multiple Products Stack-Based Buffer Overflow Vulnerability",
+      "dateAdded": "2025-05-14",
+      "shortDescription": "Fortinet FortiFone, FortiVoice, FortiNDR and FortiMail contain a stack-based overflow vulnerability that may allow a remote unauthenticated attacker to execute arbitrary code or commands via crafted HTTP requests.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-06-04",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-25-254 ; https://nvd.nist.gov/vuln/detail/CVE-2025-32756",
+      "cwes": [
+        "CWE-124"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-20439",
+      "vendorProject": "Cisco",
+      "product": "Smart Licensing Utility",
+      "vulnerabilityName": "Cisco Smart Licensing Utility Static Credential Vulnerability",
+      "dateAdded": "2025-03-31",
+      "shortDescription": "Cisco Smart Licensing Utility contains a static credential vulnerability that allows an unauthenticated, remote attacker to log in to an affected system and gain administrative credentials.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-04-21",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-cslu-7gHMzWmw ; https://nvd.nist.gov/vuln/detail/CVE-2024-20439",
+      "cwes": [
+        "CWE-912"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-24472",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiProxy",
+      "vulnerabilityName": "Fortinet FortiOS and FortiProxy Authentication Bypass Vulnerability",
+      "dateAdded": "2025-03-18",
+      "shortDescription": " Fortinet FortiOS and FortiProxy contain an authentication bypass vulnerability that allows a remote attacker to gain super-admin privileges via crafted CSF proxy requests.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-04-08",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535 ; https://nvd.nist.gov/vuln/detail/CVE-2025-24472",
+      "cwes": [
+        "CWE-288"
+      ]
+    },
+    {
+      "cveID": "CVE-2025-21590",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS Improper Isolation or Compartmentalization Vulnerability",
+      "dateAdded": "2025-03-13",
+      "shortDescription": "Juniper Junos OS contains an improper isolation or compartmentalization vulnerability. This vulnerability could allows a local attacker with high privileges to inject arbitrary code.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-04-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2025-03-Out-of-Cycle-Security-Bulletin-Junos-OS-A-local-attacker-with-shell-access-can-execute-arbitrary-code-CVE-2025-21590?language=en_US ; https://nvd.nist.gov/vuln/detail/CVE-2025-21590",
+      "cwes": [
+        "CWE-653"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-20118",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Command Injection Vulnerability",
+      "dateAdded": "2025-03-03",
+      "shortDescription": "Multiple Cisco Small Business RV Series Routers contains a command injection vulnerability in the web-based management interface. Successful exploitation could allow an authenticated, remote attacker to gain root-level privileges and access unauthorized data.",
+      "requiredAction": "Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-sbr042-multi-vuln-ej76Pke5 ; https://nvd.nist.gov/vuln/detail/CVE-2023-20118",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-40891",
+      "vendorProject": "Zyxel",
+      "product": "DSL CPE Devices",
+      "vulnerabilityName": "Zyxel DSL CPE OS Command Injection Vulnerability",
+      "dateAdded": "2025-02-11",
+      "shortDescription": "Multiple Zyxel DSL CPE devices contain a post-authentication command injection vulnerability in the management commands that could allow an authenticated attacker to execute OS commands via Telnet.",
+      "requiredAction": "The impacted product could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.",
+      "dueDate": "2025-03-04",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-and-insecure-default-credentials-vulnerabilities-in-certain-legacy-dsl-cpe-02-04-2025 ; https://www.zyxel.com/service-provider/global/en/security-advisories/zyxel-security-advisory-command-injection-insecure-in-certain-legacy-dsl-cpe-02-04-2025 ; https://nvd.nist.gov/vuln/detail/CVE-2024-40891",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-40890",
+      "vendorProject": "Zyxel",
+      "product": "DSL CPE Devices",
+      "vulnerabilityName": "Zyxel DSL CPE OS Command Injection Vulnerability",
+      "dateAdded": "2025-02-11",
+      "shortDescription": "Multiple Zyxel DSL CPE devices contain a post-authentication command injection vulnerability in the CGI program that could allow an authenticated attacker to execute OS commands via a crafted HTTP request.",
+      "requiredAction": "The impacted product could be end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue product utilization if a current mitigation is unavailable.",
+      "dueDate": "2025-03-04",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-and-insecure-default-credentials-vulnerabilities-in-certain-legacy-dsl-cpe-02-04-2025 ; https://www.zyxel.com/service-provider/global/en/security-advisories/zyxel-security-advisory-command-injection-insecure-in-certain-legacy-dsl-cpe-02-04-2025 ; https://nvd.nist.gov/vuln/detail/CVE-2024-40890",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-55591",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiProxy",
+      "vulnerabilityName": "Fortinet FortiOS and FortiProxy Authentication Bypass Vulnerability",
+      "dateAdded": "2025-01-14",
+      "shortDescription": "Fortinet FortiOS and FortiProxy contain an authentication bypass vulnerability that may allow an unauthenticated, remote attacker to gain super-admin privileges via crafted requests to Node.js websocket module.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2025-01-21",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-535 ; https://nvd.nist.gov/vuln/detail/CVE-2024-55591",
+      "cwes": [
+        "CWE-288"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-11667",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Firewalls",
+      "vulnerabilityName": "Zyxel Multiple Firewalls Path Traversal Vulnerability",
+      "dateAdded": "2024-12-03",
+      "shortDescription": "Multiple Zyxel firewalls contain a path traversal vulnerability in the web management interface that could allow an attacker to download or upload files via a crafted URL.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-12-24",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-protecting-against-recent-firewall-threats-11-21-2024 ; https://nvd.nist.gov/vuln/detail/CVE-2024-11667",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2014-2120",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA)",
+      "vulnerabilityName": "Cisco Adaptive Security Appliance (ASA) Cross-Site Scripting (XSS) Vulnerability",
+      "dateAdded": "2024-11-12",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) contains a cross-site scripting (XSS) vulnerability in the WebVPN login page. This vulnerability allows remote attackers to inject arbitrary web script or HTML via an unspecified parameter.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-12-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-CVE-2014-2120 ; https://nvd.nist.gov/vuln/detail/CVE-2014-2120",
+      "cwes": [
+        "CWE-79"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-20481",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Denial-of-Service Vulnerability",
+      "dateAdded": "2024-10-24",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain a missing release of resource after effective lifetime vulnerability that could allow an unauthenticated, remote attacker to cause a denial-of-service (DoS) of the RAVPN service.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-11-14",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-bf-dos-vDZhLqrW ; https://nvd.nist.gov/vuln/detail/CVE-2024-20481",
+      "cwes": [
+        "CWE-772"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-47575",
+      "vendorProject": "Fortinet",
+      "product": "FortiManager",
+      "vulnerabilityName": "Fortinet FortiManager Missing Authentication Vulnerability",
+      "dateAdded": "2024-10-23",
+      "shortDescription": "Fortinet FortiManager contains a missing authentication vulnerability in the fgfmd daemon that allows a remote, unauthenticated attacker to execute arbitrary code or commands via specially crafted requests.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-11-13",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-423 ; https://nvd.nist.gov/vuln/detail/CVE-2024-47575",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-23113",
+      "vendorProject": "Fortinet",
+      "product": "Multiple Products",
+      "vulnerabilityName": "Fortinet Multiple Products Format String Vulnerability",
+      "dateAdded": "2024-10-09",
+      "shortDescription": "Fortinet FortiOS, FortiPAM, FortiProxy, and FortiWeb contain a format string vulnerability that allows a remote, unauthenticated attacker to execute arbitrary code or commands via specially crafted requests.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-10-30",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-24-029 ; https://nvd.nist.gov/vuln/detail/CVE-2024-23113",
+      "cwes": [
+        "CWE-134"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-15415",
+      "vendorProject": "DrayTek",
+      "product": "Multiple Vigor Routers",
+      "vulnerabilityName": "DrayTek Multiple Vigor Routers OS Command Injection Vulnerability",
+      "dateAdded": "2024-09-30",
+      "shortDescription": "DrayTek Vigor3900, Vigor2960, and Vigor300B devices contain an OS command injection vulnerability in cgi-bin/mainfunction.cgi/cvmcfgupload that allows for remote code execution via shell metacharacters in a filename when the text/x-python-script content type is used.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-10-21",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.draytek.com/about/security-advisory/vigor3900-/-vigor2960-/-vigor300b-remote-code-injection/execution-vulnerability-(cve-2020-14472) ; https://nvd.nist.gov/vuln/detail/CVE-2020-15415",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-25280",
+      "vendorProject": "D-Link",
+      "product": "DIR-820 Router",
+      "vulnerabilityName": "D-Link DIR-820 Router OS Command Injection Vulnerability",
+      "dateAdded": "2024-09-30",
+      "shortDescription": "D-Link DIR-820 routers contain an OS command injection vulnerability that allows a remote, unauthenticated attacker to escalate privileges to root via a crafted payload with the ping_addr parameter to ping.ccp.",
+      "requiredAction": "The impacted product is end-of-life (EoL) and/or end-of-service (EoS). Users should discontinue utilization of the product.",
+      "dueDate": "2024-10-21",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10358 ; https://nvd.nist.gov/vuln/detail/CVE-2023-25280",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-20124",
+      "vendorProject": "DrayTek",
+      "product": "VigorConnect",
+      "vulnerabilityName": "Draytek VigorConnect Path Traversal Vulnerability ",
+      "dateAdded": "2024-09-03",
+      "shortDescription": "Draytek VigorConnect contains a path traversal vulnerability in the file download functionality of the WebServlet endpoint. An unauthenticated attacker could leverage this vulnerability to download arbitrary files from the underlying operating system with root privileges.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-09-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.draytek.com/about/security-advisory/vigorconnect-software-security-vulnerability-(cve-2021-20123-cve-2021-20129); https://nvd.nist.gov/vuln/detail/CVE-2021-20124",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-20123",
+      "vendorProject": "DrayTek",
+      "product": "VigorConnect",
+      "vulnerabilityName": "Draytek VigorConnect Path Traversal Vulnerability ",
+      "dateAdded": "2024-09-03",
+      "shortDescription": "Draytek VigorConnect contains a path traversal vulnerability in the DownloadFileServlet endpoint. An unauthenticated attacker could leverage this vulnerability to download arbitrary files from the underlying operating system with root privileges. ",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-09-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.draytek.com/about/security-advisory/vigorconnect-software-security-vulnerability-(cve-2021-20123-cve-2021-20129); https://nvd.nist.gov/vuln/detail/CVE-2021-20123",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-20399",
+      "vendorProject": "Cisco",
+      "product": "NX-OS",
+      "vulnerabilityName": "Cisco NX-OS Command Injection Vulnerability",
+      "dateAdded": "2024-07-02",
+      "shortDescription": "Cisco NX-OS contains a command injection vulnerability in the command line interface (CLI) that could allow an authenticated, local attacker to execute commands as root on the underlying operating system of an affected device.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-07-23",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-nxos-cmd-injection-xD9OhyOP;   https://nvd.nist.gov/vuln/detail/CVE-2024-20399",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-40655",
+      "vendorProject": "D-Link",
+      "product": "DIR-605 Router",
+      "vulnerabilityName": "D-Link DIR-605 Router Information Disclosure Vulnerability",
+      "dateAdded": "2024-05-16",
+      "shortDescription": "D-Link DIR-605 routers contain an information disclosure vulnerability that allows attackers to obtain a username and password by forging a post request to the /getcfg.php page. ",
+      "requiredAction": "This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+      "dueDate": "2024-06-06",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://legacy.us.dlink.com/pages/product.aspx?id=2b09e95d90ff4cb38830ecc04c89cee5; https://nvd.nist.gov/vuln/detail/CVE-2021-40655",
+      "cwes": [
+        "CWE-863"
+      ]
+    },
+    {
+      "cveID": "CVE-2014-100005",
+      "vendorProject": "D-Link",
+      "product": "DIR-600 Router",
+      "vulnerabilityName": "D-Link DIR-600 Router Cross-Site Request Forgery (CSRF) Vulnerability",
+      "dateAdded": "2024-05-16",
+      "shortDescription": "D-Link DIR-600 routers contain a cross-site request forgery (CSRF) vulnerability that allows an attacker to change router configurations by hijacking an existing administrator session.",
+      "requiredAction": "This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+      "dueDate": "2024-06-06",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://legacy.us.dlink.com/pages/product.aspx?id=4587b63118524aec911191cc81605283; https://nvd.nist.gov/vuln/detail/CVE-2014-100005",
+      "cwes": [
+        "CWE-352"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-20359",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Privilege Escalation Vulnerability",
+      "dateAdded": "2024-04-24",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain a privilege escalation vulnerability that can allow local privilege escalation from Administrator to root.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-05-01",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-persist-rce-FLsNXF4h;  https://nvd.nist.gov/vuln/detail/CVE-2024-20359",
+      "cwes": [
+        "CWE-94"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-20353",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Denial of Service Vulnerability",
+      "dateAdded": "2024-04-24",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an infinite loop vulnerability that can lead to remote denial of service condition.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-05-01",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-websrvs-dos-X8gNucD2;   https://nvd.nist.gov/vuln/detail/CVE-2024-20353",
+      "cwes": [
+        "CWE-835"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-3273",
+      "vendorProject": "D-Link",
+      "product": "Multiple NAS Devices",
+      "vulnerabilityName": "D-Link Multiple NAS Devices Command Injection Vulnerability",
+      "dateAdded": "2024-04-11",
+      "shortDescription": "D-Link DNS-320L, DNS-325, DNS-327L, and DNS-340L contain a command injection vulnerability. When combined with CVE-2024-3272, this can lead to remote, unauthorized code execution.",
+      "requiredAction": "This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+      "dueDate": "2024-05-02",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10383; https://nvd.nist.gov/vuln/detail/CVE-2024-3273",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-3272",
+      "vendorProject": "D-Link",
+      "product": "Multiple NAS Devices",
+      "vulnerabilityName": "D-Link Multiple NAS Devices Use of Hard-Coded Credentials Vulnerability",
+      "dateAdded": "2024-04-11",
+      "shortDescription": "D-Link DNS-320L, DNS-325, DNS-327L, and DNS-340L contains a hard-coded credential that allows an attacker to conduct authenticated command injection, leading to remote, unauthorized code execution.",
+      "requiredAction": "This vulnerability affects legacy D-Link products. All associated hardware revisions have reached their end-of-life (EOL) or end-of-service (EOS) life cycle and should be retired and replaced per vendor instructions.",
+      "dueDate": "2024-05-02",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/security/publication.aspx?name=SAP10383; https://nvd.nist.gov/vuln/detail/CVE-2024-3272",
+      "cwes": [
+        "CWE-798"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-48788",
+      "vendorProject": "Fortinet",
+      "product": "FortiClient EMS",
+      "vulnerabilityName": "Fortinet FortiClient EMS SQL Injection Vulnerability",
+      "dateAdded": "2024-03-25",
+      "shortDescription": "Fortinet FortiClient EMS contains a SQL injection vulnerability that allows an unauthenticated attacker to execute commands as SYSTEM via specifically crafted requests.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-04-15",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-24-007;  https://nvd.nist.gov/vuln/detail/CVE-2023-48788",
+      "cwes": [
+        "CWE-89"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3259",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Information Disclosure Vulnerability",
+      "dateAdded": "2024-02-15",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an information disclosure vulnerability. An attacker could retrieve memory contents on an affected device, which could lead to the disclosure of confidential information due to a buffer tracking issue when the software parses invalid URLs that are requested from the web services interface. This vulnerability affects only specific AnyConnect and WebVPN configurations.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-03-07",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-info-disclose-9eJtycMB; https://nvd.nist.gov/vuln/detail/CVE-2020-3259",
+      "cwes": [
+        "CWE-200"
+      ]
+    },
+    {
+      "cveID": "CVE-2024-21762",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Out-of-Bound Write Vulnerability",
+      "dateAdded": "2024-02-09",
+      "shortDescription": "Fortinet FortiOS contains an out-of-bound write vulnerability that allows a remote unauthenticated attacker to execute code or commands via specially crafted HTTP requests.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-02-16",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://fortiguard.fortinet.com/psirt/FG-IR-24-015 ;   https://nvd.nist.gov/vuln/detail/CVE-2024-21762",
+      "cwes": [
+        "CWE-787"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-20017",
+      "vendorProject": "D-Link",
+      "product": "DSL-2750B Devices",
+      "vulnerabilityName": "D-Link DSL-2750B Devices Command Injection Vulnerability",
+      "dateAdded": "2024-01-08",
+      "shortDescription": "D-Link DSL-2750B devices contain a command injection vulnerability that allows remote, unauthenticated command injection via the login.cgi cli parameter.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2024-01-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10088; https://nvd.nist.gov/vuln/detail/CVE-2016-20017",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-36844",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS EX Series PHP External Variable Modification Vulnerability",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on EX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network-based attacker to control certain, important environment variables. Using a crafted request an attacker is able to modify certain PHP environment variables, leading to partial loss of integrity, which may allow chaining to other vulnerabilities.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US ;  https://nvd.nist.gov/vuln/detail/CVE-2023-36844",
+      "cwes": [
+        "CWE-473"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-36845",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS EX Series and SRX Series PHP External Variable Modification Vulnerability",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on EX Series and SRX Series contains a PHP external variable modification vulnerability that allows an unauthenticated, network-based attacker to control an important environment variable. Using a crafted request, which sets the variable PHPRC, an attacker is able to modify the PHP execution environment allowing the injection und execution of code.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US ;  https://nvd.nist.gov/vuln/detail/CVE-2023-36845",
+      "cwes": [
+        "CWE-473"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-36846",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS SRX Series Missing Authentication for Critical Function Vulnerability",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on SRX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network-based attacker to cause limited impact to the file system integrity. With a specific request to user.php that doesn't require authentication, an attacker is able to upload arbitrary files via J-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US ;  https://nvd.nist.gov/vuln/detail/CVE-2023-36846",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-36847",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS EX Series Missing Authentication for Critical Function Vulnerability",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on EX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network-based attacker to cause limited impact to the file system integrity. With a specific request to installAppPackage.php that doesn't require authentication, an attacker is able to upload arbitrary files via J-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US;  https://nvd.nist.gov/vuln/detail/CVE-2023-36847",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-36851",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS SRX Series Missing Authentication for Critical Function Vulnerability",
+      "dateAdded": "2023-11-13",
+      "shortDescription": "Juniper Junos OS on SRX Series contains a missing authentication for critical function vulnerability that allows an unauthenticated, network-based attacker to cause limited impact to the file system integrity. With a specific request to webauth_operation.php that doesn't require authentication, an attacker is able to upload arbitrary files via J-Web, leading to a loss of integrity for a certain part of the file system, which may allow chaining to other vulnerabilities.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportportal.juniper.net/s/article/2023-08-Out-of-Cycle-Security-Bulletin-Junos-OS-SRX-Series-and-EX-Series-Multiple-vulnerabilities-in-J-Web-can-be-combined-to-allow-a-preAuth-Remote-Code-Execution?language=en_US ;  https://nvd.nist.gov/vuln/detail/CVE-2023-36851",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-20273",
+      "vendorProject": "Cisco",
+      "product": "Cisco IOS XE Web UI",
+      "vulnerabilityName": "Cisco IOS XE Web UI Command Injection Vulnerability",
+      "dateAdded": "2023-10-23",
+      "shortDescription": "Cisco IOS XE contains a command injection vulnerability in the web user interface. When chained with CVE-2023-20198, the attacker can leverage the new local user to elevate privilege to root and write the implant to the file system. Cisco identified CVE-2023-20273 as the vulnerability exploited to deploy the implant. CVE-2021-1435, previously associated with the exploitation events, is no longer believed to be related to this activity.",
+      "requiredAction": "Verify that instances of Cisco IOS XE Web UI are in compliance with BOD 23-02 and apply mitigations per vendor instructions. For affected products (Cisco IOS XE Web UI exposed to the internet or to untrusted networks), follow vendor instructions to determine if a system may have been compromised and immediately report positive findings to CISA.",
+      "dueDate": "2023-10-27",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-iosxe-webui-privesc-j22SaA4z;  https://nvd.nist.gov/vuln/detail/CVE-2023-20273",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-20198",
+      "vendorProject": "Cisco",
+      "product": "IOS XE Web UI",
+      "vulnerabilityName": "Cisco IOS XE Web UI Privilege Escalation Vulnerability",
+      "dateAdded": "2023-10-16",
+      "shortDescription": "Cisco IOS XE Web UI contains a privilege escalation vulnerability in the web user interface that could allow a remote, unauthenticated attacker to create an account with privilege level 15 access. The attacker can then use that account to gain control of the affected device.",
+      "requiredAction": "Verify that instances of Cisco IOS XE Web UI are in compliance with BOD 23-02 and apply mitigations per vendor instructions. For affected products (Cisco IOS XE Web UI exposed to the internet or to untrusted networks), follow vendor instructions to determine if a system may have been compromised and immediately report positive findings to CISA.",
+      "dueDate": "2023-10-20",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-xe-dublin-17121/221128-software-fix-availability-for-cisco-ios.html;  https://nvd.nist.gov/vuln/detail/CVE-2023-20198",
+      "cwes": [
+        "CWE-420"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-20109",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE",
+      "vulnerabilityName": "Cisco IOS and IOS XE Group Encrypted Transport VPN Out-of-Bounds Write Vulnerability",
+      "dateAdded": "2023-10-10",
+      "shortDescription": "Cisco IOS and IOS XE contain an out-of-bounds write vulnerability in the Group Encrypted Transport VPN (GET VPN) feature that could allow an authenticated, remote attacker who has administrative control of either a group member or a key server to execute malicious code or cause a device to crash.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-10-31",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-getvpn-rce-g8qR68sx;  https://nvd.nist.gov/vuln/detail/CVE-2023-20109",
+      "cwes": [
+        "CWE-787"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6884",
+      "vendorProject": "Zyxel",
+      "product": "EMG2926 Routers",
+      "vulnerabilityName": "Zyxel EMG2926 Routers Command Injection Vulnerability",
+      "dateAdded": "2023-09-18",
+      "shortDescription": "Zyxel EMG2926 routers contain a command injection vulnerability located in the diagnostic tools, specifically the nslookup function. A malicious user may exploit numerous vectors to execute malicious commands on the router, such as the ping_ip parameter to the expert/maintenance/diagnostic/nslookup URI.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-10-09",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-vulnerability-in-emg2926-q10a-ethernet-cpe, https://www.zyxelguard.com/Zyxel-EOL.asp; https://nvd.nist.gov/vuln/detail/CVE-2017-6884",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-20269",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance and Firepower Threat Defense",
+      "vulnerabilityName": "Cisco Adaptive Security Appliance and Firepower Threat Defense Unauthorized Access Vulnerability",
+      "dateAdded": "2023-09-13",
+      "shortDescription": "Cisco Adaptive Security Appliance and Firepower Threat Defense contain an unauthorized access vulnerability that could allow an unauthenticated, remote attacker to conduct a brute force attack in an attempt to identify valid username and password combinations or establish a clientless SSL VPN session with an unauthorized user.",
+      "requiredAction": "Apply mitigations per vendor instructions for group-lock and vpn-simultaneous-logins or discontinue use of the product for unsupported devices.",
+      "dueDate": "2023-10-04",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-asaftd-ravpn-auth-8LyfCkeC;  https://nvd.nist.gov/vuln/detail/CVE-2023-20269",
+      "cwes": [
+        "CWE-288"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-18368",
+      "vendorProject": "Zyxel",
+      "product": "P660HN-T1A Routers",
+      "vulnerabilityName": "Zyxel P660HN-T1A Routers Command Injection Vulnerability",
+      "dateAdded": "2023-08-07",
+      "shortDescription": "Zyxel P660HN-T1A routers contain a command injection vulnerability in the Remote System Log forwarding function, which is accessible by an unauthenticated user and exploited via the remote_host parameter of the ViewLog.asp page.",
+      "requiredAction": "Apply mitigations per vendor instructions or discontinue use of the product if mitigations are unavailable.",
+      "dueDate": "2023-08-28",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-a-new-variant-of-gafgyt-malware; https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-command-injection-vulnerability-in-p660hn-t1a-dsl-cpe; https://nvd.nist.gov/vuln/detail/CVE-2017-18368",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-17621",
+      "vendorProject": "D-Link",
+      "product": "DIR-859 Router",
+      "vulnerabilityName": "D-Link DIR-859 Router Command Execution Vulnerability",
+      "dateAdded": "2023-06-29",
+      "shortDescription": "D-Link DIR-859 router contains a command execution vulnerability in the UPnP endpoint URL, /gena.cgi. Exploitation allows an unauthenticated remote attacker to execute system commands as root by sending a specially crafted HTTP SUBSCRIBE request to the UPnP service when connecting to the local network.",
+      "requiredAction": "Apply updates per vendor instructions or discontinue use of the product if updates are unavailable.",
+      "dueDate": "2023-07-20",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10147; https://nvd.nist.gov/vuln/detail/CVE-2019-17621",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-20500",
+      "vendorProject": "D-Link",
+      "product": "DWL-2600AP Access Point",
+      "vulnerabilityName": "D-Link DWL-2600AP Access Point Command Injection Vulnerability",
+      "dateAdded": "2023-06-29",
+      "shortDescription": "D-Link DWL-2600AP access point contains an authenticated command injection vulnerability via the Save Configuration functionality in the Web interface, using shell metacharacters in the admin.cgi?action=config_save configBackup or downloadServerip parameter.",
+      "requiredAction": "Apply updates per vendor instructions or discontinue use of the product if updates are unavailable.",
+      "dueDate": "2023-07-20",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10113; https://nvd.nist.gov/vuln/detail/CVE-2019-20500",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-27992",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Network-Attached Storage (NAS) Devices",
+      "vulnerabilityName": "Zyxel Multiple NAS Devices Command Injection Vulnerability",
+      "dateAdded": "2023-06-23",
+      "shortDescription": "Multiple Zyxel network-attached storage (NAS) devices contain a pre-authentication command injection vulnerability that could allow an unauthenticated attacker to execute commands remotely via a crafted HTTP request.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-07-14",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-pre-authentication-command-injection-vulnerability-in-nas-products;  https://nvd.nist.gov/vuln/detail/CVE-2023-27992",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-27997",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiProxy SSL-VPN",
+      "vulnerabilityName": "Fortinet FortiOS and FortiProxy SSL-VPN Heap-Based Buffer Overflow Vulnerability",
+      "dateAdded": "2023-06-13",
+      "shortDescription": "Fortinet FortiOS and FortiProxy SSL-VPN contain a heap-based buffer overflow vulnerability which can allow an unauthenticated, remote attacker to execute code or commands via specifically crafted requests.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-07-04",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-23-097;  https://nvd.nist.gov/vuln/detail/CVE-2023-27997",
+      "cwes": [
+        "CWE-122"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-33009",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Firewalls",
+      "vulnerabilityName": "Zyxel Multiple Firewalls Buffer Overflow Vulnerability",
+      "dateAdded": "2023-06-05",
+      "shortDescription": "Zyxel ATP, USG FLEX, USG FLEX 50(W), USG20(W)-VPN, VPN, and ZyWALL/USG firewalls contain a buffer overflow vulnerability in the notification function that could allow an unauthenticated attacker to cause denial-of-service (DoS) conditions and remote code execution on an affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-06-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-multiple-buffer-overflow-vulnerabilities-of-firewalls;  https://nvd.nist.gov/vuln/detail/CVE-2023-33009",
+      "cwes": [
+        "CWE-120"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-33010",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Firewalls",
+      "vulnerabilityName": "Zyxel Multiple Firewalls Buffer Overflow Vulnerability",
+      "dateAdded": "2023-06-05",
+      "shortDescription": "Zyxel ATP, USG FLEX, USG FLEX 50(W), USG20(W)-VPN, VPN, and ZyWALL/USG firewalls contain a buffer overflow vulnerability in the ID processing function that could allow an unauthenticated attacker to cause denial-of-service (DoS) conditions and remote code execution on an affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-06-26",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-multiple-buffer-overflow-vulnerabilities-of-firewalls;  https://nvd.nist.gov/vuln/detail/CVE-2023-33010",
+      "cwes": [
+        "CWE-120"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-28771",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Firewalls",
+      "vulnerabilityName": "Zyxel Multiple Firewalls OS Command Injection Vulnerability",
+      "dateAdded": "2023-05-31",
+      "shortDescription": "Zyxel ATP, USG FLEX, VPN, and ZyWALL/USG firewalls allow for improper error message handling which could allow an unauthenticated attacker to execute OS commands remotely by sending crafted packets to an affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-06-21",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.zyxel.com/global/en/support/security-advisories/zyxel-security-advisory-for-remote-command-injection-vulnerability-of-firewalls;   https://nvd.nist.gov/vuln/detail/CVE-2023-28771",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2004-1464",
+      "vendorProject": "Cisco",
+      "product": "IOS",
+      "vulnerabilityName": "Cisco IOS Denial-of-Service Vulnerability",
+      "dateAdded": "2023-05-19",
+      "shortDescription": "Cisco IOS contains an unspecified vulnerability that may block further telnet, reverse telnet, Remote Shell (RSH), Secure Shell (SSH), and in some cases, Hypertext Transport Protocol (HTTP) access to the Cisco device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-06-09",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20040827-telnet; https://nvd.nist.gov/vuln/detail/CVE-2004-1464",
+      "cwes": []
+    },
+    {
+      "cveID": "CVE-2016-6415",
+      "vendorProject": "Cisco",
+      "product": "IOS, IOS XR, and IOS XE",
+      "vulnerabilityName": "Cisco IOS, IOS XR, and IOS XE IKEv1 Information Disclosure Vulnerability",
+      "dateAdded": "2023-05-19",
+      "shortDescription": "Cisco IOS, IOS XR, and IOS XE contain insufficient condition checks in the part of the code that handles Internet Key Exchange version 1 (IKEv1) security negotiation requests. contains an information disclosure vulnerability in the Internet Key Exchange version 1 (IKEv1) that could allow an attacker to retrieve memory contents. Successful exploitation could allow the attacker to retrieve memory contents, which can lead to information disclosure.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-06-09",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20160916-ikev1; https://nvd.nist.gov/vuln/detail/CVE-2016-6415",
+      "cwes": [
+        "CWE-200"
+      ]
+    },
+    {
+      "cveID": "CVE-2023-1389",
+      "vendorProject": "TP-Link",
+      "product": "Archer AX21",
+      "vulnerabilityName": "TP-Link Archer AX-21 Command Injection Vulnerability",
+      "dateAdded": "2023-05-01",
+      "shortDescription": "TP-Link Archer AX-21 contains a command injection vulnerability that allows for remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-05-22",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.tp-link.com/us/support/download/archer-ax21/v3/#Firmware;  https://nvd.nist.gov/vuln/detail/CVE-2023-1389",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6742",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2023-04-19",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-05-10",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://sec.cloudapps.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-20170629-snmp; https://nvd.nist.gov/vuln/detail/CVE-2017-6742",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-41328",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Path Traversal Vulnerability",
+      "dateAdded": "2023-03-14",
+      "shortDescription": "Fortinet FortiOS contains a path traversal vulnerability that may allow a local privileged attacker to read and write files via crafted CLI commands.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-04-04",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-22-369;  https://nvd.nist.gov/vuln/detail/CVE-2022-41328",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-42475",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Heap-Based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-12-13",
+      "shortDescription": "Multiple versions of Fortinet FortiOS SSL-VPN contain a heap-based buffer overflow vulnerability which can allow an unauthenticated, remote attacker to execute arbitrary code or commands via specifically crafted requests.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2023-01-03",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-22-398;  https://nvd.nist.gov/vuln/detail/CVE-2022-42475",
+      "cwes": [
+        "CWE-197"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3433",
+      "vendorProject": "Cisco",
+      "product": "AnyConnect Secure",
+      "vulnerabilityName": "Cisco AnyConnect Secure Mobility Client for Windows DLL Hijacking Vulnerability",
+      "dateAdded": "2022-10-24",
+      "shortDescription": "Cisco AnyConnect Secure Mobility Client for Windows interprocess communication (IPC) channel allows for insufficient validation of resources that are loaded by the application at run time. An attacker with valid credentials on Windows could execute code on the affected machine with SYSTEM privileges.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-11-14",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-anyconnect-dll-F26WwJW; https://nvd.nist.gov/vuln/detail/CVE-2020-3433",
+      "cwes": [
+        "CWE-427"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3153",
+      "vendorProject": "Cisco",
+      "product": "AnyConnect Secure",
+      "vulnerabilityName": "Cisco AnyConnect Secure Mobility Client for Windows Uncontrolled Search Path Vulnerability",
+      "dateAdded": "2022-10-24",
+      "shortDescription": "Cisco AnyConnect Secure Mobility Client for Windows allows for incorrect handling of directory paths. An attacker with valid credentials on Windows would be able to copy malicious files to arbitrary locations with system level privileges. This could include DLL pre-loading, DLL hijacking, and other related attacks.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-11-14",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://tools.cisco.com/security/center/content/CiscoSecurityAdvisory/cisco-sa-ac-win-path-traverse-qO4HWBsj; https://nvd.nist.gov/vuln/detail/CVE-2020-3153",
+      "cwes": [
+        "CWE-427"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-40684",
+      "vendorProject": "Fortinet",
+      "product": "Multiple Products",
+      "vulnerabilityName": "Fortinet Multiple Products Authentication Bypass Vulnerability",
+      "dateAdded": "2022-10-11",
+      "shortDescription": "Fortinet FortiOS, FortiProxy, and FortiSwitchManager contain an authentication bypass vulnerability that could allow an unauthenticated attacker to perform operations on the administrative interface via specially crafted HTTP or HTTPS requests.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-11-01",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-22-377;  https://nvd.nist.gov/vuln/detail/CVE-2022-40684",
+      "cwes": [
+        "CWE-288"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-26258",
+      "vendorProject": "D-Link",
+      "product": "DIR-820L",
+      "vulnerabilityName": "D-Link DIR-820L Remote Code Execution Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "D-Link DIR-820L contains an unspecified vulnerability in Device Name parameter in /lan.asp which allows for remote code execution.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10295;  https://nvd.nist.gov/vuln/detail/CVE-2022-26258",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-7445",
+      "vendorProject": "MikroTik",
+      "product": "RouterOS",
+      "vulnerabilityName": "MikroTik RouterOS Stack-Based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "In MikroTik RouterOS, a stack-based buffer overflow occurs when processing NetBIOS session request messages. Remote attackers with access to the service can exploit this vulnerability and gain code execution on the system.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.coresecurity.com/core-labs/advisories/mikrotik-routeros-smb-buffer-overflow#vendor_update, https://mikrotik.com/download; https://nvd.nist.gov/vuln/detail/CVE-2018-7445",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-6530",
+      "vendorProject": "D-Link",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "D-Link Multiple Routers OS Command Injection Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "Multiple D-Link routers contain an unspecified vulnerability that allows for execution of OS commands.",
+      "requiredAction": "The vendor D-Link published an advisory stating the fix under CVE-2018-20114 properly patches KEV entry CVE-2018-6530. If the device is still supported, apply updates per vendor instructions. If the affected device has since entered its end-of-life, it should be disconnected if still in use.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://supportannouncement.us.dlink.com/announcement/publication.aspx?name=SAP10105; https://nvd.nist.gov/vuln/detail/CVE-2018-6530",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-13374",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiADC",
+      "vulnerabilityName": "Fortinet FortiOS and FortiADC Improper Access Control Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "Fortinet FortiOS and FortiADC contain an improper access control vulnerability that allows attackers to obtain the LDAP server login credentials configured in FortiGate by pointing a LDAP server connectivity test request to a rogue LDAP server.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://www.fortiguard.com/psirt/FG-IR-18-157; https://nvd.nist.gov/vuln/detail/CVE-2018-13374",
+      "cwes": [
+        "CWE-732"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-5521",
+      "vendorProject": "NETGEAR",
+      "product": "Multiple Devices",
+      "vulnerabilityName": "NETGEAR Multiple Devices Exposure of Sensitive Information Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "Multiple NETGEAR devices are prone to admin password disclosure via simple crafted requests to the web management server.",
+      "requiredAction": "Apply updates per vendor instructions. If the affected device has since entered end-of-life, it should be disconnected if still in use.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://kb.netgear.com/30632/Web-GUI-Password-Recovery-and-Exposure-Security-Vulnerability; https://nvd.nist.gov/vuln/detail/CVE-2017-5521",
+      "cwes": [
+        "CWE-200"
+      ]
+    },
+    {
+      "cveID": "CVE-2011-4723",
+      "vendorProject": "D-Link",
+      "product": "DIR-300 Router",
+      "vulnerabilityName": "D-Link DIR-300 Router Cleartext Storage of a Password Vulnerability",
+      "dateAdded": "2022-09-08",
+      "shortDescription": "The D-Link DIR-300 router stores cleartext passwords, which allows context-dependent attackers to obtain sensitive information.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-09-29",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://www.dlink.com/uk/en/support/product/dir-300-wireless-g-router; https://nvd.nist.gov/vuln/detail/CVE-2011-4723",
+      "cwes": [
+        "CWE-310"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-15271",
+      "vendorProject": "Cisco",
+      "product": "RV Series Routers",
+      "vulnerabilityName": "Cisco RV Series Routers Deserialization of Untrusted Data Vulnerability",
+      "dateAdded": "2022-06-08",
+      "shortDescription": "A deserialization of untrusted data vulnerability in the web-based management interface of certain Cisco Small Business RV Series Routers could allow an attacker to execute code with root privileges.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-22",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-15271",
+      "cwes": [
+        "CWE-502"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6862",
+      "vendorProject": "NETGEAR",
+      "product": "Multiple Devices",
+      "vulnerabilityName": "NETGEAR Multiple Devices Buffer Overflow Vulnerability",
+      "dateAdded": "2022-06-08",
+      "shortDescription": "Multiple NETGEAR devices contain a buffer overflow vulnerability that allows for authentication bypass and remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-22",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6862",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-6366",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA)",
+      "vulnerabilityName": "Cisco Adaptive Security Appliance (ASA) SNMP Buffer Overflow Vulnerability",
+      "dateAdded": "2022-05-24",
+      "shortDescription": "A buffer overflow vulnerability in the Simple Network Management Protocol (SNMP) code of Cisco ASA software could allow an attacker to cause a reload of the affected system or to remotely execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-14",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-6366",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-6367",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA)",
+      "vulnerabilityName": "Cisco Adaptive Security Appliance (ASA) CLI Remote Code Execution Vulnerability",
+      "dateAdded": "2022-05-24",
+      "shortDescription": "A vulnerability in the command-line interface (CLI) parser of Cisco ASA software could allow an authenticated, local attacker to create a denial-of-service (DoS) condition or potentially execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-14",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-6367",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20821",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Open Port Vulnerability",
+      "dateAdded": "2022-05-23",
+      "shortDescription": "Cisco IOS XR software health check opens TCP port 6379 by default on activation. An attacker can connect to the Redis instance on the open port and allow access to the Redis instance that is running within the NOSi container.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-13",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20821",
+      "cwes": [
+        "CWE-923"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-30525",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Firewalls",
+      "vulnerabilityName": "Zyxel Multiple Firewalls OS Command Injection Vulnerability",
+      "dateAdded": "2022-05-16",
+      "shortDescription": "A command injection vulnerability in the CGI program of some Zyxel firewall versions could allow an attacker to modify specific files and then execute some OS commands on a vulnerable device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-06",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-30525",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-16057",
+      "vendorProject": "D-Link",
+      "product": "DNS-320 Storage Device",
+      "vulnerabilityName": "D-Link DNS-320 Remote Code Execution Vulnerability",
+      "dateAdded": "2022-04-15",
+      "shortDescription": "The login_mgr.cgi script in D-Link DNS-320 is vulnerable to remote code execution.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-05-06",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-16057",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2010-5330",
+      "vendorProject": "Ubiquiti",
+      "product": "AirOS",
+      "vulnerabilityName": "Ubiquiti AirOS Command Injection Vulnerability",
+      "dateAdded": "2022-04-15",
+      "shortDescription": "Certain Ubiquiti devices contain a command injection vulnerability via a GET request to stainfo.cgi.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-06",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2010-5330",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-45382",
+      "vendorProject": "D-Link",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "D-Link Multiple Routers Remote Code Execution Vulnerability",
+      "dateAdded": "2022-04-04",
+      "shortDescription": "A remote code execution vulnerability exists in all series H/W revisions routers via the DDNS function in ncc2 binary file.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-25",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-45382",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-10562",
+      "vendorProject": "Dasan",
+      "product": "Gigabit Passive Optical Network (GPON) Routers",
+      "vulnerabilityName": "Dasan GPON Routers Command Injection Vulnerability",
+      "dateAdded": "2022-03-31",
+      "shortDescription": "Dasan GPON Routers contain an authentication bypass vulnerability. When combined with CVE-2018-10561, exploitation can allow an attacker to perform remote code execution.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-21",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-10562",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-10561",
+      "vendorProject": "Dasan",
+      "product": "Gigabit Passive Optical Network (GPON) Routers",
+      "vulnerabilityName": "Dasan GPON Routers Authentication Bypass Vulnerability",
+      "dateAdded": "2022-03-31",
+      "shortDescription": "Dasan GPON Routers contain an authentication bypass vulnerability. When combined with CVE-2018-10562, exploitation can allow an attacker to perform remote code execution.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-21",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-10561",
+      "cwes": [
+        "CWE-287"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-9377",
+      "vendorProject": "D-Link",
+      "product": "DIR-610 Devices",
+      "vulnerabilityName": "D-Link DIR-610 Devices Remote Command Execution",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "D-Link DIR-610 devices allow remote code execution via the cmd parameter to command.php.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-9377",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-9054",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Network-Attached Storage (NAS) Devices",
+      "vulnerabilityName": "Zyxel Multiple NAS Devices OS Command Injection Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Multiple Zyxel network-attached storage (NAS) devices contain a pre-authentication command injection vulnerability, which may allow a remote, unauthenticated attacker to execute arbitrary code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-9054",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-1631",
+      "vendorProject": "Juniper",
+      "product": "Junos OS",
+      "vulnerabilityName": "Juniper Junos OS Path Traversal Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "A path traversal vulnerability in the HTTP/HTTPS service used by J-Web, Web Authentication, Dynamic-VPN (DVPN), Firewall Authentication Pass-Through with Web-Redirect, and Zero Touch Provisioning (ZTP) allows an unauthenticated attacker to perform remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-1631",
+      "cwes": [
+        "CWE-22",
+        "CWE-73"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-16920",
+      "vendorProject": "D-Link",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "D-Link Multiple Routers Command Injection Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Multiple D-Link routers contain a command injection vulnerability which can allow attackers to achieve full system compromise.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-16920",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0147",
+      "vendorProject": "Cisco",
+      "product": "Secure Access Control System (ACS)",
+      "vulnerabilityName": "Cisco Secure Access Control System Java Deserialization Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "A vulnerability in Java deserialization used by Cisco Secure Access Control System (ACS) could allow an unauthenticated, remote attacker to execute arbitrary commands on an affected device. The vulnerability is due to insecure deserialization of user-supplied content by the affected software.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0147",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0125",
+      "vendorProject": "Cisco",
+      "product": "VPN Routers",
+      "vulnerabilityName": "Cisco VPN Routers Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "A vulnerability in the web interface of the Cisco VPN Routers could allow an unauthenticated, remote attacker to execute arbitrary code as root and gain full control of an affected system.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0125",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6334",
+      "vendorProject": "NETGEAR",
+      "product": "DGN2200 Devices",
+      "vulnerabilityName": "NETGEAR DGN2200 Devices OS Command Injection Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "dnslookup.cgi on NETGEAR DGN2200 devices with firmware through 10.0.0.50 allows remote authenticated users to execute arbitrary OS commands",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6334",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-3881",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE",
+      "vulnerabilityName": "Cisco IOS and IOS XE Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "A vulnerability in the Cisco Cluster Management Protocol (CMP) processing code in Cisco IOS and Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause a reload of an affected device or remotely execute code with elevated privileges.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-3881",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-1555",
+      "vendorProject": "NETGEAR",
+      "product": "Wireless Access Point (WAP) Devices",
+      "vulnerabilityName": "NETGEAR Multiple WAP Devices Command Injection Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Multiple NETGEAR Wireless Access Point devices allows unauthenticated web pages to pass form input directly to the command-line interface. Exploitation allows for arbitrary code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-1555",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-11021",
+      "vendorProject": "D-Link",
+      "product": "DCS-930L Devices",
+      "vulnerabilityName": "D-Link DCS-930L Devices OS Command Injection Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "setSystemCommand on D-Link DCS-930L devices allows a remote attacker to execute code via an OS command.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-11021",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-10174",
+      "vendorProject": "NETGEAR",
+      "product": "WNR2000v5 Router",
+      "vulnerabilityName": "NETGEAR WNR2000v5 Router Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "The NETGEAR WNR2000v5 router contains a buffer overflow which can be exploited to achieve remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-10174",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2015-3035",
+      "vendorProject": "TP-Link",
+      "product": "Multiple Archer Devices",
+      "vulnerabilityName": "TP-Link Multiple Archer Devices Directory Traversal Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Directory traversal vulnerability in multiple TP-Link Archer devices allows remote attackers to read arbitrary files via a .. (dot dot) in the PATH_INFO to login/.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2015-3035",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2015-0666",
+      "vendorProject": "Cisco",
+      "product": "Prime Data Center Network Manager (DCNM)",
+      "vulnerabilityName": "Cisco Prime Data Center Network Manager (DCNM) Directory Traversal Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Directory traversal vulnerability in the fmserver servlet in Cisco Prime Data Center Network Manager (DCNM) allows remote attackers to read arbitrary files.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2015-0666",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2013-5223",
+      "vendorProject": "D-Link",
+      "product": "DSL-2760U",
+      "vulnerabilityName": "D-Link DSL-2760U Gateway Cross-Site Scripting Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "A cross-site scripting (XSS) vulnerability exists in the D-Link DSL-2760U gateway, allowing remote authenticated users to inject arbitrary web script or HTML.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2013-5223",
+      "cwes": [
+        "CWE-79"
+      ]
+    },
+    {
+      "cveID": "CVE-2010-3035",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Border Gateway Protocol (BGP) Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Cisco IOS XR, when BGP is the configured routing feature, allows remote attackers to cause a denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2010-3035",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2009-2055",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Border Gateway Protocol (BGP) Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-25",
+      "shortDescription": "Cisco IOS XR,when BGP is the configured routing feature, allows remote attackers to cause a denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-04-15",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2009-2055",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6077",
+      "vendorProject": "NETGEAR",
+      "product": "Wireless Router DGN2200",
+      "vulnerabilityName": "NETGEAR DGN2200 Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-07",
+      "shortDescription": "NETGEAR DGN2200 wireless routers contain a vulnerability that allows for remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-09-07",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6077",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2016-6277",
+      "vendorProject": "NETGEAR",
+      "product": "Multiple Routers",
+      "vulnerabilityName": "NETGEAR Multiple Routers Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-07",
+      "shortDescription": "NETGEAR confirmed multiple routers allow unauthenticated web pages to pass form input directly to the command-line interface, permitting remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-09-07",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2016-6277",
+      "cwes": [
+        "CWE-352"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20708",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV160, RV260, RV340, and RV345 Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Stack-based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in Cisco Small Business RV160, RV260, RV340, and RV345 Series Routers could allow an attacker to do any of the following: Execute arbitrary code elevate privileges, execute arbitrary commands, bypass authentication and authorization protections, fetch and run unsigned software, or cause a denial of service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20708",
+      "cwes": [
+        "CWE-121"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20703",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV160, RV260, RV340, and RV345 Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Stack-based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in Cisco Small Business RV160, RV260, RV340, and RV345 Series Routers could allow an attacker to do any of the following: Execute arbitrary code elevate privileges, execute arbitrary commands, bypass authentication and authorization protections, fetch and run unsigned software, or cause a denial of service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20703",
+      "cwes": [
+        "CWE-347"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20701",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV160, RV260, RV340, and RV345 Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Stack-based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in Cisco Small Business RV160, RV260, RV340, and RV345 Series Routers could allow an attacker to do any of the following: Execute arbitrary code elevate privileges, execute arbitrary commands, bypass authentication and authorization protections, fetch and run unsigned software, or cause a denial of service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20701",
+      "cwes": [
+        "CWE-121"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20700",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV160, RV260, RV340, and RV345 Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Stack-based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in Cisco Small Business RV160, RV260, RV340, and RV345 Series Routers could allow an attacker to do any of the following: Execute arbitrary code elevate privileges, execute arbitrary commands, bypass authentication and authorization protections, fetch and run unsigned software, or cause a denial of service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20700",
+      "cwes": [
+        "CWE-121"
+      ]
+    },
+    {
+      "cveID": "CVE-2022-20699",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV160, RV260, RV340, and RV345 Series Routers",
+      "vulnerabilityName": "Cisco Small Business RV Series Routers Stack-based Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in Cisco Small Business RV160, RV260, RV340, and RV345 Series Routers could allow an attacker to do any of the following: Execute arbitrary code elevate privileges, execute arbitrary commands, bypass authentication and authorization protections, fetch and run unsigned software, or cause a denial of service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2022-20699",
+      "cwes": [
+        "CWE-785"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-1652",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV320 and RV325 Dual Gigabit WAN VPN Routers",
+      "vulnerabilityName": "Cisco Small Business Routers Improper Input Validation Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the web-based management interface of Cisco Small Business RV320 and RV325 Dual Gigabit WAN VPN Routers could allow an authenticated, remote attacker with administrative privileges on an affected device to execute arbitrary commands.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-1652",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0180",
+      "vendorProject": "Cisco",
+      "product": "IOS Software",
+      "vulnerabilityName": "Cisco IOS Software Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Login Enhancements (Login Block) feature of Cisco IOS Software could allow an unauthenticated, remote attacker to trigger a reload of an affected system, resulting in a denial of service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0180",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0179",
+      "vendorProject": "Cisco",
+      "product": "IOS Software",
+      "vulnerabilityName": "Cisco IOS Software Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Login Enhancements (Login Block) feature of Cisco IOS Software could allow an unauthenticated, remote attacker to trigger a reload of an affected system, resulting in a denial of service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0179",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0175",
+      "vendorProject": "Cisco",
+      "product": "IOS, XR, and XE Software",
+      "vulnerabilityName": "Cisco IOS, XR, and XE Software Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "Format string vulnerability in the Link Layer Discovery Protocol (LLDP) subsystem of Cisco IOS Software, Cisco IOS XE Software, and Cisco IOS XR Software could allow an unauthenticated, adjacent attacker to cause a denial of service (DoS) condition or execute arbitrary code with elevated privileges on an affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0175",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0174",
+      "vendorProject": "Cisco",
+      "product": "IOS XE Software",
+      "vulnerabilityName": "Cisco IOS Software and Cisco IOS XE Software Improper Input Validation Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the DHCP option 82 encapsulation functionality of Cisco IOS Software and Cisco IOS XE Software could allow for denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0174",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0173",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software Improper Input Validation Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Cisco IOS Software and Cisco IOS XE Software function that restores encapsulated option 82 information in DHCP Version 4 (DHCPv4) packets can allow for denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0173",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0172",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software Improper Input Validation Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the DHCP option 82 encapsulation functionality of Cisco IOS Software and Cisco IOS XE Software could allow for denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0172",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0167",
+      "vendorProject": "Cisco",
+      "product": "IOS, XR, and XE Software",
+      "vulnerabilityName": "Cisco IOS, XR, and XE Software Buffer Overflow Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "There is a buffer overflow vulnerability in the Link Layer Discovery Protocol (LLDP) subsystem of Cisco IOS Software, Cisco IOS XE Software, and Cisco IOS XR Software which could allow an unauthenticated, adjacent attacker to cause a denial of service (DoS) condition or execute arbitrary code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0167",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0161",
+      "vendorProject": "Cisco",
+      "product": "IOS Software",
+      "vulnerabilityName": "Cisco IOS Software Resource Management Errors Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Simple Network Management Protocol (SNMP) subsystem of Cisco IOS Software running on certain models of Cisco Catalyst Switches could allow an authenticated, remote attacker to cause a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0161",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0159",
+      "vendorProject": "Cisco",
+      "product": "IOS Software and Cisco IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and XE Software Internet Key Exchange Version 1 Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the implementation of Internet Key Exchange Version 1 (IKEv1) functionality in Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause an affected device to reload, resulting in a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0159",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0158",
+      "vendorProject": "Cisco",
+      "product": "IOS Software and Cisco IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and XE Software Internet Key Exchange Memory Leak Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the implementation of Internet Key Exchange Version 1 (IKEv1) functionality in Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause an affected device to reload, resulting in a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0158",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0156",
+      "vendorProject": "Cisco",
+      "product": "IOS Software and Cisco IOS XE Software",
+      "vulnerabilityName": "Cisco IOS Software and Cisco IOS XE Software Smart Install Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Smart Install feature of Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, remote attacker to trigger a reload of an affected device, resulting in a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0156",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0155",
+      "vendorProject": "Cisco",
+      "product": "Catalyst 4500 Series Switches and Cisco Catalyst 4500-X Series Switches",
+      "vulnerabilityName": "Cisco Catalyst Bidirectional Forwarding Detection Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Bidirectional Forwarding Detection (BFD) offload implementation of Cisco Catalyst 4500 Series Switches and Cisco Catalyst 4500-X Series Switches could allow an unauthenticated, remote attacker to cause a crash of the iosd process, causing a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0155",
+      "cwes": [
+        "CWE-388"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0154",
+      "vendorProject": "Cisco",
+      "product": "IOS Software",
+      "vulnerabilityName": "Cisco IOS Software Integrated Services Module for VPN Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the crypto engine of the Cisco Integrated Services Module for VPN (ISM-VPN) running Cisco IOS Software could allow an unauthenticated, remote attacker to cause a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0154",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0151",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS Software and Cisco IOS XE Software Quality of Service Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the quality of service (QoS) subsystem of Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause a denial of service (DoS) condition or execute arbitrary code with elevated privileges.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0151",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6744",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS 1 contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload. An attacker could exploit these vulnerabilities by sending a crafted SNMP packet to an affected system via IPv4 or IPv6.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6744",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6743",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6743",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6740",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6740",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6739",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code on an affected system or cause an affected system to reload.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6739",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6738",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6738",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6737",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6737",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6736",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software SNMP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Simple Network Management Protocol (SNMP) subsystem of Cisco IOS and IOS XE contains a vulnerability that could allow an authenticated, remote attacker to remotely execute code.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6736",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-6663",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS Software and Cisco IOS XE Software Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Autonomic Networking feature of Cisco IOS Software and Cisco IOS XE Software could allow an unauthenticated, adjacent attacker to cause autonomic nodes of an affected system to reload, resulting in denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6663",
+      "cwes": []
+    },
+    {
+      "cveID": "CVE-2017-6627",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS Software and Cisco IOS XE Software UDP Packet Processing Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the UDP processing code of Cisco IOS and IOS XE could allow an unauthenticated, remote attacker to cause the input queue of an affected system to hold UDP packets, causing an interface queue wedge and denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-6627",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12319",
+      "vendorProject": "Cisco",
+      "product": "IOS XE Software",
+      "vulnerabilityName": "Cisco IOS XE Software Ethernet Virtual Private Network Border Gateway Protocol Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Border Gateway Protocol (BGP) over an Ethernet Virtual Private Network (EVPN) for Cisco IOS XE Software could allow an unauthenticated, remote attacker to cause the device to reload, resulting in a denial of service (DoS) condition, or potentially corrupt the BGP routing table, which could result in network instability.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12319",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12240",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software DHCP Remote Code Execution Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "The Dynamic Host Configuration Protocol (DHCP) relay subsystem of Cisco IOS and Cisco IOS XE Software contains a vulnerability that could allow an unauthenticated, remote attacker to execute arbitrary code and gain full control of an affected system.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12240",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12238",
+      "vendorProject": "Cisco",
+      "product": "Catalyst 6800 Series Switches",
+      "vulnerabilityName": "Cisco Catalyst 6800 Series Switches VPLS Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Virtual Private LAN Service (VPLS) code of Cisco IOS for Cisco Catalyst 6800 Series Switches could allow an unauthenticated, adjacent attacker to cause a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12238",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12237",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE Software",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software Internet Key Exchange Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the Internet Key Exchange Version 2 (IKEv2) module of Cisco IOS and Cisco IOS XE could allow an unauthenticated, remote attacker to cause high CPU utilization, traceback messages, or a reload of an affected device that leads to a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12237",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12235",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software for Cisco Industrial Ethernet Switches PROFINET Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the implementation of the PROFINET Discovery and Configuration Protocol (PN-DCP) for Cisco IOS could allow an unauthenticated, remote attacker to cause an affected device to reload, resulting in a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12235",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12234",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software Common Industrial Protocol Request Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "There is a vulnerability in the implementation of the Common Industrial Protocol (CIP) feature in Cisco IOS could allow an unauthenticated, remote attacker to cause an affected device to reload, resulting in a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12234",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12233",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software Common Industrial Protocol Request Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "There is a vulnerability in the implementation of the Common Industrial Protocol (CIP) feature in Cisco IOS could allow an unauthenticated, remote attacker to cause an affected device to reload, resulting in a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12233",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12232",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software for Cisco Integrated Services Routers Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the implementation of a protocol in Cisco Integrated Services Routers Generation 2 (ISR G2) Routers running Cisco IOS could allow an unauthenticated, adjacent attacker to cause an affected device to reload, resulting in a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12232",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2017-12231",
+      "vendorProject": "Cisco",
+      "product": "IOS software",
+      "vulnerabilityName": "Cisco IOS Software Network Address Translation Denial-of-Service Vulnerability",
+      "dateAdded": "2022-03-03",
+      "shortDescription": "A vulnerability in the implementation of Network Address Translation (NAT) functionality in Cisco IOS could allow an unauthenticated, remote attacker to cause a denial of service.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-03-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2017-12231",
+      "cwes": [
+        "CWE-399"
+      ]
+    },
+    {
+      "cveID": "CVE-2015-2051",
+      "vendorProject": "D-Link",
+      "product": "DIR-645 Router",
+      "vulnerabilityName": "D-Link DIR-645 Router Remote Code Execution Vulnerability",
+      "dateAdded": "2022-02-10",
+      "shortDescription": "D-Link DIR-645 Wired/Wireless Router allows remote attackers to execute arbitrary commands via a GetDeviceSettings action to the HNAP interface.",
+      "requiredAction": "The impacted product is end-of-life and should be disconnected if still in use.",
+      "dueDate": "2022-08-10",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2015-2051",
+      "cwes": [
+        "CWE-77"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-13382",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiProxy",
+      "vulnerabilityName": "Fortinet FortiOS and FortiProxy Improper Authorization",
+      "dateAdded": "2022-01-10",
+      "shortDescription": "An Improper Authorization vulnerability in Fortinet FortiOS and FortiProxy under SSL VPN web portal allows an unauthenticated attacker to modify the password.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-07-10",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-13382",
+      "cwes": [
+        "CWE-285"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-13383",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS and FortiProxy",
+      "vulnerabilityName": "Fortinet FortiOS and FortiProxy Out-of-bounds Write",
+      "dateAdded": "2022-01-10",
+      "shortDescription": "A heap buffer overflow in Fortinet FortiOS and FortiProxy may cause the SSL VPN web service termination for logged in users.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-07-10",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-13383",
+      "cwes": [
+        "CWE-787"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-44168",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Arbitrary File Download",
+      "dateAdded": "2021-12-10",
+      "shortDescription": "Fortinet FortiOS \"execute restore src-vis\" downloads code without integrity checking, allowing an attacker to arbitrarily download files.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-12-24",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-44168",
+      "cwes": [
+        "CWE-494"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-14847",
+      "vendorProject": "MikroTik",
+      "product": "RouterOS",
+      "vulnerabilityName": "MikroTik Router OS Directory Traversal Vulnerability",
+      "dateAdded": "2021-12-01",
+      "shortDescription": "MikroTik RouterOS through 6.42 allows unauthenticated remote attackers to read arbitrary files and remote authenticated attackers to write arbitrary files due to a directory traversal vulnerability in the WinBox interface.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-06-01",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-14847",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-20090",
+      "vendorProject": "Arcadyan",
+      "product": "Buffalo Firmware",
+      "vulnerabilityName": "Arcadyan Buffalo Firmware Path Traversal Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Arcadyan Buffalo firmware contains a path traversal vulnerability that could allow unauthenticated, remote attackers to bypass authentication and access sensitive information. This vulnerability affects multiple routers across several different vendors.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-20090",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3452",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Read-Only Path Traversal Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an improper input validation vulnerability when HTTP requests process URLs.  An attacker could exploit this vulnerability by sending a crafted HTTP request containing directory traversal character sequences to an affected device. A successful exploit could allow the attacker to view arbitrary files within the web services file system on the targeted device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3452",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3580",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD)",
+      "vulnerabilityName": "Cisco ASA and FTD Cross-Site Scripting (XSS) Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) and Firepower Threat Defense (FTD) contain an insufficient input validation vulnerability for user-supplied input by the web services interface.  Successful exploitation could allow an attacker to perform cross-site scripting (XSS) in the context of the interface or access sensitive browser-based information.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3580",
+      "cwes": [
+        "CWE-79"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-1497",
+      "vendorProject": "Cisco",
+      "product": "HyperFlex HX",
+      "vulnerabilityName": "Cisco HyperFlex HX Installer Virtual Machine Command Injection Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco HyperFlex HX Installer Virtual Machine contains an insufficient input validation vulnerability which could allow an attacker to execute commands on an affected device as the root user.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-1497",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-1498",
+      "vendorProject": "Cisco",
+      "product": "HyperFlex HX",
+      "vulnerabilityName": "Cisco HyperFlex HX Data Platform Command Injection Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco HyperFlex HX Installer Virtual Machine contains an insufficient input validation vulnerability which could allow an attacker to execute commands on an affected device as the tomcat8 user.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-1498",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0171",
+      "vendorProject": "Cisco",
+      "product": "IOS and IOS XE",
+      "vulnerabilityName": "Cisco IOS and IOS XE Software Smart Install Remote Code Execution Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco IOS and IOS XE Software improperly validates packet data, allowing an unauthenticated, remote attacker to trigger a reload of an affected device, cause a denial-of-service (DoS) condition, or perform code execution on the affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0171",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3118",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Software Discovery Protocol Format String Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco IOS XR improperly validates string input from certain fields in Cisco Discovery Protocol messages. Exploitation could allow an unauthenticated, adjacent attacker to execute code with administrative privileges or cause a reload on an affected device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3118",
+      "cwes": [
+        "CWE-134"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3566",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Software DVMRP Memory Exhaustion Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco IOS XR Distance Vector Multicast Routing Protocol (DVMRP) incorrectly handles Internet Group Management Protocol (IGMP) packets. Exploitation could allow an unauthenticated, remote attacker to immediately crash the IGMP process or make it consume available memory and eventually crash.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3566",
+      "cwes": [
+        "CWE-400"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3569",
+      "vendorProject": "Cisco",
+      "product": "IOS XR",
+      "vulnerabilityName": "Cisco IOS XR Software DVMRP Memory Exhaustion Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco IOS XR Distance Vector Multicast Routing Protocol (DVMRP) incorrectly handles Internet Group Management Protocol (IGMP) packets. Exploitation could allow an unauthenticated, remote attacker to immediately crash the IGMP process or make it consume available memory and eventually crash.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3569",
+      "cwes": [
+        "CWE-400"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-3161",
+      "vendorProject": "Cisco",
+      "product": "Cisco IP Phones",
+      "vulnerabilityName": "Cisco IP Phones Web Server Remote Code Execution and Denial-of-Service Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco IP Phones contain an improper input validation vulnerability for HTTP requests. Exploitation could allow an attacker to execute code remotely with root privileges or cause a denial-of-service (DoS) condition.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-3161",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-1653",
+      "vendorProject": "Cisco",
+      "product": "Small Business RV320 and RV325 Routers",
+      "vulnerabilityName": "Cisco Small Business RV320 and RV325 Routers Information Disclosure Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco Small Business RV320 and RV325 Dual Gigabit WAN VPN Routers contain improper access controls for URLs. Exploitation could allow an attacker to download the router configuration or detailed diagnostic information.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-1653",
+      "cwes": [
+        "CWE-284"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-0296",
+      "vendorProject": "Cisco",
+      "product": "Adaptive Security Appliance (ASA)",
+      "vulnerabilityName": "Cisco Adaptive Security Appliance (ASA) Denial-of-Service Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Cisco Adaptive Security Appliance (ASA) contains an improper input validation vulnerability with HTTP URLs. Exploitation could allow an attacker to cause a denial-of-service (DoS) condition or information disclosure.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-0296",
+      "cwes": [
+        "CWE-20"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-29557",
+      "vendorProject": "D-Link",
+      "product": "DIR-825 R1 Devices",
+      "vulnerabilityName": "D-Link DIR-825 R1 Devices Buffer Overflow Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "D-Link DIR-825 R1 devices contain a buffer overflow vulnerability in the web interface that may allow for remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-29557",
+      "cwes": [
+        "CWE-119"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-25506",
+      "vendorProject": "D-Link",
+      "product": "DNS-320 Device",
+      "vulnerabilityName": "D-Link DNS-320 Device Command Injection Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "D-Link DNS-320 device contains a command injection vulnerability in the sytem_mgr.cgi component that may allow for remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-25506",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-8515",
+      "vendorProject": "DrayTek",
+      "product": "Multiple Vigor Routers",
+      "vulnerabilityName": "Multiple DrayTek Vigor Routers Web Management Page Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "DrayTek Vigor3900, Vigor2960, and Vigor300B routers contain an unspecified vulnerability that allows for remote code execution.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-8515",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2019-5591",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS Default Configuration Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Fortinet FortiOS contains a default configuration vulnerability that may allow an unauthenticated attacker on the same subnet to intercept sensitive information by impersonating the Lightweight Directory Access Protocol (LDAP) server.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-5591",
+      "cwes": [
+        "CWE-306"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-12812",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS SSL VPN Improper Authentication Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Fortinet FortiOS SSL VPN contains an improper authentication vulnerability that may allow a user to login successfully without being prompted for the second factor of authentication (FortiToken) if they change the case in their username.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-12812",
+      "cwes": [
+        "CWE-178",
+        "CWE-287"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-13379",
+      "vendorProject": "Fortinet",
+      "product": "FortiOS",
+      "vulnerabilityName": "Fortinet FortiOS SSL VPN Path Traversal Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Fortinet FortiOS SSL VPN web portal contains a path traversal vulnerability that may allow an unauthenticated attacker to download FortiOS system files through specially crafted HTTP resource requests.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Known",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-13379",
+      "cwes": [
+        "CWE-22"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-26919",
+      "vendorProject": "NETGEAR",
+      "product": "JGS516PE Devices",
+      "vulnerabilityName": "Netgear JGS516PE Devices Missing Function Level Access Control Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Netgear JGS516PE devices contain a missing function level access control vulnerability.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-26919",
+      "cwes": []
+    },
+    {
+      "cveID": "CVE-2019-19356",
+      "vendorProject": "Netis",
+      "product": "WF2419 Devices",
+      "vulnerabilityName": "Netis WF2419 Devices Remote Code Execution Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Netis WF2419 devices contains an unspecified vulnerability that allows an attacker to perform remote code execution as root through the router's web management page.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2019-19356",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-2555",
+      "vendorProject": "Oracle",
+      "product": "Multiple Products",
+      "vulnerabilityName": "Oracle Multiple Products Remote Code Execution Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Multiple Oracle products contain a remote code execution vulnerability that allows an unauthenticated attacker with network access via T3 or HTTP to takeover the affected system. Impacted Oracle products: Oracle Coherence in Fusion Middleware, Oracle Utilities Framework, Oracle Retail Assortment Planning, Oracle Commerce, Oracle Communications Diameter Signaling Router (DSR).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-2555",
+      "cwes": [
+        "CWE-502"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-35395",
+      "vendorProject": "Realtek",
+      "product": "AP-Router SDK",
+      "vulnerabilityName": "Realtek AP-Router SDK Buffer Overflow Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Realtek AP-Router SDK HTTP web server boa contains a buffer overflow vulnerability due to unsafe copies of some overly long parameters submitted in the form that lead to denial-of-service (DoS).",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-35395",
+      "cwes": [
+        "CWE-20",
+        "CWE-122"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-10181",
+      "vendorProject": "Sumavision",
+      "product": "Enhanced Multimedia Router (EMR)",
+      "vulnerabilityName": "Sumavision EMR Cross-Site Request Forgery (CSRF) Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Sumavision Enhanced Multimedia Router (EMR) contains a cross-site request forgery (CSRF) vulnerability allowing the creation of users with elevated privileges as administrator on a device.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-10181",
+      "cwes": [
+        "CWE-352"
+      ]
+    },
+    {
+      "cveID": "CVE-2021-31755",
+      "vendorProject": "Tenda",
+      "product": "AC11 Router",
+      "vulnerabilityName": "Tenda AC11 Router Stack Buffer Overflow Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Tenda AC11 devices contain a stack buffer overflow vulnerability in /goform/setmac which allows attackers to execute code via a crafted post request.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2021-11-17",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2021-31755",
+      "cwes": [
+        "CWE-787"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-10987",
+      "vendorProject": "Tenda",
+      "product": "AC1900 Router AC15 Model",
+      "vulnerabilityName": "Tenda AC1900 Router AC15 Model Remote Code Execution Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Tenda AC1900 Router AC15 Model contains an unspecified vulnerability that allows remote attackers to execute system commands via the deviceName POST parameter.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-10987",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2018-14558",
+      "vendorProject": "Tenda",
+      "product": "AC7, AC9, and AC10 Routers",
+      "vulnerabilityName": "Tenda AC7, AC9, and AC10 Routers Command Injection Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Tenda AC7, AC9, and AC10 devices contain a command injection vulnerability due to  the \"formsetUsbUnload\" function executes a dosystemCmd function with untrusted input. Successful exploitation allows an attacker to execute OS commands via a crafted goform/setUsbUnload request.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2018-14558",
+      "cwes": [
+        "CWE-78"
+      ]
+    },
+    {
+      "cveID": "CVE-2020-29583",
+      "vendorProject": "Zyxel",
+      "product": "Multiple Products",
+      "vulnerabilityName": "Zyxel Multiple Products Use of Hard-Coded Credentials Vulnerability",
+      "dateAdded": "2021-11-03",
+      "shortDescription": "Zyxel firewalls (ATP, USG, VM) and AP Controllers (NXC2500 and NXC5500) contain a use of hard-coded credentials vulnerability in an undocumented account (\"zyfwp\") with an unchangeable password.",
+      "requiredAction": "Apply updates per vendor instructions.",
+      "dueDate": "2022-05-03",
+      "knownRansomwareCampaignUse": "Unknown",
+      "notes": "https://nvd.nist.gov/vuln/detail/CVE-2020-29583",
+      "cwes": [
+        "CWE-522"
+      ]
+    }
+  ]
+}
