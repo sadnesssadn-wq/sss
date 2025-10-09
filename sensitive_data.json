@@ -1,0 +1,65 @@
+{
+  "employees": [
+    {
+      "username": "Tuyen 17 Q.BT Hang",
+      "password_md5": "dadc2becaf15d66c29a094b222ac79e0"
+    },
+    {
+      "username": "554310_dinhthanh",
+      "password_md5": "875461dcd2f2ce790aef555b4778f83a"
+    },
+    {
+      "username": "0942236225_122160",
+      "password_md5": "b2b45d0f5b074609fc759899575183df"
+    },
+    {
+      "username": "702721_0888862061",
+      "password_md5": "61ffaeb81bd5cad0cff1a8e51f54684e"
+    },
+    {
+      "username": "702724_0888862064",
+      "password_md5": "6b91a2c07c6e523c685f435adbd8d937"
+    },
+    {
+      "username": "702725_0888862065",
+      "password_md5": "e92168bbeddae8a3b0569b1c62133760"
+    },
+    {
+      "username": "702726_0888862066",
+      "password_md5": "b917d0a9ee8bd55c0707aacf8fce2ce2"
+    },
+    {
+      "username": "702728_0888862068",
+      "password_md5": "3268c2d3df1527c301a3d3fe37ed1903"
+    },
+    {
+      "username": "702765_0888862087",
+      "password_md5": "af195e78cb6fc21da33101ab1dedf783"
+    },
+    {
+      "username": "702773_0888862090",
+      "password_md5": "5d2271d8de26f76ebc03e96ea909b1b0"
+    }
+  ],
+  "zalo_tokens": [
+    "W4aj5hS_fgHtbCi2T5A-wqAflQdtmqiWNRXFHWWwTqLjaXd2xy9_D4wK_AK9GsgdFVjdAfEtWjdDwp8C20E-xucu-QPxpKoM6OyylJM3WrD7Uzp-Ki8_GC-JSJMiotgsvHQf62bTwmxZUCdkcdir39vM1s4HUcyrj_Wzlj3zJhg9p57zPUqVh-F4WExfZvKRvF6gh-WAGQgDVcuXVeaR2LVTrbJ03pYcBW_3aGb7mZTNqhFXJBbETbxE7nN54PMg",
+    "CwoD9K8dgYJMmVrksVjvfftR34Mjr9qEnw7OQ2RwtoqoYZEOw3w1M-p2QmYrUT8sgpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2LKF8d0AhkyLxaiXN5WKiLgCC961XIt7cdLLSN28WoominMZzcIKyyZ_o0o7UANeIJDdhJG9e-onWfQSGNes9zHiQIkGXbHdGjknmdCi1e8SREVYVVcAOasQ7D1g8TQXyASZ3jltq2k7e_2B6ldeNu8",
+    "VIOhJ_0Ff7Pj2rm66MGkHH2m9lqKqTu50wxSv92dr1l9BBB0tg6fVTw6Pqvqgk9agpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2K-cMccMVK-JD9_IHiVqkYSyNxlzWd647pyLLD92Pe2606ogy_KbO4zOw-LSaaDSQYz5OBxaL7asFeW6EEmoGHfdKbsNaVRAaL3NlDAh36S4M5pTvmn6HJ2M9wnkE_EQ-_0CA2fC3DFty_mH0gdEdTq",
+    "N4UBphiknJJcvXY21F6IHv5-Lm4gyB79Fv16Zicf7h0-8DxWqghtWsfyVCZwpx49gpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2JH_U59XVKNrHBXuntMdKzkQfmoO_wD5AaqRYuF9cBumLTimqErNCZfHSHtK7U3tqOjVGTbxtlkpTk5Ap8etN_YzRWjVIa1cMS637D2pehdWX9BW2Y3HgsqnJv9uNyetj7K50IbBcDJRdhbhT5cqYWA",
+    "UFRVsBZPS8O4CICMbwgiN5yCeol1lzr-l9favxnDAX9A9UZ7vwW0uzzvVQ7LOzeogpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2LC5zdLIrQonhl646dGxnuDpKWK4xZc7i4RyEdIV375PqdHlP0EwsGH1-v5FLAHDrDZMi4PC3kNqSk-4RNgE1yCBfxj5NiL7o8aM6i21RXZxVmA5bla9618PY49aRnSkymgjNaQS20XFb4DVzRRHXeB"
+  ],
+  "db_links": [
+    {
+      "name": "EMSTRACKING",
+      "host": "10.10.88.8:1521",
+      "service": "khaithac"
+    },
+    {
+      "name": "EMSHN_NT343",
+      "host": "192.168.88.33:1521",
+      "service": "com"
+    }
+  ],
+  "admin_customers": [],
+  "encryption_keys": []
+}
