@@ -1,0 +1,10 @@
+{
+  "targets": [
+    {
+      "ip": "127.0.0.1",
+      "maybeRouter": false,
+      "likelyVendors": [],
+      "out": "/workspace/.sec-intel-cache/fp_127.0.0.1.json"
+    }
+  ]
+}

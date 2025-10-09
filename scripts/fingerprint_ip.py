@@ -124,6 +124,26 @@ def fetch_tls_cert(ip: str, port: int, timeout: int) -> Dict[str, Any]:
         return {"ok": False, "error": str(e)}
 
 
+def fetch_tcp_peek(ip: str, port: int, timeout: int, max_bytes: int = 64) -> Dict[str, Any]:
+    """Safely connect and passively read a few bytes without sending data.
+
+    This is useful for services like Winbox (8291) where servers may or may not
+    send banners. We do not transmit any payload to avoid side effects.
+    """
+    try:
+        with socket.create_connection((ip, port), timeout=timeout) as sock:
+            sock.settimeout(timeout)
+            try:
+                data = sock.recv(max_bytes)
+            except socket.timeout:
+                data = b""
+        hex_preview = data[:32].hex() if data else ""
+        ascii_preview = data.decode(errors="ignore")[:64] if data else ""
+        return {"ok": True, "bytes": len(data), "hex": hex_preview, "ascii": ascii_preview}
+    except Exception as e:
+        return {"ok": False, "error": str(e)}
+
+
 def build_hints(headers: Dict[str, str], title: Optional[str], snippet: str, cert: Dict[str, Any]) -> List[str]:
     hints: List[str] = []
     text_blobs: List[str] = []
@@ -187,11 +207,21 @@ def fingerprint_ip(ip: str, ports: List[int], timeout: int) -> Dict[str, Any]:
         headers_res = fetch_http_headers(ip, port, is_https, timeout)
         title_res = fetch_http_title_and_snippet(ip, port, is_https, timeout)
         cert_res = fetch_tls_cert(ip, port, timeout) if is_https else {"ok": False}
+        tcp_peek_res: Dict[str, Any] = {"ok": False}
+        if port == 8291:
+            tcp_peek_res = fetch_tcp_peek(ip, port, timeout)
 
         headers = headers_res.get("headers") if headers_res.get("ok") else {}
         title = title_res.get("title") if title_res.get("ok") else None
         snippet = title_res.get("snippet") if title_res.get("ok") else ""
         hints = build_hints(headers or {}, title, snippet or "", cert_res)
+        if port == 8291:
+            # Winbox typical management port. Do NOT claim vendor unless evidence suggests it.
+            hints.append("hint:port8291")
+            # If passive bytes show MikroTik string, add vendor hint.
+            peek_ascii = (tcp_peek_res.get("ascii") or "").lower()
+            if any(x in peek_ascii for x in ["mikrotik", "routeros", "winbox"]):
+                hints.append("vendor:MikroTik")
 
         result["results"][str(port)] = {
             "https": is_https,
@@ -199,6 +229,7 @@ def fingerprint_ip(ip: str, ports: List[int], timeout: int) -> Dict[str, Any]:
             "status": headers_res.get("status") if headers_res.get("ok") else None,
             "title": title,
             "tls": cert_res if is_https else None,
+            "tcpPeek": tcp_peek_res if port == 8291 else None,
             "hints": hints,
             "error_head": None if headers_res.get("ok") else headers_res.get("error"),
             "error_get": None if title_res.get("ok") else title_res.get("error"),

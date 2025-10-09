@@ -1,0 +1,26 @@
+{
+  "ip": "127.0.0.1",
+  "ports": [
+    8291
+  ],
+  "results": {
+    "8291": {
+      "https": false,
+      "headers": {},
+      "status": null,
+      "title": null,
+      "tls": null,
+      "tcpPeek": {
+        "ok": false,
+        "error": "[Errno 111] Connection refused"
+      },
+      "hints": [
+        "hint:port8291"
+      ],
+      "error_head": "[Errno 111] Connection refused",
+      "error_get": "[Errno 111] Connection refused"
+    }
+  },
+  "likelyVendors": [],
+  "maybeRouter": false
+}
