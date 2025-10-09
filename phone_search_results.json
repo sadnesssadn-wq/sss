@@ -1,0 +1,133 @@
+[
+  {
+    "schema": "EMS",
+    "table": "SHIPMENT",
+    "phone": "01676750668",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.SHIPMENT.SENDER_PHONE",
+    "value": "0993344471",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.SHIPMENT.RECEIVER_PHONE",
+    "value": "01676750668",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_USER.PHONE",
+    "value": "0962554334",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE_USERS.PHONE_NUMBER",
+    "value": "0945556794",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.E1_SHIPCHUNG.SHIPPERPHONE",
+    "value": "0966246878 0984048274",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.E1_SHIPCHUNG.CONSIGNEEPHONE",
+    "value": "0977985439",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BCCP_ITEM_TMP_2018.SENDERMOBILE",
+    "value": "02223714065",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BCCP_ITEM_TMP_2018.RECEIVERMOBILE",
+    "value": "2  361 7933",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.ITEMSMS_ERROR.MOBILENETWORK",
+    "value": "0",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.DPD_ITEMS.SMOBILENUM",
+    "value": "1900545433",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.DPD_ITEMS.RMOBILENUM",
+    "value": "+447879605479",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BCCP_MTTOGET_CHECKLEAK.DATELOG",
+    "value": "14-MAY-18",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.MAILTRIP_EVENTLOG.DATELOG",
+    "value": "12-APR-17",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.TIEN_ITEMTOGET.DATELOG",
+    "value": "24-SEP-18",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.EDI_ITEMS_OUTBOUND_BAK.RECIPIENTTELEPHONE",
+    "value": "+852136633808",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.EDI_ITEMS_OUTBOUND_BAK.SENDERTELEPHONE",
+    "value": "01228926547",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.EDI_ITEMS_OUTBOUND.SENDERTELEPHONE",
+    "value": "01228926547",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.EDI_ITEMS_OUTBOUND.RECIPIENTTELEPHONE",
+    "value": "+852136633808",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BCCP_ITEM_TMP_2018.RECEIVERCONTACT",
+    "value": "TRAN MINH HAI__BAC VIET TECHNOLOGY JSC",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE.CONTACT_PROVINCE",
+    "value": "10",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE.CONTACT_PHONE_WORK",
+    "value": "0903203592",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE.CONTACT_NAME",
+    "value": "Trung Nguyen",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE.CONTACT_ADDRESS",
+    "value": "56 Kim Mã",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.BUSINESS_PROFILE.CONTACT_DISTRICT",
+    "value": "1180",
+    "type": "完整"
+  },
+  {
+    "location": "EMS.DPD_ITEMS.RCONTACTNAME",
+    "value": "HELEN SCURFIELD",
+    "type": "完整"
+  }
+]
