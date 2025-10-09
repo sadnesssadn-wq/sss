@@ -1,0 +1,56 @@
+{
+  "google_api_keys": [],
+  "infor_keys": [
+    {
+      "KEY": "10102024"
+    },
+    {
+      "KEY": "864523189"
+    }
+  ],
+  "zalo_details": [
+    {
+      "token": "W4aj5hS_fgHtbCi2T5A-wqAflQdtmqiWNRXFHWWwTqLjaXd2xy9_D4wK_AK9GsgdFVjdAfEtWjdDwp8C20E-xucu-QPxpKoM6OyylJM3WrD7Uzp-Ki8_GC-JSJMiotgsvHQf62bTwmxZUCdkcdir39vM1s4HUcyrj_Wzlj3zJhg9p57zPUqVh-F4WExfZvKRvF6gh-WAGQgDVcuXVeaR2LVTrbJ03pYcBW_3aGb7mZTNqhFXJBbETbxE7nN54PMg",
+      "journey_id": null,
+      "status": null
+    },
+    {
+      "token": "CwoD9K8dgYJMmVrksVjvfftR34Mjr9qEnw7OQ2RwtoqoYZEOw3w1M-p2QmYrUT8sgpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2LKF8d0AhkyLxaiXN5WKiLgCC961XIt7cdLLSN28WoominMZzcIKyyZ_o0o7UANeIJDdhJG9e-onWfQSGNes9zHiQIkGXbHdGjknmdCi1e8SREVYVVcAOasQ7D1g8TQXyASZ3jltq2k7e_2B6ldeNu8",
+      "journey_id": null,
+      "status": null
+    },
+    {
+      "token": "VIOhJ_0Ff7Pj2rm66MGkHH2m9lqKqTu50wxSv92dr1l9BBB0tg6fVTw6Pqvqgk9agpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2K-cMccMVK-JD9_IHiVqkYSyNxlzWd647pyLLD92Pe2606ogy_KbO4zOw-LSaaDSQYz5OBxaL7asFeW6EEmoGHfdKbsNaVRAaL3NlDAh36S4M5pTvmn6HJ2M9wnkE_EQ-_0CA2fC3DFty_mH0gdEdTq",
+      "journey_id": null,
+      "status": null
+    },
+    {
+      "token": "N4UBphiknJJcvXY21F6IHv5-Lm4gyB79Fv16Zicf7h0-8DxWqghtWsfyVCZwpx49gpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2JH_U59XVKNrHBXuntMdKzkQfmoO_wD5AaqRYuF9cBumLTimqErNCZfHSHtK7U3tqOjVGTbxtlkpTk5Ap8etN_YzRWjVIa1cMS637D2pehdWX9BW2Y3HgsqnJv9uNyetj7K50IbBcDJRdhbhT5cqYWA",
+      "journey_id": null,
+      "status": null
+    },
+    {
+      "token": "UFRVsBZPS8O4CICMbwgiN5yCeol1lzr-l9favxnDAX9A9UZ7vwW0uzzvVQ7LOzeogpE4A2pBNLaR8xFl_-KgJTIeGplWgmV0CrBgN4CrP2LC5zdLIrQonhl646dGxnuDpKWK4xZc7i4RyEdIV375PqdHlP0EwsGH1-v5FLAHDrDZMi4PC3kNqSk-4RNgE1yCBfxj5NiL7o8aM6i21RXZxVmA5bla9618PY49aRnSkymgjNaQS20XFb4DVzRRHXeB",
+      "journey_id": null,
+      "status": null
+    }
+  ],
+  "tables_with_keys": [
+    "BUSINESS_PROFILE",
+    "DPD_ITEMS",
+    "DPD_PARCEL",
+    "DPD_SHIPMENT",
+    "E1E2_PH_DECRYPT_DATA",
+    "E1E2_PH_ENCRYPT",
+    "E1_DEN_SCAN_HQ",
+    "E1_DEN_SCAN_HQ",
+    "LOG_API",
+    "V2_CHUYEN_THU_BD13_DI",
+    "V2_CHUYEN_THU_BD13_DI_TEMP",
+    "V2_COD_BD13_DI",
+    "V2_COD_BD13_DI_TEMP",
+    "V2_E1_BD13_DI",
+    "V2_E1_BD13_DI_TEMP",
+    "V2_E1_LE_PHI_BD13_DI"
+  ]
+}

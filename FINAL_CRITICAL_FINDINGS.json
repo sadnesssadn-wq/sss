@@ -1,0 +1,73 @@
+{
+  "decrypt_table_cols": [
+    "MAE1",
+    "MABC",
+    "MABC_KT",
+    "CHTHU",
+    "TUISO",
+    "NGAY",
+    "DATE_LOG",
+    "DIACHI",
+    "NGUOINHAN",
+    "DIENTHOAINHAN",
+    "ID_KEY"
+  ],
+  "encrypt_table_cols": [
+    "MO_RONG_11",
+    "POSTALDISTRICTCODE",
+    "POSTALCOMMUNECODE",
+    "POSTALCODE",
+    "POSTALPROVINCECODE",
+    "DISTRICTCODE",
+    "COMMUNECODE",
+    "PROVINCECODE",
+    "EMAIL_GUI"
+  ],
+  "user_credentials": [
+    {
+      "username": "vimedimex",
+      "password_hash": "$2a$12$CwErjPojUjvv1SfRNvFwm.u3GFfNiQbUdkyQl.03DoMPZEaQ0Bi4i",
+      "email": "vimehanoi@vnn.vn"
+    },
+    {
+      "username": "RDFYjolf",
+      "password_hash": "$2a$12$7yQRm6DDc/gWz09v3uPRUO4qXEz/QlBUzq1DPCGaXf.FPZfp8rxoK",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "HfjNUlYZ",
+      "password_hash": "$2a$12$SnOnFPH17ETvlzL.EuL3ZeL5SQT9tpRemrvCtnvPReMqQOsAYskKq",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "1TOC58GV20",
+      "password_hash": "$2a$12$xCxtcVqbum96KgW4O3xDoe9cznkDDlCgmj97QEJ0gLOnRsIK1Cj7q",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "44waPRbd",
+      "password_hash": "$2a$12$J/QN6CyOETcyonRNLTKF0uZyk8uUVlupFTzDPAxdvC1cHlw1Olo.q",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "SsDlsYyk: wnpB1FFI",
+      "password_hash": "$2a$12$rqW3dgPvNONNc.ne0sjf0eEHYGjC.rEzIvfYlA.PKlgJAtGzR9V02",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "${10000444+9999465}",
+      "password_hash": "$2a$12$1my1rvIY1adRZX4UP9L9nuA9PTqKLGyfvY82Uu5mxo02kZvuYX3UC",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "VThnNm55dkY=",
+      "password_hash": "$2a$12$OPxURy27Sz2FHvdq9L00seSZLJmgNAKaYGwMOXhBA5kL1gzSTU8va",
+      "email": "testing@example.com"
+    },
+    {
+      "username": "pHqghUme&n976413=v967602",
+      "password_hash": "$2a$12$4laPv83a2OXgRjhImHJLXu9qnj8G/bVTBPkhp3vR7oG92B9Wl2tQa",
+      "email": "testing@example.com"
+    }
+  ]
+}

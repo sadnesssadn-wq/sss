@@ -1,0 +1,33 @@
+{
+  "db_users": [],
+  "dba_users": [],
+  "external_tables": [],
+  "directories": [],
+  "current_privileges": [
+    "UNLIMITED TABLESPACE"
+  ],
+  "exploitable_procedures": [
+    "UTL_FILE",
+    "DBMS_JAVA",
+    "DBMS_SCHEDULER",
+    "DBMS_XMLGEN",
+    "UTL_HTTP",
+    "UTL_SMTP",
+    "DBMS_LDAP"
+  ],
+  "web_configs": [],
+  "other_schemas": [
+    {
+      "schema": "MDSYS",
+      "table": "SDO_NETWORK_USER_DATA"
+    },
+    {
+      "schema": "SYSMAN",
+      "table": "DB_USER_PREFERENCES"
+    },
+    {
+      "schema": "APEX_030200",
+      "table": "WWV_FLOW_EFFECTIVE_USERID_MAP"
+    }
+  ]
+}
