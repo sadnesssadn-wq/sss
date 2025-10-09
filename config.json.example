@@ -1,0 +1,11 @@
+{
+  "fofa": {
+    "email": "your_fofa_email@example.com",
+    "key": "your_fofa_api_key",
+    "comment": "FOFA API 配置 - 访问 https://fofa.info 获取"
+  },
+  "shodan": {
+    "api_key": "your_shodan_api_key",
+    "comment": "Shodan API 配置 - 访问 https://account.shodan.io 获取"
+  }
+}
