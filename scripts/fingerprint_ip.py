@@ -203,25 +203,50 @@ def build_hints(headers: Dict[str, str], title: Optional[str], snippet: str, cer
 def fingerprint_ip(ip: str, ports: List[int], timeout: int) -> Dict[str, Any]:
     result: Dict[str, Any] = {"ip": ip, "ports": ports, "results": {}}
     for port in ports:
-        is_https = (port == 443 or port == 8443)
-        headers_res = fetch_http_headers(ip, port, is_https, timeout)
-        title_res = fetch_http_title_and_snippet(ip, port, is_https, timeout)
+        # Port roles
+        is_https = (port in (443, 8443, 8729))
+        is_http = (port in (80,))
+
+        # Only do HTTP/HTTPS requests on typical web ports (80/443). For 8729, fetch only TLS cert.
+        if is_http or port == 443:
+            headers_res = fetch_http_headers(ip, port, is_https, timeout)
+            title_res = fetch_http_title_and_snippet(ip, port, is_https, timeout)
+        else:
+            headers_res = {"ok": False, "error": "skipped:non-http"}
+            title_res = {"ok": False, "error": "skipped:non-http"}
+
         cert_res = fetch_tls_cert(ip, port, timeout) if is_https else {"ok": False}
+
+        # Passive TCP peek for certain management ports
         tcp_peek_res: Dict[str, Any] = {"ok": False}
-        if port == 8291:
+        if port in (8291, 8728, 22, 23):
             tcp_peek_res = fetch_tcp_peek(ip, port, timeout)
 
         headers = headers_res.get("headers") if headers_res.get("ok") else {}
         title = title_res.get("title") if title_res.get("ok") else None
         snippet = title_res.get("snippet") if title_res.get("ok") else ""
         hints = build_hints(headers or {}, title, snippet or "", cert_res)
+        # Port-specific hints without sending protocol data
         if port == 8291:
-            # Winbox typical management port. Do NOT claim vendor unless evidence suggests it.
             hints.append("hint:port8291")
-            # If passive bytes show MikroTik string, add vendor hint.
+        if port == 8728:
+            hints.append("hint:port8728")
+        if port == 8729:
+            hints.append("hint:port8729")
+        if port == 22:
+            hints.append("hint:ssh")
+        if port == 23:
+            hints.append("hint:telnet")
+
+        # If passive bytes show MikroTik/router strings, add vendor hint.
+        if port in (8291, 8728, 22, 23):
             peek_ascii = (tcp_peek_res.get("ascii") or "").lower()
             if any(x in peek_ascii for x in ["mikrotik", "routeros", "winbox"]):
                 hints.append("vendor:MikroTik")
+            if peek_ascii.startswith("ssh-") or "ssh" in peek_ascii:
+                hints.append("banner:ssh")
+            if "login:" in peek_ascii or "user:" in peek_ascii:
+                hints.append("banner:login-prompt")
 
         result["results"][str(port)] = {
             "https": is_https,
