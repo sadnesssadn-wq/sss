@@ -6,6 +6,7 @@ import dataclasses
 import json
 import os
 import re
+import tldextract
 import sys
 from typing import Dict, List, Optional, Set, Tuple
 
@@ -146,15 +147,15 @@ def build_domain_query(domain: str) -> Tuple[str, str]:
 def extract_apex_domain(value: str) -> str:
     # Accept URL or hostname; strip scheme, path, and port
     v = value.strip()
-    v = re.sub(r"^https?://", "", v, flags=re.IGNORECASE)
+    v = re.sub(r"^[a-zA-Z][a-zA-Z0-9+.-]*://", "", v)  # generic scheme removal
     v = v.split("/")[0]
     v = v.split(":")[0]
-    # If it's already an apex, return; otherwise trim to last two labels conservatively
-    labels = [p for p in v.split(".") if p]
-    if len(labels) <= 2:
-        return v
-    # naive PSL-less approach: keep last two
-    return ".".join(labels[-2:])
+    # Use Public Suffix List to extract the registered domain
+    ext = tldextract.extract(v)
+    registered = getattr(ext, "registered_domain", "") or ".".join(
+        [ext.domain, ext.suffix]
+    ).strip(".")
+    return registered or v
 
 
 def parse_args(argv: List[str]) -> argparse.Namespace:
