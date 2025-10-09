@@ -36,12 +36,3 @@ ENV/
 # 操作系统
 .DS_Store
 Thumbs.db
-
-# 配置文件（包含 API 密钥）
-config.py
-
-# 资产收集输出文件
-assets_*.json
-assets_*.csv
-*.json
-*.csv

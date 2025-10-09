@@ -1,0 +1,81 @@
+{
+  "scan_time": "2025-10-09 07:19:54",
+  "target": "https://apilogistics.ems.com.vn:8080",
+  "vulnerabilities": [
+    {
+      "severity": "MEDIUM",
+      "title": "无限制用户注册",
+      "description": "注册功能无验证码或其他限制，可能被滥用",
+      "evidence": {
+        "endpoint": "/customer/register",
+        "test_user": "test_4678",
+        "status": 200
+      },
+      "timestamp": "07:20:06"
+    },
+    {
+      "severity": "CRITICAL",
+      "title": "密码重置功能可被滥用",
+      "description": "密码重置无需验证，可能导致账户接管",
+      "evidence": {
+        "endpoint": "/driver/reset-password",
+        "response": "{'verify_code': 'Mã xác thực không được để trống', 'new_password': 'Mật khẩu không được để trống', 'status': 400}"
+      },
+      "timestamp": "07:20:06"
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "缺少速率限制",
+      "description": "登录接口无速率限制，可进行暴力破解",
+      "evidence": {
+        "endpoint": "/customer/login",
+        "requests_sent": 50,
+        "successful": 50
+      },
+      "timestamp": "07:20:42"
+    }
+  ],
+  "findings": {
+    "critical": [
+      {
+        "severity": "CRITICAL",
+        "title": "密码重置功能可被滥用",
+        "description": "密码重置无需验证，可能导致账户接管",
+        "evidence": {
+          "endpoint": "/driver/reset-password",
+          "response": "{'verify_code': 'Mã xác thực không được để trống', 'new_password': 'Mật khẩu không được để trống', 'status': 400}"
+        },
+        "timestamp": "07:20:06"
+      }
+    ],
+    "high": [],
+    "medium": [
+      {
+        "severity": "MEDIUM",
+        "title": "无限制用户注册",
+        "description": "注册功能无验证码或其他限制，可能被滥用",
+        "evidence": {
+          "endpoint": "/customer/register",
+          "test_user": "test_4678",
+          "status": 200
+        },
+        "timestamp": "07:20:06"
+      },
+      {
+        "severity": "MEDIUM",
+        "title": "缺少速率限制",
+        "description": "登录接口无速率限制，可进行暴力破解",
+        "evidence": {
+          "endpoint": "/customer/login",
+          "requests_sent": 50,
+          "successful": 50
+        },
+        "timestamp": "07:20:42"
+      }
+    ],
+    "low": [],
+    "info": []
+  },
+  "tested_endpoints": 8,
+  "total_requests": 128
+}

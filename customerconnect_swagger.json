@@ -1,0 +1,2754 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "My API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Address/Search": {
+      "get": {
+        "tags": [
+          "Address"
+        ],
+        "parameters": [
+          {
+            "name": "AddressFull",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Address/SearchV2": {
+      "post": {
+        "tags": [
+          "Address"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAddressSearch"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAddressSearch"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestAddressSearch"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Address/SearchVNPOST": {
+      "post": {
+        "tags": [
+          "Address"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VNPOSTMapSearchRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VNPOSTMapSearchRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/VNPOSTMapSearchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListProvince": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListDistrict": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListCommune": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListCountryInternational": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListZipCodeInternational": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "parameters": [
+          {
+            "name": "CountryCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ProvinceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetListPostal": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetRoutePNS/{Poscode}": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "parameters": [
+          {
+            "name": "Poscode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetPostmanPNS": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "parameters": [
+          {
+            "name": "Poscode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "RouteCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PostmanID",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetFilterDomisticsMainService": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/CategoryEms/GetFilterDomisticsAddedServiceByMainService": {
+      "get": {
+        "tags": [
+          "CategoryEms"
+        ],
+        "parameters": [
+          {
+            "name": "MainService",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Email/SendMailInDelivery": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InDelivery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InDelivery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InDelivery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Email/SendMailSuccessDelivery": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuccessDelivery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuccessDelivery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuccessDelivery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Email/SendMailFailDelivery": {
+      "post": {
+        "tags": [
+          "Email"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FailDelivery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FailDelivery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/FailDelivery"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GD/CheckItemCodeEE": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "ItemCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/GD/GetOrderEE": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "ItemCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EmsEnterprise/GetMainDomesticDeliveryFee": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "MaTinhNhan",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaTinhTra",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaDichVuChinh",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MaKH",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PhanLoaiBuuPham",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IdLoaiHangHoa",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MaBangCuoc",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "KhoiLuong",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "KhoiLuongQuyDoi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaLoaiXe",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "KhoangCach",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SoLuong",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "NgayGui",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EmsEnterprise/GetAddedDomesticDeliveryFee": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "MaTinhNhan",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaTinhTra",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaDichVuGTGT",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MaDichVuChinh",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MaKH",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PhanLoaiBuuPham",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "IdLoaiHangHoa",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "MaBangCuoc",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "KhoiLuong",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "KhoiLuongQuyDoi",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaLoaiXe",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "KhoangCach",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SoLuong",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SoTien",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "NgayGui",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EmsEnterprise/GetKeyEncryptEE": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "VersionEE",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Date",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EmsEnterprise/LoginEE": {
+      "post": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEE"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEE"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginEE"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/EmsEnterprise/getVariables": {
+      "get": {
+        "tags": [
+          "EmsEnterprise"
+        ],
+        "parameters": [
+          {
+            "name": "PRIVATE-TOKEN",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "KEY",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ImageStorage/{fileName}": {
+      "get": {
+        "tags": [
+          "ImageStorage"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Report/Get": {
+      "post": {
+        "tags": [
+          "Report"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPortalReport"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPortalReport"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestPortalReport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/ShipmentCreate": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/InternationalShipmentCreate": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCreateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/ShipmentCancel": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCancelDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCancelDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShipmentCancelDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/TraceDelivery": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "dataCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/EstimatedFee": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "FromProvinceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ToProvinceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FromDistrictCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ToDistrictCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CustomerCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Weight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "COD",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Service",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/EstimatedDeliveryFeeInternationalByCustomer": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "CountryCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CustomerCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Weight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/GetDetailShipment": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "Date",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "OrderCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CustomerCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/EstimatedTime": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "FromProvinceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ToProvinceCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "FromDistrictCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ToDistrictCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/GetItemHQ": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/UpdateItemHQ/{IDKEY}": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "IDKEY",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/GenE1Auto": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoGenE1Request"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoGenE1Request"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AutoGenE1Request"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/CalcDomisticMainServiceFee": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "PostCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FromProvince",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ToProvince",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PostalDistrict",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PostalCommune",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Service",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CustomerCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ItemType",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "FareTableCode",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "RealityWeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "ConvertWeight",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "VehicalCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Distance",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Amount",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Date",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/CalcMainServiceFee": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcMainFee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcMainFee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcMainFee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/CalcDeliveryFee": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/Dev/CalcDeliveryFee": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/v577/CalcDeliveryFee": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcFee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/TransportCharge": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestChargeTransport"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestChargeTransport"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestChargeTransport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/CalcDomisticAddedServiceFee": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcAddedFee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcAddedFee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestCalcAddedFee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/GenLabel": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabelOrder"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabelOrder"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LabelOrder"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/Asedian/GenLabel": {
+      "post": {
+        "tags": [
+          "Shipment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenLabelAsedianCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenLabelAsedianCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenLabelAsedianCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/Getlabel/{fileName}": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "fileName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/CheckTicket": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Shipment/TrackAndTrace": {
+      "get": {
+        "tags": [
+          "Shipment"
+        ],
+        "parameters": [
+          {
+            "name": "ItemCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User_Customer/Registration": {
+      "post": {
+        "tags": [
+          "User_Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerRegisterDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerRegisterDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerRegisterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User_Customer/Login": {
+      "post": {
+        "tags": [
+          "User_Customer"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerLoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerLoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/User_CustomerLoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddedServiceDetail": {
+        "type": "object",
+        "properties": {
+          "AddedService": {
+            "type": "string",
+            "nullable": true
+          },
+          "AmountCOD": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AutoGenE1Request": {
+        "type": "object",
+        "properties": {
+          "CountryCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ProvinceCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "UnitCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "StartCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Amount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FailDelivery": {
+        "required": [
+          "EmailReceiver",
+          "FailReason",
+          "ItemCode",
+          "ReceiverName"
+        ],
+        "type": "object",
+        "properties": {
+          "EmailReceiver": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "ItemCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ReceiverName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "FailReason": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GenLabelAsedianCommand": {
+        "type": "object",
+        "properties": {
+          "TrackingCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "SenderInfor": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReceiverInfor": {
+            "type": "string",
+            "nullable": true
+          },
+          "Poscode": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxesMethod": {
+            "type": "string",
+            "nullable": true
+          },
+          "OrderCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReturnAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "ListItem": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ItemDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InDelivery": {
+        "required": [
+          "EmailReceiver",
+          "IsCod",
+          "ItemCode",
+          "ReceiverName",
+          "SenderName"
+        ],
+        "type": "object",
+        "properties": {
+          "EmailReceiver": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "ItemCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "SenderName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ReceiverName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "DeliveryTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsCod": {
+            "type": "boolean"
+          },
+          "AmountCod": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemDetail": {
+        "type": "object",
+        "properties": {
+          "ItemName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemWeight": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ItemPrice": {
+            "type": "string",
+            "nullable": true
+          },
+          "Currency": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ItemInfor": {
+        "required": [
+          "FromProvince",
+          "ToProvince"
+        ],
+        "type": "object",
+        "properties": {
+          "PostCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FromProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ToProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "FromPostalDistrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "FromPostalCommune": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalDistrict": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCommune": {
+            "type": "string",
+            "nullable": true
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "RealityWeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConvertWeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "VehicalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Distance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DateItem": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Lenght": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Nuoc_Tra": {
+            "type": "string",
+            "nullable": true
+          },
+          "CityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Phan_Loai_BP": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LabelOrder": {
+        "type": "object",
+        "properties": {
+          "Poscode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Sendingtime": {
+            "type": "string",
+            "nullable": true
+          },
+          "Trackingcode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Sendername": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReceiverName": {
+            "type": "string",
+            "nullable": true
+          },
+          "TotalAmount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReceiverPhone": {
+            "type": "string",
+            "nullable": true
+          },
+          "TotalFee": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ProductDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Weight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Service": {
+            "type": "string",
+            "nullable": true
+          },
+          "Note": {
+            "type": "string",
+            "nullable": true
+          },
+          "Ordercode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginEE": {
+        "type": "object",
+        "properties": {
+          "Id_Nguoi_Dung": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Ma_Bc_Khai_Thac": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ForeColor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BackColor": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BackColor1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "BackGround1": {
+            "type": "string",
+            "nullable": true
+          },
+          "BackGround2": {
+            "type": "string",
+            "nullable": true
+          },
+          "Phien_Ban": {
+            "type": "number",
+            "format": "double"
+          },
+          "Ngay_Sinh_Nhat": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "Ngay_Phien_Ban": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MainServiceDetail": {
+        "type": "object",
+        "properties": {
+          "Service": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TransportType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Ma_Phu_Phi": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParameterReportPortal": {
+        "type": "object",
+        "properties": {
+          "MaBcKt": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "MaTinhTra": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TuNgay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DenNgay": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestAddressSearch": {
+        "type": "object",
+        "properties": {
+          "AddressFull": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestCalcAddedFee": {
+        "required": [
+          "AddedService",
+          "FromProvince",
+          "MainService",
+          "ToProvince"
+        ],
+        "type": "object",
+        "properties": {
+          "FromProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ToProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AddedService": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "MainService": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "RealityWeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConvertWeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "VehicalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Distance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "AmountCOD": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Date": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CountryCode": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestCalcFee": {
+        "type": "object",
+        "properties": {
+          "ItemInfor": {
+            "$ref": "#/components/schemas/ItemInfor"
+          },
+          "MainServiceDetail": {
+            "$ref": "#/components/schemas/MainServiceDetail"
+          },
+          "AddedServiceDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AddedServiceDetail"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestCalcMainFee": {
+        "required": [
+          "FromProvince",
+          "PostalCommune",
+          "PostalDistrict",
+          "Service",
+          "ToProvince"
+        ],
+        "type": "object",
+        "properties": {
+          "PostCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "FromProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ToProvince": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PostalDistrict": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "PostalCommune": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "Service": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "TransportType": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "RealityWeight": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ConvertWeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "VehicalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Distance": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Amount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Date": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Lenght": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Nuoc_Tra": {
+            "type": "string",
+            "nullable": true
+          },
+          "Ma_Phu_Phi": {
+            "type": "string",
+            "nullable": true
+          },
+          "Phan_Loai_BP": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestChargeTransport": {
+        "type": "object",
+        "properties": {
+          "MainServiceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ValueAddedServiceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "SenderProvinceCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ReceiverProvinceCode": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ReceiverDistrictCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReceiverWardCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "ActualWeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "VolumetricWeight": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "CustomerCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "Quantity": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "GoodsValue": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "DeclaredAmount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "Length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CityCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "DestinationCountry": {
+            "type": "string",
+            "nullable": true
+          },
+          "SurchargeCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "PackageType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestPortalReport": {
+        "type": "object",
+        "properties": {
+          "CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "Data": {
+            "$ref": "#/components/schemas/ParameterReportPortal"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShipmentCancelDto": {
+        "type": "object",
+        "properties": {
+          "ORDER_CODE": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShipmentCreateDto": {
+        "type": "object",
+        "properties": {
+          "ORDER_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "TRACKING_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "CUSTOMER_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "STORE_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SENDER_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "SENDER_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "SENDER_PHONE": {
+            "type": "string",
+            "nullable": true
+          },
+          "SENDER_EMAIL": {
+            "type": "string",
+            "nullable": true
+          },
+          "SENDER_PROVINCE_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SENDER_DISTRICT_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SENDER_WARD_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SENDER_HAMLET_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SENDER_STREET": {
+            "type": "string",
+            "nullable": true
+          },
+          "SENDER_ADDRESS": {
+            "type": "string",
+            "nullable": true
+          },
+          "RECEIVER_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "RECEIVER_EMAIL": {
+            "type": "string",
+            "nullable": true
+          },
+          "RECEIVER_PHONE": {
+            "type": "string",
+            "nullable": true
+          },
+          "RECEIVER_PROVINCE_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RECEIVER_DISTRICT_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RECEIVER_WARD_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RECEIVER_HAMLET_ID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "RECEIVER_STREET": {
+            "type": "string",
+            "nullable": true
+          },
+          "RECEIVER_ADDRESS": {
+            "type": "string",
+            "nullable": true
+          },
+          "PRODUCT_QUANTITY": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PRODUCT_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "PRODUCT_DESCRIPTION": {
+            "type": "string",
+            "nullable": true
+          },
+          "STATUS": {
+            "type": "string",
+            "nullable": true
+          },
+          "TOTAL_AMOUNT": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "HEIGHT": {
+            "type": "string",
+            "nullable": true
+          },
+          "LENGTH": {
+            "type": "string",
+            "nullable": true
+          },
+          "WIDTH": {
+            "type": "string",
+            "nullable": true
+          },
+          "WEIGHT": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "SERVICE_TYPE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "CHANNEL": {
+            "type": "string",
+            "nullable": true
+          },
+          "PO_CREATE": {
+            "type": "string",
+            "nullable": true
+          },
+          "REF_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "FILE_NAME": {
+            "type": "string",
+            "nullable": true
+          },
+          "PRODUCT_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "SYSTEM_ID": {
+            "type": "string",
+            "nullable": true
+          },
+          "COD": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "PRODUCT_VALUE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "TO_COUNTRY": {
+            "type": "string",
+            "nullable": true
+          },
+          "TO_ZIPCODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "MASTER_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "ADDITION_SERVICE": {
+            "type": "string",
+            "nullable": true
+          },
+          "SPECIAL_SERVICE": {
+            "type": "string",
+            "nullable": true
+          },
+          "POSTAL_PROVINCE_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "POSTAL_DISTRICT_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "POSTAL_COMMUNE_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "POSTAL_CODE": {
+            "type": "string",
+            "nullable": true
+          },
+          "SERVICE_FEE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DISTANCE": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "REFERENCE_NUMBER": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SuccessDelivery": {
+        "required": [
+          "DeliverySuccessTime",
+          "EmailReceiver",
+          "ItemCode",
+          "ReceiverName"
+        ],
+        "type": "object",
+        "properties": {
+          "EmailReceiver": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "ItemCode": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "ReceiverName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "DeliverySuccessTime": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "User_CustomerLoginDto": {
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User_CustomerRegisterDto": {
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "nullable": true
+          },
+          "Password": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VNPOSTMapSearchRequest": {
+        "type": "object",
+        "properties": {
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "provinceCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "wardCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "territory": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inputText": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme.\r\n            Enter: 'Bearer' [space] and then your token in the text input below.\r\n            Example: 'Bearer token'",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

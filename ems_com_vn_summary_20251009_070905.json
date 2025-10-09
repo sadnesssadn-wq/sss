@@ -1,0 +1,17 @@
+{
+  "target": "ems.com.vn",
+  "timestamp": "2025-10-09 07:08:59",
+  "statistics": {
+    "total_assets": 0,
+    "unique_ips": 0,
+    "unique_ports": 0,
+    "subdomains_count": 0,
+    "services_count": 0,
+    "organizations_count": 0
+  },
+  "ip_addresses": [],
+  "ports": [],
+  "organizations": [],
+  "subdomains": [],
+  "services": []
+}

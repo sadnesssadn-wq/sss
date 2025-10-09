@@ -1,0 +1,747 @@
+{
+  "target": "https://apilogistics.ems.com.vn:8080/redoc/?format=openapi",
+  "timestamp": "2025-10-09 07:15:55",
+  "base_url": "https://apilogistics.ems.com.vn:8080",
+  "api_info": {
+    "title": "Snippets API",
+    "description": "Test description",
+    "version": "v1",
+    "contact": {
+      "email": "contact@snippets.local"
+    },
+    "license": {
+      "name": "BSD License"
+    }
+  },
+  "endpoints": [
+    {
+      "path": "/customer/info",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "customer"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/customer/login",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "customer"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/customer/order/create-single",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "customer"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "medium"
+    },
+    {
+      "path": "/customer/order/list",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "customer"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/customer/register",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "customer"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/device-token/delete",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/device-token/save",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/edit",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "medium"
+    },
+    {
+      "path": "/driver/get-user",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/location",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/login",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/reset-password",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/token/refresh",
+      "method": "POST",
+      "summary": "",
+      "description": "Takes a refresh type JSON web token and returns an access type JSON web\ntoken if the refresh token is valid.",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/verify/check",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/driver/verify/send",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "driver"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/faq/create",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "faq"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "medium"
+    },
+    {
+      "path": "/faq/get-faq",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "faq"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/faq/get-list-faq",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "faq"
+      ],
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "limit"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "offset"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/notification/badge",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "notification"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/notification/list",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "notification"
+      ],
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "limit"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "offset"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/notification/read",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "notification"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/order/detail",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/order/get-all-status",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/order/get-status",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [
+        {
+          "name": "shipment_id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "shipment_id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/order/list-license",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        },
+        {
+          "name": "order_departure_id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "order_departure_id"
+        },
+        {
+          "name": "order_destination_id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "order_destination_id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/order/update-status",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "medium"
+    },
+    {
+      "path": "/order/upload-license",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "order"
+      ],
+      "parameters": [
+        {
+          "name": "data",
+          "in": "body",
+          "required": true,
+          "type": "unknown",
+          "description": ""
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/shipment/detail",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/shipment/get-all-status",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/shipment/get-status",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/shipment/list",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [
+        {
+          "name": "limit",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "limit"
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "offset"
+        },
+        {
+          "name": "from_time",
+          "in": "query",
+          "required": true,
+          "type": "date",
+          "description": "from_time"
+        },
+        {
+          "name": "to_time",
+          "in": "query",
+          "required": true,
+          "type": "date",
+          "description": "to_time"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/shipment/list-license",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "type": "integer",
+          "description": "id"
+        }
+      ],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    },
+    {
+      "path": "/shipment/upload-license",
+      "method": "POST",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "shipment"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "high"
+    },
+    {
+      "path": "/terms-url",
+      "method": "GET",
+      "summary": "",
+      "description": "",
+      "tags": [
+        "terms-url"
+      ],
+      "parameters": [],
+      "security": [],
+      "deprecated": false,
+      "risk_level": "low"
+    }
+  ],
+  "security_issues": [
+    {
+      "severity": "HIGH",
+      "title": "敏感端点未要求认证",
+      "description": "发现 18 个敏感端点未要求认证",
+      "endpoints": [
+        "POST /customer/login",
+        "POST /customer/order/create-single",
+        "POST /customer/register",
+        "POST /driver/device-token/delete",
+        "POST /driver/device-token/save",
+        "POST /driver/edit",
+        "GET /driver/get-user",
+        "POST /driver/location",
+        "POST /driver/login",
+        "POST /driver/reset-password"
+      ]
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Swagger UI 公开暴露",
+      "description": "API 文档对外公开，泄露了完整的 API 结构和业务逻辑"
+    }
+  ],
+  "statistics": {
+    "total_endpoints": 34,
+    "methods": {
+      "GET": 17,
+      "POST": 17
+    },
+    "risk_levels": {
+      "high": 14,
+      "medium": 4,
+      "low": 16
+    },
+    "tags": {
+      "customer": 5,
+      "driver": 10,
+      "faq": 3,
+      "notification": 3,
+      "order": 6,
+      "shipment": 6,
+      "terms-url": 1
+    },
+    "security_issues": 2
+  }
+}
