@@ -1,0 +1,124 @@
+======================================================================
+Swagger API 分析报告
+======================================================================
+目标: https://apilogistics.ems.com.vn:8080/redoc/?format=openapi
+时间: 2025-10-09 07:15:55
+API: Snippets API vv1
+======================================================================
+
+## 统计信息
+总端点数: 34
+高风险端点: 14
+中风险端点: 4
+低风险端点: 16
+安全问题: 2
+
+## HTTP 方法分布
+  GET: 17
+  POST: 17
+
+## 安全问题
+
+[HIGH] 敏感端点未要求认证
+描述: 发现 18 个敏感端点未要求认证
+相关端点:
+  - POST /customer/login
+  - POST /customer/order/create-single
+  - POST /customer/register
+  - POST /driver/device-token/delete
+  - POST /driver/device-token/save
+  - POST /driver/edit
+  - GET /driver/get-user
+  - POST /driver/location
+  - POST /driver/login
+  - POST /driver/reset-password
+
+[MEDIUM] Swagger UI 公开暴露
+描述: API 文档对外公开，泄露了完整的 API 结构和业务逻辑
+
+## 高风险端点
+
+POST /customer/login
+  参数:
+    - data (body) (必需)
+
+POST /customer/register
+  参数:
+    - data (body) (必需)
+
+POST /driver/device-token/delete
+
+POST /driver/device-token/save
+
+GET /driver/get-user
+
+POST /driver/location
+  参数:
+    - data (body) (必需)
+
+POST /driver/login
+  参数:
+    - data (body) (必需)
+
+POST /driver/reset-password
+  参数:
+    - data (body) (必需)
+
+POST /driver/token/refresh
+  参数:
+    - data (body) (必需)
+
+POST /driver/verify/check
+  参数:
+    - data (body) (必需)
+
+POST /driver/verify/send
+  参数:
+    - data (body) (必需)
+
+POST /notification/read
+  参数:
+    - data (body) (必需)
+
+POST /order/upload-license
+  参数:
+    - data (body) (必需)
+
+POST /shipment/upload-license
+
+
+## 完整端点列表
+[LOW]      GET     /customer/info
+[HIGH]     POST    /customer/login
+[MEDIUM]   POST    /customer/order/create-single
+[LOW]      GET     /customer/order/list
+[HIGH]     POST    /customer/register
+[HIGH]     POST    /driver/device-token/delete
+[HIGH]     POST    /driver/device-token/save
+[MEDIUM]   POST    /driver/edit
+[HIGH]     GET     /driver/get-user
+[HIGH]     POST    /driver/location
+[HIGH]     POST    /driver/login
+[HIGH]     POST    /driver/reset-password
+[HIGH]     POST    /driver/token/refresh
+[HIGH]     POST    /driver/verify/check
+[HIGH]     POST    /driver/verify/send
+[MEDIUM]   POST    /faq/create
+[LOW]      GET     /faq/get-faq
+[LOW]      GET     /faq/get-list-faq
+[LOW]      GET     /notification/badge
+[LOW]      GET     /notification/list
+[HIGH]     POST    /notification/read
+[LOW]      GET     /order/detail
+[LOW]      GET     /order/get-all-status
+[LOW]      GET     /order/get-status
+[LOW]      GET     /order/list-license
+[MEDIUM]   POST    /order/update-status
+[HIGH]     POST    /order/upload-license
+[LOW]      GET     /shipment/detail
+[LOW]      GET     /shipment/get-all-status
+[LOW]      GET     /shipment/get-status
+[LOW]      GET     /shipment/list
+[LOW]      GET     /shipment/list-license
+[HIGH]     POST    /shipment/upload-license
+[LOW]      GET     /terms-url
