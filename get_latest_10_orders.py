@@ -56,7 +56,8 @@ def get_latest_orders(count=10):
     # 关键字段（精简版，减少查询次数）
     fields = [
         ('RECEIVER_NAME', '收件人'),
-        ('RECEIVER_PHONE', '电话'),
+        ('RECEIVER_PHONE', '收件电话(脱敏)'),
+        ('SENDER_PHONE', '寄件电话(完整)'),
         ('PRODUCT_NAME', '产品'),
         ('TOTAL_AMOUNT', '金额'),
         ('WEIGHT', '重量'),
