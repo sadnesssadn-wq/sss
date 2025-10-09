@@ -1,0 +1,158 @@
+{
+  "target": "https://customerconnect.ems.com.vn/",
+  "final_url": "https://customerconnect.ems.com.vn/",
+  "status": 404,
+  "redirect_chain": [
+    "https://customerconnect.ems.com.vn/"
+  ],
+  "tls": {
+    "ok": true,
+    "hostname": "customerconnect.ems.com.vn",
+    "port": 443,
+    "protocol": "TLSv1.3",
+    "cipher": [
+      "TLS_AES_256_GCM_SHA384",
+      "TLSv1.3",
+      256
+    ],
+    "cert_subject": [
+      [
+        [
+          "commonName",
+          "ems.com.vn"
+        ]
+      ]
+    ],
+    "issuer": [
+      [
+        [
+          "countryName",
+          "US"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "Google Trust Services"
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "WE1"
+        ]
+      ]
+    ],
+    "not_before": "Sep 14 19:11:47 2025 GMT",
+    "not_after": "Dec 13 19:21:51 2025 GMT",
+    "days_to_expiry": 65,
+    "san": [
+      {
+        "type": "DNS",
+        "value": "ems.com.vn"
+      },
+      {
+        "type": "DNS",
+        "value": "*.ems.com.vn"
+      }
+    ]
+  },
+  "headers": {
+    "date": "Thu, 09 Oct 2025 08:40:14 GMT",
+    "transfer-encoding": "chunked",
+    "connection": "keep-alive",
+    "server": "cloudflare",
+    "x-powered-by": "ASP.NET",
+    "cf-cache-status": "DYNAMIC",
+    "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=84MEghJcGTdsD2ZaTrRU7PwzMmyA%2BXAjIShV99SmAWfNbiomnxzGpOtR90lD7Vqf%2B989CZhe70QR6VAXtkPn7bfMoj95hKfyOoBKojsOPX9vgg0Fyvy6%2Fil9\"}]}",
+    "cf-ray": "98bc92740f890827-IAD",
+    "alt-svc": "h3=\":443\"; ma=86400"
+  },
+  "findings": [
+    {
+      "check": "HSTS",
+      "passed": false,
+      "severity": "high",
+      "detail": "missing",
+      "recommendation": "Add Strict-Transport-Security with long max-age and includeSubDomains"
+    },
+    {
+      "check": "CSP",
+      "passed": false,
+      "severity": "high",
+      "detail": "missing",
+      "recommendation": "Add Content-Security-Policy with default-src 'none' + explicit allowlists"
+    },
+    {
+      "check": "X-Frame-Options",
+      "passed": false,
+      "severity": "medium",
+      "detail": "None",
+      "recommendation": "Set X-Frame-Options to DENY or SAMEORIGIN"
+    },
+    {
+      "check": "X-Content-Type-Options",
+      "passed": false,
+      "severity": "medium",
+      "detail": "None",
+      "recommendation": "Set X-Content-Type-Options: nosniff"
+    },
+    {
+      "check": "Referrer-Policy",
+      "passed": false,
+      "severity": "low",
+      "detail": "None",
+      "recommendation": "Set Referrer-Policy to strict-origin-when-cross-origin or no-referrer"
+    },
+    {
+      "check": "Permissions-Policy",
+      "passed": false,
+      "severity": "low",
+      "detail": "None",
+      "recommendation": "Set Permissions-Policy to limit powerful APIs"
+    },
+    {
+      "check": "COOP",
+      "passed": false,
+      "severity": "low",
+      "detail": "None",
+      "recommendation": "Set Cross-Origin-Opener-Policy: same-origin"
+    },
+    {
+      "check": "COEP",
+      "passed": false,
+      "severity": "low",
+      "detail": "None",
+      "recommendation": "Set COEP: require-corp or credentialless if feasible"
+    },
+    {
+      "check": "CORP",
+      "passed": false,
+      "severity": "low",
+      "detail": "None",
+      "recommendation": "Consider Cross-Origin-Resource-Policy: same-site for private apps"
+    },
+    {
+      "check": "CORS",
+      "passed": true,
+      "severity": "low",
+      "detail": "no ACAO header (safe default)",
+      "recommendation": null
+    },
+    {
+      "check": "Cache-Control",
+      "passed": false,
+      "severity": "low",
+      "detail": "missing",
+      "recommendation": "Set Cache-Control; disable caching for authenticated pages"
+    },
+    {
+      "check": "Cookies",
+      "passed": true,
+      "severity": "low",
+      "detail": "no Set-Cookie in this response",
+      "recommendation": null
+    }
+  ]
+}
