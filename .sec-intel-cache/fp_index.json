@@ -1,10 +1,12 @@
 {
   "targets": [
     {
-      "ip": "127.0.0.1",
-      "maybeRouter": false,
-      "likelyVendors": [],
-      "out": "/workspace/.sec-intel-cache/fp_127.0.0.1.json"
+      "ip": "203.189.136.83",
+      "maybeRouter": true,
+      "likelyVendors": [
+        "MikroTik"
+      ],
+      "out": "/workspace/.sec-intel-cache/fp_203.189.136.83.json"
     }
   ]
 }

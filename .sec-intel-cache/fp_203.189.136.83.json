@@ -1,0 +1,67 @@
+{
+  "ip": "203.189.136.83",
+  "ports": [
+    80,
+    443,
+    8291
+  ],
+  "results": {
+    "80": {
+      "https": false,
+      "headers": {
+        "connection": "close",
+        "content-length": "7066",
+        "content-type": "text/html",
+        "date": "Thu, 09 Oct 2025 11:53:39 GMT",
+        "expires": "0"
+      },
+      "status": 200,
+      "title": "RouterOS router configuration page",
+      "tls": null,
+      "tcpPeek": null,
+      "hints": [
+        "vendor:MikroTik",
+        "keyword:router",
+        "keyword:routeros"
+      ],
+      "error_head": null,
+      "error_get": null
+    },
+    "443": {
+      "https": true,
+      "headers": {},
+      "status": null,
+      "title": null,
+      "tls": {
+        "ok": false,
+        "error": "[Errno 111] Connection refused"
+      },
+      "tcpPeek": null,
+      "hints": [],
+      "error_head": "[Errno 111] Connection refused",
+      "error_get": "[Errno 111] Connection refused"
+    },
+    "8291": {
+      "https": false,
+      "headers": {},
+      "status": null,
+      "title": null,
+      "tls": null,
+      "tcpPeek": {
+        "ok": true,
+        "bytes": 0,
+        "hex": "",
+        "ascii": ""
+      },
+      "hints": [
+        "hint:port8291"
+      ],
+      "error_head": "timed out",
+      "error_get": "timed out"
+    }
+  },
+  "likelyVendors": [
+    "MikroTik"
+  ],
+  "maybeRouter": true
+}
