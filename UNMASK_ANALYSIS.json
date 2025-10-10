@@ -1,0 +1,22 @@
+{
+  "login_systems": [],
+  "decrypt_functions": [
+    "DECRYPT_PNS",
+    "DECRYPTDATAWITHXOR"
+  ],
+  "encryption_keys": [
+    {
+      "id_key": "2",
+      "key_value": "1910"
+    }
+  ],
+  "privilege_roles": [],
+  "raw_data_tables": [],
+  "api_endpoints": [
+    "PushDeliveryToPartner",
+    "PushDeliveryToPartner",
+    "PushDeliveryToPartner",
+    "PushDeliveryToPartner",
+    "PushDeliveryToPartner"
+  ]
+}
