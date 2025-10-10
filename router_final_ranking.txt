@@ -1,0 +1,210 @@
+═══════════════════════════════════════════════════════════════
+            路由器设备完整排名（包含所有型号和品牌）
+═══════════════════════════════════════════════════════════════
+
+【总计】75,779 台路由器
+
+═══════════════════════════════════════════════════════════════
+                    完整排名 Top 100
+═══════════════════════════════════════════════════════════════
+
+排名    设备名称                                          数量
+────────────────────────────────────────────────────────────────
+1      中兴 ZTE H8102E                                   48,036
+2      MikroTik 路由器                                   16,773
+3      中兴 ZTE ZXHN H198A                               5,215
+4      思科 Cisco router telnetd                         4,945
+5      中兴 ZTE F6201B                                    3,413
+6      中兴 ZTE F6600                                     2,305
+7      中兴 ZTE H6645P V2                                 1,978
+8      中兴 ZTE F612                                      1,108
+9      思科 Cisco IOS http config                         1,096
+10     中兴 ZTE F688                                        909
+11     锐捷 Ruijie Networks                                 889
+12     中兴 ZTE H3601P                                      710
+13     中兴 ZTE web server 1.0 (2015)                       456
+14     中兴 ZTE F670 router telnetd                         412
+15     思科 Cisco telnetd                                   352
+16     DrayTek Vigor Router                                 338
+17     中兴 ZTE F6645P                                      246
+18     Linksys WRT45G modified dropbear sshd                238
+19     中兴 ZTE F660 router telnetd                         209
+20     MPR-L8 3G mobile router telnetd                      188
+
+21     中兴 ZTE F107A                                       167
+22     中兴 ZTE F620 router telnetd                         163
+23     华硕 ASUS Wireless Router GT-AX11000                145
+24     华硕 ASUS Wireless Router RT-AX58U                  143
+25     华硕 ASUS Wireless Router RT-AX86U                  137
+26     Realtek RTL8671 EV-2010-09-20                       128
+27     华硕 ASUS Wireless Router RT-AC86U                  128
+28     华硕 ASUS Wireless Router（通用）                   127
+29     华硕 ASUS Wireless Router RT-AX82U                  126
+30     华硕 ASUS Wireless Router RT-AX88U                  117
+
+31     华硕 ASUS Wireless Router TUF-AX5400                113
+32     华硕 ASUS Wireless Router RT-AX3000                 107
+33     DrayTek Vigor2925 Series                            105
+34     DrayTek Vigor2926 Series                             99
+35     华硕 ASUS Wireless Router RT-AC68U                   97
+36     华硕 ASUS Wireless Router RT-AC1200G+                92
+37     华硕 ASUS Wireless Router RT-AX89X                   84
+38     Ubiquiti AirRouter                                   83
+39     华硕 ASUS Wireless Router ZenWiFi AX                 82
+40     DrayTek Vigor2962                                    82
+
+41     DrayTek Vigor2927 Series                             79
+42     MikroTik RouterBoard 250GS httpd                     77
+43     华硕 ASUS Wireless Router RT-AC5300                  76
+44     华硕 ASUS Wireless Router RT-AX55                    76
+45     DrayTek Vigor3910                                    76
+46     Linksys wireless-G WAP http config                   73
+47     中兴 ZTE F612 router telnetd                         73
+48     华硕 ASUS Wireless Router GT-AC5300                  70
+49     华硕 ASUS Wireless Router GT-AX6000                  70
+50     DrayTek Vigor2915 Series                             70
+
+51     华硕 ASUS Wireless Router TUF-AX3000                 69
+52     华硕 ASUS Wireless Router GT-AX11000 Pro             68
+53     Realtek RTL8xxx EV-2010-09-20                        67
+54     华硕 ASUS Wireless Router RT-AC88U                   65
+55     D-Link DSL-2640B ADSL router telnetd                 62
+56     思科 Cisco IOS telnetd                               47
+57     DrayTek Vigor300B                                    47
+58     中兴 ZTE ZXHN H298A                                  45
+59     思科 Cisco router daytime                            44
+60     华硕 ASUS Wireless Router RT-AC1300UHP               43
+
+61     DrayTek Vigor3900 Series                             42
+62     华硕 ASUS Wireless Router RT-AX53U                   41
+63     华硕 ASUS Wireless Router ZenWiFi Pro XT12           41
+64     华硕 ASUS Wireless Router RT-AX68U                   36
+65     华硕 ASUS Wireless Router RT-AC66U B1                35
+66     小米 Xiaomi IoT                                      35
+67     Apple AirPort                                        34
+68     华硕 ASUS Wireless Router RT-AX86S                   34
+69     华硕 ASUS Wireless Router RT-AX86U Pro               32
+70     华硕 ASUS Wireless Router RT-AX57                    31
+
+71     DrayTek Vigor2960 Series                             30
+72     华硕 ASUS Wireless Router TUF GAMING AX4200          30
+73     华硕 ASUS Wireless Router RT-BE88U                   29
+74     华硕 ASUS Wireless Router RT-N12HP_B1                27
+75     华硕 ASUS Wireless Router RT-AX92U                   26
+76     中兴 ZTE F680 router telnetd                         25
+77     DrayTek Vigor2760 Series                             25
+78     DrayTek Vigor3220 Series                             25
+79     中兴 ZTE F600W router telnetd                        24
+80     爱快 iKuai                                           23
+
+81     华硕 ASUS Wireless Router RT-AC55UHP                 23
+82     华硕 ASUS Wireless Router GT-AC2900                  22
+83     OneAccess ONE100A router telnetd                     22
+84     DrayTek Vigor2860 Series                             22
+85     华硕 ASUS Wireless Router BRT-AC828                  21
+86     网件 NETGEAR JWNR2010v5                              20
+87     D-Link 524/DIR-300/WBR-1310 WAP telnetd              20
+88     华硕 ASUS Wireless Router ZenWiFi AX Mini            19
+89     华硕 ASUS Wireless Router TUF GAMING AX6000          18
+90     DrayTek Vigor 2820 ADSL router ftpd                  17
+
+91     华硕 ASUS Wireless Router GT-BE98                    15
+92     华硕 ASUS Wireless Router RT-AC87U                   15
+93     DrayTek Vigor2952 Series                             15
+94     中兴 ZTE F660 V2.0                                   15
+95     华硕 ASUS Wireless Router RT-BE92U                   13
+96     华硕 ASUS Wireless Router RT-N18U                    13
+97     华硕 ASUS Wireless Router RT-AC1500UHP               12
+98     YAMAHA RT Series                                     12
+99     华硕 ASUS Wireless Router GT-AXE11000                11
+100    华硕 ASUS Wireless Router RT-AC67U                   10
+
+... 还有约 83 个型号（每个1-9台）
+
+
+═══════════════════════════════════════════════════════════════
+                    按品牌汇总（简化版）
+═══════════════════════════════════════════════════════════════
+
+排名    品牌                        总数量        市场占比
+────────────────────────────────────────────────────────────────
+1      中兴 ZTE                     64,618        85.26%  █████████████████████
+2      MikroTik                     16,850        22.23%  ████████
+3      思科 Cisco                    6,437         8.49%  ████
+4      华硕 ASUS                     2,347         3.10%  ██
+5      DrayTek Vigor                1,072         1.41%  █
+6      锐捷 Ruijie                     889         1.17%  █
+7      Linksys                        317         0.42%  █
+8      Realtek                        195         0.26%  █
+9      MPR-L8                         188         0.25%  █
+10     Ubiquiti                        83         0.11%  █
+11     D-Link                         ~82         0.11%  █
+12     小米 Xiaomi                     35         0.05%  █
+13     Apple                           34         0.04%  █
+14     网件 NETGEAR                    29         0.04%  █
+15     爱快 iKuai                      23         0.03%  █
+16     OneAccess                       22         0.03%  █
+17     YAMAHA                          12         0.02%  █
+18     TP-LINK                          9         0.01%  █
+19     其他品牌                       ~100         0.13%  █
+
+────────────────────────────────────────────────────────────────
+总计                              75,779       100.00%
+════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════
+                    数量级别分类
+═══════════════════════════════════════════════════════════════
+
+【超大型 - 1万台以上】 2个
+  - 中兴 ZTE H8102E: 48,036
+  - MikroTik: 16,773
+
+【大型 - 1千到1万台】 8个
+  - 中兴 ZTE ZXHN H198A: 5,215
+  - 思科 router telnetd: 4,945
+  - 中兴 ZTE F6201B: 3,413
+  - 中兴 ZTE F6600: 2,305
+  - 中兴 ZTE H6645P V2: 1,978
+  - 中兴 ZTE F612: 1,108
+  - 思科 Cisco IOS: 1,096
+
+【中型 - 100到1千台】 20+个
+  - 包括大部分华硕高端型号
+  - DrayTek系列
+  - 部分中兴型号
+
+【小型 - 10到100台】 50+个
+  - 华硕中端型号
+  - 各种小众品牌
+
+【微型 - 10台以下】 100+个
+  - 华硕低端型号
+  - 其他品牌
+
+
+═══════════════════════════════════════════════════════════════
+                    关键数据总结
+═══════════════════════════════════════════════════════════════
+
+🏆 数量最多的单一型号：
+   中兴 ZTE H8102E - 48,036 台（占总数 63.4%）
+
+🏆 数量最多的品牌：
+   中兴 ZTE - 64,618 台（占总数 85.3%）
+
+🏆 型号最多的品牌：
+   华硕 ASUS - 70+ 个不同型号
+
+🏆 最流行的家用路由器：
+   华硕 ASUS GT-AX11000 - 145 台
+
+🏆 最流行的企业路由器：
+   MikroTik - 16,773 台
+
+📊 前10名占比：92.5%
+📊 前5名占比：87.2%
+📊 前3名占比：85.7%
+
+═══════════════════════════════════════════════════════════════
