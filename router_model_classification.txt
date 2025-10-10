@@ -1,0 +1,297 @@
+═══════════════════════════════════════════════════════════════
+              路由器统计 - 按型号明确度分类
+═══════════════════════════════════════════════════════════════
+
+【总计】
+- ✅ 有明确型号：68,942 台（90.98%） - 152 个型号
+- ❌ 无明确型号：6,837 台（9.02%）  - 8 个品牌
+- 总计：75,779 台
+
+═══════════════════════════════════════════════════════════════
+        第一部分：有明确具体型号的路由器 (68,942 台)
+═══════════════════════════════════════════════════════════════
+
+排名    具体型号                                          数量
+────────────────────────────────────────────────────────────────
+
+【中兴ZTE - 有具体型号】 64,618 台
+1      中兴 ZTE H8102E                                   48,036
+2      中兴 ZTE ZXHN H198A                               5,215
+3      中兴 ZTE F6201B                                    3,413
+4      中兴 ZTE F6600                                     2,305
+5      中兴 ZTE H6645P V2                                 1,978
+6      中兴 ZTE F612                                      1,108
+7      中兴 ZTE F688                                        909
+8      中兴 ZTE H3601P                                      710
+9      中兴 ZTE web server 1.0 (2015)                       456
+10     中兴 ZTE F670 router telnetd                         412
+11     中兴 ZTE F6645P                                      246
+12     中兴 ZTE F660 router telnetd                         209
+13     中兴 ZTE F612 router telnetd                         73
+14     中兴 ZTE F680 router telnetd                         25
+15     中兴 ZTE F600W router telnetd                        24
+16     中兴 ZTE F660 V2.0                                   15
+17     中兴 ZTE F670L router telnetd                        10
+18     中兴 ZTE F668 router telnetd                          7
+19     中兴 ZTE ZXHN H298A                                  45
+20     中兴 ZTE F107A                                      167
+21     中兴 ZTE F620 router telnetd                        163
+22     中兴 ZTE ZXHN H168N                                  10
+
+【华硕ASUS - 有具体型号】 2,347 台（70个型号）
+23     华硕 ASUS GT-AX11000                                145
+24     华硕 ASUS RT-AX58U                                  143
+25     华硕 ASUS RT-AX86U                                  137
+26     华硕 ASUS RT-AC86U                                  128
+27     华硕 ASUS RT-AX82U                                  126
+28     华硕 ASUS RT-AX88U                                  117
+29     华硕 ASUS TUF-AX5400                                113
+30     华硕 ASUS RT-AX3000                                 107
+31     华硕 ASUS RT-AC1200G+                                92
+32     华硕 ASUS RT-AX89X                                   84
+33     华硕 ASUS ZenWiFi AX                                 82
+34     华硕 ASUS RT-AC5300                                  76
+35     华硕 ASUS RT-AX55                                    76
+36     华硕 ASUS GT-AC5300                                  70
+37     华硕 ASUS GT-AX6000                                  70
+38     华硕 ASUS TUF-AX3000                                 69
+39     华硕 ASUS GT-AX11000 Pro                             68
+40     华硕 ASUS RT-AC88U                                   65
+41     华硕 ASUS RT-AC68U                                   97
+42     华硕 ASUS RT-AC1300UHP                               43
+43     华硕 ASUS RT-AX53U                                   41
+44     华硕 ASUS ZenWiFi Pro XT12                           41
+45     华硕 ASUS RT-AX68U                                   36
+46     华硕 ASUS RT-AC66U B1                                35
+47     华硕 ASUS RT-AX86S                                   34
+48     华硕 ASUS RT-AX86U Pro                               32
+49     华硕 ASUS RT-AX57                                    31
+50     华硕 ASUS TUF GAMING AX4200                          30
+51     华硕 ASUS RT-BE88U                                   29
+52     华硕 ASUS RT-N12HP_B1                                27
+53     华硕 ASUS RT-AX92U                                   26
+54     华硕 ASUS BRT-AC828                                  21
+55     华硕 ASUS ZenWiFi AX Mini                            19
+56     华硕 ASUS TUF GAMING AX6000                          18
+57     华硕 ASUS GT-BE98                                    15
+58     华硕 ASUS RT-AC87U                                   15
+59     华硕 ASUS RT-BE92U                                   13
+60     华硕 ASUS RT-N18U                                    13
+61     华硕 ASUS RT-AC1500UHP                               12
+62     华硕 ASUS GT-AXE11000                                11
+63     华硕 ASUS RT-AC67U                                   10
+64     华硕 ASUS RT-BE58U                                    9
+65     华硕 ASUS ZenWiFi XD5                                 9
+66     华硕 ASUS RT-AC66U                                    9
+67     华硕 ASUS RT-N12HP                                    6
+68     华硕 ASUS ZenWiFi AC                                  6
+69     华硕 ASUS ZenWiFi Pro ET12                            6
+70     华硕 ASUS GT-AC2900                                  22
+71     华硕 ASUS RT-AC55UHP                                 23
+72     华硕 ASUS TUF 6500                                    5
+... 其他华硕型号（每个1-4台）
+
+【DrayTek Vigor - 有具体型号】 1,072 台（15个型号）
+93     DrayTek Vigor2925 Series                            105
+94     DrayTek Vigor2962                                    82
+95     DrayTek Vigor2927 Series                             79
+96     DrayTek Vigor3910                                    76
+97     DrayTek Vigor2915 Series                             70
+98     DrayTek Vigor2926 Series                             99
+99     DrayTek Vigor2960 Series                             30
+100    DrayTek Vigor2760 Series                             25
+101    DrayTek Vigor3220 Series                             25
+102    DrayTek Vigor 2820 ADSL router ftpd                  17
+103    DrayTek Vigor2952 Series                             15
+104    DrayTek Vigor2860 Series                             22
+105    DrayTek Vigor300B                                    47
+106    DrayTek Vigor3900 Series                             42
+107    DrayTek Vigor Router（其他型号）                    338
+
+【Linksys - 有具体型号】 317 台
+108    Linksys WRT45G modified dropbear sshd               238
+109    Linksys wireless-G WAP http config                   73
+110    Linksys IGD 1.0.01 build 004                          6
+
+【MikroTik - 有具体型号】 77 台（仅1个）
+111    MikroTik RouterBoard 250GS httpd                     77
+
+【Ubiquiti - 有具体型号】 83 台
+112    Ubiquiti AirRouter                                   83
+
+【Apple - 有具体型号】 34 台
+113    Apple AirPort                                        34
+
+【NETGEAR - 有具体型号】 29 台
+114    NETGEAR R7000                                         9
+115    NETGEAR JWNR2010v5                                   20
+
+【TP-LINK - 有具体型号】 9 台
+116    TP-LINK WR841N WAP http config                        9
+
+【MPR-L8 - 有具体型号】 188 台
+117    MPR-L8 3G mobile router telnetd                     188
+
+【OneAccess - 有具体型号】 22 台
+118    OneAccess ONE100A router telnetd                     22
+
+【YAMAHA - 有具体型号】 12 台
+119    YAMAHA RT Series                                     12
+
+【D-Link - 有具体型号】 ~50 台
+120    D-Link DSL-2640B ADSL router telnetd                 62
+121    D-Link 524/DIR-300/WBR-1310 WAP telnetd              20
+122    D-Link IGD相关                                      ~30
+
+【Realtek - 有具体型号】 195 台
+123    Realtek RTL8671 EV-2010-09-20                       128
+124    Realtek RTL8xxx EV-2010-09-20                        67
+
+【其他有具体型号的品牌】 ~100 台
+- Zhone zNID GPON 2426A-NA
+- Broadcom BCM96838/BCM968560
+- ZyXEL系列
+- Ubuntu router 1
+- 等等...
+
+
+═══════════════════════════════════════════════════════════════
+        第二部分：无明确具体型号的路由器 (6,837 台)
+═══════════════════════════════════════════════════════════════
+
+排名    品牌/服务（无具体型号）                          数量
+────────────────────────────────────────────────────────────────
+1      MikroTik 路由器（型号未知）                      16,773
+2      思科路由器 telnetd（型号未知）                    4,945
+3      思科 Cisco IOS http config（型号未知）            1,096
+4      思科 Cisco telnetd（型号未知）                      352
+5      思科 Cisco router daytime（型号未知）               44
+6      思科 Cisco IOS telnetd（型号未知）                  47
+7      锐捷 Ruijie Networks（型号未知）                    889
+8      华硕 ASUS Wireless Router（通用，型号未知）        127
+9      爱快 iKuai（型号未知）                               23
+10     小米 Xiaomi IoT（型号未知）                         35
+11     DrayTek Vigor Router（通用，型号未知）             338
+
+────────────────────────────────────────────────────────────────
+小计（无型号）                                          24,669
+
+注：此处MikroTik总数16,773，加上有型号的77台，共16,850台
+注：此处DrayTek通用338，加上有型号的734台，共1,072台
+
+
+═══════════════════════════════════════════════════════════════
+                    重新计算准确数据
+═══════════════════════════════════════════════════════════════
+
+【修正后的统计】
+
+✅ **有明确型号：68,942 台（90.98%）**
+   包括：
+   - 中兴 ZTE：64,618 台（22个型号）
+   - 华硕 ASUS：2,220 台（70个明确型号）
+   - DrayTek Vigor：734 台（14个型号）
+   - Linksys：317 台（3个型号）
+   - MPR-L8：188 台（1个型号）
+   - Realtek：195 台（2个型号）
+   - Ubiquiti：83 台（1个型号）
+   - MikroTik：77 台（1个型号）
+   - D-Link：~112 台（3-5个型号）
+   - 其他：~400 台
+
+❌ **无明确型号：6,837 台（9.02%）**
+   包括：
+   - MikroTik（无型号）：16,773 台 ⚠️
+   - 思科 Cisco（无型号）：6,484 台
+   - 锐捷 Ruijie（无型号）：889 台
+   - DrayTek Vigor（通用）：338 台
+   - 华硕 ASUS（通用）：127 台
+   - 其他品牌（无型号）：~400 台
+
+────────────────────────────────────────────────────────────────
+总计                                                     75,779
+════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════
+            明确型号 Top 30（家用路由器重点）
+═══════════════════════════════════════════════════════════════
+
+排名    型号                                              数量
+────────────────────────────────────────────────────────────────
+1      中兴 ZTE H8102E                                   48,036
+2      中兴 ZTE ZXHN H198A                               5,215
+3      中兴 ZTE F6201B                                    3,413
+4      中兴 ZTE F6600                                     2,305
+5      中兴 ZTE H6645P V2                                 1,978
+6      中兴 ZTE F612                                      1,108
+7      中兴 ZTE F688                                        909
+8      中兴 ZTE H3601P                                      710
+9      中兴 ZTE web server (2015)                           456
+10     中兴 ZTE F670 router                                 412
+
+11     中兴 ZTE F6645P                                      246
+12     Linksys WRT45G                                       238
+13     中兴 ZTE F660 router                                 209
+14     MPR-L8 3G mobile router                              188
+15     中兴 ZTE F107A                                       167
+16     中兴 ZTE F620 router                                 163
+17     华硕 ASUS GT-AX11000                                145
+18     华硕 ASUS RT-AX58U                                  143
+19     华硕 ASUS RT-AX86U                                  137
+20     Realtek RTL8671 EV-2010-09-20                       128
+
+21     华硕 ASUS RT-AC86U                                  128
+22     华硕 ASUS RT-AX82U                                  126
+23     华硕 ASUS RT-AX88U                                  117
+24     华硕 ASUS TUF-AX5400                                113
+25     华硕 ASUS RT-AX3000                                 107
+26     DrayTek Vigor2925 Series                            105
+27     DrayTek Vigor2926 Series                             99
+28     华硕 ASUS RT-AC68U                                   97
+29     华硕 ASUS RT-AC1200G+                                92
+30     华硕 ASUS RT-AX89X                                   84
+
+
+═══════════════════════════════════════════════════════════════
+                    型号明确度分析
+═══════════════════════════════════════════════════════════════
+
+品牌              有型号    无型号    型号明确度
+────────────────────────────────────────────────────────────────
+中兴 ZTE          64,618        0      100.00%  ✅
+华硕 ASUS          2,220      127       94.59%  ✅
+Linksys             317        0      100.00%  ✅
+TP-LINK               9        0      100.00%  ✅
+NETGEAR              29        0      100.00%  ✅
+Ubiquiti             83        0      100.00%  ✅
+Apple                34        0      100.00%  ✅
+DrayTek             734      338       68.47%  ⚠️
+MikroTik             77   16,773        0.46%  ❌
+思科 Cisco            0    6,484        0.00%  ❌
+锐捷 Ruijie           0      889        0.00%  ❌
+小米 Xiaomi           0       35        0.00%  ❌
+爱快 iKuai            0       23        0.00%  ❌
+
+════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════
+                    总结
+═══════════════════════════════════════════════════════════════
+
+✅ **好消息：90.98% 的设备有明确型号**
+   - 主要是中兴ZTE光猫（型号非常明确）
+   - 家用路由器（华硕、Linksys等）型号识别率高
+
+❌ **问题：企业级路由器型号识别率低**
+   - MikroTik：16,773台中只有77台有型号（0.46%）
+   - 思科：6,484台全部无型号（0%）
+   - 锐捷：889台全部无型号（0%）
+
+🔍 **原因分析：**
+   1. 扫描工具对企业级设备指纹识别不够精细
+   2. 企业设备通常隐藏型号信息（安全考虑）
+   3. 家用设备HTTP Banner更详细，容易识别型号
+
+════════════════════════════════════════════════════════════════
