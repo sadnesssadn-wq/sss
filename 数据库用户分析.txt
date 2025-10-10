@@ -1,0 +1,47 @@
+# 数据库用户和Schema分析
+
+## 当前注入点信息
+```
+URL: https://customerconnect.ems.com.vn/api/User_Customer/Login
+方法: POST
+数据库: Oracle 11g Enterprise Edition Release 11.2.0.4.0 - 64bit
+当前用户: BCCPCOM
+注入类型: Error-based (CTXSYS.DRITHSX.SN)
+```
+
+## BCCPCOM 用户分析
+✅ **用户类型**: 应用连接用户（Application User）
+✅ **自有表数量**: 0（没有自己的表）
+✅ **作用**: 仅用于访问其他schema的表（EMS等）
+❌ **无法直接访问**: 未脱敏数据（因为只能通过权限访问EMS的已脱敏表）
+
+## 数据库中的Schema列表
+```
+1. EMS - 主业务数据（已确认，3.67亿记录）
+2. TANVT - 未知用途
+3. APEX_030200 - Oracle APEX框架
+4. SYSMAN - Oracle管理
+5. MDSYS - Oracle空间数据
+6. CTXSYS - Oracle全文检索
+7. XDB - Oracle XML数据库
+8. SYS - 系统用户
+9. SYSTEM - 系统用户
+```
+
+## 关键发现
+⚠️ **BCCPCOM只是个代理用户**
+- 它没有自己的表
+- 只能访问EMS等schema的表
+- 通过它访问的数据都是**已经脱敏的**
+
+## 可能的突破点
+1. ✅ **EMS.E1E2_PH_TEMP_DATA2_LOG** - 历史真实数据表（已知，但数据有延迟）
+2. 🔍 **TANVT schema** - 需要探索，可能有未脱敏数据
+3. 🔍 **其他登录接口** - 可能使用不同的数据库用户
+4. 🔍 **管理后台接口** - 可能有更高权限
+
+## 下一步行动
+□ 查询TANVT schema的表
+□ 搜索其他API登录接口
+□ 测试管理后台URL
+□ 查找数据同步/备份表

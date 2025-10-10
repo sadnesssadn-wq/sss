@@ -1,0 +1,187 @@
+# EMS.E1E2_PH 表完整字段结构（119个字段）
+
+## 📦 基本运单信息（9个字段）
+1. MABC - 运单号 ⭐
+2. NGAY - 日期 ⭐
+3. GIO - 时间
+4. TRANGTHAI - 状态
+5. DVU - 服务类型
+6. LOAI - 类型
+7. PHANLOAI - 分类
+8. MABC_KT - 运单编号检查
+9. VERSION - 版本
+
+## 👤 收件人信息（10个字段）⭐⭐⭐
+31. NGUOINHAN - 收件人姓名 ⭐⭐⭐
+79. DIENTHOAINHAN - 收件电话 ⭐⭐⭐
+13. DIACHI - 收件地址 ⭐⭐⭐
+110. EMAIL_NHAN - 收件人邮箱
+111. MAKH_NHAN - 收件人客户编号
+117. THANH_PHO_NHAN - 收件人城市
+118. MA_TINH_NHAN - 收件人省份代码
+106. DISTRICTCODE - 区代码
+107. COMMUNECODE - 社代码
+108. PROVINCECODE - 省代码
+
+## 📤 发件人信息（8个字段）⭐⭐⭐
+82. NGUOIGUI - 发件人姓名 ⭐⭐⭐
+83. DIACHIGUI - 发件人地址 ⭐⭐⭐
+84. DIENTHOAIGUI - 发件电话 ⭐⭐⭐
+109. EMAIL_GUI - 发件人邮箱
+48. MAKH - 发件人客户编号
+97. MA_HOP_DONG - 合同编号
+112. EMS_PHAT - EMS发件标识
+113. CHANNEL - 渠道
+
+## 💰 金额费用（20个字段）⭐⭐⭐⭐⭐
+80. CUOC_COD - COD费用 ⭐⭐⭐
+81. SO_TIEN_THU_HO - 代收金额 ⭐⭐⭐⭐⭐
+60. CUOC_PHAI_THU - 应收运费 ⭐⭐⭐
+61. CUOC_PHAI_CHI - 应付运费
+62. TIEN_PHAI_THU - 应收总金额 ⭐⭐⭐
+63. TIEN_PHAI_CHI - 应付总金额
+55. CUOC_COD_PUBLIC - 公开COD费用
+56. CUOC_DV_PUBLIC - 公开服务费
+57. CUOC_CHINH_PUBLIC - 公开主运费
+58. CUOC_GIAM_PUBLIC - 公开折扣
+59. CUOC_E1_PUBLIC - 公开E1费用
+10. CUOCCS - 运费成本
+11. CUOCDV - 服务费
+50. LE_PHI_HQ - 海关费
+51. THUE_NK - 进口税
+52. THUE_VAT - 增值税
+53. THUE_NK_VAT - 进口增值税
+49. SO_TKHQ - 海关账号
+64. SO_THAM_CHIEU - 参考号
+67. SO_LO - 批次号
+
+## 📦 商品信息（5个字段）⭐⭐⭐
+8. KHOILUONG - 重量（克） ⭐⭐⭐
+30. SOKIEN - 件数 ⭐⭐⭐
+115. LOAI_HANG_HOA - 货物类型 ⭐⭐⭐
+114. MA_KHUYEN_MAI - 促销代码
+24. DESC - 商品描述
+
+## 🚚 物流信息（15个字段）
+1. MAE1 - 邮政编码1
+2. MATT - 邮件类型
+3. MAVTBC - 物品编码
+4. MANCTRA - 交寄局
+5. MABCTRA - 交寄邮编
+6. MANCNHAN - 收寄局
+7. MABCNHAN - 收寄邮编
+35. CONGPHAT - 公害
+36. TUI_DEN - 到袋
+37. CHTHU_DEN - 到件编号
+38. MABC_DEN - 到单号
+43. NGAY_DEN - 到达日期
+44. NGAYKT - 结束日期
+45. CAKT - 结算
+46. GIO_DEN - 到达时间
+
+## 📍 地理信息（10个字段）
+39. DATRUYEN - 传输日期
+40. HN - 河内
+41. HCM - 胡志明
+42. DNG - 岘港
+92. VUNG_XA_TN - 远程地区
+93. MA_CHI_DAN - 指示代码
+94. TEN_CHI_DAN - 指示名称
+95. MA_TINH_TRA - 退回省份
+96. MA_HUYEN_TRA - 退回区县
+101. POSTALDISTRICTCODE - 邮政区代码
+102. POSTALCOMMUNECODE - 邮政社代码
+103. POSTALCODE - 邮政编码
+104. POSTALPROVINCECODE - 邮政省代码
+
+## 🔧 系统字段（15个字段）
+15. CHTHU - 收件编号
+16. TUISO - 袋号
+19. MANV - 员工编号
+20. STT - 序号
+22. DAGUI - 已发送
+23. TOSO - 袋数
+25. CHK - 检查
+26. DALAY - 已取
+28. MABC_CH - 运单主号
+32. EDI - EDI标识
+33. KLG_QUIDOI - 重量转换
+34. KHOA - 锁定
+47. DATE_LOG - 日志日期
+69. DUNG_E1_SHIPPING - E1配送
+87. ID - 主键ID
+88. SYNC_DATA - 同步数据
+89. TRUYEN_BCCP - 传输BCCP
+90. TRUYEN_BCCP_DATE_LOG - 传输日志日期
+91. SYNC_RETURN - 同步退回
+116. ACCEPT_DATE_LOG - 接受日期
+
+## 🎯 扩展字段（11个字段）
+70. MO_RONG_1 到 MO_RONG_11 - 扩展字段1-11
+
+## 📊 其他字段（6个字段）
+68. VAN_DON_CHU - 主运单
+65. DK_PHAT_TRA_TIEN - 退款条件
+66. DK_PHAT_TRA_CUOC - 退运费条件
+78. KPI - KPI指标
+77. GHEPSOLIEU - 数据合并
+85. SMS - 短信
+
+---
+
+## 🔥 你需要的完整订单信息：
+
+### ✅ 有的信息：
+1. ✅ 收件人信息（姓名、电话、地址、邮箱）
+2. ✅ 发件人信息（姓名、电话、地址、邮箱）
+3. ✅ 金额费用（运费、COD、代收、税费、总金额）
+4. ✅ 商品信息（重量、件数、类型、描述）
+5. ✅ 运单信息（编号、日期、状态、服务类型）
+6. ✅ 物流信息（交寄局、收寄局、到达时间）
+
+### ❌ 没有的信息：
+1. ❌ 商品详细清单（没有itemized list）
+2. ❌ 商品单价（只有总金额）
+3. ❌ 商品数量明细
+
+---
+
+## 🎯 建议导出的完整订单字段（30个核心字段）：
+
+```sql
+SELECT 
+  MABC,                    -- 运单号
+  NGAY,                    -- 日期
+  NGUOINHAN,               -- 收件人
+  DIENTHOAINHAN,           -- 收件电话
+  DIACHI,                  -- 收件地址
+  EMAIL_NHAN,              -- 收件邮箱
+  NGUOIGUI,                -- 发件人
+  DIENTHOAIGUI,            -- 发件电话
+  DIACHIGUI,               -- 发件地址
+  EMAIL_GUI,               -- 发件邮箱
+  KHOILUONG,               -- 重量
+  SOKIEN,                  -- 件数
+  LOAI_HANG_HOA,           -- 货物类型
+  DESC,                    -- 商品描述
+  SO_TIEN_THU_HO,          -- 代收金额 ⭐⭐⭐
+  CUOC_COD,                -- COD费用
+  CUOC_PHAI_THU,           -- 应收运费 ⭐⭐⭐
+  TIEN_PHAI_THU,           -- 应收总金额 ⭐⭐⭐
+  CUOC_CHINH_PUBLIC,       -- 主运费
+  CUOC_DV_PUBLIC,          -- 服务费
+  CUOC_GIAM_PUBLIC,        -- 折扣
+  LE_PHI_HQ,               -- 海关费
+  THUE_NK,                 -- 进口税
+  THUE_VAT,                -- 增值税
+  TRANGTHAI,               -- 状态
+  DVU,                     -- 服务类型
+  LOAI,                    -- 类型
+  MAKH,                    -- 客户编号
+  CHANNEL,                 -- 渠道
+  MA_KHUYEN_MAI            -- 促销代码
+FROM EMS.E1E2_PH
+WHERE NGAY='20251010'
+```
+
+这是**完整的订单数据结构**！
