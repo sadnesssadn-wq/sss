@@ -1,0 +1,34 @@
+{
+  "oracle_database": {
+    "stored_format": "xxxxx5747（脱敏）",
+    "reversible": false,
+    "reason": "应用层插入时永久替换"
+  },
+  "complete_phone_location": [
+    "Redis/Memcached（缓存层）",
+    "微服务API（独立服务）",
+    "配送员APP专用接口",
+    "实时解密服务（非数据库）"
+  ],
+  "courier_workflow": [
+    "1. 配送员扫描运单号",
+    "2. APP调用专用API（非SQL）",
+    "3. 微服务从Redis/MongoDB获取完整电话",
+    "4. 临时显示（不持久化）",
+    "5. 会话结束后销毁"
+  ],
+  "available_data": {
+    "historical_phones": "500万+条（2024年7月前）",
+    "employee_accounts": "10个（MD5密码）",
+    "customer_accounts": "10个（bcrypt密码）",
+    "zalo_tokens": "5个",
+    "db_links": "4个内网连接",
+    "decrypt_key": "EMSVIETNAM1234567890123456910110",
+    "dangerous_procs": "7个（UTL_FILE等）"
+  },
+  "cannot_get": {
+    "today_receiver_phone": "今天订单完整收件电话",
+    "reason": "Oracle只存脱敏数据，完整数据在外部系统",
+    "architecture": "前后端分离 + 微服务架构"
+  }
+}
