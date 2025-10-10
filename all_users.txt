@@ -1,0 +1,68 @@
+vimedimex:vimehanoi@vnn.vn:$2a$12$CwErjPojUjvv1SfRNvFwm.u3GFfNiQbUdkyQl.03DoMPZEaQ0Bi4i
+RDFYjolf:testing@example.com:$2a$12$7yQRm6DDc/gWz09v3uPRUO4qXEz/QlBUzq1DPCGaXf.FPZfp8rxoK
+HfjNUlYZ:testing@example.com:$2a$12$SnOnFPH17ETvlzL.EuL3ZeL5SQT9tpRemrvCtnvPReMqQOsAYskKq
+1TOC58GV20:testing@example.com:$2a$12$xCxtcVqbum96KgW4O3xDoe9cznkDDlCgmj97QEJ0gLOnRsIK1Cj7q
+44waPRbd:testing@example.com:$2a$12$J/QN6CyOETcyonRNLTKF0uZyk8uUVlupFTzDPAxdvC1cHlw1Olo.q
+SsDlsYyk: wnpB1FFI:testing@example.com:$2a$12$rqW3dgPvNONNc.ne0sjf0eEHYGjC.rEzIvfYlA.PKlgJAtGzR9V02
+:testing@example.com:$2a$12$ZwNO9xdLwImxICRBZKv19.ynn9ZTaum493zuG9Gq84zUTj95bzoLy
+${10000444+9999465}:testing@example.com:$2a$12$1my1rvIY1adRZX4UP9L9nuA9PTqKLGyfvY82Uu5mxo02kZvuYX3UC
+VThnNm55dkY=:testing@example.com:$2a$12$OPxURy27Sz2FHvdq9L00seSZLJmgNAKaYGwMOXhBA5kL1gzSTU8va
+pHqghUme&n976413=v967602:testing@example.com:$2a$12$4laPv83a2OXgRjhImHJLXu9qnj8G/bVTBPkhp3vR7oG92B9Wl2tQa
+pHqghUme9500988:testing@example.com:$2a$12$G5jwfRDQSr/EHs3bMn.QZeBHIxYAXz46c1Wrj9JXZwcZkY0IjvrSK
+expr 9000270821 - 937079:testing@example.com:$2a$12$t7c7eqQdVI8qfohR21EC.up73CWwdtyNQmCcobzlvdmUxD.Me2U4.
+tungkx:tungkx@ems.com.vn:$2a$12$xeD6ZsvY3ev0KvHUitwe1OtNX/ySgPCa9QaO9YcoVWseHapJxcXOy
+emslo:emslo@gmai.com:$2a$12$1QKRG91BSRGi6xdDVwbqjO3kO31GfHw0MLRjwk5ujSuEazuMDEYfe
+vnpay:vnpay@gmail.com:$2a$12$CiL27tOoZgHCU3j75Ht0Me4B6xV36YN3bSZtbSVS1Iq4Qal1mYqg2
+TzwSVsOw:testing@example.com:$2a$12$EtHSb3Jty59qOFnblEn/Fuc4Mw4AOkN.jV4RlB4uvfXndfGzsqSsG
+vinatti:vinatti@gmail.com:$2a$12$LzoodCOEU7P/cTNvUoqiyOrOyOF6bAXHlfpW/Vk6u.xfnMyb7HEQu
+siberian:bykov.mn@sibvaleo.com:$2a$12$YFyOz.OoEZMDUERH4XglbecY9TZBlnN/JoZ3hELr5egG7D7SI7um2
+vnpt:vnpt@gmail.com:$2a$12$Epds9Pl4BE9hICUlawpIQ.bDWCJ9jlI6fXHzNY77jg4nA5IE69H7C
+@@fanet:testing@example.com:$2a$12$ci5AVqKu0W3pa0T..xYIbORTeURlfaJcgvwGbDo5gYsdLDBpCpNcS
+testg:test1@gmail.com:$2a$12$SkaQ9ZZ0x4cUx3CiNDnIB.FZGKO9Y2Sww2f4JUZhBV50.6Bf6NFz6
+pHqghUme:testing@example.com:$2a$12$vobep1k2/eDOmPRDN04y4eceseiWrpJMPuQEFMdLhCIzdNlfBfuVm
+139LE82S20:testing@example.com:$2a$12$Secw390WG75mjOIR8IytS.oqPlOJRKTrzSLPUMoc5U3BXuSykouty
+eHsqDMqn:testing@example.com:$2a$12$nArCJRl8ZYN90fUeBUUXuObJxsJElLaW4Vus/rvLV5h2IpiLn9OlK
+7Nni0E3D: AC1EqqiX:testing@example.com:$2a$12$inwHvK5CFk.eyI1MY2n73OXKdNak/6YjpE2U./PYZ0v5YTZZyls/i
+:testing@example.com:$2a$12$bZ6Z8xAOGcXEiSZCz8UeU.yeFPyuSIywWYjLrsx4w/yZGkZKXuwT2
+${10000099+9999236}:testing@example.com:$2a$12$8mQKG7O/BFDiisH5Uquu1u3TG8CB/w1HRAxhelRsB0/1NVddbtezi
+file:///etc/passwd:testing@example.com:$2a$12$FVR2kqLCGYuu5ayN15/DWujW0UOXVxN42bc.Bv5.B4pON2ilajqU2
+../pHqghUme:testing@example.com:$2a$12$..bXDZ46kI.l29H7gV.goeG.QGFmVrp6E9JWqQ4REc8HMMJi6/ZF.
+TnZSbkRTMEg=:testing@example.com:$2a$12$SpZCSxXH6/HojWHomWHHU.I8LL5C2bMMULJNE8cuk8OavD.joP2XO
+./pHqghUme:testing@example.com:$2a$12$lMCMLkbg4VyhZ.AE/OCa4ep0AKrvhRpDlLxl0BdcGWGAnrZHGt7Ga
+pHqghUme&n932370=v940310:testing@example.com:$2a$12$C2FD7eYpiAY9AX09WYrjK.1U.uD3i4zfrGNEPve8TrkskKGvAXLdK
+expr 9000424980 - 974673:testing@example.com:$2a$12$gwUREBxnw3En14X9DHY0LeYmfWSsEztIrnZLmUd07I3LeKT1B619O
+/etc/shells:testing@example.com:$2a$12$kb6GayAwTZCCZh5jRlOQ/.5k4d4XJ.0XGoQSMTsKrNlnuJ6piJXAu
+):testing@example.com:$2a$12$ZDYnYvzlslVDYMM6o0TkkeE8oZLIrO/ExT2fs0DVPgpoEaX7e8WdC
+!(()&&!:*:*
+c:/windows/win.ini:testing@example.com:$2a$12$PTzhXTsGI/f.3tzpPRFhw.OCgm3uTxBFKq6Hd.PNi1xkzqOwotnUy
+^(#$!@#$)(()))******:testing@example.com:$2a$12$8HlLIAUJJrDLgQobV7W9bOaIzmULyAnfGYHuiv0dmrLK5ToGH5QA6
+bxss.me:testing@example.com:$2a$12$snaaeAt48HX6MIYMcGk5vuRqxNHKC2S9u4oPiliFpYQM4Y0tHcLJa
+Http://bxss.me/t/fit.txt:testing@example.com:$2a$12$5SsXEXa16lQ3pYmPOav2/eSu5KRVXXTVOUUutF9gapWEoFk.wqRi.
+'\"():testing@example.com:$2a$12$FYz7/9vJMvfeb9NuwMkYuOP2WQNQ9p/fkYS5NCQk7S6GQM2Sy1PWC
+HttP://bxss.me/t/xss.html?%00:testing@example.com:$2a$12$Uc/ct8btl3IIOtF/vNmMv.lwj5WXtiK998ijsbk6nQnT7HBI5qCq.
+bxss.me/t/xss.html?%00:testing@example.com:$2a$12$ZFoXNIce4W6KWmYExxPcnu0z3SJN.FffXjj/Vb7EZq7T9SkpJBgJK
+';print(md5(31337));$a=':testing@example.com:$2a$12$8XiN8PiMOeoVoUuC4ksMpu9bUyFtkQM567yrhjSNLRrJQzXKuLvCO
+\";print(md5(31337));$a=\":testing@example.com:$2a$12$jehPtOmd21FybE2DRrdP0uimG3O7Ubgm18QQPCDWgP1RY4L2qm4SC
+${@print(md5(31337))}:testing@example.com:$2a$12$EDJtVkTy7vBQpishWKhFMuPLdN24C4LWRlgl4AVpSeeFKl0K1mmcq
+${@print(md5(31337))}\\:testing@example.com:$2a$12$RtprQPMN1sgUTwlRV9mkKua29./LlZbbPNSU6JTo.5jjZvJTW6GKW
+'\":testing@example.com:$2a$12$8tC3ZUjLvKVhi.lTuGU2fu2IsLhVPYMwnuYeo6R3hjUiZyMIqzZrG
+<!--:testing@example.com:$2a$12$5jZ.wWNvy6mgtvNgTIhUIOtqNP6Y1vNJ/8uF4lCzVL88HqYx0lbXq
+'.print(md5(31337)).':testing@example.com:$2a$12$FtlAcUQQhIAUjtYSV3E66u8WyBvxMO7H9MevCzGx9zJ0qKDO5gzWC
+vnplichiba:vnplichiba@ems.com.vn:$2a$12$SEsbEsaogJbuNRKMgfHNAOHC6T4dUoYhCQrD6A2nDBIv6sYBTlhhG
+CpjJwWHV:testing@example.com:$2a$12$9eCVA7Cvr3hHl05oDRS8s./KVW4hLKPYEc.Bjy1thP3uvM/ukz.Ju
+testjack:awd@aa.com:$2a$12$uMZl3SlnI6RlpAhNIvO/ru9F6YegA936P5IfIsxsWN1rlpJleVkMC
+yaunton763:yaunton763@gmail.com:$2a$12$JXKppfzNT.LDVJmMaW9lBe.Er.DdH3IIELmnoW7O3t2L0RRN2YBt2
+pHqghUme9921313:testing@example.com:$2a$12$DQSj0EP1l1hIldPnj3zbsusHUNWJGy2djCtl6hKCJt.Alqf6/CZJq
+pHqghUme'\":testing@example.com:$2a$12$Bok4bq0XbDgjTQ6YoVw5YOZMI1P7Sdptj5MD4mHi1n5sKvb/VA2qS
+@@vrBnH:testing@example.com:$2a$12$BtElxDtcOfZCXcAStfv1y.BqyGeIIyF02Bwb1cR7B88SjqfkmVcge
+(select 198766*667891):testing@example.com:$2a$12$DFpXXdytFGPXNIWr7XvD4uExUB6aWF5IoHOAIB98H1VfPb3Z/1LsS
+1I65GHKFE0:testing@example.com:$2a$12$MMggkRBZ1NDNSSUg6F6OhuN3Pqh.crAkn7b3ytc9odGADW7tPrb1i
+expr 9000802598 - 975343:testing@example.com:$2a$12$jjngOaw.ohUO6mRR3iFSw.5MkCUshfa.RhRhHBOOdEzO2TWFgmFcq
+ddm1kMAK:testing@example.com:$2a$12$bmcobDcz6BWEyjYVh2C55e58V5CgGTWCHIoIW1Lf/Q0SPtvgYluyq
+KZXGyp3W: imMCRUN2:testing@example.com:$2a$12$xrVZvH1zeZ9BoEUlM0LOeOYBltN7tAMkrlPZlnuMM0c2Zw2lTDrkW
+:testing@example.com:$2a$12$WoAiwkMjDUYJiHZVpHNDze/ROX38MooFu9CjL4WCB5ZJojo3Chr6m
+${9999459+10000317}:testing@example.com:$2a$12$nsWRRwG.XIltkldP4PJ2SeodWLakXAHAAVK.hduBY8yMSOC2dt3Na
+WkJYMXp1V0U=:testing@example.com:$2a$12$Y1Lf15UGSQ2dNU3CwAnAIueP2gbmaJgMzaRbnRqWSeKqTVxdPOws2
+pHqghUme&n940487=v950635:testing@example.com:$2a$12$bsZgSogKtZB9YVzbhBNszu//fzetxsNazQcormUEkleWlNcBt4XYy
+pHqghUme9525552:testing@example.com:$2a$12$V0GG5eVCRmoKwvu4QIUJN.E6ahhPx9vUlNZtTlSRl7/GXWhH7Z4ee
+@@jIe15:testing@example.com:$2a$12$u.9Wt6CV98i2NQGaF4Ikyu4WHRSbXTe3GkZUUVDxOj/zKoG.Ub3lW
