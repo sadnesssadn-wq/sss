@@ -1,0 +1,21 @@
+{
+  "version": 8,
+  "sources": {
+    "simple-tiles": {
+      "type": "raster",
+      "tiles": [
+       
+        "https://api.mapbox.com/styles/v1/mapbox/bright-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaG9hbmdtYW5oMTkwOSIsImEiOiJjazczMjZhYTUwNGRxM2VxdzBhdWxqZmg0In0.bS71h7OOLd1OobSajeMQ9g"
+      ],
+      "tileSize": 512
+    }
+  },
+  "layers": [
+    {
+      "id": "simple-tiles",
+      "type": "raster",
+      "source": "simple-tiles"
+
+    }
+  ]
+}
