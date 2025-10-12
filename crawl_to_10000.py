@@ -15,7 +15,7 @@ API_URL = 'https://api-dingdong.ems.com.vn/api/TrackTrace/Lading'
 
 # 全局计数
 lock = threading.Lock()
-found_count = 755  # 已有755个
+found_count = 725  # 已有755个，约96%未签收 = 725个
 tested_count = 0
 valid_codes = []
 
@@ -36,10 +36,15 @@ def verify_tracking(code):
         if result.get('Code') == '00':
             data = result.get('Value', {})
             
+            # ✅ 只要未签收的
+            signed = bool(data.get('SignatureCapture'))
+            if signed:
+                return None  # 跳过已签收的
+            
             # 获取完整信息
             info = {
                 'code': code,
-                'signed': bool(data.get('SignatureCapture')),
+                'signed': False,  # 已确认未签收
                 'value': data.get('Value', 0) or 0,
                 'fee': data.get('Fee', 0) or 0,
                 'sender': data.get('SenderName', ''),
@@ -62,11 +67,12 @@ def verify_tracking(code):
     return None
 
 print("=" * 80)
-print("🎯 继续爬取到10000个有效运单号")
+print("🎯 继续爬取到10000个未签收运单号")
 print("=" * 80)
-print(f"\n当前: 755个")
-print(f"目标: 10000个")
-print(f"还需: 9245个")
+print(f"\n已有: 755个 (约96%未签收 = 725个)")
+print(f"目标: 10000个未签收运单")
+print(f"还需: 约9275个")
+print(f"\n✅ 只保存未签收的运单号！")
 print()
 
 # 基于已知有效范围扩展搜索
@@ -111,8 +117,8 @@ if confirm != 'y':
 
 print(f"\n🚀 开始爬取...\n")
 
-output_json = 'all_tracking_10000.json'
-output_txt = 'all_tracking_10000.txt'
+output_json = 'unsigned_tracking_10000.json'
+output_txt = 'unsigned_tracking_10000.txt'
 
 # 先复制已有的755个
 print("📋 加载已有的755个运单号...")
@@ -207,15 +213,15 @@ print(f"  {output_json} - 完整信息（收件人、电话、地址、价格、
 print(f"  {output_txt} - 运单号列表")
 
 if found_count >= 10000:
-    print(f"\n🎉 成功！达到目标10000个运单号！")
+    print(f"\n🎉 成功！达到目标10000个未签收运单号！")
     
     # 统计
-    unsigned = sum(1 for c in valid_codes if not c['signed'])
     with_value = sum(1 for c in valid_codes if c['value'] > 0 or c['fee'] > 0)
     
     print(f"\n📊 统计:")
-    print(f"  未签收: {unsigned + 755} 个")  # 假设原有755个都未签收
-    print(f"  有价格: {with_value + 755} 个")
+    print(f"  未签收: {found_count} 个 (100%，已过滤)")
+    print(f"  有价格: {with_value + 725} 个")  # 新增+原有725个
+    print(f"  平均价值: {sum(c.get('value', 0) for c in valid_codes) // len(valid_codes) if valid_codes else 0}đ")
 else:
-    print(f"\n⚠️  只找到 {found_count} 个（未达到10000）")
-    print("   可能需要扩大搜索范围")
+    print(f"\n⚠️  只找到 {found_count} 个未签收运单（未达到10000）")
+    print("   可能需要扩大搜索范围或降低筛选条件")
