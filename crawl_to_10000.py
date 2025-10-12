@@ -27,7 +27,7 @@ def verify_tracking(code):
     payload = {'LadingCode': code, 'Signature': signature}
     
     try:
-        r = requests.post(API_URL, json=payload, timeout=5)
+        r = requests.post(API_URL, json=payload, timeout=8)
         result = r.json()
         
         with lock:
@@ -55,6 +55,9 @@ def verify_tracking(code):
             return info
     except:
         pass
+    
+    # 防止限流
+    time.sleep(0.05)
     
     return None
 
@@ -141,7 +144,7 @@ for prefix, range_start, range_end in ranges:
     
     codes_to_test = [f"{prefix}{i}VN" for i in range(range_start, range_end + 1)]
     
-    with ThreadPoolExecutor(max_workers=20) as executor:
+    with ThreadPoolExecutor(max_workers=5) as executor:
         futures = {executor.submit(verify_tracking, code): code for code in codes_to_test}
         
         for future in as_completed(futures):
@@ -167,6 +170,9 @@ for prefix, range_start, range_end in ranges:
                     print(f"✅ [{found_count:5d}/10000] {result['code']} | "
                           f"{signed_str} | 价值:{result['value']}đ | "
                           f"{result['receiver'][:15]}")
+            
+            # 防止限流：每个请求后暂停
+            time.sleep(0.1)
             
             # 每500个显示进度
             if tested_count % 500 == 0:
