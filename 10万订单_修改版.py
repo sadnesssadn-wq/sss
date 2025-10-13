@@ -129,12 +129,12 @@ PROXIES = [
 CONFIG = {
     'target': 100000,
     'threads_per_proxy': 1,  # 每个代理1个线程
-    'total_threads': 70,  # 70线程（确保5-8小时完成10万）
-    'delay': 0.25,  # 延迟0.25秒（平衡速度和安全）
-    'timeout': 10,
+    'total_threads': 50,  # 50线程（稳定安全，5-8小时完成）
+    'delay': 0.4,  # 延迟0.4秒（保护网站不会死）
+    'timeout': 15,  # 超时15秒（更宽容）
     'save_every': 100,
     'max_98_retries': 10,  # Code:98最大重试次数
-    'proxy_fail_threshold': 2,  # 失败2次就禁用
+    'proxy_fail_threshold': 3,  # 失败3次才禁用（更宽容）
     'progress_file': 'progress_100k_proxy.json',
     'csv_file': 'orders_100k_proxy.csv',
     'json_file': 'orders_100k_proxy.json',
@@ -453,7 +453,7 @@ def query_order(code, proxy=None):
     return {'status': 'max_98_retry'}
 
 def scan_dense_region(region):
-    """扫描密集区域"""
+    """扫描密集区域 - 带智能安全机制"""
     prefix = region['prefix']
     start = region['start']
     end = region['end']
@@ -464,6 +464,14 @@ def scan_dense_region(region):
         with state['lock']:
             if len(state['found']) >= CONFIG['target']:
                 break
+            
+            # 智能安全机制：检测98过多就休息
+            if state['tested'] > 100:
+                rate_98 = state['rate_limited'] / state['tested']
+                if rate_98 > 0.4:  # 98超过40% - 网站压力大
+                    print(f"\n⚠️  限流过多({rate_98*100:.1f}%)，休息60秒...")
+                    time.sleep(60)
+                    state['rate_limited'] = int(state['rate_limited'] * 0.5)  # 重置计数
         
         code = f"{prefix}{num:09d}VN"
         result = query_order(code)
