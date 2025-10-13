@@ -196,6 +196,9 @@ def query_order(code, proxy_pool=None):
     signature = generate_signature(code)
     payload = {'LadingCode': code.upper(), 'Signature': signature}
     
+    max_98_retries = 10  # 遇到98最多换10次代理
+    attempt_98 = 0
+    
     for attempt in range(MAX_RETRIES):
         proxy_info = None
         
@@ -213,6 +216,7 @@ def query_order(code, proxy_pool=None):
             
             # 检查响应状态
             response_code = result.get('Code', '')
+            error_msg = result.get('Message', '未知错误')
             
             if response_code == '00':
                 # 成功
@@ -229,16 +233,30 @@ def query_order(code, proxy_pool=None):
                 if isinstance(data, dict):
                     return {'success': True, 'code': code, 'data': data}
             
-            # 其他错误码 - 不是代理问题，直接返回
-            error_msg = result.get('Message', '未知错误')
-            api_code = result.get('Code', 'N/A')
-            
-            # 如果是数据不存在的错误，标记成功（代理工作正常）
-            if '不存在' in error_msg or 'không tìm thấy' in error_msg.lower() or 'not found' in error_msg.lower():
+            # Code:98 = API限流，换代理重试
+            elif response_code == '98':
                 if proxy_info:
-                    proxy_pool.mark_success(proxy_info)
+                    proxy_pool.mark_failure(proxy_info)  # 标记代理失败
+                
+                attempt_98 += 1
+                if attempt_98 < max_98_retries:
+                    print(f"98..", end='', flush=True)  # 显示重试
+                    time.sleep(0.5)  # 等待0.5秒
+                    continue  # 换代理重试
+                else:
+                    # 超过重试次数，返回错误
+                    return {'success': False, 'code': code, 'error': error_msg, 'api_code': response_code}
             
-            return {'success': False, 'code': code, 'error': error_msg, 'api_code': api_code}
+            # Code:01 或其他 - 代理正常
+            else:
+                api_code = result.get('Code', 'N/A')
+                
+                # 如果是数据不存在的错误，标记成功（代理工作正常）
+                if '不存在' in error_msg or 'không tìm thấy' in error_msg.lower() or 'not found' in error_msg.lower() or response_code == '01':
+                    if proxy_info:
+                        proxy_pool.mark_success(proxy_info)
+                
+                return {'success': False, 'code': code, 'error': error_msg, 'api_code': api_code}
             
         except requests.exceptions.Timeout:
             # 超时错误 - 标记代理失败
