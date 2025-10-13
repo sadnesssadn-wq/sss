@@ -231,13 +231,14 @@ def query_order(code, proxy_pool=None):
             
             # 其他错误码 - 不是代理问题，直接返回
             error_msg = result.get('Message', '未知错误')
+            api_code = result.get('Code', 'N/A')
             
             # 如果是数据不存在的错误，标记成功（代理工作正常）
             if '不存在' in error_msg or 'không tìm thấy' in error_msg.lower() or 'not found' in error_msg.lower():
                 if proxy_info:
                     proxy_pool.mark_success(proxy_info)
             
-            return {'success': False, 'code': code, 'error': error_msg}
+            return {'success': False, 'code': code, 'error': error_msg, 'api_code': api_code}
             
         except requests.exceptions.Timeout:
             # 超时错误 - 标记代理失败
@@ -245,7 +246,7 @@ def query_order(code, proxy_pool=None):
                 proxy_pool.mark_failure(proxy_info)
             
             if attempt == MAX_RETRIES - 1:
-                return {'success': False, 'code': code, 'error': '请求超时'}
+                return {'success': False, 'code': code, 'error': '请求超时', 'api_code': 'TIMEOUT'}
             
             time.sleep(1)
             
@@ -255,7 +256,7 @@ def query_order(code, proxy_pool=None):
                 proxy_pool.mark_failure(proxy_info)
             
             if attempt == MAX_RETRIES - 1:
-                return {'success': False, 'code': code, 'error': '代理连接失败'}
+                return {'success': False, 'code': code, 'error': '代理连接失败', 'api_code': 'PROXY_ERROR'}
             
             time.sleep(0.5)
             
@@ -269,12 +270,12 @@ def query_order(code, proxy_pool=None):
                     proxy_pool.mark_failure(proxy_info)
             
             if attempt == MAX_RETRIES - 1:
-                return {'success': False, 'code': code, 'error': error_str[:100]}
+                return {'success': False, 'code': code, 'error': error_str[:100], 'api_code': 'ERROR'}
             
             # 等待后重试
             time.sleep((2 ** attempt) * 0.5)
     
-    return {'success': False, 'code': code, 'error': '超过最大重试次数'}
+    return {'success': False, 'code': code, 'error': '超过最大重试次数', 'api_code': 'MAX_RETRY'}
 
 def extract_info(order_data):
     """提取订单信息"""
@@ -360,18 +361,20 @@ def main():
         if result['success']:
             info = extract_info(result)
             results.append(info)
-            print(f"✅ {info['收件人电话']}")
+            print(f"✅ [Code:00] {info['收件人电话']}")
         else:
-            # 简化错误信息显示
+            # 显示API Code和错误信息
             error = result.get('error', '未知错误')
+            api_code = result.get('api_code', 'N/A')
+            
             if 'không tìm thấy' in error.lower() or '不存在' in error:
-                print(f"❌ 无数据")
+                print(f"❌ [Code:{api_code}] 无数据")
             elif 'lỗi xử lý' in error.lower():
-                print(f"❌ API错误")
+                print(f"❌ [Code:{api_code}] API错误")
             elif '超时' in error or 'timeout' in error.lower():
-                print(f"❌ 超时")
+                print(f"❌ [Code:{api_code}] 超时")
             else:
-                print(f"❌ {error[:30]}")
+                print(f"❌ [Code:{api_code}] {error[:30]}")
         
         # 限流控制
         if i < len(codes):
