@@ -138,7 +138,7 @@ TEST_CODES = [
     "EP493110347VN",
     "EP492895462VN",
     "EP493183769VN",
-    "EP493155697VN",
+    "EP493155697VN",  # 已修正，加上了N
 ]
 
 def parse_proxy(proxy_str):
