@@ -75,7 +75,7 @@ PROXIES = """
 """.strip()
 
 # 请求间隔（秒）
-DELAY_BETWEEN_REQUESTS = 0.3
+DELAY_BETWEEN_REQUESTS = 0.5
 
 # 最大重试次数
 MAX_RETRIES = 2
@@ -369,12 +369,12 @@ def main():
             
             if 'không tìm thấy' in error.lower() or '不存在' in error:
                 print(f"❌ [Code:{api_code}] 无数据")
-            elif 'lỗi xử lý' in error.lower():
-                print(f"❌ [Code:{api_code}] API错误")
+            elif 'lỗi xử lý' in error.lower() or api_code == '98':
+                print(f"❌ [Code:{api_code}] {error[:40]}")
             elif '超时' in error or 'timeout' in error.lower():
                 print(f"❌ [Code:{api_code}] 超时")
             else:
-                print(f"❌ [Code:{api_code}] {error[:30]}")
+                print(f"❌ [Code:{api_code}] {error[:40]}")
         
         # 限流控制
         if i < len(codes):
