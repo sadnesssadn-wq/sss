@@ -128,9 +128,9 @@ PROXIES = [
 
 CONFIG = {
     'target': 100000,
-    'threads_per_proxy': 7,
-    'total_threads': len(PROXIES) * 5,
-    'delay': 0.05,
+    'threads_per_proxy': 1,  # 每个代理只用1个线程（温和）
+    'total_threads': 20,  # 总共20线程（不要太猛）
+    'delay': 0.5,  # 延迟0.5秒（保护网站）
     'timeout': 10,
     'save_every': 100,
     'max_98_retries': 10,  # Code:98最大重试次数
