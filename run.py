@@ -75,10 +75,10 @@ PROXIES = """
 """.strip()
 
 # 请求间隔（秒）
-DELAY_BETWEEN_REQUESTS = 0.5
+DELAY_BETWEEN_REQUESTS = 0.3
 
 # 最大重试次数
-MAX_RETRIES = 3
+MAX_RETRIES = 2
 
 # ==================== 代理池类 ====================
 
@@ -208,14 +208,17 @@ def query_order(code, proxy_pool=None):
                 proxies = None
             
             # 发起请求
-            response = requests.post(url, json=payload, proxies=proxies, timeout=10)
+            response = requests.post(url, json=payload, proxies=proxies, timeout=15)
             result = response.json()
             
-            # 标记成功
-            if proxy_info:
-                proxy_pool.mark_success(proxy_info)
+            # 检查响应状态
+            response_code = result.get('Code', '')
             
-            if result.get('Code') == '00':
+            if response_code == '00':
+                # 成功
+                if proxy_info:
+                    proxy_pool.mark_success(proxy_info)
+                
                 data = result.get('Value') or result.get('Data')
                 if isinstance(data, str):
                     try:
@@ -226,15 +229,47 @@ def query_order(code, proxy_pool=None):
                 if isinstance(data, dict):
                     return {'success': True, 'code': code, 'data': data}
             
-            return {'success': False, 'code': code, 'error': result.get('Message', '订单不存在')}
+            # 其他错误码 - 不是代理问题，直接返回
+            error_msg = result.get('Message', '未知错误')
             
-        except Exception as e:
-            # 标记失败
+            # 如果是数据不存在的错误，标记成功（代理工作正常）
+            if '不存在' in error_msg or 'không tìm thấy' in error_msg.lower() or 'not found' in error_msg.lower():
+                if proxy_info:
+                    proxy_pool.mark_success(proxy_info)
+            
+            return {'success': False, 'code': code, 'error': error_msg}
+            
+        except requests.exceptions.Timeout:
+            # 超时错误 - 标记代理失败
             if proxy_info:
                 proxy_pool.mark_failure(proxy_info)
             
             if attempt == MAX_RETRIES - 1:
-                return {'success': False, 'code': code, 'error': str(e)}
+                return {'success': False, 'code': code, 'error': '请求超时'}
+            
+            time.sleep(1)
+            
+        except requests.exceptions.ProxyError:
+            # 代理错误 - 标记代理失败，立即切换
+            if proxy_info:
+                proxy_pool.mark_failure(proxy_info)
+            
+            if attempt == MAX_RETRIES - 1:
+                return {'success': False, 'code': code, 'error': '代理连接失败'}
+            
+            time.sleep(0.5)
+            
+        except Exception as e:
+            # 其他错误
+            error_str = str(e)
+            
+            # 如果是网络相关错误，标记代理失败
+            if 'proxy' in error_str.lower() or 'connect' in error_str.lower() or 'timeout' in error_str.lower():
+                if proxy_info:
+                    proxy_pool.mark_failure(proxy_info)
+            
+            if attempt == MAX_RETRIES - 1:
+                return {'success': False, 'code': code, 'error': error_str[:100]}
             
             # 等待后重试
             time.sleep((2 ** attempt) * 0.5)
@@ -327,11 +362,25 @@ def main():
             results.append(info)
             print(f"✅ {info['收件人电话']}")
         else:
-            print(f"❌ {result.get('error', '未知错误')}")
+            # 简化错误信息显示
+            error = result.get('error', '未知错误')
+            if 'không tìm thấy' in error.lower() or '不存在' in error:
+                print(f"❌ 无数据")
+            elif 'lỗi xử lý' in error.lower():
+                print(f"❌ API错误")
+            elif '超时' in error or 'timeout' in error.lower():
+                print(f"❌ 超时")
+            else:
+                print(f"❌ {error[:30]}")
         
         # 限流控制
         if i < len(codes):
             time.sleep(DELAY_BETWEEN_REQUESTS)
+        
+        # 每100条显示一次进度
+        if i % 100 == 0:
+            success_rate = len(results) / i * 100
+            print(f"\n--- 进度: {i}/{len(codes)} | 成功: {len(results)} ({success_rate:.1f}%) ---")
     
     elapsed_time = time.time() - start_time
     
