@@ -64,7 +64,7 @@ PROXIES = """
 136.0.109.46:6332:uadkcvtn:uo2rzar814ph
 """.strip()
 
-THREAD_COUNT = 20  # 并发线程数
+THREAD_COUNT = 10  # 并发线程数（可以改为5更慢，20更快）
 
 class ProxyPool:
     def __init__(self, proxy_list_str):
@@ -179,18 +179,20 @@ def query_order(code, proxy_pool):
                     except:
                         pass
                 if isinstance(data, dict):
+                    time.sleep(0.1)  # 成功后也等0.1秒
                     return {'success': True, 'code': code, 'data': data}
             
             elif response_code == '98':
                 if proxy_info:
                     proxy_pool.mark_failure(proxy_info)
-                time.sleep(0.2)
+                time.sleep(0.5)  # 遇到98等久一点
                 continue
             
             else:
                 if response_code == '01' or 'không tìm thấy' in error_msg.lower():
                     if proxy_info:
                         proxy_pool.mark_success(proxy_info)
+                time.sleep(0.1)  # 每次请求后等0.1秒
                 return {'success': False, 'code': code, 'error': error_msg, 'api_code': response_code}
             
         except:
