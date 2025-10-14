@@ -74,6 +74,8 @@ def query_fast(tracking):
         "tracking": tracking,
         "valid": False,
         "delivered": False,
+        "inquiry_code": "?",
+        "gateway_code": "?",
         "sender_name": "",
         "sender_phone": "",
         "receiver": "",
