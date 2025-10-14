@@ -358,8 +358,12 @@ def batch_query_smart():
             # 金额和费用
             if info['amount']:
                 print(f"    💰 COD金额: {info['amount']:,} VND")
-            if info['fee_ship']:
-                print(f"    🚚 运费: {info['fee_ship']} VND")
+            # 运费 - 即使是0也显示
+            print(f"    🚚 运费: {info['fee_ship']} VND")
+            if info['fee_ppa']:
+                print(f"    💵 PPA费: {info['fee_ppa']} VND")
+            if info['fee_c']:
+                print(f"    💵 C费: {info['fee_c']} VND")
             if info['weight']:
                 print(f"    ⚖️  重量: {info['weight']} g")
             
@@ -446,15 +450,12 @@ def batch_query_smart():
     # CSV
     csv_file = f"smart_results_{timestamp}.csv"
     with open(csv_file, 'w', encoding='utf-8') as f:
-        f.write("运单号,状态,发件人,发件地址,发件电话,收件人,收件地址,收件电话,"
+        f.write("运单号,状态,收件人,收件地址,收件电话,"
                 "COD金额,重量,运费,PPA费,C费,商品名称,发件日期,装车日期,配送时间,签名照片,配送指令\n")
         for r in results:
             if r['valid']:
                 f.write(f'"{r["tracking"]}",')
                 f.write(f'"{"已配送" if r["delivered"] else "未配送"}",')
-                f.write(f'"{r["sender_name"]}",')
-                f.write(f'"{r["sender_address"]}",')
-                f.write(f'"{r["sender_phone"]}",')
                 f.write(f'"{r["receiver"]}",')
                 f.write(f'"{r["receiver_address"]}",')
                 f.write(f'"{r["phone"]}",')
