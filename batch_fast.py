@@ -298,4 +298,4 @@ def batch_query_fast(max_workers=10):
     print(f"✅ JSON: {json_file}")
 
 if __name__ == "__main__":
-    batch_query_fast(max_workers=10)  # 10线程并发
+    batch_query_fast(max_workers=7)  # 7线程并发
