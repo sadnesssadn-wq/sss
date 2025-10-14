@@ -1,38 +1,20 @@
-# Python
+# 排除大文件
+*.apk
+dingdong_apktool/
+dingdong_jadx/
+jadx/
+jadx-*.zip
+
+# 排除临时文件
+*.pyc
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# 虚拟环境
-venv/
-env/
-ENV/
-.venv
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# 操作系统
 .DS_Store
-Thumbs.db
+
+# 排除测试数据
+ep_tracking_results_*.json
+query_results_*.json
+results_*.csv
+results_*.json
+batch_results_*.csv
+batch_results_*.json
+batch_report_*.txt
