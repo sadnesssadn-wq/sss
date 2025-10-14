@@ -232,9 +232,21 @@ def query_tracking_smart(tracking):
     if inquiry and inquiry.get('Value'):
         v = inquiry['Value']
         result['valid'] = True
+        # 发件人信息
+        result['sender_name'] = v.get('SenderName', '')
+        result['sender_address'] = v.get('SenderAddress', '')
+        result['sender_phone'] = v.get('SenderPhone', '')
+        # 收件人信息
         result['receiver'] = v.get('ReceiverName', '')
+        result['receiver_address'] = v.get('ReceiverAddress', '')
         result['phone'] = v.get('ReceiverPhone', '')
+        # 金额和费用
         result['amount'] = v.get('CollectAmount', 0)
+        result['weight'] = v.get('Weigh', '')
+        result['fee_ship'] = v.get('FeeShip', 0)
+        result['fee_ppa'] = v.get('FeePPA', 0)
+        result['fee_c'] = v.get('FeeC', 0)
+        # 时间
         result['issue_date'] = v.get('IssueDate', '')
         result['load_date'] = v.get('LoadDate', '')
     
@@ -331,22 +343,37 @@ def batch_query_smart():
         if info['valid']:
             status = "✅ 已配送" if info['delivered'] else "⏳ 未配送"
             print(f"{status}")
+            
+            # 发件人
+            if info['sender_name']:
+                print(f"    📤 发件人: {info['sender_name']}")
+            if info['sender_phone']:
+                print(f"    📞 发件电话: {info['sender_phone']}")
+            
+            # 收件人
             print(f"    👤 收件人: {info['receiver']}")
-            
             if info['phone']:
-                print(f"    📞 电话: {info['phone']}")
+                print(f"    📞 收件电话: {info['phone']}")
             
+            # 金额和费用
             if info['amount']:
-                print(f"    💰 金额: {info['amount']:,} VND")
+                print(f"    💰 COD金额: {info['amount']:,} VND")
+            if info['fee_ship']:
+                print(f"    🚚 运费: {info['fee_ship']} VND")
+            if info['weight']:
+                print(f"    ⚖️  重量: {info['weight']} g")
             
+            # 商品
             if info['product'] and info['product'] != "***":
                 print(f"    📦 商品: {info['product']}")
             
-            if info['delivery_date']:
-                print(f"    ⏰ 配送时间: {info['delivery_date']}")
-            
+            # 时间
             if info['issue_date']:
                 print(f"    📅 发件日期: {info['issue_date']}")
+            if info['load_date']:
+                print(f"    📅 装车日期: {info['load_date']}")
+            if info['delivery_date']:
+                print(f"    ⏰ 配送时间: {info['delivery_date']}")
         else:
             print(f"❌ 运单无效")
         
@@ -419,14 +446,23 @@ def batch_query_smart():
     # CSV
     csv_file = f"smart_results_{timestamp}.csv"
     with open(csv_file, 'w', encoding='utf-8') as f:
-        f.write("运单号,状态,收件人,电话,金额,商品,发件日期,装车日期,配送时间,签名,配送指令\n")
+        f.write("运单号,状态,发件人,发件地址,发件电话,收件人,收件地址,收件电话,"
+                "COD金额,重量,运费,PPA费,C费,商品名称,发件日期,装车日期,配送时间,签名照片,配送指令\n")
         for r in results:
             if r['valid']:
                 f.write(f'"{r["tracking"]}",')
                 f.write(f'"{"已配送" if r["delivered"] else "未配送"}",')
+                f.write(f'"{r["sender_name"]}",')
+                f.write(f'"{r["sender_address"]}",')
+                f.write(f'"{r["sender_phone"]}",')
                 f.write(f'"{r["receiver"]}",')
+                f.write(f'"{r["receiver_address"]}",')
                 f.write(f'"{r["phone"]}",')
                 f.write(f'"{r["amount"]}",')
+                f.write(f'"{r["weight"]}",')
+                f.write(f'"{r["fee_ship"]}",')
+                f.write(f'"{r["fee_ppa"]}",')
+                f.write(f'"{r["fee_c"]}",')
                 f.write(f'"{r["product"]}",')
                 f.write(f'"{r["issue_date"]}",')
                 f.write(f'"{r["load_date"]}",')
