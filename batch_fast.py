@@ -243,8 +243,11 @@ def batch_query_fast(max_workers=10):
                 if result['valid']:
                     if result['receiver']:
                         info_parts.append(f"👤{result['receiver'][:15]}")
+                    # 电话 - 始终显示，即使为空
                     if result['phone']:
                         info_parts.append(f"📞{result['phone']}")
+                    else:
+                        info_parts.append(f"📞无")
                     if result['amount'] > 0:
                         info_parts.append(f"💰{result['amount']:,}₫")
                     if result['fee_ship'] > 0:
