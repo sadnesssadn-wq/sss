@@ -83,25 +83,53 @@ CONFIG = {
     'max_retries': 999,         # 一直重试直到得到明确答案
 }
 
-# ==================== 密集区域（DingDong运单格式）====================
+# ==================== 密集区域（基于真实数据分析）====================
 DENSE_REGIONS = [
-    # EB区域 - 测试发现有效
-    {'prefix': 'EB', 'start': 102885000, 'end': 102895000, 'step': 1},
-    {'prefix': 'EB', 'start': 102960000, 'end': 102970000, 'step': 1},
+    # EB 区域（5.0%占比）
+    {'prefix': 'EB', 'start': 102885483, 'end': 102885894, 'step': 1},
+    {'prefix': 'EB', 'start': 102888238, 'end': 102890364, 'step': 1},
+    {'prefix': 'EB', 'start': 102964844, 'end': 102969325, 'step': 1},
     
-    # EP区域 - 测试发现有效
-    {'prefix': 'EP', 'start': 492800000, 'end': 493200000, 'step': 1},
+    # EC 区域（密度8.6%！）
+    {'prefix': 'EC', 'start': 149780335, 'end': 149780809, 'step': 1},
+    {'prefix': 'EC', 'start': 143587127, 'end': 143588309, 'step': 1},
     
-    # EL区域 - 测试发现有效
-    {'prefix': 'EL', 'start': 135200000, 'end': 135800000, 'step': 1},
+    # ED 区域
+    {'prefix': 'ED', 'start': 121962191, 'end': 121962245, 'step': 1},
     
-    # EF区域 - 测试发现有效
-    {'prefix': 'EF', 'start': 43570000, 'end': 43600000, 'step': 1},
+    # EF 区域（78.5%占比，941个订单！重点扫描）
+    {'prefix': 'EF', 'start': 43571075, 'end': 43571359, 'step': 1},
+    {'prefix': 'EF', 'start': 43571495, 'end': 43576271, 'step': 1},
+    {'prefix': 'EF', 'start': 43579295, 'end': 43582396, 'step': 1},
+    {'prefix': 'EF', 'start': 43590790, 'end': 43591680, 'step': 1},
+    {'prefix': 'EF', 'start': 43592040, 'end': 43595735, 'step': 1},
+    {'prefix': 'EF', 'start': 45405059, 'end': 45405093, 'step': 1},
+    {'prefix': 'EF', 'start': 45746336, 'end': 45746469, 'step': 1},
+    {'prefix': 'EF', 'start': 47519990, 'end': 47523345, 'step': 1},
+    {'prefix': 'EF', 'start': 47544901, 'end': 47557176, 'step': 1},
+    {'prefix': 'EF', 'start': 47681054, 'end': 47685970, 'step': 1},
+    {'prefix': 'EF', 'start': 47747087, 'end': 47747436, 'step': 1},
     
-    # EA区域 - 你的测试数据
-    {'prefix': 'EA', 'start': 77000000, 'end': 78000000, 'step': 10},
-    {'prefix': 'EA', 'start': 119000000, 'end': 120000000, 'step': 10},
-    {'prefix': 'EA', 'start': 169000000, 'end': 170000000, 'step': 10},
+    # EG 区域
+    {'prefix': 'EG', 'start': 40816534, 'end': 40816548, 'step': 1},
+    {'prefix': 'EG', 'start': 40836088, 'end': 40836105, 'step': 1},
+    {'prefix': 'EG', 'start': 40840745, 'end': 40841009, 'step': 1},
+    {'prefix': 'EG', 'start': 46007274, 'end': 46007504, 'step': 1},
+    {'prefix': 'EG', 'start': 47361262, 'end': 47361302, 'step': 1},
+    
+    # EJ 区域
+    {'prefix': 'EJ', 'start': 701368250, 'end': 701369958, 'step': 1},
+    {'prefix': 'EJ', 'start': 701441480, 'end': 701443843, 'step': 1},
+    {'prefix': 'EJ', 'start': 711462436, 'end': 711463431, 'step': 1},
+    
+    # EK 区域
+    {'prefix': 'EK', 'start': 42151562, 'end': 42151580, 'step': 1},
+    {'prefix': 'EK', 'start': 42227544, 'end': 42228227, 'step': 1},
+    
+    # EL 区域
+    {'prefix': 'EL', 'start': 135247577, 'end': 135252002, 'step': 1},
+    {'prefix': 'EL', 'start': 135726003, 'end': 135756504, 'step': 1},
+    {'prefix': 'EL', 'start': 155309426, 'end': 155309491, 'step': 1},
 ]
 
 # ==================== 全局状态 ====================
