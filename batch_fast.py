@@ -55,6 +55,15 @@ def safe_print(msg):
     with print_lock:
         print(msg)
 
+def extract_phone(text):
+    """从文本中智能提取电话号码"""
+    import re
+    if not text:
+        return None
+    # 匹配越南电话：0开头，8-11位数字
+    phones = re.findall(r'0\d{8,10}', str(text))
+    return phones[0] if phones else None
+
 def query_fast(tracking):
     """快速查询单个运单"""
     
