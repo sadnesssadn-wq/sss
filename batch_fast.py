@@ -31,7 +31,7 @@ def load_proxies():
     """加载代理"""
     global proxies
     try:
-        with open("proxy_list.txt", 'r') as f:
+        with open("proxy_list.txt", 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.strip()
                 if line and not line.startswith('#'):
@@ -191,7 +191,7 @@ def batch_query_fast(max_workers=10):
         print("❌ key.txt 不存在")
         return
     
-    with open("key.txt", 'r', encoding='utf-8') as f:
+    with open("key.txt", 'r') as f:
         trackings = [line.strip() for line in f 
                     if line.strip() and not line.startswith('#')]
     
@@ -233,6 +233,11 @@ def batch_query_fast(max_workers=10):
                 status = "✅" if result['valid'] else "❌"
                 delivered_status = "已配" if result['delivered'] else "未配"
                 
+                # 显示code
+                inquiry_code = result.get('inquiry_code', '?')
+                gateway_code = result.get('gateway_code', '?')
+                code_str = f"I:{inquiry_code} G:{gateway_code}"
+                
                 # 关键信息
                 info_parts = []
                 if result['valid']:
@@ -250,8 +255,8 @@ def batch_query_fast(max_workers=10):
                 info_str = " | ".join(info_parts) if info_parts else "无数据"
                 
                 safe_print(
-                    f"[{completed}/{len(trackings)}] {status} {delivered_status} {tracking} | "
-                    f"{percent:.0f}% {speed:.1f}/s | {info_str}"
+                    f"[{completed}/{len(trackings)}] {status} {delivered_status} {tracking} "
+                    f"{code_str} | {percent:.0f}% {speed:.1f}/s | {info_str}"
                 )
                 
             except Exception as e:
