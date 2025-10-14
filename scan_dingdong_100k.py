@@ -133,7 +133,7 @@ def sign(text):
     return hashlib.sha256((text + PRIVATE_KEY).encode()).hexdigest().upper()
 
 def query_dingdong(tracking):
-    """查询DingDong运单"""
+    """查询DingDong运单 - 实时显示code"""
     
     sig = sign(tracking)
     headers_form = {
@@ -174,14 +174,24 @@ def query_dingdong(tracking):
                 timeout=8
             )
             
+            # 实时显示状态
+            print(f"  [{tracking}] HTTP:{r.status_code} ", end='', flush=True)
+            
             if r.status_code == 200:
                 data = r.json()
                 code = data.get('Code', '')
                 
+                # 显示API Code
+                print(f"Code:{code} ", end='', flush=True)
+                
                 # 检测限流
                 if code == "98" or code == "429":
+                    print(f"⚠️限流换代理", end='', flush=True)
                     time.sleep(0.3)
                     continue  # 换代理重试
+                
+                if code == "00":
+                    print(f"✅ ", end='', flush=True)
                 
                 if data.get('Value'):
                     v = data['Value']
@@ -206,13 +216,18 @@ def query_dingdong(tracking):
             
             if r.status_code == 200:
                 data = r.json()
+                gw_code = data.get('Code', '')
+                print(f"GW:{gw_code} ", end='', flush=True)
+                
                 if data.get('Data'):
                     products = json.loads(data['Data'])
                     if products:
                         result['product'] = products[0].get('ProductName', '')
                         if result['product'] and result['product'] != "***":
                             result['valid'] = True
+                            print(f"📦 ", end='', flush=True)
             
+            print()  # 换行
             return result
             
         except:
