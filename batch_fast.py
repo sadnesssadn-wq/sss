@@ -88,7 +88,7 @@ def query_fast(tracking):
         "issue_date": ""
     }
     
-    max_retry = 3
+    max_retry = 999  # 几乎无限重试
     
     for attempt in range(max_retry):
         try:
