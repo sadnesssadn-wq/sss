@@ -329,9 +329,14 @@ def scan_region_dingdong(region):
                 if result['fee_ship'] > 0:
                     print(f"  🚚 运费: {result['fee_ship']} VND")
                 
-                # 商品
-                if result['product'] and result['product'] != "***":
-                    print(f"  📦 商品: {result['product']}")
+                # 商品（即使是***也显示）
+                if result['product']:
+                    if result['product'] == "***":
+                        print(f"  📦 商品: *** (已隐藏)")
+                    else:
+                        print(f"  📦 商品: {result['product']}")
+                else:
+                    print(f"  📦 商品: 未获取")
                 
                 print(f"  ⚡ 速度: {speed:.1f}/s | 成功率: {rate:.1f}%")
                 print(f"{'='*70}\n")
