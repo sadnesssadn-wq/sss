@@ -217,7 +217,8 @@ def query_dingdong(tracking):
             if r.status_code == 200:
                 data = r.json()
                 gw_code = data.get('Code', '')
-                print(f"GW:{gw_code} ", end='', flush=True)
+                gw_status = "✅" if gw_code == "00" else "❌"
+                print(f" | GW:{gw_code} {gw_status}", end='', flush=True)
                 
                 if data.get('Data'):
                     products = json.loads(data['Data'])
@@ -225,7 +226,7 @@ def query_dingdong(tracking):
                         result['product'] = products[0].get('ProductName', '')
                         if result['product'] and result['product'] != "***":
                             result['valid'] = True
-                            print(f"📦 ", end='', flush=True)
+                            print(f" 📦", end='', flush=True)
             
             print()  # 换行
             return result
@@ -264,10 +265,29 @@ def scan_region_dingdong(region):
                 speed = state['tested'] / elapsed if elapsed > 0 else 0
                 rate = (state['found'] / state['tested'] * 100) if state['tested'] > 0 else 0
                 
-                product_info = result['product'][:30] if result['product'] else ""
-                print(f"✅ [{state['found']}/{CONFIG['target']}] {tracking} | "
-                      f"📞{result['phone']} | 💰{result['amount']} | "
-                      f"📦{product_info} | {speed:.1f}/s | 率:{rate:.1f}%")
+                # 详细显示找到的订单
+                print(f"\n{'='*70}")
+                print(f"✅ 找到订单 [{state['found']}/{CONFIG['target']}]")
+                print(f"{'='*70}")
+                print(f"  运单号: {tracking}")
+                print(f"  发件人: {result['sender_name']}")
+                if result['sender_phone']:
+                    print(f"  发件电话: {result['sender_phone']}")
+                print(f"  收件人: {result['receiver']}")
+                if result['receiver_address']:
+                    print(f"  收件地址: {result['receiver_address']}")
+                if result['phone']:
+                    print(f"  收件电话: {result['phone']}")
+                if result['amount']:
+                    print(f"  💰 金额: {result['amount']:,} VND")
+                if result['fee_ship']:
+                    print(f"  🚚 运费: {result['fee_ship']} VND")
+                if result['product'] and result['product'] != "***":
+                    print(f"  📦 商品: {result['product']}")
+                if result['issue_date']:
+                    print(f"  📅 发件: {result['issue_date']}")
+                print(f"  ⚡ 速度: {speed:.1f}/s | 成功率: {rate:.1f}%")
+                print(f"{'='*70}\n")
                 
                 if state['found'] % CONFIG['save_every'] == 0:
                     save_progress()
