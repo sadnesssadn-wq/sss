@@ -285,7 +285,8 @@ def scan_region_dingdong(region):
         with state['lock']:
             state['tested'] += 1
             
-            if result['valid']:
+            # 只保存价格或运费不为0的订单
+            if result['valid'] and (result['amount'] > 0 or result['fee_ship'] > 0):
                 state['found'] += 1
                 state['orders'].append(result)
                 
