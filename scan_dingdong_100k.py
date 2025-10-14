@@ -76,7 +76,7 @@ PROXIES = [
 # ==================== 配置参数 ====================
 CONFIG = {
     'target': 100000,           # 目标：10万个订单
-    'total_threads': 20,        # 并发线程数（DingDong可以更高）
+    'total_threads': 10,        # 并发线程数
     'delay': 0.05,              # 请求间隔
     'timeout': 10,
     'save_every': 100,
