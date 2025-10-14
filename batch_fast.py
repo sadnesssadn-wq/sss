@@ -143,7 +143,7 @@ def query_fast(tracking):
                     result['delivery_date'] = rec.get('DeliveryDate', '')
                     result['signature'] = rec.get('DeliverySignature', '')
             
-            # Gateway - 商品
+            # Gateway - 商品（只作为补充信息，不影响valid判断）
             r = requests.post(
                 f"{API_URL}api/Gateway/Bussiness",
                 headers=headers_json,
@@ -158,9 +158,8 @@ def query_fast(tracking):
                     products = json.loads(data['Data'])
                     if products:
                         result['product'] = products[0].get('ProductName', '')
-                        # 如果有商品信息，也标记为有效
-                        if result['product'] and result['product'] != "***":
-                            result['valid'] = True
+                        # 注意：不再因为有商品就标记valid
+                        # valid只由Inquiry API的Value决定
             
             return result
             
