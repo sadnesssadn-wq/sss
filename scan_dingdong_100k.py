@@ -302,25 +302,37 @@ def scan_region_dingdong(region):
                 
                 # 详细显示找到的订单
                 print(f"\n{'='*70}")
-                print(f"✅ 找到订单 [{state['found']}/{CONFIG['target']}]")
+                print(f"✅ 找到有效订单 [{state['found']}/{CONFIG['target']}]")
                 print(f"{'='*70}")
-                print(f"  运单号: {tracking}")
-                print(f"  发件人: {result['sender_name']}")
+                print(f"  🆔 运单号: {tracking}")
+                
+                # 日期信息（优先显示）
+                if result['issue_date']:
+                    print(f"  📅 发件日期: {result['issue_date']}")
+                
+                # 发件人
+                if result['sender_name']:
+                    print(f"  📤 发件人: {result['sender_name']}")
                 if result['sender_phone']:
-                    print(f"  发件电话: {result['sender_phone']}")
-                print(f"  收件人: {result['receiver']}")
+                    print(f"  ☎️  发件电话: {result['sender_phone']}")
+                
+                # 收件人
+                print(f"  👤 收件人: {result['receiver']}")
                 if result['receiver_address']:
-                    print(f"  收件地址: {result['receiver_address']}")
+                    print(f"  📍 收件地址: {result['receiver_address']}")
                 if result['phone']:
-                    print(f"  收件电话: {result['phone']}")
-                if result['amount']:
-                    print(f"  💰 金额: {result['amount']:,} VND")
-                if result['fee_ship']:
+                    print(f"  📞 收件电话: {result['phone']}")
+                
+                # 金额费用
+                if result['amount'] > 0:
+                    print(f"  💰 COD金额: {result['amount']:,} VND")
+                if result['fee_ship'] > 0:
                     print(f"  🚚 运费: {result['fee_ship']} VND")
+                
+                # 商品
                 if result['product'] and result['product'] != "***":
                     print(f"  📦 商品: {result['product']}")
-                if result['issue_date']:
-                    print(f"  📅 发件: {result['issue_date']}")
+                
                 print(f"  ⚡ 速度: {speed:.1f}/s | 成功率: {rate:.1f}%")
                 print(f"{'='*70}\n")
                 
