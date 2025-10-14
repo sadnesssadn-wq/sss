@@ -168,6 +168,8 @@ def query_fast(tracking):
             
             if r.status_code == 200:
                 data = r.json()
+                result['gateway_code'] = data.get('Code', '')  # 记录Gateway Code
+                
                 if data.get('Data'):
                     products = json.loads(data['Data'])
                     if products:
