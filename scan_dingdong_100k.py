@@ -291,8 +291,8 @@ def scan_region_dingdong(region):
                 speed = state['tested'] / elapsed if elapsed > 0 else 0
                 print(f"\n📊 统计: 已扫{state['tested']} | ✅找到{state['found']} | 成功率:{state['found']/state['tested']*100:.2f}% | 速度:{speed:.1f}/s\n", flush=True)
             
-            # 只保存价格或运费不为0的订单
-            if result['valid'] and (result['amount'] > 0 or result['fee_ship'] > 0):
+            # 只保存未配送且有金额的订单（排除已签收）
+            if result['valid'] and not result['delivered'] and (result['amount'] > 0 or result['fee_ship'] > 0):
                 state['found'] += 1
                 state['orders'].append(result)
                 
