@@ -306,7 +306,17 @@ def scan_region_dingdong(region):
                 print(f"{'='*70}")
                 print(f"  🆔 运单号: {tracking}")
                 
-                # 日期信息（优先显示，即使为空也显示）
+                # 配送状态（最优先显示）
+                if result['delivered']:
+                    print(f"  ✅ 配送状态: 已配送")
+                    if result['delivery_date']:
+                        print(f"  ⏰ 配送时间: {result['delivery_date']}")
+                    if result['signature']:
+                        print(f"  ✍️  签名照片: {result['signature']}")
+                else:
+                    print(f"  ⏳ 配送状态: 未配送")
+                
+                # 日期信息
                 if result['issue_date']:
                     print(f"  📅 发件日期: {result['issue_date']}")
                 else:
