@@ -191,7 +191,7 @@ def batch_query_fast(max_workers=10):
         print("❌ key.txt 不存在")
         return
     
-    with open("key.txt", 'r') as f:
+    with open("key.txt", 'r', encoding='utf-8') as f:
         trackings = [line.strip() for line in f 
                     if line.strip() and not line.startswith('#')]
     
