@@ -177,7 +177,7 @@ def query_dingdong(tracking):
     
     result = {
         "tracking": tracking,
-        "valid": False,
+        "valid": False, "delivered": False, "delivery_date": "", "signature": "",
         "sender_name": "",
         "sender_phone": "",
         "receiver": "",
