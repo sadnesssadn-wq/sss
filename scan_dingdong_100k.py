@@ -80,7 +80,7 @@ CONFIG = {
     'delay': 0.05,              # 请求间隔
     'timeout': 10,
     'save_every': 100,
-    'max_retries': 999,         # 无限重试
+    'max_retries': 3,           # 最多重试3次
 }
 
 # ==================== 密集区域（DingDong运单格式）====================
