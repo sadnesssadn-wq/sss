@@ -203,7 +203,7 @@ def batch_query_fast(max_workers=10):
         print("❌ key.txt 不存在")
         return
     
-    with open("key.txt", 'r') as f:
+    with open("key.txt", 'r', encoding='utf-8') as f:
         trackings = [line.strip() for line in f 
                     if line.strip() and not line.startswith('#')]
     
@@ -255,9 +255,11 @@ def batch_query_fast(max_workers=10):
                 if result['valid']:
                     if result['receiver']:
                         info_parts.append(f"👤{result['receiver'][:15]}")
-                    # 电话 - 始终显示，即使为空
+                    # 电话 - 优先收件人，备选发件人
                     if result['phone']:
                         info_parts.append(f"📞{result['phone']}")
+                    elif result['sender_phone']:
+                        info_parts.append(f"📞{result['sender_phone']}(发)")
                     else:
                         info_parts.append(f"📞无")
                     if result['amount'] > 0:
