@@ -306,9 +306,11 @@ def scan_region_dingdong(region):
                 print(f"{'='*70}")
                 print(f"  🆔 运单号: {tracking}")
                 
-                # 日期信息（优先显示）
+                # 日期信息（优先显示，即使为空也显示）
                 if result['issue_date']:
                     print(f"  📅 发件日期: {result['issue_date']}")
+                else:
+                    print(f"  📅 发件日期: 未获取")
                 
                 # 发件人
                 if result['sender_name']:
