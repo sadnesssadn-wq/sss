@@ -224,20 +224,34 @@ def batch_query_fast(max_workers=10):
                 result = future.result()
                 results.append(result)
                 
-                # 进度和状态
+                # 实时显示详细信息
                 percent = completed / len(trackings) * 100
                 elapsed = time.time() - start_time
                 speed = completed / elapsed if elapsed > 0 else 0
-                eta = (len(trackings) - completed) / speed if speed > 0 else 0
                 
+                # 状态和code
                 status = "✅" if result['valid'] else "❌"
-                product_info = ""
-                if result['product'] and result['product'] != "***":
-                    product_info = f" 📦{result['product'][:30]}"
+                delivered_status = "已配" if result['delivered'] else "未配"
+                
+                # 关键信息
+                info_parts = []
+                if result['valid']:
+                    if result['receiver']:
+                        info_parts.append(f"👤{result['receiver'][:15]}")
+                    if result['phone']:
+                        info_parts.append(f"📞{result['phone']}")
+                    if result['amount'] > 0:
+                        info_parts.append(f"💰{result['amount']:,}₫")
+                    if result['fee_ship'] > 0:
+                        info_parts.append(f"🚚{result['fee_ship']}₫")
+                    if result['product'] and result['product'] != "***":
+                        info_parts.append(f"📦{result['product'][:20]}")
+                
+                info_str = " | ".join(info_parts) if info_parts else "无数据"
                 
                 safe_print(
-                    f"[{completed}/{len(trackings)}] {status} {tracking} | "
-                    f"{percent:.0f}% | {speed:.1f}/s | 剩余:{eta:.0f}s{product_info}"
+                    f"[{completed}/{len(trackings)}] {status} {delivered_status} {tracking} | "
+                    f"{percent:.0f}% {speed:.1f}/s | {info_str}"
                 )
                 
             except Exception as e:
