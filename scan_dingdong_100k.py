@@ -79,7 +79,7 @@ CONFIG = {
     'total_threads': 10,        # 并发线程数
     'delay': 0.05,              # 请求间隔
     'timeout': 10,
-    'save_every': 100,
+    'save_every': 1,            # 每找到1个订单就保存（实时保存）
     'max_retries': 999,         # 一直重试直到得到明确答案
 }
 
