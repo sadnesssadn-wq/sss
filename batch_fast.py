@@ -72,21 +72,45 @@ def query_fast(tracking):
                 if not result['phone']:
                     result['phone'] = extract_phone(result['receiver']) or extract_phone(result['receiver_address']) or ""
         
-        # Journey
+        # Journey - 配送详情（如果Inquiry无数据，从这里提取）
         r = requests.post(f"{API_URL}api/Delivery/DeliveryLadingJourney", headers=headers_form, data={"ParcelCode": tracking}, proxies=proxy, timeout=8)
         if r.status_code == 200 and r.json().get('ListValue'):
             rec = r.json()['ListValue'][0]
             result['delivered'], result['delivery_date'], result['signature'] = True, rec.get('DeliveryDate',''), rec.get('DeliverySignature','')
+            
+            # 如果Inquiry没数据，从Journey提取（备用方案）
+            if not result['valid']:
+                if rec.get('ReceiverName'):
+                    result['receiver'] = rec.get('ReceiverName','')
+                    result['phone'] = rec.get('ReceiverPhone','') or extract_phone(result['receiver'])
+                    result['amount'] = rec.get('CollectAmount',0)
+                    result['valid'] = True
         
         # Gateway
         r = requests.post(f"{API_URL}api/Gateway/Bussiness", headers=headers_json, json={"Code": "LDP002", "Data": tracking}, proxies=proxy, timeout=8)
         if r.status_code == 200:
             data = r.json()
-            result['gateway_code'] = data.get('Code', '?')  # 记录code
+            result['gateway_code'] = data.get('Code', '?')
             if data.get('Data'):
                 products = json.loads(data['Data'])
                 if products:
                     result['product'] = products[0].get('ProductName','')
+        
+        # TrackTrace - 状态历史（第4个API）
+        r = requests.post(f"{API_URL}api/TrackTrace/Lading", headers=headers_form, data={"LadingCode": tracking, "Signature": sig}, proxies=proxy, timeout=8)
+        if r.status_code == 200:
+            data = r.json()
+            if data.get('Value'):
+                v = data['Value']
+                # 如果Inquiry没数据，尝试从TrackTrace获取
+                if not result['valid']:
+                    if v.get('ReceiverName'):
+                        result['receiver'] = v.get('ReceiverName','')
+                        result['phone'] = v.get('ReceiverMobile','')
+                        result['valid'] = True
+                # 获取状态历史
+                if v.get('ListStatus'):
+                    result['status_history'] = len(v['ListStatus'])
     except:
         pass
     
