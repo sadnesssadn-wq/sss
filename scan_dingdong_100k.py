@@ -259,11 +259,12 @@ def query_dingdong(tracking):
             print()  # 换行
             return result
             
-        except:
+        except Exception as e:
             if attempt < 5:
                 time.sleep(0.2)
                 continue
-            break
+            # 确保返回完整的result结构
+            return result
     
     return result
 
