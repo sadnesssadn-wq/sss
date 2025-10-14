@@ -55,15 +55,6 @@ def safe_print(msg):
     with print_lock:
         print(msg)
 
-def extract_phone(text):
-    """从文本中智能提取电话号码"""
-    import re
-    if not text:
-        return None
-    # 匹配越南电话：0开头，8-11位数字
-    phones = re.findall(r'0\d{8,10}', str(text))
-    return phones[0] if phones else None
-
 def query_fast(tracking):
     """快速查询单个运单"""
     
@@ -134,6 +125,18 @@ def query_fast(tracking):
                     result['weight'] = v.get('Weigh', '')
                     result['fee_ship'] = v.get('FeeShip', 0)
                     result['issue_date'] = v.get('IssueDate', '')
+                    
+                    # 智能提取电话：如果ReceiverPhone为空，从姓名和地址中提取
+                    if not result['phone']:
+                        # 先从收件人姓名提取
+                        phone_from_name = extract_phone(result['receiver'])
+                        if phone_from_name:
+                            result['phone'] = phone_from_name
+                        else:
+                            # 再从地址提取
+                            phone_from_addr = extract_phone(result['receiver_address'])
+                            if phone_from_addr:
+                                result['phone'] = phone_from_addr
             
             # Journey
             r = requests.post(
