@@ -17,7 +17,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 
 PRIVATE_KEY = "34784DCEAD1484AA758A8C033FB0F858BDACABC7BE8FC2F5CC5AFD376AB8654A"
@@ -319,6 +319,55 @@ def generate_signature(code):
     data = code.upper() + PRIVATE_KEY
     return hashlib.sha256(data.encode('utf-8')).hexdigest().upper()
 
+def is_recent_order(data, days=3):
+    """检查订单是否在最近N天内有更新"""
+    list_status = data.get('ListStatus', [])
+    
+    if not list_status:
+        # 无状态历史 - 可能是刚创建的订单，保留
+        return True
+    
+    # 检查是否有最近N天的状态
+    now = datetime.now()
+    for status in list_status:
+        date_str = status.get('StatusDate', '')
+        if date_str:
+            try:
+                # 解析日期 DD/MM/YYYY
+                dt = datetime.strptime(date_str, '%d/%m/%Y')
+                days_ago = (now - dt).days
+                
+                if days_ago <= days:
+                    return True
+            except:
+                continue
+    
+    return False
+
+def get_latest_date(data):
+    """获取订单最新日期"""
+    list_status = data.get('ListStatus', [])
+    
+    if not list_status:
+        return "无日期"
+    
+    dates = []
+    for status in list_status:
+        date_str = status.get('StatusDate', '')
+        if date_str:
+            try:
+                dt = datetime.strptime(date_str, '%d/%m/%Y')
+                dates.append(dt)
+            except:
+                continue
+    
+    if dates:
+        latest = max(dates)
+        days_ago = (datetime.now() - latest).days
+        return f"{latest.strftime('%Y-%m-%d')} ({days_ago}天前)"
+    
+    return "无日期"
+
 def extract_phones_from_text(text):
     if not text:
         return []
@@ -430,7 +479,8 @@ def query_order(code, proxy=None):
                         value = 0
                         fee = 0
                     
-                    if value > 0 or fee > 0:
+                    # 筛选条件：价值>0或运费>0，且最近3天有更新
+                    if (value > 0 or fee > 0) and is_recent_order(data, days=3):
                         with state['lock']:
                             state['proxy_stats'][proxy_str]['success'] += 1
                         return {'status': 'found', 'data': data, 'proxy': proxy_str}
