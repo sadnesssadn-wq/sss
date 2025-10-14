@@ -158,6 +158,9 @@ def query_fast(tracking):
                     products = json.loads(data['Data'])
                     if products:
                         result['product'] = products[0].get('ProductName', '')
+                        # 如果有商品信息，也标记为有效
+                        if result['product'] and result['product'] != "***":
+                            result['valid'] = True
             
             return result
             
