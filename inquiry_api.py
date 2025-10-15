@@ -32,8 +32,9 @@ class EMSInquiryAPI:
         Returns:
             SHA256签名字符串
         """
-        # 使用运单号生成SHA256签名
-        signature = hashlib.sha256(parcel_code.encode('utf-8')).hexdigest().upper()
+        # 签名 = SHA256(运单号 + APIKey)
+        api_key = "34784DCEAD1484AA758A8C033FB0F858BDACABC7BE8FC2F5CC5AFD376AB8654A"
+        signature = hashlib.sha256((parcel_code + api_key).encode('utf-8')).hexdigest().upper()
         return signature
     
     def inquiry(self, parcel_code):
@@ -102,14 +103,17 @@ class EMSInquiryAPI:
         
         time_info = {}
         
-        # 提取IssueDate和LoadDate
-        if 'IssueDate' in result:
-            time_info['IssueDate'] = result['IssueDate']
-            print(f"IssueDate (发行日期): {result['IssueDate']}")
+        # 检查是否有Value字段（实际数据在这里）
+        data = result.get('Value', result)
         
-        if 'LoadDate' in result:
-            time_info['LoadDate'] = result['LoadDate']
-            print(f"LoadDate (装载日期): {result['LoadDate']}")
+        # 提取IssueDate和LoadDate
+        if 'IssueDate' in data:
+            time_info['IssueDate'] = data['IssueDate']
+            print(f"IssueDate (发行日期): {data['IssueDate']}")
+        
+        if 'LoadDate' in data:
+            time_info['LoadDate'] = data['LoadDate']
+            print(f"LoadDate (装载日期): {data['LoadDate']}")
         
         return time_info
 
