@@ -110,9 +110,12 @@ def check_order(tracking, max_retries=3):
                     
                     proxy_pool.mark_success()
                     
+                    load_date = value.get('LoadDate', '')
+                    
                     order_info = {
                         'tracking': tracking,
                         'IssueDate': issue_date,
+                        'LoadDate': load_date,
                         'ReceiverName': value.get('ReceiverName', ''),
                         'CollectAmount': value.get('CollectAmount', 0),
                     }
@@ -205,7 +208,9 @@ def find_first_backward(known_num, backward_count=20000):
                         'tracking': f"EP{num:09d}VN",
                         **info
                     })
-                    safe_print(f"✅ EP{num:09d}VN - 今天的订单！")
+                    # 显示详细时间
+                    time_info = info.get('LoadDate', info.get('IssueDate', ''))
+                    safe_print(f"✅ EP{num:09d}VN - 今天的订单！时间: {time_info}")
             except:
                 pass
     
@@ -268,18 +273,20 @@ def main():
 
 运单号: {first_order['tracking']}
 编号: {first_order['number']}
-日期: {first_order['IssueDate']}
+发行日期: {first_order['IssueDate']}
+装载时间: {first_order.get('LoadDate', 'N/A')}
 收件人: {first_order['ReceiverName']}
 金额: {first_order['CollectAmount']:,}₫
 
 📊 共找到 {len(found_orders)} 条EP系列今日订单
 """)
         
-        # 显示前10条
+        # 显示前10条（按时间排序）
         if len(found_orders) > 1:
-            print("前10条今日订单:")
+            print("前10条今日订单（按时间排序）:")
             for i, order in enumerate(found_orders[:10], 1):
-                print(f"{i:2d}. {order['tracking']} - {order['ReceiverName']} - {order['CollectAmount']:,}₫")
+                time_info = order.get('LoadDate', order.get('IssueDate', 'N/A'))
+                print(f"{i:2d}. {order['tracking']} - {time_info} - {order['ReceiverName']}")
         
         # 保存
         filename = f"EP_first_v2_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
