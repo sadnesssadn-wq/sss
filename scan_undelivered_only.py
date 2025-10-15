@@ -329,9 +329,6 @@ def check_undelivered_order(tracking):
                     
                     # 🔥 实时保存到CSV
                     save_order_to_csv(order)
-                    
-                    if state['found'] % 500 == 0:
-                        save_progress()
                 
                 return True
         else:
@@ -342,53 +339,12 @@ def check_undelivered_order(tracking):
     
     return False
 
-def save_progress():
-    """保存进度 - CSV + JSON（所有字段）"""
+def save_final_summary():
+    """保存最终统计JSON"""
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     
-    # 所有订单都应该是今天且未配送的
-    total_orders = len(state['orders'])
-    
-    # CSV
-    csv_file = f"today_undelivered_orders_{timestamp}.csv"
-    with open(csv_file, 'w', encoding='utf-8-sig') as f:
-        headers = [
-            '运单号', '发件日期', '装载日期', '配送日期',
-            '发件人', '发件电话', '发件地址',
-            '收件人', '收件电话', '收件地址', '收件人身份证',
-            'COD代收金额', 'COD金额', '运费', 'PPA费用', 'C费用', '取消费', '稍后收款费',
-            '重量', '状态代码', '状态名称',
-            '发件邮局', '配送邮局', '路线代码',
-            '是否COD', '是否邮资', '邮资名称',
-            '配送签名URL', '配送照片URL', '配送认证照片URL',
-            '备注', '指令', 'VAT代码', '原因', '解决方案',
-            '检查状态', '检查状态号', '计数',
-            '是否已配送', '是否今天订单',
-            '收取费用'
-        ]
-        f.write(','.join(headers) + '\n')
-        
-        for o in state['orders']:
-            row = [
-                o['tracking'], o['IssueDate'], o['LoadDate'], o['DeliveryDate'],
-                o['SenderName'], o['SenderPhone'], o['SenderAddress'],
-                o['ReceiverName'], o['ReceiverPhone'], o['ReceiverAddress'], o['ReceiverIDNumber'],
-                str(o['CollectAmount']), str(o['AmountCOD']), str(o['FeeShip']),
-                str(o['FeePPA']), str(o['FeeC']), str(o['FeeCancelOrder']), str(o['FeeCollectLater']),
-                o['Weigh'], o['Status'], o['StatusName'],
-                o['IssuePOCode'], o['DeliveryPOCode'], o['RouteCode'],
-                o['IsCOD'], o['IsPaypost'], o['IsPaypostName'],
-                o['DeliverySignature'], o['DeliveryImage'], o['DeliveryImageAuthen'],
-                o['Note'], o['Instruction'], o['VATCode'], o['ReasonName'], o['SolutionName'],
-                str(o['CheckStatus']), str(o['CheckStatusNo']), str(o['Count']),
-                '否' if not o['is_delivered'] else '是', '是' if o['is_today_order'] else '否',
-                o['ReceiveCollectFee'],
-            ]
-            row = [f'"{str(item).replace(chr(34), chr(34)+chr(34))}"' for item in row]
-            f.write(','.join(row) + '\n')
-    
-    # JSON
-    json_file = f"today_undelivered_orders_{timestamp}.json"
+    # 只保存JSON统计文件
+    json_file = f"scan_summary_{timestamp}.json"
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump({
             'scan_date': TODAY,
@@ -396,13 +352,13 @@ def save_progress():
             'total_tested': state['tested'],
             'success_rate': state['found']/state['tested']*100 if state['tested'] > 0 else 0,
             'condition': 'undelivered AND today',
-            'orders': state['orders']
+            'realtime_csv_file': realtime_csv_file,
+            'scan_completed': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         }, f, ensure_ascii=False, indent=2)
     
-    safe_print(f"\n💾 已保存 {state['found']} 个当天未配送订单:")
-    safe_print(f"   📄 批量CSV: {csv_file}")
-    safe_print(f"   📄 实时CSV: {realtime_csv_file}")
-    safe_print(f"   📄 JSON: {json_file}")
+    safe_print(f"\n💾 扫描完成，数据已保存:")
+    safe_print(f"   📄 实时CSV: {realtime_csv_file} ({state['found']} 个订单)")
+    safe_print(f"   📄 统计JSON: {json_file}")
     safe_print(f"   ✅ 条件: 当天订单 AND 未配送\n")
 
 # ==================== 扩大扫描区间（找更多订单）====================
@@ -494,9 +450,8 @@ print(f"""
   ✅ 未配送: DeliveryDate 为空
 
 📋 保存数据:
-  • 实时CSV: 每找到一个订单立即保存
-  • 批量CSV: 每500个订单批量保存
-  • JSON: 包含筛选条件说明
+  • 实时CSV: 每找到一个订单立即保存到单个文件
+  • 统计JSON: 扫描完成后保存统计信息
 
 🎯 目标: {TARGET:,}个当天未配送订单
 ⚡ 预计速度: 200-300 次/秒（代理池优化后）
@@ -544,7 +499,7 @@ with ThreadPoolExecutor(max_workers=100) as executor:
         except:
             pass
 
-save_progress()
+save_final_summary()
 
 elapsed = time.time() - start_time
 print(f"""
@@ -563,7 +518,7 @@ print(f"""
 
 📄 保存文件:
   📊 实时CSV: {realtime_csv_file} (每个订单立即保存)
-  📊 最终结果: today_undelivered_orders_*.csv + *.json
+  📊 统计JSON: scan_summary_*.json (最终统计信息)
   
 💡 所有找到的订单都满足双重条件！
 {'='*80}
