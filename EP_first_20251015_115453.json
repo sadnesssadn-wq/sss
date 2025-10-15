@@ -1,0 +1,61 @@
+{
+  "first_order": {
+    "number": 492999365,
+    "tracking": "EP492999365VN",
+    "IssueDate": "15/10/2025",
+    "ReceiverName": "Kho Bắc Ninh",
+    "CollectAmount": 118000
+  },
+  "all_orders": [
+    {
+      "number": 492999365,
+      "tracking": "EP492999365VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Kho Bắc Ninh",
+      "CollectAmount": 118000
+    },
+    {
+      "number": 493006857,
+      "tracking": "EP493006857VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    },
+    {
+      "number": 493008328,
+      "tracking": "EP493008328VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Trần Thị Thu Trang",
+      "CollectAmount": 180000
+    },
+    {
+      "number": 493008606,
+      "tracking": "EP493008606VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Trần Thị Thu Trang",
+      "CollectAmount": 765000
+    },
+    {
+      "number": 493011083,
+      "tracking": "EP493011083VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    },
+    {
+      "number": 493011415,
+      "tracking": "EP493011415VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Bùi Thu Quỳnh  Quỳnh Hàng Si",
+      "CollectAmount": 2100000
+    },
+    {
+      "number": 493018285,
+      "tracking": "EP493018285VN",
+      "IssueDate": "15/10/2025",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    }
+  ],
+  "total_found": 7
+}
