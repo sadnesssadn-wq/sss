@@ -582,32 +582,4 @@ print(f"""
   
 💡 所有找到的订单都满足双重条件！
 {'='*80}
-""")             f"成功率{state['found']/state['tested']*100:.2f}% | "
-                          f"代理:{active_proxies}/{len(proxies)}活跃 | 成功:{total_success} 失败:{total_failed}\n")
-        except:
-            pass
-
-save_final_summary()
-
-elapsed = time.time() - start_time
-print(f"""
-\n{'='*80}
-🎉 扫描完成！
-{'='*80}
-找到当天未配送订单: {state['found']:,} 个
-已测试: {state['tested']:,} 个
-成功率: {state['found']/state['tested']*100:.2f}%
-耗时: {elapsed:.1f} 秒 ({elapsed/60:.1f} 分钟)
-速度: {state['tested']/elapsed:.0f} 次/秒
-
-✅ 筛选条件:
-  📅 当天订单 (IssueDate 或 LoadDate 包含今天日期)
-  🚫 未配送 (DeliveryDate 为空)
-
-📄 保存文件:
-  📊 实时CSV: {realtime_csv_file} (每个订单立即保存)
-  📊 统计JSON: scan_summary_*.json (最终统计信息)
-  
-💡 所有找到的订单都满足双重条件！
-{'='*80}
 """)
