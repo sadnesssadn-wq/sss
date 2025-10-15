@@ -468,7 +468,7 @@ print(f"""
   • 双重条件筛选：当天 AND 未配送
   • 智能代理轮换：充分利用100个代理IP（全部加载并轮换使用）
   • 多重重试机制：网络错误立即换代理
-  • 100 线程超高并发
+  • 30 线程并发（稳定高效）
 
 📊 扫描范围 - EP + EF 双系列:
   
@@ -501,8 +501,8 @@ print(f"""
   • 统计JSON: 扫描完成后保存统计信息
 
 🎯 目标: {TARGET:,}个当天未配送订单
-⚡ 预计速度: 200-300 次/秒（代理池优化后）
-⏱️  预计时间: 5-8分钟（EP+EF双系列优化）
+⚡ 预计速度: 80-120 次/秒（30线程 + 100代理）
+⏱️  预计时间: 12-18分钟（EP+EF双系列优化）
 🔄 重试策略: 每个请求最多尝试15个不同代理
 """)
 
@@ -512,7 +512,7 @@ init_realtime_csv()
 print(f"🚀 开始扫描当天未配送订单...\n")
 start_time = time.time()
 
-with ThreadPoolExecutor(max_workers=100) as executor:
+with ThreadPoolExecutor(max_workers=30) as executor:
     futures = []
     
     for prefix, start, end, step in SCAN_RANGES:
