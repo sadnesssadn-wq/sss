@@ -25,11 +25,15 @@ TARGET = 50000  # 提高目标到5万
 realtime_csv_file = f"realtime_orders_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
 csv_lock = threading.Lock()  # CSV文件写入锁
 
+# 是否使用代理（如果你的网络环境代理不可用，改为False）
+USE_PROXY = False  # 改为 False 不使用代理，直接访问API
+
 # 100个代理池（已测试验证 ✅）
-# 测试日期: 2025-10-15
+# 测试日期: 2025-10-15  
 # 成功率: 100% (100/100)
 # 平均响应时间: 1.47秒
 # 最快响应: 0.68秒
+# ⚠️ 注意：某些网络环境下代理可能被封禁，建议设置 USE_PROXY = False
 PROXIES = [
     "23.27.184.245:5846:uadkcvtn:uo2rzar814ph",
     "45.43.70.140:6427:uadkcvtn:uo2rzar814ph",
@@ -510,7 +514,12 @@ print(f"""
 🔄 重试策略: 每个请求最多尝试15个不同代理
 """)
 
-load_proxies()
+if USE_PROXY:
+    load_proxies()
+    print(f"🔥 使用代理模式: {len(proxies)}个代理\n")
+else:
+    print(f"🔥 不使用代理，直接访问API（速度更稳定）\n")
+
 init_realtime_csv()
 
 print(f"🚀 开始扫描当天未配送订单...\n")
@@ -546,6 +555,34 @@ with ThreadPoolExecutor(max_workers=30) as executor:
                 
                 safe_print(f"\n📊 已扫{state['tested']} | 找到{state['found']} | {speed:.0f}/s | "
                           f"成功率{state['found']/state['tested']*100:.2f}% | "
+                          f"代理:{active_proxies}/{len(proxies)}活跃 | 成功:{total_success} 失败:{total_failed}\n")
+        except:
+            pass
+
+save_final_summary()
+
+elapsed = time.time() - start_time
+print(f"""
+\n{'='*80}
+🎉 扫描完成！
+{'='*80}
+找到当天未配送订单: {state['found']:,} 个
+已测试: {state['tested']:,} 个
+成功率: {state['found']/state['tested']*100:.2f}%
+耗时: {elapsed:.1f} 秒 ({elapsed/60:.1f} 分钟)
+速度: {state['tested']/elapsed:.0f} 次/秒
+
+✅ 筛选条件:
+  📅 当天订单 (IssueDate 或 LoadDate 包含今天日期)
+  🚫 未配送 (DeliveryDate 为空)
+
+📄 保存文件:
+  📊 实时CSV: {realtime_csv_file} (每个订单立即保存)
+  📊 统计JSON: scan_summary_*.json (最终统计信息)
+  
+💡 所有找到的订单都满足双重条件！
+{'='*80}
+""")             f"成功率{state['found']/state['tested']*100:.2f}% | "
                           f"代理:{active_proxies}/{len(proxies)}活跃 | 成功:{total_success} 失败:{total_failed}\n")
         except:
             pass
