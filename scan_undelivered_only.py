@@ -13,7 +13,9 @@ API_URL = "https://api-dingdong.ems.com.vn/"
 PRIVATE_KEY = "34784DCEAD1484AA758A8C033FB0F858BDACABC7BE8FC2F5CC5AFD376AB8654A"
 BASIC_AUTH = "bG90dG5ldDpkbXM="
 
-TODAY = datetime.now().strftime("%d/%m/%Y")
+# 🔥 固定扫描15号的订单（可手动修改此日期）
+TARGET_DATE = "15/10/2025"  # 格式：DD/MM/YYYY
+TODAY = TARGET_DATE  # 使用固定日期而不是当前日期
 proxies, print_lock = [], threading.Lock()
 state = {'found': 0, 'tested': 0, 'orders': [], 'lock': threading.Lock(), 'start_time': time.time()}
 proxy_stats = {'success': {}, 'failed': {}, 'lock': threading.Lock()}  # 代理统计
@@ -153,13 +155,16 @@ def safe_print(msg):
         print(msg)
 
 def is_today(date_str):
-    """智能判断是否是今天的日期 - 兼容多种格式"""
+    """智能判断是否是目标日期 - 兼容多种格式"""
     if not date_str:
         return False
     
     date_str = str(date_str)
-    today_dd_mm_yyyy = datetime.now().strftime("%d/%m/%Y")  # 15/10/2025
-    today_mm_dd_yyyy = datetime.now().strftime("%m/%d/%Y")  # 10/15/2025
+    # 使用固定的目标日期（TARGET_DATE）而不是当前日期
+    today_dd_mm_yyyy = TARGET_DATE  # 15/10/2025
+    # 转换为美式日期格式
+    parts = TARGET_DATE.split('/')
+    today_mm_dd_yyyy = f"{parts[1]}/{parts[0]}/{parts[2]}"  # 10/15/2025
     
     # 检查两种日期格式
     return (today_dd_mm_yyyy in date_str or 
@@ -435,8 +440,10 @@ print(f"""
     • EF订单集中在047530xxx-047535xxx (跨度4千号)
 
 🎯 筛选条件（必须同时满足）:
-  ✅ 当天订单: IssueDate 或 LoadDate 包含 {TODAY} 或 {datetime.now().strftime("%m/%d/%Y")}
+  ✅ 目标日期订单: IssueDate 或 LoadDate 包含 {TARGET_DATE} 或 10/15/2025
   ✅ 未配送: DeliveryDate 为空
+  
+  🔥 注意：当前扫描 {TARGET_DATE} 的订单（可在脚本开头修改 TARGET_DATE 变量）
 
 📋 保存数据:
   • 实时CSV: 每找到一个订单立即保存到单个文件
