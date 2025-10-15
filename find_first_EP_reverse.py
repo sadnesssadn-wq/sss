@@ -101,50 +101,44 @@ def check_order(tracking):
     except:
         return (False, None)
 
-def find_first_backward(known_num):
-    """从已知号往前找，直到找到第一个不是今天的"""
+def find_first_backward(known_num, backward_count=20000):
+    """从已知号往前扫描20000个号"""
     
-    safe_print(f"\n🔍 从 EP{known_num:09d}VN 开始往前找...\n")
+    start_num = known_num - backward_count
+    end_num = known_num
     
-    # 第一阶段：大步往前跳，找到不是今天的大致位置
-    step = 500
-    current = known_num
-    last_today = known_num
+    safe_print(f"\n🔍 扫描范围: EP{start_num:09d}VN - EP{end_num:09d}VN")
+    safe_print(f"📊 总共: {backward_count} 个订单号\n")
     
-    while current > 493000000:
-        tracking = f"EP{current:09d}VN"
-        safe_print(f"检查: {tracking} (向前跳 {step}) ... ", end="", flush=True)
-        
-        is_today_order, info = check_order(tracking)
-        
-        if is_today_order:
-            safe_print(f"✅ 今天的")
-            last_today = current
-            current -= step
-        else:
-            if info:
-                safe_print(f"❌ 不是今天 ({info['IssueDate']})")
-            else:
-                safe_print(f"⚪ 订单不存在")
-            # 找到不是今天的了，在这个范围内精确找
-            break
-        
-        time.sleep(0.1)
-    
-    # 第二阶段：在 current 到 last_today 之间精确找第一条
-    safe_print(f"\n🎯 精确扫描范围: EP{current:09d}VN - EP{last_today:09d}VN\n")
-    
-    # 并发扫描这个范围
+    # 并发扫描
     found_orders = []
+    request_count = 0
     
-    with ThreadPoolExecutor(max_workers=min(50, len(proxy_pool.proxies) if proxy_pool.proxies else 20)) as executor:
+    max_workers = min(100, len(proxy_pool.proxies) if proxy_pool.proxies else 20)
+    
+    start_time = time.time()
+    
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = {}
-        for num in range(current, last_today + 1):
+        for num in range(start_num, end_num + 1):
             tracking = f"EP{num:09d}VN"
             futures[executor.submit(check_order, tracking)] = num
         
+        total = len(futures)
+        completed = 0
+        
         for future in as_completed(futures):
             num = futures[future]
+            completed += 1
+            request_count += 1
+            
+            # 每1000个显示进度
+            if completed % 1000 == 0:
+                elapsed = time.time() - start_time
+                speed = completed / elapsed if elapsed > 0 else 0
+                progress = completed * 100 / total
+                safe_print(f"进度: {completed}/{total} ({progress:.1f}%) | {speed:.0f} req/s | 找到: {len(found_orders)}")
+            
             try:
                 is_today_order, info = future.result()
                 if is_today_order:
@@ -153,25 +147,30 @@ def find_first_backward(known_num):
                         'tracking': f"EP{num:09d}VN",
                         **info
                     })
-                    safe_print(f"✅ EP{num:09d}VN - 今天的订单")
+                    safe_print(f"✅ EP{num:09d}VN - 今天的订单！")
             except:
                 pass
     
+    elapsed = time.time() - start_time
+    speed = request_count / elapsed if elapsed > 0 else 0
+    safe_print(f"\n✓ 扫描完成，耗时 {elapsed:.1f}秒，速度 {speed:.0f} req/s")
+    
     if found_orders:
         found_orders.sort(key=lambda x: x['number'])
-        return found_orders[0]
+        safe_print(f"✅ 共找到 {len(found_orders)} 条今日订单\n")
+        return found_orders
     
     return None
 
 def main():
     print(f"""
 ╔════════════════════════════════════════════════════════════════════════════╗
-║              🎯 倒着扫描 - 找EP系列第一条今日订单                            ║
+║              🎯 往前扫描20000个号 - 找EP第一条                               ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 📅 今天: {TODAY}
-🎯 策略: 从已知的 EP493018285VN 往前倒着扫，找到第一条
-⚡ 优势: 最快！
+🎯 策略: 从 EP493018285VN 往前扫描 20000 个号
+⚡ 范围: EP492998285VN - EP493018285VN
 
 """)
     
@@ -191,15 +190,17 @@ def main():
     # 已知订单号
     known_num = 493018285
     
-    # 往前找第一条
-    first_order = find_first_backward(known_num)
+    # 往前扫描20000个号
+    found_orders = find_first_backward(known_num, backward_count=20000)
     
     # 显示结果
     print("\n" + "=" * 80)
     print("📊 结果")
     print("=" * 80)
     
-    if first_order:
+    if found_orders:
+        first_order = found_orders[0]
+        
         print(f"""
 🏆 EP系列今天的第一条订单:
 
@@ -208,16 +209,29 @@ def main():
 日期: {first_order['IssueDate']}
 收件人: {first_order['ReceiverName']}
 金额: {first_order['CollectAmount']:,}₫
+
+📊 共找到 {len(found_orders)} 条EP系列今日订单
 """)
+        
+        # 显示前10条
+        if len(found_orders) > 1:
+            print("前10条今日订单:")
+            for i, order in enumerate(found_orders[:10], 1):
+                print(f"{i:2d}. {order['tracking']} - {order['ReceiverName']} - {order['CollectAmount']:,}₫")
         
         # 保存
         filename = f"EP_first_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(first_order, f, ensure_ascii=False, indent=2)
+            json.dump({
+                'first_order': first_order,
+                'all_orders': found_orders,
+                'total_found': len(found_orders)
+            }, f, ensure_ascii=False, indent=2)
         
-        print(f"💾 已保存到: {filename}")
+        print(f"\n💾 已保存到: {filename}")
     else:
-        print("\n❌ 未找到第一条")
+        print("\n❌ 在往前20000个号范围内未找到今日订单")
+        print("建议: 扩大扫描范围或检查已知订单号是否正确")
     
     elapsed = (datetime.now() - start_time).total_seconds()
     print(f"\n⏱️  耗时: {elapsed:.1f} 秒")
