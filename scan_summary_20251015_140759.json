@@ -1,0 +1,9 @@
+{
+  "scan_date": "15/10/2025",
+  "total_found": 39,
+  "total_tested": 117350,
+  "success_rate": 0.033233915636983385,
+  "condition": "undelivered AND today",
+  "realtime_csv_file": "realtime_orders_20251015_135309.csv",
+  "scan_completed": "2025-10-15 14:07:59"
+}
