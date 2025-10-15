@@ -16,6 +16,7 @@ BASIC_AUTH = "bG90dG5ldDpkbXM="
 TODAY = datetime.now().strftime("%d/%m/%Y")
 proxies, print_lock = [], threading.Lock()
 state = {'found': 0, 'tested': 0, 'orders': [], 'lock': threading.Lock(), 'start_time': time.time()}
+proxy_stats = {'success': {}, 'failed': {}, 'lock': threading.Lock()}  # 代理统计
 TARGET = 50000  # 提高目标到5万
 
 # 100个代理池（完整）
@@ -91,36 +92,87 @@ def safe_print(msg):
 def is_today(date_str):
     return date_str and TODAY in str(date_str)
 
-def call_api_with_retry(url, headers, data=None, json_data=None, max_retries=3):
-    """调用API并支持限流重试 - 减少重试次数提高效率"""
+def call_api_with_retry(url, headers, data=None, json_data=None, max_retries=10):
+    """调用API并支持多代理重试 - 充分利用代理池"""
+    used_proxies = set()  # 记录已使用的代理
+    
     for attempt in range(max_retries):
         try:
-            proxy = random.choice(proxies) if proxies else None
+            # 选择未使用过的代理
+            available_proxies = [p for i, p in enumerate(proxies) if i not in used_proxies]
+            if not available_proxies:
+                # 如果所有代理都用过了，重置并随机选择
+                used_proxies.clear()
+                available_proxies = proxies
+            
+            proxy = random.choice(available_proxies) if available_proxies else None
+            proxy_index = None
+            if proxy:
+                proxy_index = proxies.index(proxy)
+                used_proxies.add(proxy_index)
             
             if json_data:
-                r = requests.post(url, headers=headers, json=json_data, proxies=proxy, timeout=5)
+                r = requests.post(url, headers=headers, json=json_data, proxies=proxy, timeout=8)
             else:
-                r = requests.post(url, headers=headers, data=data, proxies=proxy, timeout=5)
+                r = requests.post(url, headers=headers, data=data, proxies=proxy, timeout=8)
             
             if r.status_code == 200:
                 try:
-                    data = r.json()
-                    code = data.get('Code', '')
+                    response_data = r.json()
+                    code = response_data.get('Code', '')
                     
-                    if code == '98' or code == '429':
-                        time.sleep(0.1 + random.uniform(0, 0.1))
+                    # 成功响应
+                    if code == '00':
+                        # 记录代理成功
+                        if proxy_index is not None:
+                            with proxy_stats['lock']:
+                                proxy_stats['success'][proxy_index] = proxy_stats['success'].get(proxy_index, 0) + 1
+                        return r, response_data
+                    
+                    # 限流或错误，换代理重试
+                    elif code in ['98', '429', '99']:
+                        if attempt < max_retries - 1:
+                            time.sleep(0.05 + random.uniform(0, 0.05))  # 短暂延迟
+                            continue
+                        else:
+                            return r, response_data  # 最后一次尝试也返回结果
+                    
+                    # 其他错误码
+                    else:
+                        return r, response_data
+                        
+                except json.JSONDecodeError:
+                    # JSON解析失败，换代理重试
+                    if attempt < max_retries - 1:
                         continue
-                    
-                    return r, data
-                except:
                     return r, None
-            else:
+            
+            # HTTP错误，换代理重试
+            elif r.status_code in [403, 429, 502, 503, 504]:
                 if attempt < max_retries - 1:
+                    time.sleep(0.1 + random.uniform(0, 0.1))
                     continue
                 return r, None
+            
+            # 其他HTTP状态码
+            else:
+                return r, None
                 
-        except:
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError, 
+                requests.exceptions.ProxyError) as e:
+            # 网络错误，记录代理失败，立即换代理重试
+            if proxy_index is not None:
+                with proxy_stats['lock']:
+                    proxy_stats['failed'][proxy_index] = proxy_stats['failed'].get(proxy_index, 0) + 1
+            
             if attempt < max_retries - 1:
+                continue
+            return None, None
+            
+        except Exception as e:
+            # 其他异常，换代理重试
+            if attempt < max_retries - 1:
+                time.sleep(0.05)
                 continue
             return None, None
     
@@ -160,12 +212,12 @@ def check_undelivered_order(tracking):
         with state['lock']:
             state['tested'] += 1
         
-        # 只用Inquiry API - 最可靠且高效
+        # 只用Inquiry API - 最可靠且高效，充分利用代理池
         r1, data1 = call_api_with_retry(
             f"{API_URL}api/Delivery/Inquiry",
             headers_form,
             data={"ParcelCode": tracking, "Signature": sig},
-            max_retries=3
+            max_retries=15  # 增加重试次数，充分利用代理池
         )
         
         if r1 and data1 and data1.get('Code') == '00' and data1.get('Value'):
@@ -349,7 +401,8 @@ print(f"""
 ⚡ 优化策略:
   • 只用Inquiry API（最高效最可靠）
   • 双重条件筛选：当天 AND 未配送
-  • 减少API调用次数，提高扫描速度
+  • 智能代理轮换：充分利用100个代理IP
+  • 多重重试机制：网络错误立即换代理
   • 100 线程超高并发
 
 📊 扫描范围:
@@ -368,8 +421,9 @@ print(f"""
   • JSON: 包含筛选条件说明
 
 🎯 目标: {TARGET:,}个当天未配送订单
-⚡ 预计速度: 150-200 次/秒（优化后）
-⏱️  预计时间: 10-15分钟
+⚡ 预计速度: 200-300 次/秒（代理池优化后）
+⏱️  预计时间: 8-12分钟
+🔄 重试策略: 每个请求最多尝试15个不同代理
 """)
 
 load_proxies()
@@ -398,8 +452,16 @@ with ThreadPoolExecutor(max_workers=100) as executor:
             if state['tested'] % 1000 == 0:
                 elapsed = time.time() - start_time
                 speed = state['tested'] / elapsed if elapsed > 0 else 0
+                
+                # 代理统计
+                with proxy_stats['lock']:
+                    total_success = sum(proxy_stats['success'].values())
+                    total_failed = sum(proxy_stats['failed'].values())
+                    active_proxies = len(proxy_stats['success'])
+                
                 safe_print(f"\n📊 已扫{state['tested']} | 找到{state['found']} | {speed:.0f}/s | "
-                          f"成功率{state['found']/state['tested']*100:.2f}% | 条件:当天+未配送\n")
+                          f"成功率{state['found']/state['tested']*100:.2f}% | "
+                          f"代理:{active_proxies}/{len(proxies)}活跃 | 成功:{total_success} 失败:{total_failed}\n")
         except:
             pass
 
