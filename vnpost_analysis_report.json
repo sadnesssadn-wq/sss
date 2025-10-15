@@ -1,0 +1,28 @@
+{
+  "basic_info": {},
+  "permissions": [
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.INTERNET"
+  ],
+  "api_endpoints": [
+    {
+      "type": "manifest_meta_data",
+      "name": "API_BASE_URL",
+      "value": "https://api.vnpost.vn"
+    },
+    {
+      "type": "manifest_meta_data",
+      "name": "API_KEY",
+      "value": "demo_key_12345"
+    }
+  ],
+  "hardcoded_secrets": [],
+  "network_security": {},
+  "signature_algorithms": [],
+  "certificates": [],
+  "strings": [
+    "<meta-data android:name=\"API_BASE_URL\" android:value=\"https://api.vnpost.vn\" />",
+    "<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"",
+    "<meta-data android:name=\"API_KEY\" android:value=\"demo_key_12345\" />"
+  ]
+}
