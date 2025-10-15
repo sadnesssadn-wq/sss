@@ -19,6 +19,10 @@ state = {'found': 0, 'tested': 0, 'orders': [], 'lock': threading.Lock(), 'start
 proxy_stats = {'success': {}, 'failed': {}, 'lock': threading.Lock()}  # 代理统计
 TARGET = 50000  # 提高目标到5万
 
+# 实时CSV文件
+realtime_csv_file = f"realtime_orders_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+csv_lock = threading.Lock()  # CSV文件写入锁
+
 # 100个代理池（完整）
 PROXIES = [
     "23.27.184.245:5846:uadkcvtn:uo2rzar814ph",
@@ -81,6 +85,65 @@ def load_proxies():
             ip, port, user, pwd = parts
             proxies.append({'http': f'http://{user}:{pwd}@{ip}:{port}', 'https': f'http://{user}:{pwd}@{ip}:{port}'})
     print(f"✅ 加载 {len(proxies)} 个代理\n")
+
+def init_realtime_csv():
+    """初始化实时CSV文件，写入表头"""
+    headers = [
+        '运单号', '发件日期', '装载日期', '配送日期',
+        '发件人', '发件电话', '发件地址',
+        '收件人', '收件电话', '收件地址', '收件人身份证',
+        'COD代收金额', 'COD金额', '运费', 'PPA费用', 'C费用', '取消费', '稍后收款费',
+        '重量', '状态代码', '状态名称',
+        '发件邮局', '配送邮局', '路线代码',
+        '是否COD', '是否邮资', '邮资名称',
+        '配送签名URL', '配送照片URL', '配送认证照片URL',
+        '备注', '指令', 'VAT代码', '原因', '解决方案',
+        '检查状态', '检查状态号', '计数',
+        '是否已配送', '是否今天订单', '收取费用', '发现时间'
+    ]
+    
+    with open(realtime_csv_file, 'w', encoding='utf-8-sig') as f:
+        f.write(','.join(headers) + '\n')
+    
+    print(f"📄 实时CSV文件: {realtime_csv_file}")
+
+def save_order_to_csv(order):
+    """实时保存单个订单到CSV"""
+    with csv_lock:
+        try:
+            row = [
+                order['tracking'], order['IssueDate'], order['LoadDate'], order['DeliveryDate'],
+                order['SenderName'], order['SenderPhone'], order['SenderAddress'],
+                order['ReceiverName'], order['ReceiverPhone'], order['ReceiverAddress'], order['ReceiverIDNumber'],
+                str(order['CollectAmount']), str(order['AmountCOD']), str(order['FeeShip']),
+                str(order['FeePPA']), str(order['FeeC']), str(order['FeeCancelOrder']), str(order['FeeCollectLater']),
+                order['Weigh'], order['Status'], order['StatusName'],
+                order['IssuePOCode'], order['DeliveryPOCode'], order['RouteCode'],
+                order['IsCOD'], order['IsPaypost'], order['IsPaypostName'],
+                order['DeliverySignature'], order['DeliveryImage'], order['DeliveryImageAuthen'],
+                order['Note'], order['Instruction'], order['VATCode'], order['ReasonName'], order['SolutionName'],
+                str(order['CheckStatus']), str(order['CheckStatusNo']), str(order['Count']),
+                '否' if not order['is_delivered'] else '是', 
+                '是' if order['is_today_order'] else '否',
+                order['ReceiveCollectFee'],
+                datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 发现时间
+            ]
+            
+            # CSV格式化：处理引号和逗号
+            formatted_row = []
+            for item in row:
+                item_str = str(item).replace('"', '""')  # 转义双引号
+                if ',' in item_str or '"' in item_str or '\n' in item_str:
+                    formatted_row.append(f'"{item_str}"')
+                else:
+                    formatted_row.append(item_str)
+            
+            with open(realtime_csv_file, 'a', encoding='utf-8-sig') as f:
+                f.write(','.join(formatted_row) + '\n')
+                f.flush()  # 强制刷新到磁盘
+                
+        except Exception as e:
+            safe_print(f"❌ CSV保存错误: {e}")
 
 def sign(text):
     return hashlib.sha256((text + PRIVATE_KEY).encode()).hexdigest().upper()
@@ -264,6 +327,9 @@ def check_undelivered_order(tracking):
                               f"📅{order['IssueDate'] or order['LoadDate'] or '空'} | "
                               f"🚫未配送 | ⚡{speed:.0f}/s")
                     
+                    # 🔥 实时保存到CSV
+                    save_order_to_csv(order)
+                    
                     if state['found'] % 500 == 0:
                         save_progress()
                 
@@ -334,7 +400,8 @@ def save_progress():
         }, f, ensure_ascii=False, indent=2)
     
     safe_print(f"\n💾 已保存 {state['found']} 个当天未配送订单:")
-    safe_print(f"   📄 CSV: {csv_file}")
+    safe_print(f"   📄 批量CSV: {csv_file}")
+    safe_print(f"   📄 实时CSV: {realtime_csv_file}")
     safe_print(f"   📄 JSON: {json_file}")
     safe_print(f"   ✅ 条件: 当天订单 AND 未配送\n")
 
@@ -427,7 +494,8 @@ print(f"""
   ✅ 未配送: DeliveryDate 为空
 
 📋 保存数据:
-  • CSV: 当天未配送订单完整信息
+  • 实时CSV: 每找到一个订单立即保存
+  • 批量CSV: 每500个订单批量保存
   • JSON: 包含筛选条件说明
 
 🎯 目标: {TARGET:,}个当天未配送订单
@@ -437,6 +505,7 @@ print(f"""
 """)
 
 load_proxies()
+init_realtime_csv()
 
 print(f"🚀 开始扫描当天未配送订单...\n")
 start_time = time.time()
@@ -491,6 +560,10 @@ print(f"""
 ✅ 筛选条件:
   📅 当天订单 (IssueDate 或 LoadDate 包含今天日期)
   🚫 未配送 (DeliveryDate 为空)
+
+📄 保存文件:
+  📊 实时CSV: {realtime_csv_file} (每个订单立即保存)
+  📊 最终结果: today_undelivered_orders_*.csv + *.json
   
 💡 所有找到的订单都满足双重条件！
 {'='*80}
