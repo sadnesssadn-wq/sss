@@ -1,0 +1,302 @@
+{
+  "yesterday_last": {
+    "tracking": "EP493009133VN",
+    "number": 493009133,
+    "IssueDate": "14/10/2025",
+    "LoadDate": "10/14/2025 19:10:53",
+    "ReceiverName": "Shop Trang Gấu",
+    "CollectAmount": 317000
+  },
+  "today_first": {
+    "tracking": "EP493011083VN",
+    "number": 493011083,
+    "IssueDate": "15/10/2025",
+    "LoadDate": "10/15/2025 10:10:52",
+    "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+    "CollectAmount": 285000
+  },
+  "all_yesterday": [
+    {
+      "tracking": "EP493008124VN",
+      "number": 493008124,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 10:10:54",
+      "ReceiverName": "Gia Dụng Chính Hãng",
+      "CollectAmount": 200000
+    },
+    {
+      "tracking": "EP493000426VN",
+      "number": 493000426,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 12:10:51",
+      "ReceiverName": "PHẠM BẢO NGỌC",
+      "CollectAmount": 600000
+    },
+    {
+      "tracking": "EP493000412VN",
+      "number": 493000412,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 12:10:51",
+      "ReceiverName": "PHẠM BẢO NGỌC",
+      "CollectAmount": 340000
+    },
+    {
+      "tracking": "EP493000409VN",
+      "number": 493000409,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 12:10:51",
+      "ReceiverName": "PHẠM BẢO NGỌC",
+      "CollectAmount": 340000
+    },
+    {
+      "tracking": "EP493000430VN",
+      "number": 493000430,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 12:10:51",
+      "ReceiverName": "PHẠM BẢO NGỌC",
+      "CollectAmount": 880000
+    },
+    {
+      "tracking": "EP493005281VN",
+      "number": 493005281,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 15:10:00",
+      "ReceiverName": "Tupperware Ngân Chu",
+      "CollectAmount": 617000
+    },
+    {
+      "tracking": "EP493017069VN",
+      "number": 493017069,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 15:10:00",
+      "ReceiverName": "Đồ Thổ Độc Lạ",
+      "CollectAmount": 283000
+    },
+    {
+      "tracking": "EP493007565VN",
+      "number": 493007565,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:01",
+      "ReceiverName": "Trần Thị Thu Trang",
+      "CollectAmount": 470000
+    },
+    {
+      "tracking": "EP493006004VN",
+      "number": 493006004,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 296000
+    },
+    {
+      "tracking": "EP493006199VN",
+      "number": 493006199,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 237000
+    },
+    {
+      "tracking": "EP493009368VN",
+      "number": 493009368,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 347000
+    },
+    {
+      "tracking": "EP493009399VN",
+      "number": 493009399,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 301000
+    },
+    {
+      "tracking": "EP493009615VN",
+      "number": 493009615,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 366000
+    },
+    {
+      "tracking": "EP493009765VN",
+      "number": 493009765,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 16:10:08",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 337000
+    },
+    {
+      "tracking": "EP492999272VN",
+      "number": 492999272,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 17:10:03",
+      "ReceiverName": "Kho Bắc Ninh",
+      "CollectAmount": 128000
+    },
+    {
+      "tracking": "EP493003590VN",
+      "number": 493003590,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 17:10:03",
+      "ReceiverName": "Đồ Thổ Độc Lạ",
+      "CollectAmount": 220000
+    },
+    {
+      "tracking": "EP493003246VN",
+      "number": 493003246,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 18:10:53",
+      "ReceiverName": "Longmai",
+      "CollectAmount": 194000
+    },
+    {
+      "tracking": "EP493005658VN",
+      "number": 493005658,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 19:10:51",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 197000
+    },
+    {
+      "tracking": "EP493009218VN",
+      "number": 493009218,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 19:10:51",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 128000
+    },
+    {
+      "tracking": "EP493006154VN",
+      "number": 493006154,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 19:10:53",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 186000
+    },
+    {
+      "tracking": "EP493009133VN",
+      "number": 493009133,
+      "IssueDate": "14/10/2025",
+      "LoadDate": "10/14/2025 19:10:53",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 317000
+    }
+  ],
+  "all_today": [
+    {
+      "tracking": "EP493011083VN",
+      "number": 493011083,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 10:10:52",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    },
+    {
+      "tracking": "EP493006857VN",
+      "number": 493006857,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 10:10:55",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    },
+    {
+      "tracking": "EP493018285VN",
+      "number": 493018285,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 13:10:47",
+      "ReceiverName": "Shop Quỳnh Trang  Túi Xách",
+      "CollectAmount": 285000
+    },
+    {
+      "tracking": "EP493008328VN",
+      "number": 493008328,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 15:10:00",
+      "ReceiverName": "Trần Thị Thu Trang",
+      "CollectAmount": 180000
+    },
+    {
+      "tracking": "EP493011415VN",
+      "number": 493011415,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 15:10:02",
+      "ReceiverName": "Bùi Thu Quỳnh  Quỳnh Hàng Si",
+      "CollectAmount": 2100000
+    },
+    {
+      "tracking": "EP493008606VN",
+      "number": 493008606,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 16:10:03",
+      "ReceiverName": "Trần Thị Thu Trang",
+      "CollectAmount": 765000
+    },
+    {
+      "tracking": "EP492999365VN",
+      "number": 492999365,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 17:10:02",
+      "ReceiverName": "Kho Bắc Ninh",
+      "CollectAmount": 118000
+    },
+    {
+      "tracking": "EP493005750VN",
+      "number": 493005750,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 545000
+    },
+    {
+      "tracking": "EP493006018VN",
+      "number": 493006018,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 417000
+    },
+    {
+      "tracking": "EP493006145VN",
+      "number": 493006145,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 452000
+    },
+    {
+      "tracking": "EP493006171VN",
+      "number": 493006171,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 257000
+    },
+    {
+      "tracking": "EP493006211VN",
+      "number": 493006211,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 521000
+    },
+    {
+      "tracking": "EP493009045VN",
+      "number": 493009045,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 294000
+    },
+    {
+      "tracking": "EP493009425VN",
+      "number": 493009425,
+      "IssueDate": "15/10/2025",
+      "LoadDate": "10/15/2025 18:10:52",
+      "ReceiverName": "Shop Trang Gấu",
+      "CollectAmount": 536000
+    }
+  ]
+}
