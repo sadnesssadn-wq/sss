@@ -105,9 +105,15 @@ def check_order_full(tracking):
                             order[key] = v[key] if v[key] is not None else ''
                     
                     issue_date = v.get('IssueDate') or v.get('LoadDate')
-                    if not is_today(issue_date):
-                        safe_print(f"   ⏭️  不是今天的订单，跳过\n")
+                    # 如果日期存在且不是今天，则跳过
+                    if issue_date and not is_today(issue_date):
+                        safe_print(f"   ⏭️  不是今天的订单（{issue_date}），跳过\n")
                         return None
+                    # 如果日期为空或是今天，则继续处理
+                    if not issue_date:
+                        safe_print(f"   ✅ 日期为空，保留此订单")
+                    else:
+                        safe_print(f"   ✅ 今天的订单（{issue_date}），保留")
                 else:
                     safe_print(f"   ❌ 查询失败\n")
                     return None

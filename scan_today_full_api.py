@@ -246,10 +246,12 @@ def check_order_full(tracking):
                         if key in order:
                             order[key] = v[key] if v[key] is not None else ''
                     
-                    # 检查是否今天发件
+                    # 检查日期：只要今天的或日期为空的，排除今天之外的
                     issue_date = v.get('IssueDate') or v.get('LoadDate')
-                    if not is_today(issue_date):
+                    # 如果日期存在且不是今天，则跳过
+                    if issue_date and not is_today(issue_date):
                         return None  # 不是今天的，跳过
+                    # 如果日期为空或是今天，则继续处理
                 else:
                     return None  # 查询失败，跳过
             else:
