@@ -1,0 +1,37 @@
+# 代理池配置文件
+# 支持的格式:
+# 1. ip:port
+# 2. username:password@ip:port  
+# 3. http://ip:port
+# 4. http://username:password@ip:port
+
+# 每行一个代理，# 开头的行为注释
+
+# ==================== 示例 ====================
+
+# HTTP代理
+# 127.0.0.1:8080
+# 192.168.1.100:3128
+
+# 带认证的代理
+# user:pass@proxy1.example.com:8080
+# user:pass@proxy2.example.com:8080
+
+# 完整URL格式
+# http://proxy.example.com:3128
+# http://user:pass@proxy.example.com:3128
+
+# ==================== 你的代理列表 ====================
+# 在下方添加你的100个代理IP
+
+# 示例：从代理服务商获取的代理
+# 103.152.112.162:80
+# 103.152.112.163:80
+# 103.152.112.164:80
+# ... 继续添加到100个
+
+# 提示：
+# 1. 可以从代理服务商批量购买HTTP代理
+# 2. 推荐使用动态代理池服务（如 Bright Data, Oxylabs, SmartProxy）
+# 3. 确保代理支持HTTPS和POST请求
+# 4. 建议使用越南本地代理以获得更快速度
