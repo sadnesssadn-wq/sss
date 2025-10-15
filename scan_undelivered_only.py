@@ -176,17 +176,17 @@ def check_undelivered_order(tracking):
                 if key in order:
                     order[key] = v[key] if v[key] is not None else ''
             
-            # 🎯 关键判断：是否未配送
+            # 🎯 关键判断1：是否未配送
             delivery_date = v.get('DeliveryDate', '')
             order['is_delivered'] = bool(delivery_date)
             
-            # 判断是否是今天的订单（可选验证）
+            # 🎯 关键判断2：是否是今天的订单
             issue_date = v.get('IssueDate', '')
             load_date = v.get('LoadDate', '')
             order['is_today_order'] = is_today(issue_date) or is_today(load_date)
             
-            # ✅ 只保存未配送的订单（基于我们的假设：未配送=当天订单）
-            if not order['is_delivered']:
+            # ✅ 双重条件：未配送 AND 当天订单
+            if not order['is_delivered'] and order['is_today_order']:
                 with state['lock']:
                     state['found'] += 1
                     state['orders'].append(order)
@@ -194,15 +194,13 @@ def check_undelivered_order(tracking):
                     elapsed = time.time() - state['start_time']
                     speed = state['tested'] / elapsed if elapsed > 0 else 0
                     
-                    # 显示是否验证为今天订单
-                    today_marker = "📅" if order['is_today_order'] else "❓"
-                    
+                    # 显示双重验证通过
                     safe_print(f"✅ [{state['found']}/{TARGET}] {tracking} | "
                               f"👤{order['ReceiverName'][:20]} | "
                               f"📞{order['ReceiverPhone']} | "
                               f"💰{order['CollectAmount']:,}₫ | "
-                              f"{today_marker}{order['IssueDate'] or order['LoadDate'] or '空'} | "
-                              f"⚡{speed:.0f}/s")
+                              f"📅{order['IssueDate'] or order['LoadDate'] or '空'} | "
+                              f"🚫未配送 | ⚡{speed:.0f}/s")
                     
                     if state['found'] % 500 == 0:
                         save_progress()
@@ -220,12 +218,11 @@ def save_progress():
     """保存进度 - CSV + JSON（所有字段）"""
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
     
-    # 统计今天订单比例
-    today_count = sum(1 for o in state['orders'] if o['is_today_order'])
-    today_percentage = today_count / len(state['orders']) * 100 if state['orders'] else 0
+    # 所有订单都应该是今天且未配送的
+    total_orders = len(state['orders'])
     
     # CSV
-    csv_file = f"undelivered_orders_{timestamp}.csv"
+    csv_file = f"today_undelivered_orders_{timestamp}.csv"
     with open(csv_file, 'w', encoding='utf-8-sig') as f:
         headers = [
             '运单号', '发件日期', '装载日期', '配送日期',
@@ -263,22 +260,21 @@ def save_progress():
             f.write(','.join(row) + '\n')
     
     # JSON
-    json_file = f"undelivered_orders_{timestamp}.json"
+    json_file = f"today_undelivered_orders_{timestamp}.json"
     with open(json_file, 'w', encoding='utf-8') as f:
         json.dump({
             'scan_date': TODAY,
             'total_found': state['found'],
             'total_tested': state['tested'],
             'success_rate': state['found']/state['tested']*100 if state['tested'] > 0 else 0,
-            'today_orders_count': today_count,
-            'today_orders_percentage': today_percentage,
+            'condition': 'undelivered AND today',
             'orders': state['orders']
         }, f, ensure_ascii=False, indent=2)
     
-    safe_print(f"\n💾 已保存 {state['found']} 个未配送订单:")
+    safe_print(f"\n💾 已保存 {state['found']} 个当天未配送订单:")
     safe_print(f"   📄 CSV: {csv_file}")
     safe_print(f"   📄 JSON: {json_file}")
-    safe_print(f"   📅 其中今天订单: {today_count} 个 ({today_percentage:.1f}%)\n")
+    safe_print(f"   ✅ 条件: 当天订单 AND 未配送\n")
 
 # ==================== 扩大扫描区间（找更多订单）====================
 SCAN_RANGES = [
@@ -347,12 +343,12 @@ SCAN_RANGES = [
 
 print(f"""
 ╔════════════════════════════════════════════════════════════════════════════╗
-║             🚀 扫描未配送订单 - 基于未配送=当天订单假设                    ║
+║             🚀 扫描当天未配送订单 - 双重条件筛选                        ║
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 ⚡ 优化策略:
-  • 只用Inquiry API判断未配送（最高效）
-  • 基于验证结果：未配送订单100%概率是当天订单
+  • 只用Inquiry API（最高效最可靠）
+  • 双重条件筛选：当天 AND 未配送
   • 减少API调用次数，提高扫描速度
   • 100 线程超高并发
 
@@ -363,22 +359,22 @@ print(f"""
   
   总计: 约10万个号段
 
-🎯 筛选条件:
-  • DeliveryDate 为空 = 未配送 ✅
-  • 可选验证：检查是否真的是今天订单
+🎯 筛选条件（必须同时满足）:
+  ✅ 当天订单: IssueDate 或 LoadDate 包含 {TODAY}
+  ✅ 未配送: DeliveryDate 为空
 
 📋 保存数据:
-  • CSV: 包含未配送状态和今天订单验证
-  • JSON: 包含统计信息
+  • CSV: 当天未配送订单完整信息
+  • JSON: 包含筛选条件说明
 
-🎯 目标: {TARGET:,}个未配送订单
+🎯 目标: {TARGET:,}个当天未配送订单
 ⚡ 预计速度: 150-200 次/秒（优化后）
 ⏱️  预计时间: 10-15分钟
 """)
 
 load_proxies()
 
-print(f"🚀 开始扫描未配送订单...\n")
+print(f"🚀 开始扫描当天未配送订单...\n")
 start_time = time.time()
 
 with ThreadPoolExecutor(max_workers=100) as executor:
@@ -402,36 +398,28 @@ with ThreadPoolExecutor(max_workers=100) as executor:
             if state['tested'] % 1000 == 0:
                 elapsed = time.time() - start_time
                 speed = state['tested'] / elapsed if elapsed > 0 else 0
-                today_count = sum(1 for o in state['orders'] if o['is_today_order'])
-                today_rate = today_count / state['found'] * 100 if state['found'] > 0 else 0
                 safe_print(f"\n📊 已扫{state['tested']} | 找到{state['found']} | {speed:.0f}/s | "
-                          f"成功率{state['found']/state['tested']*100:.2f}% | 今天订单{today_rate:.1f}%\n")
+                          f"成功率{state['found']/state['tested']*100:.2f}% | 条件:当天+未配送\n")
         except:
             pass
 
 save_progress()
-
-# 最终统计
-today_count = sum(1 for o in state['orders'] if o['is_today_order'])
-today_percentage = today_count / state['found'] * 100 if state['found'] > 0 else 0
 
 elapsed = time.time() - start_time
 print(f"""
 \n{'='*80}
 🎉 扫描完成！
 {'='*80}
-找到未配送订单: {state['found']:,} 个
+找到当天未配送订单: {state['found']:,} 个
 已测试: {state['tested']:,} 个
 成功率: {state['found']/state['tested']*100:.2f}%
 耗时: {elapsed:.1f} 秒 ({elapsed/60:.1f} 分钟)
 速度: {state['tested']/elapsed:.0f} 次/秒
 
-📊 验证结果:
-  其中今天订单: {today_count:,} 个 ({today_percentage:.1f}%)
-  假设准确率: {today_percentage:.1f}% (未配送=当天订单)
-
-💡 结论:
-  {'✅ 假设基本成立！' if today_percentage > 80 else '⚠️ 假设部分成立' if today_percentage > 60 else '❌ 假设不成立'}
-  {'可以用未配送状态筛选当天订单' if today_percentage > 80 else '需要结合日期验证'}
+✅ 筛选条件:
+  📅 当天订单 (IssueDate 或 LoadDate 包含今天日期)
+  🚫 未配送 (DeliveryDate 为空)
+  
+💡 所有找到的订单都满足双重条件！
 {'='*80}
 """)
