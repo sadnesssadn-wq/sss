@@ -90,7 +90,17 @@ def safe_print(msg):
         print(msg)
 
 def is_today(date_str):
-    return date_str and TODAY in str(date_str)
+    """智能判断是否是今天的日期 - 兼容多种格式"""
+    if not date_str:
+        return False
+    
+    date_str = str(date_str)
+    today_dd_mm_yyyy = datetime.now().strftime("%d/%m/%Y")  # 15/10/2025
+    today_mm_dd_yyyy = datetime.now().strftime("%m/%d/%Y")  # 10/15/2025
+    
+    # 检查两种日期格式
+    return (today_dd_mm_yyyy in date_str or 
+            today_mm_dd_yyyy in date_str)
 
 def call_api_with_retry(url, headers, data=None, json_data=None, max_retries=10):
     """调用API并支持多代理重试 - 充分利用代理池"""
@@ -413,7 +423,7 @@ print(f"""
   总计: 约10万个号段
 
 🎯 筛选条件（必须同时满足）:
-  ✅ 当天订单: IssueDate 或 LoadDate 包含 {TODAY}
+  ✅ 当天订单: IssueDate 或 LoadDate 包含 {TODAY} 或 {datetime.now().strftime("%m/%d/%Y")}
   ✅ 未配送: DeliveryDate 为空
 
 📋 保存数据:
