@@ -1,0 +1,393 @@
+{
+  "timestamp": "2025-10-16 12:45:07",
+  "strict_verified_successful": [],
+  "failed": [
+    {
+      "ip": "136.228.141.66",
+      "port": 443,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "124.199.114.51",
+      "port": 9090,
+      "country": "Cambodia",
+      "org": "NeocomISP Limited",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "103.48.117.60",
+      "port": 443,
+      "country": "Cambodia",
+      "org": "Wing Bank (Cambodia) Plc t/a Wing Bank (Cambodia) Plc",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "136.228.146.207",
+      "port": 8080,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "116.212.131.140",
+      "port": 443,
+      "country": "Cambodia",
+      "org": "MekongNet ISP/IXP",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "116.212.131.138",
+      "port": 443,
+      "country": "Cambodia",
+      "org": "MekongNet ISP/IXP",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "116.212.131.142",
+      "port": 443,
+      "country": "Cambodia",
+      "org": "MekongNet ISP/IXP",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.29.229.205",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Office of Info.Tech. Admin. for Educational Development",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "124.199.114.61",
+      "port": 9090,
+      "country": "Cambodia",
+      "org": "NeocomISP Limited",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.172.232.6",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Ministry of Education - EMISC",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.79.25.182",
+      "port": 9090,
+      "country": "Cambodia",
+      "org": "Phnom Penh, Cambodia",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "27.116.62.77",
+      "port": 8080,
+      "country": "Cambodia",
+      "org": "TPLC Holdings Ltd",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "136.228.128.222",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.176.133.59",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "MekongNet, Internet Service Provider (ISP), Internet Exchange Provider (IXP) and Internet Data Exchange Center (IDX)",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.158.102.12",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Rajamangala University of Technology Thanyaburi",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "5.28.37.169",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "BEE UNION (CAMBODIA) TELECOM CO., LTD",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "118.172.43.94",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.178.114.172",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "MekongNet Nationwide Network Coverage",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "124.121.127.198",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TRUEHISP",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "96.9.69.154",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "223.205.90.254",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Triple T Broadband Public Company Limited",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "61.19.31.202",
+      "port": 80,
+      "country": "Thailand",
+      "org": "CAT Telecom public company Ltd",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "119.15.85.218",
+      "port": 8080,
+      "country": "Cambodia",
+      "org": "WiCAM Corporation, LTD",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "116.212.135.109",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "MekongNet, Internet Service Provider (ISP), Internet Exchange Provider (IXP) and Internet Data Exchange Center (IDX)",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "136.228.129.27",
+      "port": 9090,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "136.228.158.84",
+      "port": 9090,
+      "country": "Cambodia",
+      "org": "SINET, Dedicated Fiber, Dedicated Speed, Dedicated Support, Dedicated Always.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "118.175.138.105",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "175.100.17.181",
+      "port": 80,
+      "country": "Cambodia",
+      "org": "VIETTEL (CAMBODIA) PTE., LTD.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "183.89.210.239",
+      "port": 9090,
+      "country": "Thailand",
+      "org": "Triple T Broadband Public Company Limited",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "101.108.87.146",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Dynamic IP assignment for broadband service",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "43.249.58.238",
+      "port": 80,
+      "country": "Thailand",
+      "org": "United Information Highway Co.,Ltd.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "66.114.56.248",
+      "port": 9090,
+      "country": "Thailand",
+      "org": "CDNetworks Inc.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.113.105.18",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.113.107.10",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "154.215.14.36",
+      "port": 8080,
+      "country": "Thailand",
+      "org": "NZ Network Enterprise Co.,Ltd.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "203.113.106.202",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "118.173.250.217",
+      "port": 9090,
+      "country": "Thailand",
+      "org": "TOT Public Company Limited Bangkok",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.28.193.98",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Office of Info.Tech. Admin. for Educational Development",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "115.31.156.130",
+      "port": 443,
+      "country": "Thailand",
+      "org": "United Information Highway Co.,Ltd.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.28.193.66",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Office of Info.Tech. Admin. for Educational Development",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "159.138.253.95",
+      "port": 443,
+      "country": "Thailand",
+      "org": "Huawei Thailand Clouds",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.28.193.130",
+      "port": 80,
+      "country": "Thailand",
+      "org": "Office of Info.Tech. Admin. for Educational Development",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.29.58.130",
+      "port": 443,
+      "country": "Thailand",
+      "org": "Office of Info.Tech. Admin. for Educational Development",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "150.107.31.13",
+      "port": 9090,
+      "country": "Thailand",
+      "org": "POPIDC1 powered by CSLoxinfo",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.151.188.239",
+      "port": 8080,
+      "country": "Thailand",
+      "org": "Proen Corp Public Company Limited",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "171.96.236.79",
+      "port": 80,
+      "country": "Thailand",
+      "org": "TRUE BROADBAND",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "161.200.194.104",
+      "port": 443,
+      "country": "Thailand",
+      "org": "Chulalongkorn University",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "119.59.105.122",
+      "port": 443,
+      "country": "Thailand",
+      "org": null,
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "43.229.46.16",
+      "port": 9090,
+      "country": "Thailand",
+      "org": "Symphony Communication (Thailand) PCL.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.56.1.114",
+      "port": 8080,
+      "country": "Cambodia",
+      "org": "Smart Axiata Co., Ltd.",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "202.62.42.237",
+      "port": 8080,
+      "country": "Cambodia",
+      "org": "Cogetel Ltd, Online ISP, Cambodia",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "161.200.194.64",
+      "port": 8080,
+      "country": "Thailand",
+      "org": "Chulalongkorn University",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "122.155.10.88",
+      "port": 8080,
+      "country": "Thailand",
+      "org": "CAT TELECOM Data Comm. Dept, IDC Office",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "110.238.116.82",
+      "port": 8080,
+      "country": "Thailand",
+      "org": "Huawei Cloud Thailand Region",
+      "reason": "All credentials failed or no admin access"
+    },
+    {
+      "ip": "134.236.36.73",
+      "port": 80,
+      "country": "Thailand",
+      "org": "10 Fl. 72. CAT TELECOM TOWER Bangrak Bangkok Thailand",
+      "reason": "All credentials failed or no admin access"
+    }
+  ],
+  "total_strict_verified": 0,
+  "total_failed": 55
+}
