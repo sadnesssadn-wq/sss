@@ -1,0 +1,53 @@
+{
+  "运单号": "EP493018285VN",
+  "当前状态码": null,
+  "当前状态名": null,
+  "状态更新时间": null,
+  "收件人姓名": "Shop Quỳnh Trang  Túi Xách",
+  "收件人电话": "0388609197",
+  "收件人地址": "long đức long thành đồng nai X Long Đức H Long Thành Tỉnh Đồng Nai",
+  "收件人身份证": null,
+  "发件人姓名": "hiệp ",
+  "发件人电话": "",
+  "发件人地址": "ình BFC hẻm 53 cụm công nghiệp Thạnh Phú - Thiện Tân phường Trảng Dài tỉnh Đồng Nai X Thạnh Phú H Vĩnh Cửu Tỉnh Đồng Nai",
+  "代收金额": 285000,
+  "运费": null,
+  "增值费": 0,
+  "C类费用": 0,
+  "包裹价值": null,
+  "发行日期": "15/10/2025",
+  "装载日期": "10/15/2025 13:10:47",
+  "配送日期": "",
+  "签收日期": null,
+  "重量": null,
+  "签收照片": null,
+  "备注": null,
+  "原因": null,
+  "处理人": null,
+  "GPS经度": null,
+  "GPS纬度": null,
+  "轨迹记录数": 0,
+  "轨迹详情": [],
+  "是否已送达": false,
+  "商品数量": 1,
+  "商品列表": [
+    {
+      "ProductId": 0,
+      "ProductName": "***",
+      "Quantity": 0,
+      "UnitName": "",
+      "Weight": 0,
+      "Price": 0,
+      "Amount": 0,
+      "LadingToPostmanId": 0,
+      "LadingCode": "EP493018285VN",
+      "PODeliveryCode": ""
+    }
+  ],
+  "数据来源": {
+    "TrackTrace": false,
+    "Inquiry": true,
+    "Journey": false,
+    "Gateway": true
+  }
+}
