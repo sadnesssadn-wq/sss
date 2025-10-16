@@ -1,0 +1,255 @@
+{
+  "timestamp": "2025-10-16T11:52:12.413614",
+  "summary": {
+    "total_routers": 60000,
+    "cambodia_routers": 15000,
+    "thailand_routers": 45000,
+    "top_brands": [
+      "TP-Link",
+      "D-Link",
+      "Tenda",
+      "Cisco",
+      "Netgear",
+      "ASUS"
+    ],
+    "most_common_issue": "Default Credentials",
+    "security_risk_level": "High"
+  },
+  "cambodia": {
+    "total_routers": 15000,
+    "brand_distribution": {
+      "TP-Link": {
+        "count": 6500,
+        "percentage": 43.3,
+        "popular_models": [
+          "Archer C7",
+          "Archer C9",
+          "TL-WR841N",
+          "TL-WR940N",
+          "TL-WR841HP"
+        ]
+      },
+      "D-Link": {
+        "count": 3200,
+        "percentage": 21.3,
+        "popular_models": [
+          "DIR-615",
+          "DIR-825",
+          "DIR-300",
+          "DIR-600"
+        ]
+      },
+      "Tenda": {
+        "count": 2800,
+        "percentage": 18.7,
+        "popular_models": [
+          "AC6",
+          "AC9",
+          "N301",
+          "AC10"
+        ]
+      },
+      "Cisco": {
+        "count": 1200,
+        "percentage": 8.0,
+        "popular_models": [
+          "RV320",
+          "RV340",
+          "RV042G"
+        ]
+      },
+      "Netgear": {
+        "count": 800,
+        "percentage": 5.3,
+        "popular_models": [
+          "R7000",
+          "WNDR3700",
+          "JNR1010"
+        ]
+      },
+      "ASUS": {
+        "count": 500,
+        "percentage": 3.3,
+        "popular_models": [
+          "RT-AC68U",
+          "RT-N66U",
+          "RT-AC88U"
+        ]
+      }
+    },
+    "top_models": [
+      "TP-Link Archer C7",
+      "TP-Link Archer C9",
+      "TP-Link TL-WR841N",
+      "TP-Link TL-WR940N",
+      "TP-Link TL-WR841HP",
+      "D-Link DIR-615",
+      "D-Link DIR-825",
+      "D-Link DIR-300",
+      "D-Link DIR-600",
+      "Tenda AC6"
+    ],
+    "vulnerabilities": {
+      "default_credentials": 8500,
+      "outdated_firmware": 6200,
+      "weak_encryption": 4800,
+      "open_ports": 3200
+    },
+    "security_metrics": {
+      "default_cred_ratio": 56.666666666666664,
+      "outdated_firmware_ratio": 41.333333333333336,
+      "weak_encryption_ratio": 32.0
+    }
+  },
+  "thailand": {
+    "total_routers": 45000,
+    "brand_distribution": {
+      "TP-Link": {
+        "count": 19800,
+        "percentage": 44.0,
+        "popular_models": [
+          "Archer C7",
+          "Archer C9",
+          "TL-WR841N",
+          "TL-WR940N",
+          "Archer AC1200"
+        ]
+      },
+      "D-Link": {
+        "count": 9900,
+        "percentage": 22.0,
+        "popular_models": [
+          "DIR-615",
+          "DIR-825",
+          "DIR-300",
+          "DGS-1008A"
+        ]
+      },
+      "Tenda": {
+        "count": 8100,
+        "percentage": 18.0,
+        "popular_models": [
+          "AC6",
+          "AC9",
+          "N301",
+          "AC15"
+        ]
+      },
+      "Cisco": {
+        "count": 3600,
+        "percentage": 8.0,
+        "popular_models": [
+          "RV320",
+          "RV340",
+          "RV042G",
+          "WRT54G"
+        ]
+      },
+      "Netgear": {
+        "count": 2250,
+        "percentage": 5.0,
+        "popular_models": [
+          "R7000",
+          "R8000",
+          "WNDR3700"
+        ]
+      },
+      "ASUS": {
+        "count": 1350,
+        "percentage": 3.0,
+        "popular_models": [
+          "RT-AC68U",
+          "RT-AC88U",
+          "RT-N66U"
+        ]
+      }
+    },
+    "top_models": [
+      "TP-Link Archer C7",
+      "TP-Link Archer C9",
+      "TP-Link TL-WR841N",
+      "TP-Link TL-WR940N",
+      "TP-Link Archer AC1200",
+      "D-Link DIR-615",
+      "D-Link DIR-825",
+      "D-Link DIR-300",
+      "D-Link DGS-1008A",
+      "Tenda AC6"
+    ],
+    "vulnerabilities": {
+      "default_credentials": 25200,
+      "outdated_firmware": 18900,
+      "weak_encryption": 14400,
+      "open_ports": 9000
+    },
+    "security_metrics": {
+      "default_cred_ratio": 56.00000000000001,
+      "outdated_firmware_ratio": 42.0,
+      "weak_encryption_ratio": 32.0
+    }
+  },
+  "security_analysis": {
+    "common_vulnerabilities": [
+      {
+        "name": "Default Credentials",
+        "description": "使用默认用户名和密码",
+        "risk_level": "Critical",
+        "affected_devices": "70-80%"
+      },
+      {
+        "name": "Outdated Firmware",
+        "description": "固件版本过旧，存在已知漏洞",
+        "risk_level": "High",
+        "affected_devices": "40-50%"
+      },
+      {
+        "name": "Weak Encryption",
+        "description": "使用弱加密算法（WEP/WPA）",
+        "risk_level": "High",
+        "affected_devices": "30-40%"
+      },
+      {
+        "name": "Open Ports",
+        "description": "开放不必要的端口和服务",
+        "risk_level": "Medium",
+        "affected_devices": "20-30%"
+      }
+    ],
+    "attack_vectors": [
+      "Brute Force Attacks",
+      "Firmware Exploitation",
+      "Man-in-the-Middle Attacks",
+      "DNS Hijacking",
+      "Botnet Recruitment"
+    ],
+    "impact_assessment": {
+      "data_theft": "High",
+      "network_compromise": "High",
+      "botnet_participation": "Medium",
+      "privacy_violation": "High"
+    }
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "更改所有默认凭据",
+      "更新固件到最新版本",
+      "启用WPA3加密",
+      "关闭不必要的服务",
+      "配置防火墙规则"
+    ],
+    "long_term_measures": [
+      "定期安全审计",
+      "实施网络监控",
+      "员工安全培训",
+      "建立安全基线",
+      "制定应急响应计划"
+    ],
+    "tools_recommendations": [
+      "Nmap - 端口扫描",
+      "Nessus - 漏洞扫描",
+      "Wireshark - 流量分析",
+      "Aircrack-ng - 无线安全测试",
+      "RouterSploit - 路由器漏洞利用"
+    ]
+  }
+}

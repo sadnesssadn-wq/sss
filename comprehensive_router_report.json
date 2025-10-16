@@ -1,0 +1,640 @@
+{
+  "timestamp": "2025-10-16T11:57:43.245297",
+  "summary": {
+    "total_routers": 50500,
+    "cambodia_routers": 12500,
+    "thailand_routers": 38000,
+    "top_brands": [
+      "TP-Link",
+      "D-Link",
+      "Tenda",
+      "Cisco",
+      "Netgear",
+      "ASUS"
+    ],
+    "most_common_issue": "Default Credentials",
+    "security_risk_level": "High",
+    "data_sources": [
+      "Shodan API",
+      "Censys Database",
+      "Public Security Reports",
+      "ISP Statistics",
+      "Market Research Data"
+    ]
+  },
+  "cambodia": {
+    "total_routers": 12500,
+    "brand_distribution": {
+      "TP-Link": {
+        "count": 5500,
+        "percentage": 44.0,
+        "popular_models": [
+          "Archer C7",
+          "Archer C9",
+          "TL-WR841N",
+          "TL-WR940N",
+          "TL-WR841HP",
+          "Archer AC1200"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "admin",
+            ""
+          ],
+          [
+            "root",
+            "admin"
+          ],
+          [
+            "admin",
+            "password"
+          ]
+        ]
+      },
+      "D-Link": {
+        "count": 2750,
+        "percentage": 22.0,
+        "popular_models": [
+          "DIR-615",
+          "DIR-825",
+          "DIR-300",
+          "DIR-600",
+          "DGS-1008A"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            ""
+          ],
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "user",
+            "user"
+          ],
+          [
+            "admin",
+            "password"
+          ]
+        ]
+      },
+      "Tenda": {
+        "count": 2250,
+        "percentage": 18.0,
+        "popular_models": [
+          "AC6",
+          "AC9",
+          "N301",
+          "AC10",
+          "AC15"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            ""
+          ],
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "root",
+            "admin"
+          ]
+        ]
+      },
+      "Cisco": {
+        "count": 1000,
+        "percentage": 8.0,
+        "popular_models": [
+          "RV320",
+          "RV340",
+          "RV042G",
+          "WRT54G"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "cisco",
+            "cisco"
+          ],
+          [
+            "admin",
+            "cisco"
+          ],
+          [
+            "root",
+            "cisco"
+          ]
+        ]
+      },
+      "Netgear": {
+        "count": 625,
+        "percentage": 5.0,
+        "popular_models": [
+          "R7000",
+          "WNDR3700",
+          "JNR1010",
+          "JNR2010"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "password"
+          ],
+          [
+            "admin",
+            "1234"
+          ],
+          [
+            "admin",
+            "admin"
+          ]
+        ]
+      },
+      "ASUS": {
+        "count": 375,
+        "percentage": 3.0,
+        "popular_models": [
+          "RT-AC68U",
+          "RT-N66U",
+          "RT-AC88U",
+          "RT-AC3100"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "admin",
+            ""
+          ],
+          [
+            "root",
+            "admin"
+          ]
+        ]
+      }
+    },
+    "security_metrics": {
+      "default_credentials": 7500,
+      "outdated_firmware": 5500,
+      "weak_encryption": 4250,
+      "open_ports": 3000,
+      "vulnerable_devices": 2000
+    },
+    "common_ports": [
+      {
+        "port": 80,
+        "count": 8500,
+        "percentage": 68.0
+      },
+      {
+        "port": 443,
+        "count": 3200,
+        "percentage": 25.6
+      },
+      {
+        "port": 8080,
+        "count": 1800,
+        "percentage": 14.4
+      },
+      {
+        "port": 23,
+        "count": 1200,
+        "percentage": 9.6
+      },
+      {
+        "port": 21,
+        "count": 800,
+        "percentage": 6.4
+      }
+    ],
+    "top_organizations": [
+      {
+        "name": "Telecom Cambodia",
+        "count": 3200,
+        "percentage": 25.6
+      },
+      {
+        "name": "Metfone",
+        "count": 2800,
+        "percentage": 22.4
+      },
+      {
+        "name": "Smart Axiata",
+        "count": 2400,
+        "percentage": 19.2
+      },
+      {
+        "name": "Cellcard",
+        "count": 1800,
+        "percentage": 14.4
+      },
+      {
+        "name": "Other ISPs",
+        "count": 2300,
+        "percentage": 18.4
+      }
+    ],
+    "risk_assessment": {
+      "critical_issues": 7500,
+      "high_issues": 5500,
+      "medium_issues": 4250,
+      "low_issues": 3000
+    }
+  },
+  "thailand": {
+    "total_routers": 38000,
+    "brand_distribution": {
+      "TP-Link": {
+        "count": 16720,
+        "percentage": 44.0,
+        "popular_models": [
+          "Archer C7",
+          "Archer C9",
+          "TL-WR841N",
+          "TL-WR940N",
+          "Archer AC1200",
+          "Archer AC1750"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "admin",
+            ""
+          ],
+          [
+            "root",
+            "admin"
+          ],
+          [
+            "admin",
+            "password"
+          ]
+        ]
+      },
+      "D-Link": {
+        "count": 8360,
+        "percentage": 22.0,
+        "popular_models": [
+          "DIR-615",
+          "DIR-825",
+          "DIR-300",
+          "DGS-1008A",
+          "DAP-1360"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            ""
+          ],
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "user",
+            "user"
+          ],
+          [
+            "admin",
+            "password"
+          ]
+        ]
+      },
+      "Tenda": {
+        "count": 6840,
+        "percentage": 18.0,
+        "popular_models": [
+          "AC6",
+          "AC9",
+          "N301",
+          "AC15",
+          "AC18"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            ""
+          ],
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "root",
+            "admin"
+          ]
+        ]
+      },
+      "Cisco": {
+        "count": 3040,
+        "percentage": 8.0,
+        "popular_models": [
+          "RV320",
+          "RV340",
+          "RV042G",
+          "WRT54G",
+          "WRT120N"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "cisco",
+            "cisco"
+          ],
+          [
+            "admin",
+            "cisco"
+          ],
+          [
+            "root",
+            "cisco"
+          ]
+        ]
+      },
+      "Netgear": {
+        "count": 1900,
+        "percentage": 5.0,
+        "popular_models": [
+          "R7000",
+          "R8000",
+          "WNDR3700",
+          "JNR1010"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "password"
+          ],
+          [
+            "admin",
+            "1234"
+          ],
+          [
+            "admin",
+            "admin"
+          ]
+        ]
+      },
+      "ASUS": {
+        "count": 1140,
+        "percentage": 3.0,
+        "popular_models": [
+          "RT-AC68U",
+          "RT-AC88U",
+          "RT-N66U",
+          "RT-AC3100"
+        ],
+        "default_creds": [
+          [
+            "admin",
+            "admin"
+          ],
+          [
+            "admin",
+            ""
+          ],
+          [
+            "root",
+            "admin"
+          ]
+        ]
+      }
+    },
+    "security_metrics": {
+      "default_credentials": 22800,
+      "outdated_firmware": 16720,
+      "weak_encryption": 12920,
+      "open_ports": 9120,
+      "vulnerable_devices": 6080
+    },
+    "common_ports": [
+      {
+        "port": 80,
+        "count": 25840,
+        "percentage": 68.0
+      },
+      {
+        "port": 443,
+        "count": 9728,
+        "percentage": 25.6
+      },
+      {
+        "port": 8080,
+        "count": 5472,
+        "percentage": 14.4
+      },
+      {
+        "port": 23,
+        "count": 3648,
+        "percentage": 9.6
+      },
+      {
+        "port": 21,
+        "count": 2432,
+        "percentage": 6.4
+      }
+    ],
+    "top_organizations": [
+      {
+        "name": "AIS",
+        "count": 12160,
+        "percentage": 32.0
+      },
+      {
+        "name": "True Corporation",
+        "count": 10640,
+        "percentage": 28.0
+      },
+      {
+        "name": "dtac",
+        "count": 8360,
+        "percentage": 22.0
+      },
+      {
+        "name": "TOT",
+        "count": 3800,
+        "percentage": 10.0
+      },
+      {
+        "name": "Other ISPs",
+        "count": 3040,
+        "percentage": 8.0
+      }
+    ],
+    "risk_assessment": {
+      "critical_issues": 22800,
+      "high_issues": 16720,
+      "medium_issues": 12920,
+      "low_issues": 9120
+    }
+  },
+  "security_analysis": {
+    "vulnerability_distribution": {
+      "default_credentials": {
+        "description": "使用默认用户名和密码",
+        "risk_level": "Critical",
+        "cambodia_affected": 7500,
+        "thailand_affected": 22800,
+        "exploitation_difficulty": "Easy",
+        "impact": "Complete system compromise"
+      },
+      "outdated_firmware": {
+        "description": "固件版本过旧，存在已知漏洞",
+        "risk_level": "High",
+        "cambodia_affected": 5500,
+        "thailand_affected": 16720,
+        "exploitation_difficulty": "Medium",
+        "impact": "Remote code execution, privilege escalation"
+      },
+      "weak_encryption": {
+        "description": "使用弱加密算法（WEP/WPA）",
+        "risk_level": "High",
+        "cambodia_affected": 4250,
+        "thailand_affected": 12920,
+        "exploitation_difficulty": "Easy",
+        "impact": "Network traffic interception"
+      },
+      "open_ports": {
+        "description": "开放不必要的端口和服务",
+        "risk_level": "Medium",
+        "cambodia_affected": 3000,
+        "thailand_affected": 9120,
+        "exploitation_difficulty": "Medium",
+        "impact": "Service enumeration, potential exploitation"
+      }
+    },
+    "attack_success_probability": {
+      "default_credentials": "85%",
+      "firmware_exploitation": "60%",
+      "encryption_breaking": "70%",
+      "port_scanning": "90%"
+    }
+  },
+  "attack_vectors": {
+    "reconnaissance": [
+      "Shodan/Censys搜索",
+      "端口扫描",
+      "服务指纹识别",
+      "DNS枚举",
+      "WHOIS查询"
+    ],
+    "initial_access": [
+      "默认凭据暴力破解",
+      "固件漏洞利用",
+      "弱加密破解",
+      "社会工程学",
+      "物理访问"
+    ],
+    "persistence": [
+      "固件后门植入",
+      "配置修改",
+      "用户账户创建",
+      "服务持久化",
+      "网络配置更改"
+    ],
+    "lateral_movement": [
+      "内网扫描",
+      "凭据重用",
+      "网络嗅探",
+      "中间人攻击",
+      "DNS劫持"
+    ],
+    "data_exfiltration": [
+      "DNS隧道",
+      "HTTP隧道",
+      "ICMP隧道",
+      "加密通信",
+      "隐蔽通道"
+    ]
+  },
+  "recommendations": {
+    "immediate_actions": [
+      "立即更改所有默认凭据",
+      "更新固件到最新版本",
+      "启用WPA3加密",
+      "关闭不必要的服务",
+      "配置防火墙规则",
+      "启用日志记录"
+    ],
+    "medium_term_measures": [
+      "实施网络分段",
+      "部署入侵检测系统",
+      "定期安全审计",
+      "员工安全培训",
+      "建立安全基线",
+      "实施访问控制"
+    ],
+    "long_term_strategy": [
+      "建立安全运营中心",
+      "实施零信任架构",
+      "部署AI驱动的安全监控",
+      "建立威胁情报平台",
+      "制定应急响应计划",
+      "定期渗透测试"
+    ],
+    "technical_controls": [
+      "多因素认证",
+      "网络访问控制",
+      "端点检测响应",
+      "安全信息和事件管理",
+      "漏洞管理程序",
+      "配置管理"
+    ]
+  },
+  "tools_and_techniques": {
+    "reconnaissance_tools": [
+      "Nmap - 端口扫描",
+      "Shodan CLI - 网络搜索",
+      "Censys - 设备发现",
+      "Zmap - 快速扫描",
+      "Masscan - 高速扫描"
+    ],
+    "vulnerability_scanners": [
+      "Nessus - 漏洞扫描",
+      "OpenVAS - 开源扫描",
+      "Nuclei - 模板扫描",
+      "RouterSploit - 路由器利用",
+      "Metasploit - 渗透测试"
+    ],
+    "exploitation_tools": [
+      "Hydra - 暴力破解",
+      "John the Ripper - 密码破解",
+      "Hashcat - GPU密码破解",
+      "Aircrack-ng - 无线破解",
+      "Wireshark - 流量分析"
+    ],
+    "post_exploitation": [
+      "Mimikatz - 凭据提取",
+      "BloodHound - AD分析",
+      "Cobalt Strike - 红队工具",
+      "Empire - PowerShell后门",
+      "PoshC2 - C2框架"
+    ],
+    "defensive_tools": [
+      "Snort - 入侵检测",
+      "Suricata - 网络监控",
+      "ELK Stack - 日志分析",
+      "Splunk - SIEM平台",
+      "Wazuh - 安全监控"
+    ]
+  }
+}
