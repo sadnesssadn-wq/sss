@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_province" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Ha Noi" android:drawableLeft="@drawable/ic_address" android:drawablePadding="@dimen/dimen_1x" />
+    <View android:background="@color/dividerColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

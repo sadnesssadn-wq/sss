@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <fragment android:name="info.androidhive.barcode.BarcodeReader" android:id="@id/barcode_scanner" android:layout_width="fill_parent" android:layout_height="fill_parent" app:auto_focus="true" app:use_flash="false" />
+    <info.androidhive.barcode.ScannerOverlay android:background="#44000000" android:layout_width="fill_parent" android:layout_height="fill_parent" app:line_color="#ff7323dc" app:line_speed="6" app:line_width="4" app:square_height="250" app:square_width="250" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+Module=ANDROID_SALESIQ_EMBED
+SourceCoLabel=master
+BuildDate=Sep_17_2019
+BuildTime=12:13:16
+BuildLabel=ANDROID_SALESIQ_EMBED_Sep_17_2019
+build-timestamp= 1568702599
+StaticVersion=
+Source_Changeset=21e0afa5579be8bf96fc0c7ae110c1f51322dac6
+Build_Comment=

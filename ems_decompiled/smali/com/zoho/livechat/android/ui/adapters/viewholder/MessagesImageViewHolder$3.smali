@@ -1,0 +1,69 @@
+.class public Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;
+.super Ljava/lang/Object;
+.source ""
+
+# interfaces
+.implements Landroid/view/View$OnClickListener;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;->render(Lcom/zoho/livechat/android/models/SalesIQMessage;Z)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic this$0:Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;
+
+.field public final synthetic val$is_last_message:Z
+
+.field public final synthetic val$message:Lcom/zoho/livechat/android/models/SalesIQMessage;
+
+.field public final synthetic val$url:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;Ljava/lang/String;Lcom/zoho/livechat/android/models/SalesIQMessage;Z)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->this$0:Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;
+
+    iput-object p2, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$url:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$message:Lcom/zoho/livechat/android/models/SalesIQMessage;
+
+    iput-boolean p4, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$is_last_message:Z
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onClick(Landroid/view/View;)V
+    .locals 2
+
+    invoke-static {}, Lcom/zoho/livechat/android/utils/FileDownloader;->getInstance()Lcom/zoho/livechat/android/utils/FileDownloader;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$url:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Lcom/zoho/livechat/android/utils/FileDownloader;->remove(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->this$0:Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;
+
+    iget-object v0, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$message:Lcom/zoho/livechat/android/models/SalesIQMessage;
+
+    iget-boolean v1, p0, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder$3;->val$is_last_message:Z
+
+    invoke-virtual {p1, v0, v1}, Lcom/zoho/livechat/android/ui/adapters/viewholder/MessagesImageViewHolder;->render(Lcom/zoho/livechat/android/models/SalesIQMessage;Z)V
+
+    return-void
+.end method

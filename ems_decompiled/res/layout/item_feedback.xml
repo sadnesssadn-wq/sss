@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/root_item" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_x1x" android:layout_marginBottom="@dimen/dimen_1x">
+        <ImageView android:id="@id/img_avatar_admin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_1x" android:src="@drawable/ic_app_round" />
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:id="@id/root_message" android:background="@drawable/bg_white_top_radius_left" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_1x" android:layout_toLeftOf="@id/img_avatar" android:layout_toRightOf="@id/img_avatar_admin">
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_content" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_05x" android:layout_marginRight="@dimen/dimen_x1x" android:text="abc" />
+            <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/textColorSecondary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_1x" android:text="abc" android:singleLine="true" />
+        </LinearLayout>
+        <ImageView android:id="@id/img_avatar" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_avatar_feedback" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/salesiq_vector_endchat" android:id="@id/siq_end_chat" android:title="@string/livechat.messages.option.endchat" app:showAsAction="always" />
+</menu>

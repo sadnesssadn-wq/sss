@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:id="@id/img_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_bullet_orange" />
+        <View android:layout_gravity="center_horizontal" android:background="@color/textColorSecondary" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:layout_marginBottom="@dimen/dimen_1x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:id="@id/tv_status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/approval" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorSecondary" android:id="@id/tv_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_05x" android:text="2018-01-22 15:15:23" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorSecondary" android:id="@id/tv_info" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_05x" android:text="Khách hàng duyệt lấy hàng" />
+    </LinearLayout>
+</LinearLayout>

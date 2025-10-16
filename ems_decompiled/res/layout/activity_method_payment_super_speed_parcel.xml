@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView android:layout_width="fill_parent" android:layout_height="0.0dip" android:fillViewport="true" app:layout_constraintBottom_toTopOf="@id/tv_create_inventory" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_1x">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_x1x">
+                    <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/method_payment" />
+                    <RadioGroup android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <RadioButton android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:id="@id/rad_cash" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/method_cash" />
+                        <RadioButton android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:id="@id/rad_card" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" android:text="@string/method_card" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_05x">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_x1x">
+                    <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_total_fee_and_distance" android:drawableLeft="@drawable/ic_money" android:drawablePadding="@dimen/dimen_x1x" android:layout_centerVertical="true" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_distance" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_distance" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0 km" android:maxLines="1" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/root_fee_origin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_total_freight_no_coupon" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_total_freight_origin" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0 đ" android:maxLines="1" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:id="@id/root_discount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_discount" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_discount" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0 đ" android:maxLines="1" />
+                    </LinearLayout>
+                    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_total_freight" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_total_freight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="0 đ" android:maxLines="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <EditText android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:gravity="left" android:id="@id/edt_note" android:background="@drawable/bg_press_border_radius_grey" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:hint="@string/hint_note_" android:maxLines="9" android:lines="9" android:maxLength="300" android:inputType="textMultiLine" android:imeOptions="actionDone" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_create_inventory" android:background="@drawable/bg_press_green_radius" android:paddingTop="@dimen/dimen_x1x" android:paddingBottom="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_3x" android:text="@string/create_inventory" android:textAllCaps="true" app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

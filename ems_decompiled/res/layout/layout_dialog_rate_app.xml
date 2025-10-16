@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_radius_white" android:padding="@dimen/dimen_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_2x">
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorPrimary" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="@string/title_dialog_rate_app" />
+        <RatingBar android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:numStars="5" android:rating="5.0" style="@style/Widget.AppCompat.RatingBar.Indicator" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_1x">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorSecondary" android:id="@id/tv_remind_later" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_1x" android:text="@string/remind_later" />
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/colorPrimary" android:id="@id/tv_rate_app" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_1x" android:text="@string/rate_app" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

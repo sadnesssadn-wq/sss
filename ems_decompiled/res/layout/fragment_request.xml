@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.tabs.TabLayout android:id="@id/tab_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent" app:tabBackground="@color/colorPrimary" app:tabGravity="center" app:tabIndicatorColor="@color/white" app:tabMode="scrollable" app:tabSelectedTextColor="@color/white" app:tabTextColor="@color/unselected_tab" />
+    <androidx.viewpager.widget.ViewPager android:id="@id/view_pager" android:layout_width="fill_parent" android:layout_height="0.0dip" app:layout_constraintBottom_toTopOf="@id/tv_create_request" app:layout_constraintTop_toBottomOf="@id/tab_layout" />
+    <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_create_request" android:background="@drawable/bg_press_primary_no_radius" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/create_request" android:textAllCaps="true" app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

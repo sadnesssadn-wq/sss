@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@color/bg_header" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.core.widget.NestedScrollView android:id="@id/scroll_view" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginBottom="@dimen/dimen_2x" android:fillViewport="true" app:layout_constraintBottom_toTopOf="@id/tv_continues" app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_x1x" app:cardBackgroundColor="@color/white" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x">
+                    <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/label_service" android:drawableLeft="@drawable/ic_package2" android:drawablePadding="@dimen/dimen_1x" />
+                    <RadioGroup android:orientation="vertical" android:id="@id/rad_group_service" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x">
+                        <RadioButton android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/rad_grab_express" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="Grab Express" />
+                        <RadioButton android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/rad_grab_four_hours" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Grab 4h" />
+                    </RadioGroup>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_x1x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="vertical" android:padding="@dimen/dimen_2x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pickup_point" android:drawableLeft="@drawable/ic_address" android:drawablePadding="@dimen/dimen_x1x" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/colorPrimarySecondary" android:layout_gravity="right" android:id="@id/tv_change_address" android:background="@drawable/bg_press_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_change" android:drawableRight="@drawable/ic_edit" android:drawablePadding="@dimen/dimen_x1x" />
+                    </FrameLayout>
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_name_phone_sender" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="Pham Van Tuan - 0969824911" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_address_sender" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="An Thượng - Hoài Đức - Hà Nội" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_x1x" app:cardBackgroundColor="@color/white" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x">
+                    <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/coupon" android:drawableLeft="@drawable/ic_collect" android:drawablePadding="@dimen/dimen_1x" />
+                    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+                        <EditText android:id="@id/edt_coupon" android:text="" android:hint="@string/coupon" android:inputType="text" style="@style/EditTextBase.StyleEditTextGrab" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/rcv_data" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" />
+            <LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/root_add_address" android:background="@drawable/bg_press_border_radius_grey" android:padding="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_x1x" android:layout_marginBottom="@dimen/dimen_2x">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_plus" app:tint="@color/textColorSecondary" />
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/add_receiver_point" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_continues" android:background="@drawable/bg_press_primary_radius" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_x1x" android:layout_marginBottom="@dimen/dimen_2x" android:text="@string/continues" app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

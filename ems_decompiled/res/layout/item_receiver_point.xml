@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_x1x"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_05x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/status_point_delivery" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_status_point" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_product" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_package2" android:drawablePadding="@dimen/dimen_1x" />
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_money_collect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_collect" android:drawablePadding="@dimen/dimen_1x" />
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_address" android:drawablePadding="@dimen/dimen_1x" />
+    <View android:background="@color/dividerColor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="@dimen/dimen_x1x" />
+</LinearLayout>

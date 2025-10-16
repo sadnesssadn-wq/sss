@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_radius_white" android:padding="@dimen/dimen_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_6x">
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorPrimary" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/title_dialog_advise" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_4x" android:layout_marginBottom="@dimen/dimen_1x">
+            <ImageView android:id="@id/img_dislike" android:background="@drawable/bg_press_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_3x" android:layout_marginRight="@dimen/dimen_3x" android:src="@drawable/ic_dislike" />
+            <ImageView android:id="@id/img_like" android:background="@drawable/bg_press_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_3x" android:layout_marginRight="@dimen/dimen_3x" android:src="@drawable/ic_like" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

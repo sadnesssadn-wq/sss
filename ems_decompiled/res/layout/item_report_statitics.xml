@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root_item" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_1x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_05x">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_x1x">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:gravity="center" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Mới tạo" android:drawableLeft="@drawable/ic_package2" android:drawablePadding="@dimen/dimen_x1x" android:layout_centerVertical="true" />
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_number" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="1" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_total_collect_money" android:drawableLeft="@drawable/ic_collect" android:drawablePadding="@dimen/dimen_x1x" />
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_total_money_collect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="200.000 đ" android:maxLines="1" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_x1x" android:text="@string/label_total_freight" android:drawableLeft="@drawable/ic_money" android:drawablePadding="@dimen/dimen_x1x" />
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:ellipsize="end" android:gravity="right" android:id="@id/tv_total_freight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="102.052 đ" android:maxLines="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_x1x" android:layout_marginBottom="@dimen/dimen_x1x" app:cardBackgroundColor="@color/white" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:layout_gravity="center_vertical" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/receiver_point" />
+            <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/white" android:layout_gravity="center|right" android:id="@id/btn_cancel" android:background="@drawable/bg_press_red" android:paddingLeft="@dimen/dimen_3x" android:paddingTop="@dimen/dimen_05x" android:paddingRight="@dimen/dimen_3x" android:paddingBottom="@dimen/dimen_05x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel_" />
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <AutoCompleteTextView android:id="@id/edt_phone" android:padding="@dimen/dimen_2x" android:text="" android:hint="@string/phone_required" android:maxLength="11" android:inputType="phone" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <EditText android:id="@id/edt_name" android:text="" android:hint="@string/name_required" android:maxLength="50" android:inputType="textCapWords" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <AutoCompleteTextView android:textColor="@color/textColorPrimary" android:id="@id/edt_receiver_point" android:padding="@dimen/dimen_2x" android:focusable="false" android:text="" android:hint="@string/hint_address_delivery_required" android:maxLength="100" android:inputType="none" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_address" app:tint="@color/colorPrimary" />
+            <TextView android:textSize="@dimen/text_size_small" android:textStyle="italic" android:textColor="@color/colorPrimarySecondary" android:layout_gravity="center_vertical" android:id="@id/tv_select_place_manual" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:text="@string/not_found_suggest_address_click_here" />
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <EditText android:id="@id/edt_product_name" android:text="" android:hint="@string/hint_name_product_required" android:maxLength="300" android:inputType="textCapWords" android:imeOptions="actionNext" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <EditText android:textColor="@color/textColorPrimary" android:id="@id/edt_weight" android:text="1" android:hint="@string/hint_weight_unit" android:maxLength="4" android:inputType="number" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <com.emsportal.widget.CurrencyEditText android:id="@id/edt_value_package" android:padding="@dimen/dimen_2x" android:text="" android:hint="@string/hint_value_package_no_required" android:maxLength="14" android:inputType="number" app:groupDivider="." app:locale="@string/locale" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <com.emsportal.widget.CurrencyEditText android:id="@id/edt_money_collect" android:padding="@dimen/dimen_2x" android:text="" android:hint="@string/hint_money_collect" android:maxLength="14" android:inputType="number" app:groupDivider="." app:locale="@string/locale" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+            <EditText android:id="@id/edt_description_parcel" android:text="" android:hint="@string/hint_description" android:maxLength="500" android:inputType="textCapWords" android:imeOptions="actionDone" style="@style/EditTextBase.StyleEditTextGrab" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

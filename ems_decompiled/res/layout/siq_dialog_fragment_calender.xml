@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar android:id="@id/siq_dialog_toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" style="?salesiq.toolbarStyle" />
+    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:id="@id/siq_calender_from_date_parent" android:background="?android:selectableItemBackground" android:paddingLeft="60.0dip" android:paddingTop="16.0dip" android:paddingRight="16.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="60.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ff252b2e" android:id="@id/siq_from_date_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#99252b2e" android:id="@id/siq_from_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/siq_calender_from_time_parent" android:background="?android:selectableItemBackground" android:paddingLeft="60.0dip" android:paddingTop="16.0dip" android:paddingRight="16.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="60.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ff252b2e" android:id="@id/siq_from_time_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#99252b2e" android:id="@id/siq_from_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/siq_calender_to_date_parent" android:background="?android:selectableItemBackground" android:paddingLeft="60.0dip" android:paddingTop="16.0dip" android:paddingRight="16.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="60.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ff252b2e" android:id="@id/siq_to_date_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#99252b2e" android:id="@id/siq_to_date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/siq_calender_to_time_parent" android:background="?android:selectableItemBackground" android:paddingLeft="60.0dip" android:paddingTop="16.0dip" android:paddingRight="16.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="60.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ff252b2e" android:id="@id/siq_to_time_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#99252b2e" android:id="@id/siq_to_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/siq_calender_tz_parent" android:background="?android:selectableItemBackground" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <View android:background="#ffdddddd" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <LinearLayout android:orientation="vertical" android:paddingLeft="60.0dip" android:paddingTop="16.0dip" android:paddingRight="16.0dip" android:paddingBottom="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="60.0dip" android:paddingEnd="16.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="#ff252b2e" android:id="@id/siq_tz_title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#99252b2e" android:id="@id/siq_tz" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

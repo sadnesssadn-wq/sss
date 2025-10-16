@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_05x">
+        <FrameLayout android:orientation="horizontal" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_info_sale" android:drawableLeft="@drawable/ic_promotion" android:drawablePadding="@dimen/dimen_x1x" />
+            <Switch android:layout_gravity="right" android:id="@id/sw_info_promotion" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_05x">
+        <FrameLayout android:orientation="horizontal" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_request_tiket" android:drawableLeft="@drawable/ic_request_ticket" android:drawablePadding="@dimen/dimen_x1x" />
+            <Switch android:layout_gravity="right" android:id="@id/sw_request" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="@dimen/dimen_05x">
+        <LinearLayout android:orientation="vertical" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_status_inventory" />
+            <FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_status_success" />
+                <Switch android:layout_gravity="center|right" android:id="@id/sw_status_success" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+            </FrameLayout>
+            <FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_status_back" />
+                <Switch android:layout_gravity="center|right" android:id="@id/sw_status_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+            </FrameLayout>
+            <FrameLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/label_status_fail" />
+                <Switch android:layout_gravity="center|right" android:id="@id/sw_status_fail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" />
+            </FrameLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

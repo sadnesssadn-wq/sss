@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_x1x">
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/status_cod" />
+            <Spinner android:id="@id/spn_status_cod" android:background="@drawable/bg_spinner_border" android:padding="@dimen/dimen_x1x" android:layout_width="150.0dip" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_x1x">
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/date_of_enter_status" />
+            <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/textColorPrimary" android:gravity="center" android:id="@id/tv_datetime" android:background="@drawable/bg_spinner_border" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="12/09/2020 - 08/10/2020" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:text="@string/total_money_uncollect" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:gravity="right" android:id="@id/tv_uncollect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:text="@string/total_money_receiver" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:gravity="right" android:id="@id/tv_receiver_money" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="0" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:text="@string/total_money_paid" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:gravity="right" android:id="@id/tv_paid_cod" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="0" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/dimen_2x">
+        <com.github.mikephil.charting.charts.PieChart android:id="@id/pieChart" android:layout_width="fill_parent" android:layout_height="250.0dip" android:layout_alignParentTop="true" />
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_detail" android:background="@drawable/bg_press_primary" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_x1x" android:layout_marginBottom="@dimen/dimen_3x" android:text="@string/detail_list_parcel_cod" android:layout_alignParentBottom="true" android:textAllCaps="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/tool_bar" />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/swipeRefreshLayout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/dimen_2x">
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/rcv_data" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:gravity="center" android:id="@id/tv_no_data" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/msg_no_data" />
+</FrameLayout>

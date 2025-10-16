@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_radius_white" android:padding="@dimen/dimen_2x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/dimen_2x">
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorPrimary" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/title_dialog_send_advise" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_4x">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorSecondary" android:id="@id/tv_no_thanks" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_1x" android:text="@string/no_thanks" />
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/colorPrimary" android:id="@id/tv_send_advise" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_1x" android:text="@string/send_advise" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

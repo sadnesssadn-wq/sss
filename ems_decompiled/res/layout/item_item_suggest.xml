@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textview.MaterialTextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" />
+    <com.google.android.material.textview.MaterialTextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:id="@id/tv_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_05x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_1x" />
+    <View android:id="@id/v_divider" android:background="@color/dividerColor" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="@dimen/dimen_2x" />
+</LinearLayout>

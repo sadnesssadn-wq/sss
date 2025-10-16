@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical" android:background="@color/bg_header" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout android:id="@id/swipeRefreshLayout" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/dimen_2x" app:layout_constraintBottom_toTopOf="@id/root_total" app:layout_constraintTop_toTopOf="parent">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/rcv_data" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/root_total" android:background="@color/bg_header" android:paddingBottom="@dimen/dimen_3x" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:text="@string/total_item" />
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:gravity="right" android:id="@id/tv_total_item" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:text="@string/total_money_collect" />
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/textColorPrimary" android:gravity="right" android:id="@id/tv_paid_cod" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:layout_marginRight="@dimen/dimen_2x" android:text="0" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

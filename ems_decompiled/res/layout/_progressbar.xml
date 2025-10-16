@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProgressBar android:layout_gravity="center" android:id="@id/progress" android:visibility="gone" android:layout_width="@dimen/dimen_6x" android:layout_height="@dimen/dimen_6x" android:layout_margin="@dimen/dimen_x1x" android:layout_centerInParent="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent" style="?android:progressBarStyleInverse"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" />

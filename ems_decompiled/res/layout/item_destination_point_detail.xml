@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_x1x"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_name" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_05x">
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/status_point_delivery" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_status_point" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_product" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_package2" android:drawablePadding="@dimen/dimen_1x" />
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_address" android:drawablePadding="@dimen/dimen_1x" />
+    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_value_package" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:drawableLeft="@drawable/ic_money" android:drawablePadding="@dimen/dimen_1x" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_outline_monetization_on_24" app:tint="@color/textColorSecondary" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:id="@id/tv_money_collect" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_weight" app:tint="@color/textColorSecondary" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:id="@id/tv_weight" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_quantity" app:tint="@color/textColorSecondary" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:id="@id/tv_quantity" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_outline_square_foot_24" app:tint="@color/textColorSecondary" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:id="@id/tv_dimension" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_outline_description_24" app:tint="@color/textColorSecondary" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:id="@id/tv_description" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x" />
+    </LinearLayout>
+    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginBottom="@dimen/dimen_x1x" app:cardCornerRadius="@dimen/dimen_1x" app:cardElevation="0.0dip">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/colorPrimarySecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/estimate_time_line" />
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <FrameLayout android:layout_width="wrap_content" android:layout_height="fill_parent">
+                        <View android:id="@id/v_cycle1" android:background="@drawable/bg_dot_process_active" android:layout_width="@dimen/dimen_x1x" android:layout_height="@dimen/dimen_x1x" />
+                        <View android:layout_gravity="center_horizontal" android:id="@id/v_line1" android:background="@drawable/bg_line_process_active" android:layout_width="2.0dip" android:layout_height="fill_parent" />
+                        <View android:layout_gravity="bottom" android:id="@id/v_cycle12" android:background="@drawable/bg_dot_process_active" android:layout_width="@dimen/dimen_x1x" android:layout_height="@dimen/dimen_x1x" />
+                    </FrameLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorSecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/pick_up" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_pickup_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x">
+                    <FrameLayout android:layout_width="wrap_content" android:layout_height="fill_parent">
+                        <View android:id="@id/v_cycle" android:background="@drawable/bg_dot_process_active" android:layout_width="@dimen/dimen_x1x" android:layout_height="@dimen/dimen_x1x" />
+                        <View android:layout_gravity="center_horizontal" android:id="@id/v_line" android:background="@drawable/bg_line_process_active" android:layout_width="2.0dip" android:layout_height="fill_parent" />
+                        <View android:layout_gravity="bottom" android:id="@id/v_cycle2" android:background="@drawable/bg_dot_process_active" android:layout_width="@dimen/dimen_x1x" android:layout_height="@dimen/dimen_x1x" />
+                    </FrameLayout>
+                    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_1x">
+                        <TextView android:textSize="@dimen/text_size_normal" android:textStyle="bold" android:textColor="@color/textColorSecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/completed_delivery" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:id="@id/tv_completed_time" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_1x" android:text="" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <View android:id="@id/v_divider" android:background="@color/dividerColor" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

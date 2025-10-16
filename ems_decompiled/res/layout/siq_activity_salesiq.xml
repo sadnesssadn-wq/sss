@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:background="@drawable/salesiq_drawable_top_shadow" android:layout_width="fill_parent" android:layout_height="2.0dip" android:layout_marginBottom="-2.0dip" android:layout_above="@id/siq_salesiq_tabview" />
+    <com.google.android.material.tabs.TabLayout android:id="@id/siq_salesiq_tabview" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:layout_alignParentBottom="true" android:rotationX="180.0" />
+    <androidx.appcompat.widget.Toolbar android:id="@id/siq_livechattoolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" style="?salesiq.toolbarStyle" />
+    <androidx.appcompat.widget.Toolbar android:id="@id/siq_searchtoolbar" android:background="@drawable/salesiq_search_toolbar_bg" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" android:layout_alignParentTop="true" />
+    <com.zoho.livechat.android.ui.customviews.CustomViewPager android:id="@id/siq_viewpager" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/siq_salesiq_tabview" android:layout_below="@id/siq_livechattoolbar" />
+    <RelativeLayout android:id="@id/siq_search_item_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/siq_livechattoolbar">
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/siq_search_item_list" android:background="#ffffffff" android:visibility="gone" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <ProgressBar android:id="@id/siq_search_progress" android:visibility="gone" android:layout_width="50.0dip" android:layout_height="50.0dip" android:indeterminate="true" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/siq_search_empty_state" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+            <ImageView android:id="@id/siq_empty_state_icon" android:layout_width="fill_parent" android:layout_height="140.0dip" android:layout_marginLeft="32.0dip" android:layout_marginRight="32.0dip" android:src="@drawable/salesiq_search_empty" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:gravity="center_horizontal" android:id="@id/siq_empty_state_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="32.0dip" android:text="@string/articles.emptystate.text" />
+            <RelativeLayout android:id="@id/siq_empty_state_startchat_layout" android:paddingLeft="12.0dip" android:paddingTop="9.0dip" android:paddingRight="12.0dip" android:paddingBottom="9.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+                <ImageView android:id="@id/siq_empty_state_button_icon" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_centerVertical="true" app:srcCompat="@drawable/salesiq_vector_chat" />
+                <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/siq_empty_state_startchat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/livechat.conversation.startchat" android:layout_toRightOf="@id/siq_empty_state_button_icon" android:layout_centerInParent="true" android:textAllCaps="true" android:layout_marginStart="8.0dip" android:layout_toEndOf="@id/siq_empty_state_button_icon" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <FrameLayout android:id="@id/siq_fab_parent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true">
+        <include layout="@layout/siq_item_fab" />
+    </FrameLayout>
+</RelativeLayout>

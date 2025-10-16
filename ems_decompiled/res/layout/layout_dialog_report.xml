@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_radius_white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x">
+        <TextView android:textSize="@dimen/text_size_large" android:textColor="@color/textColorPrimary" android:gravity="center" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_2x" android:text="@string/title_dialog_report" />
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorSecondary" android:gravity="center" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/content_dialog_report" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/colorPrimary" android:gravity="center" android:id="@id/tv_report" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_send_report_error" android:textAllCaps="true" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/colorPrimary" android:gravity="center" android:id="@id/tv_advise" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_send_advise" android:textAllCaps="true" />
+        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center" android:id="@id/btn_cancel" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/dimen_3x" android:text="@string/cancel" android:textAllCaps="true" />
+    </LinearLayout>
+</LinearLayout>

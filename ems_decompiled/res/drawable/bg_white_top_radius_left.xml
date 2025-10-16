@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector android:exitFadeDuration="@android:integer/config_mediumAnimTime"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:topLeftRadius="@dimen/dimen_2x" android:topRightRadius="@dimen/dimen_05x" android:bottomLeftRadius="@dimen/dimen_05x" android:bottomRightRadius="@dimen/dimen_05x" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</selector>

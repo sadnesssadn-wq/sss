@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+        <AutoCompleteTextView android:id="@id/tv_province_district_ward" android:padding="@dimen/dimen_2x" android:text="" android:hint="@string/hint_province_district_ward" android:inputType="textCapWords" style="@style/EditTextBase.StyleEditTextGrab" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextInputLayout.Outline">
+        <EditText android:id="@id/edt_address" android:text="" android:hint="@string/hint_address_receiver" android:inputType="textCapWords" android:imeOptions="actionDone" style="@style/EditTextBase.StyleEditTextGrab" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <android.widget.Button android:textSize="@dimen/text_size_normal" android:textColor="@color/white" android:id="@id/btn_confirm" android:background="@drawable/bg_press_primary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_3x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/confirm" android:textAllCaps="false" />
+</LinearLayout>

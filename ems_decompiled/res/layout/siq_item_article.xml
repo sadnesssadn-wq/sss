@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="?android:selectableItemBackground" android:paddingLeft="16.0dip" android:paddingTop="14.0dip" android:paddingRight="16.0dip" android:paddingBottom="14.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/siq_article_icon" android:padding="12.0dip" android:layout_width="48.0dip" android:layout_height="48.0dip" android:layout_marginRight="12.0dip" android:layout_alignParentLeft="true" android:layout_marginEnd="12.0dip" android:layout_alignParentStart="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toRightOf="@id/siq_article_icon" android:layout_toEndOf="@id/siq_article_icon">
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:id="@id/siq_article_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+            <TextView android:textSize="14.0sp" android:textColor="#cc6f7c8e" android:id="@id/siq_article_views" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <View android:layout_gravity="center_vertical" android:id="@id/siq_article_separatorview" android:background="#cc6f7c8e" android:layout_width="1.5dip" android:layout_height="10.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="1.0dip" android:layout_marginStart="10.0dip" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/siq_articles_likes_icon" android:layout_width="14.0dip" android:layout_height="14.0dip" android:layout_marginLeft="10.0dip" android:layout_marginStart="10.0dip" app:srcCompat="@drawable/salesiq_vector_like_flat" />
+            <TextView android:textSize="14.0sp" android:textColor="#cc6f7c8e" android:id="@id/siq_article_likes" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginStart="5.0dip" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

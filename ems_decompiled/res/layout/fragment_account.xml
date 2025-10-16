@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/bg_header" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true" android:layout_above="@id/tv_logout">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ImageView android:id="@id/img_banner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/banner_acc" />
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_1x" app:cardElevation="0.0dip">
+                <RelativeLayout android:orientation="horizontal" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/img_icon_avatar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_acc" />
+                    <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_toLeftOf="@id/img_edit" android:layout_toRightOf="@id/img_icon_avatar">
+                        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorPrimary" android:id="@id/tv_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:id="@id/tv_email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_05x" android:text="" />
+                        <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:id="@id/tv_phone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                    </LinearLayout>
+                    <ImageView android:id="@id/img_edit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_x1x" android:src="@drawable/ic_edit" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_config_store" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_w" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/store" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_switch_account" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_switch" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_add_account" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_support" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_call_center" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lb_cskh" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_request" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_request_ticket" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_request_ticket" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_introduce" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_award" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_about" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_contact" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_message" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_contact" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_policy" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_security" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_information_security_policy" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_setting_notification" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_no" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_setting_notification" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_change_password" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_change_password" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_change_password" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" app:cardCornerRadius="@dimen/dimen_05x" app:cardElevation="0.0dip">
+                <LinearLayout android:orientation="horizontal" android:id="@id/root_delete_account" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_x1x" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:src="@drawable/ic_delete" android:tint="@color/red" />
+                    <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorPrimary" android:layout_gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/lbl_delete_account" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/textColorSecondary" android:gravity="center" android:id="@id/tv_version" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_1x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x" android:text="Version 1.0.2" />
+        </LinearLayout>
+    </ScrollView>
+    <TextView android:textSize="@dimen/text_size_xnormal" android:textStyle="bold" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_logout" android:background="@drawable/bg_press_primary" android:padding="@dimen/dimen_x1x" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_2x" android:layout_marginRight="@dimen/dimen_2x" android:layout_marginBottom="@dimen/dimen_2x" android:text="@string/logout" android:layout_alignParentBottom="true" android:textAllCaps="true" />
+</RelativeLayout>

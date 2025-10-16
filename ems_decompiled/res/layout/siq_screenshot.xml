@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/siq_screenshot_parent" android:layout_width="wrap_content" android:layout_height="48.0dip">
+        <RelativeLayout android:id="@id/siq_screenshot_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/siq_screenshot_cancel_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="16.0dip" android:layout_marginStart="16.0dip" app:srcCompat="@drawable/salesiq_vector_cancel" />
+        </RelativeLayout>
+        <View android:background="#33ffffff" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+        <RelativeLayout android:id="@id/siq_screenshot_take" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <ImageView android:id="@id/siq_screenshot_take_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="28.0dip" android:layout_marginRight="32.0dip" android:layout_marginStart="28.0dip" android:layout_marginEnd="32.0dip" app:srcCompat="@drawable/salesiq_vector_screenshot" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

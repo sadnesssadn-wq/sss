@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/siq_parent_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="?actionBarSize"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="15.0sp" android:textColor="#cc252b2e" android:gravity="center" android:id="@id/siq_offline_message" android:background="#fff4f4f4" android:padding="12.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/livechat.messages.offline" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/siq_conversation_view" android:background="#ffffffff" android:visibility="gone" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/siq_conversation_emptystate" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/siq_empty_state_icon" android:layout_width="fill_parent" android:layout_height="140.0dip" android:layout_marginLeft="32.0dip" android:layout_marginRight="32.0dip" />
+        <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:gravity="center_horizontal" android:id="@id/siq_empty_state_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="32.0dip" android:layout_marginTop="16.0dip" android:layout_marginRight="32.0dip" android:text="@string/livechat.conversation.emptystate" />
+        <RelativeLayout android:id="@id/siq_empty_state_startchat_layout" android:paddingLeft="12.0dip" android:paddingTop="9.0dip" android:paddingRight="12.0dip" android:paddingBottom="9.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip">
+            <ImageView android:id="@id/siq_empty_state_button_icon" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_centerVertical="true" app:srcCompat="@drawable/salesiq_vector_chat" />
+            <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/siq_empty_state_startchat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/livechat.conversation.startchat" android:layout_toRightOf="@id/siq_empty_state_button_icon" android:layout_centerInParent="true" android:textAllCaps="true" android:layout_marginStart="8.0dip" android:layout_toEndOf="@id/siq_empty_state_button_icon" />
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/siq_item_fab" />
+</FrameLayout>

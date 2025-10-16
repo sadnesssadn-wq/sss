@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <androidx.appcompat.widget.Toolbar android:id="@id/siq_dialog_toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" style="?salesiq.toolbarStyle" />
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <FrameLayout android:id="@id/siq_map_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="174.0dip" />
+            <androidx.cardview.widget.CardView android:layout_gravity="end|center|top" android:id="@id/siq_map_radius_parent" android:layout_width="wrap_content" android:layout_height="36.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="12.0dip" android:layout_marginEnd="12.0dip" app:cardCornerRadius="18.0dip" app:cardElevation="4.0dip">
+                <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:paddingLeft="12.0dip" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <ImageView android:id="@id/siq_map_radius_icon" android:layout_width="20.0dip" android:layout_height="20.0dip" app:srcCompat="@drawable/salesiq_vector_location_radius" />
+                    <TextView android:textSize="15.0sp" android:textColor="#ff252b2e" android:layout_gravity="center_vertical" android:id="@id/siq_map_radius_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:layout_marginStart="7.0dip" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/siq_location_bottomsheet" android:layout_width="fill_parent" android:layout_height="fill_parent" app:behavior_hideable="false" app:behavior_peekHeight="174.0dip" app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+        <View android:background="@drawable/salesiq_drawable_top_shadow" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+        <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:layout_gravity="center_vertical" android:id="@id/siq_location_bottom_header" android:background="?android:selectableItemBackground" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="64.0dip" android:paddingStart="16.0dip" android:paddingEnd="16.0dip">
+                <RelativeLayout android:gravity="center" android:id="@id/siq_location_bottom_header_imagelayout" android:background="@drawable/salesiq_circle_bg" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerVertical="true">
+                    <ImageView android:id="@id/siq_location_bottom_header_image" android:layout_width="18.0dip" android:layout_height="18.0dip" app:srcCompat="@drawable/salesiq_vector_mylocation" />
+                </RelativeLayout>
+                <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_toRightOf="@id/siq_location_bottom_header_imagelayout" android:layout_centerVertical="true" android:layout_marginStart="16.0dip" android:layout_toEndOf="@id/siq_location_bottom_header_imagelayout">
+                    <TextView android:textSize="16.0sp" android:id="@id/siq_location_bottom_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/livechat.widgets.location.send.current" />
+                    <TextView android:textSize="14.0sp" android:textColor="#b3252b2e" android:id="@id/siq_location_bottom_subtext" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </RelativeLayout>
+            <View android:background="#1f252b2e" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            <androidx.recyclerview.widget.RecyclerView android:id="@id/siq_location_suggestions_list" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

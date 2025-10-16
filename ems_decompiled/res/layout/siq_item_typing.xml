@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="54.0dip" android:layout_height="32.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/siq_typing_circle1" android:layout_width="6.0dip" android:layout_height="6.0dip" />
+    <View android:id="@id/siq_typing_circle2" android:layout_width="6.0dip" android:layout_height="6.0dip" android:layout_marginLeft="4.0dip" android:layout_marginStart="4.0dip" />
+    <View android:id="@id/siq_typing_circle3" android:layout_width="6.0dip" android:layout_height="6.0dip" android:layout_marginLeft="4.0dip" android:layout_marginStart="4.0dip" />
+</LinearLayout>

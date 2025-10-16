@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/bg_radius_white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/text_size_xlarge" android:textColor="@color/textColorPrimary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_3x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/logout" />
+        <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/textColorSecondary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimen_2x" android:layout_marginTop="@dimen/dimen_3x" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/lbl_description_logout" />
+        <LinearLayout android:gravity="right" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimen_3x" android:layout_marginBottom="@dimen/dimen_3x">
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/colorPrimary" android:id="@id/btn_cancel" android:background="@drawable/bg_press_textview" android:paddingLeft="@dimen/dimen_2x" android:paddingTop="@dimen/dimen_1x" android:paddingRight="@dimen/dimen_2x" android:paddingBottom="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cancel_" />
+            <TextView android:textSize="@dimen/text_size_xnormal" android:textColor="@color/colorPrimary" android:id="@id/tv_ok" android:background="@drawable/bg_press_textview" android:paddingLeft="@dimen/dimen_2x" android:paddingTop="@dimen/dimen_1x" android:paddingRight="@dimen/dimen_2x" android:paddingBottom="@dimen/dimen_1x" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimen_2x" android:text="@string/ok" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

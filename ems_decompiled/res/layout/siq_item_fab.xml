@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="end|bottom|center" android:id="@id/siq_fab_layout" android:layout_width="92.0dip" android:layout_height="92.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/siq_fab_icon" android:layout_width="60.0dip" android:layout_height="60.0dip" />
+    <TextView android:layout_gravity="end|center|top" android:id="@id/siq_fab_badge" android:visibility="gone" android:layout_width="22.0dip" android:layout_height="22.0dip" />
+</FrameLayout>

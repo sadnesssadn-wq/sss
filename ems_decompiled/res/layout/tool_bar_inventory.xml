@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar android:theme="@style/Base.Theme.AppCompat" android:id="@id/tool_bar" android:background="@color/colorPrimary" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" app:contentInsetLeft="0.0dip" app:layout_scrollFlags="exitUntilCollapsed|scroll" app:popupTheme="@style/ThemeOverlay.AppCompat.Light" app:titleMargin="0.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView android:layout_gravity="center" android:id="@id/tv_toolbar_title" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title" />
+    <FrameLayout android:layout_gravity="right" android:id="@id/btn_search" android:background="@drawable/bg_press_textview" android:paddingLeft="@dimen/dimen_2x" android:paddingRight="@dimen/dimen_2x" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_search" />
+    </FrameLayout>
+</androidx.appcompat.widget.Toolbar>

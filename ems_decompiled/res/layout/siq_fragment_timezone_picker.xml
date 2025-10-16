@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.appcompat.widget.Toolbar android:id="@id/siq_dialog_toolbar" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" style="?salesiq.toolbarStyle" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@id/siq_timezone_list" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

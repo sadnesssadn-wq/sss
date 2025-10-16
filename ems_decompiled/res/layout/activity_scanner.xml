@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.dm7.barcodescanner.zxing.ZXingScannerView android:id="@id/zxing_scanner" android:layout_width="fill_parent" android:layout_height="fill_parent" app:borderColor="@color/colorAccent" app:laserColor="@color/red" app:laserEnabled="true" />
+    <androidx.appcompat.widget.Toolbar android:theme="@style/Base.Theme.AppCompat" android:id="@id/tool_bar_" android:background="@color/bg_transparent" android:layout_width="fill_parent" android:layout_height="?android:actionBarSize" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_scrollFlags="exitUntilCollapsed|scroll" app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <FrameLayout android:id="@id/fr_switch_flash" android:background="@drawable/bg_press_textview" android:padding="@dimen/dimen_2x" android:layout_width="wrap_content" android:layout_height="wrap_content" app:layout_constraintRight_toRightOf="parent" app:layout_constraintTop_toTopOf="parent">
+        <ImageView android:id="@id/img_auto_flash" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_flash_off" android:tint="@color/white" />
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
