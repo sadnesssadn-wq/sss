@@ -36,3 +36,6 @@ ENV/
 # 操作系统
 .DS_Store
 Thumbs.db
+# 但是允许查看示例结果
+!result_full_*.csv
+!result_full_*.json
