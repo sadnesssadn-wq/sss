@@ -1,0 +1,82 @@
+[
+  {
+    "endpoint": "/api/Delivery/DeliveryLadingJourney",
+    "available": true,
+    "methods": [
+      "POST-JSON+Auth"
+    ],
+    "response_code": "01",
+    "response_msg": "Không tìm thấy dữ liệu",
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/Delivery/Inquiry",
+    "available": true,
+    "methods": [
+      "POST-JSON+Auth"
+    ],
+    "response_code": "00",
+    "response_msg": "Lấy dữ liệu thành công",
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/TrackTrace/Lading",
+    "available": true,
+    "methods": [
+      "POST-JSON+Auth"
+    ],
+    "response_code": "96",
+    "response_msg": "Signature không đúng.",
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/TrackTrace/Batch",
+    "available": true,
+    "methods": [
+      "GET"
+    ],
+    "response_code": null,
+    "response_msg": null,
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/TrackTrace/Search",
+    "available": true,
+    "methods": [
+      "GET"
+    ],
+    "response_code": null,
+    "response_msg": null,
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/TrackTrace/Detail",
+    "available": true,
+    "methods": [
+      "GET"
+    ],
+    "response_code": null,
+    "response_msg": null,
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/TrackTrace/History",
+    "available": true,
+    "methods": [
+      "GET"
+    ],
+    "response_code": null,
+    "response_msg": null,
+    "requires_auth": null
+  },
+  {
+    "endpoint": "/api/Gateway/Bussiness",
+    "available": true,
+    "methods": [
+      "POST-JSON-Gateway"
+    ],
+    "response_code": "00",
+    "response_msg": "Lấy dữ liệu thành công.",
+    "requires_auth": null
+  }
+]
