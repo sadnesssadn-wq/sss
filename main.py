@@ -196,19 +196,20 @@ def query_all_apis(code, proxy_pool):
         proxies = proxy_info['proxy_dict'] if proxy_info else None
         
         try:
-            # API 1: TrackTrace/Lading (原有API)
-            url1 = "https://api-dingdong.ems.com.vn/api/TrackTrace/Lading"
-            payload1 = {'LadingCode': code, 'Signature': signature}
-            api1_result = call_api_with_retry(url1, {}, json_data=payload1, proxies=proxies)
-            
-            if api1_result and api1_result.get('Code') == '00':
-                data = api1_result.get('Value') or api1_result.get('Data')
-                if isinstance(data, str):
-                    try:
-                        data = json.loads(data)
-                    except:
-                        pass
-                result_data['api_tracktrace'] = data
+            # API 1: TrackTrace/Lading (暂时禁用，API超时)
+            # url1 = "https://api-dingdong.ems.com.vn/api/TrackTrace/Lading"
+            # payload1 = {'LadingCode': code, 'Signature': signature}
+            # api1_result = call_api_with_retry(url1, {}, json_data=payload1, proxies=proxies)
+            # 
+            # if api1_result and api1_result.get('Code') == '00':
+            #     data = api1_result.get('Value') or api1_result.get('Data')
+            #     if isinstance(data, str):
+            #         try:
+            #             data = json.loads(data)
+            #         except:
+            #             pass
+            #     result_data['api_tracktrace'] = data
+            api1_result = None  # 暂时禁用
             
             # API 2: Inquiry
             url2 = "https://api-dingdong.ems.com.vn/api/Delivery/Inquiry"
@@ -248,9 +249,8 @@ def query_all_apis(code, proxy_pool):
                 except:
                     result_data['api_gateway'] = []
             
-            # 判断是否成功（至少有一个API返回数据）
-            if any([result_data['api_tracktrace'], result_data['api_inquiry'], 
-                   result_data['api_journey'], result_data['api_gateway']]):
+            # 判断是否成功（至少有一个API返回数据，TrackTrace暂时禁用）
+            if any([result_data['api_inquiry'], result_data['api_journey'], result_data['api_gateway']]):
                 result_data['success'] = True
                 if proxy_info:
                     proxy_pool.mark_success(proxy_info)
