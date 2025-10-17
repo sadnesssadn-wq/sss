@@ -407,28 +407,15 @@ def process_code(code, proxy_pool, progress):
     """处理单个运单号 - 修改：无论是否有电话号码都保存"""
     result_data = query_all_apis(code, proxy_pool)
     
-    # 修改：无论成功与否都保存结果
+    # 修改：无论成功与否都保存结果，都调用merge_all_data
+    merged_info = merge_all_data(result_data)
+    
     if result_data['success']:
-        merged_info = merge_all_data(result_data)
         status = f"OK [4API] {merged_info['ReceiverPhone'][:20] if merged_info['ReceiverPhone'] else '无电话'}"
-        return (True, merged_info, status, code)
     else:
-        # 即使失败也创建空记录保存
-        empty_info = {
-            '运单号': code,
-            'Count': '', 'IsCOD': '', 'ParcelCode': '', 'SenderName': '', 'SenderAddress': '', 'SenderPhone': '',
-            'ReceiverName': '', 'ReceiverAddress': '', 'ReceiverPhone': '', 'ReceiverIDNumber': '', 'CollectAmount': '',
-            'IsPaypost': '', 'ReceiveCollectFee': '', 'IssuePOCode': '', 'IssueDate': '', 'LoadDate': '',
-            'DeliveryPOCode': '', 'DeliveryDate': '', 'Weigh': '', 'Status': '', 'StatusName': '', 'ReasonName': '',
-            'SolutionName': '', 'CheckStatus': '', 'CheckStatusNo': '', 'Note': '', 'RouteCode': '', 'IsPaypostName': '',
-            'DeliverySignature': '', 'DeliveryImage': '', 'DeliveryImageAuthen': '', 'AmountCOD': '', 'FeePPA': '',
-            'FeeC': '', 'FeeShip': '', 'FeeCancelOrder': '', 'FeeCollectLater': '', 'Instruction': '', 'VATCode': '',
-            'TrackTrace_ID': '', 'TrackTrace_Value': '', 'TrackTrace_Fee': '', 'TrackTrace_ReceiverMobile': '',
-            'TrackTrace_SenderMobile': '', 'TrackTrace_SignatureCapture': '', 'JourneyCount': 0, 'IsDelivered': '否',
-            'ProductCount': 0, 'ProductName': '', 'ProductQuantity': '', 'ProductPrice': '', 'ProductAmount': '', 'ProductWeight': ''
-        }
         status = f"FAIL [不存在]"
-        return (True, empty_info, status, code)  # 改为True，确保保存
+    
+    return (True, merged_info, status, code)  # 始终返回True，确保保存
 
 def main():
     print("="*80)
