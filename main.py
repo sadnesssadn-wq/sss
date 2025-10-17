@@ -404,18 +404,17 @@ def merge_all_data(result_data):
     return merged
 
 def process_code(code, proxy_pool, progress):
-    """处理单个运单号 - 修改：无论是否有电话号码都保存"""
+    """处理单个运单号 - 只有Code=00的才保存"""
     result_data = query_all_apis(code, proxy_pool)
     
-    # 修改：无论成功与否都保存结果，都调用merge_all_data
-    merged_info = merge_all_data(result_data)
-    
+    # 只有查询成功（Code=00）的才保存
     if result_data['success']:
+        merged_info = merge_all_data(result_data)
         status = f"OK [4API] {merged_info['ReceiverPhone'][:20] if merged_info['ReceiverPhone'] else '无电话'}"
+        return (True, merged_info, status, code)
     else:
         status = f"FAIL [不存在]"
-    
-    return (True, merged_info, status, code)  # 始终返回True，确保保存
+        return (False, None, status, code)  # 失败的不保存
 
 def main():
     print("="*80)
@@ -460,17 +459,18 @@ def main():
             
             success, info, status, code = future.result()
             
-            # 修改：所有结果都保存
-            results.append(info)
+            # 只有成功的才保存
+            if success and info:
+                results.append(info)
             
             print(f"[{current}/{len(codes)}] {code} {status}")
             
             if current % 50 == 0:
                 elapsed = time.time() - start_time
                 speed = current / elapsed
-                success_count = len([r for r in results if r.get('ReceiverPhone', '')])
+                success_count = len(results)
                 success_rate = success_count / current * 100 if current > 0 else 0
-                print(f"\n--- 进度: {current}/{len(codes)} | 有电话: {success_count} ({success_rate:.1f}%) | 速度: {speed:.1f}条/秒 ---\n")
+                print(f"\n--- 进度: {current}/{len(codes)} | 成功: {success_count} ({success_rate:.1f}%) | 速度: {speed:.1f}条/秒 ---\n")
     
     elapsed_time = time.time() - start_time
     
@@ -478,9 +478,11 @@ def main():
     print("查询统计")
     print("="*80)
     print(f"总查询数: {len(codes)}")
-    print(f"有电话数据: {len([r for r in results if r.get('ReceiverPhone', '')])}")
-    print(f"无电话数据: {len([r for r in results if not r.get('ReceiverPhone', '')])}")
-    print(f"总保存数: {len(results)}")
+    print(f"成功查询: {len(results)}")
+    print(f"失败查询: {len(codes) - len(results)}")
+    if results:
+        print(f"有电话数据: {len([r for r in results if r.get('ReceiverPhone', '')])}")
+        print(f"无电话数据: {len([r for r in results if not r.get('ReceiverPhone', '')])}")
     print(f"耗时: {elapsed_time:.1f} 秒")
     print(f"平均速度: {len(codes)/elapsed_time:.1f} 条/秒")
     
