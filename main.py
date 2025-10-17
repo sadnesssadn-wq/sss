@@ -418,7 +418,7 @@ def process_code(code, proxy_pool, progress):
 
 def main():
     print("="*80)
-    print("批量查询运单号 - 完整版（4个API + 所有字段 + 全格式保存）")
+    print("批量查询运单号 - 完整版（3个API + 所有字段 + 全格式保存）")
     print("="*80)
     
     print("\n初始化代理池...")
@@ -437,7 +437,7 @@ def main():
     
     print(f"读取到 {len(codes)} 个运单号")
     print(f"并发线程: {THREAD_COUNT} 个")
-    print("调用API: TrackTrace + Inquiry + Journey + Gateway")
+    print("调用API: Inquiry + Journey + Gateway (TrackTrace暂时禁用)")
     print("遇到Code:98自动换IP重试")
     print("全格式保存：无论是否有电话号码都保存所有结果\n")
     
