@@ -404,13 +404,14 @@ def merge_all_data(result_data):
     return merged
 
 def process_code(code, proxy_pool, progress):
-    """处理单个运单号 - 只有Code=00的才保存"""
+    """处理单个运单号 - Code=00的都保存，不管有没有电话"""
     result_data = query_all_apis(code, proxy_pool)
     
-    # 只有查询成功（Code=00）的才保存
+    # Code=00的都保存，不管有没有电话
     if result_data['success']:
         merged_info = merge_all_data(result_data)
-        status = f"OK [4API] {merged_info['ReceiverPhone'][:20] if merged_info['ReceiverPhone'] else '无电话'}"
+        phone_info = merged_info['ReceiverPhone'][:20] if merged_info['ReceiverPhone'] else '无电话'
+        status = f"OK [4API] {phone_info}"
         return (True, merged_info, status, code)
     else:
         status = f"FAIL [不存在]"
