@@ -196,20 +196,19 @@ def query_all_apis(code, proxy_pool):
         proxies = proxy_info['proxy_dict'] if proxy_info else None
         
         try:
-            # API 1: TrackTrace/Lading (暂时禁用，API超时)
-            # url1 = "https://api-dingdong.ems.com.vn/api/TrackTrace/Lading"
-            # payload1 = {'LadingCode': code, 'Signature': signature}
-            # api1_result = call_api_with_retry(url1, {}, json_data=payload1, proxies=proxies)
-            # 
-            # if api1_result and api1_result.get('Code') == '00':
-            #     data = api1_result.get('Value') or api1_result.get('Data')
-            #     if isinstance(data, str):
-            #         try:
-            #             data = json.loads(data)
-            #         except:
-            #             pass
-            #     result_data['api_tracktrace'] = data
-            api1_result = None  # 暂时禁用
+            # API 1: TrackTrace/Lading (已恢复)
+            url1 = "https://api-dingdong.ems.com.vn/api/TrackTrace/Lading"
+            payload1 = {'LadingCode': code, 'Signature': signature}
+            api1_result = call_api_with_retry(url1, {}, json_data=payload1, proxies=proxies)
+            
+            if api1_result and api1_result.get('Code') == '00':
+                data = api1_result.get('Value') or api1_result.get('Data')
+                if isinstance(data, str):
+                    try:
+                        data = json.loads(data)
+                    except:
+                        pass
+                result_data['api_tracktrace'] = data
             
             # API 2: Inquiry
             url2 = "https://api-dingdong.ems.com.vn/api/Delivery/Inquiry"
@@ -249,8 +248,9 @@ def query_all_apis(code, proxy_pool):
                 except:
                     result_data['api_gateway'] = []
             
-            # 判断是否成功（至少有一个API返回数据，TrackTrace暂时禁用）
-            if any([result_data['api_inquiry'], result_data['api_journey'], result_data['api_gateway']]):
+            # 判断是否成功（至少有一个API返回数据）
+            if any([result_data['api_tracktrace'], result_data['api_inquiry'], 
+                   result_data['api_journey'], result_data['api_gateway']]):
                 result_data['success'] = True
                 if proxy_info:
                     proxy_pool.mark_success(proxy_info)
@@ -418,7 +418,7 @@ def process_code(code, proxy_pool, progress):
 
 def main():
     print("="*80)
-    print("批量查询运单号 - 完整版（3个API + 所有字段 + 全格式保存）")
+    print("批量查询运单号 - 完整版（4个API + 所有字段 + 全格式保存）")
     print("="*80)
     
     print("\n初始化代理池...")
@@ -437,7 +437,7 @@ def main():
     
     print(f"读取到 {len(codes)} 个运单号")
     print(f"并发线程: {THREAD_COUNT} 个")
-    print("调用API: Inquiry + Journey + Gateway (TrackTrace暂时禁用)")
+    print("调用API: TrackTrace + Inquiry + Journey + Gateway")
     print("遇到Code:98自动换IP重试")
     print("全格式保存：无论是否有电话号码都保存所有结果\n")
     
