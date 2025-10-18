@@ -11,13 +11,26 @@ def main():
     print("欢迎使用 Python 应用！")
     print("=" * 50)
     
-    name = input("\n请输入您的名字: ")
-    print(f"\n你好，{name}！很高兴认识你。")
-    
-    # 简单的计算器示例
-    try:
-        num1 = float(input("\n请输入第一个数字: "))
-        num2 = float(input("请输入第二个数字: "))
+    # 检查是否在交互式环境中
+    import sys
+    if sys.stdin.isatty():
+        name = input("\n请输入您的名字: ")
+        print(f"\n你好，{name}！很高兴认识你。")
+        
+        # 简单的计算器示例
+        try:
+            num1 = float(input("\n请输入第一个数字: "))
+            num2 = float(input("请输入第二个数字: "))
+    else:
+        # 非交互式环境，使用默认值
+        name = "用户"
+        print(f"\n你好，{name}！很高兴认识你。")
+        
+        # 使用示例数据进行计算
+        try:
+            num1 = 10.0
+            num2 = 5.0
+            print(f"\n使用示例数据: {num1} 和 {num2}")
         
         print(f"\n结果:")
         print(f"  {num1} + {num2} = {num1 + num2}")
