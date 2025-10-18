@@ -1,5 +1,7 @@
 # Python 项目依赖
-# 目前这是一个基础项目，没有外部依赖
-# 如果需要添加依赖，格式如下：
-# requests==2.31.0
-# numpy==1.24.3
+# SSH 连接处理功能
+# 注意：ssh_handler.py 仅使用 Python 标准库，无需额外依赖
+
+# 如果需要完整的 SSH 客户端功能，可以添加以下依赖：
+# paramiko==3.3.1  # SSH2 协议的 Python 实现
+# cryptography==41.0.5  # 加密库
