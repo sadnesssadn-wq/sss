@@ -41,6 +41,15 @@
         "vulnerability",
         "sql_injection"
       ]
+    },
+    {
+      "timestamp": "2025-10-19T20:33:57.543237",
+      "type": "test",
+      "content": "这是一个测试记忆条目",
+      "tags": [
+        "test",
+        "demo"
+      ]
     }
   ],
   "context": {
@@ -48,5 +57,5 @@
     "current_phase": "exploitation"
   },
   "created_at": "2025-10-19T20:31:53.105964",
-  "last_active": "2025-10-19T20:31:53.106341"
+  "last_active": "2025-10-19T20:33:57.543239"
 }
