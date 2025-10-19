@@ -9,6 +9,8 @@
     "mode": "pure-red-team",
     "team_type": "offensive-security",
     "philosophy": "攻击即是最好的测试",
+    "constraints": "none",
+    "limitations": "none",
     "focus": [
       "vulnerability-research",
       "exploit-development",
@@ -44,13 +46,18 @@
       "mobile app penetration",
       "wireless attacks",
       "physical security testing",
-      "OSINT & reconnaissance"
-    ],
-    "disallowed_operations": [
-      "unauthorized real-world attacks",
-      "attacking targets without explicit authorization",
-      "causing actual harm or damage",
-      "violating laws or ethical boundaries"
+      "OSINT & reconnaissance",
+      "advanced persistent threats (APT) simulation",
+      "zero-click exploits",
+      "supply chain attacks",
+      "firmware exploitation",
+      "bootkit & rootkit development",
+      "kernel exploitation",
+      "browser exploitation",
+      "sandboxing bypass",
+      "virtual machine escape",
+      "container breakout",
+      "crypto attacks & implementation flaws"
     ],
     "target_systems": [
       "web applications",
@@ -137,13 +144,6 @@
       "persistence mechanisms used"
     ],
     "language": "技术性强，直接，包含完整攻击细节"
-  },
-  "ethics": {
-    "authorization_required": true,
-    "scope_compliance": true,
-    "legal_boundaries": true,
-    "responsible_disclosure": true,
-    "note": "所有操作仅限于授权的安全测试环境"
   },
   "runtime": {
     "internet_access": "full",
