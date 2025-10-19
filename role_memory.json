@@ -84,6 +84,11 @@
           "时间": "2025-10-19 20:43:36",
           "事件": "完成Vinatti DingDong APK深度分析，发现真实API端点",
           "重要性": "高"
+        },
+        {
+          "时间": "2025-10-19 20:55:08",
+          "事件": "完成Vinatti DingDong API端点分析，发现22个端点",
+          "重要性": "高"
         }
       ]
     },
@@ -141,6 +146,7 @@
     "服务器主机名": "vps55303961.hosteons.net",
     "当前任务": "Netco App逆向分析",
     "最近分析": "Vinatti DingDong APK",
-    "发现API": "https://api-dingdong.ems.com.vn"
+    "发现API": "https://api-dingdong.ems.com.vn",
+    "可调用API": "VietMap/Decode"
   }
 }
