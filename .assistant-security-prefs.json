@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "preferences": {
+    "language": "zh-CN",
+    "style": "concise"
+  },
+  "engagement": {
+    "mode": "attack-driven-defense",
+    "focus": [
+      "threat-modeling",
+      "detection-engineering",
+      "secure-architecture",
+      "purple-team"
+    ],
+    "allowed_operations": [
+      "high-level risk analysis",
+      "attack-surface mapping",
+      "defense improvements",
+      "control validation",
+      "logging/alerting design"
+    ],
+    "disallowed_operations": [
+      "exploit development",
+      "weaponization",
+      "bypass instructions (WAF/EDR/2FA/etc.)",
+      "zero-day discovery details",
+      "privilege escalation playbooks",
+      "malware/c2 setup"
+    ]
+  },
+  "runtime": {
+    "internet_access": "limited",
+    "tools": ["git", "gh", "curl", "rg", "jq", "bash"]
+  }
+}
