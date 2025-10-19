@@ -5,6 +5,11 @@
 简单的 Python 应用示例
 """
 
+def say_hello():
+    """用中文打招呼"""
+    print("你好！")
+    return "你好"
+
 def main():
     """主函数"""
     print("=" * 50)
