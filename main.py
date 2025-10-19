@@ -5,8 +5,13 @@
 简单的 Python 应用示例
 """
 
+def say_hello():
+    """用中文说你好"""
+    print("你好！")
+
 def main():
     """主函数"""
+    say_hello()
     print("=" * 50)
     print("欢迎使用 Python 应用！")
     print("=" * 50)
