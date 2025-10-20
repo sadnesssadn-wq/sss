@@ -1329,6 +1329,27 @@
         "automation",
         "lateral_movement"
       ]
+    },
+    {
+      "timestamp": "2025-10-20T06:08:05.153368",
+      "type": "initial_access",
+      "content": "成功SSH连接到 82.29.71.156 (root@admin123) - Ubuntu 22.04.1 LTS, 8GB内存, 正常运行22小时",
+      "tags": [
+        "ssh",
+        "initial_access",
+        "credential_access",
+        "success"
+      ]
+    },
+    {
+      "timestamp": "2025-10-20T06:08:07.203378",
+      "type": "reconnaissance",
+      "content": "目标系统侦察: vps55303961.hosteons.net, IP 82.29.71.156, Ubuntu 22.04, x86_64架构",
+      "tags": [
+        "recon",
+        "fingerprint",
+        "linux"
+      ]
     }
   ],
   "context": {
@@ -1338,5 +1359,5 @@
     "mode": "pure-red-team"
   },
   "created_at": "2025-10-19T20:42:00.701594",
-  "last_active": "2025-10-20T06:04:41.403674"
+  "last_active": "2025-10-20T06:08:07.203380"
 }
