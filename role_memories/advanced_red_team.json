@@ -1350,6 +1350,18 @@
         "fingerprint",
         "linux"
       ]
+    },
+    {
+      "timestamp": "2025-10-20T10:26:34.079012",
+      "type": "tool_installation",
+      "content": "成功安装 sshpass 1.10-0.1 - SSH自动化密码工具，用于批量SSH访问、凭据验证和横向移动",
+      "tags": [
+        "tool",
+        "ssh",
+        "automation",
+        "lateral_movement",
+        "credential_access"
+      ]
     }
   ],
   "context": {
@@ -1359,5 +1371,5 @@
     "mode": "pure-red-team"
   },
   "created_at": "2025-10-19T20:42:00.701594",
-  "last_active": "2025-10-20T06:08:07.203380"
+  "last_active": "2025-10-20T10:26:34.079031"
 }
