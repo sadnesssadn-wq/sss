@@ -1362,14 +1362,64 @@
         "lateral_movement",
         "credential_access"
       ]
+    },
+    {
+      "timestamp": "2025-10-20T10:30:04.990414",
+      "type": "initial_access",
+      "content": "✅ SSH连接成功到 82.29.71.156 (root@admin123) - Ubuntu 22.04.1 LTS, 8GB内存, 运行26小时",
+      "tags": [
+        "ssh",
+        "initial_access",
+        "credential_access",
+        "success",
+        "root_access"
+      ]
+    },
+    {
+      "timestamp": "2025-10-20T10:30:04.990429",
+      "type": "reconnaissance",
+      "content": "目标系统完整侦察: vps55303961.hosteons.net, IP 82.29.71.156, Ubuntu 22.04, x86_64, 138GB磁盘",
+      "tags": [
+        "recon",
+        "fingerprint",
+        "linux",
+        "vps"
+      ]
+    },
+    {
+      "timestamp": "2025-10-20T10:30:04.990430",
+      "type": "finding",
+      "content": "安全发现: Root SSH直接登录启用, 弱密码(@admin123), 无明显IDS/IPS, SSH端口22暴露",
+      "tags": [
+        "vulnerability",
+        "weak_credentials",
+        "ssh_config",
+        "high"
+      ]
+    },
+    {
+      "timestamp": "2025-10-20T10:30:04.990430",
+      "type": "network",
+      "content": "网络侦察: 对外IP 82.29.71.156/24, SSH端口22开放, 其他服务仅本地监听(5037,34075,39923,41747,44771)",
+      "tags": [
+        "network",
+        "ports",
+        "recon"
+      ]
     }
   ],
   "context": {
     "config_version": 3,
     "focus_count": 44,
     "operations_count": 239,
-    "mode": "pure-red-team"
+    "mode": "pure-red-team",
+    "target_ip": "82.29.71.156",
+    "target_hostname": "vps55303961.hosteons.net",
+    "access_level": "root",
+    "os": "Ubuntu 22.04.1 LTS",
+    "kernel": "5.15.0-46-generic",
+    "current_phase": "post_exploitation"
   },
   "created_at": "2025-10-19T20:42:00.701594",
-  "last_active": "2025-10-20T10:26:34.079031"
+  "last_active": "2025-10-20T10:30:04.990435"
 }
