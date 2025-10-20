@@ -89,6 +89,11 @@
           "时间": "2025-10-19 20:55:08",
           "事件": "完成Vinatti DingDong API端点分析，发现22个端点",
           "重要性": "高"
+        },
+        {
+          "时间": "2025-10-20 05:19:37",
+          "事件": "尝试分析Vinatti DingDong API签名算法，需要动态分析",
+          "重要性": "高"
         }
       ]
     },
@@ -147,6 +152,7 @@
     "当前任务": "Netco App逆向分析",
     "最近分析": "Vinatti DingDong APK",
     "发现API": "https://api-dingdong.ems.com.vn",
-    "可调用API": "VietMap/Decode"
+    "可调用API": "VietMap/Decode",
+    "签名状态": "需要Frida动态分析"
   }
 }
