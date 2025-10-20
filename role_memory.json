@@ -94,6 +94,11 @@
           "时间": "2025-10-20 05:19:37",
           "事件": "尝试分析Vinatti DingDong API签名算法，需要动态分析",
           "重要性": "高"
+        },
+        {
+          "时间": "2025-10-20 05:25:45",
+          "事件": "成功破解Vinatti DingDong API签名算法和密钥",
+          "重要性": "高"
         }
       ]
     },
@@ -152,7 +157,8 @@
     "当前任务": "Netco App逆向分析",
     "最近分析": "Vinatti DingDong APK",
     "发现API": "https://api-dingdong.ems.com.vn",
-    "可调用API": "VietMap/Decode",
-    "签名状态": "需要Frida动态分析"
+    "可调用API": "全部22个",
+    "签名状态": "需要Frida动态分析",
+    "破解密钥": "34784DCEAD..."
   }
 }
