@@ -122,38 +122,51 @@ def filter_today_orders(orders, target_date="2025-10-21"):
     
     return today_orders
 
-def enrich_sender_phone(orders, inventory_map_by_id, inventory_map_by_name):
+def enrich_phones(orders, inventory_map_by_id, inventory_map_by_name):
     """
-    补全发件人完整电话 (绕过脱敏)
+    补全发件人和收件人完整电话 (绕过脱敏)
     
     方法:
-        1. 按inventory_id匹配
-        2. 按from_name姓名匹配
+        发件人:
+            1. 按inventory_id匹配
+            2. 按from_name姓名匹配
+        收件人:
+            1. 按to_name姓名匹配
     """
-    matched_by_id = 0
-    matched_by_name = 0
+    sender_matched_by_id = 0
+    sender_matched_by_name = 0
+    receiver_matched = 0
     
     for order in orders:
         inv_id = order.get("inventory_id")
         from_name = order.get("from_name", "").strip()
+        to_name = order.get("to_name", "").strip()
         
+        # === 发件人匹配 ===
         # 方法1: 按ID匹配
         if inv_id and inv_id in inventory_map_by_id:
             phone = inventory_map_by_id[inv_id]
             if phone and len(phone) == 10:
                 order["sender_phone_full"] = phone
-                matched_by_id += 1
-                continue
-        
+                sender_matched_by_id += 1
         # 方法2: 按姓名匹配
-        if from_name and from_name in inventory_map_by_name:
+        elif from_name and from_name in inventory_map_by_name:
             phone = inventory_map_by_name[from_name]
             if phone and len(phone) == 10:
                 order["sender_phone_full"] = phone
-                matched_by_name += 1
+                sender_matched_by_name += 1
+        
+        # === 收件人匹配 ===
+        # 按姓名匹配（Inventory中也存常用收件人）
+        if to_name and to_name in inventory_map_by_name:
+            phone = inventory_map_by_name[to_name]
+            if phone and len(phone) == 10:
+                order["receiver_phone_full"] = phone
+                receiver_matched += 1
     
-    print(f"  ✅ 按ID匹配: {matched_by_id}条")
-    print(f"  ✅ 按姓名匹配: {matched_by_name}条")
+    print(f"  ✅ 发件人(按ID): {sender_matched_by_id}条")
+    print(f"  ✅ 发件人(按姓名): {sender_matched_by_name}条")
+    print(f"  ✅ 收件人(按姓名): {receiver_matched}条")
     
     return orders
 
@@ -305,15 +318,26 @@ if __name__ == "__main__":
         export_json(orders, "uid33_today.json")
         export_csv(orders, "uid33_today.csv")
         
-        # 预览第一条
+        # 预览第一条（优先显示绕过成功的）
         print("\n订单预览:")
         sample = orders[0]
+        
+        # 找一个双向绕过成功的示例
+        for order in orders:
+            if order.get('sender_phone_full') and order.get('receiver_phone_full'):
+                sample = order
+                print("  (选择了双向绕过成功的示例)")
+                break
+        
+        sender_full = sample.get('sender_phone_full', 'N/A')
+        receiver_full = sample.get('receiver_phone_full', 'N/A')
+        
         print(f"  运单号: {sample.get('tracking_code')}")
         print(f"  订单号: {sample.get('order_code')}")
         print(f"  发件人: {sample.get('from_name')}")
-        print(f"  发件电话(完整): {sample.get('sender_phone_full', 'N/A')}")
+        print(f"  发件电话: {sender_full} {'✅' if sender_full != 'N/A' else '❌'}")
         print(f"  收件人: {sample.get('to_name')}")
-        print(f"  收件电话(脱敏): {sample.get('to_phone')}")
+        print(f"  收件电话: {receiver_full} {'✅' if receiver_full != 'N/A' else '❌'}")
     
     # ===== 示例2: 批量查询TOP用户 =====
     """
