@@ -122,15 +122,38 @@ def filter_today_orders(orders, target_date="2025-10-21"):
     
     return today_orders
 
-def enrich_sender_phone(orders, inventory_map):
-    """补全发件人完整电话"""
+def enrich_sender_phone(orders, inventory_map_by_id, inventory_map_by_name):
+    """
+    补全发件人完整电话 (绕过脱敏)
+    
+    方法:
+        1. 按inventory_id匹配
+        2. 按from_name姓名匹配
+    """
+    matched_by_id = 0
+    matched_by_name = 0
+    
     for order in orders:
         inv_id = order.get("inventory_id")
-        if inv_id and inv_id in inventory_map:
-            inv = inventory_map[inv_id]
-            order["sender_phone_full"] = inv.get("from_phone", "")
-            order["sender_name_full"] = inv.get("from_name", "")
-            order["sender_address_full"] = inv.get("from_address", "")
+        from_name = order.get("from_name", "").strip()
+        
+        # 方法1: 按ID匹配
+        if inv_id and inv_id in inventory_map_by_id:
+            phone = inventory_map_by_id[inv_id]
+            if phone and len(phone) == 10:
+                order["sender_phone_full"] = phone
+                matched_by_id += 1
+                continue
+        
+        # 方法2: 按姓名匹配
+        if from_name and from_name in inventory_map_by_name:
+            phone = inventory_map_by_name[from_name]
+            if phone and len(phone) == 10:
+                order["sender_phone_full"] = phone
+                matched_by_name += 1
+    
+    print(f"  ✅ 按ID匹配: {matched_by_id}条")
+    print(f"  ✅ 按姓名匹配: {matched_by_name}条")
     
     return orders
 
@@ -193,17 +216,40 @@ def query_single_user(uid, date_filter=None, with_sender_phone=True):
         orders = filter_today_orders(orders, date_filter)
         print(f"  ✅ {date_filter}订单: {len(orders)}")
     
-    # 3. 补全发件人电话
+    # 3. 补全发件人电话（绕过脱敏）
     if with_sender_phone and orders:
-        print("\n[2] 获取Inventory (发件人完整信息)...")
+        print("\n[2] 获取Inventory (发件人完整电话)...")
         inventory = get_all_inventory(uid)
         print(f"  ✅ Inventory总数: {len(inventory)}")
         
-        inv_map = {item["id"]: item for item in inventory}
-        orders = enrich_sender_phone(orders, inv_map)
+        # 构建两个映射：ID映射 + 姓名映射
+        inv_map_by_id = {}
+        inv_map_by_name = {}
+        
+        for item in inventory:
+            item_id = item.get("id")
+            name = item.get("name", "").strip()
+            username = item.get("username", "").strip()
+            phone = item.get("phone", "")
+            
+            # ID映射
+            if item_id and phone:
+                inv_map_by_id[item_id] = phone
+            
+            # 姓名映射
+            if phone and len(phone) == 10:
+                if name:
+                    inv_map_by_name[name] = phone
+                if username and username != name:
+                    inv_map_by_name[username] = phone
+        
+        print(f"  ✅ ID映射: {len(inv_map_by_id)}个")
+        print(f"  ✅ 姓名映射: {len(inv_map_by_name)}个")
+        
+        orders = enrich_sender_phone(orders, inv_map_by_id, inv_map_by_name)
         
         complete_count = sum(1 for o in orders if o.get("sender_phone_full"))
-        print(f"  ✅ 补全发件人电话: {complete_count}/{len(orders)}")
+        print(f"  ✅ 总计补全: {complete_count}/{len(orders)}")
     
     return orders
 
