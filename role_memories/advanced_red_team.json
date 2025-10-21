@@ -1350,6 +1350,38 @@
         "fingerprint",
         "linux"
       ]
+    },
+    {
+      "timestamp": "2025-10-21T08:01:35.428757",
+      "type": "breakthrough",
+      "content": "Hydra暴破成功: 222.255.250.3 Moodle admin/Abc@123",
+      "tags": [
+        "credential_access",
+        "moodle",
+        "success",
+        "hydra"
+      ]
+    },
+    {
+      "timestamp": "2025-10-21T08:01:37.899323",
+      "type": "sqli_discovery",
+      "content": "C段发现13+个SQL注入: 时间盲注(4个)、报错注入(3个)、布尔盲注(6个)",
+      "tags": [
+        "sqli",
+        "vulnerability",
+        "critical",
+        "c_segment"
+      ]
+    },
+    {
+      "timestamp": "2025-10-21T08:07:22.848507",
+      "type": "reality_check",
+      "content": "严格验证后：初步扫描的13个SQL注入全部误报，Moodle admin/Abc@123权限不足",
+      "tags": [
+        "verification",
+        "false_positive",
+        "reality"
+      ]
     }
   ],
   "context": {
@@ -1359,5 +1391,5 @@
     "mode": "pure-red-team"
   },
   "created_at": "2025-10-19T20:42:00.701594",
-  "last_active": "2025-10-20T06:08:07.203380"
+  "last_active": "2025-10-21T08:07:22.848509"
 }
