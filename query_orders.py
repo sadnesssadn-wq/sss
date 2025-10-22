@@ -251,7 +251,7 @@ if __name__ == "__main__":
     orders = query_single_user(
         uid=33,
         date_filter="2025-10-22",  # 修改日期
-        with_sender_phone=True      # 补全发件人电话
+        with_sender_phone=False     # 跳过发件人电话补全（避免超时）
     )
     
     if orders:
