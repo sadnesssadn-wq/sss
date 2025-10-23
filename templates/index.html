@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Web 计算器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .results.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .result-label {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .result-value {
+            font-weight: 600;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+        
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        .error.show {
+            display: block;
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Python Web 计算器</h1>
+        
+        <div class="input-group">
+            <label for="num1">第一个数字：</label>
+            <input type="number" id="num1" step="any" placeholder="请输入第一个数字">
+        </div>
+        
+        <div class="input-group">
+            <label for="num2">第二个数字：</label>
+            <input type="number" id="num2" step="any" placeholder="请输入第二个数字">
+        </div>
+        
+        <button onclick="calculate()">计算</button>
+        
+        <div class="error" id="error"></div>
+        
+        <div class="results" id="results">
+            <div class="result-item">
+                <span class="result-label">➕ 加法：</span>
+                <span class="result-value" id="addition"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">➖ 减法：</span>
+                <span class="result-value" id="subtraction"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">✖️ 乘法：</span>
+                <span class="result-value" id="multiplication"></span>
+            </div>
+            <div class="result-item">
+                <span class="result-label">➗ 除法：</span>
+                <span class="result-value" id="division"></span>
+            </div>
+        </div>
+        
+        <div class="footer">运行在端口 8888</div>
+    </div>
+    
+    <script>
+        function calculate() {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            const errorDiv = document.getElementById('error');
+            const resultsDiv = document.getElementById('results');
+            
+            // 清除之前的错误和结果
+            errorDiv.classList.remove('show');
+            resultsDiv.classList.remove('show');
+            
+            if (num1 === '' || num2 === '') {
+                errorDiv.textContent = '请输入两个数字！';
+                errorDiv.classList.add('show');
+                return;
+            }
+            
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    num1: parseFloat(num1),
+                    num2: parseFloat(num2)
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('addition').textContent = data.results.addition;
+                    document.getElementById('subtraction').textContent = data.results.subtraction;
+                    document.getElementById('multiplication').textContent = data.results.multiplication;
+                    document.getElementById('division').textContent = data.results.division;
+                    resultsDiv.classList.add('show');
+                } else {
+                    errorDiv.textContent = data.error;
+                    errorDiv.classList.add('show');
+                }
+            })
+            .catch(error => {
+                errorDiv.textContent = '发生错误：' + error.message;
+                errorDiv.classList.add('show');
+            });
+        }
+        
+        // 按下回车键时计算
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                calculate();
+            }
+        });
+    </script>
+</body>
+</html>
