@@ -1,0 +1,22 @@
+Host myserver
+    HostName 82.29.71.156
+    User root
+    Port 2233
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    Compression yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile NUL
+
+# 或者使用IP直连
+Host 82.29.71.156
+    HostName 82.29.71.156
+    User root
+    Port 2233
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    Compression yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile NUL
