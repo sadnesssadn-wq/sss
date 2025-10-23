@@ -1,0 +1,13 @@
+Host target-server
+    HostName 82.29.71.156
+    User root
+    Port 22
+    IdentityFile ~/.ssh/cursor_key
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    ServerAliveInterval 30
+    ServerAliveCountMax 5
+    ConnectTimeout 30
+    TCPKeepAlive yes
+    PubkeyAuthentication yes
+    PreferredAuthentications publickey,password
