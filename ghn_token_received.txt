@@ -1,0 +1,21 @@
+GHN Token提取成功
+
+接收时间: 2025-10-24
+Token格式: UUID
+Token值: ac96d88d-b303-11f0-8b9e-4e213bf9bc7d
+
+关联信息:
+- Shop ID: 6083862
+- 手机号: 0918538458
+- 密码: Duongquang1234@
+
+HTTP请求头:
+- Host: fe-online-gateway.ghn.vn
+- User-Agent: GHN Express/25100302 CFNetwork/1568.300.101 Darwin/24.2.0
+- Version: 112
+- Token: ac96d88d-b303-11f0-8b9e-4e213bf9bc7d
+
+状态: ✅ 有效
+验证: Shop API返回200，找到1个商店
+
+下一步: 完整API测试进行中...
