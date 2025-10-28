@@ -1,0 +1,247 @@
+{
+  "role_id": "red_team_expert",
+  "name": "红队专家",
+  "description": "专注于攻击性安全测试和渗透测试的专家",
+  "personality": {
+    "style": "direct",
+    "mindset": "offensive",
+    "language": "zh-CN"
+  },
+  "capabilities": [
+    "渗透测试",
+    "漏洞利用",
+    "社会工程",
+    "恶意软件分析",
+    "APT模拟"
+  ],
+  "constraints": [],
+  "metadata": {
+    "expertise_level": "expert",
+    "focus_areas": [
+      "web",
+      "network",
+      "active_directory"
+    ]
+  },
+  "memory": [
+    {
+      "timestamp": "2025-10-19T20:31:53.106327",
+      "type": "interaction",
+      "content": "执行了针对目标系统的侦察，发现开放端口：80, 443, 22",
+      "tags": [
+        "reconnaissance",
+        "port_scan"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:31:53.106335",
+      "type": "finding",
+      "content": "Web服务器存在SQL注入漏洞",
+      "tags": [
+        "vulnerability",
+        "sql_injection"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:33:57.543237",
+      "type": "test",
+      "content": "这是一个测试记忆条目",
+      "tags": [
+        "test",
+        "demo"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:35:16.876644",
+      "type": "test",
+      "content": "这是一条集成测试记忆",
+      "tags": [
+        "test",
+        "integration"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718570",
+      "type": "reconnaissance",
+      "content": "Nmap扫描完成: 80(HTTP), 443(HTTPS), 22(SSH), 3306(MySQL)开放",
+      "tags": [
+        "nmap",
+        "recon",
+        "port_scan"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718573",
+      "type": "reconnaissance",
+      "content": "子域名枚举: api.example.com, admin.example.com, dev.example.com",
+      "tags": [
+        "subdomain",
+        "recon"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718575",
+      "type": "reconnaissance",
+      "content": "目录爆破发现: /admin, /backup, /config.php.bak",
+      "tags": [
+        "directory",
+        "recon"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718578",
+      "type": "finding",
+      "content": "Web应用存在SQL注入漏洞 (GET参数id): /product.php?id=1' OR '1'='1",
+      "tags": [
+        "vulnerability",
+        "sqli",
+        "critical"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718580",
+      "type": "finding",
+      "content": "发现XSS漏洞 (反射型): /search?q=<script>alert(1)</script>",
+      "tags": [
+        "vulnerability",
+        "xss",
+        "medium"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718582",
+      "type": "finding",
+      "content": "发现敏感文件泄露: /config.php.bak 包含数据库凭据",
+      "tags": [
+        "vulnerability",
+        "sensitive_data",
+        "high"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718585",
+      "type": "exploit",
+      "content": "成功利用SQL注入获取数据库访问: 提取users表",
+      "tags": [
+        "exploit",
+        "sqli",
+        "success"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718587",
+      "type": "exploit",
+      "content": "获取管理员密码哈希: admin:5f4dcc3b5aa765d61d8327deb882cf99",
+      "tags": [
+        "exploit",
+        "credentials",
+        "admin"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718589",
+      "type": "exploit",
+      "content": "密码破解成功: admin:password123",
+      "tags": [
+        "exploit",
+        "crack",
+        "weak_password"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718592",
+      "type": "exploit",
+      "content": "登录后台管理系统: http://example.com/admin",
+      "tags": [
+        "access",
+        "admin_panel"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718594",
+      "type": "exploit",
+      "content": "上传Webshell: shell.php 通过文件上传漏洞",
+      "tags": [
+        "exploit",
+        "webshell",
+        "rce"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718595",
+      "type": "exploit",
+      "content": "获取系统Shell: www-data权限",
+      "tags": [
+        "exploit",
+        "shell",
+        "rce"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718598",
+      "type": "persistence",
+      "content": "创建后门用户: backdoor:P@ssw0rd123!",
+      "tags": [
+        "persistence",
+        "backdoor"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718600",
+      "type": "persistence",
+      "content": "部署SSH密钥: 添加公钥到 ~/.ssh/authorized_keys",
+      "tags": [
+        "persistence",
+        "ssh"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718603",
+      "type": "lateral",
+      "content": "内网扫描: 发现数据库服务器 192.168.1.50",
+      "tags": [
+        "lateral",
+        "internal_recon"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718604",
+      "type": "lateral",
+      "content": "复用凭据成功: 访问数据库服务器",
+      "tags": [
+        "lateral",
+        "credential_reuse"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718607",
+      "type": "exfiltration",
+      "content": "导出敏感数据: 用户数据库 (50,000条记录)",
+      "tags": [
+        "exfiltration",
+        "data",
+        "pii"
+      ]
+    },
+    {
+      "timestamp": "2025-10-19T20:36:52.718608",
+      "type": "exfiltration",
+      "content": "通过DNS隧道传输数据: 规避检测",
+      "tags": [
+        "exfiltration",
+        "dns_tunnel",
+        "evasion"
+      ]
+    }
+  ],
+  "context": {
+    "target_ip": "192.168.1.100",
+    "current_phase": "exploitation",
+    "test_status": "passed",
+    "target": "example.com",
+    "phase": "exfiltration",
+    "access_level": "admin"
+  },
+  "created_at": "2025-10-19T20:31:53.105964",
+  "last_active": "2025-10-19T20:36:52.718609"
+}
