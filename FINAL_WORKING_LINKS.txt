@@ -1,0 +1,65 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║  ✅ 最终可用安装链接（已推送到正确分支）                                ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+分支: cursor/say-hello-in-chinese-3687 ✅
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【🔥 实时情报专家配置（推荐）】
+
+curl -o ~/.cursor/rules https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules-apt-realtime
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【📦 供应链专家配置】
+
+curl -o ~/.cursor/rules https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules-apt-supply-chain
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【🎯 通用红队专家配置】
+
+curl -o ~/.cursor/rules https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【⚡ 一键安装（推荐）】
+
+bash <(curl -sSL https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/install.sh)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【🛠️ 下载所有文件】
+
+mkdir -p ~/apt-intelligence && cd ~/apt-intelligence
+
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules-apt-realtime
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules-apt-supply-chain
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/.cursorrules
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/apt_intel_aggregator.py
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/setup_apt_config.sh
+curl -O https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/say-hello-in-chinese-3687/README.md
+
+chmod +x apt_intel_aggregator.py setup_apt_config.sh
+cp .cursorrules-apt-realtime ~/.cursor/rules
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【📊 文件清单】
+
+.cursorrules (108KB) - 通用红队专家
+.cursorrules-apt-realtime (41KB) - 实时情报专家 🔥
+.cursorrules-apt-supply-chain (40KB) - 供应链专家
+apt_intel_aggregator.py (16KB) - 情报聚合器
+install.sh (8.3KB) - 一键安装
+setup_apt_config.sh (4.9KB) - 配置脚本
+README.md (12KB) - 文档
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【🔗 GitHub 仓库】
+
+https://github.com/sadnesssadn-wq/sss/tree/cursor/say-hello-in-chinese-3687
+
+═══════════════════════════════════════════════════════════════════════

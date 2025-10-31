@@ -15,7 +15,7 @@ NC='\033[0m'
 # 仓库信息（已配置为你的仓库）
 GITHUB_USER="sadnesssadn-wq"
 GITHUB_REPO="sss"
-GITHUB_BRANCH="cursor/bc-909b6b9d-b156-420e-8043-c174a2d7966a-08bd"
+GITHUB_BRANCH="cursor/say-hello-in-chinese-3687"
 BASE_URL="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$GITHUB_BRANCH"
 
 clear
