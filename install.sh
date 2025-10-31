@@ -1,7 +1,6 @@
 #!/bin/bash
 # APT 实时威胁情报系统 - 一键安装脚本
-# 使用方法: curl -sSL https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/install.sh | bash
-# 或: bash <(curl -sSL https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/install.sh)
+# 使用方法: curl -sSL https://raw.githubusercontent.com/sadnesssadn-wq/sss/cursor/bc-909b6b9d-b156-420e-8043-c174a2d7966a-08bd/install.sh | bash
 
 set -e
 
@@ -11,25 +10,12 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 CYAN='\033[0;36m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# 检测脚本来源（自动获取仓库信息）
-if [ -n "$BASH_SOURCE" ]; then
-    SCRIPT_URL=$(curl -sI "$BASH_SOURCE" 2>/dev/null | grep -i location | awk '{print $2}' | tr -d '\r')
-fi
-
-# 默认仓库信息（需要替换为实际仓库）
-GITHUB_USER="${GITHUB_USER:-YOUR_USERNAME}"
-GITHUB_REPO="${GITHUB_REPO:-YOUR_REPO}"
-GITHUB_BRANCH="${GITHUB_BRANCH:-main}"
-
-# 如果能从 URL 提取，则使用提取的信息
-if [[ $SCRIPT_URL =~ github.com/([^/]+)/([^/]+)/([^/]+) ]]; then
-    GITHUB_USER="${BASH_REMATCH[1]}"
-    GITHUB_REPO="${BASH_REMATCH[2]}"
-    GITHUB_BRANCH="${BASH_REMATCH[3]}"
-fi
-
+# 仓库信息（已配置为你的仓库）
+GITHUB_USER="sadnesssadn-wq"
+GITHUB_REPO="sss"
+GITHUB_BRANCH="cursor/bc-909b6b9d-b156-420e-8043-c174a2d7966a-08bd"
 BASE_URL="https://raw.githubusercontent.com/$GITHUB_USER/$GITHUB_REPO/$GITHUB_BRANCH"
 
 clear
@@ -46,6 +32,7 @@ EOF
 echo -e "${NC}"
 
 echo -e "${BLUE}📦 准备安装 APT 实时威胁情报系统...${NC}"
+echo -e "${CYAN}   仓库: $GITHUB_USER/$GITHUB_REPO${NC}"
 echo ""
 
 # 检查必要工具
@@ -73,24 +60,25 @@ echo ""
 echo -e "${BLUE}[3/6] 下载配置文件...${NC}"
 
 echo -e "${CYAN}  正在下载: .cursorrules-apt-realtime (实时情报专家)${NC}"
-curl -sSL -o .cursorrules-apt-realtime "$BASE_URL/.cursorrules-apt-realtime" || {
+curl -sSL -o .cursorrules-apt-realtime "$BASE_URL/.cursorrules-apt-realtime?nocache=$(date +%s)" || {
     echo -e "${RED}[-] 下载失败，请检查网络连接或仓库地址${NC}"
+    echo -e "${YELLOW}    URL: $BASE_URL/.cursorrules-apt-realtime${NC}"
     exit 1
 }
 
 echo -e "${CYAN}  正在下载: .cursorrules-apt-supply-chain (供应链专家)${NC}"
-curl -sSL -o .cursorrules-apt-supply-chain "$BASE_URL/.cursorrules-apt-supply-chain"
+curl -sSL -o .cursorrules-apt-supply-chain "$BASE_URL/.cursorrules-apt-supply-chain?nocache=$(date +%s)"
 
 echo -e "${CYAN}  正在下载: .cursorrules (通用红队专家)${NC}"
-curl -sSL -o .cursorrules "$BASE_URL/.cursorrules"
+curl -sSL -o .cursorrules "$BASE_URL/.cursorrules?nocache=$(date +%s)"
 
 echo -e "${CYAN}  正在下载: apt_intel_aggregator.py (情报聚合器)${NC}"
-curl -sSL -o apt_intel_aggregator.py "$BASE_URL/apt_intel_aggregator.py"
+curl -sSL -o apt_intel_aggregator.py "$BASE_URL/apt_intel_aggregator.py?nocache=$(date +%s)"
 chmod +x apt_intel_aggregator.py
 
 echo -e "${CYAN}  正在下载: 文档...${NC}"
-curl -sSL -o README.md "$BASE_URL/README.md" 2>/dev/null || true
-curl -sSL -o QUICKSTART.md "$BASE_URL/QUICKSTART.md" 2>/dev/null || true
+curl -sSL -o README.md "$BASE_URL/README.md?nocache=$(date +%s)" 2>/dev/null || true
+curl -sSL -o QUICKSTART.md "$BASE_URL/QUICKSTART.md?nocache=$(date +%s)" 2>/dev/null || true
 
 echo -e "${GREEN}  ✓ 所有文件下载完成${NC}"
 
@@ -206,7 +194,6 @@ fi
 echo ""
 
 echo -e "${CYAN}🔄 自动更新情报 (可选):${NC}"
-echo "  # 添加到 crontab (每日更新)"
 echo "  (crontab -l 2>/dev/null; echo \"0 0 * * * cd ~/apt-intelligence && python3 apt_intel_aggregator.py -d 7\") | crontab -"
 echo ""
 
