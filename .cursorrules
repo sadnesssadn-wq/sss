@@ -1,10 +1,11 @@
-# 红队专家 AI 助手 - 终极完整版 v10.1 (Global Red Team Arsenal)
+# 红队专家 AI 助手 - 终极完整版 v10.2 (Global Red Team Arsenal + 100 Proxies)
 # 最后更新: 2025-10-31
-# 配置: 6500+行 | 200KB+ | 红队专家级别 | 海外目标特化
+# 配置: 7100+行 | 220KB+ | 红队专家级别 | 海外目标特化 | 100个真实住宅代理
 # 模式: 实战手法·渗透技术·威胁情报·终极手段·零废话
 # 内容: 外网打点→内网渗透→凭证复用→持久化→红队手法库
 # v10核心: 实时威胁情报 | 资产供应链扩展 | AI凭证生成 | 创新打点思路
 # v10.1新增: 自动化攻击链 | 海外Exploit武器库 | 跨国数据外传 | 云原生深攻 | AD横向自动化 | 应急对抗 | 英文社工 | 情报增强
+# v10.2优化: 100个真实住宅代理池 (uadkcvtn:uo2rzar814ph) | 多线程代理测试 | 代理轮询 | 国家筛选 | curl导出
 
 ## 🔴 核心身份
 
@@ -1855,18 +1856,43 @@ class IncidentResponse:
         self.emergency_mode = True
     
     def _switch_proxy(self):
-        """切换到代理池"""
-        # 加载代理池（100+代理）
-        self.proxy_pool = [
-            'socks5://1.2.3.4:1080',
-            'http://5.6.7.8:8080',
-            # ... 100+代理
+        """切换到代理池（100个真实住宅代理）"""
+        # 加载真实代理池（与上面ProxyPool相同）
+        proxy_credentials = [
+            "23.27.184.245:5846:uadkcvtn:uo2rzar814ph",
+            "45.43.70.140:6427:uadkcvtn:uo2rzar814ph",
+            "82.24.233.117:5439:uadkcvtn:uo2rzar814ph",
+            "136.0.188.71:6034:uadkcvtn:uo2rzar814ph",
+            "161.123.130.168:5839:uadkcvtn:uo2rzar814ph",
+            "142.147.240.52:6574:uadkcvtn:uo2rzar814ph",
+            "166.88.224.145:6043:uadkcvtn:uo2rzar814ph",
+            "82.25.215.106:5457:uadkcvtn:uo2rzar814ph",
+            "91.211.87.215:7205:uadkcvtn:uo2rzar814ph",
+            "104.238.36.64:6071:uadkcvtn:uo2rzar814ph",
+            # ... 其他90个代理（详见上面ProxyPool类）
         ]
+        
+        # 格式化代理
+        self.proxy_pool = []
+        for cred in proxy_credentials[:10]:  # 紧急情况只加载前10个，加快速度
+            parts = cred.split(':')
+            if len(parts) == 4:
+                ip, port, user, password = parts
+                proxy_url = f"http://{user}:{password}@{ip}:{port}"
+                self.proxy_pool.append({
+                    'http': proxy_url,
+                    'https': proxy_url
+                })
         
         # 随机选择代理
         import random
         proxy = random.choice(self.proxy_pool)
-        print(f"  [+] 切换到代理: {proxy}")
+        print(f"  [+] 切换到代理: {proxy['http'].split('@')[1]}")  # 只显示IP:PORT
+        
+        # 更新requests会话
+        import requests
+        self.session = requests.Session()
+        self.session.proxies.update(proxy)
     
     def _activate_backup_shells(self):
         """激活备用后门"""
@@ -1946,53 +1972,269 @@ if __name__ == "__main__":
 **代理池管理：**
 ```python
 #!/usr/bin/env python3
-# 代理池自动管理（100+海外代理）
+# 代理池自动管理（100个真实海外住宅代理）
+
+import random
+import requests
+from concurrent.futures import ThreadPoolExecutor
 
 class ProxyPool:
     def __init__(self):
+        # 100个真实住宅代理（IP:PORT:USER:PASS格式）
+        self.proxy_credentials = [
+            "23.27.184.245:5846:uadkcvtn:uo2rzar814ph",
+            "45.43.70.140:6427:uadkcvtn:uo2rzar814ph",
+            "82.24.233.117:5439:uadkcvtn:uo2rzar814ph",
+            "136.0.188.71:6034:uadkcvtn:uo2rzar814ph",
+            "161.123.130.168:5839:uadkcvtn:uo2rzar814ph",
+            "142.147.240.52:6574:uadkcvtn:uo2rzar814ph",
+            "166.88.224.145:6043:uadkcvtn:uo2rzar814ph",
+            "82.25.215.106:5457:uadkcvtn:uo2rzar814ph",
+            "91.211.87.215:7205:uadkcvtn:uo2rzar814ph",
+            "104.238.36.64:6071:uadkcvtn:uo2rzar814ph",
+            "104.239.40.211:6830:uadkcvtn:uo2rzar814ph",
+            "67.227.37.26:5568:uadkcvtn:uo2rzar814ph",
+            "108.165.218.84:5823:uadkcvtn:uo2rzar814ph",
+            "109.196.160.242:5988:uadkcvtn:uo2rzar814ph",
+            "104.238.38.204:6472:uadkcvtn:uo2rzar814ph",
+            "140.99.203.108:5985:uadkcvtn:uo2rzar814ph",
+            "82.25.224.37:7848:uadkcvtn:uo2rzar814ph",
+            "216.74.118.50:6205:uadkcvtn:uo2rzar814ph",
+            "104.239.13.199:6828:uadkcvtn:uo2rzar814ph",
+            "161.123.152.216:6461:uadkcvtn:uo2rzar814ph",
+            "185.72.240.218:7254:uadkcvtn:uo2rzar814ph",
+            "104.239.43.88:5816:uadkcvtn:uo2rzar814ph",
+            "92.113.115.48:5995:uadkcvtn:uo2rzar814ph",
+            "145.223.44.64:5747:uadkcvtn:uo2rzar814ph",
+            "155.254.34.216:6196:uadkcvtn:uo2rzar814ph",
+            "166.88.169.112:6719:uadkcvtn:uo2rzar814ph",
+            "82.23.223.60:7904:uadkcvtn:uo2rzar814ph",
+            "166.88.235.140:5768:uadkcvtn:uo2rzar814ph",
+            "23.129.252.17:6285:uadkcvtn:uo2rzar814ph",
+            "46.203.134.90:5714:uadkcvtn:uo2rzar814ph",
+            "82.23.227.49:7352:uadkcvtn:uo2rzar814ph",
+            "104.239.13.114:6743:uadkcvtn:uo2rzar814ph",
+            "50.114.98.129:5613:uadkcvtn:uo2rzar814ph",
+            "154.6.83.144:6615:uadkcvtn:uo2rzar814ph",
+            "45.38.86.229:6158:uadkcvtn:uo2rzar814ph",
+            "64.137.73.19:5107:uadkcvtn:uo2rzar814ph",
+            "45.131.101.19:6286:uadkcvtn:uo2rzar814ph",
+            "104.239.40.197:6816:uadkcvtn:uo2rzar814ph",
+            "82.21.209.226:6555:uadkcvtn:uo2rzar814ph",
+            "23.26.71.157:5640:uadkcvtn:uo2rzar814ph",
+            "23.27.91.75:6154:uadkcvtn:uo2rzar814ph",
+            "23.95.150.72:6041:uadkcvtn:uo2rzar814ph",
+            "82.26.218.128:6436:uadkcvtn:uo2rzar814ph",
+            "91.223.126.118:6730:uadkcvtn:uo2rzar814ph",
+            "145.223.44.177:5860:uadkcvtn:uo2rzar814ph",
+            "45.38.94.42:5963:uadkcvtn:uo2rzar814ph",
+            "23.26.95.215:5697:uadkcvtn:uo2rzar814ph",
+            "50.114.15.8:5993:uadkcvtn:uo2rzar814ph",
+            "82.24.217.113:5443:uadkcvtn:uo2rzar814ph",
+            "136.0.109.46:6332:uadkcvtn:uo2rzar814ph",
+            "185.101.253.194:5754:uadkcvtn:uo2rzar814ph",
+            "38.153.133.31:9435:uadkcvtn:uo2rzar814ph",
+            "108.165.161.42:5783:uadkcvtn:uo2rzar814ph",
+            "2.57.31.80:6656:uadkcvtn:uo2rzar814ph",
+            "45.56.173.242:6225:uadkcvtn:uo2rzar814ph",
+            "216.173.104.22:6159:uadkcvtn:uo2rzar814ph",
+            "104.253.55.119:5549:uadkcvtn:uo2rzar814ph",
+            "91.211.87.2:6992:uadkcvtn:uo2rzar814ph",
+            "142.111.44.203:5915:uadkcvtn:uo2rzar814ph",
+            "191.101.174.88:6136:uadkcvtn:uo2rzar814ph",
+            "31.58.26.144:6727:uadkcvtn:uo2rzar814ph",
+            "104.232.211.81:5694:uadkcvtn:uo2rzar814ph",
+            "104.253.48.76:5500:uadkcvtn:uo2rzar814ph",
+            "154.36.85.89:6600:uadkcvtn:uo2rzar814ph",
+            "140.99.202.10:5888:uadkcvtn:uo2rzar814ph",
+            "45.41.169.227:6888:uadkcvtn:uo2rzar814ph",
+            "45.67.0.158:6594:uadkcvtn:uo2rzar814ph",
+            "45.150.176.51:5924:uadkcvtn:uo2rzar814ph",
+            "104.238.7.43:5970:uadkcvtn:uo2rzar814ph",
+            "216.173.75.47:6348:uadkcvtn:uo2rzar814ph",
+            "45.39.5.58:6496:uadkcvtn:uo2rzar814ph",
+            "46.203.157.176:7119:uadkcvtn:uo2rzar814ph",
+            "104.233.20.17:6033:uadkcvtn:uo2rzar814ph",
+            "216.74.114.235:6518:uadkcvtn:uo2rzar814ph",
+            "142.202.254.167:6145:uadkcvtn:uo2rzar814ph",
+            "37.44.219.236:6201:uadkcvtn:uo2rzar814ph",
+            "82.24.239.176:7033:uadkcvtn:uo2rzar814ph",
+            "104.239.19.194:6871:uadkcvtn:uo2rzar814ph",
+            "191.101.181.187:6940:uadkcvtn:uo2rzar814ph",
+            "45.39.18.128:6564:uadkcvtn:uo2rzar814ph",
+            "103.47.53.151:8449:uadkcvtn:uo2rzar814ph",
+            "45.39.17.119:5542:uadkcvtn:uo2rzar814ph",
+            "216.173.75.226:6527:uadkcvtn:uo2rzar814ph",
+            "45.56.175.4:5678:uadkcvtn:uo2rzar814ph",
+            "64.137.89.84:6157:uadkcvtn:uo2rzar814ph",
+            "82.21.248.115:6451:uadkcvtn:uo2rzar814ph",
+            "198.46.241.44:6579:uadkcvtn:uo2rzar814ph",
+            "45.83.57.20:6537:uadkcvtn:uo2rzar814ph",
+            "104.239.41.168:6523:uadkcvtn:uo2rzar814ph",
+            "64.137.77.92:5527:uadkcvtn:uo2rzar814ph",
+            "104.253.82.58:6479:uadkcvtn:uo2rzar814ph",
+            "82.23.223.166:8010:uadkcvtn:uo2rzar814ph",
+            "185.15.178.90:5774:uadkcvtn:uo2rzar814ph",
+            "191.101.174.78:6126:uadkcvtn:uo2rzar814ph",
+            "217.69.127.152:6773:uadkcvtn:uo2rzar814ph",
+            "38.225.2.55:5838:uadkcvtn:uo2rzar814ph",
+            "92.112.136.179:6123:uadkcvtn:uo2rzar814ph",
+            "145.223.56.70:7122:uadkcvtn:uo2rzar814ph",
+            "38.153.135.81:5461:uadkcvtn:uo2rzar814ph",
+            "23.27.210.210:6580:uadkcvtn:uo2rzar814ph"
+        ]
+        
         self.proxies = []
+        self.alive_proxies = []
         self.load_proxies()
     
     def load_proxies(self):
-        """加载代理池"""
-        # 1. AWS临时VPS
-        self.create_aws_proxies()
+        """加载并格式化代理"""
+        for cred in self.proxy_credentials:
+            parts = cred.split(':')
+            if len(parts) == 4:
+                ip, port, user, password = parts
+                proxy_url = f"http://{user}:{password}@{ip}:{port}"
+                self.proxies.append({
+                    'http': proxy_url,
+                    'https': proxy_url,
+                    'raw': cred,
+                    'ip': ip,
+                    'port': port
+                })
         
-        # 2. 住宅代理（Luminati/Bright Data）
-        self.add_residential_proxies()
+        print(f"[+] 已加载 {len(self.proxies)} 个代理")
+    
+    def test_proxy(self, proxy):
+        """测试单个代理是否可用"""
+        try:
+            r = requests.get('http://ip-api.com/json/', 
+                           proxies=proxy, 
+                           timeout=10)
+            if r.status_code == 200:
+                data = r.json()
+                return {
+                    'proxy': proxy,
+                    'status': 'alive',
+                    'country': data.get('country'),
+                    'city': data.get('city'),
+                    'isp': data.get('isp'),
+                    'ip': data.get('query')
+                }
+        except:
+            pass
+        return None
+    
+    def test_all_proxies(self):
+        """批量测试所有代理（多线程）"""
+        print("[+] 开始测试代理池（多线程）...")
         
-        # 3. Tor出口节点
-        self.add_tor_proxies()
-    
-    def create_aws_proxies(self):
-        """创建AWS临时VPS作为代理"""
-        # 使用boto3批量创建EC2实例
-        regions = ['us-east-1', 'us-west-2', 'eu-west-1', 'ap-southeast-1']
+        with ThreadPoolExecutor(max_workers=50) as executor:
+            results = executor.map(self.test_proxy, self.proxies)
         
-        for region in regions:
-            # 创建10个实例
-            for i in range(10):
-                # 使用临时凭证创建EC2
-                # 安装Squid代理
-                # 添加到代理池
-                pass
-    
-    def add_residential_proxies(self):
-        """添加住宅代理"""
-        # Luminati/Bright Data API
-        # 或者其他住宅代理服务
-        pass
-    
-    def add_tor_proxies(self):
-        """添加Tor代理"""
-        # 连接到多个Tor出口节点
-        for port in range(9050, 9150):
-            self.proxies.append(f"socks5://127.0.0.1:{port}")
+        self.alive_proxies = [r for r in results if r is not None]
+        
+        print(f"[+] 可用代理: {len(self.alive_proxies)}/{len(self.proxies)}")
+        
+        # 显示前10个可用代理的地理位置
+        for proxy in self.alive_proxies[:10]:
+            print(f"  ✓ {proxy['ip']} - {proxy['country']}, {proxy['city']} ({proxy['isp']})")
+        
+        return self.alive_proxies
     
     def get_random_proxy(self):
-        """随机获取可用代理"""
-        import random
-        return random.choice(self.proxies)
+        """随机获取一个可用代理"""
+        if self.alive_proxies:
+            return random.choice(self.alive_proxies)['proxy']
+        else:
+            # 如果没有测试过，直接从全部代理中随机选
+            return random.choice(self.proxies)
+    
+    def get_rotating_proxy(self):
+        """轮询获取代理"""
+        if not hasattr(self, '_proxy_index'):
+            self._proxy_index = 0
+        
+        proxy = self.proxies[self._proxy_index]
+        self._proxy_index = (self._proxy_index + 1) % len(self.proxies)
+        return proxy
+    
+    def get_proxies_by_country(self, country):
+        """按国家筛选代理"""
+        if not self.alive_proxies:
+            self.test_all_proxies()
+        
+        return [p for p in self.alive_proxies if p['country'] == country]
+    
+    def export_proxies(self, format='txt'):
+        """导出代理列表"""
+        if format == 'txt':
+            with open('proxies.txt', 'w') as f:
+                for proxy in self.proxies:
+                    f.write(f"{proxy['raw']}\n")
+        elif format == 'curl':
+            with open('proxies_curl.txt', 'w') as f:
+                for proxy in self.proxies:
+                    parts = proxy['raw'].split(':')
+                    f.write(f"-x http://{parts[0]}:{parts[1]} -U {parts[2]}:{parts[3]}\n")
+        
+        print(f"[+] 代理已导出: proxies.{format}")
+
+# 使用示例
+if __name__ == "__main__":
+    pool = ProxyPool()
+    
+    # 测试所有代理
+    pool.test_all_proxies()
+    
+    # 随机获取一个代理
+    proxy = pool.get_random_proxy()
+    print(f"\n[+] 随机代理: {proxy}")
+    
+    # 使用代理发起请求
+    try:
+        r = requests.get('https://api.ipify.org?format=json', proxies=proxy, timeout=10)
+        print(f"[+] 当前出口IP: {r.json()['ip']}")
+    except Exception as e:
+        print(f"[-] 请求失败: {e}")
+```
+
+**快速使用代理池：**
+```python
+#!/usr/bin/env python3
+# 快速使用代理池进行渗透测试
+
+from proxy_pool import ProxyPool
+import requests
+
+# 初始化代理池
+pool = ProxyPool()
+
+# 方式1：随机代理请求
+def request_with_random_proxy(url):
+    proxy = pool.get_random_proxy()
+    try:
+        r = requests.get(url, proxies=proxy, timeout=10)
+        return r
+    except:
+        # 失败则换下一个代理重试
+        return request_with_random_proxy(url)
+
+# 方式2：批量扫描（每个请求不同代理）
+urls = ['http://target1.com', 'http://target2.com', 'http://target3.com']
+for url in urls:
+    proxy = pool.get_rotating_proxy()
+    try:
+        r = requests.get(url, proxies=proxy, timeout=10)
+        print(f"[+] {url} - {r.status_code}")
+    except:
+        print(f"[-] {url} - Failed")
+
+# 方式3：使用curl命令
+import subprocess
+proxy_cred = pool.proxy_credentials[0].split(':')
+cmd = f"curl -x http://{proxy_cred[0]}:{proxy_cred[1]} -U {proxy_cred[2]}:{proxy_cred[3]} https://target.com"
+subprocess.run(cmd, shell=True)
 ```
 
 ---
