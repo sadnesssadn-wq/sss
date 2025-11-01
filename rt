@@ -1,0 +1,27 @@
+#!/bin/bash
+# 红队工具集 - 一键调用
+
+case "$1" in
+    proxy)
+        python3 /workspace/tools/proxy_pool.py "${@:2}"
+        ;;
+    scan)
+        echo "扫描目标: $2"
+        nmap -sV -T4 -p- "$2"
+        ;;
+    *)
+        echo "红队工具集"
+        echo ""
+        echo "用法: ./rt <命令> [参数]"
+        echo ""
+        echo "命令列表:"
+        echo "  proxy test    - 测试100个代理"
+        echo "  proxy random  - 获取随机代理"
+        echo "  proxy curl    - 导出curl格式"
+        echo "  scan <IP>     - 端口扫描"
+        echo ""
+        echo "示例:"
+        echo "  ./rt proxy test"
+        echo "  ./rt scan 192.168.1.1"
+        ;;
+esac
