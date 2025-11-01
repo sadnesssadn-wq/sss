@@ -1,0 +1,83 @@
+Vnpost ????????
+========================================
+????: Sat Nov  1 10:02:38 AM UTC 2025
+========================================
+
+[1] ????????
+----------------------------------------
+
+??: com.datapost.posteyehrm.apk
+  ??: 13.09 MB
+  MD5:  57f7fb04c29a74dab97aa7bd2b3ee936
+  ??: ??APK
+
+??: com.vnpost.apk
+  ??: 35.85 MB
+  MD5:  261e3e88aaf68acb4a1b3e288e63c2f3
+  ??: XAPK (?APK??)
+  ??:
+    com.vnpost.apk (11373047 bytes)
+    icon.png (120482 bytes)
+    config.mdpi.apk (44973 bytes)
+    config.fr.apk (20889 bytes)
+    config.en.apk (33177 bytes)
+    config.arm64_v8a.apk (26000136 bytes)
+    manifest.json (864 bytes)
+
+??: vn.vnpost.collectaddress.apk
+  ??: 2.01 MB
+  MD5:  78316d8aa553cfda0d91f5d22c76b5b0
+  ??: ??APK
+
+??: vn.vnpost.myvnp.apk
+  ??: 50.45 MB
+  MD5:  87ddecff41684b7c96b0bf0ae06fd5ad
+  ??: ??APK
+
+========================================
+[2] ??????
+========================================
+???: VIETNAM POST
+??: https://play.google.com/store/apps/developer?id=VIETNAM+POST
+
+??????:
+  1. com.vnpost - Vnpost ???
+  2. vn.vnpost.myvnp - MyVNP
+  3. vn.vnpost.collectaddress - ??????
+  4. com.datapost.posteyehrm - Posteye HRM
+
+========================================
+[3] ????
+========================================
+????: APKPure
+????: APKCombo, APKMirror
+????: Sat Nov  1 10:02:39 AM UTC 2025
+
+========================================
+[4] ???????
+========================================
+[?] com.datapost.posteyehrm.apk - ZIP????
+[?] com.vnpost.apk - ZIP????
+[?] vn.vnpost.collectaddress.apk - ZIP????
+[?] vn.vnpost.myvnp.apk - ZIP????
+
+[?] ????????
+
+========================================
+[5] ????
+========================================
+????: 4 ?
+???: 101.40 MB
+????: /workspace/vnpost_apps/apks_verified/
+
+========================================
+[6] Play Store ??
+========================================
+https://play.google.com/store/apps/details?id=com.vnpost
+https://play.google.com/store/apps/details?id=vn.vnpost.myvnp
+https://play.google.com/store/apps/details?id=vn.vnpost.collectaddress
+https://play.google.com/store/apps/details?id=com.datapost.posteyehrm
+
+========================================
+????
+========================================

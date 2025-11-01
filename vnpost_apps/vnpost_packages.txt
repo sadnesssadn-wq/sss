@@ -1,0 +1,9 @@
+com.vnpost.ems
+com.vnpost.customer
+com.vnpost
+vn.vnpost.ems
+vn.com.vnpost
+com.vnpost.tracking
+com.vnpost.courier
+com.vnpost.mobile
+com.vnpost.epost
