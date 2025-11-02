@@ -1,0 +1,229 @@
+╔══════════════════════════════════════════════════════════════╗
+║           EMS Portal App - 下载安装指南                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+【App在哪里?】
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法1: 本地已下载的APK ⭐
+
+已经下载到本地:
+  
+  文件: /workspace/ems_portal.apk
+  
+  安装方法:
+    # 通过ADB安装
+    adb install /workspace/ems_portal.apk
+    
+    # 或复制到手机
+    adb push /workspace/ems_portal.apk /sdcard/
+    # 然后在手机文件管理器中点击安装
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法2: Google Play Store (需要越南账号)
+
+App名称: EMS Portal
+包名: com.emsportal
+开发者: Vietnam Post
+
+下载链接:
+  https://play.google.com/store/apps/details?id=com.emsportal
+
+注意: 可能需要越南的Google账号才能下载
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法3: APK下载网站
+
+1. APKPure:
+   https://apkpure.com/ems-portal/com.emsportal
+
+2. APKCombo:
+   https://apkcombo.com/ems-portal/com.emsportal/
+
+3. APKMirror:
+   https://www.apkmirror.com/
+
+使用方法:
+  1. 访问网站
+  2. 搜索 "EMS Portal" 或 "com.emsportal"
+  3. 下载APK文件
+  4. 传输到手机安装
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法4: 官网下载
+
+EMS Vietnam官网:
+  https://ems.com.vn/
+
+可能在官网上有App下载链接
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【如何安装APK?】
+
+Android手机安装:
+
+1. 方法A: 通过电脑 (推荐)
+   
+   adb install ems_portal.apk
+   
+   如果没有adb:
+     # Linux/Mac
+     sudo apt install adb  # Ubuntu
+     brew install android-platform-tools  # Mac
+     
+     # Windows
+     下载 Android SDK Platform Tools
+     https://developer.android.com/studio/releases/platform-tools
+
+2. 方法B: 直接在手机上
+   
+   1) 把APK传到手机
+      adb push ems_portal.apk /sdcard/Download/
+      
+      或通过文件传输 (USB/蓝牙/云盘)
+   
+   2) 打开手机文件管理器
+   
+   3) 找到APK文件
+   
+   4) 点击安装
+   
+   5) 如果提示"未知来源"
+      → 设置 → 安全 → 允许安装未知来源应用
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【安装后在哪里?】
+
+App图标:
+  • 主屏幕或应用抽屉
+  • 搜索 "EMS" 或 "EMS Portal"
+
+App信息:
+  包名: com.emsportal
+  名称: EMS Portal
+  版本: 2.3.0
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【快速安装命令】
+
+# 检查手机连接
+adb devices
+
+# 安装APK
+adb install /workspace/ems_portal.apk
+
+# 如果已安装，覆盖安装
+adb install -r /workspace/ems_portal.apk
+
+# 启动App
+adb shell am start -n com.emsportal/.user.activity.LogInActivity
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【使用Android模拟器】
+
+如果没有真机，可以用模拟器:
+
+1. Genymotion (推荐)
+   https://www.genymotion.com/
+   
+   • 下载并安装
+   • 创建Android设备 (Android 8+)
+   • 拖拽APK到模拟器安装
+
+2. Android Studio AVD
+   https://developer.android.com/studio
+   
+   • 安装Android Studio
+   • Tools → AVD Manager
+   • 创建虚拟设备
+   • 启动并安装APK
+
+3. BlueStacks
+   https://www.bluestacks.com/
+   
+   • 下载安装
+   • 拖拽APK安装
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【App信息】
+
+包名: com.emsportal
+版本: 2.3.0
+大小: ~20MB
+要求: Android 5.0+
+
+主要功能:
+  • 寄件下单
+  • 订单追踪
+  • 快递查询
+  • 费用计算
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【常见问题】
+
+Q: 安装失败 "解析包时出现问题"?
+A: 1) 下载完整的APK
+   2) Android版本太低 (需要5.0+)
+   3) 存储空间不足
+
+Q: 提示"应用未安装"?
+A: 1) 卸载旧版本再装
+      adb uninstall com.emsportal
+   2) 重启手机
+
+Q: 找不到App图标?
+A: 1) 应用抽屉中搜索 "EMS"
+   2) 设置 → 应用 → 查看所有应用
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【下载后做什么?】
+
+1. 安装App
+2. 设置MITM代理 (如果要抓包)
+3. 打开App
+4. 注册账号
+5. 获取Token
+6. 开始测试!
+
+详细步骤:
+  • 注册: HOW_TO_REGISTER.txt
+  • 获取Token: QUICK_TOKEN_GUIDE.txt
+  • 测试: backend_validation_test.py
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+【推荐流程】
+
+最简单:
+
+1. 安装APK
+   adb install /workspace/ems_portal.apk
+
+2. 启动MITM
+   mitmweb -p 8080
+
+3. 手机设置代理
+
+4. 打开App → 注册
+
+5. 获取Token
+
+6. 测试越权
+   python3 backend_validation_test.py $TOKEN $TOKEN
+
+总时间: 20分钟
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+生成日期: 2025-11-01
