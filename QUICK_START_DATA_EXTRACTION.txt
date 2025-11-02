@@ -1,0 +1,123 @@
+# EMS Portal - 数据提取快速开始
+
+## 🎯 3种方法获取订单信息
+
+### 方法1: Frida深度提取 (⭐ 最强大)
+
+需要: Root手机 + Frida
+
+```bash
+# 1. 安装
+pip3 install frida-tools
+
+# 2. 启动Frida Server (手机)
+adb push frida-server /data/local/tmp/
+adb shell "su -c '/data/local/tmp/frida-server &'"
+
+# 3. 运行
+python3 data_extraction_tool.py
+
+# 4. 在手机App中查看订单
+# 所有数据自动保存到:
+#   - extracted_tokens.json (Token)
+#   - extracted_cache.json (历史数据)
+#   - extracted_orders_*.json (订单)
+```
+
+### 方法2: MITM拦截 (简单)
+
+需要: mitmproxy
+
+```bash
+# 1. 启动
+mitmproxy -p 8080
+
+# 2. 手机配置代理
+# WiFi设置 -> 代理 -> YOUR_IP:8080
+# 访问 http://mitm.it 安装证书
+
+# 3. 在App中操作
+# - 登录
+# - 查看订单
+# - mitmproxy显示所有请求
+
+# 4. 提取Token
+# 查找: Authorization: Bearer xxx
+
+# 5. 使用Token批量获取
+python3 batch_orders.py <TOKEN>
+```
+
+### 方法3: 直接API调用
+
+需要: Token (从方法1或2获取)
+
+```bash
+# 使用Token调用API
+TOKEN="eyJhbGc..."
+
+curl "http://ws.ems.com.vn/api/v1/orders/list?limit=100&page=1" \
+  -H "Authorization: Bearer $TOKEN"
+
+# 或使用脚本批量获取
+python3 batch_orders.py $TOKEN
+```
+
+---
+
+## 📊 提取的数据示例
+
+```json
+{
+  "id": "ORD123456",
+  "customer_name": "Nguyen Van A",  ← 客户姓名
+  "phone": "0987654321",            ← 电话
+  "address": "123 Le Loi, Q1",      ← 地址
+  "total": 50000,                    ← 金额
+  "status": "delivered",
+  "created_at": "2024-10-15"
+}
+```
+
+---
+
+## 🚀 推荐流程
+
+```
+最简单 (无Root):
+  MITM → 获取Token → batch_orders.py
+
+最强大 (有Root):
+  data_extraction_tool.py → 自动获取所有
+
+最隐蔽:
+  data_extraction_tool.py (不修改网络流量)
+```
+
+---
+
+## 📁 工具清单
+
+- data_extraction_tool.py  - Frida深度提取 (24KB)
+- batch_orders.py          - 批量获取脚本
+- ORDER_EXTRACTION_METHODS.md - 完整指南
+- DATA_EXTRACTION_GUIDE.md - Frida使用指南
+
+---
+
+## ⚡ 一键测试
+
+```bash
+# 方法1 (最快)
+mitmproxy -p 8080
+# 手机配置代理，登录App，提取Token
+python3 batch_orders.py <TOKEN>
+
+# 方法2 (最全)
+python3 data_extraction_tool.py
+# 在App中操作，自动提取所有数据
+```
+
+---
+
+生成日期: 2025-11-01
