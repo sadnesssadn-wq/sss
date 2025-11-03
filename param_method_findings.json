@@ -1,0 +1,9 @@
+[
+  {
+    "type": "HTTP Method Override",
+    "severity": "LOW",
+    "method": "POST",
+    "endpoint": "/myvnp-app/v1/contact/searchByParam",
+    "verified": true
+  }
+]
