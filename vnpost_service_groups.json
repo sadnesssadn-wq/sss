@@ -1,0 +1,51 @@
+[
+  {
+    "serviceGroupId": "5",
+    "serviceGroupName": "Thương mại điện tử đồng giá",
+    "orderNum": null,
+    "status": "1",
+    "scope": "1"
+  },
+  {
+    "serviceGroupId": "6",
+    "serviceGroupName": "Tiết kiệm",
+    "orderNum": null,
+    "status": "1",
+    "scope": "2"
+  },
+  {
+    "serviceGroupId": "7",
+    "serviceGroupName": "Nhanh",
+    "orderNum": null,
+    "status": "1",
+    "scope": "2"
+  },
+  {
+    "serviceGroupId": "1",
+    "serviceGroupName": "Tài liệu_hàng hóa",
+    "orderNum": null,
+    "status": "1",
+    "scope": "1"
+  },
+  {
+    "serviceGroupId": "2",
+    "serviceGroupName": "Thương mại điện tử",
+    "orderNum": null,
+    "status": "1",
+    "scope": "1"
+  },
+  {
+    "serviceGroupId": "4",
+    "serviceGroupName": "Hỏa tốc",
+    "orderNum": null,
+    "status": "1",
+    "scope": "1"
+  },
+  {
+    "serviceGroupId": "3",
+    "serviceGroupName": "Hàng khối lượng lớn",
+    "orderNum": null,
+    "status": "1",
+    "scope": "1"
+  }
+]

@@ -1,0 +1,367 @@
+[
+  {
+    "menu": "Lấy danh sách sản phẩm dịch vụ",
+    "url": "[GET]McasService/all",
+    "data_count": 21
+  },
+  {
+    "menu": "Lấy danh sách nhóm sản phẩm dịch vụ",
+    "url": "[GET]MyvnpServiceGroup",
+    "data_count": 7
+  },
+  {
+    "menu": "Lấy danh sách địa bàn hình chính",
+    "url": "[GET]McasAdministrativeUnit/find-all",
+    "data_count": 21699
+  },
+  {
+    "menu": "Danh sách sản phẩm dịch vụ",
+    "url": "[GET]McasService/getAllByStatus",
+    "data_count": 40
+  },
+  {
+    "menu": "Lấy danh sách chức năng",
+    "url": "[GET]Tooltip/GetMcasMenu",
+    "data_count": 116
+  },
+  {
+    "menu": "Lấy danh sách SPDV",
+    "url": "[GET]McasVaService/getAllUseVaServices",
+    "data_count": 17
+  },
+  {
+    "menu": "Lấy nhóm thông báo",
+    "url": "[GET]DmNotify/getAllByNotifyGroup",
+    "data_count": 4
+  },
+  {
+    "menu": "Tra cứu loại tin",
+    "url": "[GET]LIBRARY_INFO/getAllTypeLibrary",
+    "data_count": 5
+  },
+  {
+    "menu": "Chi tiết đơn hàng_Lấy danh mục đánh giá đơn hàng",
+    "url": "[GET]config-review/getAll",
+    "data_count": 22
+  },
+  {
+    "menu": "Thông tin cấu hình cài đặt hiển thị",
+    "url": "[GET]configDisplay/findByCurrentUser",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục cài đặt hiển thị đơn hàng",
+    "url": "[GET]dmFeildDisplay/getAllDmFeilDisplay",
+    "data_count": 14
+  },
+  {
+    "menu": "Danh mục nhóm trạng thái",
+    "url": "[GET]orderStatus/findAllOrderGroup",
+    "data_count": 23
+  },
+  {
+    "menu": "Danh sách tài khoản quản lý",
+    "url": "[GET]product/getAccount",
+    "data_count": 1
+  },
+  {
+    "menu": "Chi tiết đơn hàng_Lấy danh mục đánh giá đơn hàng",
+    "url": "[GET]config-review/getAll",
+    "data_count": 22
+  },
+  {
+    "menu": "Thông tin cấu hình cài đặt hiển thị",
+    "url": "[GET]configDisplay/findByCurrentUser",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục cài đặt hiển thị đơn hàng",
+    "url": "[GET]dmFeildDisplay/getAllDmFeilDisplay",
+    "data_count": 14
+  },
+  {
+    "menu": "Danh sách tài khoản quản lý",
+    "url": "[GET]product/getAccount",
+    "data_count": 1
+  },
+  {
+    "menu": "Quản lý yêu cầu hỗ trợ",
+    "url": "[GET]ticket/getTicketSubTypeAll",
+    "data_count": 16
+  },
+  {
+    "menu": "Tài khoản lên đơn hộ",
+    "url": "[GET]McasOrganizationStandard/searchSmallByCodeOrName",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục ngân hàng",
+    "url": "[GET]BankCategory",
+    "data_count": 90
+  },
+  {
+    "menu": "Thêm mới tài khoản ngân hàng",
+    "url": "[POST]UserBankAccount/insert",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy DS đối tác",
+    "url": "[GET]PartnerCategory/getAllByIsEmployee",
+    "data_count": 53
+  },
+  {
+    "menu": "Lấy danh sách Hình thức hoàn hàng",
+    "url": "[GET]bulk-order/return-type",
+    "data_count": 6
+  },
+  {
+    "menu": "Danh mục thành phố ",
+    "url": "[GET]McasNationalCity/searchByNameCity",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy thông tin TKNH",
+    "url": "[GET]UserBankAccount/get-user-bank-account",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy thông tin",
+    "url": "[GET]McasEmployee/getCurrentUser",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh sách spdv",
+    "url": "[GET]McasVaService/all",
+    "data_count": 29
+  },
+  {
+    "menu": "Danh sách người tạo",
+    "url": "[GET]product/getDelegater",
+    "data_count": 1
+  },
+  {
+    "menu": "Tìm kiếm người gửi",
+    "url": "[POST]contact/searchByParam",
+    "data_count": 20
+  },
+  {
+    "menu": "Thống kê sản lượng_Lấy trạng thái đơn hàng",
+    "url": "[POST]Dashboard/getStatusList",
+    "data_count": 11
+  },
+  {
+    "menu": "Lấy thông tin tài khoản con",
+    "url": "[GET]Account/getChildAccount",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy DS trạng thái",
+    "url": "[POST]Dashboard/getStatusList",
+    "data_count": 11
+  },
+  {
+    "menu": "Tạo yêu cầu hỗ trợ api",
+    "url": "[GET]ticket/ticketgroupdefault",
+    "data_count": 1
+  },
+  {
+    "menu": "Tìm đơn vị",
+    "url": "[GET]McasOrganizationStandard/selectChildren",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy danh sách Địa điểm chuyển hoàn",
+    "url": "[GET]bulk-order/position-return-type",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy danh sách nhóm quyền",
+    "url": "[GET]Account/findGroupPermission",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục quốc gia",
+    "url": "[GET]McasNationalCity/all",
+    "data_count": 67
+  },
+  {
+    "menu": "Lấy danh sách tk ngân hàng",
+    "url": "[GET]UserBankAccount/findAllByPaginationApproval",
+    "data_count": 17
+  },
+  {
+    "menu": "Tìm kiếm tk ngân hàng",
+    "url": "[POST]UserBankAccount/searchByParameterApprove",
+    "data_count": 17
+  },
+  {
+    "menu": "Lấy danh sách cấu hình thông báo",
+    "url": "[GET]DmNotify/findAllNotify",
+    "data_count": 16
+  },
+  {
+    "menu": "Load thông tin cấu hình webhook",
+    "url": "[GET]PartnerCategory/getAllByNotIsEmployee",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy thông tin cấu hình",
+    "url": "[GET]ConfigPartner/getDataByUserAndOrg",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy danh sách",
+    "url": "[GET]PartnerCategory/getAllByConfigWebhook",
+    "data_count": 42
+  },
+  {
+    "menu": "Thống kê tạo tài khoản_Danh mục đơn vị quản lý",
+    "url": "[GET]McasOrganizationStandard/findAllByUnitTypeAndTypeCode",
+    "data_count": 73
+  },
+  {
+    "menu": "Lấy danh sách hệ số, phụ phí",
+    "url": "[GET]McasService/getAllFeeType",
+    "data_count": 16
+  },
+  {
+    "menu": "Lấy thông tin cấu hình đã lưu",
+    "url": "[GET]McasUser/getCurrentUserFullInfo",
+    "data_count": 1
+  },
+  {
+    "menu": "Đánh giá yêu cầu hỗ trợ",
+    "url": "[GET]config-review/getAllByTicket",
+    "data_count": 4
+  },
+  {
+    "menu": "Thống kê lịch sử chi trả_Lấy danh sách tài khoản",
+    "url": "[GET]product/getAccountByPhoneStartZero",
+    "data_count": 1
+  },
+  {
+    "menu": "Gửi đánh giá yêu cầu hỗ trợ",
+    "url": "[POST]order-review/insert",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy danh sách loại hiệu chỉnh",
+    "url": "[GET]order-correction/findAllByStatus",
+    "data_count": 10
+  },
+  {
+    "menu": "Thống kê sản lượng_Lấy thông tin tài khoản khách hàng và tài khoản thành viên",
+    "url": "[GET]Account/getChildAccount",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy cấu hình tài khoản",
+    "url": "[GET]Account/getAccountSetting",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy Danh mục dùng chung",
+    "url": "[GET]CategoryAppParam",
+    "data_count": 157
+  },
+  {
+    "menu": "Lấy thông tin contact FB, Zalo, Viber",
+    "url": "[GET]ma-bdt-tinh/findByAccntCode",
+    "data_count": 1
+  },
+  {
+    "menu": "Lấy DM quốc gia",
+    "url": "[GET]McasNational/all",
+    "data_count": 266
+  },
+  {
+    "menu": "Lấy danh sách phân quyền khi đăng nhập",
+    "url": "[GET]McasMenu/getMenuAccessAllByCurrentUser",
+    "data_count": 535
+  },
+  {
+    "menu": "Lấy DS SPDV",
+    "url": "[GET]MyvnpServiceGroup",
+    "data_count": 7
+  },
+  {
+    "menu": "Lấy DM trạng thái",
+    "url": "[GET]orderStatus/findAllOrderStatus",
+    "data_count": 41
+  },
+  {
+    "menu": "Lấy DS Địa bàn",
+    "url": "[GET]McasAdministrativeUnit/find-all",
+    "data_count": 21699
+  },
+  {
+    "menu": "Lấy cấu hình tài khoản",
+    "url": "[GET]Account/getAccountSetting",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục cấu hình field hiệu chỉnh đơn hàng",
+    "url": "[GET]order-correction/getAllCaseLogConfig",
+    "data_count": 36
+  },
+  {
+    "menu": "Danh sách loại hiệu chỉnh",
+    "url": "[GET]order-correction/findAllCaseType",
+    "data_count": 12
+  },
+  {
+    "menu": "Danh sách tài khoản quản lý",
+    "url": "[GET]product/getAccount",
+    "data_count": 1
+  },
+  {
+    "menu": "Danh mục cấu hình field hiệu chỉnh đơn hàng",
+    "url": "[GET]order-correction/getAllCaseLogConfig",
+    "data_count": 36
+  },
+  {
+    "menu": "Danh sách tin tức",
+    "url": "[GET]LIBRARY_INFO/getAllLibrary",
+    "data_count": 34
+  },
+  {
+    "menu": "Danh sách câu hỏi thường gặp",
+    "url": "[GET]LIBRARY_INFO/getAllLibrary",
+    "data_count": 34
+  },
+  {
+    "menu": "Danh dách ưu đãi",
+    "url": "[GET]LIBRARY_INFO/getAllLibrary",
+    "data_count": 34
+  },
+  {
+    "menu": "Hướng dẫn sử dụng",
+    "url": "[GET]LIBRARY_INFO/getAllLibrary",
+    "data_count": 34
+  },
+  {
+    "menu": "lấy danh sách loại hàng",
+    "url": "[GET]Category",
+    "data_count": 11
+  },
+  {
+    "menu": "Lấy danh mục hệ thống",
+    "url": "[GET]CategoryAppParam",
+    "data_count": 157
+  },
+  {
+    "menu": "Lấy danh sách các quyền được sử dụng",
+    "url": "[GET]McasMenu/getMenuAccessAllByCurrentUser",
+    "data_count": 535
+  },
+  {
+    "menu": "Danh sách nhóm người dùng",
+    "url": "[GET]McasGroup/findAllGroup",
+    "data_count": 7
+  },
+  {
+    "menu": "Quy định chính sách",
+    "url": "[GET]LIBRARY_INFO/getAllLibrary",
+    "data_count": 34
+  }
+]
