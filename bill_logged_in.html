@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
+    <meta name="Googlebot" content="noindex,nofollow,noarchive"/>
+
+    <title>Quản lý thông tin tài khoản</title>
+
+    <meta name="description" content="Hệ thống quản lý đơn hàng v1.0"/>
+    <meta name="author" content="EMS DEV"/>
+    <base href="https://bill.ems.com.vn"/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="__public_token" content="3ehNRVtEG9KA9w6oMcUWRYjW9nKIJGFcpw2msWGs"/>
+    <meta name="__url_prefix" content=""/>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/select/select2.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="css/custom.210823.css" rel="stylesheet">
+    <link href="css/icheck/flat/green.css" rel="stylesheet" />
+    <link href="js/sweetalert/sweetalert.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.livequery.min.js"></script>
+    <script src="js/nprogress.js"></script>
+
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+    <script>
+        var username    = "Ae Yong";
+        var userphone   = "0901323008";
+        var useremail   = "huynhvanninh1984@gmail.com";
+        NProgress.start();
+    </script>
+    
+    <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    	<link media="screen" rel="stylesheet" href="https://bill.ems.com.vn/css/editable/bootstrap-editable.css" />
+</head>
+
+
+<body class="nav-md footer_fixed col-xs-12">
+
+    <div class="container body">
+        <div class="main_container">
+                            <div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="https://bill.ems.com.vn/dashboard" class="site_title"><span>EMS VIỆT NAM</span></a>
+        </div>
+        <div class="clearfix"></div>
+        <br />
+
+        <!-- sidebar menu -->
+
+        <div id="sidebar-menu" class="main_menu_side main_menu">
+            <div class="menu_section">
+                <h3>Danh mục</h3>
+                <ul class="nav side-menu text-info">
+                                        <li><a><i class="fa fa-cubes"></i>Bưu Gửi</a>
+                        <ul class="nav child_menu">
+
+                            <!-- Quyền tạo bưu gửi -->
+                                                            <li class="">
+                                    <a href="https://bill.ems.com.vn/orders/create">Tạo Bưu Gửi</a>
+                                </li>
+                                                        
+                            <!-- Quyền quản lý bưu gửi -->
+                                                        <li class="">
+                                <a href="https://bill.ems.com.vn/orders/management">Quản Lý Bưu Gửi</a>
+                            </li>
+                                                    </ul>
+                    </li>
+
+                    <li><a><i class="fa fa-cubes"></i>Bưu Gửi Quốc tế</a>
+                        <ul class="nav child_menu">
+
+                            <!-- Quyền tạo bưu gửi -->
+                                                            <li class="">
+                                    <a href="https://bill.ems.com.vn/orders-intl/create">Tạo Bưu Gửi (đi Qtế)</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://bill.ems.com.vn/orders-intl/inbound-create">Tạo Bưu Gửi (đến VN)</a>
+                                </li>
+                            
+                        <!-- Quyền quản lý bưu gửi -->
+                                                            <li class="">
+                                    <a href="https://bill.ems.com.vn/orders-intl/list">Quản Lý Bưu Gửi</a>
+                                </li>
+                                                    </ul>
+                    </li>
+                    
+                                    
+                    <!-- Quyền tài khoản chính -->
+                                            <li><a><i class="fa fa-line-chart"></i>Báo cáo</a>
+                            <ul class="nav child_menu">
+                                <li class="">
+                                    <a href="https://bill.ems.com.vn/orders/summary">Thống Kê Sản Lượng</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://bill.ems.com.vn/orders/cod">Đơn Hàng COD</a>
+                                </li>
+                                <li class="">
+                                    <a href="https://bill.ems.com.vn/orders/cod-by-date">Thống kê đơn Hàng COD</a>
+                                </li>
+                            </ul>
+                        </li>
+                                        
+                                        
+                        
+                            
+                            
+                            
+                                
+                            
+                            
+                            
+                            
+                            
+                            
+                                
+                            
+                            
+                        
+                    
+                    
+                    <li><a><i class="fa fa-cogs"></i>Cấu Hình</a>
+                        <ul class="nav child_menu">
+                            <li class="current-page">
+                                <a href="https://bill.ems.com.vn/user/profile">Thông tin tài khoản</a>
+                            </li>
+
+                            <!-- Quyền tạo bưu gửi -->
+                                                        <li class="">
+                                <a href="https://bill.ems.com.vn/config/inventory">Thông tin người gửi</a>
+                            </li>
+                            
+                                                        <li class="">
+                                <a href="https://bill.ems.com.vn/child-account/list">Tài khoản phụ</a>
+                            </li>
+                            
+                            <!-- Quyền tạo bưu gửi -->
+                                                        <li class="">
+                                <a href="https://bill.ems.com.vn/config/api-key">Api Key</a>
+                            </li>
+                            
+                            <!-- Quyền tạo bưu gửi -->
+                                                        <li class="">
+                                <a href="https://bill.ems.com.vn/config/webhook">Webhook - Trạng thái</a>
+                            </li>
+
+                            <li class="">
+                                <a href="https://bill.ems.com.vn/config/delivery-webhook">Webhook - Thông tin phát</a>
+                            </li>
+                                                    </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /sidebar menu -->
+
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="https://bill.ems.com.vn/user/logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>
+
+<!-- top navigation -->
+<div class="top_nav">
+
+    <div class="nav_menu">
+        <nav class="" role="navigation">
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+           <!--  <a href="ticket/create" 
+                class="btn btn-round btn-success btn-create-ticket">
+                <i class="fa fa-ticket"></i> Khiếu Nại
+            </a> -->
+
+                        <div class="btn-group btn-create-ticket">
+                <a href="orders/create" class="btn btn-default no-border-radius">
+                    <i class="fa fa-pencil fa-lg"></i> <strong>Tạo bưu gửi</strong>
+                </a>
+                <button type="button" class="btn btn-default dropdown-toggle no-border-radius" data-toggle="dropdown" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu no-border-radius" role="menu">
+                    <li><a href="orders/create"><strong>Tạo bưu gửi</strong></a>
+                    </li>
+                    <li><a href="orders/create-excel"><strong>Tạo bưu gửi Excel</strong></a>
+                    </li>
+                    <li><a href="orders/create-excel-khl"><strong>Tạo bưu gửi Excel (v2)</strong></a>
+                    </li>
+
+                </ul>
+            </div>
+            
+            <ul class="nav navbar-nav navbar-right" style="max-width: 50%">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="https://bill.ems.com.vn/images/default-avatar.png" alt="">
+                        Ae Yong
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                                    <li><a href="https://bill.ems.com.vn/sandbox/orders/create">
+                                <strong>Môi trường thử nghiệm</strong>
+                                </a>
+                            </li>
+                        
+                        <li><a href="https://bill.ems.com.vn/user/logout"><i class="fa fa-sign-out pull-right"></i>
+                            <strong>Thoát</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="top_search" style="width: 40%;">
+                    <form method="POST" accept-charset="UTF-8" id="global-search">
+                        <input type="hidden" name="_token" value="3ehNRVtEG9KA9w6oMcUWRYjW9nKIJGFcpw2msWGs" autocomplete="off">                    <div class="input-group" style="margin: 10px 0 0 10px !important;">
+                        <input type="text" class="form-control" id="login_search" placeholder="Mã bưu gửi ...">
+                        <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i
+                                            class="fa fa-search"></i></button>
+                            </span>
+                    </div>
+                    </form>
+                </li>
+
+                
+                    
+                        
+                        
+                    
+                
+
+            </ul>
+        </nav>
+    </div>
+
+</div>
+<!-- /top navigation -->
+
+
+
+
+            
+            <!-- page content -->
+            <div class="right_col" role="main">
+                	<div class="page-title">
+		<div class="title_left text-success">
+			<h3><i class="fa fa-user"></i> Quản lý thông tin cá nhân </h3>
+		</div>
+	</div><br><br><br><div class="clearfix"></div>
+	<div class="row row-eq-height">
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="x_panel full-h text-info">
+				<div class="x_title">
+					<h2>Cấu hình thông tin </h2>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<form method="POST" accept-charset="UTF-8" id="changeProfile" class="form-horizontal form-label-left">
+						<input type="hidden" name="_token" value="3ehNRVtEG9KA9w6oMcUWRYjW9nKIJGFcpw2msWGs" autocomplete="off">						<div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="acc">Tài khoản
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="text" id="acc" disabled="" value="difoco" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Họ tên 
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="text" id="name" name="fullname" value="Ae Yong" placeholder="Nhập họ tên của bạn" required="required" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email 
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="text" id="email" disabled="" value="huynhvanninh1984@gmail.com" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Số điện thoại 
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="text" id="name" name="phone" value="0901323008" placeholder="Nhập số điện thoại của bạn" required="required" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+						<div class="form-group">
+							<label class="control-label col-md-3 col-sm-3 col-xs-12" for="merchant_code">Mã khách hàng
+							</label>
+							<div class="col-md-6 col-sm-6 col-xs-12">
+								<input type="text" id="merchant_code" disabled="" value="17010013846554" class="form-control col-md-7 col-xs-12">
+							</div>
+						</div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Giới tính</label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12" style="margin-top: 8px;">
+	                            <div class="col-md-6">
+	                            	Nam <input type="radio" class="flat" name="gender" value="1"  /> 
+	                            </div>
+	                            
+	                            <div class="col-md-6">
+	                            	Nữ <input type="radio" class="flat" name="gender" value="2"  checked="checked"  />
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="ln_solid"></div>
+	                    <div class="form-group">
+	                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+	                            <button type="submit" class="btn btn-success no-border-radius">Cập nhật</button>
+	                        </div>
+	                    </div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="x_panel full-h text-info">
+				<div class="x_title">
+					<h2>Thay đổi mật khẩu </h2>
+					<div class="clearfix"></div>
+				</div>
+				<div class="x_content">
+					<form method="POST" accept-charset="UTF-8" id="changePassword" class="form-horizontal form-label-left">
+						<input type="hidden" name="_token" value="3ehNRVtEG9KA9w6oMcUWRYjW9nKIJGFcpw2msWGs" autocomplete="off">	                    <div class="form-group">
+	                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="oldpass">Mật khẩu cũ
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="password" id="oldpass" name="oldpass" autocomplete="off" required="required" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="newpass">Mật khẩu mới
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="password" id="newpass" name="newpass" required="required" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="againpass">Nhập lại mật khẩu mới
+	                        </label>
+	                        <div class="col-md-6 col-sm-6 col-xs-12">
+	                            <input type="password" id="againpass" name="againpass" required="required" class="form-control col-md-7 col-xs-12">
+	                        </div>
+	                    </div>
+	                    <div class="ln_solid"></div>
+	                    <div class="form-group">
+	                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-4">
+	                            <button type="submit" class="btn btn-success no-border-radius">Cập nhật</button>
+	                        </div>
+	                    </div>
+					</form>
+				</div>
+			</div>
+		</div>
+			</div>
+                <!-- footer content -->
+                <footer>
+                    <div class="">
+                        <p>
+                            <center>
+                            Mọi vấn đề thắc mắc và khiếu nại xin vui lòng liên hệ Trung tâm Chăm sóc khách hàng EMS Việt Nam - SĐT: 1900.5454.33 - Email: cskh@ems.com.vn                            </center>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+            <!-- /page content -->
+        </div>
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <!-- bootstrap progress js -->
+    <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="js/nicescroll/jquery.nicescroll.min.js"></script>
+    <!-- icheck -->
+    <script src="js/icheck/icheck.min.js"></script>
+
+    <script type="text/javascript" src="js/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="js/notify/pnotify.core.js"></script>
+    <script type="text/javascript" src="js/notify/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="js/select/select2.full.js"></script>
+    <script type="text/javascript" src="js/input_mask/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/custom.v2.js"></script>
+
+     	<script src="https://bill.ems.com.vn/js/editable/bootstrap-editable.min.js" type="text/javascript"></script>
+	<script src="https://bill.ems.com.vn/js/customs/users.v1.min.js" type="text/javascript"></script>
+    <script>
+        NProgress.done();
+    </script>
+    <!-- /footer content -->
+    <script type="text/javascript">
+        var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || {widgetcode:"094bf2278aa1cc16da66da4f64e2ca3e52042c4998a2ee9c8d8626eff0fb61672b14791a502f679eac290f67b303eb7e0c84dad81eb206c12441c0f86b164d7d3df36f2dd283b7efe1698e5454b4a3fa", values:{},ready:function(){}};var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
+    </script>
+</body>
+
+</html>
