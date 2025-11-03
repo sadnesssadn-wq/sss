@@ -1,0 +1,2 @@
+GET /config/api-key - HTML_TABLE
+GET /config/webhook - HTML_TABLE

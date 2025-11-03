@@ -1,0 +1,4 @@
+Mobile API - 订单追踪: GET http://ws.ems.com.vn/api/v1/orders/tracking/1000001
+Mobile API - 订单列表: GET http://ws.ems.com.vn/api/v1/orders/list?page=1&limit=100
+Mobile API - 地址列表: GET http://ws.ems.com.vn/api/v1/address/province-and-district
+Mobile API - 元数据: GET http://ws.ems.com.vn/api/v1/metadata/vas
