@@ -1,0 +1,26 @@
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJKRmNhcC1XZWJBcGkiLCJleHAiOjE3NjIyMDU5ODgsIm5iZiI6MTc2MjIwMjA4OCwiaWF0IjoxNzYyMjAyMDg4LCJhaWQiOiJNWVZOUCIsInVpZCI6Ik1ZVk5QX0NfMzkxNSIsInVmbiI6Ik9jYiIsIm9yZyI6IkMwMDAzNjMzMDUiLCJkaWQiOiI0MjU4Y2FmNGQzMzdmNmVjMGZjNDE3ODU1NTkwMDNjYiIsImxjcCI6MTY4ODEwNTgwMjAwMCwiZXhwaXJhdGlvbkRhdGUiOjkwLCJpc0VtcGxveWVlIjpmYWxzZSwib3duZXIiOiJNWVZOUF9DXzM5MTUiLCJwaG9uZU51bWJlciI6Iis4NDk4MjcyMjg5MiIsImFkZHIiOiI0MEEgw5p0IFTDrWNoLCBQaMaw4budbmcgNCIsInByb3YiOiI3MCIsImRpc3QiOiI3MjEwIiwiY29tbSI6IjcyMTA2Iiwib3MiOiJXRUIiLCJpc0ZpcnN0TG9naW4iOmZhbHNlfQ.g1S9b8dGSPnkYEXzR0BL-m704ukXZnnDkD914ErjMXh8LUEIvJQR2hjK-UFbTppx78hmUZzml_2uFc_Xjt-uCg",
+  "payload": {
+    "iss": "JFcap-WebApi",
+    "exp": 1762205988,
+    "nbf": 1762202088,
+    "iat": 1762202088,
+    "aid": "MYVNP",
+    "uid": "MYVNP_C_3915",
+    "ufn": "Ocb",
+    "org": "C000363305",
+    "did": "4258caf4d337f6ec0fc41785559003cb",
+    "lcp": 1688105802000,
+    "expirationDate": 90,
+    "isEmployee": false,
+    "owner": "MYVNP_C_3915",
+    "phoneNumber": "+84982722892",
+    "addr": "40A Út Tích, Phường 4",
+    "prov": "70",
+    "dist": "7210",
+    "comm": "72106",
+    "os": "WEB",
+    "isFirstLogin": false
+  },
+  "remaining_seconds": 3337
+}
