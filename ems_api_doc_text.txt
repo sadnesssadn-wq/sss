@@ -1,0 +1,30 @@
+Đăng ký Token | APIs
+Ctrl
+k
+MerchantSite APIs
+Tiếng Việt
+Giới thiệu
+Authentication
+Đăng ký Token
+Điểm lấy hàng
+Bưu gửi
+Webhook
+Danh mục
+Powered by GitBook
+On this page
+Was this helpful?
+Copy
+Tiếng Việt
+Authentication
+Đăng ký Token
+Trước khi bắt đầu xác thực và sử dụng MCS APIs , bạn cần đăng ký với hệ thống EMS.
+Đăng nhập vào hệ thống https://bill.ems.com.vn/login.
+Truy cập và chọn tạo Key
+Tạo thành công API KEY
+Previous
+Authentication
+Next
+Điểm lấy hàng
+Last updated
+4 years ago
+Was this helpful?

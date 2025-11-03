@@ -1,0 +1,28 @@
+# Tiếng Việt
+
+- [Giới thiệu](/tieng-viet/gioi-thieu.md)
+- [Authentication](/tieng-viet/authentication.md): MerchantSite EMS sử dụng token để xác minh danh tính người dùng người dùng.
+- [Đăng ký Token](/tieng-viet/authentication/dang-ky-token.md): Trước khi bắt đầu xác thực và sử dụng MCS APIs , bạn cần đăng ký với hệ thống EMS.
+- [Điểm lấy hàng](/tieng-viet/diem-gui-hang.md)
+- [Tạo điểm lấy hàng](/tieng-viet/diem-gui-hang/tao-diem-gui-hang.md)
+- [Cập nhật điểm lấy hàng](/tieng-viet/diem-gui-hang/cap-nhat-diem-lay-hang.md)
+- [Danh sách điểm lấy hàng](/tieng-viet/diem-gui-hang/danh-sach-diem-lay-hang.md)
+- [Bưu gửi](/tieng-viet/buu-gui.md)
+- [Tạo bưu gửi](/tieng-viet/buu-gui/tao-buu-gui.md)
+- [Tạo phiếu xuất kho](/tieng-viet/buu-gui/tao-phieu-xuat-kho.md)
+- [Tính phí](/tieng-viet/buu-gui/tinh-phi.md)
+- [Chi tiết bưu gửi](/tieng-viet/buu-gui/chi-tiet-buu-gui.md)
+- [In bưu gửi](/tieng-viet/buu-gui/in-buu-gui.md)
+- [Hủy bưu gửi](/tieng-viet/buu-gui/huy-buu-gui.md)
+- [Webhook](/tieng-viet/webhook.md): Trả về trạng thái bưu gửi thông qua api ngay khi có trạng thái mới nhất.
+- [Tạo webhook](/tieng-viet/webhook/tao-webhook.md)
+- [Cập nhật Webhook](/tieng-viet/webhook/cap-nhat-webhook.md)
+- [Thông tin webhook](/tieng-viet/webhook/danh-sach-webhook.md)
+- [Danh mục](/tieng-viet/danh-muc.md)
+- [Danh sách quốc gia](/tieng-viet/danh-muc/quoc-gia.md)
+- [Danh sách tỉnh/thành phố](/tieng-viet/danh-muc/tinh-thanh-pho.md)
+- [Danh sách quận/huyện](/tieng-viet/danh-muc/quan-huyen.md)
+- [Danh sách phường/xã](/tieng-viet/danh-muc/phuong-xa.md)
+- [Danh sách trạng thái](/tieng-viet/danh-muc/trang-thai.md)
+- [Danh sách dịch vụ](/tieng-viet/danh-muc/dich-vu.md)
+- [Danh sách dịch vụ cộng thêm](/tieng-viet/danh-muc/dich-vu-cong-them.md)
