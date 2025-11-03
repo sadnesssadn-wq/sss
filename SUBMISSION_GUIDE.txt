@@ -1,0 +1,197 @@
+════════════════════════════════════════════════════════════
+ EMS Vietnam 漏洞提交指南
+════════════════════════════════════════════════════════════
+
+✓ 所有证据和报告已准备完毕！
+
+【提交包内容】
+📦 ems_vietnam_evidence.tar.gz
+
+  核心报告:
+  - SUBMISSION_REPORT.md (英文完整报告)
+  - VERIFICATION_RESULTS.md (验证结果)
+  - MERCHANT_FINAL_SUMMARY.md (中文总结)
+
+  证据文件:
+  - api_key_page.html (25KB - API Keys泄露)
+  - recaptcha_bypass_proof.txt (reCAPTCHA绕过)
+  - webhook_page.html (20KB - Webhook配置)
+  - extracted_tokens.json (18个Keys)
+  
+  PoC工具:
+  - merchant_exploit_full.py (自动化渗透)
+  - merchant_idor_massive.py (IDOR扫描)
+  - tracking_scanner.py (订单枚举)
+
+════════════════════════════════════════════════════════════
+ 提交方式
+════════════════════════════════════════════════════════════
+
+方式1: Bug Bounty平台
+  如果EMS Vietnam有官方Bug Bounty:
+  1. 访问其Bug Bounty页面
+  2. 上传 ems_vietnam_evidence.tar.gz
+  3. 粘贴 SUBMISSION_REPORT.md 内容
+  4. 设置严重性: Critical
+  5. 预期奖励: $8,000 - $28,000
+
+方式2: 直接联系安全团队
+  邮箱: security@ems.com.vn 或 cskh@ems.com.vn
+  主题: [CRITICAL] Security Vulnerability Disclosure
+  
+  邮件模板:
+  ─────────────────────────────────────────────
+  Dear EMS Vietnam Security Team,
+  
+  I have discovered multiple critical security vulnerabilities
+  in your merchant platform (bill.ems.com.vn) and mobile API
+  (ws.ems.com.vn).
+  
+  Summary:
+  - API Key Exposure (CVSS 9.8)
+  - reCAPTCHA Bypass (CVSS 7.5)
+  - Webhook Risks (CVSS 8.1)
+  - Potential IDOR (CVSS 9.1)
+  
+  Please find attached the complete security report and
+  evidence package. I am available to discuss the details
+  and assist with remediation.
+  
+  Disclosure Timeline: 30 days (Until Dec 3, 2025)
+  
+  Best regards,
+  [Your Name]
+  ─────────────────────────────────────────────
+
+方式3: HackerOne/Bugcrowd
+  如果EMS使用第三方平台:
+  1. 搜索"EMS Vietnam"
+  2. 提交报告
+  3. 上传证据包
+
+════════════════════════════════════════════════════════════
+ 报告重点（按严重性排序）
+════════════════════════════════════════════════════════════
+
+1. API Keys泄露 (CRITICAL - CVSS 9.8) ✓ 已验证
+   - 18个Keys明文暴露
+   - 任何商户都能查看
+   - 可能跨账户泄露
+   - 证据: api_key_page.html
+
+2. reCAPTCHA绕过 (HIGH - CVSS 7.5) ✓ 已验证
+   - 登录时token=''即可成功
+   - 可自动化暴力破解
+   - 证据: recaptcha_bypass_proof.txt
+
+3. Webhook劫持 (HIGH - CVSS 8.1) ⚠ 部分验证
+   - 无URL白名单
+   - 可能无签名验证
+   - 证据: webhook_page.html
+
+4. IDOR漏洞 (CRITICAL - CVSS 9.1) ⚠ 代码证据
+   - 客户端不传user_id
+   - 需要Mobile Token验证
+   - 标注为"理论上存在"
+
+════════════════════════════════════════════════════════════
+ 预期奖励（估算）
+════════════════════════════════════════════════════════════
+
+基于行业标准（HackerOne平均奖励）:
+
+Critical (CVSS 9.0-10.0):
+  - API Keys泄露: $5,000 - $15,000
+  - IDOR漏洞: $3,000 - $10,000 (理论)
+
+High (CVSS 7.0-8.9):
+  - reCAPTCHA绕过: $1,000 - $5,000
+  - Webhook劫持: $2,000 - $8,000
+
+Total: $8,000 - $28,000 (最佳情况)
+       $6,000 - $15,000 (保守估计)
+
+════════════════════════════════════════════════════════════
+ 提交后跟进
+════════════════════════════════════════════════════════════
+
+Day 1-7: 等待初步响应
+  - 确认收到报告
+  - 分配严重性等级
+  - 开始调查
+
+Day 7-21: 技术验证
+  - 安全团队重现漏洞
+  - 可能要求更多细节
+  - 准备好提供协助
+
+Day 21-30: 修复和奖励
+  - 开发补丁
+  - 测试修复
+  - 发放奖励
+
+════════════════════════════════════════════════════════════
+ 重要提示
+════════════════════════════════════════════════════════════
+
+✓ DO:
+  - 清晰描述每个漏洞
+  - 提供完整的PoC
+  - 标注验证状态
+  - 保持专业和礼貌
+  - 遵守负责任披露
+
+✗ DON'T:
+  - 公开披露漏洞（30天内）
+  - 访问生产数据
+  - 造成服务中断
+  - 威胁或勒索
+  - 分享给他人
+
+════════════════════════════════════════════════════════════
+ 如果被拒绝怎么办
+════════════════════════════════════════════════════════════
+
+如果EMS Vietnam没有Bug Bounty计划:
+  1. 礼貌说明漏洞的严重性
+  2. 提供30天修复期限
+  3. 30天后可以公开披露（负责任）
+  4. 联系媒体（The Hacker News, BleepingComputer）
+
+如果奖励低于预期:
+  1. 提供更多细节和影响分析
+  2. 展示PoC工具
+  3. 说明行业标准奖励范围
+  4. 礼貌协商
+
+════════════════════════════════════════════════════════════
+ 下载证据包
+════════════════════════════════════════════════════════════
+
+文件位置: /workspace/ems_vietnam_evidence.tar.gz
+
+下载命令:
+  scp user@server:/workspace/ems_vietnam_evidence.tar.gz .
+
+或直接从workspace目录获取
+
+════════════════════════════════════════════════════════════
+ 最后检查清单
+════════════════════════════════════════════════════════════
+
+提交前确认:
+  ☑ 报告清晰易懂
+  ☑ 所有证据文件齐全
+  ☑ PoC工具可运行
+  ☑ 已标注验证状态
+  ☑ 移除敏感信息（如真实Token的完整值）
+  ☑ 联系信息正确
+  ☑ 遵守负责任披露原则
+
+════════════════════════════════════════════════════════════
+
+准备好了吗？执行提交！
+
+Good luck! 💰🎯
+
+════════════════════════════════════════════════════════════
