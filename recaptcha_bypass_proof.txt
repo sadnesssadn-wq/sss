@@ -1,0 +1,10 @@
+reCAPTCHA Bypass Verified
+Date: 2025-11-03
+Endpoint: https://bill.ems.com.vn/login
+Method: POST with empty 'token' parameter
+Result: Login successful without reCAPTCHA
+Response: {
+  "code": "success",
+  "message": "Login success",
+  "comeback": "https://bill.ems.com.vn/user/profile"
+}

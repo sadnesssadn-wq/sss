@@ -17,7 +17,7 @@
     <meta name="author" content="EMS DEV"/>
     <base href="https://bill.ems.com.vn"/>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <meta name="__public_token" content="RR9GNvgAWvCcM9ADCihqEiiMMfF8xNLBNf8I5Wqa"/>
+    <meta name="__public_token" content="oLuHTfFANgUVAGLiGJvnF9jss5OznyqHafolWAXm"/>
     <meta name="__url_prefix" content=""/>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -162,12 +162,12 @@
                             </li>
                             
                             <!-- Quyền tạo bưu gửi -->
-                                                        <li class="current-page">
+                                                        <li class="">
                                 <a href="https://bill.ems.com.vn/config/api-key">Api Key</a>
                             </li>
                             
                             <!-- Quyền tạo bưu gửi -->
-                                                        <li class="">
+                                                        <li class="current-page">
                                 <a href="https://bill.ems.com.vn/config/webhook">Webhook - Trạng thái</a>
                             </li>
 
@@ -255,7 +255,7 @@
 
                 <li class="top_search" style="width: 40%;">
                     <form method="POST" accept-charset="UTF-8" id="global-search">
-                        <input type="hidden" name="_token" value="RR9GNvgAWvCcM9ADCihqEiiMMfF8xNLBNf8I5Wqa" autocomplete="off">                    <div class="input-group" style="margin: 10px 0 0 10px !important;">
+                        <input type="hidden" name="_token" value="oLuHTfFANgUVAGLiGJvnF9jss5OznyqHafolWAXm" autocomplete="off">                    <div class="input-group" style="margin: 10px 0 0 10px !important;">
                         <input type="text" class="form-control" id="login_search" placeholder="Mã bưu gửi ...">
                         <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><i
@@ -285,378 +285,160 @@
             
             <!-- page content -->
             <div class="right_col" role="main">
-                	 <input type="hidden" name="_token" value="RR9GNvgAWvCcM9ADCihqEiiMMfF8xNLBNf8I5Wqa" autocomplete="off">
+                	<div class="alert alert-danger" style="display: inline-block;width: 100%;">
+		<strong>Chú ý!</strong> Chức năng này chỉ dành cho các nhà phát triển hoặc các lập trình viên.
+	</div>
 	<div class="row">
-        <div class="x_panel tile">
-            <div class="x_title text-success">
-            	<div class="title_left">
-                	<h2><i class="fa fa-key"></i> API KEY</h2>
-                </div>
-                <div class="pull-right">
-                    <button class="btn btn-info no-mg no-border-radius" id="add-key"><i class="fa fa-plus"></i> Tạo Key</button>
-                </div>
-                <div class="clearfix"></div>
-				<a href="https://docws.ems.com.vn/" target="_blank" class="small text-primary"><i class="fa fa-paperclip"></i>Tài liệu kết nối API </a>
-            </div>
-
-            <div class="x_content text-info">
-                <table class="table table-hover table-condensed table-striped">
+		<div class="x_panel tile">
+			<div class="x_title text-success">
+				<div class="title_left text-uppercase">
+					<h2><i class="fa fa-icon-terminal"></i> Quản lý webhook - Hành trình trạng thái</h2>
+				</div>
+				<div class="pull-right">
+									</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="x_content text-info">
+				<table class="table table-hover table-condensed table-striped">
 					<thead>
 						<tr>
 							<th>STT</th>
 							<th>Thời gian tạo</th>
-							<th>API KEY</th>
-							<th></th>
+							<th>Chức năng</th>
+							<th>Link webhook</th>
+							<th>Trạng thái</th>
 						</tr>
 					</thead>
 					<tbody>
 												<tr>
 							<td>1</td>
 							<td>
-								09-03-2018 14:32
+								2025-11-03 13:45
 							</td>
 							<td>
-								467e171a1fbffe28692b97a0b2756bd5
+								Hành trình
 							</td>
 							<td>
-								<span class="editable pointer"
-                    				data-type="select"
+								<span class="wh-editable pointer"
+									  data-type="text"
+									  data-title="Link webhook"
+									  data-name="link"
+									  rel="69084f901027192f5b591d65"
+								>
+									https://webhook.site/test
+								</span>
+							</td>
+							<td>
+								<span class="wh-editable pointer"
+									data-type="select"
 									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>2</td>
-							<td>
-								16-08-2024 11:36
-							</td>
-							<td>
-								f4c78925cd4763a62ae72023c44afcab
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5621">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>3</td>
-							<td>
-								16-08-2024 11:37
-							</td>
-							<td>
-								94f8bcf982541a3e1c31ee5e08ee0d35
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5622">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>4</td>
-							<td>
-								16-08-2024 12:29
-							</td>
-							<td>
-								3a16ac46190f3024dcb51cb4693dfa2b
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5623">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>5</td>
-							<td>
-								16-08-2024 13:28
-							</td>
-							<td>
-								ccf491b3dc1b2a991f93f7c7ea0e47ac
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5624">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>6</td>
-							<td>
-								16-08-2024 13:28
-							</td>
-							<td>
-								f4dcc432d34c3652cb57a908d99568ea
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5625">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>7</td>
-							<td>
-								16-08-2024 13:28
-							</td>
-							<td>
-								a6f86713f69559fcc180f8c575e8df45
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5626">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>8</td>
-							<td>
-								16-08-2024 13:28
-							</td>
-							<td>
-								355cd37439e12abf1078d2f1b1dbe787
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5627">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>9</td>
-							<td>
-								16-08-2024 13:28
-							</td>
-							<td>
-								640da7ab9f57e6c1f90bd82184b8cdb6
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5628">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>10</td>
-							<td>
-								16-08-2024 17:31
-							</td>
-							<td>
-								1af650afe407f9c3f9ee7d15a8b8b03b
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="5630">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>11</td>
-							<td>
-								03-11-2025 14:04
-							</td>
-							<td>
-								f29a9a202fba7f0f28f12e744fe78583
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6415">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>12</td>
-							<td>
-								03-11-2025 14:04
-							</td>
-							<td>
-								580a3ae380c60d627a17b217ef743e56
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6416">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>13</td>
-							<td>
-								03-11-2025 14:04
-							</td>
-							<td>
-								c742c5ae581fa209fa95a7903fd3de8f
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6417">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>14</td>
-							<td>
-								03-11-2025 14:14
-							</td>
-							<td>
-								f228f2cea09975db0d9d234028eb726b
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6418">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>15</td>
-							<td>
-								03-11-2025 14:14
-							</td>
-							<td>
-								d461cd5422d90e5a2675201d12b64c39
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6419">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>16</td>
-							<td>
-								03-11-2025 14:14
-							</td>
-							<td>
-								9e851c118d6cd3d4ee1db448e18595fc
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6420">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>17</td>
-							<td>
-								03-11-2025 14:14
-							</td>
-							<td>
-								eb68900a74ace355ff17cdd650afd081
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6421">
-									 Đang sử dụng 								</span>
-							</td>
-						</tr>
-												<tr>
-							<td>18</td>
-							<td>
-								03-11-2025 14:14
-							</td>
-							<td>
-								4738fb280dd909006895ce6c16e5d147
-							</td>
-							<td>
-								<span class="editable pointer"
-                    				data-type="select"
-									data-title="Trạng thái"
-									data-name="active"
-									data-value="1"
-									data-source="[{value: 0, text: 'Ngừng sử dụng'},{value: 1, text: 'Đang sử dụng'}]"
-									rel="6422">
-									 Đang sử dụng 								</span>
+									data-name="status"
+									data-value="active"
+									data-source="[{value: 'deactive', text: 'Dừng sử dụng'},{value: 'active', text: 'Sử dụng'}]"
+									rel="69084f901027192f5b591d65">
+									 Sử dụng 								</span>
 							</td>
 						</tr>
 											</tbody>
 				</table>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modal-add-webhook">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Thêm webhook</h4>
+				</div>
+				<div class="modal-body">
+					<form action="" method="POST" role="form" class="form-horizontal" id="frm-create-webhook">
+						<input type="hidden" name="_token" value="oLuHTfFANgUVAGLiGJvnF9jss5OznyqHafolWAXm" autocomplete="off">						<div class="form-group">
+							<label for="function" class="col-sm-3 control-label">Function</label>
+							<div class="col-sm-4">
+								<div class="radio-inline">
+								  <label>
+									<input type="radio" name="function" value="journey" checked> Hành trình
+								  </label>
+								</div>
+							</div>
+							<div class="col-sm-5">
+								<div class="radio disabled hide">
+								  <label>
+									<input type="radio" name="function" value="cancel" disabled> Huỷ đơn
+								  </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email_alert" class="col-sm-3 control-label">Alert Error Email</label>
+							<div class="col-sm-9">
+								<input type="email" name="email_alert" class="form-control" id="email_alert" placeholder="Input Alert Email" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="link" class="col-sm-3 control-label">Callback Url <sup class="text-danger">*</sup></label>
+							<div class="col-sm-9">
+								<div class="input-group no-mg">
+									<div class="input-group-addon no-border-radius"><strong>POST</strong></div>
+									<input type="url" name="link" class="form-control" id="link" placeholder="http://mydomain.com/callback" required="required">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="link" class="col-sm-3 control-label">Header</label>
+							<div class="col-sm-9">
+								<div class="well well-sm no-border-radius no-mg">
+									<ul class="no-mg pd-l-15">
+										<li>Content-Type : application/json</li>
+										<li>ems-transaction : [-transaction id-]</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="form-group bodyJson">
+							<label for="link" class="col-sm-3 control-label">Body json</label>
+							<div class="col-sm-9">
+								<div class="well well-sm no-border-radius no-mg">
+<pre class="no-border no-mg no-pd text-muted"><code>{
+ "tracking_code": "EJ012345678VN",
+ "order_code": "OD-123456",
+ "status_code": 4,
+ "status_name": "Đang vận chuyển",
+ "note": "Ghi chú trạng thái",
+ "locate": "Ba Đình, Hà Nội",
+ "datetime": "31/10/2018 16:45:44",
+ "total_weight" : 100,
+        "money_collect": 100000,
+        "main_fee": 10000,
+        "total_fee": 15000
+}</code>
+total_weight <- Sử dụng khi thay đổi khối lượng
+</pre>
+								</div>
+							</div>
+						</div>
+						<div class="form-group respondDemo">
+							<label for="link" class="col-sm-3 control-label">Respond demo</label>
+							<div class="col-sm-9">
+								<div class="well well-sm no-border-radius no-mg">
+<pre class="no-border no-mg no-pd text-muted"><code>{
+ "code" : "success / error",
+ "transaction" : "ems-transaction in Header"
+}</code></pre>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success no-border-radius" id="add-webhook"><i class="fa fa-bug"></i> Kiểm tra webhook</button>
+					<button type="button" class="btn btn-default no-border-radius" data-dismiss="modal">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>	
                 <!-- footer content -->
                 <footer>
                     <div class="">
@@ -696,7 +478,7 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script src="js/custom.v2.js"></script>
 
-        <script src="https://bill.ems.com.vn/js/editable/bootstrap-editable.min.js" type="text/javascript"></script>
+    	<script src="https://bill.ems.com.vn/js/editable/bootstrap-editable.min.js" type="text/javascript"></script>
 	<script src="https://bill.ems.com.vn/js/customs/config.v2.js" type="text/javascript"></script>
     <script>
         NProgress.done();
