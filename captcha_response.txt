@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="/assets/js/env.js" rel="preload" as="script" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="keywords"
+      content="antd,umi,umijs,ant design,Scaffolding, layout, Ant Design, project, Pro, admin, console, homepage, out-of-the-box, middle and back office, solution, component library"
+    />
+    <meta
+      name="description"
+      content="
+    An out-of-box UI solution for enterprise applications as a React boilerplate."
+    />
+    <meta
+      name="description"
+      content="
+      Out-of-the-box mid-stage front-end/design solution."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>My VietNamPost</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <script src="/assets/js/env.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:ital,wght@0,100;0,200;0,350;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,350;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <style>
+      .icon-chat {
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        z-index: 9;
+        width: 80px;
+        height: 80px;
+      }
+
+      .icon-chat-img {
+        width: 100%;
+        height: 100%;
+      }
+      .noti-unread {
+        position: absolute;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        background-color: red;
+        border: 2px solid #ffffff;
+        border-radius: 50%;
+      }
+      .noti-unread-number {
+        position: relative;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 12px;
+      }
+    </style>
+
+    <script id="idTest"></script>
+    <link rel="stylesheet" href="/umi.473ba535.css" />
+    <script>
+      window.routerBase = "/";
+    </script>
+    <script>
+      //! umi version: 3.5.43
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div class="noscript-container">
+        Hi there! Please
+        <div class="noscript-enableJS">
+          <a
+            href="https://www.enablejavascript.io/en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <b>enable Javascript</b>
+          </a>
+        </div>
+        in your browser to use Ant Design, Out-of-the-box mid-stage front/design
+        solution!
+      </div>
+    </noscript>
+    <div id="root">
+      <style>
+        html,
+        body,
+        #root {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        #root {
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+        }
+        .noscript-container {
+          display: flex;
+          align-content: center;
+          justify-content: center;
+          margin-top: 90px;
+          font-size: 20px;
+          /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode',
+            Geneva, Verdana, sans-serif; */
+        }
+        .noscript-enableJS {
+          padding-right: 3px;
+          padding-left: 3px;
+        }
+        .page-loading-warp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 98px;
+        }
+        .ant-spin {
+          position: absolute;
+          display: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          color: rgba(0, 0, 0, 0.65);
+          color: #1890ff;
+          font-size: 14px;
+          font-variant: tabular-nums;
+          line-height: 1.5;
+          text-align: center;
+          list-style: none;
+          opacity: 0;
+          -webkit-transition: -webkit-transform 0.3s
+            cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: -webkit-transform 0.3s
+            cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+            -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          -webkit-font-feature-settings: "tnum";
+          font-feature-settings: "tnum";
+        }
+
+        .ant-spin-spinning {
+          position: static;
+          display: inline-block;
+          opacity: 1;
+        }
+
+        .ant-spin-dot {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          font-size: 20px;
+        }
+
+        .ant-spin-dot-item {
+          position: absolute;
+          display: block;
+          width: 9px;
+          height: 9px;
+          background-color: #1890ff;
+          border-radius: 100%;
+          -webkit-transform: scale(0.75);
+          -ms-transform: scale(0.75);
+          transform: scale(0.75);
+          -webkit-transform-origin: 50% 50%;
+          -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+          opacity: 0.3;
+          -webkit-animation: antspinmove 1s infinite linear alternate;
+          animation: antSpinMove 1s infinite linear alternate;
+        }
+
+        .ant-spin-dot-item:nth-child(1) {
+          top: 0;
+          left: 0;
+        }
+
+        .ant-spin-dot-item:nth-child(2) {
+          top: 0;
+          right: 0;
+          -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+        }
+
+        .ant-spin-dot-item:nth-child(3) {
+          right: 0;
+          bottom: 0;
+          -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+        }
+
+        .ant-spin-dot-item:nth-child(4) {
+          bottom: 0;
+          left: 0;
+          -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+        }
+
+        .ant-spin-dot-spin {
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+          -webkit-animation: antrotate 1.2s infinite linear;
+          animation: antRotate 1.2s infinite linear;
+        }
+
+        .ant-spin-lg .ant-spin-dot {
+          width: 32px;
+          height: 32px;
+          font-size: 32px;
+        }
+
+        .ant-spin-lg .ant-spin-dot i {
+          width: 14px;
+          height: 14px;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          .ant-spin-blur {
+            background: #fff;
+            opacity: 0.5;
+          }
+        }
+
+        @-webkit-keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+
+        @keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+      </style>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          min-height: 420px;
+        "
+      >
+        <img src="/logo.png" alt="logo" width="120" style="margin-left: 20px" />
+        <div class="page-loading-warp">
+          <div class="ant-spin ant-spin-lg ant-spin-spinning">
+            <span class="ant-spin-dot ant-spin-dot-spin"
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      nonce="{place_your_nonce_value_here}"
+      src="https://desk.zoho.com/portal/api/web/inapp/483838000000255017?orgId=710037136"
+      defer=""
+    ></script>
+
+    <!-- 18/11/2022 -->
+    <!-- <div
+            id="icon-chat"
+            class="icon-chat"
+            style="width: 50px; height: 50px"
+            onclick="chatAnDanh(localStorage.getItem('accessToken'))"
+        >
+            <img id="icon-chat-img" class="icon-chat-img" src="/img/iconchat.png" />
+        </div> -->
+
+    <div class="ringme-ott-sdk-container">
+      <div class="ringme-ott-sdk-root">
+        <ott-sdk-root></ott-sdk-root>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const serverPathTest = "uat";
+      if (serverPathTest === "dev") {
+        document.getElementById("idTest").src =
+          "https://uatsdkapis.ringme.vn/sdk/web/RingmeOttSdk.js";
+      } else if (serverPathTest === "test") {
+        document.getElementById("idTest").src =
+          "https://uatsdkapis.ringme.vn/sdk/web/RingmeOttSdk.js";
+      } else if (serverPathTest === "uat") {
+        document.getElementById("idTest").src =
+          "https://uatsdkapis.ringme.vn/sdk/web/RingmeOttSdk.js";
+      } else if (serverPathTest === "prod") {
+        document.getElementById("idTest").src =
+          "https://sdkapis2.ringme.vn/sdk/web/RingmeOttSdk.js";
+      }
+    </script>
+
+    <!-- <script type="text/javascript">
+            const chatAnDanh = (token) => {
+                const serveUrlMap = {
+                    dev: 'http://localhost:8889/',
+                    test: 'http://10.15.119.63:8889/',
+                    uat: 'https://my-uat.vnpost.vn/myvnp/',
+                    prod: 'https://api-my.vnpost.vn/',
+                };
+                let target = '';
+                let url = '';
+                const serverPath = 'uat';
+                // console.log('serverPath', serverPath);
+                if (serverPath === 'dev') {
+                    target = serveUrlMap.dev;
+                } else if (serverPath === 'test') {
+                    target = serveUrlMap.test;
+                } else if (serverPath === 'uat') {
+                    target = serveUrlMap.uat;
+                } else if (serverPath === 'prod') {
+                    target = serveUrlMap.prod;
+                }
+                if (token) {
+                    url = target + 'v1/ringme/infoFreeChat'; // Chat Queue khÃ´ng ngá»¯ cáº£nh
+                    // console.log('Chat Queue khÃ´ng ngá»¯ cáº£nh url', url);
+                    fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-type': 'application/json;charset=UTF-8',
+                            cApiKey: 19001111,
+                            Authorization: token,
+                        },
+                    })
+                        .then((response) => response.json())
+                        .then((json) => {
+                            RingmeOttSdk.openChatQueue(JSON.stringify(json.data), null, 5, true);
+                        })
+                        .catch((error) => console.error(error));
+                } else {
+                    url = target + 'public/ringme/getQueue?idDepartment=tct-cskh&idMission=5'; // Chat áº©n danh
+                    // console.log('Chat áº©n danh url', url);
+                    fetch(url, {
+                        method: 'GET',
+                    })
+                        .then((response) => response.json())
+                        .then((json) =>
+                            RingmeOttSdk.openChatAnonymous(
+                                JSON.stringify(json.data),
+                                5,
+                                function onOpen(e) {
+                                    // callback khi má» giao diá»n ÄÄng nháº­p áº©n danh thÃ nh cÃ´ng
+                                },
+                                function onClose(e) {
+                                    // callback khi ÄÃ³ng giao diá»n ÄÄng nháº­p áº©n danh
+                                },
+                            ),
+                        )
+                        .catch((error) => console.error(error));
+                }
+                // console.log('url', url);
+            };
+        </script> -->
+
+    <!-- <script type="text/javascript">
+            const serveUrlMap = {
+                dev: 'http://localhost:8889/',
+                test: 'http://10.15.119.63:8889/',
+                uat: 'https://my-uat.vnpost.vn/myvnp/',
+                prod: 'https://api-my.vnpost.vn/',
+            };
+            let target = '';
+            let url = '';
+            const serverPath = 'uat';
+            // console.log('serverPath', serverPath);
+            if (serverPath === 'dev') {
+                target = serveUrlMap.dev;
+            } else if (serverPath === 'test') {
+                target = serveUrlMap.test;
+            } else if (serverPath === 'uat') {
+                target = serveUrlMap.uat;
+            } else if (serverPath === 'prod') {
+                target = serveUrlMap.prod;
+            }
+            // console.log('target', target);
+            url = target + 'v1/ringme/login';
+            // console.log('url', url);
+            let token = localStorage.getItem('accessToken');
+            if (token) {
+                let currentUser = parseJwt(token);
+                // console.log('parseJwt(token)', currentUser);
+                // console.log('ÄÄng nháº­p SDK');
+                if (currentUser.isEmployee || currentUser.uid != currentUser.owner) {
+                    // KhÃ´ng hiá»n thá» icon Chat
+                    let element = document.getElementById('icon-chat');
+                    // console.log('element', element);
+                    element.setAttribute('hidden', 'hidden');
+                } else {
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-type': 'application/json;charset=UTF-8',
+                            cApiKey: 19001111,
+                            Authorization: token,
+                        },
+                        body: JSON.stringify({ status: 'REUSE', appId: 'MyVNPWeb' }),
+                    })
+                        .then((response) => response.json())
+                        .then((json) => {
+                            if (json.code === 200 && json.data != null) {
+                                callLogin(json.data);
+                            } else {
+                                // console.log('phone number does not exist');
+                            }
+                        })
+                        .catch((error) => console.error(error));
+                }
+                // ÄÄng nháº­p
+                function callLogin(data) {
+                    // console.log('callLogin data', data);
+                    window.addEventListener('load', (event) => {
+                        // console.log('init');
+                        try {
+                            RingmeOttSdk.init(
+                                {
+                                    authentication: 'login',
+                                    username: data.username,
+                                    token: data.password,
+                                    appId: 'MyVNPWeb',
+                                    titleBox: 'Há» trá»£ má»i lÃºc má»i nÆ¡i',
+                                },
+                                function onConnected(event) {
+                                    console.log('onConnected', event);
+                                },
+                                function onConnectFail(event) {
+                                    console.log(event);
+                                },
+                                function handleNumberUnread(numUnread) {
+                                    console.log('numUnread 123', numUnread); // tráº£ vá» sá» lÆ°á»£ng tin nháº¯n chÆ°a Äá»c
+                                    // document.getElementById('noti-unread-icon-chat').innerHTML = numUnread;
+                                    document.getElementsByClassName(
+                                        'noti-unread-number',
+                                    )[0].innerHTML = numUnread; //set cho chat á» RightContent trÃªn header
+                                },
+                                //Bá» xung
+                                function handleMessage(message) {
+                                    console.log(message); // tráº£ vá» thÃ´ng tin tin nháº¯n Äáº¿n
+                                },
+                                function handleOpenChat(result) {
+                                    // result á» dáº¡ng:
+                                    // {
+                                    // message: âSuccessâ , // âSuccessâ, âuser not existâ, âuser not onlineââ¦
+                                    // code: â01â, // mÃ£ tráº¡ng thÃ¡i á»©ng vá»i cÃ¡c trÆ°á»ng há»£p
+                                    //}
+                                    console.log(result); // tráº£ vá» thÃ´ng tin tin nháº¯n Äáº¿n
+                                },
+                                function handleOpenChatQueue(result) {
+                                    // result á» dáº¡ng:
+                                    // {
+                                    // message: âSuccessâ , // âSuccessâ, queue not existâ, â¦
+                                    // code: â01â, // mÃ£ tráº¡ng thÃ¡i á»©ng vá»i cÃ¡c trÆ°á»ng há»£p
+                                    //}
+                                    console.log(result); // tráº£ vá» thÃ´ng tin tin nháº¯n Äáº¿n
+                                },
+                                function handleMessage(message) {
+                                    console.log(message);
+                                },
+                                function onChatThreadChanged(result) {
+                                    console.log(result);
+                                },
+                                function onChatThreadCreated(result) {
+                                    console.log(result);
+                                },
+                                function onStatusChanged(result) {
+                                    console.log(result);
+                                },
+                            );
+                        } catch (error) {
+                            console.log('error', error);
+                        }
+                    });
+                }
+                // End ÄÄng nháº­p
+                // currentUser
+                function parseJwt(token) {
+                    var base64Url = token.split('.')[1];
+                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    var jsonPayload = decodeURIComponent(
+                        window
+                            .atob(base64)
+                            .split('')
+                            .map(function (c) {
+                                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                            })
+                            .join(''),
+                    );
+                    return JSON.parse(jsonPayload);
+                }
+                // END currentUser
+            } else {
+                console.log('ÄÄng xuáº¥t SDK');
+            }
+        </script> -->
+
+    <!-- END 18/11/2022 -->
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-SGLG4JFWX8"
+    ></script>
+    <script>
+      const serverPathGgTag = "uat";
+      if (serverPathGgTag === "prod" || serverPathGgTag === "uat") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+
+        gtag("config", "G-SGLG4JFWX8");
+      }
+    </script>
+
+    <!-- tá»± ÄÃ³ng cÃ¡i thÃ´ng bÃ¡o che háº¿t cmn mÃ n hÃ¬nh -->
+    <script>
+      setTimeout(() => {
+        const btnClose = document.getElementsByClassName("siqico-close");
+        if (btnClose && btnClose.length > 0) {
+          btnClose?.[0]?.click();
+        }
+      }, 5000);
+    </script>
+
+    <script src="/umi.86f405fa.js"></script>
+  </body>
+</html>
