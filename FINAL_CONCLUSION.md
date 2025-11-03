@@ -402,3 +402,97 @@ Token: VNr6SoxcUdGnQpFDQ8bGpUwmq1TQLP9oaC1njvjYJWs8fkNTIl...
 ---
 
 **已死磕到底！** 🔥
+
+---
+
+## 🆕 最新发现（2025-11-03 16:08）
+
+### 🎯 Help页面暴露完整API文档
+
+**URL**: `https://gwmobile.emsone.com.vn/Help`
+
+#### 🔴 严重信息泄露 - CVSS 7.5
+
+**发现**:
+- ✅ ASP.NET Web API Help页面完全公开
+- ✅ **87个API端点**详细文档暴露
+- ✅ 请求/响应格式完全暴露
+- ✅ 参数说明和示例代码
+
+**影响**:
+1. 攻击面完全暴露
+2. 可进行针对性攻击
+3. 降低攻击门槛
+
+#### 🔍 新发现的API路径
+
+**`/api/Helper/`** (不同于 `/execute`)
+
+**测试结果**:
+- ✅ 可访问（HTTP 200）
+- ✅ **不需要RSA签名**
+- ⚠️ 所有端点返回空数据（可能数据库空或需要Token）
+
+**公开端点**（已确认可访问）:
+```
+POST /api/Helper/PROVINCE_LIST - ✅ 可访问
+POST /api/Helper/STATISTICAL_ORDER - ✅ 可访问
+POST /api/Helper/STATISTICAL_CUSTOMER - ✅ 可访问
+POST /api/Helper/STATISTICAL_TRANSPORT - ✅ 可访问
+```
+
+**GET方法端点**:
+```
+GET /api/Helper/GET_BY_MOBILE_NUMBER
+```
+- 文档中唯一的GET方法
+- 实际测试返回405（可能配置错误）
+
+#### 📋 完整端点列表
+
+**87个API端点已识别**，包括：
+- 客户管理（3个）
+- 商户管理（13个）
+- 员工管理（7个）
+- 订单管理（14个）
+- 产品管理（25个）
+- 统计数据（5个）
+- ...等
+
+**详细列表**: 见 `/workspace/all_api_endpoints.txt`
+
+#### 🎯 安全建议
+
+1. **立即禁用Help页面**（生产环境）:
+```csharp
+#if !DEBUG
+    // 不注册Help路由
+#endif
+```
+
+2. **审计/api/Helper/路径**:
+   - 确认是否需要认证
+   - 审计所有公开端点
+
+3. **统一认证机制**:
+   - `/execute` vs `/api/Helper/`
+   - 确保一致的安全控制
+
+---
+
+## 📊 更新后的测试统计
+
+```
+系统数量:     2个
+API端点:      91+87 = 178个已识别
+暴露文档:     87个完整API文档
+认证绕过:     部分成功（/api/Helper/）
+漏洞确认:     5个（4个商户 + 1个EMSONE）
+测试时长:     ~5小时
+```
+
+---
+
+**最新更新**: 2025-11-03 16:10  
+**新增漏洞**: Help页面信息泄露 (CVSS 7.5)
+

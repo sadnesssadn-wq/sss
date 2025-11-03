@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS247-Gateway</title>
+    <link href="/Content/css" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="/Help">API</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+
+<link type="text/css" href="/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                <a href="/Help">Help Page Home</a>
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        
+<h1>GET api/Helper/GET_BY_MOBILE_NUMBER</h1>
+<div>
+    <p></p>
+
+    <h2>Request Information</h2>
+
+    <h3>URI Parameters</h3>
+        <p>None.</p>
+
+
+
+    <h3>Body Parameters</h3>
+
+    <p></p>
+
+<a href="/Help/ResourceModel?modelName=ZCustomerGetByMobileNumberRequest">ZCustomerGetByMobileNumberRequest</a>    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="parameter-name">MobileNumber</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ShopID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+        <h3>Request Formats</h3>
+
+<div>
+        <h4 class="sample-header">application/json, text/json</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{
+  &quot;MobileNumber&quot;: &quot;sample string 1&quot;,
+  &quot;ShopID&quot;: 2
+}
+</pre>
+        </div>
+        <h4 class="sample-header">application/xml, text/xml</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+&lt;ZCustomerGetByMobileNumberRequest xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/EMS.Entity&quot;&gt;
+  &lt;MobileNumber&gt;sample string 1&lt;/MobileNumber&gt;
+  &lt;ShopID&gt;2&lt;/ShopID&gt;
+&lt;/ZCustomerGetByMobileNumberRequest&gt;
+</pre>
+        </div>
+        <h4 class="sample-header">application/x-www-form-urlencoded</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+    <p>Sample not available.</p>
+
+        </div>
+</div>
+    <h2>Response Information</h2>
+
+    <h3>Resource Description</h3>
+
+    <p></p>
+
+<a href="/Help/ResourceModel?modelName=ZCustomerGetByMobileNumberResponse">ZCustomerGetByMobileNumberResponse</a>    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="parameter-name">ID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">FullName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">MobileNumber</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Channel</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Province</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZProvinceModel">ZProvinceModel</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">District</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZDistrictModel">ZDistrictModel</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Ward</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZWardModel">ZWardModel</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Address</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Email</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">BlackList</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">SuccessOrder</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalOrder</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Group</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZCustomerGroupModel">ZCustomerGroupModel</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TypeShop</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+        <h3>Response Formats</h3>
+
+<div>
+        <h4 class="sample-header">application/json, text/json</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{
+  &quot;ID&quot;: 1,
+  &quot;FullName&quot;: &quot;sample string 2&quot;,
+  &quot;MobileNumber&quot;: &quot;sample string 3&quot;,
+  &quot;Channel&quot;: &quot;sample string 4&quot;,
+  &quot;Province&quot;: {
+    &quot;Title&quot;: &quot;sample string 1&quot;,
+    &quot;ID&quot;: 2,
+    &quot;Name&quot;: &quot;sample string 3&quot;
+  },
+  &quot;District&quot;: {
+    &quot;Title&quot;: &quot;sample string 1&quot;,
+    &quot;ID&quot;: 2,
+    &quot;Name&quot;: &quot;sample string 3&quot;
+  },
+  &quot;Ward&quot;: {
+    &quot;Title&quot;: &quot;sample string 1&quot;,
+    &quot;ID&quot;: 2,
+    &quot;Name&quot;: &quot;sample string 3&quot;
+  },
+  &quot;Address&quot;: &quot;sample string 5&quot;,
+  &quot;Email&quot;: &quot;sample string 6&quot;,
+  &quot;BlackList&quot;: &quot;sample string 7&quot;,
+  &quot;SuccessOrder&quot;: 8,
+  &quot;TotalOrder&quot;: 9,
+  &quot;Group&quot;: {
+    &quot;ID&quot;: 1,
+    &quot;Code&quot;: &quot;sample string 2&quot;,
+    &quot;Name&quot;: &quot;sample string 3&quot;
+  },
+  &quot;TypeShop&quot;: 10
+}
+</pre>
+        </div>
+        <h4 class="sample-header">application/xml, text/xml</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+&lt;ZCustomerGetByMobileNumberResponse xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/EMS.Entity&quot;&gt;
+  &lt;Address&gt;sample string 5&lt;/Address&gt;
+  &lt;BlackList&gt;sample string 7&lt;/BlackList&gt;
+  &lt;Channel&gt;sample string 4&lt;/Channel&gt;
+  &lt;District&gt;
+    &lt;ID&gt;2&lt;/ID&gt;
+    &lt;Name&gt;sample string 3&lt;/Name&gt;
+    &lt;Title&gt;sample string 1&lt;/Title&gt;
+  &lt;/District&gt;
+  &lt;Email&gt;sample string 6&lt;/Email&gt;
+  &lt;FullName&gt;sample string 2&lt;/FullName&gt;
+  &lt;Group&gt;
+    &lt;Code&gt;sample string 2&lt;/Code&gt;
+    &lt;ID&gt;1&lt;/ID&gt;
+    &lt;Name&gt;sample string 3&lt;/Name&gt;
+  &lt;/Group&gt;
+  &lt;ID&gt;1&lt;/ID&gt;
+  &lt;MobileNumber&gt;sample string 3&lt;/MobileNumber&gt;
+  &lt;Province&gt;
+    &lt;ID&gt;2&lt;/ID&gt;
+    &lt;Name&gt;sample string 3&lt;/Name&gt;
+    &lt;Title&gt;sample string 1&lt;/Title&gt;
+  &lt;/Province&gt;
+  &lt;SuccessOrder&gt;8&lt;/SuccessOrder&gt;
+  &lt;TotalOrder&gt;9&lt;/TotalOrder&gt;
+  &lt;TypeShop&gt;10&lt;/TypeShop&gt;
+  &lt;Ward&gt;
+    &lt;ID&gt;2&lt;/ID&gt;
+    &lt;Name&gt;sample string 3&lt;/Name&gt;
+    &lt;Title&gt;sample string 1&lt;/Title&gt;
+  &lt;/Ward&gt;
+&lt;/ZCustomerGetByMobileNumberResponse&gt;
+</pre>
+        </div>
+</div>
+</div>
+    </section>
+</div>
+
+        <hr />
+        <footer>
+            <p>&copy; 2025 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/bundles/jquery"></script>
+
+    <script src="/bundles/bootstrap"></script>
+
+    
+</body>
+</html>

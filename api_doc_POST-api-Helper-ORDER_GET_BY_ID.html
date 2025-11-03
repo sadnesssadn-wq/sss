@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS247-Gateway</title>
+    <link href="/Content/css" rel="stylesheet"/>
+
+    <script src="/bundles/modernizr"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Application name</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="/Help">API</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        
+
+<link type="text/css" href="/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="content-wrapper">
+            <p>
+                <a href="/Help">Help Page Home</a>
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        
+<h1>POST api/Helper/ORDER_GET_BY_ID</h1>
+<div>
+    <p></p>
+
+    <h2>Request Information</h2>
+
+    <h3>URI Parameters</h3>
+        <p>None.</p>
+
+
+
+    <h3>Body Parameters</h3>
+
+    <p></p>
+
+<a href="/Help/ResourceModel?modelName=ZOrderGetByIDRequest">ZOrderGetByIDRequest</a>    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="parameter-name">ID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ShopID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+        <h3>Request Formats</h3>
+
+<div>
+        <h4 class="sample-header">application/json, text/json</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{
+  &quot;ID&quot;: 1,
+  &quot;ShopID&quot;: 2
+}
+</pre>
+        </div>
+        <h4 class="sample-header">application/xml, text/xml</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+&lt;ZOrderGetByIDRequest xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/EMS.Entity&quot;&gt;
+  &lt;ID&gt;1&lt;/ID&gt;
+  &lt;ShopID&gt;2&lt;/ShopID&gt;
+&lt;/ZOrderGetByIDRequest&gt;
+</pre>
+        </div>
+        <h4 class="sample-header">application/x-www-form-urlencoded</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+    <p>Sample not available.</p>
+
+        </div>
+</div>
+    <h2>Response Information</h2>
+
+    <h3>Resource Description</h3>
+
+    <p></p>
+
+<a href="/Help/ResourceModel?modelName=ZOrderGetByIDResponse">ZOrderGetByIDResponse</a>    <table class="help-page-table">
+        <thead>
+            <tr><th>Name</th><th>Description</th><th>Type</th><th>Additional information</th></tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td class="parameter-name">ID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">EMSOneCode</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">OrderCode</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">BatchCode</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Status</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">StatusName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">WareHouseID</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">WareHouseName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Customer</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZCustomerResponse">ZCustomerResponse</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalAmount</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalDiscount</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportFee</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ActualTransportFee</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalProductValue</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalOrderValue</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalCOD</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ActualTotalCOD</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TotalPHU</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">PaymentStatus</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">PaymentMethod</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">CreatedBy</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">CreatedDate</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Transport</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Channel</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Note</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">Message</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ReasonCancel</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">UpdatedDate</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">UpdatedName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportOrderName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportWeight</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ActualTransportWeight</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ExchangeTransportWeight</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportSizeLength</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportSizeWidth</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportSizeHeight</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        decimal number
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportQuantity</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportOrderValue</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportMainService</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportMainServiceName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportExtraService</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportExtraServiceName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportPayer</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TransportPayerName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ShipmentDetails</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZOrderAddShipmentInfoRequest">ZOrderAddShipmentInfoRequest</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">OrderItems</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/Help/ResourceModel?modelName=ZOrderItemGetByOrderIDResponse">ZOrderItemGetByOrderIDResponse</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">listWareHouse</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/Help/ResourceModel?modelName=ZWarehouseProductGetByVariantIDResponse">ZWarehouseProductGetByVariantIDResponse</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">CollectionType</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZBaseResponse">ZBaseResponse</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">TypeShop</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        integer
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ShippingCode</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">AcceptancePosCode</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ListUpdateInformation</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                                Collection of <a href="/Help/ResourceModel?modelName=ZRequestSupportHistorySearchListUpdateInformationResponse">ZRequestSupportHistorySearchListUpdateInformationResponse</a>
+
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">PlaceOfCreation</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">DeviceName</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">PostalType</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">ExpectedDeliveryDate</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        string
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="parameter-name">CollectionPostOfficeRecent</td>
+                    <td class="parameter-documentation">
+                        <p></p>
+                    </td>
+                    <td class="parameter-type">
+                        <a href="/Help/ResourceModel?modelName=ZCollectionPostOfficeSearchListResponse">ZCollectionPostOfficeSearchListResponse</a>
+                    </td>
+                    <td class="parameter-annotations">
+                            <p>None.</p>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+
+
+        <h3>Response Formats</h3>
+
+<div>
+        <h4 class="sample-header">application/json, text/json</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+{
+  &quot;ID&quot;: 1,
+  &quot;EMSOneCode&quot;: &quot;sample string 2&quot;,
+  &quot;OrderCode&quot;: &quot;sample string 3&quot;,
+  &quot;BatchCode&quot;: &quot;sample string 4&quot;,
+  &quot;Status&quot;: &quot;sample string 5&quot;,
+  &quot;StatusName&quot;: &quot;sample string 6&quot;,
+  &quot;WareHouseID&quot;: 7,
+  &quot;WareHouseName&quot;: &quot;sample string 8&quot;,
+  &quot;Customer&quot;: {
+    &quot;ID&quot;: 1,
+    &quot;FullName&quot;: &quot;sample string 2&quot;,
+    &quot;MobileNumber&quot;: &quot;sample string 3&quot;,
+    &quot;Email&quot;: &quot;sample string 4&quot;,
+    &quot;BlackList&quot;: &quot;sample string 5&quot;,
+    &quot;GroupCode&quot;: &quot;sample string 6&quot;,
+    &quot;GroupName&quot;: &quot;sample string 7&quot;,
+    &quot;ProvinceID&quot;: 8,
+    &quot;DistrictID&quot;: 9,
+    &quot;WardID&quot;: 10,
+    &quot;Address&quot;: &quot;sample string 11&quot;,
+    &quot;FullAddress&quot;: &quot;sample string 12&quot;,
+    &quot;SuccessOrder&quot;: 13,
+    &quot;TotalOrder&quot;: 14
+  },
+  &quot;TotalAmount&quot;: 9,
+  &quot;TotalDiscount&quot;: 10,
+  &quot;TransportFee&quot;: 11,
+  &quot;ActualTransportFee&quot;: 12,
+  &quot;TotalProductValue&quot;: 13,
+  &quot;TotalOrderValue&quot;: 14,
+  &quot;TotalCOD&quot;: 15,
+  &quot;ActualTotalCOD&quot;: 16,
+  &quot;TotalPHU&quot;: 17,
+  &quot;PaymentStatus&quot;: &quot;sample string 18&quot;,
+  &quot;PaymentMethod&quot;: 19,
+  &quot;CreatedBy&quot;: 20,
+  &quot;CreatedDate&quot;: &quot;sample string 21&quot;,
+  &quot;Transport&quot;: &quot;sample string 22&quot;,
+  &quot;Channel&quot;: &quot;sample string 23&quot;,
+  &quot;Note&quot;: &quot;sample string 24&quot;,
+  &quot;Message&quot;: &quot;sample string 25&quot;,
+  &quot;ReasonCancel&quot;: &quot;sample string 26&quot;,
+  &quot;UpdatedDate&quot;: &quot;sample string 27&quot;,
+  &quot;UpdatedName&quot;: &quot;sample string 28&quot;,
+  &quot;TransportOrderName&quot;: &quot;sample string 29&quot;,
+  &quot;TransportWeight&quot;: 30.1,
+  &quot;ActualTransportWeight&quot;: 31.1,
+  &quot;ExchangeTransportWeight&quot;: 32.1,
+  &quot;TransportSizeLength&quot;: 33.1,
+  &quot;TransportSizeWidth&quot;: 34.1,
+  &quot;TransportSizeHeight&quot;: 35.1,
+  &quot;TransportQuantity&quot;: 36,
+  &quot;TransportOrderValue&quot;: 37,
+  &quot;TransportMainService&quot;: 38,
+  &quot;TransportMainServiceName&quot;: &quot;sample string 39&quot;,
+  &quot;TransportExtraService&quot;: &quot;sample string 40&quot;,
+  &quot;TransportExtraServiceName&quot;: &quot;sample string 41&quot;,
+  &quot;TransportPayer&quot;: 42,
+  &quot;TransportPayerName&quot;: &quot;sample string 43&quot;,
+  &quot;ShipmentDetails&quot;: {
+    &quot;ReceiverName&quot;: &quot;sample string 1&quot;,
+    &quot;MobileNumber&quot;: &quot;sample string 2&quot;,
+    &quot;Channel&quot;: &quot;sample string 3&quot;,
+    &quot;Email&quot;: &quot;sample string 4&quot;,
+    &quot;ProvinceID&quot;: 5,
+    &quot;ProvinceName&quot;: &quot;sample string 6&quot;,
+    &quot;DistrictID&quot;: 7,
+    &quot;DistrictName&quot;: &quot;sample string 8&quot;,
+    &quot;WardID&quot;: 9,
+    &quot;WardName&quot;: &quot;sample string 10&quot;,
+    &quot;Address&quot;: &quot;sample string 11&quot;,
+    &quot;FullAddress&quot;: &quot;sample string 12&quot;,
+    &quot;PickUpAddressID&quot;: 13,
+    &quot;IsReceiverNewAddress&quot;: &quot;sample string 14&quot;,
+    &quot;PickupFullName&quot;: &quot;sample string 15&quot;,
+    &quot;PickupMobileNumber&quot;: &quot;sample string 16&quot;,
+    &quot;PickupProvinceID&quot;: 17,
+    &quot;PickupProvinceName&quot;: &quot;sample string 18&quot;,
+    &quot;PickupDistrictID&quot;: 19,
+    &quot;PickupDistrictName&quot;: &quot;sample string 20&quot;,
+    &quot;PickupWardID&quot;: 21,
+    &quot;PickupWardName&quot;: &quot;sample string 22&quot;,
+    &quot;PickupStreet&quot;: &quot;sample string 23&quot;,
+    &quot;PickupFullAddress&quot;: &quot;sample string 24&quot;
+  },
+  &quot;OrderItems&quot;: [
+    {
+      &quot;ID&quot;: 1,
+      &quot;ProductID&quot;: 2,
+      &quot;ProductCode&quot;: &quot;sample string 3&quot;,
+      &quot;ProductName&quot;: &quot;sample string 4&quot;,
+      &quot;VariantID&quot;: 5,
+      &quot;VariantSKU&quot;: &quot;sample string 6&quot;,
+      &quot;VariantName&quot;: &quot;sample string 7&quot;,
+      &quot;NumberOfProduct&quot;: 8,
+      &quot;Price&quot;: 9,
+      &quot;Discount&quot;: 10,
+      &quot;Weight&quot;: 11,
+      &quot;ProductVariantImage&quot;: &quot;sample string 12&quot;,
+      &quot;WareHouseQuantity&quot;: 13
+    },
+    {
+      &quot;ID&quot;: 1,
+      &quot;ProductID&quot;: 2,
+      &quot;ProductCode&quot;: &quot;sample string 3&quot;,
+      &quot;ProductName&quot;: &quot;sample string 4&quot;,
+      &quot;VariantID&quot;: 5,
+      &quot;VariantSKU&quot;: &quot;sample string 6&quot;,
+      &quot;VariantName&quot;: &quot;sample string 7&quot;,
+      &quot;NumberOfProduct&quot;: 8,
+      &quot;Price&quot;: 9,
+      &quot;Discount&quot;: 10,
+      &quot;Weight&quot;: 11,
+      &quot;ProductVariantImage&quot;: &quot;sample string 12&quot;,
+      &quot;WareHouseQuantity&quot;: 13
+    }
+  ],
+  &quot;listWareHouse&quot;: [
+    {
+      &quot;WarehouseProductID&quot;: 1,
+      &quot;WarehouseID&quot;: 2,
+      &quot;WarehouseName&quot;: &quot;sample string 3&quot;,
+      &quot;Quantity&quot;: 4,
+      &quot;FirstQuantity&quot;: 5,
+      &quot;QuantityIn&quot;: 6,
+      &quot;QuantityOut&quot;: 7,
+      &quot;QuantityAdjust&quot;: 8,
+      &quot;FinalQuantity&quot;: 9
+    },
+    {
+      &quot;WarehouseProductID&quot;: 1,
+      &quot;WarehouseID&quot;: 2,
+      &quot;WarehouseName&quot;: &quot;sample string 3&quot;,
+      &quot;Quantity&quot;: 4,
+      &quot;FirstQuantity&quot;: 5,
+      &quot;QuantityIn&quot;: 6,
+      &quot;QuantityOut&quot;: 7,
+      &quot;QuantityAdjust&quot;: 8,
+      &quot;FinalQuantity&quot;: 9
+    }
+  ],
+  &quot;CollectionType&quot;: {
+    &quot;ID&quot;: 1,
+    &quot;Title&quot;: 2,
+    &quot;Code&quot;: &quot;sample string 3&quot;,
+    &quot;Name&quot;: &quot;sample string 4&quot;
+  },
+  &quot;TypeShop&quot;: 44,
+  &quot;ShippingCode&quot;: &quot;sample string 45&quot;,
+  &quot;AcceptancePosCode&quot;: &quot;sample string 46&quot;,
+  &quot;ListUpdateInformation&quot;: [
+    {
+      &quot;RequestSupportType&quot;: {
+        &quot;ID&quot;: 1,
+        &quot;Title&quot;: 2,
+        &quot;Code&quot;: &quot;sample string 3&quot;,
+        &quot;Name&quot;: &quot;sample string 4&quot;
+      },
+      &quot;OldUpdateInformation&quot;: &quot;sample string 1&quot;,
+      &quot;NewUpdateInformation&quot;: &quot;sample string 2&quot;,
+      &quot;CreatedDate&quot;: &quot;sample string 3&quot;
+    },
+    {
+      &quot;RequestSupportType&quot;: {
+        &quot;ID&quot;: 1,
+        &quot;Title&quot;: 2,
+        &quot;Code&quot;: &quot;sample string 3&quot;,
+        &quot;Name&quot;: &quot;sample string 4&quot;
+      },
+      &quot;OldUpdateInformation&quot;: &quot;sample string 1&quot;,
+      &quot;NewUpdateInformation&quot;: &quot;sample string 2&quot;,
+      &quot;CreatedDate&quot;: &quot;sample string 3&quot;
+    }
+  ],
+  &quot;PlaceOfCreation&quot;: &quot;sample string 47&quot;,
+  &quot;DeviceName&quot;: &quot;sample string 48&quot;,
+  &quot;PostalType&quot;: &quot;sample string 49&quot;,
+  &quot;ExpectedDeliveryDate&quot;: &quot;sample string 50&quot;,
+  &quot;CollectionPostOfficeRecent&quot;: {
+    &quot;ID&quot;: 1,
+    &quot;CollectionPostOfficeCode&quot;: &quot;sample string 2&quot;,
+    &quot;CollectionPostOfficeName&quot;: &quot;sample string 3&quot;,
+    &quot;FullAddress&quot;: &quot;sample string 4&quot;
+  }
+}
+</pre>
+        </div>
+        <h4 class="sample-header">application/xml, text/xml</h4>
+        <div class="sample-content">
+            <span><b>Sample:</b></span>
+<pre class="wrapped">
+&lt;ZOrderGetByIDResponse xmlns:i=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns=&quot;http://schemas.datacontract.org/2004/07/EMS.Entity&quot;&gt;
+  &lt;AcceptancePosCode&gt;sample string 46&lt;/AcceptancePosCode&gt;
+  &lt;ActualTotalCOD&gt;16&lt;/ActualTotalCOD&gt;
+  &lt;ActualTransportFee&gt;12&lt;/ActualTransportFee&gt;
+  &lt;ActualTransportWeight&gt;31.1&lt;/ActualTransportWeight&gt;
+  &lt;BatchCode&gt;sample string 4&lt;/BatchCode&gt;
+  &lt;Channel&gt;sample string 23&lt;/Channel&gt;
+  &lt;CollectionPostOfficeRecent&gt;
+    &lt;CollectionPostOfficeCode&gt;sample string 2&lt;/CollectionPostOfficeCode&gt;
+    &lt;CollectionPostOfficeName&gt;sample string 3&lt;/CollectionPostOfficeName&gt;
+    &lt;FullAddress&gt;sample string 4&lt;/FullAddress&gt;
+    &lt;ID&gt;1&lt;/ID&gt;
+  &lt;/CollectionPostOfficeRecent&gt;
+  &lt;CollectionType&gt;
+    &lt;Code&gt;sample string 3&lt;/Code&gt;
+    &lt;ID&gt;1&lt;/ID&gt;
+    &lt;Name&gt;sample string 4&lt;/Name&gt;
+    &lt;Title&gt;2&lt;/Title&gt;
+  &lt;/CollectionType&gt;
+  &lt;CreatedBy&gt;20&lt;/CreatedBy&gt;
+  &lt;CreatedDate&gt;sample string 21&lt;/CreatedDate&gt;
+  &lt;Customer&gt;
+    &lt;Address&gt;sample string 11&lt;/Address&gt;
+    &lt;BlackList&gt;sample string 5&lt;/BlackList&gt;
+    &lt;DistrictID&gt;9&lt;/DistrictID&gt;
+    &lt;Email&gt;sample string 4&lt;/Email&gt;
+    &lt;FullAddress&gt;sample string 12&lt;/FullAddress&gt;
+    &lt;FullName&gt;sample string 2&lt;/FullName&gt;
+    &lt;GroupCode&gt;sample string 6&lt;/GroupCode&gt;
+    &lt;GroupName&gt;sample string 7&lt;/GroupName&gt;
+    &lt;ID&gt;1&lt;/ID&gt;
+    &lt;MobileNumber&gt;sample string 3&lt;/MobileNumber&gt;
+    &lt;ProvinceID&gt;8&lt;/ProvinceID&gt;
+    &lt;SuccessOrder&gt;13&lt;/SuccessOrder&gt;
+    &lt;TotalOrder&gt;14&lt;/TotalOrder&gt;
+    &lt;WardID&gt;10&lt;/WardID&gt;
+  &lt;/Customer&gt;
+  &lt;DeviceName&gt;sample string 48&lt;/DeviceName&gt;
+  &lt;EMSOneCode&gt;sample string 2&lt;/EMSOneCode&gt;
+  &lt;ExchangeTransportWeight&gt;32.1&lt;/ExchangeTransportWeight&gt;
+  &lt;ExpectedDeliveryDate&gt;sample string 50&lt;/ExpectedDeliveryDate&gt;
+  &lt;ID&gt;1&lt;/ID&gt;
+  &lt;ListUpdateInformation&gt;
+    &lt;ZRequestSupportHistorySearchListUpdateInformationResponse&gt;
+      &lt;CreatedDate&gt;sample string 3&lt;/CreatedDate&gt;
+      &lt;NewUpdateInformation&gt;sample string 2&lt;/NewUpdateInformation&gt;
+      &lt;OldUpdateInformation&gt;sample string 1&lt;/OldUpdateInformation&gt;
+      &lt;RequestSupportType&gt;
+        &lt;Code&gt;sample string 3&lt;/Code&gt;
+        &lt;ID&gt;1&lt;/ID&gt;
+        &lt;Name&gt;sample string 4&lt;/Name&gt;
+        &lt;Title&gt;2&lt;/Title&gt;
+      &lt;/RequestSupportType&gt;
+    &lt;/ZRequestSupportHistorySearchListUpdateInformationResponse&gt;
+    &lt;ZRequestSupportHistorySearchListUpdateInformationResponse&gt;
+      &lt;CreatedDate&gt;sample string 3&lt;/CreatedDate&gt;
+      &lt;NewUpdateInformation&gt;sample string 2&lt;/NewUpdateInformation&gt;
+      &lt;OldUpdateInformation&gt;sample string 1&lt;/OldUpdateInformation&gt;
+      &lt;RequestSupportType&gt;
+        &lt;Code&gt;sample string 3&lt;/Code&gt;
+        &lt;ID&gt;1&lt;/ID&gt;
+        &lt;Name&gt;sample string 4&lt;/Name&gt;
+        &lt;Title&gt;2&lt;/Title&gt;
+      &lt;/RequestSupportType&gt;
+    &lt;/ZRequestSupportHistorySearchListUpdateInformationResponse&gt;
+  &lt;/ListUpdateInformation&gt;
+  &lt;Message&gt;sample string 25&lt;/Message&gt;
+  &lt;Note&gt;sample string 24&lt;/Note&gt;
+  &lt;OrderCode&gt;sample string 3&lt;/OrderCode&gt;
+  &lt;OrderItems&gt;
+    &lt;ZOrderItemGetByOrderIDResponse&gt;
+      &lt;Discount&gt;10&lt;/Discount&gt;
+      &lt;ID&gt;1&lt;/ID&gt;
+      &lt;NumberOfProduct&gt;8&lt;/NumberOfProduct&gt;
+      &lt;Price&gt;9&lt;/Price&gt;
+      &lt;ProductCode&gt;sample string 3&lt;/ProductCode&gt;
+      &lt;ProductID&gt;2&lt;/ProductID&gt;
+      &lt;ProductName&gt;sample string 4&lt;/ProductName&gt;
+      &lt;ProductVariantImage&gt;sample string 12&lt;/ProductVariantImage&gt;
+      &lt;VariantID&gt;5&lt;/VariantID&gt;
+      &lt;VariantName&gt;sample string 7&lt;/VariantName&gt;
+      &lt;VariantSKU&gt;sample string 6&lt;/VariantSKU&gt;
+      &lt;WareHouseQuantity&gt;13&lt;/WareHouseQuantity&gt;
+      &lt;Weight&gt;11&lt;/Weight&gt;
+    &lt;/ZOrderItemGetByOrderIDResponse&gt;
+    &lt;ZOrderItemGetByOrderIDResponse&gt;
+      &lt;Discount&gt;10&lt;/Discount&gt;
+      &lt;ID&gt;1&lt;/ID&gt;
+      &lt;NumberOfProduct&gt;8&lt;/NumberOfProduct&gt;
+      &lt;Price&gt;9&lt;/Price&gt;
+      &lt;ProductCode&gt;sample string 3&lt;/ProductCode&gt;
+      &lt;ProductID&gt;2&lt;/ProductID&gt;
+      &lt;ProductName&gt;sample string 4&lt;/ProductName&gt;
+      &lt;ProductVariantImage&gt;sample string 12&lt;/ProductVariantImage&gt;
+      &lt;VariantID&gt;5&lt;/VariantID&gt;
+      &lt;VariantName&gt;sample string 7&lt;/VariantName&gt;
+      &lt;VariantSKU&gt;sample string 6&lt;/VariantSKU&gt;
+      &lt;WareHouseQuantity&gt;13&lt;/WareHouseQuantity&gt;
+      &lt;Weight&gt;11&lt;/Weight&gt;
+    &lt;/ZOrderItemGetByOrderIDResponse&gt;
+  &lt;/OrderItems&gt;
+  &lt;PaymentMethod&gt;19&lt;/PaymentMethod&gt;
+  &lt;PaymentStatus&gt;sample string 18&lt;/PaymentStatus&gt;
+  &lt;PlaceOfCreation&gt;sample string 47&lt;/PlaceOfCreation&gt;
+  &lt;PostalType&gt;sample string 49&lt;/PostalType&gt;
+  &lt;ReasonCancel&gt;sample string 26&lt;/ReasonCancel&gt;
+  &lt;ShipmentDetails&gt;
+    &lt;Address&gt;sample string 11&lt;/Address&gt;
+    &lt;Channel&gt;sample string 3&lt;/Channel&gt;
+    &lt;DistrictID&gt;7&lt;/DistrictID&gt;
+    &lt;DistrictName&gt;sample string 8&lt;/DistrictName&gt;
+    &lt;Email&gt;sample string 4&lt;/Email&gt;
+    &lt;FullAddress&gt;sample string 12&lt;/FullAddress&gt;
+    &lt;IsReceiverNewAddress&gt;sample string 14&lt;/IsReceiverNewAddress&gt;
+    &lt;MobileNumber&gt;sample string 2&lt;/MobileNumber&gt;
+    &lt;PickUpAddressID&gt;13&lt;/PickUpAddressID&gt;
+    &lt;PickupDistrictID&gt;19&lt;/PickupDistrictID&gt;
+    &lt;PickupDistrictName&gt;sample string 20&lt;/PickupDistrictName&gt;
+    &lt;PickupFullAddress&gt;sample string 24&lt;/PickupFullAddress&gt;
+    &lt;PickupFullName&gt;sample string 15&lt;/PickupFullName&gt;
+    &lt;PickupMobileNumber&gt;sample string 16&lt;/PickupMobileNumber&gt;
+    &lt;PickupProvinceID&gt;17&lt;/PickupProvinceID&gt;
+    &lt;PickupProvinceName&gt;sample string 18&lt;/PickupProvinceName&gt;
+    &lt;PickupStreet&gt;sample string 23&lt;/PickupStreet&gt;
+    &lt;PickupWardID&gt;21&lt;/PickupWardID&gt;
+    &lt;PickupWardName&gt;sample string 22&lt;/PickupWardName&gt;
+    &lt;ProvinceID&gt;5&lt;/ProvinceID&gt;
+    &lt;ProvinceName&gt;sample string 6&lt;/ProvinceName&gt;
+    &lt;ReceiverName&gt;sample string 1&lt;/ReceiverName&gt;
+    &lt;WardID&gt;9&lt;/WardID&gt;
+    &lt;WardName&gt;sample string 10&lt;/WardName&gt;
+  &lt;/ShipmentDetails&gt;
+  &lt;ShippingCode&gt;sample string 45&lt;/ShippingCode&gt;
+  &lt;Status&gt;sample string 5&lt;/Status&gt;
+  &lt;StatusName&gt;sample string 6&lt;/StatusName&gt;
+  &lt;TotalAmount&gt;9&lt;/TotalAmount&gt;
+  &lt;TotalCOD&gt;15&lt;/TotalCOD&gt;
+  &lt;TotalDiscount&gt;10&lt;/TotalDiscount&gt;
+  &lt;TotalOrderValue&gt;14&lt;/TotalOrderValue&gt;
+  &lt;TotalPHU&gt;17&lt;/TotalPHU&gt;
+  &lt;TotalProductValue&gt;13&lt;/TotalProductValue&gt;
+  &lt;Transport&gt;sample string 22&lt;/Transport&gt;
+  &lt;TransportExtraService&gt;sample string 40&lt;/TransportExtraService&gt;
+  &lt;TransportExtraServiceName&gt;sample string 41&lt;/TransportExtraServiceName&gt;
+  &lt;TransportFee&gt;11&lt;/TransportFee&gt;
+  &lt;TransportMainService&gt;38&lt;/TransportMainService&gt;
+  &lt;TransportMainServiceName&gt;sample string 39&lt;/TransportMainServiceName&gt;
+  &lt;TransportOrderName&gt;sample string 29&lt;/TransportOrderName&gt;
+  &lt;TransportOrderValue&gt;37&lt;/TransportOrderValue&gt;
+  &lt;TransportPayer&gt;42&lt;/TransportPayer&gt;
+  &lt;TransportPayerName&gt;sample string 43&lt;/TransportPayerName&gt;
+  &lt;TransportQuantity&gt;36&lt;/TransportQuantity&gt;
+  &lt;TransportSizeHeight&gt;35.1&lt;/TransportSizeHeight&gt;
+  &lt;TransportSizeLength&gt;33.1&lt;/TransportSizeLength&gt;
+  &lt;TransportSizeWidth&gt;34.1&lt;/TransportSizeWidth&gt;
+  &lt;TransportWeight&gt;30.1&lt;/TransportWeight&gt;
+  &lt;TypeShop&gt;44&lt;/TypeShop&gt;
+  &lt;UpdatedDate&gt;sample string 27&lt;/UpdatedDate&gt;
+  &lt;UpdatedName&gt;sample string 28&lt;/UpdatedName&gt;
+  &lt;WareHouseID&gt;7&lt;/WareHouseID&gt;
+  &lt;WareHouseName&gt;sample string 8&lt;/WareHouseName&gt;
+  &lt;listWareHouse&gt;
+    &lt;ZWarehouseProductGetByVariantIDResponse&gt;
+      &lt;FinalQuantity&gt;9&lt;/FinalQuantity&gt;
+      &lt;FirstQuantity&gt;5&lt;/FirstQuantity&gt;
+      &lt;Quantity&gt;4&lt;/Quantity&gt;
+      &lt;QuantityAdjust&gt;8&lt;/QuantityAdjust&gt;
+      &lt;QuantityIn&gt;6&lt;/QuantityIn&gt;
+      &lt;QuantityOut&gt;7&lt;/QuantityOut&gt;
+      &lt;WarehouseID&gt;2&lt;/WarehouseID&gt;
+      &lt;WarehouseName&gt;sample string 3&lt;/WarehouseName&gt;
+      &lt;WarehouseProductID&gt;1&lt;/WarehouseProductID&gt;
+    &lt;/ZWarehouseProductGetByVariantIDResponse&gt;
+    &lt;ZWarehouseProductGetByVariantIDResponse&gt;
+      &lt;FinalQuantity&gt;9&lt;/FinalQuantity&gt;
+      &lt;FirstQuantity&gt;5&lt;/FirstQuantity&gt;
+      &lt;Quantity&gt;4&lt;/Quantity&gt;
+      &lt;QuantityAdjust&gt;8&lt;/QuantityAdjust&gt;
+      &lt;QuantityIn&gt;6&lt;/QuantityIn&gt;
+      &lt;QuantityOut&gt;7&lt;/QuantityOut&gt;
+      &lt;WarehouseID&gt;2&lt;/WarehouseID&gt;
+      &lt;WarehouseName&gt;sample string 3&lt;/WarehouseName&gt;
+      &lt;WarehouseProductID&gt;1&lt;/WarehouseProductID&gt;
+    &lt;/ZWarehouseProductGetByVariantIDResponse&gt;
+  &lt;/listWareHouse&gt;
+&lt;/ZOrderGetByIDResponse&gt;
+</pre>
+        </div>
+</div>
+</div>
+    </section>
+</div>
+
+        <hr />
+        <footer>
+            <p>&copy; 2025 - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="/bundles/jquery"></script>
+
+    <script src="/bundles/bootstrap"></script>
+
+    
+</body>
+</html>
