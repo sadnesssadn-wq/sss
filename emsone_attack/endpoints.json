@@ -1,0 +1,40 @@
+[
+  {
+    "url": "https://emsone.com.vn/Account/",
+    "status": 200,
+    "length": 11052,
+    "headers": {
+      "Cache-Control": "private",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Encoding": "gzip",
+      "Vary": "Accept-Encoding",
+      "Server": "Microsoft-IIS/10.0",
+      "X-AspNetMvc-Version": "5.2",
+      "X-AspNet-Version": "4.0.30319",
+      "Set-Cookie": "ASP.NET_SessionId=ocf03obucx4pqiwiqlpxnqip; path=/; HttpOnly; SameSite=Lax, .ASPXAUTH=; expires=Mon, 11-Oct-1999 17:00:00 GMT; path=/; HttpOnly; SameSite=Lax, panelIdCookie=; expires=Tue, 04-Nov-2025 13:01:08 GMT; path=/",
+      "X-Powered-By": "ASP.NET",
+      "Date": "Wed, 05 Nov 2025 13:01:08 GMT",
+      "Content-Length": "3672"
+    },
+    "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c"
+  },
+  {
+    "url": "https://emsone.com.vn/Account/Logout",
+    "status": 200,
+    "length": 11052,
+    "headers": {
+      "Cache-Control": "private",
+      "Content-Type": "text/html; charset=utf-8",
+      "Content-Encoding": "gzip",
+      "Vary": "Accept-Encoding",
+      "Server": "Microsoft-IIS/10.0",
+      "X-AspNetMvc-Version": "5.2",
+      "X-AspNet-Version": "4.0.30319",
+      "Set-Cookie": ".ASPXAUTH=; expires=Mon, 11-Oct-1999 17:00:00 GMT; path=/; HttpOnly; SameSite=Lax, panelIdCookie=; expires=Tue, 04-Nov-2025 13:01:09 GMT; path=/",
+      "X-Powered-By": "ASP.NET",
+      "Date": "Wed, 05 Nov 2025 13:01:08 GMT",
+      "Content-Length": "3672"
+    },
+    "content": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c"
+  }
+]

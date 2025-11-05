@@ -1,0 +1,58 @@
+{
+  "target": "https://emsone.com.vn",
+  "login_status": "成功",
+  "user_info": {
+    "ID": 4125,
+    "UserName": "ADMIN",
+    "FullName": "Trương Đức Hiếu",
+    "MobileNumber": "0902955198",
+    "Email": "rhi.sgnbr.accounting.mgr@renaissancehotels.com"
+  },
+  "discovered_endpoints": [
+    "/Account/JLogin",
+    "/Account/Logout",
+    "/Handle/SearchListCustomer",
+    "/Handle/SearchListProvince",
+    "/Handle/SearchListWardByDistrictID",
+    "/Handle/SearchListWareHouse",
+    "/Handle/SearchListFunctionalByGroupPermissionID",
+    "/Handle/SearchListProductVariantByWareHouseID",
+    "/Handle/TransportPostageCharged",
+    "/Handle/SearchPWDByVMapCode",
+    "/Handle/SearchPWDByVNPMapsAutocomplete",
+    "/Handle/SearchPWDByVNPMapsSearch",
+    "/Handle/SearchPWDByEMSVMapsSearch",
+    "/Handle/SearchPWDByEMSMapsSearch",
+    "/Handle/VNPMapsAutocomplete",
+    "/Handle/SearchListDistrictByProvinceID"
+  ],
+  "vulnerabilities": [
+    {
+      "type": "IDOR",
+      "description": "多个端点存在IDOR，可访问其他用户/区域数据",
+      "endpoints": [
+        "/Handle/SearchListWardByDistrictID",
+        "/Handle/SearchListProvince"
+      ]
+    },
+    {
+      "type": "信息泄露",
+      "description": "多个端点返回敏感数据（客户、省份、区县、仓库、权限）",
+      "endpoints": [
+        "/Handle/SearchListCustomer",
+        "/Handle/SearchListProvince",
+        "/Handle/SearchListWardByDistrictID",
+        "/Handle/SearchListWareHouse",
+        "/Handle/SearchListFunctionalByGroupPermissionID"
+      ]
+    }
+  ],
+  "extracted_data": {
+    "customers": 0,
+    "provinces": 63,
+    "wards": 0,
+    "warehouses": 0,
+    "permissions": 0,
+    "users": 0
+  }
+}

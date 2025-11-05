@@ -1,0 +1,16 @@
+Status: 200
+Headers:
+{
+  "Cache-Control": "private",
+  "Content-Type": "application/json; charset=utf-8",
+  "Server": "Microsoft-IIS/10.0",
+  "X-AspNetMvc-Version": "5.2",
+  "X-AspNet-Version": "4.0.30319",
+  "Set-Cookie": ".ASPXAUTH=9AAABD844D8ABA71893548D13D33B45092F571D605F9C3D5E0F87CF8B5BBFF116A69590DBEA1BFA21CF8AA82B308834B1A0E6A8FC47784CC0F31BA76A62FBA23D9D8820D29C57246824D69334BF119CAA2285596253A28E92BD2395FE913BA9A; path=/; HttpOnly; SameSite=Lax, panelIdCookie=UserID=Yt/XwV1vLYyf+rVijGyCDA==; expires=Wed, 19-Nov-2025 13:01:01 GMT; path=/",
+  "X-Powered-By": "ASP.NET",
+  "Date": "Wed, 05 Nov 2025 13:01:01 GMT",
+  "Content-Length": "1500"
+}
+
+Response:
+{"Code":"00","Message":"Đăng nhập thành công","Data":"{\"ID\":4125,\"UserName\":\"ADMIN\",\"FullName\":\"Trương Đức Hiếu\",\"MobileNumber\":\"0902955198\",\"Email\":\"rhi.sgnbr.accounting.mgr@renaissancehotels.com\",\"IsLock\":\"N\",\"Password\":null,\"EmployeeLevel\":\"\",\"GroupPermissionID\":0,\"StoreOwner\":\"Y\",\"ReadyReceiveRequestOrder\":\"Y\",\"ShopInformation\":{\"ID\":4652,\"FullName\":\"Trương Đức Hiếu\",\"Email\":\"rhi.sgnbr.accounting.mgr@renaissancehotels.com\",\"StoreName\":\"CÔNG TY LIÊN DOANH KHÁCH SẠN SAIGON RIVERSIDE\",\"MobileNumber\":\"0902955198\",\"FullAddress\":\"8-15 Tôn Đức Thắng, Bến Nghé, Quận Quận 1, Thành phố Hồ Chí Minh.\",\"TaxCode\":\"\",\"CrmOrPayPostCode\":\"17235658477635\",\"ContractNumber\":\"\",\"Level\":1,\"IsLock\":\"N\",\"EndDate\":\"7/31/2122 11:03:54 AM\",\"PickupAddressID\":3025,\"PickupName\":\"MẶC ĐỊNH\",\"PickupFullName\":\"CÔNG TY LIÊN DOANH KHÁCH SẠN SAIGON RIVERSIDE\",\"PickupMobileNumber\":\"0902955198\",\"PickupProvinceID\":70,\"PickupProvinceName\":\"Hồ Chí Minh\",\"PickupDistrictID\":7100,\"PickupDistrictName\":\"Q. 1\",\"PickupWardID\":71000,\"PickupWardName\":\"P. Bến Nghé\",\"PickupStreet\":\"8-15 Tôn Đức Thắng\",\"PickupFullAddress\":\"8-15 Tôn Đức Thắng, Bến Nghé, Quận Quận 1, Thành phố Hồ Chí Minh.\",\"CollectionType\":1,\"PrintTypeDefault\":\"Label\",\"Status\":\"A\",\"TypeShop\":1}}","Time":"05/11/2025 20:01:01","Signature":null}
