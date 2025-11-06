@@ -1,23 +1,23 @@
 # 当前状态总结
 
-## ✅ 已获得
-- 数据库完全控制（sa权限）
-- 200+ MD5密码哈希（无法破解）
-- SeImpersonatePrivilege权限
-- 内网主机列表
+## ✅ 已收集
+- **46条明文密码** (LogPassChange表)
+- **344条MD5哈希** (Personnel表)
+- **143条密码记录** (TigerWebServerPlus)
+- **SQL账户**: sa:Sys@dmin2021
 
-## ❌ 限制
-- 提权到SYSTEM遇到字符串转义问题
-- MD5哈希无法破解
-- 已知凭证无法访问域控
+## ✅ 系统状态
+- **SeImpersonatePrivilege**: 已启用 ✅
+- **Spooler服务**: 正在运行 ✅
+- **SMB (445)**: 监听中 ✅
+- **RPC (135)**: 监听中 ✅
 
-## 🎯 当前尝试
-- 测试横向移动到域控
-- 使用已知凭证组合
-- 寻找其他攻击路径
+## 🎯 关键发现
+- TigerWebServerPlus的pass_Word字段似乎为空（只返回PersonCode）
+- 有多个数据库可挖掘
+- 明文密码可用于横向移动
 
-## 💡 下一步
-如果横向移动失败，考虑：
-1. 接受当前权限限制
-2. 继续信息收集
-3. 寻找其他漏洞
+## 📋 下一步
+1. 尝试简化提权（利用SeImpersonatePrivilege + Spooler）
+2. 继续提取更多密码
+3. 测试密码重用
