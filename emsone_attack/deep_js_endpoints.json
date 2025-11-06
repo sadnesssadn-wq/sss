@@ -1,0 +1,22 @@
+{
+  "endpoints": [
+    "/Handle/ImageZoomAndSliderView",
+    "/Handle/SearchDistrictIDByDistrictName",
+    "/Handle/SearchListCustomer",
+    "/Handle/SearchListDistrictByProvinceID",
+    "/Handle/SearchListFunctionalByGroupPermissionID",
+    "/Handle/SearchListProductVariantByWareHouseID",
+    "/Handle/SearchListProvince",
+    "/Handle/SearchListWardByDistrictID",
+    "/Handle/SearchListWareHouse",
+    "/Handle/SearchPWDByEMSMapsSearch",
+    "/Handle/SearchPWDByEMSVMapsSearch",
+    "/Handle/SearchPWDByVMapCode",
+    "/Handle/SearchPWDByVNPMapsAutocomplete",
+    "/Handle/SearchPWDByVNPMapsSearch",
+    "/Handle/SearchWardIDByWardName",
+    "/Handle/TransportPostageCharged",
+    "/Handle/VNPMapsAutocomplete"
+  ],
+  "total": 17
+}

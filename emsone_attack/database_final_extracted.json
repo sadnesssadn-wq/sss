@@ -1,0 +1,31 @@
+{
+  "api_data": {
+    "/Handle/SearchListProvince": {
+      "count": 63,
+      "sample": [
+        {
+          "ID": 88,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh An Giang"
+        },
+        {
+          "ID": 79,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh Bà Rịa - Vũng Tàu"
+        },
+        {
+          "ID": 82,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh Bình Dương"
+        }
+      ]
+    },
+    "/Handle/SearchListWardByDistrictID": {
+      "count": 0,
+      "sample": []
+    }
+  }
+}

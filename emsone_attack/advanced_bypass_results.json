@@ -1,0 +1,19 @@
+{
+  "api_endpoints": [
+    {
+      "url": "https://emsone.com.vn/Account/Logout",
+      "method": "GET",
+      "status": 200,
+      "length": 11052
+    },
+    {
+      "url": "https://emsone.com.vn/Account/Logout",
+      "method": "POST",
+      "status": 200,
+      "length": 11052
+    }
+  ],
+  "idor": [],
+  "sqli": [],
+  "file_operations": []
+}

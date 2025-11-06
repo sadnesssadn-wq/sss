@@ -1,0 +1,255 @@
+{
+  "js_endpoints": [
+    "/Handle/SearchListProductVariantByWareHouseID?WareHouseID=",
+    "/Handle/SearchPWDByVMapCode",
+    "/Handle/SearchPWDByVNPMapsAutocomplete",
+    "/Handle/SearchPWDByVNPMapsSearch",
+    "/Handle/SearchDistrictIDByDistrictName?ProvinceID=",
+    "/Handle/VNPMapsAutocomplete",
+    "/Handle/SearchPWDByEMSVMapsSearch",
+    "/Account/RegisterView",
+    "/Handle/SearchListWardByDistrictID?DistrictID=",
+    "/Handle/SearchListCustomer",
+    "/Handle/TransportPostageCharged",
+    "/Account/JLogin",
+    "/Handle/SearchPWDByEMSMapsSearch",
+    "/Handle/SearchListProvince?Type=",
+    "/Handle/SearchListFunctionalByGroupPermissionID?GroupPermissionID=",
+    "/Handle/SearchListDistrictByProvinceID?ProvinceID=",
+    "/Handle/ImageZoomAndSliderView",
+    "/Handle/SearchWardIDByWardName?DistrictID=",
+    "/Handle/SearchListWareHouse"
+  ],
+  "api_endpoints": [
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListProductVariantByWareHouseID?WareHouseID=",
+      "status": 200,
+      "length": 2,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:34 GMT",
+        "Content-Length": "2"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchPWDByVMapCode",
+      "status": 200,
+      "length": 138,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:35 GMT",
+        "Content-Length": "138"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchPWDByVNPMapsAutocomplete",
+      "status": 200,
+      "length": 115,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:35 GMT",
+        "Content-Length": "115"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchPWDByVNPMapsSearch",
+      "status": 200,
+      "length": 115,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:36 GMT",
+        "Content-Length": "115"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/VNPMapsAutocomplete",
+      "status": 200,
+      "length": 138,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:36 GMT",
+        "Content-Length": "138"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchPWDByEMSVMapsSearch",
+      "status": 200,
+      "length": 86,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:39 GMT",
+        "Content-Length": "86"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Account/RegisterView",
+      "status": 200,
+      "length": 22924,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "text/html; charset=utf-8",
+        "Content-Encoding": "gzip",
+        "Vary": "Accept-Encoding",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:41 GMT",
+        "Content-Length": "5823"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListWardByDistrictID?DistrictID=",
+      "status": 200,
+      "length": 53313,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:41 GMT",
+        "Content-Length": "53313"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListCustomer",
+      "status": 200,
+      "length": 2,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:43 GMT",
+        "Content-Length": "2"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/TransportPostageCharged",
+      "status": 200,
+      "length": 246,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:43 GMT",
+        "Content-Length": "246"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchPWDByEMSMapsSearch",
+      "status": 200,
+      "length": 86,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:45 GMT",
+        "Content-Length": "86"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListProvince?Type=",
+      "status": 200,
+      "length": 3986,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:45 GMT",
+        "Content-Length": "3986"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListFunctionalByGroupPermissionID?GroupPermissionID=",
+      "status": 200,
+      "length": 2,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:46 GMT",
+        "Content-Length": "2"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListDistrictByProvinceID?ProvinceID=",
+      "status": 200,
+      "length": 2,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:46 GMT",
+        "Content-Length": "2"
+      }
+    },
+    {
+      "url": "https://emsone.com.vn/Handle/SearchListWareHouse",
+      "status": 200,
+      "length": 2,
+      "headers": {
+        "Cache-Control": "private",
+        "Content-Type": "application/json; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-AspNetMvc-Version": "5.2",
+        "X-AspNet-Version": "4.0.30319",
+        "X-Powered-By": "ASP.NET",
+        "Date": "Wed, 05 Nov 2025 13:03:48 GMT",
+        "Content-Length": "2"
+      }
+    }
+  ],
+  "directories": [],
+  "parameters": [],
+  "sensitive_info": []
+}

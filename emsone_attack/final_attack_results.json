@@ -1,0 +1,119 @@
+{
+  "api_data": {
+    "/Handle/SearchListProvince_": {
+      "count": 63,
+      "sample": [
+        {
+          "ID": 88,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh An Giang"
+        },
+        {
+          "ID": 79,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh Bà Rịa - Vũng Tàu"
+        },
+        {
+          "ID": 82,
+          "Code": null,
+          "Title": null,
+          "Name": "Tỉnh Bình Dương"
+        }
+      ]
+    },
+    "/Handle/SearchListDistrictByProvinceID_ProvinceID=10": {
+      "count": 30,
+      "sample": [
+        {
+          "ID": 1580,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Phú Xuyên"
+        },
+        {
+          "ID": 1557,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Quốc Oai"
+        },
+        {
+          "ID": 1576,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Mỹ Đức"
+        }
+      ]
+    },
+    "/Handle/SearchListDistrictByProvinceID_ProvinceID=16": {
+      "count": 10,
+      "sample": [
+        {
+          "ID": 1625,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Khoái Châu"
+        },
+        {
+          "ID": 1635,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Văn Lâm"
+        },
+        {
+          "ID": 1622,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Kim Động"
+        }
+      ]
+    },
+    "/Handle/SearchListDistrictByProvinceID_ProvinceID=17": {
+      "count": 15,
+      "sample": [
+        {
+          "ID": 1738,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Kinh Môn"
+        },
+        {
+          "ID": 1727,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Thanh Hà"
+        },
+        {
+          "ID": 1747,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Cẩm Giàng"
+        }
+      ]
+    },
+    "/Handle/SearchListDistrictByProvinceID_ProvinceID=18": {
+      "count": 16,
+      "sample": [
+        {
+          "ID": 1853,
+          "Code": null,
+          "Title": null,
+          "Name": "H. An Lão"
+        },
+        {
+          "ID": 1871,
+          "Code": null,
+          "Title": null,
+          "Name": "Q. Đồ Sơn"
+        },
+        {
+          "ID": 1867,
+          "Code": null,
+          "Title": null,
+          "Name": "H. Kiến Thụy"
+        }
+      ]
+    }
+  }
+}
