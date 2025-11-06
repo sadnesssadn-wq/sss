@@ -1,0 +1,134 @@
+# 提取的密码哈希列表
+
+## 关键发现
+- PersonnelNo: 346, Email: thanatorn.m@bpi.ac.th (管理员账户，但密码字段为空)
+
+## 提取的密码哈希（MD5）
+
+### 带邮箱的用户
+1. PersonnelNo: xxxx, Email: mizae.chin@gmail.com, Hash: 1baf2ae0b15bb50196f3161f489c262c
+2. PersonnelNo: 571, Email: watcharapong.b@outlook.com, Hash: e52210c90eb72c517161e653affa58d8
+3. PersonnelNo: 1076, Email: surasak.dodo@gmail.com, Hash: 7e035d88164182c512a9bd871c1bbe85
+4. PersonnelNo: 602, Email: chanthaduang.2539@gmail.com, Hash: b6603398c4e628056b9f18e359802616
+5. PersonnelNo: 1095, Email: tooktik.thuksaporn@gmail.com, Hash: 5123c1441a2607e5353e18e59aef1230
+
+### 其他用户哈希
+PersonnelNo: 2, Hash: 94c66d683094f736081efe684b962333
+PersonnelNo: 6, Hash: dca04f9abcced28a52dc86dd7e07ffae
+PersonnelNo: 22, Hash: 6624e1718cd9cc2ee2b211df02cbfef9
+PersonnelNo: 255, Hash: c0f4bf7977259bd5325aa4ef0849f9ad
+PersonnelNo: 29, Hash: 542bd643fa73d703e3a8369b5a62f1bf
+PersonnelNo: 257, Hash: 71aaed891088fd8b8b0e80aacb4b3be3
+PersonnelNo: 26, Hash: 0094f3247b6264b695bab4b27f2e9311
+PersonnelNo: 176, Hash: 2c90158bde1858213775aafa2ee4614d
+PersonnelNo: 887, Hash: a85529cf2d7279f7a484a589cc7668ea
+PersonnelNo: 8, Hash: 7cbc30668d9b47ab6fd398f6388f1b91
+PersonnelNo: 1047, Hash: 85f0875efee97f245ddddd40e267dfa9
+PersonnelNo: 27, Hash: 5d18b7e129077b86d5358c3759bfc782
+PersonnelNo: 501, Hash: 069f79cc917bca14ddab7bce43fcfe4d
+PersonnelNo: 15, Hash: c2f040245920e407fce61f38787f7b3f
+PersonnelNo: 24, Hash: 72a941bce779a201555fc451fd5a0828
+PersonnelNo: 181, Hash: c5cca8d129beb684b372c1e3114db83c
+PersonnelNo: 37, Hash: 485898534142a17ea1609233eb6f1b11
+PersonnelNo: 30, Hash: 15010e5efa9a2a827aeaf4f03baeceb5
+PersonnelNo: 70, Hash: 19d65b45b86db41534f1bd99c262f1b4
+PersonnelNo: 32, Hash: 7a5360a348ddeead10d798804bc8d426
+PersonnelNo: 34, Hash: 9633b71738525e256710ea3787764f81
+PersonnelNo: 33, Hash: f80ee9bc2d36dca346c28bcb751fd82b
+PersonnelNo: 99, Hash: 450d467d26df711e06d4b9972bae0fd4
+PersonnelNo: 148, Hash: d5adb13715efde43d8750b9ee18c97e0
+PersonnelNo: 364, Hash: d3b8a511d5ca7d0c3572fa7102dd848f
+PersonnelNo: 1063, Hash: dac03ce0158b41e5581a2c9619842f72
+PersonnelNo: 38, Hash: 07d536f57b29f0834f846bf5ff32f623
+PersonnelNo: 169, Hash: 7eb48d2e2bb5698d60eb50274e45f666
+PersonnelNo: 267, Hash: 2c3d1d63c0e58ca62655cf7cb7505829
+PersonnelNo: 128, Hash: 4e6dc1a1a07bfd5aebdc9e9f0ca15181
+PersonnelNo: 615, Hash: 1a4d52763325467e00a67312b2027e22
+PersonnelNo: 22, Hash: 923459833382efcf7331cb478c6f0267
+PersonnelNo: 79, Hash: 35bd09f1a2b3267ee2ffd19b99ac1dba
+PersonnelNo: 54, Hash: 467c481e705c615c1e6a71c5e9b1f9bd
+PersonnelNo: 434, Hash: c9333c3f59a7316f8c8f0fbf84286a62
+PersonnelNo: 475, Hash: 3d43d05a09dc710bf72de913ec46cdb2
+PersonnelNo: 497, Hash: 0f753017145093c23876e6d97acd96db
+PersonnelNo: 622, Hash: c160965f920c456b39305365b2846d17
+PersonnelNo: 87, Hash: fb19c038034d35d8d2ab078483858e5f
+PersonnelNo: 84, Hash: 2727aecec63735376fc47dd2a7b9b548
+PersonnelNo: 956, Hash: a57df7df0ec861bf0cf02b3ec93b89c8
+PersonnelNo: 442, Hash: 839d207b1ada1b3481b9140b35d5240b
+PersonnelNo: 531, Hash: b921ec636662d9652e57f1ba135c49b8
+PersonnelNo: 582, Hash: 702b0024b3db50821243e9b969c89809
+PersonnelNo: 926, Hash: e138aa298382a79b32ad1bfb48187665
+PersonnelNo: 881, Hash: a13187f55a4ae94e3c91757853a092a1
+PersonnelNo: 450, Hash: a7f6267cde42c36599f3a662c11f79bf
+PersonnelNo: 731, Hash: aa9a66841aa5c067ce176a92b0994f69
+PersonnelNo: 492, Hash: 13c42b7687f72b3abb6f38cad7d82c65
+PersonnelNo: 402, Hash: bc574bce1f28ce01f546f7e727ca2687
+PersonnelNo: 152, Hash: 0b7bd34037fcac350fec50a6ce146516
+PersonnelNo: 309, Hash: f446771f28e4d60626ca748f1158221b
+PersonnelNo: 288, Hash: 3998e1e54a9f5b69011b41cd7bb88733
+PersonnelNo: 1022, Hash: 38cd41bb987462dd5024e34957f3fa47
+PersonnelNo: 53, Hash: e96f84d0fe23cac14c2116d1a859001f
+PersonnelNo: 876, Hash: cd5ac616e816557ae5d6d5634a164509
+PersonnelNo: 595, Hash: b8e34d128e405817e6d08c80632b0109
+PersonnelNo: 739, Hash: b3eafaf59785eaffd02e6eac532489ca
+PersonnelNo: 1013, Hash: a8dbff0b063f85e3a15c78bee5996751
+PersonnelNo: 192, Hash: 4ac0d13578eb3b9e43f64fe4876c8f67
+PersonnelNo: 989, Hash: 6d338c9f83946a3a2cf636af54e2f2b6
+PersonnelNo: 605, Hash: 93d33f6fcf5cb2e1b6ad70c415ca625c
+PersonnelNo: 982, Hash: 5342cd2a98547755e94efb15c4f7acea
+PersonnelNo: 449, Hash: 0fff79498db0df1d7cbb23de563169a9
+PersonnelNo: 935, Hash: 0e7036119f896cdd5dda501eca418f36
+PersonnelNo: 445, Hash: 1d5a5704d11cc5dbcc48d6ee03723ef6
+PersonnelNo: 1024, Hash: 77db9085951e60c593d9ad1da880e11a
+PersonnelNo: 906, Hash: e10a3f84838c8114a352c2f405865df4
+PersonnelNo: 39, Hash: 94d06a1a4b41490a97e0a85eb8d28de9
+PersonnelNo: 941, Hash: 8832752fe771d964c6fbbca5918420f7
+PersonnelNo: 16, Hash: c2d0015e86472930ba59e990ed93a2ce
+PersonnelNo: 207, Hash: 03f438398c8b279f26f2e426cfbdf626
+PersonnelNo: 414, Hash: 0d0396c1e9160e7082109466b84fe84d
+PersonnelNo: 796, Hash: 481058a28ff395b816af8d2c61e44071
+PersonnelNo: 617, Hash: 9afc26524bf6b4f09b09cbe287870ed9
+PersonnelNo: 17, Hash: 48e40dc8758d5ad2ea477faf3c7a2f84
+PersonnelNo: 248, Hash: 5024281bfe322ec70c067c1e529db9c3
+PersonnelNo: 303, Hash: 4c5252e7a1b9b72c427b865c2eb664aa
+PersonnelNo: 250, Hash: a52f4db8f6bed09259f9682fbcddd6c6
+PersonnelNo: 385, Hash: e7508e57f5ce7c0f45cecfc43ebfcdf4
+PersonnelNo: 292, Hash: 87346409f5568920aa743fdf19b97dee
+PersonnelNo: 326, Hash: 70ba8fcb810e42153650f80950179ec9
+PersonnelNo: 1079, Hash: 3e2c4c964602be3fb149de90c7abf3c7
+PersonnelNo: 875, Hash: 4da82cece3d89fa2f7cdda5ec6d3ffee
+PersonnelNo: 514, Hash: 9f6d052b6b495c03a9a486c5bafd1c74
+PersonnelNo: 614, Hash: a42ec0b31f0d37f4f6f7d2f444d53524
+PersonnelNo: 567, Hash: ac3598c97d6bc96c54e9ac7ceb018673
+PersonnelNo: 638, Hash: 7e1b5d2eaa92f4e3f2ad58ed4c6ae0b3
+PersonnelNo: 643, Hash: 10a4f40f42201d922e16d1c3d1b4ad87
+PersonnelNo: 646, Hash: 334a60af97f02705bc31898bbbdc24c2
+PersonnelNo: 969, Hash: 1018760e42e588a86ae7285708856e79
+PersonnelNo: 968, Hash: 202e56dc2ce89d00cdef319f778bb0d1
+PersonnelNo: 976, Hash: c1b5eb9a34e57958ece3aed9c3f77c6b
+PersonnelNo: 930, Hash: 178f04aa41a3ec48302f89a422e201f4
+PersonnelNo: 954, Hash: 802117f008a9d4ed519510b059b7a2de
+PersonnelNo: 931, Hash: c72f293c7b232f4731f99f158a22f670
+PersonnelNo: 346, Hash: f330c93b499541d083b31dc8f382e3a6
+PersonnelNo: 84355, Hash: 0a6e964965e811d63979944e0647eb29
+PersonnelNo: 281, Hash: 8832752fe771d964c6fbbca5918420f7
+PersonnelNo: 333, Hash: 757b76a820e73fad0103baa2319ed747
+PersonnelNo: 365, Hash: 33ebf4d0319656c10e7be955a58f6ea6
+PersonnelNo: 231, Hash: ab1b42df403463550136d0cc913ae24a
+PersonnelNo: 228, Hash: ec298f92254762d49b4a5d959bd1021e
+PersonnelNo: 235, Hash: a66a71a8a0ca1830f75195c873bc4c85
+
+## 利用建议
+
+1. **在线MD5破解**:
+   - https://crackstation.net/
+   - https://www.md5online.org/
+   - https://md5decrypt.net/
+
+2. **批量破解**:
+   - hashcat -m 0 hashes.txt wordlist.txt
+   - john --format=raw-md5 hashes.txt
+
+3. **密码重用测试**:
+   - 使用破解的密码测试域控
+   - 测试在其他系统上的重用
