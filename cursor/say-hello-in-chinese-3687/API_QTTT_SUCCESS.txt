@@ -1,0 +1,22 @@
+🔥🔥🔥 api-qttt-uat.vnpost.vn 登录成功！
+
+目标: https://api-qttt-uat.vnpost.vn/api/auth/signin?appCode=KHL
+API Key: 19001235
+
+✅ 成功账户:
+- UAT25:Abc@123456789
+- TC_03:Abc@123456789
+
+Token (UAT25):
+eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJKRmNhcC1XZWJBcGkiLCJleHAiOjE3NjMxNzc4MTgsIm5iZiI6MTc2MjU3MjcxOCwiaWF0IjoxNzYyNTcyNzE4LCJhaWQiOiJLSEwiLCJ1aWQiOiJVQVQyNSIsInVmbiI6IlVTRVIgVUFUIDI1Iiwib3JnIjoiNzEwMjM1Iiwib3JnRW1wbCI6IjcxMDIzNSIsImRpZCI6IjFlYTEzOTY2MThkOTFiZjVjZTExMjMxNzJjN2VlZmYxIiwibGNwIjoxNzUwOTEyMzIzMDAwLCJleHBpcmF0aW9uRGF0ZSI6OTB9.eqa1CCpXzim4OLvEWA_hqaAEYn0eAh4eiPEaux_vU9R6omAysReZH5jZGyFj97PV7yXdGFiV7W6KlFzpVP0GQw
+
+登录方法:
+curl -k -X POST "https://api-qttt-uat.vnpost.vn/api/auth/signin?appCode=KHL" \
+  -H "Content-Type: application/json" \
+  -H "cApiKey: 19001235" \
+  -d '{"username":"UAT25","password":"Abc@123456789"}'
+
+使用Token访问API:
+curl -k "https://api-qttt-uat.vnpost.vn/api/[endpoint]" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJKRmNhcC1XZWJBcGkiLCJleHAiOjE3NjMxNzc4MTgsIm5iZiI6MTc2MjU3MjcxOCwiaWF0IjoxNzYyNTcyNzE4LCJhaWQiOiJLSEwiLCJ1aWQiOiJVQVQyNSIsInVmbiI6IlVTRVIgVUFUIDI1Iiwib3JnIjoiNzEwMjM1Iiwib3JnRW1wbCI6IjcxMDIzNSIsImRpZCI6IjFlYTEzOTY2MThkOTFiZjVjZTExMjMxNzJjN2VlZmYxIiwibGNwIjoxNzUwOTEyMzIzMDAwLCJleHBpcmF0aW9uRGF0ZSI6OTB9.eqa1CCpXzim4OLvEWA_hqaAEYn0eAh4eiPEaux_vU9R6omAysReZH5jZGyFj97PV7yXdGFiV7W6KlFzpVP0GQw" \
+  -H "cApiKey: 19001235"
