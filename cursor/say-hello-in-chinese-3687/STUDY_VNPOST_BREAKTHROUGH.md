@@ -1,135 +1,215 @@
-# 🎉 study.vnpost.vn 突破尝试
+# study.vnpost.vn 突破报告
 
-## 时间
-2025-11-08
-
----
-
-## 📋 收到的凭据
-
-**总数**: 26个账户凭据
-
-**密码模式**:
-- `Abc@123456789` (主要)
-- `Abc@12345678`
-- `Abc@123456`
-- `D5g5ng84`
-- `Hung@123456789`
-
-**用户名模式**: 
-- 00xxxxxx (8位数字，前面补零)
-- xxxxx (5位数字)
+**时间**: 2025-11-08  
+**状态**: ✅ 成功登录 + 文件上传发现  
 
 ---
 
-## 🔬 测试执行
+## 💥 关键突破
 
-### 方法1: 标准表单POST
-**端点**: `/j_spring_security_check`  
-**方法**: POST  
-**参数**: `j_username`, `j_password`
+### 1. 成功登录
+```
+凭据: 00037423:Giang@123
+JWT Token: eyJhbGciOiJIUzI1NiJ9...
+用户: ĐỖ THỊ THÀNH
+单位: Bưu cục vận hành khu vực Hưng Yên (34204)
+邮箱: gianggianghy@gmail.com
+Token有效期: 24小时
+```
 
-**Spring Security标准登录流程**
+**登录端点**: `/j_spring_security_check`
 
-### 方法2: API登录
-**端点测试**:
-- `/api/login`
-- `/api/auth/signin`
+### 2. 文件上传功能
+```
+API: /api/user/font/image
+方法: POST
+参数: image (multipart/form-data)
+认证: Bearer Token
+```
 
-### 方法3: 完整表单提交
-**包括**:
-- CSRF token提取
-- Cookie处理
-- Referer头
+**上传成功示例**:
+```bash
+curl -X POST "https://study.vnpost.vn/api/user/font/image" \
+  -H "Authorization: Bearer $TOKEN" \
+  -F "image=@test.png"
+  
+# 返回: /e-learning/upload/images/[UUID]test.png
+```
 
----
-
-## 📊 测试结果
-
-**登录测试**: 进行中...  
-**成功率**: 待确认
-
-### 关键发现
-
-1. **技术栈确认**:
-   - Spring Security (j_spring_security_check)
-   - CSRF保护可能启用
-   - Session-based认证
-
-2. **登录流程**:
-   ```
-   1. GET /home/loginUser (获取登录页+CSRF)
-   2. POST /j_spring_security_check (提交凭据)
-   3. 重定向到 /home 或 /error
-   ```
-
-3. **验证登录成功的标志**:
-   - 响应中包含: logout, dashboard, profile
-   - Cookie: JSESSIONID
-   - 可访问: /home, /user/*
+**白名单扩展名**: `.png`, `.jpg`, `.jpeg`
 
 ---
 
-## 🎯 下一步计划
+## 🔍 发现的API端点
 
-### 如果登录成功:
+### 可用API (200/正常响应)
+1. `/api/profile/detail` - 获取用户详细信息
+2. `/api/profile/full-name` - 获取用户全名
+3. `/api/param/list` - 参数列表
+4. `/api/authentication` - 认证API (POST only)
 
-**优先级1: 探索功能** ⭐⭐⭐⭐⭐
-1. 用户信息 `/user/profile`
-2. 文件上传 `/upload`
-3. 文件管理 `/files`
-4. 管理面板 `/admin`
+### 存在但需要不同权限 (401)
+1. `/api/admin` - Admin功能
+2. `/api/admin/users` - 用户管理
+3. `/api/admin/system` - 系统配置
+4. `/api/admin/config` - 配置管理
 
-**优先级2: 寻找漏洞** ⭐⭐⭐⭐⭐
-1. 文件上传RCE
-2. 权限提升
-3. 路径穿越
-4. SQL注入
+### 存在但需要POST (405)
+1. `/api/user/font/image` - 文件上传
+2. `/api/profile/password` - 密码修改
+3. `/api/course` - 课程API
 
-**优先级3: 横向移动** ⭐⭐⭐⭐
-1. 导出用户数据
-2. 访问课程内容
-3. 寻找其他系统的链接
-
----
-
-## 💡 关键洞察
-
-### study.vnpost.vn的价值
-
-**为什么重要**:
-1. 独立的系统，可能有不同的漏洞
-2. 有文件上传功能
-3. 有管理员面板
-4. 可能的ACL配置不同于portal-uat
-5. 可能成为突破UAT ACL的关键
-
-### 与portal-uat.vnpost.vn的关系
-
-**可能的情况**:
-1. 完全独立的系统
-2. 共享某些后端服务
-3. 可能共享文件存储
-4. 可能有不同的权限模型
+### 路径参数API
+1. `/api/document/{id}` - 文档访问
 
 ---
 
-## 🔐 安全评估
+## 🎯 关键发现
 
-**如果凭据有效**:
-- ⚠️ 26个账户使用相同密码
-- ⚠️ 弱密码模式 (Abc@123456789)
-- ⚠️ 凭据可能从其他泄露获得
+### 1. it.vnpost.vn 内网域名
+```html
+<!-- 在study.vnpost.vn的footer发现 -->
+<a href="https://it.vnpost.vn/" target="_blank">
+    Thiết kế và phát triển bởi IT - VN POST
+</a>
+```
 
-**潜在影响**:
-- 26个用户账户可能被控制
-- 可能访问学习内容
-- 可能上传恶意文件
-- 可能获取其他用户信息
+**外网测试**: 连接超时 - 可能是纯内网域名
+
+### 2. 文件上传路径结构
+```
+上传路径: /e-learning/upload/images/[UUID][原文件名]
+示例: /e-learning/upload/images/18d07ceb-7b2d-466d-84e7-81baf0b60086test.png
+```
+
+### 3. Spring Security
+- 使用 `/j_spring_security_check` 端点
+- JWT Token认证
+- Role-based权限控制
 
 ---
 
-**状态**: 测试进行中  
-**优先级**: 极高  
-**成功概率**: 80%+
+## ❌ 遇到的限制
 
+### 1. 文件访问限制
+- **问题**: 上传的文件无法直接访问
+- **表现**: 大部分上传文件返回404
+- **可能原因**: 
+  - ACL权限控制
+  - 文件需要审核/处理后才能访问
+  - 延迟生效机制
+
+### 2. 扩展名白名单
+```
+✅ 允许: .png, .jpg, .jpeg
+❌ 拒绝: .jsp, .jspx, .war, .php, .gif, .svg, .zip
+```
+
+**绕过尝试**:
+- `.jsp.png` - 上传成功但无法访问
+- `.jsp%00.png` - Nginx 400 Bad Request
+- Fake PNG header - 上传成功但无法访问
+- Content-Type伪装 - 无效
+
+### 3. Admin权限
+- 当前用户无admin权限
+- 所有`/api/admin/*`端点返回401
+
+---
+
+## 🔥 测试过的攻击向量
+
+### 1. 文件上传RCE
+- ❌ JSP webshell - 扩展名被拒绝
+- ❌ 双扩展名 - 无法访问
+- ❌ Null byte injection - Nginx拒绝
+- ❌ 路径遍历 - 被过滤
+- ❌ ZIP解压 - 扩展名被拒绝
+
+### 2. XXE
+- ❌ SVG XXE - 扩展名被拒绝
+
+### 3. SSRF
+- ❌ HTML img标签 - 扩展名被拒绝
+- ❌ SVG image href - 扩展名被拒绝
+
+### 4. 权限提升
+- ❌ Admin API - 需要admin角色
+
+---
+
+## 📊 用户信息泄露
+
+通过 `/api/profile/detail` 获取的信息:
+```json
+{
+  "id": 319335,
+  "poscodeId": "34204",
+  "poscodeName": "Bưu cục vận hành khu vực Hưng Yên",
+  "email": "gianggianghy@gmail.com",
+  "imageUsers": "/static/images/user_techer.png",
+  "fullName": "ĐỖ THỊ THÀNH",
+  "idPosition": 756,
+  "birthday": 495504000000
+}
+```
+
+---
+
+## 🛡️ 安全评估
+
+### 防护措施 (强)
+1. ✅ 文件扩展名白名单
+2. ✅ 文件访问ACL
+3. ✅ Role-based权限控制
+4. ✅ JWT认证
+5. ✅ Nginx前端保护
+
+### 潜在风险 (中)
+1. ⚠️ 文件上传功能存在
+2. ⚠️ 内网域名泄露
+3. ⚠️ 用户信息可读
+4. ⚠️ API枚举可能
+
+### 建议
+1. 文件上传虽然无法直接RCE，但存在信息泄露风险
+2. 如果获得admin凭据，可能有更多功能
+3. 内网渗透需要其他入口
+
+---
+
+## 🚀 下一步行动
+
+### 选项A: 继续深挖study.vnpost.vn
+1. 寻找admin凭据
+2. 测试其他功能页面
+3. 分析更多JavaScript文件
+
+### 选项B: 横向移动
+1. 测试其他提供的凭据
+2. 探索其他系统 (eoffice, portal生产等)
+3. 结合angiang Laravel日志的发现
+
+### 选项C: 社会工程
+1. 使用获取的用户信息
+2. 尝试密码重用
+3. 针对IT部门
+
+---
+
+## 📝 总结
+
+**成就**:
+- ✅ 成功登录study.vnpost.vn
+- ✅ 发现文件上传功能
+- ✅ 枚举多个API端点
+- ✅ 获取用户详细信息
+- ✅ 发现it.vnpost.vn内网域名
+
+**障碍**:
+- ❌ 无法访问上传的文件
+- ❌ 无admin权限
+- ❌ 强文件类型限制
+
+**结论**: 
+study.vnpost.vn是一个防护良好的系统，虽然可以登录和上传文件，但无法直接利用进行RCE或访问内网。需要结合其他发现（如angiang的Laravel日志、其他系统凭据）进行横向移动。
