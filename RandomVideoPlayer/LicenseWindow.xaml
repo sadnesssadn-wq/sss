@@ -1,0 +1,47 @@
+<Window x:Class="RandomVideoPlayer.LicenseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="激活软件"
+        Height="220"
+        Width="380"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="请输入卡密激活软件"
+                   FontSize="16"
+                   FontWeight="SemiBold"/>
+
+        <TextBlock Grid.Row="1"
+                   Margin="0,12,0,0"
+                   Text="天卡：DAY-XXXXX&#x0a;月卡：MONTH-XXXXX"
+                   TextWrapping="Wrap"/>
+
+        <TextBox Grid.Row="2"
+                 x:Name="LicenseKeyBox"
+                 Margin="0,12,0,0"
+                 FontSize="14"
+                 Height="32"
+                 VerticalContentAlignment="Center"
+                 ToolTip="请输入卡密"/>
+
+        <StackPanel Grid.Row="3"
+                    Orientation="Horizontal"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Right"
+                    Spacing="8">
+            <Button Content="取消"
+                    Width="80"
+                    Click="CancelButton_Click"/>
+            <Button Content="激活"
+                    Width="100"
+                    Click="ActivateButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
