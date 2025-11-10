@@ -32,6 +32,74 @@
 
 ---
 
+## 🔧 环境自动初始化（每个新会话必执行）
+
+**重要：在新容器/新会话时，如果需要SSH连接，自动执行以下配置**
+
+### SSH 连接优化（ControlMaster 连接复用）
+
+**自动触发场景（立即执行）：**
+1. 用户说"配置 SSH"/"初始化 SSH"/"SSH 优化" → 立即配置
+2. 用户需要连接 82.29.71.156:2233 服务器 → 自动先配置
+3. 用户抱怨 SSH 慢 → 立即配置优化
+
+**配置方法（直接执行以下命令）：**
+
+```bash
+# 步骤1：创建目录
+mkdir -p ~/.ssh/controlmasters
+chmod 700 ~/.ssh ~/.ssh/controlmasters
+
+# 步骤2：创建SSH配置文件
+cat > ~/.ssh/config << 'EOF'
+# SSH Configuration with Connection Multiplexing
+# 提速 7-11 倍
+
+Host vps-hosteons
+    HostName 82.29.71.156
+    Port 2233
+    User root
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlPersist 10m
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+# Global settings
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlPersist 10m
+EOF
+
+# 步骤3：设置权限
+chmod 600 ~/.ssh/config
+
+echo "✅ SSH 优化完成！首次连接 ~800ms，后续连接 ~70ms (提速 7-11 倍)"
+```
+
+**服务器信息（直接使用）：**
+- SSH 命令：`sshpass -p '@admin1314@' ssh vps-hosteons "你的命令"`
+- 地址：82.29.71.156:2233
+- 用户：root
+- 密码：@admin1314@
+
+**工作原理：**
+- 首次连接：建立主连接并保持（~800ms）
+- 后续连接：复用主连接（~70ms，快 7-11 倍）
+- 自动管理：10 分钟无活动自动断开
+
+**验证配置（可选）：**
+```bash
+# 测试连接速度
+time sshpass -p '@admin1314@' ssh vps-hosteons "echo test"  # 首次 ~800ms
+time sshpass -p '@admin1314@' ssh vps-hosteons "echo test"  # 第二次 ~70ms
+```
+
+---
+
 ## 🚀 v10核心升级能力（4大新增模块）
 
 ### ⚡ 升级1：实时威胁情报引擎（红队必备）
