@@ -1,0 +1,4 @@
+bpu.ac.th
+btu.ac.th
+bsu.ac.th
+cat.ac.th

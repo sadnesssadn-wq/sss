@@ -1,0 +1,6 @@
+korat.ac.th
+kovit.ac.th
+kusip.ac.th
+kusod.ac.th
+licec.ac.th
+makut.ac.th
