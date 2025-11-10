@@ -1,28 +1,40 @@
 # 🚀 快速开始 - SSH 优化配置
 
-## 📋 在新容器中的使用步骤
+## 📋 在新容器/新会话中的使用步骤
 
-### 方法 1️⃣：直接运行脚本（推荐）
+### 方法 1️⃣：让 AI 助手帮你（最简单！推荐）⭐
 
-当你进入新的 Cursor 容器环境时，只需要在终端执行：
+**在任何新会话中**，直接对 AI 助手说：
+
+- **"配置 SSH"**
+- **"运行 SSH 优化"**
+- **"初始化 SSH"**
+
+AI 会自动执行配置脚本！
+
+---
+
+### 方法 2️⃣：自动检测并配置（智能）
+
+运行自动检测脚本，如果未配置会自动设置：
+
+```bash
+bash /workspace/check-and-setup-ssh.sh
+```
+
+这个脚本会检测是否已配置，避免重复设置。
+
+---
+
+### 方法 3️⃣：直接运行配置脚本
+
+当你进入新的容器环境时，在终端执行：
 
 ```bash
 bash /workspace/setup-ssh-optimization.sh
 ```
 
 就这么简单！一行命令搞定。
-
----
-
-### 方法 2️⃣：让我（AI 助手）帮你运行
-
-直接对我说：
-
-- "配置 SSH 优化"
-- "运行 SSH 配置脚本"
-- "初始化 SSH 连接复用"
-
-我会自动执行脚本。
 
 ---
 
@@ -60,9 +72,13 @@ time sshpass -p '@admin1314@' ssh vps-hosteons "echo test"
 
 ## 📍 文件位置
 
-- 脚本位置：`/workspace/setup-ssh-optimization.sh`
+- 配置脚本：`/workspace/setup-ssh-optimization.sh`
+- 自动检测脚本：`/workspace/check-and-setup-ssh.sh` 🆕
 - 说明文档：`/workspace/README-SSH-OPTIMIZATION.md`
+- 快速指南：`/workspace/QUICK-START.md`
 - 配置模板：`/workspace/ssh-config-template`
+
+**所有文件都在 Git 仓库中，新容器会自动有！**
 
 ---
 
@@ -81,7 +97,16 @@ A: Cursor 会自动处理 Git 提交，文件已在仓库中。
 
 ## 💡 最佳实践
 
-1. **每次进入新容器**：第一件事就运行 `bash /workspace/setup-ssh-optimization.sh`
-2. **或者**：直接对 AI 助手说"配置 SSH"
-3. **然后**：享受飞快的 SSH 连接速度！
+### 🌟 推荐流程（新会话/新容器）
+
+1. **最简单**：直接对 AI 说 **"配置 SSH"** ⚡
+2. **或者**：运行 `bash /workspace/check-and-setup-ssh.sh` （自动检测）
+3. **然后**：享受飞快的 SSH 连接速度（提速 7-11 倍）！
+
+### 📝 记住
+
+- ✅ 文件已在 Git 仓库，永久保存
+- ✅ 新容器会自动 clone Git 仓库
+- ✅ `/workspace/` 目录下的所有脚本都可用
+- ✅ 直接让 AI 助手帮你运行最省事！
 

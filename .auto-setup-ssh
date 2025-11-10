@@ -1,0 +1,5 @@
+# SSH Auto-Setup Flag
+# 当 AI 助手检测到 SSH 未配置时，会自动运行 setup-ssh-optimization.sh
+
+AUTO_RUN=true
+SCRIPT_PATH=/workspace/setup-ssh-optimization.sh
