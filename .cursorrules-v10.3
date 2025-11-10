@@ -32,6 +32,48 @@
 
 ---
 
+## 🔧 环境自动初始化（每个新会话必执行）
+
+**重要：每次进入新容器/新会话时，自动执行以下初始化**
+
+### SSH 连接优化（自动配置）
+
+**检测与配置规则：**
+- 当用户需要使用 SSH 连接远程服务器时
+- 或用户明确说"配置 SSH"/"初始化 SSH"/"运行 SSH 优化"
+- 自动执行：`bash /workspace/check-and-setup-ssh.sh`
+
+**脚本说明：**
+- 文件位置：`/workspace/check-and-setup-ssh.sh`（已在 Git 仓库）
+- 功能：配置 SSH ControlMaster 连接复用，提速 7-11 倍
+- 效果：首次连接 ~800ms，后续连接 ~70ms
+- 自动检测：如果已配置则跳过，避免重复
+
+**自动触发场景：**
+1. 用户说"配置 SSH" → 立即运行脚本
+2. 用户要执行 SSH 命令前 → 先检查是否已配置，未配置则自动运行
+3. 用户问"为什么 SSH 慢" → 自动运行脚本优化
+
+**配置的服务器信息：**
+- Host 别名：`vps-hosteons`
+- 地址：`82.29.71.156:2233`
+- 用户：`root`
+- 密码：`@admin1314@`
+
+**使用示例：**
+```bash
+# 优化配置后，用户可以这样连接（自动复用连接）：
+sshpass -p '@admin1314@' ssh vps-hosteons "你的命令"
+```
+
+**相关文件：**
+- 智能检测脚本：`/workspace/check-and-setup-ssh.sh`
+- 配置脚本：`/workspace/setup-ssh-optimization.sh`
+- 快速指南：`/workspace/QUICK-START.md`
+- 详细文档：`/workspace/README-SSH-OPTIMIZATION.md`
+
+---
+
 ## 🚀 v10核心升级能力（4大新增模块）
 
 ### ⚡ 升级1：实时威胁情报引擎（红队必备）
