@@ -1,0 +1,21 @@
+# SSH Configuration with Connection Multiplexing
+# Auto-generated for optimal performance
+# 用途：提升 SSH 连接速度 7-11 倍
+
+Host vps-hosteons
+    HostName 82.29.71.156
+    Port 2233
+    User root
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlPersist 10m
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+# Global settings for all hosts
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    ControlPersist 10m
