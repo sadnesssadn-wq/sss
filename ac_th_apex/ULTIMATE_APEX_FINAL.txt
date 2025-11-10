@@ -796,7 +796,6 @@ dnd.ac.th
 dnr.ac.th
 dole.ac.th
 dong.ac.th
-dp6.ac.th
 dp.ac.th
 dpp.ac.th
 dps.ac.th
@@ -1033,7 +1032,6 @@ kjd.ac.th
 kjrs.ac.th
 kjs.ac.th
 kjw.ac.th
-kk10.ac.th
 kk.ac.th
 kkcs.ac.th
 kkis.ac.th
@@ -1155,7 +1153,6 @@ kw.ac.th
 kwc.ac.th
 kwit.ac.th
 kwk.ac.th
-kwksch.ac.th
 kwnk.ac.th
 kwp.ac.th
 kwss.ac.th
@@ -1430,7 +1427,6 @@ nist.ac.th
 niva.ac.th
 niwes.ac.th
 nj.ac.th
-nk4.ac.th
 nk.ac.th
 nkc.ac.th
 nkcc.ac.th
@@ -1538,7 +1534,6 @@ nv.ac.th
 nw1.ac.th
 nw2.ac.th
 nw3.ac.th
-nw4.ac.th
 nw5.ac.th
 nw6.ac.th
 nw.ac.th
@@ -1697,7 +1692,6 @@ ppkw.ac.th
 ppr.ac.th
 pps.ac.th
 ppss.ac.th
-ppssch.ac.th
 ppsw.ac.th
 ppt.ac.th
 pptb.ac.th
@@ -1852,7 +1846,6 @@ rmutsb.ac.th
 rmutsv.ac.th
 rmutt.ac.th
 rmw.ac.th
-rn2.ac.th
 rn.ac.th
 rncc.ac.th
 rnk.ac.th
@@ -1899,7 +1892,6 @@ rusc.ac.th
 rv.ac.th
 rvb.ac.th
 rvc.ac.th
-rw2.ac.th
 rw.ac.th
 rwb.ac.th
 rwns.ac.th
@@ -2149,7 +2141,6 @@ ssw.ac.th
 sswk.ac.th
 sswr.ac.th
 st1.ac.th
-st2.ac.th
 st5.ac.th
 st.ac.th
 standrews.ac.th
@@ -2168,7 +2159,6 @@ stn.ac.th
 stou.ac.th
 stp.ac.th
 stpc.ac.th
-stpsch.ac.th
 str.ac.th
 strn.ac.th
 sts.ac.th
@@ -2361,7 +2351,6 @@ tpvs.ac.th
 tpws.ac.th
 tpy.ac.th
 tr43.ac.th
-tr55.ac.th
 tr.ac.th
 trct.ac.th
 tri.ac.th
