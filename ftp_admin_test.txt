@@ -1,0 +1,7 @@
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+=== 🎯 测试FTP使用WordPress凭证 ===
+Login incorrect.
+Login failed.
+Please login with USER and PASS.
+Please login with USER and PASS.
+ftp: Can't bind for data connection: Address already in use
