@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/bin/gplaycli", line 5, in <module>
+    from gplaycli.gplaycli import main
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/gplaycli/gplaycli.py", line 29, in <module>
+    from gpapi.googleplay import GooglePlayAPI, LoginError, RequestError
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/gpapi/googleplay.py", line 14, in <module>
+    from . import googleplay_pb2, config, utils
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/gpapi/googleplay_pb2.py", line 36, in <module>
+    _descriptor.FieldDescriptor(
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/google/protobuf/descriptor.py", line 675, in __new__
+    _message.Message._CheckCalledFromGeneratedFile()
+TypeError: Descriptors cannot be created directly.
+If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+If you cannot immediately regenerate your protos, some other possible workarounds are:
+ 1. Downgrade the protobuf package to 3.20.x or lower.
+ 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+
+More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
