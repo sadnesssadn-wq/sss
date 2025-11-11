@@ -1,0 +1,5 @@
+Lightnode frontend Platform
+https://github.com/aurora423/next-lightnode-frontend
+2023-06-11T14:39:52Z
+2023-11-10T09:58:45Z
+https://next-lightnode-frontend.vercel.app
