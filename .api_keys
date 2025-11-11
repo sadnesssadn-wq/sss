@@ -4,7 +4,7 @@ export SHODAN_API_KEY="8U3fd9BSqyzentffLrhocQm7rSvy44jx"
 # Fofa Keys
 export FOFA_KEY_1="b527aaeb14874660d2df8de6f848a071"
 export FOFA_KEY_2="9fd57dad07c47fba6139bc932efd677d"
-export FOFA_EMAIL_1="user@example.com"  # 需要配置邮箱
+export FOFA_EMAIL_1="wafub@awfun.com"
 
 # 其他API密钥（待配置）
 # export SECURITYTRAILS_API=""
