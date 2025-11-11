@@ -1,0 +1,206 @@
+=== 猎杀ViettelPost的S3 Buckets ===
+[1] 测试常见bucket名称
+测试: viettelpost
+  ✓ FOUND: viettelpost (HTTP 403)
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>NBCMKPA4PBPH76ST</RequestId><HostId>/WPbgnAsx8iK2MwSeFXZqzMiIlGdPSNUQyAMHbBuHSPlHegBTfUEug5BUffFbcLVQnt2zFE5Cds=</HostId></Error>测试: viettelpost-prod
+测试: viettelpost-dev
+测试: viettelpost-staging
+测试: viettelpost-test
+测试: viettelpost-backup
+测试: viettelpost-cdn
+测试: viettelpost-static
+测试: viettelpost-uploads
+测试: viettelpost-files
+测试: viettelpost-documents
+测试: viettelpost-images
+测试: vtp
+  ✓ FOUND: vtp (HTTP 403)
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>TFVRMGGW83RDP4S6</RequestId><HostId>oSjGaDIxrgyvpYVO5er8oMedFXjO/UlOiWhoVV6N8hRBUIRReBBD5UQRzImqKoicAllOG5lqbMdESsgLJqM8jfReN4fFumyb</HostId></Error>测试: vtp-prod
+  ✓ FOUND: vtp-prod (HTTP 403)
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>37RX37AEDFWKJ3J1</RequestId><HostId>3DWYE1d/4gjuJ87MDkEijP7yNIZWR7da0RNeifUNkRTw+dtsvxngTSpo1v+yc9lbzN6r6Db5Q1ql4YscgV2oVBuqLlqjNGX7u23+idojwLM=</HostId></Error>测试: vtp-dev
+  ✓ FOUND: vtp-dev (HTTP 403)
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>JED1Z9RQGQ4HM6PH</RequestId><HostId>gxe1lY8IwuUrMVaYfTjhj2cKJBEdbCeEn4yU/u4OjBD+DOYhF2P8yIAEvoQUDyqtbF3QQslsbqI=</HostId></Error>测试: vtp-staging
+测试: vtp-test
+  ✓ FOUND: vtp-test (HTTP 403)
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>526D8MX3TCAFZP6F</RequestId><HostId>LbGhVM2DogQlrkkqUf2u1CKQEMNudrZGj2dgm8m2E4UHzxX7iM6w1/GcTjMxpMV1x2w/lyDeQNYEnNybqf4Qxw==</HostId></Error>测试: vtp-backup
+测试: vtp-cdn
+测试: vtp-static
+测试: vtp-uploads
+测试: vtp-files
+测试: vtp-documents
+测试: vtp-images
+测试: logistek
+测试: logistek-prod
+测试: logistek-dev
+测试: logistek-staging
+测试: logistek-test
+测试: logistek-backup
+测试: logistek-cdn
+测试: logistek-static
+测试: logistek-uploads
+测试: logistek-files
+测试: logistek-documents
+测试: logistek-images
+测试: viettel-post
+测试: viettel-post-prod
+测试: viettel-post-dev
+测试: viettel-post-staging
+测试: viettel-post-test
+测试: viettel-post-backup
+测试: viettel-post-cdn
+测试: viettel-post-static
+测试: viettel-post-uploads
+测试: viettel-post-files
+测试: viettel-post-documents
+测试: viettel-post-images
+测试: viettelpost-prod
+测试: viettelpost-prod-prod
+测试: viettelpost-prod-dev
+测试: viettelpost-prod-staging
+测试: viettelpost-prod-test
+测试: viettelpost-prod-backup
+测试: viettelpost-prod-cdn
+测试: viettelpost-prod-static
+测试: viettelpost-prod-uploads
+测试: viettelpost-prod-files
+测试: viettelpost-prod-documents
+测试: viettelpost-prod-images
+测试: viettelpost-dev
+测试: viettelpost-dev-prod
+测试: viettelpost-dev-dev
+测试: viettelpost-dev-staging
+测试: viettelpost-dev-test
+测试: viettelpost-dev-backup
+测试: viettelpost-dev-cdn
+测试: viettelpost-dev-static
+测试: viettelpost-dev-uploads
+测试: viettelpost-dev-files
+测试: viettelpost-dev-documents
+测试: viettelpost-dev-images
+测试: viettelpost-staging
+测试: viettelpost-staging-prod
+测试: viettelpost-staging-dev
+测试: viettelpost-staging-staging
+测试: viettelpost-staging-test
+测试: viettelpost-staging-backup
+测试: viettelpost-staging-cdn
+测试: viettelpost-staging-static
+测试: viettelpost-staging-uploads
+测试: viettelpost-staging-files
+测试: viettelpost-staging-documents
+测试: viettelpost-staging-images
+测试: vtp-api
+测试: vtp-api-prod
+测试: vtp-api-dev
+测试: vtp-api-staging
+测试: vtp-api-test
+测试: vtp-api-backup
+测试: vtp-api-cdn
+测试: vtp-api-static
+测试: vtp-api-uploads
+测试: vtp-api-files
+测试: vtp-api-documents
+测试: vtp-api-images
+测试: vtp-cdn
+测试: vtp-cdn-prod
+测试: vtp-cdn-dev
+测试: vtp-cdn-staging
+测试: vtp-cdn-test
+测试: vtp-cdn-backup
+测试: vtp-cdn-cdn
+测试: vtp-cdn-static
+测试: vtp-cdn-uploads
+测试: vtp-cdn-files
+测试: vtp-cdn-documents
+测试: vtp-cdn-images
+测试: vtp-backup
+测试: vtp-backup-prod
+测试: vtp-backup-dev
+测试: vtp-backup-staging
+测试: vtp-backup-test
+测试: vtp-backup-backup
+测试: vtp-backup-cdn
+测试: vtp-backup-static
+测试: vtp-backup-uploads
+测试: vtp-backup-files
+测试: vtp-backup-documents
+测试: vtp-backup-images
+测试: vtp-logs
+测试: vtp-logs-prod
+测试: vtp-logs-dev
+测试: vtp-logs-staging
+测试: vtp-logs-test
+测试: vtp-logs-backup
+测试: vtp-logs-cdn
+测试: vtp-logs-static
+测试: vtp-logs-uploads
+测试: vtp-logs-files
+测试: vtp-logs-documents
+测试: vtp-logs-images
+测试: logistek-prod
+测试: logistek-prod-prod
+测试: logistek-prod-dev
+测试: logistek-prod-staging
+测试: logistek-prod-test
+测试: logistek-prod-backup
+测试: logistek-prod-cdn
+测试: logistek-prod-static
+测试: logistek-prod-uploads
+测试: logistek-prod-files
+测试: logistek-prod-documents
+测试: logistek-prod-images
+测试: logistek-dev
+测试: logistek-dev-prod
+测试: logistek-dev-dev
+测试: logistek-dev-staging
+测试: logistek-dev-test
+测试: logistek-dev-backup
+测试: logistek-dev-cdn
+测试: logistek-dev-static
+测试: logistek-dev-uploads
+测试: logistek-dev-files
+测试: logistek-dev-documents
+测试: logistek-dev-images
+测试: logistek-cdn
+测试: logistek-cdn-prod
+测试: logistek-cdn-dev
+测试: logistek-cdn-staging
+测试: logistek-cdn-test
+测试: logistek-cdn-backup
+测试: logistek-cdn-cdn
+测试: logistek-cdn-static
+测试: logistek-cdn-uploads
+测试: logistek-cdn-files
+测试: logistek-cdn-documents
+测试: logistek-cdn-images
+测试: logistek-backup
+测试: logistek-backup-prod
+测试: logistek-backup-dev
+测试: logistek-backup-staging
+测试: logistek-backup-test
+测试: logistek-backup-backup
+测试: logistek-backup-cdn
+测试: logistek-backup-static
+测试: logistek-backup-uploads
+测试: logistek-backup-files
+测试: logistek-backup-documents
+测试: logistek-backup-images
+
+[2] 测试其他区域
+测试: viettelpost @ us-east-1
+HTTP/1.1 301 Moved Permanently
+x-amz-bucket-region: ap-southeast-1
+x-amz-request-id: TW2M21PNQTF2WNTM
+测试: viettelpost @ us-west-2
+HTTP/1.1 301 Moved Permanently
+x-amz-bucket-region: ap-southeast-1
+x-amz-request-id: TW2MAX397PYSB3HQ
+测试: viettelpost @ ap-southeast-1
+HTTP/1.1 403 Forbidden
+x-amz-bucket-region: ap-southeast-1
+x-amz-request-id: 8F0B55YVX4104PX7

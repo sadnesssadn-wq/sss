@@ -1,0 +1,51 @@
+
+[测试 viettelpost]
+尝试列举对象:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>ZTAQ6AG5K677Y64V</RequestId><HostId>HE65iNH02wpbjXNm8JUCejkf2TBNEpCTtOFVeTTqag9mSLGRbERw1HZHgyH4eWMxzyPg8ebfoo8=</HostId></Error>
+ACL:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>QMA73SVTEQAPCRRE</RequestId><HostId>AgCFtQQjWigX6Q/hbwBbFDF3CnK7WzsIhxatonCIlDL4vh7uwiEsdqXKC2p+eFJtUh5uprQjZcM=</HostId></Error>
+策略:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>QMA9YM08CVDHPVF7</RequestId><HostId>bQeV35ykFD8WtkA8prtSCNCoLKg0ALNClFHzTfh18LsJ2bZuv6hVmErPq8F9F3xBIKhTvkFPTJJHYrO80xBYHiYxee//IukD</HostId></Error>
+[测试 vtp]
+尝试列举对象:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>CHH67P61Y4TVGC1H</RequestId><HostId>jZlA4ZyH9vy6fqgxqKtek6njbKyX5JbRSlbdBgPk7Re1oag3dj2lI9Tq8u9FNLcjQfWcfb/JkEZ4dF0Xu53ZfniROqDMGKVLpSMsFjTKCac=</HostId></Error>
+ACL:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>RES6NT97BWGWAQRS</RequestId><HostId>VgRc7tOAc4SAi/XKndyuwK86/xeMku77hRqLzEnX/WG1tqyKhB9Ok+KgFV4txMLUgj+7wO8cdIyOUyxACwb3mW2fu/ggyQ9g</HostId></Error>
+策略:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>RES260QYZET374VT</RequestId><HostId>sOj4XjNkrubCTJBMlA6k18hsdon0GeK/6tOwoaNoOCMpFHaho5aHCshbuBg4hpCyWt9a/x7Kz79CnlePWscuPn/bEHArH3kA</HostId></Error>
+[测试 vtp-prod]
+尝试列举对象:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>vtp-prod.s3.eu-central-1.amazonaws.com</Endpoint><Bucket>vtp-prod</Bucket><RequestId>5S4S3CM0QMZTS8HX</RequestId><HostId>uiH5ucdQwkt3uz1hstFnxWTmwl1kXTu1w0pUj8Tui+RnawCJdoz2rI75eGIBZpLn3+1UdCULhMQ=</HostId></Error>
+ACL:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>vtp-prod.s3.eu-central-1.amazonaws.com</Endpoint><Bucket>vtp-prod</Bucket><RequestId>5S4Q8W9PGFG8SZDR</RequestId><HostId>9kuLmuoiZChADeC0MmawSbx2nRS5CAPxCEDz6A++uKa1GVgajFnxqe0goZSHvJScOJq2P78PkQw=</HostId></Error>
+策略:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>vtp-prod.s3.eu-central-1.amazonaws.com</Endpoint><Bucket>vtp-prod</Bucket><RequestId>S6EAC49P702E9S8N</RequestId><HostId>iBuMoD/XYHHR/r9SQW3lUkn6ofsCXwC3mgh9jzjkwLeyXoyiT2dsrfnXEZx/LMxKMEnLUphpZz0=</HostId></Error>
+[测试 vtp-dev]
+尝试列举对象:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-dev</Bucket><RequestId>NA0ZDA2V3FCFVEBE</RequestId><HostId>MmTZPkcnWO8xLQgJbVhnIKjSg3J3ZwfkP56F98ZwXnslGMbZbptfSTnneA1XeEvU5pdeBD5Sn9qErNbpgJ2z53NJQwcsfC+HLYFg6cG6xZg=</HostId></Error>
+ACL:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-dev</Bucket><RequestId>NA0Q448DHJ76W54C</RequestId><HostId>FcmjfP/dxB1I8AE7F+bvdVjuAJgax3FCB74i9BunZ1Epb8s6lguDv3u4mdrweY+Vn3ZKz872ZQm1W8E5MmGNHYkwUHj33l+n</HostId></Error>
+策略:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-dev</Bucket><RequestId>WJXZG4FBRR4DNFCD</RequestId><HostId>6PedCtkoM1j/P1pjVqxcYeY8hRJwaBJmsciIZDEDsUoLK/3VRCdtbR/7gbHlyI79Ovl35VB7f5D3uMBl0CS5GkpJRm6ApNU2zOAoAqIH6Hg=</HostId></Error>
+[测试 vtp-test]
+尝试列举对象:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-test</Bucket><RequestId>ZDX4MVKHFFAZW3HJ</RequestId><HostId>LGerWarnzAuY2cX5gz8RdJVPmAufClV2tqB8MKWN6WUH86ht/dzrMlWJCKGU1s6cRVmloNbBZ/E=</HostId></Error>
+ACL:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-test</Bucket><RequestId>ENHFH9SV7935E62R</RequestId><HostId>JH3mlFoW7AMtXXIIjJRuhPl0y73FieSkYCWbxv0gLVYaDRXxpTiW5exQ7ACVxfxUqkRzVgf2a3c=</HostId></Error>
+策略:
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>vtp-test</Bucket><RequestId>ENHBF63AXY6MSXPF</RequestId><HostId>J71dMLjM43B4mCuBsaJHxMnr3xJBglilEfDGDI4oJ/A2Rgc9QcUQm5bWF3MLMoYr8jZLL8f4aJM=</HostId></Error>

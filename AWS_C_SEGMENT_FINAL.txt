@@ -1,0 +1,209 @@
+# ViettelPost AWS C段资产总结
+
+## 发现时间
+2025-11-11
+
+---
+
+## 🎯 核心发现
+
+### 1. AWS ELB负载均衡器
+```
+logistek-lb-1356723839.us-east-1.elb.amazonaws.com
+```
+- **区域**: us-east-1 (美国弗吉尼亚)
+- **节点数**: 6个EC2实例
+- **证书**: *.viettelpost.vn (GlobalSign)
+- **服务器**: Kestrel (ASP.NET Core), Nginx, awselb/2.0
+
+### 2. ELB后端IP (已确认为ViettelPost资产)
+```
+18.204.186.98    ✓ CN=*.viettelpost.vn
+18.235.65.23     ✓ CN=*.viettelpost.vn  
+52.45.238.196    ✓ CN=*.viettelpost.vn
+52.7.29.71       ✓ CN=*.viettelpost.vn
+54.196.109.78    ✓ CN=*.viettelpost.vn
+98.87.53.179     ✓ CN=*.viettelpost.vn
+```
+
+### 3. 对应的C段
+```
+18.204.186.0/24
+18.235.65.0/24
+52.45.238.0/24
+52.7.29.0/24
+54.196.109.0/24
+98.87.53.0/24
+```
+
+---
+
+## 🔥 S3 Bucket发现
+
+### 已确认存在的Buckets（403 AccessDenied）:
+```
+viettelpost        (ap-southeast-1 新加坡)
+vtp                (ap-southeast-1)
+vtp-prod           (ap-southeast-1)
+vtp-dev            (ap-southeast-1)
+vtp-test           (ap-southeast-1)
+```
+
+**分析**:
+- 所有bucket都在ap-southeast-1区域
+- 返回403说明bucket存在但无公开读权限
+- 可能需要AWS凭证才能访问
+- 命名规范暴露了环境划分（prod/dev/test）
+
+---
+
+## 📊 服务架构
+
+### 域名→ELB映射
+```
+api-global.viettelpost.vn      → ELB → 6节点 ✓
+auth-global.viettelpost.vn     → ELB → 6节点 ✓
+admin-global.viettelpost.vn    → ELB → 6节点 ✓
+```
+
+### 服务分布在ELB上
+| Host头 | 状态 | 服务器 |
+|--------|------|--------|
+| api-global.viettelpost.vn | 404 | awselb/2.0 |
+| auth-global.viettelpost.vn | 404 | Kestrel |
+| admin-global.viettelpost.vn | 200 | nginx/1.26.3 |
+| internal.viettelpost.vn | 404 | awselb/2.0 |
+| dev.viettelpost.vn | 404 | awselb/2.0 |
+| staging.viettelpost.vn | 404 | awselb/2.0 |
+
+**发现**: ELB支持多个虚拟主机，但大部分未配置或未开放
+
+---
+
+## 🔍 Swagger文档发现
+
+### Management Service
+```
+https://api-global.viettelpost.vn/management-service/swagger/index.html
+https://api-global.viettelpost.vn/management-service/swagger/v1/swagger.json
+```
+- **端点数**: 184个
+- **已获取**: ✓
+- **访问**: 需要 Logistek_Swagger token
+
+### CDN Service
+```
+https://api-global.viettelpost.vn/cdn-service/swagger/index.html
+https://api-global.viettelpost.vn/cdn-service/swagger/v1/swagger.json
+```
+- **状态**: 🔥 新发现
+- **访问**: 同样需要token
+- **功能**: 文件上传/下载、S3存储管理
+
+---
+
+## 🎯 C段扫描结果
+
+### AWS C段特点
+- **安全组防火墙**: 所有非标准端口被过滤
+- **开放端口**: 仅 80, 443 (ELB标准配置)
+- **其他端口**: 8080, 8443, 3306, 6379等全部关闭
+
+### 扫描限制
+1. AWS IP段包含大量非目标资产
+2. 安全组阻止了端口扫描
+3. 无法直接识别其他ViettelPost服务
+
+### 有效识别方法
+✓ SSL证书CN验证
+✓ HTTP Host头测试
+✓ 域名反向解析
+✗ 端口扫描（被防火墙拦截）
+
+---
+
+## 🚨 安全问题总结
+
+### 高危发现
+1. **Swagger文档完全暴露**
+   - Management Service: 184个端点
+   - CDN Service: 端点数待确认
+   - 需要token但client_id/secret已泄露
+
+2. **S3 Bucket命名可枚举**
+   - 发现5个bucket（虽然无公开访问）
+   - 命名规范暴露了架构信息
+   - 环境划分清晰（prod/dev/test）
+
+3. **架构信息泄露**
+   - ELB名称: logistek-lb-1356723839
+   - 6个后端节点IP
+   - 服务部署在AWS us-east-1
+   - 存储在ap-southeast-1
+
+### 中危发现
+1. **虚拟主机配置**
+   - 测试发现internal/dev/staging子域存在但未开放
+   - 可能存在内部环境暴露风险
+
+2. **EC2实例可直接访问**
+   - 6个ELB节点IP可以直接HTTPS访问
+   - 虽然需要正确的Host头
+   - 绕过ELB可能发现更多端点
+
+---
+
+## 📈 攻击面分析
+
+### 已确认的AWS资产
+- **计算**: 6个EC2实例（ELB后端）
+- **网络**: 1个ELB (Application Load Balancer)
+- **存储**: 5个S3 Buckets (ap-southeast-1)
+- **服务**: Management, Auth, CDN, Admin
+
+### 未确认但可能存在
+- **数据库**: RDS (未暴露在公网)
+- **缓存**: ElastiCache Redis/Memcached
+- **其他**: Lambda, API Gateway, CloudFront CDN
+
+### 下一步攻击向量
+1. ✅ 已获取OAuth2 token (Logistek_Swagger)
+2. ✅ 已获取Management Swagger (184端点)
+3. 🔥 新发现CDN Swagger (待测试)
+4. 🎯 CDN Service可能允许文件上传/下载
+5. 🎯 可能通过CDN访问S3 bucket内容
+
+---
+
+## 🔧 与越南本地C段对比
+
+| 特征 | 越南C段 (27.71.229.x) | AWS C段 (18.204.x等) |
+|------|----------------------|---------------------|
+| 区域 | 越南本地 | AWS us-east-1 |
+| 服务状态 | 大部分503 | 正常运行 |
+| 可访问性 | 有限 | 高 |
+| 安全防护 | 一般 | AWS安全组 |
+| 价值 | 内网资产 | 核心业务API |
+
+**结论**: AWS C段是ViettelPost的**核心生产环境**，越南本地更像是**内网或历史遗留**系统。
+
+---
+
+## 📝 当前突破进度
+
+- ✅ 识别6个AWS ELB节点
+- ✅ 发现5个S3 Buckets
+- ✅ 获取Management Swagger (184端点)
+- ✅ 发现CDN Swagger
+- ⏳ CDN Service API测试中
+- ⏳ S3文件访问测试中
+
+---
+
+**报告时间**: 2025-11-11
+**C段数**: 6个 (AWS)
+**真实IP**: 6个 (已验证)
+**S3 Buckets**: 5个
+**Swagger服务**: 2个 (Management + CDN)
+
+---

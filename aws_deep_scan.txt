@@ -1,0 +1,54 @@
+=== 深度扫描ViettelPost AWS资产 ===
+[1] 测试每个IP的管理端口和服务
+
+=== 18.204.186.98 ===
+
+=== 18.235.65.23 ===
+
+=== 52.45.238.196 ===
+
+=== 52.7.29.71 ===
+
+=== 54.196.109.78 ===
+
+=== 98.87.53.179 ===
+
+[2] 测试不同的Host头
+Host: api-global.viettelpost.vn
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 14:25:51 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+Host: auth-global.viettelpost.vn
+HTTP/2 404 
+date: Tue, 11 Nov 2025 14:25:51 GMT
+server: Kestrel
+x-correlation-id: 0c5665745f014298b3bee6f1a24d181a
+
+Host: admin-global.viettelpost.vn
+HTTP/2 200 
+date: Tue, 11 Nov 2025 14:25:51 GMT
+content-type: text/html
+content-length: 843
+server: nginx/1.26.3
+Host: internal.viettelpost.vn
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 14:25:51 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+Host: dev.viettelpost.vn
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 14:25:51 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+Host: staging.viettelpost.vn
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 14:25:52 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+
+[3] 检查HTTP方法和头

@@ -1,0 +1,54 @@
+
+[测试 18.204.186.98]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
+
+[测试 18.235.65.23]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
+
+[测试 52.45.238.196]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
+
+[测试 52.7.29.71]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
+
+[测试 54.196.109.78]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
+
+[测试 98.87.53.179]
+HTTPS (443):
+subject=CN = *.viettelpost.vn
+issuer=C = BE, O = GlobalSign nv-sa, CN = GlobalSign GCC R6 AlphaSSL CA 2023
+---
+No client certificate CA names sent
+Peer signing digest: SHA256
+Peer signature type: RSA-PSS
