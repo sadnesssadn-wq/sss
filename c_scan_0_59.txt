@@ -1,0 +1,95 @@
+✅ 27.71.229.2 HTTP: 403
+✅ 27.71.229.4 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Server: nginx/1.28.0
+Date: Tue, 11 Nov 2025 17:51:08 GMT
+Content-Type: text/html
+Content-Length: 615
+✅ 27.71.229.4 HTTPS: 302
+✅ 27.71.229.9 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Content-Length: 703
+Content-Type: text/html
+Last-Modified: Tue, 03 Jun 2025 09:10:28 GMT
+Accept-Ranges: bytes
+✅ 27.71.229.9 HTTPS: 404
+✅ 27.71.229.10 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Content-Length: 703
+Content-Type: text/html
+Last-Modified: Tue, 12 Sep 2023 09:58:33 GMT
+Accept-Ranges: bytes
+✅ 27.71.229.12 HTTP: 302
+✅ 27.71.229.12 HTTPS: 503
+✅ 27.71.229.15 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Date: Tue, 11 Nov 2025 17:51:39 GMT
+Content-Type: text/html
+Content-Length: 612
+✅ 27.71.229.15 HTTPS: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Server: nginx/1.18.0 (Ubuntu)
+Date: Tue, 11 Nov 2025 17:51:40 GMT
+Content-Type: text/html
+Content-Length: 612
+✅ 27.71.229.18 HTTPS: 307
+✅ 27.71.229.21 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Server: nginx/1.26.2
+Date: Tue, 11 Nov 2025 17:52:00 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: keep-alive
+✅ 27.71.229.22 HTTPS: 302
+✅ 27.71.229.27 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Content-Length: 703
+Content-Type: text/html
+Last-Modified: Tue, 15 Oct 2024 07:30:42 GMT
+Accept-Ranges: bytes
+✅ 27.71.229.29 HTTPS: 307
+✅ 27.71.229.30 HTTP: 301
+✅ 27.71.229.30 HTTPS: 301
+✅ 27.71.229.35 HTTP: 302
+✅ 27.71.229.35 HTTPS: 503
+✅ 27.71.229.36 HTTP: 302
+✅ 27.71.229.36 HTTPS: 503
+✅ 27.71.229.39 HTTP: 302
+✅ 27.71.229.39 HTTPS: 503
+✅ 27.71.229.43 HTTP: 302
+✅ 27.71.229.43 HTTPS: 503
+✅ 27.71.229.45 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 6825
+Content-Type: text/html; charset=utf-8
+Server: Microsoft-IIS/10.0
+✅ 27.71.229.45 HTTPS: 404
+✅ 27.71.229.50 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Content-Length: 703
+Content-Type: text/html
+Last-Modified: Thu, 11 Jul 2024 12:35:46 GMT
+Accept-Ranges: bytes
+✅ 27.71.229.50 HTTPS: 404
+✅ 27.71.229.51 HTTP: 302
+✅ 27.71.229.51 HTTPS: 503
+✅ 27.71.229.53 HTTP: 302
+✅ 27.71.229.53 HTTPS: 503
+✅ 27.71.229.54 HTTP: 200
+  🔥 详细信息:
+HTTP/1.1 200 OK
+Server: nginx/1.14.0 (Ubuntu)
+Date: Tue, 11 Nov 2025 17:53:24 GMT
+Content-Type: text/html
+Content-Length: 612
+✅ 27.71.229.54 HTTPS: 302

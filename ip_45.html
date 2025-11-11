@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - Biên bản kiểm tra</title> 
+    <script src="/Assert/jquery-1.10.2.js"></script>
+    <link href="/Assert/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Assert/dist/js/bootstrap.min.js"></script>
+    <script src="/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="icon" href="data:;base64,=">
+    <style>
+        body {
+            background-image: url('../../Assets/Image/bg_3.png');
+            background-repeat: repeat;
+        }
+        .logo {
+     width: 179px;
+    height:35px;
+    margin-top: 7px;
+    margin-left: 0px;
+    margin-right: 20px;
+    display: block;
+    background: url(../../Assert/Images/logo.png) no-repeat;
+    background-size:cover;
+    float: left;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="logo" href="http://www.app.robotech.vn/"></a>
+                <a class="navbar-brand" href="/Home/Initial">  Inspection Report</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <br /><hr />  
+           
+<style>
+    .form-control {
+        margin-top: 5px;
+    }
+
+    .control-label {
+        margin-top: 5px;
+    }
+    .ensign{
+        width:40px;
+        height:30px;
+        filter:grayscale(90%);
+        cursor:pointer;
+        margin:3px;
+    }
+       .ensign:hover{
+        width:45px;
+        height:35px; 
+        filter:grayscale(20%);
+        margin:4px;
+        border:1px solid #ff6a00; 
+        border-radius:4px;
+    }
+    .ensignActive{
+        border:3px solid #0094ff; 
+        border-radius:4px;
+        filter:grayscale(0%);
+    }
+</style>
+<form action="/Users/Xu_ly_login" enctype="multipart/form-data" method="post">    <hr />
+        <form class="form-horizontal">
+            <h2 id="thong_bao" class="text-center text-danger"></h2>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-right" for="userName">Username:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control col-sm-4" id="userName" name="userName" placeholder="Tên đăng nhập">
+                    <input style="position: fixed;top:-100px;left:-100px; width:5px;z-index:88888" type="text" name="fakeusernameremembered" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3 text-right" for="pwd">Password:</label>
+                <div class="col-sm-7">
+                    <input style="position:fixed;top:-100px;left:-100px; width:5px;z-index:88888 " type="password" name="fakepasswordremembered" />
+                    <input type="password" class="form-control col-sm-4"  role="presentation"  autocomplete="" id="pwd" name="pwd" placeholder="Mật khẩu">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-9 text-center" style="min-height:50px">
+                    <img src="/Assert/Images/en-ensign.png" data-region="EN" title="English" class="ensign  " />
+                    <img src="/Assert/Images/vn-ensign.png" data-region="VN" title="Việt Nam" class="ensign ensignActive " />
+                    <img src="/Assert/Images/jp-ensign.png" data-region="JP" title="日本" class="ensign " />
+                    <img src="/Assert/Images/cn-ensign.png" data-region="CN" title="中国" class="ensign " />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-7">
+                    <button type="submit" name="submit" value="F4" class="btn btn-primary">Đăng nhập ASSY</button>
+                    <button type="submit" name="submit" value="F2" class="btn btn-success">Đăng nhập INSP</button>
+                    <button type="submit" name="submit" value="Fac" class="btn btn-warning">Đăng nhập FAC</button>
+                    <a href="/Users/Change_password"  class="btn btn-info">Đổi mật khẩu</a>
+                    
+                </div>
+            </div>
+        </form>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#userName').focus();
+                    var timer;
+                    timer = setTimeout(Hide_notification, 3000);
+                });
+                $('input[name=fakepasswordremembered]').keyup(function (e) {
+
+                    if (e.keyCode != 13 && !e.shiftKey && e.key != "Unidentified") {
+                        var kt = e.key;
+                        var realValue = $('#pwd').val();
+                        var tempValue = $(this).val();
+                        if (realValue.length == 0 || realValue.length == tempValue.length - 1) {
+
+                            $('#pwd').val(realValue + kt);
+                            $(this).val(generateStarBylength(tempValue.length));
+                        } else {
+                            console.log(e);
+                            $('#pwd').val("");
+                            $(this).val("");
+                        }
+
+                    }
+                })
+                function Hide_notification()
+                {
+                    document.getElementById('thong_bao').innerText = '';
+                }
+                $('.ensign').click(function () {
+                    var region = $(this).attr("data-region");
+                    window.location.href = "/Users/ChangeRegion?region=" + region;
+
+                })
+            </script>
+</form>
+
+    </div>
+    <hr />
+    <div class="container">
+        <footer>
+            <div class="col-sm-6">
+                <p>&copy; 2025 - Information System Manangement </p>
+            </div>
+            <div class="col-sm-6">
+                <p>  Phone: 5006 </p>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#signout').fadeOut();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+🔥 /api/user/info
+
+---
+🔥 /api/user/profile
+
+---
+🔥 /api/auth/login
+
+---
+🔥 /api/auth/token
+
+---
+🔥 /api/v1/login
+
+---
+🔥 /api/v1/auth
+
+---
+🔥 /api/v2/user/login
+
+---
+🔥 /api/mobile/login
+
+---
+🔥 /api/mobile/auth
+
+---
+🔥 /api/app/login
+
+---
+🔥 /api/public/login
+
+---
+🔥 /api/guest/login
+
+---
+🔥 /api/test/login
+
+---
+🔥 /api/debug
+
+---
+🔥 /api/dev
+
+---
+🔥 /.well-known/openid-configuration
+
+---
+🔥 /oauth/authorize
+
+---
+🔥 /oauth/token
+
+---
+🔥 /connect/token
+
+---
+🔥 /identity/connect/token
+
+---

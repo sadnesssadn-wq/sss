@@ -1,0 +1,41 @@
+
+=== 测试 https://appv2.viettelpost.vn ===
+✅ /health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /ping → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /status → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /version → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /info → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /actuator → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /actuator/health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/status → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/version → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/config → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/public → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /.well-known/openid-configuration → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /swagger → 403
+✅ /swagger/index.html → 403
+✅ /swagger-ui.html → 403
+✅ /api-docs → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /docs → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+=== 测试 https://devicev2.viettelpost.vn ===
+✅ /health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /ping → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /status → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /version → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /info → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /actuator → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /actuator/health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/health → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/status → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/version → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/config → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /api/public → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /.well-known/openid-configuration → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /swagger → 403
+✅ /swagger/index.html → 403
+✅ /swagger-ui.html → 403
+✅ /api-docs → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}✅ /docs → 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}

@@ -1,0 +1,13 @@
+
+>>> Content-Type: application/json
+{"status":200,"error":true,"message":"Username and password not match","messageKey":"common.no_header"}
+>>> Content-Type: application/x-www-form-urlencoded
+{"status":"error","message":"Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported","data":"Content type 'application/x-www-form-urlencoded;charset=UTF-8' not supported"}
+>>> Content-Type: multipart/form-data
+
+>>> Content-Type: text/plain
+{"status":"error","message":"Content type 'text/plain;charset=UTF-8' not supported","data":"Content type 'text/plain;charset=UTF-8' not supported"}
+>>> Content-Type: application/xml
+{"status":"error","message":"Content type 'application/xml;charset=UTF-8' not supported","data":"Content type 'application/xml;charset=UTF-8' not supported"}
+>>> Content-Type: text/xml
+{"status":"error","message":"Content type 'text/xml;charset=UTF-8' not supported","data":"Content type 'text/xml;charset=UTF-8' not supported"}
