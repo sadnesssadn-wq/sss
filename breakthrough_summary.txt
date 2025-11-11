@@ -1,0 +1,25 @@
+# 突破点汇总
+
+## 🔥 高价值发现
+
+### 1. Google Maps API Key泄露
+**Key**: AIzaSyAho0v6UBUJOaxyI7UjLwpbO7VTvb_LoaU
+**来源**: https://demo.jtexpress.vn
+**可利用**: API滥用、费用消耗
+
+### 2. Zimbra真实域名
+**域名**: mail.ailab.vn
+**IP**: 14.225.194.171:8443
+**版本**: Zimbra 2023
+**Admin接口**: /service/admin/soap (500状态)
+
+### 3. JMS Demo系统
+**URL**: https://demo.jtexpress.vn
+**框架**: Vue + Element UI
+**API**: 待深入测试
+
+## 下一步
+1. Zimbra账户爆破
+2. Zimbra Admin SOAP接口利用
+3. JMS Demo API测试
+4. Google API Key滥用测试
