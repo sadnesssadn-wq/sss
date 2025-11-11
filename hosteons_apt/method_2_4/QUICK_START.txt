@@ -1,0 +1,71 @@
+# 🚀 快速开始指南
+
+## 立即执行（5分钟内开始）
+
+### 步骤1：配置Gmail（2分钟）
+```
+1. 访问：https://myaccount.google.com/apppasswords
+2. 登录你的Gmail账号
+3. 点击"选择应用" → 选择"邮件"
+4. 点击"选择设备" → 选择"其他"
+5. 输入名称："Hosteons Test"
+6. 点击"生成"
+7. 复制16位密码（格式：xxxx xxxx xxxx xxxx）
+```
+
+### 步骤2：编辑脚本（2分钟）
+```bash
+nano METHOD4_EMAIL_TEST.py
+
+找到这两行：
+GMAIL_USER = "your_email@gmail.com"
+GMAIL_APP_PASSWORD = "your_app_password_here"
+
+修改为：
+GMAIL_USER = "你的邮箱@gmail.com"
+GMAIL_APP_PASSWORD = "刚才生成的16位密码"
+
+保存退出：Ctrl+X → Y → Enter
+```
+
+### 步骤3：运行脚本（1分钟）
+```bash
+python3 METHOD4_EMAIL_TEST.py
+```
+
+### 等待结果（30分钟后）
+```
+脚本会自动发送13封测试邮件
+等待30分钟后，查看你的Gmail收件箱：
+- 有回复 = 邮箱存在
+- 有退信 = 邮箱不存在
+```
+
+---
+
+## 同时执行方法2（可选）
+
+### 趁脚本运行时，注册客户：
+```
+1. 访问：https://my.hosteons.com/register.php
+2. 填写真实信息
+3. 购买VPS（$3-5）
+4. 提交工单
+
+详细步骤见：METHOD2_CUSTOMER_REGISTRATION.md
+```
+
+---
+
+## 文件说明
+
+```
+METHOD4_EMAIL_TEST.py              → 方法4执行脚本
+METHOD2_CUSTOMER_REGISTRATION.md   → 方法2详细指南
+EXECUTION_PLAN.md                  → 完整执行计划
+QUICK_START.txt                    → 本文件（快速开始）
+```
+
+---
+
+**现在就开始！**
