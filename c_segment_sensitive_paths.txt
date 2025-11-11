@@ -1,0 +1,166 @@
+
+========== 测试 27.71.229.64 ==========
+
+[http]
+
+[https]
+
+========== 测试 27.71.229.65 ==========
+
+[http]
+
+[https]
+
+========== 测试 27.71.229.70 ==========
+
+[http]
+  ✅ /admin → 302
+  ✅ /api → 302
+  ✅ /swagger → 302
+  ✅ /actuator → 302
+  ✅ /console → 302
+  ✅ /manager → 302
+  ✅ /phpmyadmin → 302
+  ✅ /api-docs → 302
+  ✅ /v2/api-docs → 302
+  ✅ /debug → 302
+  ✅ /test → 302
+  ✅ /.git/config → 302
+  ✅ /config → 302
+  ✅ /.env → 302
+  ✅ /backup → 302
+
+[https]
+
+========== 测试 27.71.229.71 ==========
+
+[http]
+  ✅ /admin → 302
+  ✅ /api → 302
+  ✅ /swagger → 302
+  ✅ /actuator → 302
+  ✅ /console → 302
+  ✅ /manager → 302
+  ✅ /phpmyadmin → 302
+  ✅ /api-docs → 302
+  ✅ /v2/api-docs → 302
+  ✅ /debug → 302
+  ✅ /test → 302
+  ✅ /.git/config → 302
+  ✅ /config → 302
+  ✅ /.env → 302
+  ✅ /backup → 302
+
+[https]
+
+========== 测试 27.71.229.72 ==========
+
+[http]
+  ✅ /admin → 302
+  ✅ /api → 302
+  ✅ /swagger → 302
+  ✅ /actuator → 302
+  ✅ /console → 302
+  ✅ /manager → 302
+  ✅ /phpmyadmin → 302
+  ✅ /api-docs → 302
+  ✅ /v2/api-docs → 302
+  ✅ /debug → 302
+  ✅ /test → 302
+  ✅ /.git/config → 302
+  ✅ /config → 302
+  ✅ /.env → 302
+  ✅ /backup → 302
+
+[https]
+
+========== 测试 171.244.51.236 ==========
+
+[http]
+  ✅ /api → 302
+
+[https]
+
+========== 测试 171.244.51.237 ==========
+
+[http]
+  ✅ /admin → 301
+  ✅ /api → 301
+  ✅ /swagger → 301
+  ✅ /actuator → 301
+  ✅ /console → 301
+  ✅ /manager → 301
+  ✅ /phpmyadmin → 301
+  ✅ /api-docs → 301
+  ✅ /v2/api-docs → 301
+  ✅ /debug → 301
+  ✅ /test → 301
+  ✅ /.git/config → 301
+  ✅ /config → 301
+  ✅ /.env → 301
+  ✅ /backup → 301
+
+[https]
+
+========== 测试 171.244.51.239 ==========
+
+[http]
+
+[https]
+
+========== 测试 171.244.51.240 ==========
+
+[http]
+  ✅ /admin → 301
+  ✅ /api → 301
+  ✅ /swagger → 301
+  ✅ /actuator → 301
+  ✅ /console → 301
+  ✅ /manager → 301
+  ✅ /phpmyadmin → 301
+  ✅ /api-docs → 301
+  ✅ /v2/api-docs → 301
+  ✅ /debug → 301
+  ✅ /test → 301
+  ✅ /.git/config → 301
+  ✅ /config → 301
+  ✅ /.env → 301
+  ✅ /backup → 301
+
+[https]
+  ✅ /admin → 301
+  ✅ /api → 301
+  ✅ /swagger → 301
+  ✅ /actuator → 301
+  ✅ /console → 301
+  ✅ /manager → 301
+  ✅ /phpmyadmin → 301
+  ✅ /api-docs → 301
+  ✅ /v2/api-docs → 301
+  ✅ /debug → 301
+  ✅ /test → 301
+  ✅ /.git/config → 301
+  ✅ /config → 301
+  ✅ /.env → 301
+  ✅ /backup → 301
+
+========== 测试 171.244.51.243 ==========
+
+[http]
+  ✅ /admin → 301
+  ✅ /api → 301
+  ✅ /swagger → 301
+  ✅ /actuator → 301
+  ✅ /console → 301
+  ✅ /manager → 301
+  ✅ /phpmyadmin → 301
+  ✅ /api-docs → 301
+  ✅ /v2/api-docs → 301
+  ✅ /debug → 301
+  ✅ /test → 301
+  ✅ /.git/config → 301
+  ✅ /config → 301
+  ✅ /.env → 301
+  ✅ /backup → 301
+
+[https]

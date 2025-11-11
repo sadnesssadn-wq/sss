@@ -1,0 +1,103 @@
+
+========== 171.244.51.236 ==========
+[HTTP:80]
+HTTP/1.1 302 Moved Temporarily
+Vary: Accept
+X-XSS-Protection: 1
+X-Frame-Options: sameorigin
+X-Content-Type-Options: nosniff
+Location: /users/sign_In?err=notauthen
+Content-Type: text/plain
+Content-Length: 62
+Set-Cookie: connect.sid=s%3AprQTZBNdhr9pkEEoZobWNQF4.MncMrriGHU7D8A%2Bzcxboq0M5jBHkTLd2LqdGuLsKPYA; Path=/; HttpOnly
+Date: Tue, 11 Nov 2025 17:13:39 GMT
+
+[HTTPS:443]
+
+[网页内容关键字]
+
+========== 171.244.51.237 ==========
+[HTTP:80]
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.20.1
+Date: Tue, 11 Nov 2025 17:13:45 GMT
+Content-Type: text/html
+Content-Length: 169
+Connection: keep-alive
+Location: https://171.244.51.237/
+
+
+[HTTPS:443]
+
+[网页内容关键字]
+301 Moved Permanently
+
+========== 171.244.51.239 ==========
+[HTTP:80]
+HTTP/1.1 200 OK
+Server: nginx/1.20.1
+Date: Tue, 11 Nov 2025 17:13:33 GMT
+Content-Type: text/html ;charset=utf-8
+Connection: keep-alive
+X-Powered-By: PHP/7.2.34
+Set-Cookie: PHPSESSID=aa237ad96230f071a2ceafc65836ebcb; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+
+[HTTPS:443]
+HTTP/1.1 200 OK
+Server: nginx/1.20.1
+Date: Tue, 11 Nov 2025 17:13:34 GMT
+Content-Type: text/html ;charset=utf-8
+Connection: keep-alive
+X-Powered-By: PHP/7.2.34
+Set-Cookie: PHPSESSID=ae19861605e8f23884acf52be0e3f613; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+
+[网页内容关键字]
+<body class="login-body">
+    <div class="login_title">
+    <div class="login_input">
+
+========== 171.244.51.240 ==========
+[HTTP:80]
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Tue, 11 Nov 2025 17:13:56 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Location: http://tiens.com.vn/
+
+
+[HTTPS:443]
+HTTP/1.1 301 Moved Permanently
+Server: nginx
+Date: Tue, 11 Nov 2025 17:13:57 GMT
+Content-Type: text/html
+Content-Length: 162
+Connection: keep-alive
+Location: http://tiens.com.vn/
+
+
+[网页内容关键字]
+301 Moved Permanently
+
+========== 171.244.51.243 ==========
+[HTTP:80]
+HTTP/1.1 301 Moved Permanently
+Server: nginx/1.20.1
+Date: Tue, 11 Nov 2025 17:13:55 GMT
+Content-Type: text/html
+Content-Length: 169
+Connection: keep-alive
+Location: https://171.244.51.243/
+
+
+[HTTPS:443]
+
+[网页内容关键字]
+301 Moved Permanently

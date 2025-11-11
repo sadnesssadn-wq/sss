@@ -1,0 +1,191 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title></title>
+
+    <link href="/templates/a_css/style.css" rel="stylesheet">
+    <link href="/templates/a_css/style-responsive.css" rel="stylesheet">
+    <link href="/templates/a_css/alysvg/iconfont.css" rel="stylesheet">
+
+<body class="login-body">
+    <div class="login_title">
+<!--        <div class="logo" style="z-index:0">-->
+<!--            <span class="iconfont  icon-jikelogo" style="font-size:150px;line-height:40px;margin-left:25px;color:white"></span>-->
+<!--        </div>-->
+<!--        <img src="/templates/a_image/vm.png" style="font-size:150px;line-height:40px;margin-left:25px;color:white">-->
+        <span style="font-size:40px;height：40px;line-height:40px;text-align: center;color:white;margin-left: 25px;">TIENS</span>
+    </div>
+    <div class="login_input">
+
+        <form class="form-signin" action="" method="post">
+
+            <div class="form-signin-heading text-center">
+                <h1 class="sign-title">ĐĂNG NHẬP</h1>
+            </div>
+
+            <div class="login-wrap">
+                <div style="margin-bottom:50px">
+                    <label>Ngôn ngữ</label>
+                    <select class="form-control m-bot15 login_from" style="padding: 7px;" name="language" id="language">
+                         <option value="viet">Tiếng Việt</option> <option value="chn">汉语</option> <option value="en">English</option>                    </select>
+                </div>
+                <div style="margin-bottom:50px">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" class="form-control login_from" placeholder="" name="text" autofocus>
+                </div>
+                <div style="margin-bottom:40px">
+                    <label>Mật khẩu</label>
+                    <input type="password" class="form-control login_from" placeholder="" name="password">
+                </div>
+
+
+
+                <select class="form-control m-bot15 ins login_from" style="padding: 7px;display:none;margin-bottom:40px" name="ins" isIns="2">
+                    <option></option>
+                </select>
+
+                <button class="btn btn-lg  btn-block newcolor" style="height:58px;color:white" id='tj' type="button">
+                    <span style="font-size:20px"> Đăng nhập</span>
+                </button>
+
+            </div>
+
+
+            <div style="
+  
+  position: absolute;
+    right: 70;
+   
+    bottom: 28px;
+">
+            <span class="iconfont  icon-banquan" style="margin-left: 10px;"></span>
+            <span>Bản quyền thuộc Hainan Jike Technology Co., Ltd</span>
+        </div>
+        </form>
+
+      
+    </div>
+
+    <script src="/templates/a_js/jquery-1.10.2.min.js"></script>
+    <script src="/templates/a_js/scripts.js"></script>
+    <script src="/templates/a_js/layer.js"></script>
+
+    <script>
+
+        $(document).ready(function() {
+            // 假设你的下拉列表有一个特定的ID，比如说id为"mySelect"
+            $('#language option:first-child').prop('selected', true);
+        });
+
+
+        $(function() {
+            console.log()
+            $("input[name='text']").focus(function() {
+                $(".ins").attr('isIns', 2).hide().html("")
+            })
+            $("#tj").click(function() {
+                if (!$("input[name='text']").val()) {//用户名不可为空
+                    layer.msg('Tên người dùng không phải là rỗng');
+                    return;
+                }
+                if (!$("input[name='password']").val()) {//密码不可为空
+                    layer.msg('Mật khẩu không phải là rỗng');
+                    return;
+                }
+                let data = {
+                    "ajax": 1,
+                    "text": $("input[name='text']").val(),
+                    "password": $("input[name='password']").val(),
+                    "language": document.getElementById('language').value,
+                    'isins': $(".ins").attr('isIns')
+                }
+
+                if ($(".ins").attr("isIns") != 2) {
+                    data['ins'] = $(".ins").val();
+                }
+                $.ajax({
+                    url: "/admin/index/logints/index.html", //请求路径
+                    type: "POST", //请求方式
+                    data: data, // 默认写法
+                    success: function(data) { // 接收服务器响应的值
+                        if (data.data.isins == 1 && data.code == 400) {
+                            $(".ins").show()
+                            $(".ins").attr("isIns", 1)
+                            let html = "";
+                            data.data.data.forEach(element => {
+                                html += `<Option value='${element.id}'>${element.code}</Option>`
+                            });
+                            $(".ins").html(html)
+                        } else if (data.data.isins == 1 && data.code == 200) {
+                            location.href = "/admin" + data.data.url;
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    },
+                    error: function() {
+
+
+                    },
+                    dataType: "Json", //
+                    beforeSend: function(XMLHttpRequest) {
+
+
+
+                    },
+                })
+
+            })
+        })
+
+
+
+
+
+
+        function getCookie(name) {
+            let getCookievalue = document.cookie;
+
+            let arr = getCookievalue.split(";")
+
+            for (let i = 0; i < arr.length; i++) {
+                var arr2 = arr[i].split("=");
+
+                if (arr2[0].trim() == name) {
+                    return arr2[1]
+                }
+            }
+            return false;
+        }
+
+        function setCookie(name, value, day) {
+            var date = new Date();
+            var nowDate = date.getDate();
+            date.setDate(nowDate + day);
+            document.cookie = name + "=" + value + ";expires=" + date;
+        }
+        $(document).on("change", ".m-bot15", function() {
+            setCookie("languages", $(this).val(), 1)
+        })
+        if (getCookie("languages")) {
+            $(".m-bot15").val(getCookie("languages"))
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="/templates/a_css/mdialog.css">
+<script type="text/javascript" src="/templates/a_js/zepto.min.js"></script>
+<script type="text/javascript" src="/templates/a_js/mdialog.js"></script>
+<style>
+ /*---------------results开始---------------*/
+
+
+
+
+/*---------------results结束---------------*/
+</style>
+
+</body>
