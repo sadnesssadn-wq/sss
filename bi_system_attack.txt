@@ -1,0 +1,308 @@
+=== BI系统深度测试 [14.225.194.71] ===
+HTTP/1.1 302 Found
+Date: Tue, 11 Nov 2025 13:22:54 GMT
+Server: Apache/2.4.29 (Ubuntu)
+Cache-Control: no-cache, private
+Set-Cookie: XSRF-TOKEN=eyJpdiI6InBWYWdUQlJUSDZvelhMeEJOeGtxNGc9PSIsInZhbHVlIjoiTlBPdlhYZ3lCT0xTT014Q3F5aktWR2dVNnhJb3YzSDBiRWhHaUk1OTZXUkNJc1VBNmplekFZT0psZWo2UmtHM3hCNEJRM2dDYkg5RGQya3J2K3dsNTVtYnlVZGk1dGxYTzc0SWRNOW0vQXhvWmhxTStlTVI1WE54WDZ2OGtJTmkiLCJtYWMiOiJmNDMxY2M0NWI3MjQzMTUxNjhjYTkzZGQ1N2M5ODY0YThjYzNhOWM4OWJiYjY3MmRkM2UzNjZlM2RjZGI1ZWZlIn0%3D; expires=Tue, 02-Dec-2025 09:22:54 GMT; Max-Age=1800000; path=/; samesite=lax
+Set-Cookie: bi_dashboard_v2_session=eyJpdiI6Im9TZzZ4N0JlMHg2eVVCUkViUHhCalE9PSIsInZhbHVlIjoiNE1SK2JGQnVDc005SGh0VmVzbkpjTCtUN3ZUeGpWeTE2bEdqMGZzcWxjOWZXcmtucHpDcTVsRSs1SFhTY3doL3hWeU5XRldycUc5a2RPUnR2cGl0eGVheEl3ZW92RVBBRnd1NjV4LzY0T2htYWpsVkNBb3NGcUxTWGN5NXNJcnkiLCJtYWMiOiI5MmUzODU5NjMwMWUzMTVhMTE3NzFmZjVkOWFlOTI4YjAzMmJmZDNmMThlNGI3NmRiYTQ5Y2Q5ZTQ5ZTAxMDlkIn0%3D; expires=Tue, 02-Dec-2025 09:22:54 GMT; Max-Age=1800000; path=/; httponly; samesite=lax
+Location: https://14.225.194.71/login
+Content-Type: text/html; charset=UTF-8
+
+
+=== Laravel Debug模式测试 ===
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+=== Laravel Telescope ===
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>
+
+=== API文档 ===
+Testing /api/documentation
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>
+Testing /docs
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>
+Testing /swagger/v1/swagger.json
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>
+Testing /api-docs
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                color: #B0BEC5;
+                display: table;
+                font-weight: 100;
+                font-family: 'Noto Serif SC', serif;
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 72px;
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="title">Not found.</div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,4 @@
+=== 登录接口SQL注入测试 ===
+
+[BI系统 /login]
+Payload: admin' OR '1'='1

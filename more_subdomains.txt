@@ -1,0 +1,13 @@
+=== 更多子域名爆破 ===
+[发现] www.jtexpress.vn -> jtexpress.vn.
+[发现] app.jtexpress.vn -> 203.162.54.40
+[发现] webmail.jtexpress.vn -> 14.225.241.197
+  HTTP: 302
+[发现] hr.jtexpress.vn -> 14.225.241.202
+[发现] finance.jtexpress.vn -> 14.225.241.209
+[发现] erp.jtexpress.vn -> 14.225.241.202
+  HTTP: 000
+  HTTP: 000
+  HTTP: 000
+  HTTP: 000
+  HTTP: 000

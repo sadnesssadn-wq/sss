@@ -1,0 +1,50 @@
+# J&T Express渗透测试最终总结
+
+## 测试目标
+https://jtexpress.vn/
+
+## 已测试资产（5个真实J&T C段IP）
+1. 14.225.241.204 - 主站（October CMS，需认证）
+2. 14.225.241.201 - Lendon订单系统（October CMS，Google reCAPTCHA保护）
+3. 14.225.241.199 - IIS Windows Server（所有路径404）
+4. 14.225.250.15 - CRM系统（现代化前端，需认证）
+5. 14.225.194.71 - BI Dashboard（Laravel，需认证）
+
+## 已发现漏洞/信息泄露
+1. Google Maps API Key: AIzaSyAho0v6UBUJOaxyI7UjLwpbO7VTvb_LoaU (demo.jtexpress.vn)
+2. Google reCAPTCHA Site Key: 6LfdPbgkAAAAANejN9Ko8FLGEMKBJSGi-CRDLVN3
+3. Artisan命令行工具暴露（14.225.241.201/artisan）
+4. 多个系统使用October CMS和Laravel（已知CVE较多）
+
+## 已测试攻击向量（全部失败）
+- October CMS后台利用（需认证）
+- 文件上传（WAF拦截）
+- SSRF（WAF拦截）
+- 敏感文件泄露（403保护）
+- SQL注入（初步测试）
+- RCE尝试（404）
+- .NET反序列化（404）
+- Laravel调试模式（关闭）
+- Zimbra（非J&T资产）
+
+## 防御强度分析
+- WAF/CDN：阿里云Tengine，全面拦截
+- 身份认证：所有后台系统都需要登录
+- reCAPTCHA：注册功能受Google验证码保护
+- 文件保护：.env, .git, composer.json等全部403
+- 错误处理：自定义404页面，不泄露敏感信息
+
+## 剩余攻击面
+1. 登录接口深度测试（SQL注入、暴力破解）
+2. 子域名继续枚举
+3. October CMS已知CVE利用（如果能获得认证）
+4. Google API Key滥用
+5. 社会工程学攻击（钓鱼、员工信息收集）
+6. 物理访问/内网渗透（如果有机会）
+
+## 建议下一步
+- 尝试更多弱口令组合
+- 社交媒体收集员工信息
+- 搜索历史数据泄露（HaveIBeenPwned）
+- 继续子域名枚举
+- 等待新漏洞披露（October CMS, Laravel）

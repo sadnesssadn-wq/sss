@@ -1,0 +1,409 @@
+=== October CMS文件上传测试 ===
+
+[1] 媒体管理上传 /backend/cms/media/upload
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+
+[2] 主题资源上传
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+
+[3] API媒体接口
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+
+[4] 用户头像上传
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>

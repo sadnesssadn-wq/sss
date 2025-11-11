@@ -1,0 +1,34 @@
+=== IIS .NET反序列化攻击 [14.225.241.199] ===
+
+[ViewState反序列化测试]
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Not Found</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Not Found</h2>
+<hr><p>HTTP Error 404. The requested resource is not found.</p>
+</BODY></HTML>
+
+[.NET Remoting接口]
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Not Found</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Not Found</h2>
+<hr><p>HTTP Error 404. The requested resource is not found.</p>
+</BODY></HTML>
+
+[SharePoint测试]
+Testing /_layouts/viewlsts.aspx
+HTTP/2 404 
+server: Microsoft-HTTPAPI/2.0
+Testing /_api/web
+HTTP/2 404 
+server: Microsoft-HTTPAPI/2.0
+Testing /_vti_bin/
+HTTP/2 404 
+server: Microsoft-HTTPAPI/2.0
+
+[ASP.NET接口]
+/elmah.axd: 404
+/trace.axd: 404
+/WebResource.axd: 404
+/ScriptResource.axd: 404

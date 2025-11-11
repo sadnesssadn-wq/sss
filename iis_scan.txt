@@ -1,0 +1,15 @@
+=== IIS服务器探测 [14.225.241.199] ===
+Testing: /aspnet_client/
+Testing: /.well-known/
+Testing: /api/values
+Testing: /swagger
+Testing: /api-docs
+Testing: /web.config
+Testing: /bin/web.config
+Testing: /.git/config
+Testing: /backup.zip
+Testing: /web.config.bak
+
+[IIS短文件名泄露测试]
+HTTP/2 404 
+server: Microsoft-HTTPAPI/2.0

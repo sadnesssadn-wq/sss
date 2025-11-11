@@ -1,0 +1,40 @@
+# J&T Express真实内部资产汇总
+
+## 确认的C段真实资产（通过证书CN=*.jtexpress.vn验证）
+
+### 1. 14.225.241.204 - 主站
+- Nginx + PHP/7.4.33
+- October CMS
+- 状态：已深度测试，后台需要认证
+
+### 2. 14.225.241.201 - Lendon订单系统 
+- Nginx/1.18.0 + PHP/8.0.30
+- October CMS
+- 注册路径：/home-page?type=register (需要Google reCAPTCHA)
+- 状态：已测试，无法绕过验证码
+
+### 3. 14.225.241.199 - IIS Windows Server
+- Microsoft-HTTPAPI/2.0
+- ASP.NET系统
+- 状态：正在深度测试.NET漏洞
+
+### 4. 14.225.250.15 - CRM系统
+- Nginx
+- 现代化前端（Vite构建）
+- 状态：正在分析前端资源
+
+### 5. 14.225.194.71 - BI Dashboard
+- Apache/2.4.29 (Ubuntu)
+- Laravel框架
+- 内容：BI Dashboard v2
+- 状态：正在测试Laravel调试模式
+
+## 已发现但非J&T资产
+- 14.225.194.167 - 其他服务（非J&T）
+- 14.225.194.171:8443 - Zimbra mail.ailab.vn（**不是J&T的！**）
+
+## 下一步攻击计划
+1. BI系统Laravel Telescope/Debug泄露
+2. IIS系统.NET反序列化
+3. CRM系统API逆向
+4. Google Maps API Key滥用

@@ -1,0 +1,737 @@
+=== October CMS漏洞利用 [14.225.241.201] ===
+
+[版本探测]
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+[账号枚举测试]
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+                    <button
+                        type="button"
+                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                        data-te-modal-dismiss
+                        aria-label="Close">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-6 w-6">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative">
+                    <div class="container-fluid">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="slidercaptcha card">
+                                    <div class="card-body">
+                                        <div id="captcha"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/jquery-validate/js/jquery.validate.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/disk/longbow.slidercaptcha.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/js/index.min.js"></script>
+</body>
+</html>
+[CVE-2021-32648 测试]
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+                    <button
+                        type="button"
+                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                        data-te-modal-dismiss
+                        aria-label="Close">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-6 w-6">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative">
+                    <div class="container-fluid">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="slidercaptcha card">
+                                    <div class="card-body">
+                                        <div id="captcha"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/jquery-validate/js/jquery.validate.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/disk/longbow.slidercaptcha.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/js/index.min.js"></script>
+</body>
+</html>
+[媒体上传测试]
+    <!doctype html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+        <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title></title>
+<meta name="description" content="">
+<meta name="title" content="">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/default.css" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/combine/d0e7f84ead2af364e094be2bf9bb7232-1690433323" />
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+<body>
+<section class="gradient-form h-screen bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10 m-auto">
+        <div class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-4/5">
+                <div class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <div class="flex rounded-b-lg lg:w-6/12 lg:rounded-l-lg lg:rounded-br-none" style="background-image: url(https://14.225.241.201/themes/jt-len-don/assets/images/bg-login.jpg); background-position: center;background-repeat: no-repeat;background-size: cover;">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    <svg width="240" height="51" viewBox="0 0 240 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M36.3645 0.157805H50.9073L49.3314 7.06369H49.35L39.4479 50.5617L0.453125 50.579L1.62754 48.4413L3.0041 45.7835L5.7401 40.4579H27.254L36.3674 0.157805H36.3645ZM98.1585 0.160694L157.056 0.127472L153.733 3.45258H139.058L137.175 5.3188H151.87L150.214 6.97269H150.22L149.164 8.02858H134.301L132.436 9.88902H147.297L143.25 13.919H127.036L117.937 50.5631H103.759L105.258 44.0486H105.269L112.816 13.9205H90.6807L98.16 0.159249L98.1585 0.160694ZM63.9368 39.6806C69.1256 45.3401 78.0696 39.6806 78.0696 39.6806L68.7826 28.5961C68.2045 29.2864 58.7438 34.0228 63.9354 39.6793L63.9368 39.6806ZM91.2758 39.9133L99.9663 50.5486H86.7988L84.01 47.5326C77.217 50.7682 69.9099 50.7682 69.9099 50.7682C58.9359 50.9821 53.4113 45.8297 53.4113 45.8297C42.4046 32.9091 61.9737 20.7411 61.9737 20.7411C55.4 13.3543 56.9345 6.38047 56.9345 6.38047C58.3423 0.189582 58.3268 0.144805 58.3268 0.144805H90.7277L83.1204 14.0057C83.0691 13.9234 83.3111 11.3407 83.2569 11.267C83.4776 8.33191 80.3173 6.85137 77.1074 6.85137C73.2439 6.85137 70.1093 9.94247 70.0154 13.7847C69.9897 14.0158 69.9825 14.2513 70.0011 14.4881C70.0183 14.7568 70.0722 15.037 70.1393 15.3201C70.337 16.3197 70.7399 17.2413 71.2994 18.0415C74.7799 23.9926 84.0114 31.0184 84.0114 31.0184C85.2756 30.7873 86.665 22.9366 86.665 22.9366L96.6937 25.8213C95.7726 33.6775 91.2758 39.9133 91.2758 39.9133ZM144.583 42.1637H137.536L136.628 46.9521H144.524L143.848 50.5631H131.727L135.482 30.764H147.193L146.489 34.3766H139.034L138.214 38.609H145.256L144.583 42.1622V42.1637ZM157.027 50.5646L155.676 46.572C155.296 45.3661 154.974 44.4257 154.621 43.192H154.564C153.918 44.3086 153.389 45.3068 152.539 46.7166L150.218 50.5646H145.144L152.539 40.4579L149.074 30.764H153.535L154.738 34.553C155.09 35.7893 155.356 36.669 155.649 37.8448H155.736C156.471 36.4928 156.969 35.551 157.615 34.4951L159.906 30.764H164.953L157.732 40.4895L161.518 50.5646H157.027ZM169.739 39.9899C170.181 40.0764 170.647 40.1342 171.352 40.1342C173.907 40.1342 175.58 38.489 175.58 36.5231C175.58 34.6135 174.201 33.9953 172.558 33.9953C171.765 33.9953 171.205 34.0531 170.854 34.1426L169.739 39.9899ZM167.272 31.1441C168.535 30.8219 170.532 30.6153 172.44 30.6153C174.201 30.6153 176.255 30.9115 177.693 31.9384C179.012 32.8484 179.836 34.2322 179.836 36.1404C179.836 38.6393 178.69 40.517 177.135 41.7217C175.522 42.987 173.234 43.5446 170.825 43.5446C170.121 43.5446 169.533 43.4868 169.093 43.426L167.742 50.5646H163.604L167.272 31.1441ZM186.443 39.5766H188.202C190.491 39.5766 192.164 38.1973 192.164 36.2573C192.164 34.6713 190.813 33.965 189.142 33.965C188.349 33.965 187.849 34.0242 187.499 34.1124L186.443 39.5766ZM183.886 31.1455C185.21 30.8233 187.206 30.6168 189.17 30.6168C191.049 30.6168 192.988 30.9115 194.366 31.7651C195.657 32.5264 196.569 33.7902 196.569 35.6406C196.569 38.5801 194.601 40.4001 192.076 41.2233V41.3419C193.252 41.8415 193.75 43.1619 193.955 44.953C194.187 47.1571 194.366 49.744 194.719 50.5646H190.375C190.2 50.0373 189.993 48.333 189.787 45.8933C189.612 43.4853 188.789 42.75 187.118 42.75H185.827L184.356 50.5646H180.161L183.886 31.1455ZM210.131 42.1637H203.085L202.176 46.9521H210.069L209.397 50.5631H197.276L201.031 30.764H212.743L212.038 34.3766H204.583L203.763 38.609H210.803L210.131 42.1622V42.1637ZM213.298 45.7575C214.468 46.4624 216.135 47.0199 217.951 47.0199C219.59 47.0199 221.083 46.2586 221.083 44.703C221.083 43.5908 220.233 42.8599 218.419 41.9224C216.309 40.7784 214.321 39.2531 214.321 36.6762C214.321 32.691 217.807 30.2586 222.107 30.2586C224.508 30.2586 225.913 30.7873 226.761 31.2553L225.443 34.771C224.798 34.4215 223.395 33.8639 221.757 33.8928C219.796 33.8928 218.771 34.8895 218.771 35.9728C218.771 37.1168 219.97 37.8173 221.637 38.7562C224.041 40.0144 225.561 41.6279 225.561 43.9706C225.561 48.3675 221.931 50.621 217.542 50.621C214.789 50.621 212.83 49.919 211.891 49.217L213.298 45.7575ZM227.633 45.7575C228.802 46.4624 230.471 47.0199 232.285 47.0199C233.925 47.0199 235.419 46.2586 235.419 44.703C235.419 43.5908 234.569 42.8599 232.755 41.9224C230.647 40.7784 228.657 39.2531 228.657 36.6762C228.657 32.691 232.14 30.2586 236.441 30.2586C238.842 30.2586 240.246 30.7873 241.094 31.2553L239.779 34.771C239.136 34.4215 237.731 33.8639 236.091 33.8928C234.13 33.8928 233.104 34.8895 233.104 35.9728C233.104 37.1168 234.306 37.8173 235.975 38.7562C238.375 40.0144 239.897 41.6279 239.897 43.9706C239.897 48.3675 236.267 50.621 231.878 50.621C229.125 50.621 227.164 49.919 226.227 49.217L227.633 45.7575Z" fill="white"/>
+                                    </svg>
+                                </h4>
+                                <p class="text-sm">
+                                    J&T Express là thương hiệu chuyển phát nhanh dựa trên sự phát triển của công nghệ và Internet. Chúng tôi sở hữu mạng lưới rộng khắp nhằm hỗ trợ các hoạt động giao nhận hàng hóa nhanh chóng không chỉ ở nội thành mà còn ở ngoại thành và các vùng xa của các tỉnh thành trong cả nước Việt Nam.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="container">
+    <div class="banner-404">
+        <h1>Page Not Found</h1>
+        <p>We're sorry, but the page you requested cannot be found.</p>
+    </div>
+</div>                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+        data-te-modal-init
+        class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="captchaModalCenter"
+        data-te-backdrop="static"
+        data-te-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="captchaModalCenterTitle"
+        aria-modal="true"
+        role="dialog">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[400px]">
+            <div
+                class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div
+                    class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="captchaModalScrollableLabel">Verification</h5>
+                    <button
+                        type="button"
+                        class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                        data-te-modal-dismiss
+                        aria-label="Close">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="h-6 w-6">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="relative">
+                    <div class="container-fluid">
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="slidercaptcha card">
+                                    <div class="card-body">
+                                        <div id="captcha"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/jquery-validate/js/jquery.validate.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/disk/longbow.slidercaptcha.min.js"></script>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/js/index.min.js"></script>
+</body>
+</html>
+[注册接口测试]
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZX78HNWNH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-7ZX78HNWNH');
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LfdPbgkAAAAANejN9Ko8FLGEMKBJSGi-CRDLVN3"></script>
+    <script>
+        function onSubmit() {
+            document.getElementById("frm-register").submit();
+        }
+    </script>    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Login Page</title>
+<meta name="description" content="Login Page">
+<meta name="title" content="Login Page">
+<meta name="author" content="JTExpress">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="JTExpress">
+<link rel="icon" type="image/png" href="https://14.225.241.201/themes/jt-len-don/assets/images/iconjt.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/css/index.min.css"/>
+<script src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"></script>
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/disk/slidercaptcha.min.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/css/login-v2.css" rel="stylesheet">
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/select2js/select2.min.css" rel="stylesheet" />
+<link href="https://14.225.241.201/themes/jt-len-don/assets/lib/swiper/css/swiper-bundle.min.css" rel="stylesheet" />
+
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            fontFamily: {
+                sans: ["Inter", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+            },
+        },
+        corePlugins: {
+            preflight: false,
+        },
+    };
+</script>
+<script src="/modules/system/assets/js/framework-bundle.js"></script>
+<link rel="stylesheet" property="stylesheet" href="/modules/system/assets/css/framework-extras.css">
+<script type="module" src="https://14.225.241.201/themes/jt-len-don/assets/js/lendon/login-v2.js"></script>    <meta name="turbo-visit-control" content="reload" />
+</head>
+
+<body class="font-sans page-home-page">
+    <!-- Header -->
+    <header id="layout-header" class="pt-[80px]">
+        <!-- Nav -->
+<!--Nav-->
+<nav aria-label="menu nav" class="bg-white py-0 px-6 mt-0 min-h-[80px] fixed w-full z-20 top-0 border border-solid border-[#E7EAEE]">
+
+    <div class="flex flex-wrap items-center h-full min-h-[4.8rem] justify-center" id="desktop-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" id="menu-button" class="h-6 w-6 cursor-pointer lg:hidden block"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+
+        <div class="md:min-w-[368px] min-h-[4.8rem] div-logo">
+            <a href="/home-page" aria-label="Home">
+                <svg class="min-h-[4.8rem] logo-nav" width="149" height="32" viewBox="0 0 149 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_10343_20113)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.6071 0.0971121H32.5565L31.5867 4.34689H31.5982L25.5046 31.1149L1.50781 31.1255L2.23053 29.8101L3.07764 28.1745L4.76134 24.8972H18.0006L23.6089 0.0971121H23.6071ZM61.6342 0.0988897L97.8785 0.0784454L95.8339 2.12467H86.8031L85.644 3.27311H94.6872L93.6684 4.29089H93.6719L93.0219 4.94067H83.8754L82.7278 6.08555H91.8735L89.3829 8.56555H79.405L73.8055 31.1158H65.0804L66.0029 27.1068H66.0098L70.6545 8.56645H57.0325L61.6351 0.0980004L61.6342 0.0988897ZM40.5747 24.4188C43.7678 27.9016 49.2718 24.4188 49.2718 24.4188L43.5567 17.5976C43.201 18.0224 37.379 20.9371 40.5738 24.4181L40.5747 24.4188ZM57.3987 24.5621L62.7467 31.1068H54.6436L52.9274 29.2508C48.7471 31.242 44.2504 31.242 44.2504 31.242C37.4972 31.3736 34.0974 28.2029 34.0974 28.2029C27.3241 20.2518 39.3666 12.7638 39.3666 12.7638C35.3213 8.21801 36.2656 3.92645 36.2656 3.92645C37.1319 0.116667 37.1224 0.0891122 37.1224 0.0891122H57.0614L52.38 8.61889C52.3484 8.56823 52.4973 6.97889 52.464 6.93355C52.5998 5.12733 50.655 4.21623 48.6797 4.21623C46.3021 4.21623 44.3731 6.11845 44.3153 8.48289C44.2995 8.62511 44.2951 8.77 44.3066 8.91578C44.3171 9.08111 44.3503 9.25355 44.3916 9.42778C44.5133 10.0429 44.7612 10.61 45.1055 11.1024C47.2473 14.7647 52.9283 19.0883 52.9283 19.0883C53.7063 18.9461 54.5612 14.1148 54.5612 14.1148L60.7328 15.8901C60.166 20.7246 57.3987 24.5621 57.3987 24.5621ZM90.2029 25.9469H85.8665L85.3077 28.8936H90.167L89.7509 31.1158H82.2916L84.6024 18.9317H91.8094L91.3759 21.1548H86.7882L86.2835 23.7594H90.6172L90.2029 25.946V25.9469ZM97.8611 31.1167L97.0296 28.6597C96.7958 27.9176 96.5978 27.3389 96.3806 26.5797H96.3455C95.9478 27.2668 95.6219 27.8811 95.099 28.7487L93.671 31.1167H90.548L95.099 24.8972L92.9667 18.9317H95.7121L96.4524 21.2634C96.6688 22.0242 96.8326 22.5655 97.0131 23.2891H97.0664C97.5185 22.4571 97.8252 21.8775 98.2228 21.2278L99.6323 18.9317H102.739L98.2946 24.9166L100.625 31.1167H97.8611ZM105.684 24.6092C105.955 24.6624 106.243 24.698 106.676 24.698C108.249 24.698 109.278 23.6855 109.278 22.4758C109.278 21.3006 108.429 20.9202 107.418 20.9202C106.93 20.9202 106.586 20.9558 106.37 21.0108L105.684 24.6092ZM104.166 19.1656C104.943 18.9673 106.172 18.8402 107.346 18.8402C108.429 18.8402 109.693 19.0225 110.578 19.6544C111.39 20.2144 111.897 21.066 111.897 22.2403C111.897 23.7781 111.192 24.9335 110.235 25.6749C109.242 26.4535 107.834 26.7967 106.352 26.7967C105.919 26.7967 105.557 26.7611 105.286 26.7237L104.455 31.1167H101.908L104.166 19.1656ZM115.963 24.3548H117.046C118.454 24.3548 119.484 23.5061 119.484 22.3122C119.484 21.3362 118.652 20.9015 117.624 20.9015C117.136 20.9015 116.828 20.938 116.613 20.9923L115.963 24.3548ZM114.39 19.1665C115.204 18.9682 116.433 18.8411 117.641 18.8411C118.798 18.8411 119.991 19.0225 120.839 19.5478C121.633 20.0163 122.194 20.794 122.194 21.9327C122.194 23.7416 120.983 24.8616 119.429 25.3682V25.4412C120.153 25.7486 120.46 26.5612 120.586 27.6634C120.729 29.0198 120.839 30.6117 121.056 31.1167H118.383C118.275 30.7922 118.148 29.7434 118.021 28.2421C117.913 26.7602 117.407 26.3077 116.378 26.3077H115.584L114.679 31.1167H112.097L114.39 19.1665ZM130.54 25.9469H126.205L125.645 28.8936H130.502L130.088 31.1158H122.63L124.94 18.9317H132.148L131.714 21.1548H127.126L126.622 23.7594H130.954L130.54 25.946V25.9469ZM132.489 28.1585C133.209 28.5923 134.235 28.9353 135.353 28.9353C136.361 28.9353 137.28 28.4668 137.28 27.5095C137.28 26.8251 136.757 26.3753 135.641 25.7984C134.342 25.0944 133.119 24.1558 133.119 22.57C133.119 20.1175 135.264 18.6207 137.91 18.6207C139.388 18.6207 140.252 18.9461 140.774 19.2341L139.963 21.3975C139.566 21.1825 138.703 20.8393 137.695 20.8571C136.488 20.8571 135.857 21.4705 135.857 22.1371C135.857 22.8411 136.595 23.2722 137.621 23.85C139.1 24.6243 140.036 25.6172 140.036 27.0588C140.036 29.7646 137.802 31.1514 135.101 31.1514C133.407 31.1514 132.201 30.7194 131.623 30.2874L132.489 28.1585ZM141.311 28.1585C142.03 28.5923 143.057 28.9353 144.174 28.9353C145.183 28.9353 146.102 28.4668 146.102 27.5095C146.102 26.8251 145.579 26.3753 144.463 25.7984C143.166 25.0944 141.941 24.1558 141.941 22.57C141.941 20.1175 144.085 18.6207 146.731 18.6207C148.209 18.6207 149.073 18.9461 149.595 19.2341L148.785 21.3975C148.389 21.1825 147.525 20.8393 146.516 20.8571C145.309 20.8571 144.678 21.4705 144.678 22.1371C144.678 22.8411 145.417 23.2722 146.444 23.85C147.921 24.6243 148.858 25.6172 148.858 27.0588C148.858 29.7646 146.624 31.1514 143.923 31.1514C142.229 31.1514 141.022 30.7194 140.446 30.2874L141.311 28.1585Z" fill="#FF0000"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_10343_20113">
+                            <rect width="148.923" height="32" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </a>
+        </div>
+
+        <div class="lg:block hidden flex justify-between md:min-w-[1078px] min-h-[4.8rem]">
+            <ul class="list-reset flex justify-between flex-1 md:flex-none items-center list-menu">
+                <li onclick="window.location.href='/home-page'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start menu-active hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/home-page">Trang chủ</a>
+                </li>
+                <!-- <li onclick="window.location.href='/tracking'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start  hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/tracking">Tra vận đơn</a>
+                </li> -->
+                <li onclick="window.location.href='/tariff'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start  hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base">Cước vận chuyển</a>
+                </li>
+                <li onclick="window.location.href='/office-point'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start  hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/office-point">Tìm kiếm bưu cục</a>
+                </li>
+                <li onclick="window.location.href='/prohibited-goods'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start  hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/prohibited-goods">Hàng cấm gửi</a>
+                </li>
+                <li onclick="window.open('https://s8ca5kcydk.feishu.cn/docx/DWEPdxyMKoWwmYxo2YjcKYnUndg', '_blank')" class="item-menu flex-1 md:flex-none h-full flex py-[26px] px-4 justify-center items-start  hover:bg-gray-100 cursor-pointer">
+                    <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base">Hướng dẫn</a>
+                </li>
+                <li class="item-menu flex-1 md:flex-none md:mr-6">
+                    <a type="button" href="https://14.225.241.201/home-page"
+                        data-te-ripple-init
+                        data-te-ripple-color="light"
+                        class="bg-[#FF0000] text-whie font-bold py-2 px-4 rounded inline-flex items-center justify-center text-white Inter-SemiBold text-sm">
+                        <svg class="mr-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_10343_20124)">
+                                <path d="M12.6693 8.66666H8.66927V12.6667H7.33594V8.66666H3.33594V7.33333H7.33594V3.33333H8.66927V7.33333H12.6693V8.66666Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_10343_20124">
+                                    <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        <span>Tạo đơn lẻ</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="lg:hidden hidden" id="mobile-menu">
+        <ul class="flex flex-col justify-between flex-1 md:flex-none list-menu">
+            <li onclick="window.location.href='/home-page'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start hover:text-purple-400 menu-active hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/home-page">Trang chủ</a>
+            </li>
+            <!-- <li onclick="window.location.href='/tracking'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start hover:text-purple-400 hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/tracking">Tra vận đơn</a>
+            </li> -->
+            <li onclick="window.location.href='/tariff'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start  hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base">Cước vận chuyển</a>
+            </li>
+            <li onclick="window.location.href='/office-point'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start  hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/office-point">Tìm kiếm bưu cục</a>
+            </li>
+            <li onclick="window.location.href='/prohibited-goods'" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start  hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base" href="/prohibited-goods">Hàng cấm gửi</a>
+            </li>
+            <li onclick="window.open('https://s8ca5kcydk.feishu.cn/docx/DWEPdxyMKoWwmYxo2YjcKYnUndg', '_blank')" class="item-menu flex-1 md:flex-none h-full flex py-[26px] justify-start items-start  hover:bg-gray-100 cursor-pointer">
+                <a class="text-[#000000] hover:text-neutral-700 focus:text-neutral-700 lg:px-2 Inter-Regular text-base">Hướng dẫn</a>
+            </li>
+            <li class="item-menu flex-1 md:flex-none md:mr-6">
+                <a type="button" href="/home-page"
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                    class="bg-[#FF0000] text-whie font-bold py-2 px-4 rounded inline-flex items-center justify-center text-white Inter-SemiBold text-sm">
+                    <svg class="mr-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_10343_20124)">
+                            <path d="M12.6693 8.66666H8.66927V12.6667H7.33594V8.66666H3.33594V7.33333H7.33594V3.33333H8.66927V7.33333H12.6693V8.66666Z" fill="white"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_10343_20124">
+                                <rect width="16" height="16" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+
+                    <span>Tạo đơn lẻ</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    </header>
+    <!-- Content -->
+    <section id="layout-content">
+        <div class="container mx-auto flex flex-wrap py-6 max-xl:w-full home-page-container">
+    <section class="w-full md:w-[35%] flex flex-col items-center px-3 mt-2">
+        <p class="Inter-Regular text-[28px] font-bold leading-9 tracking-[-0.56px] mb-8 title-form">Đăng nhập</p>
+        <!--Tabs navigation-->
+        <ul
+            class="mb-1 flex list-none flex-row flex-wrap border-b-0 pl-0 w-[510px]" id="tabsNav"
+            role="tablist"
+            data-te-nav-ref>
+            <li role="presentation" class="flex-grow basis-0 text-center">
+                <a
+                    href="#tabs-login"
+                    class="my-2 Inter-Regular text-[#1F2937] font-normal py-[12px] px-[16px] block border-x-0 border-y-[1.5px] border-t-transparent border-[#E7EAEE] hover:isolate hover:border-transparent hover:bg-neutral-100"
+                    data-te-toggle="pill"
+                    data-te-target="#tabs-sigin"
+                    role="tab"
+                    aria-controls="tabs-sigin"
+                     aria-selected="false"                     onclick="trackingUrl('login')"
+                >Đăng nhập</a>
+            </li>
+            <li role="presentation" class="flex-grow basis-0 text-center">
+                <a
+                    href="#tabs-register"
+                    class="my-2 Inter-Regular text-[#1F2937] font-normal py-[12px] px-[16px] block border-x-0 border-y-[1.5px] border-t-transparent border-[#E7EAEE] hover:isolate hover:border-transparent hover:bg-neutral-100"
+                    data-te-toggle="pill"
+                    data-te-target="#tabs-register"
+                    role="tab"
+                    aria-controls="tabs-register"
+                     data-te-nav-active aria-selected="true"                     onclick="trackingUrl('register')"
+                >Đăng ký tài khoản</a>
+            </li>
+        </ul>
+
+        <!--Tabs content-->
+        <div class="mb-6 w-full tabs-content">
+            <div
+                class="hidden  opacity-0   transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                id="tabs-sigin"
+                role="tabpanel"
+                aria-labelledby="tabs-sigin"
+                >
+                <form id="form-login" method="post" action="https://14.225.241.201/home-page" data-request-flash="error">
+    <input type="hidden" name="_handler" value="onSigninV2">
+    <input name="_token" type="hidden" value="RVpYB37nmWStR88M0pvc6WSdZC8sVgammgDK6KMp">
+    <div class="relative mb-4">
+        <label for="username-lg" class="Inter-Regular text-base text-[#191D23]">Mã đăng nhập</label>
+        <input type="text" placeholder="Nhập mã số nhân viên" id="username-lg" name="login"
+            class="w-full px-4 py-2 mt-2 border rounded focus:outline-none h-11" autocomplete="off" tabindex="1">
+    </div>
+    <div class="relative mb-4">
+        <div class="flex items-center justify-between">
+            <label for="password-lg" class="Inter-Regular text-base text-[#191D23]">Mật khẩu</label>
+            <button
+                type="button"
+                data-te-toggle="modal"
+                data-te-target="#forgetPasswordModal"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+                class="Inter-SemiBold text-sm leading-4 text-[#0079ED] cursor-pointer">
+                <span>Quên mật khẩu</span>
+            </button>
+        </div>
+        <div class="relative">
+            <input type="password" placeholder="Nhập mật khẩu" id="password-lg" name="password"
+                class="w-full px-4 py-2 mt-2 border rounded focus:outline-none h-11" autocomplete="off" tabindex="2">
+            <i class="toggle-password fa fa-fw fa-eye"></i>
+        </div>
+    </div>
+    <div class="flex items-baseline justify-between">
+        <button type="button" id="button_login_v2" class="w-full px-6 pb-2 pt-2.5 mt-4 rounded bg-[#FF0000] text-white Inter-SemiBold text-base">
+            Đăng nhập
+        </button>
+    </div>
+</form>
+            </div>
+            <div
+                class="hidden  opacity-100  transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                id="tabs-register"
+                role="tabpanel"
+                aria-labelledby="tabs-register"
+                 data-te-tab-active             >
+                <form id="frm-register" method="post" action="/home-page?type=register" data-request-flash="error,validate" data-request-validate>
+    <input type="hidden" name="_handler" value="onRegisters">
+    <input type="hidden" name="is-otp" value="1">
+    <input type="hidden" name="province_id" value="0">
+    <input name="_token" type="hidden" value="RVpYB37nmWStR88M0pvc6WSdZC8sVgammgDK6KMp">
+        <div class="relative mb-4">
+        <label for="whoAreYou" class="Inter-Regular text-base text-[#191D23]">Bạn là ai ?</label>
+        <select class="w-full px-4 py-2 border rounded focus:outline-none" id="whoAreYou" name="groups">
+                                                <option value="nhan-vien-buu-cuc">Nhân viên bưu cục</option>
+                                                                <option value="khach-hang">Khách hàng</option>
+                                                                                            <option value="nhan-vien-kinh-doanh">Nhân viên kinh doanh</option>
+                                    </select>
+    </div>
+        <div class="relative mb-4 post-office-staff">
+        <label for="post-office-staff__code" class="Inter-Regular text-base text-[#191D23]">Mã đăng nhập JMS <span class="text-[#FF0000]">*</span></label>
+        <input type="text" placeholder="Nhập mã đăng nhập JMS" id="post-office-staff__code" name="postOfficeStaffCode" class="w-full px-4 py-2 border rounded focus:outline-none h-11">
+    </div>
+        <div class="group-info hidden">
+                <div class="relative mb-4 postal-code hidden">
+            <label for="postal_code" class="Inter-Regular text-base text-[#191D23]">Mã bưu cục <span class="text-[#FF0000]">*</span></label>
+            <input type="text" placeholder="Nhập mã bưu cục" id="postal_code" name="postal_code" class="w-full px-4 py-2 border rounded focus:outline-none h-11" >
+        </div>
+                <div class="relative mb-4 sale-province">
+            <label for="sale_province" class="Inter-Regular text-base text-[#191D23]">Chọn tỉnh <span class="text-[#FF0000]">*</span></label>
+            <select id="sale_province" class="w-full" name="sale_province">
+                <option></option>
+                                                            <option value="79">Thành phố Hồ Chí Minh</option>
+                                            <option value="01">Thành phố Hà Nội</option>
+                                            <option value="26">Tỉnh Vĩnh Phúc</option>
+                                            <option value="02">Tỉnh Hà Giang</option>
+                                            <option value="08">Tỉnh Tuyên Quang</option>
+                                            <option value="04">Tỉnh Cao Bằng</option>
+                                            <option value="06">Tỉnh Bắc Kạn</option>
+                                            <option value="24">Tỉnh Bắc Giang</option>
+                                            <option value="20">Tỉnh Lạng Sơn</option>
+                                            <option value="19">Thái Nguyên</option>
+                                            <option value="12">Tỉnh Lai Châu</option>
+                                            <option value="11">Tỉnh Điện Biên</option>
+                                            <option value="14">Tỉnh Sơn La</option>
+                                            <option value="15">Tỉnh Yên Bái</option>
+                                            <option value="25">Tỉnh Phú Thọ</option>
+                                            <option value="17">Tỉnh Hòa Bình</option>
+                                            <option value="10">Tỉnh Lào Cai</option>
+                                            <option value="35">Tỉnh Hà Nam</option>
+                                            <option value="37">Tỉnh Ninh Bình</option>

@@ -1,0 +1,249 @@
+=== Google API Key滥用测试 ===
+
+[1] Google Places - 搜索J&T Express
+{
+  "name": "J&T Express Vietnam",
+  "address": null,
+  "location": {
+    "lat": 10.7721467,
+    "lng": 106.7228724
+  }
+}
+
+[2] Geocoding - 反查J&T总部
+{
+  "address_components": [
+    {
+      "long_name": "91",
+      "short_name": "91",
+      "types": [
+        "street_number"
+      ]
+    },
+    {
+      "long_name": "Đường Số 2",
+      "short_name": "Đường Số 2",
+      "types": [
+        "route"
+      ]
+    },
+    {
+      "long_name": "khu phố 6",
+      "short_name": "khu phố 6",
+      "types": [
+        "neighborhood",
+        "political"
+      ]
+    },
+    {
+      "long_name": "Thủ Đức",
+      "short_name": "Thủ Đức",
+      "types": [
+        "administrative_area_level_2",
+        "political"
+      ]
+    },
+    {
+      "long_name": "Thành phố Hồ Chí Minh",
+      "short_name": "Thành phố Hồ Chí Minh",
+      "types": [
+        "administrative_area_level_1",
+        "political"
+      ]
+    },
+    {
+      "long_name": "Vietnam",
+      "short_name": "VN",
+      "types": [
+        "country",
+        "political"
+      ]
+    }
+  ],
+  "formatted_address": "91 Đường Số 2, khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh, Vietnam",
+  "geometry": {
+    "location": {
+      "lat": 10.8231055,
+      "lng": 106.629669
+    },
+    "location_type": "ROOFTOP",
+    "viewport": {
+      "northeast": {
+        "lat": 10.8244544802915,
+        "lng": 106.6310179802915
+      },
+      "southwest": {
+        "lat": 10.8217565197085,
+        "lng": 106.6283200197085
+      }
+    }
+  },
+  "navigation_points": [
+    {
+      "location": {
+        "latitude": 10.8230729,
+        "longitude": 106.6296205
+      }
+    }
+  ],
+  "place_id": "ChIJF3sJh2IpdTERwNaYoFtewMg",
+  "plus_code": {
+    "compound_code": "RJFH+6V Thủ Đức City, Ho Chi Minh City, Vietnam",
+    "global_code": "7P28RJFH+6V"
+  },
+  "types": [
+    "street_address"
+  ]
+}
+
+[3] Directions API测试
+{
+  "distance": {
+    "text": "1,659 km",
+    "value": 1658979
+  },
+  "duration": {
+    "text": "1 day 1 hour",
+    "value": 88927
+  },
+  "end_address": "79 Đinh Tiên Hoàng, French Quarter, Hoàn Kiếm, Hà Nội, Vietnam",
+  "end_location": {
+    "lat": 21.0288378,
+    "lng": 105.8541802
+  },
+  "start_address": "91 Đường Số 2, khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh, Vietnam",
+  "start_location": {
+    "lat": 10.8230928,
+    "lng": 106.6296909
+  },
+  "steps": [
+    {
+      "distance": {
+        "text": "17 m",
+        "value": 17
+      },
+      "duration": {
+        "text": "1 min",
+        "value": 3
+      },
+      "end_location": {
+        "lat": 10.8232119,
+        "lng": 106.6295943
+      },
+      "html_instructions": "Head <b>northwest</b> on <b>Đ. Trường Chinh</b> toward <b>Phan Huy Ích</b>",
+      "polyline": {
+        "points": "i{`aAqbyiSGDOL"
+      },
+      "start_location": {
+        "lat": 10.8230928,
+        "lng": 106.6296909
+      },
+      "travel_mode": "DRIVING"
+    },
+    {
+      "distance": {
+        "text": "0.4 km",
+        "value": 362
+      },
+      "duration": {
+        "text": "1 min",
+        "value": 78
+      },
+      "end_location": {
+        "lat": 10.8204388,
+        "lng": 106.6304778
+      },
+      "html_instructions": "Make a <b>U-turn</b> at <b>Phan Huy Ích</b>",
+      "maneuver": "uturn-left",
+      "polyline": {
+        "points": "a|`aA}ayiSKJPRPNFIPOLKHEJIRKv@_@HEHCHCRG`AWVI`@GdB]^IrAW"
+      },
+      "start_location": {
+        "lat": 10.8232119,
+        "lng": 106.6295943
+      },
+      "travel_mode": "DRIVING"
+    },
+    {
+      "distance": {
+        "text": "1.5 km",
+        "value": 1462
+      },
+      "duration": {
+        "text": "3 mins",
+        "value": 184
+      },
+      "end_location": {
+        "lat": 10.8079938,
+        "lng": 106.6343904
+      },
+      "html_instructions": "Keep <b>left</b> to stay on <b>Đ. Trường Chinh</b>",
+      "maneuver": "keep-left",
+      "polyline": {
+        "points": "wj`aAogyiSNCGUx@Od@I|@UvGuA|IkBfE{@tEaArCm@j@MxCo@nAWfMeCbB_@LAHCVEr@IlBe@vA]"
+      },
+      "start_location": {
+        "lat": 10.8204388,
+        "lng": 106.6304778
+      },
+      "travel_mode": "DRIVING"
+    },
+    {
+      "distance": {
+        "text": "3.0 km",
+        "value": 2955
+      },
+      "duration": {
+        "text": "7 mins",
+        "value": 440
+      },
+
+[4] 尝试其他API
+Testing: sheets.googleapis.com
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/test?key=AIzaSyAho0v6UBUJOaxyI7UjLwpbO7VTvb_LoaU</code> was not found on this server.  <ins>That’s all we know.</ins>
+Testing: drive.googleapis.com
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/test</code> was not found on this server.  <ins>That’s all we know.</ins>
+Testing: calendar.googleapis.com
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/test</code> was not found on this server.  <ins>That’s all we know.</ins>
+Testing: gmail.googleapis.com
+<!DOCTYPE html>
+<html lang=en>
+  <meta charset=utf-8>
+  <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width">
+  <title>Error 404 (Not Found)!!1</title>
+  <style>
+    *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
+  </style>
+  <a href=//www.google.com/><span id=logo aria-label=Google></span></a>
+  <p><b>404.</b> <ins>That’s an error.</ins>
+  <p>The requested URL <code>/v1/test?key=AIzaSyAho0v6UBUJOaxyI7UjLwpbO7VTvb_LoaU</code> was not found on this server.  <ins>That’s all we know.</ins>

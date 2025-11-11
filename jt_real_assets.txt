@@ -1,0 +1,33 @@
+=== 验证J&T真实资产 ===
+
+[14.225.194.71]
+✓ J&T资产确认
+title> BI Dashboard v2</title
+J&T
+
+[14.225.194.167]
+✗ 非J&T资产
+
+[14.225.194.208]
+✗ 非J&T资产
+
+[14.225.194.212]
+✗ 非J&T资产
+
+[14.225.241.199]
+✗ 非J&T资产
+✓ 证书确认: subject=CN = *.jtexpress.vn
+
+[14.225.241.201]
+✓ J&T资产确认
+title>Login Page</title
+JTExpress
+JTExpress
+✓ 证书确认: subject=CN = *.jtexpress.vn
+
+[14.225.241.204]
+✓ J&T资产确认
+title>J&T Express - Trang chủ</title
+JTExpress
+JTExpress
+✓ 证书确认: subject=CN = *.jtexpress.vn

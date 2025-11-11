@@ -1,0 +1,24 @@
+=== Login Page识别 [14.225.241.201] ===
+
+[标题]
+title>Login Page</title
+
+[框架特征]
+
+[表单Action]
+action="https://14.225.241.201/home-page"
+action="/home-page?type=register"
+action="javascript: void(0)"
+
+[JS框架]
+src="https://14.225.241.201/themes/jt-len-don/assets/js/tailwind.js"
+src="/modules/system/assets/js/framework-bundle.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/js/lendon/login-v2.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/vendor/jquery.min.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/lib/tw-elements/js/tw-elements.umd.min.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/lib/select2js/select2.min.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/lib/jquery-validate/js/jquery.validate.min.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/lib/swiper/js/swiper-bundle.min.js"
+src="https://14.225.241.201/themes/jt-len-don/assets/lib/sweetalert2/sweetalert2@11.js"
+
+[API接口]
