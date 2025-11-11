@@ -12,23 +12,3 @@ _______________________________________________________________
        @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
 _______________________________________________________________
 
-[32m[+][0m URL: https://aay.ac.th/ [202.9.90.193]
-[32m[+][0m Started: Tue Nov 11 15:15:08 2025
-
-Interesting Finding(s):
-
-[32m[+][0m Headers
- | Interesting Entries:
- |  - server: nginx
- |  - wpo-cache-status: cached
- | Found By: Headers (Passive Detection)
- | Confidence: 100%
-
-[32m[+][0m robots.txt found: https://aay.ac.th/robots.txt
- | Found By: Robots Txt (Aggressive Detection)
- | Confidence: 100%
-
-[32m[+][0m WordPress readme found: https://aay.ac.th/readme.html
- | Found By: Direct Access (Aggressive Detection)
- | Confidence: 100%
-
