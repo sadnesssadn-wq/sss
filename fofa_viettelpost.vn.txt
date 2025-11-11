@@ -1,0 +1,100 @@
+https://wms-dev.viettelpost.vn | 171.244.51.249:443 |  | 
+https://store-locator.okd.viettelpost.vn | 171.244.51.101:443 | ViettelPost Map | 
+https://chatbox.okd.viettelpost.vn | 171.244.51.101:443 |  | 
+https://forms.okd.viettelpost.vn | 171.244.51.101:443 |  | 
+https://id.viettelpost.vn | 27.71.229.36:443 |  | Kestrel
+https://viettelpost.vn | 125.212.138.88:443 |  | Cloudrity
+https://www.viettelpost.vn | 125.212.138.88:443 |  | Cloudrity
+viettelpost.vn | 125.212.138.88:80 |  | Cloudrity
+www.viettelpost.vn | 125.212.138.88:80 |  | Cloudrity
+https://api.viettelpost.vn | 27.71.229.35:443 |  | 
+https://dev-chatbox.viettelpost.vn | 171.244.51.249:443 | 503 Service Temporarily Unavailable | 
+https://dev-jira.viettelpost.vn | 171.244.51.249:443 |  | 
+https://evtpid.okd.viettelpost.vn | 171.244.51.101:443 |  | 
+dev-io.viettelpost.vn | 171.244.51.249:80 | 503 Service Temporarily Unavailable | 
+dev-wms-gw.viettelpost.vn | 171.244.51.249:80 |  | kong/3.2.2.0-enterprise-edition
+work.okd.viettelpost.vn | 171.244.51.101:80 | VTP | 
+dev-jira.viettelpost.vn | 171.244.51.249:80 |  | 
+evtpid.okd.viettelpost.vn | 171.244.51.101:80 |  | 
+stag-apichat.viettelpost.vn | 171.244.51.249:80 |  | 
+https://stag-apichat.viettelpost.vn | 171.244.51.249:443 |  | 
+api-islw.viettelpost.vn | 171.244.51.16:80 |  | 
+https://cskh.okd.viettelpost.vn | 171.244.51.101:443 | VTP | 
+https://dev-order-support.viettelpost.vn | 171.244.51.249:443 |  | 
+https://io.okd.viettelpost.vn | 171.244.51.101:443 | 503 Service Temporarily Unavailable | 
+https://qlkn.viettelpost.vn | 171.244.0.182:443 | 403 Forbidden | nginx/1.14.1
+https://dev-wms-gw.viettelpost.vn | 171.244.51.249:443 |  | kong/3.2.2.0-enterprise-edition
+https://ssov2_dev.viettelpost.vn | 171.244.51.249:443 |  | 
+https://work.okd.viettelpost.vn | 171.244.51.101:443 | VTP | 
+dev-order-support.viettelpost.vn | 171.244.51.249:80 |  | 
+ssov2_dev.viettelpost.vn | 171.244.51.249:80 |  | 
+https://receiverchat.viettelpost.vn | 171.244.51.31:443 |  | 
+apichat.viettelpost.vn | 27.71.229.36:80 |  | 
+https://dev-io.viettelpost.vn | 171.244.51.249:443 | 503 Service Temporarily Unavailable | 
+https://apichat.viettelpost.vn | 27.71.229.36:443 |  | 
+https://stag-receiverchat.viettelpost.vn | 171.244.51.249:443 |  | 
+receiverchat.viettelpost.vn | 171.244.51.31:80 |  | 
+https://partner.viettelpost.vn | 125.212.138.85:443 | Partner's Website - Viettelpost | Cloudrity
+iid.viettelpost.vn | 171.244.51.16:80 |  | 
+dev-store-locator.viettelpost.vn | 171.244.51.249:80 | ViettelPost Map | 
+https://omsapi.viettelpost.vn | 27.71.229.51:443 |  | kong/3.2.2.0-enterprise-edition
+international-hub.viettelpost.vn | 27.71.229.39:80 |  | 
+https://gw.viettelpost.vn | 171.244.51.31:443 |  | kong/3.2.2.0-enterprise-edition
+oms-sso-2-api.viettelpost.vn | 27.71.229.36:80 |  | 
+ap.viettelpost.vn | 27.71.229.39:80 | Viettel Post | nginx/1.20.1
+partner-v2.viettelpost.vn | 171.244.51.61:80 |  | 
+gw.viettelpost.vn | 171.244.51.31:80 |  | kong/3.2.2.0-enterprise-edition
+https://oms-sso-2-api.viettelpost.vn | 27.71.229.39:443 |  | 
+ap.viettelpost.vn | 27.71.229.39:80 |  | 
+api-gami.viettelpost.vn | 27.71.229.36:80 | 404 Not Found | 
+https://app-scs.viettelpost.vn | 171.244.51.16:443 | 404 Not Found | 
+https://qlx-api.viettelpost.vn | 27.71.229.72:443 |  | 
+https://staging-ecommerce.viettelpost.vn | 171.244.51.115:443 |  | 
+api-cashflow.viettelpost.vn | 171.244.51.101:80 |  | 
+https://api-gami.viettelpost.vn | 27.71.229.39:443 | 404 Not Found | 
+https://staging-print.viettelpost.vn | 125.212.238.33:443 |  | 
+dev-vhr.viettelpost.vn | 171.244.51.249:80 | VHR3.0 | Human resource managerment | 
+app-scs.viettelpost.vn | 171.244.51.16:80 | 404 Not Found | 
+staging-excel.viettelpost.vn | 125.212.238.33:80 |  | 
+https://staging-excel.viettelpost.vn | 171.244.51.115:443 |  | 
+staging-print.viettelpost.vn | 125.212.238.33:80 |  | 
+mwms.viettelpost.vn | 27.71.229.71:80 | WMS Ops | 
+https://mwms.viettelpost.vn | 27.71.229.70:443 | WMS Ops | 
+stg-keycloak.viettelpost.vn | 171.244.51.249:80 | Welcome to Keycloak | 
+https://stg-keycloak.viettelpost.vn | 171.244.51.249:443 | Welcome to Keycloak | 
+https://exgw.viettelpost.vn | 125.212.238.41:443 | 502 Bad Gateway | nginx/1.16.0
+https://voting.viettelpost.vn | 171.244.0.183:443 |  | 
+stag-vgate.viettelpost.vn | 171.244.51.115:80 | SmartGate - Quản lý booking | 
+https://fly.viettelpost.vn | 171.244.51.31:443 | Chào App Viettelpost mới | nginx/1.27.2
+https://smb.viettelpost.vn | 171.244.51.31:443 | Hệ thống quản trị SmartBox | 
+wms.viettelpost.vn | 27.71.229.70:80 | 404 Not Found | 
+supplychain.viettelpost.vn | 171.244.51.16:80 |  | 
+https://exp.viettelpost.vn | 115.84.177.9:443 | VIETEL-IDC | Apache
+https://uat-wms.viettelpost.vn | 171.244.51.16:443 | WMS Ops | 
+fly.viettelpost.vn | 171.244.51.31:80 | Chào App Viettelpost mới | nginx/1.27.2
+https://stag-vgate.viettelpost.vn | 171.244.51.115:443 | SmartGate - Quản lý booking | 
+https://admin-global.viettelpost.vn | 52.201.203.29:443 | Viettel Post - Tổng Công ty cổ phần bưu chính Viettel | nginx/1.26.3
+https://wms.viettelpost.vn | 27.71.229.71:443 | 404 Not Found | 
+stms-cam.viettelpost.vn | 171.244.195.102:80 |  | 
+https://api-global.viettelpost.vn | 3.225.215.74:443 |  | awselb/2.0
+https://devportal.viettelpost.vn | 171.244.51.249:443 |  | 
+https://qlcp-app-api.viettelpost.vn | 171.244.51.31:443 | Your request cannot be processed | 
+partner2.viettelpost.vn | 27.71.229.51:80 | Partner ViettelPost | 
+https://supplychain.viettelpost.vn | 171.244.51.16:443 |  | 
+https://beta-vi.viettelpost.vn | 171.244.51.249:443 |  | 
+tlp.viettelpost.vn | 171.244.0.183:80 |  | 
+vgate.viettelpost.vn | 27.71.229.71:80 | SmartGate - Quản lý booking | 
+voting.viettelpost.vn | 171.244.0.183:80 |  | 
+qlcp-app-api.viettelpost.vn | 171.244.51.31:80 | Your request cannot be processed | 
+dev-khieunai.viettelpost.vn | 171.244.0.183:80 |  | 
+https://dev-khieunai.viettelpost.vn | 171.244.0.183:443 |  | 
+https://stms-alertmanager-api.viettelpost.vn | 171.244.51.16:443 | 404 Not Found | 
+devportal.viettelpost.vn | 171.244.51.249:80 |  | 
+stms-alertmanager-api.viettelpost.vn | 171.244.51.16:80 | 404 Not Found | 
+https://dev9.viettelpost.vn | 171.244.51.249:443 |  | 
+auth-chatops.viettelpost.vn | 171.244.51.16:80 | Keycloak Administration UI | 
+https://finance.viettelpost.vn | 27.71.229.217:443 |  | Kestrel
+https://crm-mobile.viettelpost.vn | 171.244.51.16:443 |  | 
+exp.viettelpost.vn | 115.84.177.9:80 |  | Apache
+admin-global.viettelpost.vn | 35.172.7.69:80 | Viettel Post - Tổng Công ty cổ phần bưu chính Viettel | nginx/1.26.3
+https://yep.viettelpost.vn | 171.244.51.249:443 | Year End Party 2023 ViettelPost | nginx/1.20.1
