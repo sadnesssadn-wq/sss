@@ -1,0 +1,10 @@
+HTTP/2 200 
+last-modified: Mon, 27 Oct 2025 00:23:31 GMT
+etag: "592-64218e8c2a7ee"
+accept-ranges: bytes
+content-length: 1426
+vary: Accept-Encoding,User-Agent
+content-type: text/html
+date: Tue, 11 Nov 2025 12:56:59 GMT
+server: Apache/2
+

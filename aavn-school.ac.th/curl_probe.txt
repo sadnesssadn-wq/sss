@@ -1,0 +1,24 @@
+测试: aavn-school.ac.th
+HTTP/1.1 200 OK
+HTTP/2 200 
+测试: admin.aavn-school.ac.th
+测试: api.aavn-school.ac.th
+测试: dev.aavn-school.ac.th
+测试: ftp.aavn-school.ac.th
+HTTP/1.1 403 Forbidden
+HTTP/2 403 
+测试: mail.aavn-school.ac.th
+HTTP/1.1 403 Forbidden
+HTTP/2 403 
+测试: pop.aavn-school.ac.th
+HTTP/1.1 403 Forbidden
+HTTP/2 403 
+测试: portal.aavn-school.ac.th
+测试: smtp.aavn-school.ac.th
+HTTP/1.1 403 Forbidden
+HTTP/2 403 
+测试: test.aavn-school.ac.th
+测试: webmail.aavn-school.ac.th
+测试: www.aavn-school.ac.th
+HTTP/1.1 200 OK
+HTTP/2 200 

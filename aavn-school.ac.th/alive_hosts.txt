@@ -1,0 +1,12 @@
+http://aavn-school.ac.th|200|1426
+http://ftp.aavn-school.ac.th|403|199
+http://www.aavn-school.ac.th|200|1426
+http://mail.aavn-school.ac.th|403|199
+http://smtp.aavn-school.ac.th|403|199
+http://pop.aavn-school.ac.th|403|199
+https://ftp.aavn-school.ac.th|403|199
+https://pop.aavn-school.ac.th|403|199
+https://aavn-school.ac.th|200|1426
+https://www.aavn-school.ac.th|200|1426
+https://smtp.aavn-school.ac.th|403|199
+https://mail.aavn-school.ac.th|403|199
