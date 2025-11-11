@@ -1,0 +1,9 @@
+=== 🔥 SSRF测试 ===
+
+[1] Webhook SSRF测试
+测试内网扫描...
+
+测试外部请求...
+
+[2] Verify Address SSRF
+{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}{"errorCode":"Invalid","message":null,"data":null,"isSuccess":false,"httpCode":"400"}

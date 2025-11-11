@@ -1,0 +1,7 @@
+{
+  "errorCode": "Invalid",
+  "message": null,
+  "data": null,
+  "isSuccess": false,
+  "httpCode": "400"
+}
