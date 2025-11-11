@@ -1,0 +1,240 @@
+=== 深度IDOR测试 ===
+[1] 枚举订单ID（连续ID）
+测试订单ID: 1
+测试订单ID: 2
+测试订单ID: 3
+测试订单ID: 4
+测试订单ID: 5
+测试订单ID: 6
+测试订单ID: 7
+测试订单ID: 8
+测试订单ID: 9
+测试订单ID: 10
+测试订单ID: 11
+测试订单ID: 12
+测试订单ID: 13
+测试订单ID: 14
+测试订单ID: 15
+测试订单ID: 16
+测试订单ID: 17
+测试订单ID: 18
+测试订单ID: 19
+测试订单ID: 20
+
+[2] 枚举用户ID
+测试用户ID: 1
+测试用户ID: 2
+测试用户ID: 3
+测试用户ID: 4
+测试用户ID: 5
+测试用户ID: 6
+测试用户ID: 7
+测试用户ID: 8
+测试用户ID: 9
+测试用户ID: 10
+
+[3] 枚举Agency ID
+测试Agency ID: 1
+测试Agency ID: 2
+测试Agency ID: test-123
+测试Agency ID: admin
+测试Agency ID: vtp-001
+测试Agency ID: agency-001
+
+[4] 测试UUID格式的ID
+测试UUID: 00000000-0000-0000-0000-000000000001
+{
+  "errorCode": "Invalid",
+  "message": null,
+  "data": null,
+  "isSuccess": false,
+  "httpCode": "400"
+}
+测试UUID: 11111111-1111-1111-1111-111111111111
+{
+  "errorCode": "Invalid",
+  "message": null,
+  "data": null,
+  "isSuccess": false,
+  "httpCode": "400"
+}
+测试UUID: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+{
+  "errorCode": "Invalid",
+  "message": null,
+  "data": null,
+  "isSuccess": false,
+  "httpCode": "400"
+}
+
+[5] 测试交易详情IDOR
+测试交易ID: 1
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '1' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '1' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 2
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '2' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '2' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 3
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '3' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '3' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 4
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '4' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '4' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 5
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '5' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '5' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 6
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '6' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '6' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 7
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '7' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '7' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 8
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '8' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '8' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 9
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '9' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '9' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}
+测试交易ID: 10
+{
+  "error": {
+    "code": null,
+    "message": "Your request is not valid!",
+    "details": "The following errors were detected during validation.\n - The value '10' is not valid.\n",
+    "data": {},
+    "validationErrors": [
+      {
+        "message": "The value '10' is not valid.",
+        "members": [
+          "id"
+        ]
+      }
+    ]
+  }
+}

