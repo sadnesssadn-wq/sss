@@ -1,0 +1,94 @@
+=== 已知IP反查和同段扫描 ===
+[1] 反向DNS查询
+18.204.186.98 -> ec2-18-204-186-98.compute-1.amazonaws.com.
+52.54.180.212 -> ec2-52-54-180-212.compute-1.amazonaws.com.
+3.95.20.23 -> ec2-3-95-20-23.compute-1.amazonaws.com.
+3.221.69.75 -> ec2-3-221-69-75.compute-1.amazonaws.com.
+54.145.188.224 -> ec2-54-145-188-224.compute-1.amazonaws.com.
+18.215.169.136 -> ec2-18-215-169-136.compute-1.amazonaws.com.
+
+[2] Shodan查询这些IP
+
+=== 18.204.186.98 ===
+
+=== 52.54.180.212 ===
+
+=== 3.95.20.23 ===
+{
+  "org": "Amazon Data Services NoVa",
+  "hostnames": [
+    "ec2-3-95-20-23.compute-1.amazonaws.com"
+  ],
+  "ports": [
+    55553,
+    9125,
+    46862,
+    631,
+    12315,
+    10012
+  ],
+  "vulns": [
+    "CVE-2009-3720",
+    "CVE-2023-36632",
+    "CVE-2019-10768",
+    "CVE-2024-21490",
+    "CVE-2020-7676",
+    "CVE-2009-2940",
+    "CVE-2024-8373",
+    "CVE-2024-8372",
+    "CVE-2021-32052",
+    "CVE-2020-29396"
+  ],
+  "services": [
+    {
+      "port": 631,
+      "product": null,
+      "version": null
+    },
+    {
+      "port": 9125,
+      "product": "nginx",
+      "version": null
+    },
+    {
+      "port": 10012,
+      "product": null,
+      "version": null
+    },
+    {
+      "port": 12315,
+      "product": "nginx",
+      "version": null
+    },
+    {
+      "port": 46862,
+      "product": null,
+      "version": null
+    },
+    {
+      "port": 55553,
+      "product": "nginx",
+      "version": null
+    }
+  ]
+}
+
+=== 3.221.69.75 ===
+
+=== 54.145.188.224 ===
+
+=== 18.215.169.136 ===
+
+[3] 测试这些IP的其他端口
+
+=== 扫描 18.204.186.98 ===
+
+=== 扫描 52.54.180.212 ===
+
+=== 扫描 3.95.20.23 ===
+
+=== 扫描 3.221.69.75 ===
+
+=== 扫描 54.145.188.224 ===
+
+=== 扫描 18.215.169.136 ===

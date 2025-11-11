@@ -1,0 +1,35 @@
+=== Partner Portal 深度测试 ===
+[1] 获取完整页面
+页面大小: 9204 bytes
+
+[2] 分析技术栈
+ZK Framework:
+<script type="text/javascript" src="/zkau/web/195bd3b4/js/zk.wpd;jsessionid=14B471A42090C75084F0BC7442254457" charset="UTF-8"></script>
+<script type="text/javascript" src="/zkau/web/195bd3b4/js/zul.lang.wpd;jsessionid=14B471A42090C75084F0BC7442254457" charset="UTF-8"></script>
+<script type="text/javascript" src="/zkau/web/195bd3b4/js/zkbind.wpd;jsessionid=14B471A42090C75084F0BC7442254457" charset="UTF-8"></script>
+<!-- ZK 8.5.0 2017103111 -->
+zkopt({to:7260});
+
+JavaScript文件:
+assets/js/bi-slider.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/jquery/jquery-2.1.4.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/jquery-ui/jquery-ui.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/bootstrap/js/bootstrap.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/jquery/jquery-2.1.4.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/jquery-ui/jquery-ui.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/jquery-blockui/jquery.blockui.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/bootstrap/js/bootstrap.min.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/chart/loader.js;jsessionid=14B471A42090C75084F0BC7442254457
+assets/js/security.js;jsessionid=14B471A42090C75084F0BC7442254457
+
+[3] 搜索API端点
+
+[4] 搜索配置信息
+['zul.inp.Textbox','dVJQf',{id:'tbxMK',$onOK:true,$$0onError:true,$$1onChange:true,width:'100%',sclass:'z-login-control',prolog:' ',placeholder:'Nh\u1EADp m\u1EADt kh\u1EA9u',type:'password'},{},[]]]]]],
+
+[5] 测试常见路径
+/zkau -> HTTP 200
+
+[6] 检查是否有SQL注入点
+
+[7] 测试文件包含

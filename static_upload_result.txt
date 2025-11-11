@@ -1,0 +1,39 @@
+=== static.viettelpost.vn 文件上传测试 ===
+[1] 测试presigned-url上传
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}
+
+[2] 测试图片上传
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}
+
+[3] 测试order-images
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}
+
+[4] 测试public-read
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}
+
+[5] 尝试无认证访问
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}

@@ -1,0 +1,44 @@
+=== 移动端API和其他入口点搜索 ===
+[1] 搜索移动端相关子域名
+✓ mobile.viettelpost.vn -> 10.255.51.151
+✓ app.viettelpost.vn -> 27.71.229.65
+HTTP/1.1 404 Not Found
+date: Tue, 11 Nov 2025 15:01:12 GMT
+server: Kestrel
+connection: close
+
+HTTP/1.1 404 Not Found
+date: Tue, 11 Nov 2025 15:01:14 GMT
+server: Kestrel
+connection: close
+
+
+[2] 测试API版本号
+测试: https://api.viettelpost.vn/v1
+测试: https://api.viettelpost.vn/v2
+测试: https://api.viettelpost.vn/v3
+测试: https://api.viettelpost.vn/api/v1
+测试: https://api.viettelpost.vn/api/v2
+测试: https://api-global.viettelpost.vn/v1
+测试: https://api-global.viettelpost.vn/v2
+测试: https://api-global.viettelpost.vn/v3
+测试: https://api-global.viettelpost.vn/api/v1
+测试: https://api-global.viettelpost.vn/api/v2
+
+[3] 常见API文档路径
+
+[4] 搜索应用商店
+Google Play搜索: viettelpost
+id=e
+id=com.viettel.
+id=com.viettel.
+id=com.viettel.
+id=yqtrack.app
+id=com.trackinglabs.parceltracker
+id=net.pkge.pkge
+id=com.aftership.
+id=com.grabtaxi.driver2
+id=com.vttm.vietteldiscovery
+
+[5] GitHub代码搜索
+搜索viettelpost API密钥...

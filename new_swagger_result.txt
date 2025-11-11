@@ -1,0 +1,92 @@
+=== 获取新发现的Swagger文档 ===
+
+==========================================
+目标: static.viettelpost.vn (171.244.51.210)
+==========================================
+
+测试: /v2/api-docs
+✓ 发现JSON Swagger文档
+API数量: 8
+API路径:
+/api/files/presigned-url/upload
+/api/images/cus-presigned-url
+/api/images/presigned-url/upload
+/api/images/presigned-url/view
+/api/images/public-read
+/api/order-images
+/api/order-images/cus
+/api/order-images/map
+
+敏感端点:
+/api/files/presigned-url/upload
+/api/images/presigned-url/upload
+
+测试: /v3/api-docs
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+测试: /swagger-ui.html
+✓ 发现Swagger UI
+
+测试: /swagger/v1/swagger.json
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+测试: /api-docs
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+[测试API端点]
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+==========================================
+目标: images.viettelpost.vn (171.244.51.75)
+==========================================
+
+测试: /v2/api-docs
+✓ 发现JSON Swagger文档
+API数量: 6
+API路径:
+/actuator
+/actuator/health
+/actuator/health/{component}
+/actuator/health/{component}/{instance}
+/actuator/info
+/error
+
+敏感端点:
+
+测试: /v3/api-docs
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+测试: /swagger-ui.html
+✓ 发现Swagger UI
+
+测试: /swagger/v1/swagger.json
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+测试: /api-docs
+✓ 发现JSON Swagger文档
+API数量: 
+API路径:
+
+敏感端点:
+
+[测试API端点]
+{"timestamp":"2025-11-11T15:12:03.403+0000","status":404,"error":"Not Found","message":"No message available","path":"/api"}

@@ -1,0 +1,7 @@
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}

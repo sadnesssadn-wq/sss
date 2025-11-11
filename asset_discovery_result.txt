@@ -1,0 +1,126 @@
+=== ViettelPost 真实资产全面发现 ===
+[1] 证书透明度日志搜索
+发现域名数: 233
+addr.okd.viettelpost.vn
+admin.ochatbot.viettelpost.vn
+admin.oid-cpn.oc.viettelpost.vn
+admin.oid.oc.viettelpost.vn
+alertmanager-main-openshift-monitoring.oc.viettelpost.vn
+apicurio-studio-api.oc.viettelpost.vn
+apicurio-studio-auth.oc.viettelpost.vn
+apicurio-studio.oc.viettelpost.vn
+apicurio-studio-ws.oc.viettelpost.vn
+api.ocustomer.viettelpost.vn
+api.omarketer.viettelpost.vn
+api.onwork.viettelpost.vn
+api-smartgate.viettelpost.vn
+app-manual.oc.viettelpost.vn
+app.omarketer.viettelpost.vn
+awssns.oc.viettelpost.vn
+billtracking.oc.viettelpost.vn
+cdn.omarketer.viettelpost.vn
+chat-assistant.oc.viettelpost.vn
+chat-assistant.okd.viettelpost.vn
+chatbot-image.ochatbot.viettelpost.vn
+chatbot-tracking1.ochatbot.viettelpost.vn
+chatbot-vtsale.oc.viettelpost.vn
+chatbox.oc.viettelpost.vn
+che-eclipse-che.oc.viettelpost.vn
+cms-api.oc.viettelpost.vn
+confluence.oc.viettelpost.vn
+console.oc.viettelpost.vn
+crm.oc.viettelpost.vn
+cskh.oc.viettelpost.vn
+ctv1.oc.viettelpost.vn
+ctv2.oc.viettelpost.vn
+data-api.oc.viettelpost.vn
+dev01-crm.oc.viettelpost.vn
+dev-auth.oc.viettelpost.vn
+dev.gnnt.viettelpost.vn
+dev-voffice-integration-oc-viettelpost-vn-cicd.oc.viettelpost.vn
+dev.voffice-integration-oc-viettelpost-vn-cicd.oc.viettelpost.vn
+dinhnn-swift.oc.viettelpost.vn
+docker-registry-default.oc.viettelpost.vn
+docker-registry.oc.viettelpost.vn
+dockerregistry.oc.viettelpost.vn
+editor.omarketer.viettelpost.vn
+engineering.oc.viettelpost.vn
+evtpid.oc.viettelpost.vn
+evtp-login.okd.viettelpost.vn
+excel-api.oc.viettelpost.vn
+excel-digitalize.oc.viettelpost.vn
+file.oc.viettelpost.vn
+gateway.oc.viettelpost.vn
+
+[2] 同时搜索viettelpost.com.vn
+总域名数: 239
+
+[3] 搜索logistek相关域名
+
+[4] 分类域名
+=== 内部/管理类 ===
+admin.ochatbot.viettelpost.vn
+admin.oid-cpn.oc.viettelpost.vn
+admin.oid.oc.viettelpost.vn
+alertmanager-main-openshift-monitoring.oc.viettelpost.vn
+console.oc.viettelpost.vn
+order-rating-dashboard.oc.viettelpost.vn
+phpmyadmin.oc.viettelpost.vn
+registry-console-default.oc.viettelpost.vn
+sip-admin.oc.viettelpost.vn
+sip-admin-staging.oc.viettelpost.vn
+staging-adminsso.viettelpost.vn
+
+=== API类 ===
+apicurio-studio-api.oc.viettelpost.vn
+apicurio-studio-auth.oc.viettelpost.vn
+apicurio-studio.oc.viettelpost.vn
+apicurio-studio-ws.oc.viettelpost.vn
+api.ocustomer.viettelpost.vn
+api.omarketer.viettelpost.vn
+api.onwork.viettelpost.vn
+api-smartgate.viettelpost.vn
+cms-api.oc.viettelpost.vn
+data-api.oc.viettelpost.vn
+excel-api.oc.viettelpost.vn
+gateway.oc.viettelpost.vn
+mapapi.oc.viettelpost.vn
+mapapi.okd.viettelpost.vn
+oid-api.oc.viettelpost.vn
+oid-cpn-api.oc.viettelpost.vn
+openapi-api.oc.viettelpost.vn
+openapi.oc.viettelpost.vn
+openapi-ws.oc.viettelpost.vn
+osrmapi.oc.viettelpost.vn
+
+=== 开发/测试环境 ===
+dev01-crm.oc.viettelpost.vn
+dev-auth.oc.viettelpost.vn
+dev.gnnt.viettelpost.vn
+dev-voffice-integration-oc-viettelpost-vn-cicd.oc.viettelpost.vn
+dev.voffice-integration-oc-viettelpost-vn-cicd.oc.viettelpost.vn
+io-dev.oc.viettelpost.vn
+io-dev.okd.viettelpost.vn
+nexus-devops.oc.viettelpost.vn
+op-dev.oc.viettelpost.vn
+osm-dev.okd.viettelpost.vn
+print-staging.viettelpost.vn
+pusher-dev.oc.viettelpost.vn
+pusher-dev.okd.viettelpost.vn
+sds-api-dev.oc.viettelpost.vn
+sip-admin-staging.oc.viettelpost.vn
+staging-adminsso.viettelpost.vn
+staging-apicore2.viettelpost.vn
+staging-apifico.viettelpost.vn
+staging-apitmdt.viettelpost.vn
+staging-bi.viettelpost.vn
+
+=== 数据库/存储 ===
+
+=== VPN/远程访问 ===
+viettelpost-news-wordpress-microsites.oc.viettelpost.vn
+vtp-news-backup-wordpress-microsites.oc.viettelpost.vn
+
+=== 邮件系统 ===
+mail.viettelpost.com.vn
+smtp.viettelpost.com.vn

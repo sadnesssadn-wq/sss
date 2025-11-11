@@ -1,0 +1,366 @@
+=== 测试可访问的真实IP ===
+
+==========================================
+IP: 27.71.229.36 | 域名: api.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 404 
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+strict-transport-security: max-age=31536000 ; includeSubDomains
+x-frame-options: DENY
+transfer-encoding: chunked
+date: Tue, 11 Nov 2025 15:03:48 GMT
+set-cookie: SERVERID=G; path=/
+connection: close
+
+
+[Swagger测试]
+/swagger -> HTTP 403
+/swagger/index.html -> HTTP 403
+/swagger-ui -> HTTP 403
+/swagger-ui.html -> HTTP 403
+/v2/api-docs -> HTTP 403
+
+[管理路径测试]
+
+[API端点测试]
+
+==========================================
+IP: 27.71.229.64 | 域名: auth.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 401 
+vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+x-frame-options: DENY
+expires: 0
+set-cookie: JSESSIONID=AB6E2D64AED2C84CADE2374A21E725F1; Path=/; HttpOnly
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+content-type: application/json;charset=UTF-8
+transfer-encoding: chunked
+date: Tue, 11 Nov 2025 15:04:04 GMT
+set-cookie: SERVERID=B; path=/
+connection: close
+
+
+[Swagger测试]
+/swagger -> HTTP 403
+/swagger/index.html -> HTTP 403
+/swagger-ui -> HTTP 403
+/swagger-ui.html -> HTTP 403
+/api-docs -> HTTP 401
+/v2/api-docs -> HTTP 403
+/v3/api-docs -> HTTP 401
+
+[管理路径测试]
+/admin -> HTTP 401
+/manager -> HTTP 401
+/console -> HTTP 401
+/phpmyadmin -> HTTP 401
+/actuator -> HTTP 401
+/health -> HTTP 401
+/metrics -> HTTP 401
+/env -> HTTP 401
+/trace -> HTTP 401
+
+[API端点测试]
+/api -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/v1 -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/v2 -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/health -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/status -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/version -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/config -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+==========================================
+IP: 27.71.229.215 | 域名: finance.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 503 Service Unavailable
+content-length: 107
+cache-control: no-cache
+content-type: text/html
+connection: close
+
+
+[Swagger测试]
+/swagger -> HTTP 503
+/swagger/index.html -> HTTP 503
+/swagger-ui -> HTTP 503
+/swagger-ui.html -> HTTP 503
+/api-docs -> HTTP 503
+/v2/api-docs -> HTTP 503
+/v3/api-docs -> HTTP 503
+
+[管理路径测试]
+/admin -> HTTP 503
+/manager -> HTTP 503
+/console -> HTTP 503
+/phpmyadmin -> HTTP 503
+/actuator -> HTTP 503
+/health -> HTTP 503
+/metrics -> HTTP 503
+/env -> HTTP 503
+/trace -> HTTP 503
+
+[API端点测试]
+/api -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/v1 -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/v2 -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/health -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/status -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/version -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+/api/config -> HTTP 503
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+
+==========================================
+IP: 125.212.138.88 | 域名: www.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/2 200 
+date: Tue, 11 Nov 2025 15:05:40 GMT
+content-type: application/octet-stream
+content-length: 33
+server: Cloudrity
+
+
+[Swagger测试]
+/swagger -> HTTP 200
+/swagger/index.html -> HTTP 200
+/swagger-ui -> HTTP 200
+/swagger-ui.html -> HTTP 200
+/api-docs -> HTTP 200
+/v2/api-docs -> HTTP 200
+/v3/api-docs -> HTTP 200
+
+[管理路径测试]
+/admin -> HTTP 200
+/manager -> HTTP 200
+/console -> HTTP 200
+/phpmyadmin -> HTTP 200
+/actuator -> HTTP 200
+/health -> HTTP 200
+/metrics -> HTTP 200
+/env -> HTTP 200
+/trace -> HTTP 200
+
+[API端点测试]
+/api -> HTTP 200
+The server name is not supported.
+/api/v1 -> HTTP 200
+The server name is not supported.
+/api/v2 -> HTTP 200
+The server name is not supported.
+/api/health -> HTTP 200
+The server name is not supported.
+/api/status -> HTTP 200
+The server name is not supported.
+/api/version -> HTTP 200
+The server name is not supported.
+/api/config -> HTTP 200
+The server name is not supported.
+
+==========================================
+IP: 125.212.238.42 | 域名: sso.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+
+[Swagger测试]
+
+[管理路径测试]
+
+[API端点测试]
+
+==========================================
+IP: 125.212.238.132 | 域名: portal.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+
+[Swagger测试]
+
+[管理路径测试]
+
+[API端点测试]
+
+==========================================
+IP: 171.244.51.210 | 域名: static.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/2 200 
+date: Tue, 11 Nov 2025 15:09:00 GMT
+content-type: application/json;charset=UTF-8
+vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+x-frame-options: DENY
+strict-transport-security: max-age=31536000; includeSubDomains
+set-cookie: JSESSIONID=7A358B5E3D4AEAE681E87E12E132D975; Path=/; Secure; HttpOnly
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+expires: 0
+
+
+[Swagger测试]
+/swagger -> HTTP 200
+/swagger/index.html -> HTTP 200
+/swagger-ui -> HTTP 200
+/swagger-ui.html -> HTTP 200
+/api-docs -> HTTP 200
+/v2/api-docs -> HTTP 200
+/v3/api-docs -> HTTP 200
+
+[管理路径测试]
+/admin -> HTTP 200
+/manager -> HTTP 200
+/console -> HTTP 200
+/phpmyadmin -> HTTP 200
+/actuator -> HTTP 200
+/health -> HTTP 200
+/metrics -> HTTP 200
+/env -> HTTP 200
+/trace -> HTTP 200
+
+[API端点测试]
+/api -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/v1 -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/v2 -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/health -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/status -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/version -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+/api/config -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+==========================================
+IP: 171.244.51.75 | 域名: images.viettelpost.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 404 
+Server: nginx/1.20.1
+Date: Tue, 11 Nov 2025 15:09:19 GMT
+Content-Type: application/json;charset=UTF-8
+Connection: keep-alive
+
+
+[Swagger测试]
+/swagger-ui.html -> HTTP 200
+/v2/api-docs -> HTTP 200
+
+[管理路径测试]
+/actuator -> HTTP 200
+
+[API端点测试]
+
+==========================================
+IP: 220.231.104.30 | 域名: vpn.viettelpost.com.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 404 Not Found
+Content-Length: 315
+Content-Type: text/html; charset=us-ascii
+Server: Microsoft-HTTPAPI/2.0
+Date: Tue, 11 Nov 2025 14:50:48 GMT
+Connection: close
+
+
+[Swagger测试]
+
+[管理路径测试]
+
+[API端点测试]
+
+==========================================
+IP: 125.235.240.40 | 域名: mail.viettelpost.com.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+
+[Swagger测试]
+
+[管理路径测试]
+
+[API端点测试]
+
+==========================================
+IP: 203.113.130.250 | 域名: api.viettelpost.com.vn
+==========================================
+[端口扫描]
+
+[HTTPS测试 - 正确Host]
+HTTP/1.1 403 Forbidden
+Content-Length: 1233
+Content-Type: text/html
+Server: Microsoft-IIS/8.5
+X-Powered-By: ASP.NET
+Date: Tue, 11 Nov 2025 15:10:30 GMT
+
+
+[Swagger测试]
+
+[管理路径测试]
+
+[API端点测试]

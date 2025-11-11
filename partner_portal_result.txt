@@ -1,0 +1,29 @@
+=== 测试Partner和Portal入口 ===
+[1] Partner Portal: partner.viettelpost.vn (125.212.138.85)
+
+[HTTPS访问]
+HTTP: 200
+标题:
+<title>Partner's Website - Viettelpost</title>
+
+登录表单:
+['zul.box.Box','fXDQ2',{id:'loginPage',$ZKAUS$:true,vflex:'1',hflex:'1',sclass:'z-bg-img',spacing:'20px',align:'center',pack:'center'},{},[
+['zul.box.Vlayout','fXDQ3',{width:'100%',vflex:'auto',sclass:'z-login-box',style:'padding-bottom:0px'},{},[
+['zul.inp.Textbox','fXDQc',{id:'tbxTK',$$onError:false,$$0onError:true,$$onChange:false,$$1onChange:true,width:'100%',sclass:'z-login-control',prolog:' ',placeholder:'Nh\u1EADp t\xE0i kho\u1EA3n'},{},[]]]]]],
+['zul.inp.Textbox','fXDQf',{id:'tbxMK',$onOK:true,$$0onError:true,$$1onChange:true,width:'100%',sclass:'z-login-control',prolog:' ',placeholder:'Nh\u1EADp m\u1EADt kh\u1EA9u',type:'password'},{},[]]]]]],
+['zul.wgt.Button','fXDQi',{id:'btnLogin',$onClick:true,hflex:'1',sclass:'btn btn-block z-login-control',zclass:'z-button z-button-primary',prolog:' ',label:'Login',autodisable:'self'},{},[]]]],
+['zul.wgt.Button','fXDQk',{id:'btnRegister',$onClick:true,hflex:'0',sclass:'btn btn-block z-login-control',zclass:'z-button z-button-second',prolog:' ',label:'Sign up',autodisable:'self'},{},[]]]]]],
+
+检测技术栈:
+
+搜索API端点:
+
+[2] Portal: portal.viettelpost.vn (125.212.238.132)
+
+[HTTPS访问]
+HTTP: 000
+
+[3] 测试常见路径
+
+[4] 测试SSO: sso.viettelpost.vn (125.212.238.42)
+HTTP: 000

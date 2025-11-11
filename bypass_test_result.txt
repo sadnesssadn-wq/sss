@@ -1,0 +1,18 @@
+=== 旁路和目录爆破测试 ===
+目标IP: 27.71.229.36 (api.viettelpost.vn)
+
+[1] 测试不同Host头
+Host: api.viettelpost.vn -> /swagger -> HTTP 403
+Host: localhost -> /swagger -> HTTP 403
+Host: 127.0.0.1 -> /swagger -> HTTP 403
+Host: admin.viettelpost.vn -> /swagger -> HTTP 403
+Host: internal.viettelpost.vn -> /swagger -> HTTP 403
+Host: staging.viettelpost.vn -> /swagger -> HTTP 403
+Host: dev.viettelpost.vn -> /swagger -> HTTP 403
+
+[2] 403绕过技巧
+
+[3] 目录爆破
+/swagger-ui -> HTTP 403
+
+[4] 测试敏感文件

@@ -1,0 +1,93 @@
+=== DNS爆破常见子域名 ===
+
+=== 测试域名: viettelpost.vn ===
+✓ www.viettelpost.vn -> 125.212.138.88
+✓ ftp.viettelpost.vn -> 10.30.1.91
+✓ portal.viettelpost.vn -> 125.212.238.132
+✓ api.viettelpost.vn -> 27.71.229.36
+27.71.229.39
+27.71.229.35
+✓ auth.viettelpost.vn -> 27.71.229.64
+27.71.229.65
+✓ sso.viettelpost.vn -> 125.212.238.42
+✓ id.viettelpost.vn -> 27.71.229.36
+27.71.229.35
+27.71.229.39
+✓ static.viettelpost.vn -> 171.244.51.210
+✓ images.viettelpost.vn -> 171.244.51.75
+✓ git.viettelpost.vn -> 10.255.51.151
+✓ grafana.viettelpost.vn -> 10.255.51.151
+✓ kibana.viettelpost.vn -> 10.255.51.151
+✓ old.viettelpost.vn -> 27.71.229.35
+27.71.229.36
+27.71.229.39
+✓ store.viettelpost.vn -> 27.71.229.64
+27.71.229.65
+✓ crm.viettelpost.vn -> 10.255.51.151
+✓ hr.viettelpost.vn -> 10.30.1.90
+✓ finance.viettelpost.vn -> 27.71.229.215
+27.71.229.217
+✓ mobile.viettelpost.vn -> 10.255.51.151
+✓ app.viettelpost.vn -> 27.71.229.64
+27.71.229.65
+✓ partner.viettelpost.vn -> 125.212.138.85
+✓ store.viettelpost.vn -> 27.71.229.64
+27.71.229.65
+✓ express.viettelpost.vn -> 10.255.51.151
+
+=== 测试域名: viettelpost.com.vn ===
+✓ www.viettelpost.com.vn -> 125.212.138.87
+✓ mail.viettelpost.com.vn -> 125.235.240.40
+✓ vpn.viettelpost.com.vn -> 220.231.104.30
+✓ api.viettelpost.com.vn -> 203.113.130.250
+✓ old.viettelpost.com.vn -> 115.84.177.9
+✓ smtp.viettelpost.com.vn -> 125.235.240.36
+✓ imap.viettelpost.com.vn -> 125.235.240.40
+
+=== 测试域名: logistek.com ===
+✓ www.logistek.com -> 52.200.66.12
+44.195.229.203
+
+=== 发现的域名汇总 ===
+www.viettelpost.vn       125.212.138.88
+ftp.viettelpost.vn       10.30.1.91
+portal.viettelpost.vn    125.212.238.132
+api.viettelpost.vn       27.71.229.36
+27.71.229.39             
+27.71.229.35             
+auth.viettelpost.vn      27.71.229.64
+27.71.229.65             
+sso.viettelpost.vn       125.212.238.42
+id.viettelpost.vn        27.71.229.36
+27.71.229.35             
+27.71.229.39             
+static.viettelpost.vn    171.244.51.210
+images.viettelpost.vn    171.244.51.75
+git.viettelpost.vn       10.255.51.151
+grafana.viettelpost.vn   10.255.51.151
+kibana.viettelpost.vn    10.255.51.151
+old.viettelpost.vn       27.71.229.35
+27.71.229.36             
+27.71.229.39             
+store.viettelpost.vn     27.71.229.64
+27.71.229.65             
+crm.viettelpost.vn       10.255.51.151
+hr.viettelpost.vn        10.30.1.90
+finance.viettelpost.vn   27.71.229.215
+27.71.229.217            
+mobile.viettelpost.vn    10.255.51.151
+app.viettelpost.vn       27.71.229.64
+27.71.229.65             
+partner.viettelpost.vn   125.212.138.85
+store.viettelpost.vn     27.71.229.64
+27.71.229.65             
+express.viettelpost.vn   10.255.51.151
+www.viettelpost.com.vn   125.212.138.87
+mail.viettelpost.com.vn  125.235.240.40
+vpn.viettelpost.com.vn   220.231.104.30
+api.viettelpost.com.vn   203.113.130.250
+old.viettelpost.com.vn   115.84.177.9
+smtp.viettelpost.com.vn  125.235.240.36
+imap.viettelpost.com.vn  125.235.240.40
+www.logistek.com         52.200.66.12
+44.195.229.203           

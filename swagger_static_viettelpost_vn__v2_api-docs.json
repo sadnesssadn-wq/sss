@@ -1,0 +1,647 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Connect the future!",
+    "version": "1.0.1",
+    "title": "Core Api Document",
+    "contact": {
+      "name": "Support - 02462661507",
+      "url": "/",
+      "email": "phongit@viettelpost.com.vn"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "static.viettelpost.vn",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "file-controller",
+      "description": "File Controller"
+    },
+    {
+      "name": "image-controller",
+      "description": "Image Controller"
+    },
+    {
+      "name": "order-image-controller",
+      "description": "Order Image Controller"
+    }
+  ],
+  "paths": {
+    "/api/files/presigned-url/upload": {
+      "get": {
+        "tags": [
+          "file-controller"
+        ],
+        "summary": "Lấy pre-signed url upload file",
+        "operationId": "getUploadPreSignedUrlUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/images/cus-presigned-url": {
+      "get": {
+        "tags": [
+          "image-controller"
+        ],
+        "summary": "Lấy pre-signed url upload ảnh (app/web khách hàng",
+        "operationId": "getCusUploadPreSignedUrlUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/images/presigned-url/upload": {
+      "get": {
+        "tags": [
+          "image-controller"
+        ],
+        "summary": "Lấy pre-signed url upload ảnh",
+        "operationId": "getUploadPreSignedUrlUsingGET_1",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "content-type",
+            "in": "query",
+            "description": "content-type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "extension",
+            "in": "query",
+            "description": "extension",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/images/presigned-url/view": {
+      "get": {
+        "tags": [
+          "image-controller"
+        ],
+        "summary": "Lấy pre-signed url xem ảnh",
+        "operationId": "getPreSignedUrlUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "bucket-name",
+            "in": "query",
+            "description": "bucket-name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file-name",
+            "in": "query",
+            "description": "file-name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file-path",
+            "in": "query",
+            "description": "file-path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/images/public-read": {
+      "post": {
+        "tags": [
+          "image-controller"
+        ],
+        "summary": "set policy cho file, khi cần truy cập đến",
+        "operationId": "setReadPermissionUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ImagePublicRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/order-images": {
+      "get": {
+        "tags": [
+          "order-image-controller"
+        ],
+        "summary": "Thông tin ảnh đơn hàng",
+        "description": "truyền vào mã đơn hàng",
+        "operationId": "orderImgInfoUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "order_number",
+            "in": "query",
+            "description": "order_number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/order-images/cus": {
+      "get": {
+        "tags": [
+          "order-image-controller"
+        ],
+        "summary": "Thông tin ảnh đơn hàng (KH)",
+        "description": "truyền vào mã đơn hàng",
+        "operationId": "orderCusImgInfoUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "order_number",
+            "in": "query",
+            "description": "order_number",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "order-image-controller"
+        ],
+        "summary": "Map ảnh đơn hàng (khách hàng)",
+        "operationId": "uploadCusImageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MapImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/api/order-images/map": {
+      "post": {
+        "tags": [
+          "order-image-controller"
+        ],
+        "summary": "Map ảnh đơn hàng",
+        "operationId": "uploadImageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MapImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "order-image-controller"
+        ],
+        "summary": "Update ảnh đơn hàng",
+        "operationId": "upDateImageUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateImageRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "JWT": [
+              "global"
+            ]
+          }
+        ],
+        "deprecated": false
+      }
+    }
+  },
+  "securityDefinitions": {
+    "JWT": {
+      "type": "apiKey",
+      "name": "x-access-token",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "ImagePublicRequest": {
+      "type": "object",
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "file_name": {
+          "type": "string"
+        },
+        "file_path": {
+          "type": "string"
+        }
+      },
+      "title": "ImagePublicRequest"
+    },
+    "MapImageRequest": {
+      "type": "object",
+      "properties": {
+        "deviceInfo": {
+          "$ref": "#/definitions/deviceInfo"
+        },
+        "image_urls": {
+          "type": "array",
+          "description": "list url ảnh",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ma_phieugui": {
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string",
+          "description": "loại ảnh: NHAN_HANG, GIAI_TRINH, GIAO_HANG,...."
+        }
+      },
+      "title": "MapImageRequest"
+    },
+    "UpdateImageRequest": {
+      "type": "object",
+      "properties": {
+        "deviceInfo": {
+          "$ref": "#/definitions/deviceInfo"
+        },
+        "image_urls": {
+          "type": "array",
+          "description": "list url ảnh",
+          "items": {
+            "type": "string"
+          }
+        },
+        "ma_phieugui": {
+          "type": "string"
+        },
+        "old_image_url": {
+          "type": "string"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string",
+          "description": "loại ảnh: NHAN_HANG, GIAI_TRINH, GIAO_HANG,...."
+        }
+      },
+      "title": "UpdateImageRequest"
+    },
+    "deviceInfo": {
+      "type": "object",
+      "required": [
+        "DeviceID",
+        "latitude",
+        "longitude",
+        "uniqueID"
+      ],
+      "properties": {
+        "DeviceID": {
+          "type": "string",
+          "example": "Ai phôn 13 pờ zồ mắc",
+          "description": "Device ID"
+        },
+        "latitude": {
+          "type": "string",
+          "example": 1.221324531,
+          "description": "Tọa độ vĩ độ"
+        },
+        "longitude": {
+          "type": "string",
+          "example": -22.1232465465123,
+          "description": "Tọa độ kinh độ"
+        },
+        "uniqueID": {
+          "type": "string",
+          "example": "abcd-1234-xyz-6789",
+          "description": "Id unique của riêng thiết bị"
+        }
+      },
+      "title": "deviceInfo"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+=== images.viettelpost.vn 无认证Actuator测试 ===
+[1] 获取Actuator信息
+{
+  "_links": {
+    "self": {
+      "href": "http://images.viettelpost.vn/actuator",
+      "templated": false
+    },
+    "health": {
+      "href": "http://images.viettelpost.vn/actuator/health",
+      "templated": false
+    },
+    "health-component": {
+      "href": "http://images.viettelpost.vn/actuator/health/{component}",
+      "templated": true
+    },
+    "health-component-instance": {
+      "href": "http://images.viettelpost.vn/actuator/health/{component}/{instance}",
+      "templated": true
+    },
+    "info": {
+      "href": "http://images.viettelpost.vn/actuator/info",
+      "templated": false
+    }
+  }
+}
+
+[2] 健康检查
+{
+  "status": "UP"
+}
+
+[3] Info端点
+{}
+
+[4] 尝试其他Actuator端点
+
+测试: /actuator/metrics
+HTTP 404
+
+测试: /actuator/env
+HTTP 404
+
+测试: /actuator/configprops
+HTTP 404
+
+测试: /actuator/beans
+HTTP 404
+
+测试: /actuator/mappings
+HTTP 404
+
+测试: /actuator/threaddump
+HTTP 404
+
+测试: /actuator/heapdump
+HTTP 404
+
+测试: /actuator/logfile
+HTTP 404
+
+测试: /actuator/trace
+HTTP 404
+
+测试: /actuator/httptrace
+HTTP 404
+
+[5] 测试API端点
+{"timestamp":"2025-11-11T15:12:57.067+0000","status":404,"error":"Not Found","message":"No message available","path":"/api"}

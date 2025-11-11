@@ -1,0 +1,70 @@
+=== auth.viettelpost.vn 深度测试 ===
+[1] 获取服务器信息
+HTTP/1.1 401 
+vary: origin,access-control-request-method,access-control-request-headers,accept-encoding
+x-frame-options: DENY
+expires: 0
+set-cookie: JSESSIONID=2C40A0FE8D39AA2E3B5F67566AB69098; Path=/; HttpOnly
+x-content-type-options: nosniff
+x-xss-protection: 1; mode=block
+cache-control: no-cache, no-store, max-age=0, must-revalidate
+pragma: no-cache
+content-type: application/json;charset=UTF-8
+transfer-encoding: chunked
+date: Tue, 11 Nov 2025 15:11:59 GMT
+set-cookie: SERVERID=H; path=/
+connection: close
+
+
+[2] 测试认证端点
+
+/auth -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/oauth -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/oauth2 -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/oauth/token -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/oauth2/token -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/login -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/api/login -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/api/auth -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/api/oauth/token -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+/.well-known/openid-configuration -> HTTP 401
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+[3] 测试用户枚举
+
+[4] 测试已知凭证
+尝试Client Credentials获取token:
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}
+
+尝试Password Grant (admin/admin):
+{
+  "data": {
+    "errorCode": 52
+  },
+  "message": "Token hết hạn. Cần đăng nhập lại",
+  "error": true
+}

@@ -1,0 +1,102 @@
+=== Spring Boot Actuator 深度测试 ===
+
+==========================================
+目标: auth.viettelpost.vn (27.71.229.64)
+==========================================
+/actuator -> HTTP 401
+/actuator/health -> HTTP 401
+/actuator/info -> HTTP 401
+/actuator/metrics -> HTTP 401
+/actuator/env -> HTTP 401
+/actuator/configprops -> HTTP 401
+/actuator/beans -> HTTP 401
+/actuator/mappings -> HTTP 401
+/actuator/threaddump -> HTTP 401
+/actuator/heapdump -> HTTP 401
+/actuator/logfile -> HTTP 401
+/actuator/loggers -> HTTP 401
+/actuator/trace -> HTTP 401
+/actuator/httptrace -> HTTP 401
+/actuator/auditevents -> HTTP 401
+/actuator/shutdown -> HTTP 401
+/actuator/jolokia -> HTTP 401
+/actuator/prometheus -> HTTP 401
+
+[使用Token测试]
+
+==========================================
+目标: static.viettelpost.vn (171.244.51.210)
+==========================================
+
+✓ /actuator -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/health -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/info -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/metrics -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/env -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/configprops -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/beans -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/mappings -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/threaddump -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/heapdump -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+⚠️ CRITICAL: Heapdump可下载！
+
+✓ /actuator/logfile -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/loggers -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/trace -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/httptrace -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/auditevents -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/shutdown -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/jolokia -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+✓ /actuator/prometheus -> HTTP 200
+{"data":{"errorCode":52},"message":"Token hết hạn. Cần đăng nhập lại","error":true}
+
+[使用Token测试]
+
+==========================================
+目标: images.viettelpost.vn (171.244.51.75)
+==========================================
+
+✓ /actuator -> HTTP 200
+{"_links":{"self":{"href":"http://images.viettelpost.vn/actuator","templated":false},"health":{"href":"http://images.viettelpost.vn/actuator/health","templated":false},"health-component":{"href":"http://images.viettelpost.vn/actuator/health/{component}","templated":true},"health-component-instance":{"href":"http://images.viettelpost.vn/actuator/health/{component}/{instance}","templated":true},"info":{"href":"http://images.viettelpost.vn/actuator/info","templated":false}}}
+
+✓ /actuator/health -> HTTP 200
+{"status":"UP"}
+
+✓ /actuator/info -> HTTP 200
+{}
+
+[使用Token测试]

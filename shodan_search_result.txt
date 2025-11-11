@@ -1,0 +1,70 @@
+=== Shodan深度搜索ViettelPost资产 ===
+[1] 搜索ViettelPost组织
+结果数: 0
+
+[2] 搜索viettelpost.vn域名
+addr.okd
+admin.oid-cpn.oc
+admin.oid.oc
+alertmanager-main-openshift-monitoring.oc
+api
+api-cashflow
+api-excel
+api-smartgate
+api-vipo
+apichat
+apm-public
+app
+app-manual.oc
+awssns.oc
+billtracking.oc
+box-dev
+chat-assistant.oc
+chat-assistant.okd
+chatbot-vtsale.oc
+chatbox-dev.okd
+chatbox.oc
+chatbox.okd
+chuyenphatquocte
+cms-api.oc
+console.oc
+crm.oc
+cskh.oc
+ctv1.oc
+ctv2.oc
+data-api.oc
+dev-international-order
+dev-news
+dev-voffice-integration-oc-viettelpost-vn-cicd.oc
+dev.voffice-integration-oc-viettelpost-vn-cicd.oc
+dev01-crm.oc
+digitalize
+dinhnn-swift.oc
+docker-registry-default.oc
+dockerregistry.oc
+engineering.oc
+evtp-login.okd
+evtpid.oc
+excel-api.oc
+excel-digitalize.oc
+file.oc
+formapi.okd
+forms.okd
+gateway.oc
+ghn.webhooks.oc
+gnnt-evtp.oc
+
+[3] 搜索包含viettelpost的服务
+越南境内结果: 2
+103.141.140.205:3389 - Remote Desktop Protocol - Remote Desktop Protocol
+\x03\x00\x00\x13\x0e\xd0\x00\x00\x124\x00\x02\x1f\x08\x00\x02\x00\x00\x00
+Re
+125.253.121.242:3389 - Remote Desktop Protocol - Remote Desktop Protocol
+\x03\x00\x00\x13\x0e\xd0\x00\x00\x124\x00\x02\x1f\x08\x00\x02\x00\x00\x00
+Re
+
+[4] 搜索暴露的数据库
+数据库结果: 0
+
+[5] 搜索Jenkins/Git/CI系统
+CI/CD结果: 0
