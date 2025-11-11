@@ -1,0 +1,26 @@
+Testing: /v1/
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /v2/
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /v3/
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /api/v1/
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762873643773}HTTP: 400
+Testing: /api/v2/
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762873643997}HTTP: 400
+Testing: /api/v3/
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762873644230}HTTP: 400
+Testing: /1.0/
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /2.0/
+<!DOCTYPE html>
+<html lang="en">
+  <head>

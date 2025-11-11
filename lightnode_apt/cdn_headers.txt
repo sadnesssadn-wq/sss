@@ -1,0 +1,24 @@
+server: cloudflare
+x-powered-by: Next.js
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+strict-transport-security: max-age=31536000
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=e1t5YD%2FsY%2FlNjX%2FoDzBa3o%2FUPeJ53LOAIfT4WoEnPF3kkZXz6ILH8vemCnPJJTeuyvw%2Bdt1nX9VlSTldZUg7zWGxcIA7YAWCCLW0is1brps%3D"}]}
+cf-ray: 99ceb2dfda49e8e9-PDX
+fl=119f151
+h=www.lightnode.com
+ip=44.229.131.104
+ts=1762873641.000
+visit_scheme=https
+uag=curl/8.5.0
+colo=PDX
+sliver=none
+http=http/2
+loc=US
+tls=TLSv1.3
+sni=plaintext
+warp=off
+gateway=off
+rbi=off
+kex=X25519
