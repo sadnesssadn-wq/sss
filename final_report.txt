@@ -1,0 +1,100 @@
+# jtexpress.vn 渗透测试最终报告
+
+## 资产信息
+
+### 真实IP资产（已脱CDN）
+- **14.225.194.71** - BI Dashboard v2系统
+  - 服务: Apache/2.4.29 (Ubuntu) + Laravel
+  - 开放端口: 80, 443
+  - 防护: 所有数据库端口filtered
+
+- **14.225.241.204** - 主站负载均衡
+  - 服务: Nginx
+  
+- **47.246.23.177-184** - 阿里云CDN节点
+  - 服务: Tengine
+
+### 技术栈指纹
+
+**October CMS主站 (jtexpress.vn)**
+- Framework: October CMS (版本: 80eb90df)
+- Runtime: PHP/7.4.33 + Nginx
+- 后台: /backend (有reCAPTCHA保护)
+
+**BI Dashboard (bi.jtexpress.vn / 14.225.194.71)**
+- Framework: Laravel
+- Runtime: PHP + Apache/2.4.29
+- 找回密码: /custom-password/email
+- 测试文件: /test.php (无漏洞)
+
+**订单系统 (lendon.jtexpress.vn)**
+- Framework: October CMS/Laravel混合
+- Runtime: PHP/8.0.29 + Nginx/1.18.0
+- 泄露: /artisan文件可访问
+
+**交易系统 (trade.jtexpress.vn)**
+- Framework: ASP.NET
+- Server: IIS 10.0
+- trace.axd可访问（配置错误）
+
+**VIP系统 (shop/khachhang.jtexpress.vn)**
+- Framework: Vue.js前端 + 微前端架构
+- CDN: 阿里云
+- API: 40+个端点（需认证）
+
+## 已测试攻击向量
+
+### ✓ 已测试（未成功）
+1. Shop API未授权访问 - 需要认证
+2. October CMS SQL注入 - CSRF保护
+3. October CMS弱口令爆破 - reCAPTCHA保护
+4. October CMS Combine Controller RCE - 已禁用
+5. Laravel敏感文件泄露 - 403保护
+6. Laravel调试模式 - 未开启
+7. test.php命令执行 - 无漏洞
+
+### ⚠ 部分成功
+1. 真实IP发现成功 - 13个真实IP
+2. 指纹识别完成 - 5套系统架构
+3. 端口扫描完成 - 数据库端口已封锁
+4. artisan文件泄露 - 无敏感信息
+
+## 安全防护评估
+
+**强项：**
+- WAF防护（JMS Web防火墙）
+- reCAPTCHA保护登录
+- CSRF令牌验证
+- 数据库端口防火墙
+- 敏感文件403保护
+
+**弱项：**
+- October CMS后台可访问
+- ASP.NET trace.axd配置错误
+- artisan文件泄露（虽然无敏感信息）
+- 真实IP暴露
+
+## 建议
+
+**P0高危：**
+无直接GetShell漏洞
+
+**P1中危：**
+1. 隐藏October CMS后台入口
+2. 禁用ASP.NET trace.axd
+3. 限制artisan文件访问
+
+**P2低危：**
+1. test.php文件可删除
+2. 考虑真实IP隐藏
+
+## 结论
+
+目标防护**较强**，常规Web漏洞已修复。
+短期内直接GetShell难度**极高**。
+
+建议攻击路径：
+1. 社工获取有效凭证
+2. 0day漏洞利用
+3. 供应链攻击
+4. 业务逻辑深挖（耗时长）
