@@ -1,0 +1,115 @@
+
+>>> 测试 27.71.229.60
+  HTTP: 302
+  🔥 值得深入！
+HTTP/1.1 302 Found
+content-length: 0
+location: https://27.71.229.60/
+cache-control: no-cache
+connection: close
+  HTTPS: 503
+
+>>> 测试 27.71.229.61
+  HTTP: 500
+  🔥 值得深入！
+HTTP/1.1 500 Internal Server Error
+Cache-Control: no-cache,no-store
+Pragma: no-cache
+Content-Length: 2169
+Content-Type: text/plain
+  HTTPS: 404
+
+>>> 测试 27.71.229.62
+
+>>> 测试 27.71.229.63
+
+>>> 测试 27.71.229.64
+  HTTP: 503
+  HTTPS: 503
+
+>>> 测试 27.71.229.65
+  HTTP: 503
+  HTTPS: 503
+
+>>> 测试 27.71.229.66
+
+>>> 测试 27.71.229.67
+
+>>> 测试 27.71.229.68
+
+>>> 测试 27.71.229.69
+
+>>> 测试 27.71.229.70
+  HTTP: 302
+  🔥 值得深入！
+HTTP/1.1 302 Found
+content-length: 0
+location: https://27.71.229.70/
+cache-control: no-cache
+connection: close
+  HTTPS: 503
+
+>>> 测试 27.71.229.71
+  HTTP: 302
+  🔥 值得深入！
+HTTP/1.1 302 Found
+content-length: 0
+location: https://27.71.229.71/
+cache-control: no-cache
+connection: close
+  HTTPS: 503
+
+>>> 测试 27.71.229.72
+  HTTP: 302
+  🔥 值得深入！
+HTTP/1.1 302 Found
+content-length: 0
+location: https://27.71.229.72/
+cache-control: no-cache
+connection: close
+  HTTPS: 503
+
+>>> 测试 27.71.229.73
+  HTTP: 200
+  🔥 值得深入！
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 92400
+Content-Type: text/html; charset=utf-8
+Server: Microsoft-IIS/10.0
+
+>>> 测试 27.71.229.74
+  HTTP: 302
+  🔥 值得深入！
+HTTP/1.1 302 Found
+content-length: 0
+location: https://27.71.229.74/
+cache-control: no-cache
+connection: close
+  HTTPS: 503
+
+>>> 测试 27.71.229.75
+
+>>> 测试 27.71.229.76
+
+>>> 测试 27.71.229.77
+  HTTP: 200
+  🔥 值得深入！
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 11 Nov 2025 17:37:11 GMT
+Content-Type: text/html
+Content-Length: 612
+  HTTPS: 200
+  🔥 值得深入！
+HTTP/2 200 
+server: nginx
+date: Tue, 11 Nov 2025 17:37:12 GMT
+content-type: text/html
+content-length: 774
+
+>>> 测试 27.71.229.78
+
+>>> 测试 27.71.229.79
+
+>>> 测试 27.71.229.80
