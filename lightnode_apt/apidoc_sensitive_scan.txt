@@ -1,0 +1,63 @@
+Testing: http://47.238.114.118/.git/config
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/.env
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/config.json
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/api/swagger.json
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/.DS_Store
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/backup.sql
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---
+Testing: http://47.238.114.118/database.sql
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>openresty/1.21.4.1</center>
+</body>
+</html>
+---

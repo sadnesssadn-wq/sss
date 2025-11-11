@@ -1,0 +1,100 @@
+701864+taariq@users.noreply.github.com|taariq|https://github.com/taariq/vibe-vault/commit/ce292c3a0d8d74bfeca8e1b6f32850c209d8181b
+daniel.pflager@gmail.com|Daniel P Pflager|https://github.com/pflagerd/systems/commit/405e3479ec48622e2c73725440f3f43b4ab9bd6c
+8017@newbitcoincity.com|zkryp|https://github.com/TrustlessComputer/lightnode/commit/942b0325a5c7e4fb50c0f22b70aefd8fcc6f506b
+luis@volume.finance|Luis Carvalho|https://github.com/palomachain/paloma/commit/49c31dff72a01ebba0b40a33a9948d03fbda8599
+sidney08@trinitylab.store|renxinyi12|https://github.com/renxinyi12/paloma/commit/a1ef5d3c88255d7540ea4b49eafb425aa8e1191e
+bezel-leveler-0h@icloud.com|danielCarter91|https://github.com/danielCarter91/paloma/commit/0791280979c34b4c1e76d55ebf745e69dd1c5847
+ecology-tally0g@icloud.com|grace90g|https://github.com/grace90g/paloma/commit/5c721cbdd76e42e32fd64aad95cbb336236e6c79
+aloknerurkar@gmail.com|aloknerurkar|https://github.com/ethersphere/bee/commit/27f2fd14ca1ef6ed276d946d1f4ee975f00a2893
+aloknerurkar@gmail.com|aloknerurkar|https://github.com/Solar-Punk-Ltd/bee-dev/commit/27f2fd14ca1ef6ed276d946d1f4ee975f00a2893
+joel.ottosson@gmail.com|Joel Ottosson|https://github.com/SafirSDK/safir-sdk-core/commit/fe4f6ef8b9f6e9ceb8ad97edf45914fb89ccf091
+cmalley@pixelzoom.com|pixelzoom|https://github.com/phetsims/beers-law-lab/commit/1ad078890feb6dd3d9e66801ddab42264b70a521
+32325790+kyonRay@users.noreply.github.com|Kyon|https://github.com/FISCO-BCOS/FISCO-BCOS-DOC/commit/1016e7852f6bf7e2f9cc63e4b195380b3306ab98
+bmancini@gmail.com|Brian Mancini|https://github.com/node-lightning/node-lightning/commit/acb9a4335d9a05333c787e7ec0a91c5eadce84c4
+651932351@qq.com|MO NAN|https://github.com/fCorleone/LOKI-FISCO-3.5/commit/bcbedfc8e87b4a105500d923c0033c0cec24c496
+neo-crypt@neo-crypt.ai|neo-crypt|https://github.com/LibreCash/oracle-lightnode/commit/0d8245c92a61a1347223df853aedbd60a59fd4b8
+ericm@iastate.edu|Eric Middleton|https://github.com/EricMiddleton1/LightNode-RPi/commit/f462acd8a52f3d7561ad9dcd4b19e34b147ee277
+ils@neue.cc|neuecc|https://github.com/neuecc/LightNode/commit/0c954056ae22d734e3d635e6a02a4c6bf65da345
+ils@neue.cc|neuecc|https://github.com/neuecc/LightNode/commit/c6dfc22d579eb5b45b8b9d5758b26d8c116efee8
+ils@neue.cc|neuecc|https://github.com/neuecc/LightNode/commit/05d71c02abf90d9d543c7519392e86795be5b63c
+651932351@qq.com|MO NAN|https://github.com/zhanghefan123/FISCO-BCOS/commit/bcbedfc8e87b4a105500d923c0033c0cec24c496
+temp00001@mail.ru|Andrey|https://github.com/metahashorg/eth-lightnode-client/commit/c1ab409aa2894ede1c49c904c29ec8a0449b0e6a
+651932351@qq.com|MO NAN|https://github.com/FISCO-BCOS/FISCO-BCOS/commit/bcbedfc8e87b4a105500d923c0033c0cec24c496
+ils@neue.cc|neuecc|https://github.com/neuecc/LightNode/commit/a73480584aaa4e5c1497f32642b577bbd0cc4f73
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/f8486eddf68daa945b6536ce1312628a5d50f348
+joel.ottosson@gmail.com|Joel Ottosson|https://github.com/SafirSDK/safir-sdk-core/commit/490769a14bf1704e176d0ddbcdc031cdcdb50e75
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/5a87b36baf3d7054ff8929eadd4471c383e255e7
+1574249665@qq.com|wenlinli|https://github.com/fCorleone/LOKI-FISCO-3.5/commit/bb606c69f89e72deefaee69728918608be3f8792
+temp00001@mail.ru|Andrey|https://github.com/metahashorg/eth-lightnode-client/commit/88e5b016c096ffdbc16809b5b3c556e856f50ee9
+1574249665@qq.com|wenlinli|https://github.com/zhanghefan123/FISCO-BCOS/commit/bb606c69f89e72deefaee69728918608be3f8792
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/25d716b99f88c6343494f2e53f84b12006d2d76f
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/6073a865e6c4b6d578d96e44afd0b399f7795676
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/3588fefb3961389ae4802587c0dbc2938699dd29
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/ca3754ba18aa15679022db98b20bc017d014a5ac
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/a21aa83409800f2cb94a9050c5036cd6e2bd8eb0
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/4815e41041458c8c8a337f1e090068e23342fc77
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/a7480e58f225546a8eb71d061317324b39bed743
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/c8d8573535bf1464114821fdac8587e1d4d9b345
+yunshi@republicprotocol.com|tok-kkk|https://github.com/renproject/lightnode/commit/797dbad60596e180f2bf85e583b7c961910faed2
+1574249665@qq.com|wenlinli|https://github.com/FISCO-BCOS/FISCO-BCOS/commit/bb606c69f89e72deefaee69728918608be3f8792
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/872c5a37c450956a2acca0cbb8a1d50221bd2c9e
+zz634682577@163.com|zz|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/02c0af40c558d2108f34d47b37dc46d4d1ff4dd9
+zz634682577@163.com|zz|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/ed93087e187bd6f6ef12221a06a04a00928a6399
+zz634682577@163.com|zz|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/2452225051822f21903eb2c6fcbff5d0b420bbad
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/fb998afd2731b8a8691b7c9f6684b48f29705f2f
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/3b1d49c6c82d9306c6ceebd9fda7b60ef4adc074
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/64bed85ac3a538bcc3fed452467e3cab5f36fb60
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/8ae677a4f34abde9c1262ecab8510e2b757003d2
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/6b17979a23179f3822dd74978c9a468dd462926c
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/682bd53881cc8a13ca283ea1a468df642f37f1b4
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/7d826479b096508bbe95e4b4f240555f092350a4
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/06bf4af4b83b93f591ab9a12578651a550de8c87
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/7462b7a51cabc430f4bd9f49376ea4048c424dc0
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/78ee44af9b8b88ec8509a6b7780977ded6029597
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/648cb601371583adde015ffeef0ec580e9c89716
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/1473f3719bdab3ed680f2efe25817db7653bd01d
+yunshi@renproject.io|tok-kkk|https://github.com/renproject/lightnode/commit/803281b4f344f02b0121aa3319967baf3576d450
+serjndestroy@gmail.com|Ryan|https://github.com/renproject/lightnode/commit/5e71a821e7e18de81b601bd129b109ae99a60529
+912554887@qq.com|ywy2090|https://github.com/SolidityProj/fisco/commit/c2ef2d42d4a23bc5a16d46c960a8136799aa7afe
+ross.pure@gmail.com|ross|https://github.com/renproject/lightnode/commit/81e7a0a650626defa6efed0cf4d662698e724f0d
+ross.pure@gmail.com|ross|https://github.com/renproject/lightnode/commit/ff869fec6c6868555a175198d62e853bac9b58f3
+divyakoshy05@gmail.com|Divya Mary|https://github.com/renproject/lightnode/commit/3eeb9e9e7f991b148a94b57bd8baec3ba14c3645
+ross.pure@gmail.com|ross|https://github.com/renproject/lightnode/commit/a01421365ea810c92e9aff2168115ebd2eaa1aed
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/0587083508646f64caf4f125ddc69c974d1bc445
+rahulghangas0@gmail.com|Rahul Ghangas|https://github.com/renproject/lightnode/commit/b97e973d784654b44373396939b806cc9580c090
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/0a9b022f27cfb11ccfdb9264dfa4d71a1b19d6d6
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/0108280c0b2b094f7259c0a1f599a95f022543a7
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/4203311586eb443849dc047204cd4e286c45738f
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/bac98f9105e1127b4ae80d353e40b0d7244fffaf
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/10e2d4135920aacdf2bb6dd3d2e5bc0b8de2bb2d
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/9bbb1bbfd704b21b7b6a2e3b7e0b7c17d696ae19
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/bd03d49ca5fdd674fc38d0132a7f8c075ba8dc21
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/7615ff402db49c4b55f7ea58ecd2dfba30f78662
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/ac6da9e86d0c98b18777f25ac84b97c95ff47b3c
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/69ff0d431f091c11fbbe94d86be3c4d5b2e564d8
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/9db0b6bee6b3d305e0e35a5ddd7f6d55047a2316
+dxl6868@126.com|dxl6868|https://github.com/intervalue/intervalue-lightnode-2.0-testnet/commit/ae8863e0f8fc44090b80ecef589c2e8344bbabd2
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/635070a7b0be142cf9e6184c677a0335a5739f14
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/2626f0080281bf2c5e9161b780fe2f07de8a5a25
+ylwhlhp@126.com|lihaiping|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/6d34e4630725d234991e947a781528134423a721
+ylwhlhp@126.com|lihaiping|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/624b9925913bb9c81c667e589f652fb9c6d70275
+ylwhlhp@126.com|lihaiping|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/4917557049e9dd47ea1b51944edea1eb99132f86
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/49975712840d2c49c28761f611cdc0a1676ea2ae
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/a228529de159dd4f64cd57634a11f3211fd31a95
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/ecfd476b6533ec23ecb52db963cb013b766d8034
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/1ad5eb7186e8ed743ebd8ea5e81ee51bb3392869
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/eb9f7cd61f8a748c4b4c62ccf9182d1902f7614e
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/4910dc9d2482db2e216196552c75bf35784116d2
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/ac4ed5e256470efa041bac80c93145c183614c04
+ylwhlhp@126.com|ylwhlhp|https://github.com/intervalue/intervalue-lightnode-3.0-testnet/commit/7e4ec259ef363e48ad505067725f8fec9f18fb32
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/51fc75b5d53526a46df1aec3ddaed828272da905
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/72412360eb8ce9decf73c4e9492cba721aea64a3
+vinceau09@gmail.com|Vince Au|https://github.com/renproject/lightnode/commit/07f42d8caa30faefe0bc40506a45ab7a78f2bdff
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/3742d83d5e4a38823e90c412f4463857cc78b051
+vinceau09@gmail.com|Vince Au|https://github.com/renproject/lightnode/commit/a0b6099162195674b44531f8f4d246c8c8b6e7b6
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/71837660dfe37cbaa100af41196b3f97005f0fc3
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/8512179fb30d0e01cad78e40abb1a02df2aa2b6e
+912554887@qq.com|ywy2090|https://github.com/fCorleone/LOKI-FISCO-3.5/commit/c2ef2d42d4a23bc5a16d46c960a8136799aa7afe
+912554887@qq.com|ywy2090|https://github.com/zhanghefan123/FISCO-BCOS/commit/c2ef2d42d4a23bc5a16d46c960a8136799aa7afe
+serjndestroy@gmail.com|Ryan|https://github.com/renproject/lightnode/commit/71eeca0ef19a4ee322bf72b7fcb791781dc4bb38
+jaskaran.g15@gmail.com|Jaz Gulati|https://github.com/renproject/lightnode/commit/4fceb3c6ce8d1014cf10f7e7384c74be07625d32

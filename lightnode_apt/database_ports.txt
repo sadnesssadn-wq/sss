@@ -1,0 +1,14 @@
+svn.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+www-test.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+jkndmapp.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+ymjhvdoc.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+members.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+media.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+kb.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+bljivwww.w.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+go.lightnode.comgo.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+photos.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+pic.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+nimdnwww.c.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+corporate.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
+o69iay0p.au.lightnode.com:8080|104.26.14.210:8080||cloudflare|US|San Francisco
