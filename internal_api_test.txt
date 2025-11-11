@@ -1,0 +1,47 @@
+
+========== 测试 location.viettelpost.vn ==========
+IP: 171.244.51.101
+[HTTPS测试]
+
+HTTP:404
+响应内容:
+{"code":404,"message":"GET /"}
+[测试API路径]
+{"code":404,"message":"GET /location/v1.0"}
+========== 测试 mapapi.viettelpost.vn ==========
+IP: 171.244.51.101
+[HTTPS测试]
+
+HTTP:404
+响应内容:
+{"code":404,"message":"GET /"}
+[测试API路径]
+{"code":404,"message":"GET /directions/v5/"}{"type":"FeatureCollection","features":[]}
+========== 测试 tiles.viettelpost.vn ==========
+IP: 171.244.51.101
+[HTTPS测试]
+
+HTTP:404
+响应内容:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /</pre>
+</body>
+</html>
+
+[测试API路径]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /styles/</pre>
+</body>
+</html>
