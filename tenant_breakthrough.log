@@ -1,0 +1,102 @@
+[💥💥💥] BREAKTHROUGH - Tenant Code攻击
+
+[+] 测试Tenant Code参数...
+  [*] Tenant: vtp
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: viettelpost
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: default
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: admin
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: system
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: public
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: guest
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: VTP
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: VIETTELPOST
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: vietnam
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: vn
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: global
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+  [*] Tenant: vtpglobal
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+{"key":"MISSING_TENANT_CODE","message":"Tenant code is missing","reason":"Tenant code chưa được nhập.","httpStatusCode":400,"errorCode":"MISSING_TENANT_CODE","detail":"Tenant code is missing"}
+HTTP: 400
+
+[+] POST to /vtp-user/api/v1/users...
+{"key":"EXPIRED_TOKEN","message":"Token was expired.","reason":"Token was expired. TenantCode is empty.","httpStatusCode":401,"errorCode":"EXPIRED_TOKEN","detail":"Token was expired."}
+HTTP: 401
+{"key":"EXPIRED_TOKEN","message":"Token was expired.","reason":"Token was expired. TenantCode is empty.","httpStatusCode":401,"errorCode":"EXPIRED_TOKEN","detail":"Token was expired."}
+HTTP: 401
+{"key":"EXPIRED_TOKEN","message":"Token was expired.","reason":"Token was expired. TenantCode is empty.","httpStatusCode":401,"errorCode":"EXPIRED_TOKEN","detail":"Token was expired."}
+HTTP: 401

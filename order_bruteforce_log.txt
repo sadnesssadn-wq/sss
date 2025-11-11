@@ -1,0 +1,398 @@
+[🔥] 第1波：公开订单跟踪页面
+[+] https://gw.vtpglobal.com.vn/track
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/order
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/order-tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/trace
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/query
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/search
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/public/track
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/api/public/track
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] https://gw.vtpglobal.com.vn/public/order
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第2波：不同HTTP方法测试
+[+] GET /api/v1/order-tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] POST /api/v1/order-tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] PUT /api/v1/order-tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] OPTIONS /api/v1/order-tracking
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第3波：伪造订单号格式
+[+] 测试订单号: VTP2023110001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: VTP20231100001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: TP2023110001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: 1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: 100000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: VN-1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: VN1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: 202311-0001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] 测试订单号: 20231110001
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第4波：伪造Token
+[+] Token: Bearer 123456...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: Bearer admin...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: Bearer test...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: Bearer null...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: Bearer eyJhbGciOiJIUzI1NiIsInR...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: Bearer eyJhbGciOiJub25lIn0.eyJ...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: token=123456...
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] Token: 123456...
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第5波：Header伪造组合
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第6波：Cookie注入
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第7波：URL参数组合
+[+] id=1&key=test
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] orderNo=VTP1000001&apiKey=test
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] code=1000001&public=true
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] trackingNo=1000001&source=web
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] billCode=1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] orderCode=1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+[+] waybillNo=1000001
+{"message":"no Route matched with those values"}
+HTTP: 404
+message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-user/api/v1/tracking
+HTTP/2 200 
+date: Tue, 11 Nov 2025 06:59:07 GMT
+content-type: text/html; charset=utf-8,gbk
+content-length: 177
+vary: Accept-Encoding
+{"message":"no Route matched with those values"}
+HTTP: 404
+[!!!] 发现非404响应: 500
+{"key":"INTERNAL_SERVER_ERROR","message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-user/api/v1/query
+HTTP/2 200 
+date: Tue, 11 Nov 2025 07:01:15 GMT
+content-type: text/html; charset=utf-8,gbk
+content-length: 177
+vary: Accept-Encoding
+[!!!] 发现非404响应: 500
+{"key":"INTERNAL_SERVER_ERROR","message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-user/api/v1/search
+HTTP/2 200 
+date: Tue, 11 Nov 2025 07:01:15 GMT
+content-type: text/html; charset=utf-8,gbk
+content-length: 177
+vary: Accept-Encoding
+
+[🔥] 第13波：查找隐藏参数
+[!!!] 发现非404响应: 500
+{"key":"INTERNAL_SERVER_ERROR","message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-user/api/v1/public/order
+[!!!] 发现非404响应: 500
+{"key":"INTERNAL_SERVER_ERROR","message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-user/api/v1/guest/order
+[!!!] 发现非404响应: 500
+{"key":"INTERNAL_SERVER_ERROR","message":"Unable to find matching target resource method","reason":"Unable to find matching target resource method","httpStatusCode":500,"errorCode":"INTERNAL_SERVER_ERROR","detail":"Unable to find matching target resource method"}
+500
+[+] /vtp-order/api/v1/order
+[+] /vtp-order/api/v1/tracking
+[+] /vtp-order/api/v1/query
+[+] /vtp-order/api/v1/search
+[+] /vtp-order/api/v1/public/order
+[+] /vtp-order/api/v1/guest/order
+[+] /vtp-tracking/api/v1/order
+[+] /vtp-tracking/api/v1/tracking
+[+] /vtp-tracking/api/v1/query
+[+] /vtp-tracking/api/v1/search
+[+] /vtp-tracking/api/v1/public/order
+[+] /vtp-tracking/api/v1/guest/order
+[+] /vtp-public/api/v1/order
+[+] /vtp-public/api/v1/tracking
+[+] /vtp-public/api/v1/query
+[+] /vtp-public/api/v1/search
+[+] /vtp-public/api/v1/public/order
+[+] /vtp-public/api/v1/guest/order
+[+] /vtp-web/api/v1/order
+[+] /vtp-web/api/v1/tracking
+[+] /vtp-web/api/v1/query
+[+] /vtp-web/api/v1/search
+[+] /vtp-web/api/v1/public/order
+[+] /vtp-web/api/v1/guest/order
+[+] /tms-receiving/api/v1/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-receiving/api/v1/tracking
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-receiving/api/v1/query
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-receiving/api/v1/search
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-receiving/api/v1/public/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-receiving/api/v1/guest/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/tracking
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/query
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/search
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/public/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-dest/api/v1/guest/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/tracking
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/query
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/search
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/public/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-sorting/api/v1/guest/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/tracking
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/query
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/search
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/public/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-handover/api/v1/guest/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/tracking
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/query
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/search
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/public/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /tms-pricing/api/v1/guest/order
+[!!!] 发现非404响应: 401
+{"message":"Unauthorized"}
+401
+[+] /oms/api/v1/order
+[+] /oms/api/v1/tracking
+[+] /oms/api/v1/query
+[+] /oms/api/v1/search
+[+] /oms/api/v1/public/order
+[+] /oms/api/v1/guest/order
+[+] /oms-order/api/v1/order
+[+] /oms-order/api/v1/tracking
+[+] /oms-order/api/v1/query
+[+] /oms-order/api/v1/search
+[+] /oms-order/api/v1/public/order
+[+] /oms-order/api/v1/guest/order
+[+] /wms/api/v1/order
+[+] /wms/api/v1/tracking
+[+] /wms/api/v1/query
+[+] /wms/api/v1/search
+[+] /wms/api/v1/public/order
+[+] /wms/api/v1/guest/order
+[+] /cms/api/v1/order
+[+] /cms/api/v1/tracking
+[+] /cms/api/v1/query
+[+] /cms/api/v1/search
+[+] /cms/api/v1/public/order
+[+] /cms/api/v1/guest/order
+
+[🔥] 第15波：尝试直接访问OMS
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+{"message":"no Route matched with those values"}
+HTTP: 404
+
+[🔥] 第16波：缅甸站点测试（已知200）
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Viettel Post Myanmar</title>
+    <script type="module" crossorigin src="/assets/index-W-ui8sRb.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cq9_6ihd.css">
+  </head>
+{"message":"no Route matched with those values"}
+HTTP: 404
