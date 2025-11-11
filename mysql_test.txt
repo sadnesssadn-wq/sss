@@ -1,0 +1,49 @@
+=== MySQL弱口令测试 ===
+[14.225.194.132:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.134:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.138:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.156:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.167:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.57:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.194.9:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.241.110:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.241.235:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.241.246:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.241.247:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+[14.225.241.71:3306]
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory

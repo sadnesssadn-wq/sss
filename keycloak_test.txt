@@ -1,0 +1,7 @@
+[Keycloak] 测试 admin:admin
+{"error":"Unable to find matching target resource method"}[Keycloak] 测试 admin:password
+{"error":"Unable to find matching target resource method"}[Keycloak] 测试 admin:123456
+{"error":"Unable to find matching target resource method"}[Keycloak] 测试 admin:admin123
+{"error":"Unable to find matching target resource method"}[Keycloak] 测试 keycloak:keycloak
+{"error":"Unable to find matching target resource method"}[Keycloak] 测试 admin:
+{"error":"Unable to find matching target resource method"}
