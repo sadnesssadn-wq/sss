@@ -1,0 +1,10 @@
+=== 验证 27.71.229.21 归属 ===
+
+[证书检查]
+
+[HTTP检查]
+
+[反向DNS]
+Host 21.229.71.27.in-addr.arpa. not found: 3(NXDOMAIN)
+
+[Whois]

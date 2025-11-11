@@ -1,0 +1,33 @@
+=== 验证 27.71.229.x 段所有IP的归属 ===
+
+[27.71.229.21]
+✗ 证书不是ViettelPost: 
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.35]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.36]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.39]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.51]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.70]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.71]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识
+
+[27.71.229.72]
+✓ 证书: subject=CN = *.viettelpost.vn
+✗ HTTP内容无ViettelPost标识

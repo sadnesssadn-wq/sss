@@ -1,0 +1,36 @@
+# ViettelPost 真实资产（已验证）
+
+## C段：171.244.51.0/24
+通过证书 CN=*.viettelpost.vn 验证：
+✓ 171.244.51.249 - 开发环境
+✓ 171.244.51.31  - Kong网关
+✓ 171.244.51.16  - 内部服务
+✓ 171.244.51.61  - 内部服务
+✓ 171.244.51.115 - 测试环境
+
+## C段：27.71.229.0/24
+从Fofa确认的ViettelPost子域名：
+✓ 27.71.229.35  - api.viettelpost.vn
+✓ 27.71.229.36  - id.viettelpost.vn, apichat.viettelpost.vn
+✓ 27.71.229.39  - ap.viettelpost.vn, international-hub
+✓ 27.71.229.51  - omsapi.viettelpost.vn, partner2
+✓ 27.71.229.70  - mwms.viettelpost.vn
+✓ 27.71.229.71  - wms.viettelpost.vn, vgate
+✓ 27.71.229.72  - qlx-api.viettelpost.vn
+✓ 27.71.229.217 - finance.viettelpost.vn
+
+## 误报（不是ViettelPost资产）
+✗ 27.71.229.21 - 无证书，无ViettelPost标识（FedEx相关任务）
+
+## 需要重新测试的真实ViettelPost资产
+优先级P0:
+1. 171.244.51.187:8080 - Tomcat 7.0.40 (需验证是否VTP)
+2. 171.244.51.188:8080 - IIS + ASP.NET (需验证是否VTP)
+3. 171.244.51.44:8080  - Express API (需验证是否VTP)
+
+## 已确认的高价值ViettelPost目标
+- 27.71.229.51:443 - omsapi (Kong Enterprise)
+- 27.71.229.36:443 - id/auth中心
+- 27.71.229.35:443 - API网关
+- 27.71.229.70/71   - WMS仓储系统
+- 27.71.229.217:443 - Finance财务系统

@@ -1,0 +1,16 @@
+=== 验证 Tomcat/IIS/Express 是否属于 ViettelPost ===
+
+[171.244.51.187:8080 - Tomcat]
+HTTPS证书: 
+title>Apache Tomcat/7.0.40</title
+✗ 无ViettelPost标识
+
+[171.244.51.188:8080 - IIS]
+HTTPS证书: 
+title>Home Page</title
+✗ 无ViettelPost标识
+
+[171.244.51.44:8080 - Express]
+HTTPS证书: subject=CN = api-prod.az-plus.vn
+API响应: {"code":"04","status":"error","message":"Cannot GET /api","statusCode":"404","data":null,"path":"/api","timestamp":"2025-11-11T13:47:51.670Z"}
+✗ 无ViettelPost标识
