@@ -1,0 +1,6 @@
+
+Testing: https://api-global.viettelpost.vn/management-service/permission-management/get-all
+
+Testing: https://api-global.viettelpost.vn/management-service/admin/user-management/search
+
+Testing: https://api-global.viettelpost.vn/management-service/api/internal/user-management/profile

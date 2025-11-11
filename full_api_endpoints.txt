@@ -1,0 +1,3 @@
+https://api-global.viettelpost.vn/cdn-service/
+https://api-global.viettelpost.vn/management-service/
+https://auth-global.viettelpost.vn/

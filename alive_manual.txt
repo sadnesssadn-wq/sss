@@ -1,0 +1,17 @@
+404 | https://api.viettelpost.vn
+000 | https://dev.viettelpost.vn
+200 | https://admin-global.viettelpost.vn
+503 | https://dev-jira.viettelpost.vn
+404 | https://api-smartgate.viettelpost.vn
+404 | https://apichat.viettelpost.vn
+503 | https://devportal.viettelpost.vn
+503 | https://wms-dev.viettelpost.vn
+403 | https://staging-ecommerce.viettelpost.vn
+404 | https://dev-wms-gw.viettelpost.vn
+302 | https://id.viettelpost.vn
+404 | https://api-global.viettelpost.vn
+404 | https://api-cashflow.viettelpost.vn
+404 | https://api-gami.viettelpost.vn
+404 | https://omsapi.viettelpost.vn
+404 | https://qlcp-app-api.viettelpost.vn
+503 | https://stag-apichat.viettelpost.vn

@@ -1,0 +1,178 @@
+================================================
+📋 第2步：Web指纹识别完整报告
+================================================
+扫描时间: 2025-11-11
+扫描目标: 68个子域名
+扫描方法: HTTP头分析 + JS文件分析 + CMS检测
+
+================================================
+🔥 核心发现
+================================================
+
+【P0 - 管理后台突破点】
+✅ admin-global.viettelpost.vn
+   技术栈: Nginx 1.26.3 + React (SPA)
+   ⚠️ 包含 wp-content 路径（可能WordPress或假路径）
+   🎯 JS分析发现核心API:
+      - https://api-global.viettelpost.vn/cdn-service/
+      - https://api-global.viettelpost.vn/management-service/
+      - https://auth-global.viettelpost.vn/
+   
+   🔑 关键API路径:
+      - /admin/user-management/create
+      - /admin/user-management/search
+      - /api/file/upload-files ⚡️ 文件上传点！
+      - /api/user-management/forget-password
+      - /permission-management/get-all
+      - /user-management/change-password
+
+【P0 - 认证中心】
+✅ id.viettelpost.vn
+   技术栈: Kestrel (ASP.NET Core)
+   🎯 登录页面: /Account/Login
+   状态: 302重定向到登录页
+   风险: SSO中心，突破=全局访问
+
+【P0 - 测试环境】
+✅ staging-ecommerce.viettelpost.vn
+   状态: 403 Forbidden
+   风险: 电商测试环境，可能防护较弱
+   测试: 基础403 bypass无效，需高级方法
+
+================================================
+💻 技术栈统计
+================================================
+
+【Web服务器分布】
+1. Nginx (主流)
+   - admin-global: 1.26.3
+   - fly: 1.27.2
+   - exgw: 1.16.0
+   - ap: 1.20.1
+   - api-smartgate: 版本未知
+
+2. Kong API Gateway (3个)
+   - gw.viettelpost.vn: Kong 3.2.2.0 Enterprise
+   - dev-wms-gw.viettelpost.vn: Kong 3.2.2.0 Enterprise
+   - omsapi.viettelpost.vn: Kong 3.2.2.0 Enterprise
+   ⚠️ 版本暴露 → CVE查询
+
+3. Kestrel/ASP.NET Core (2个)
+   - id.viettelpost.vn
+   - finance.viettelpost.vn
+
+4. AWS ELB
+   - api-global.viettelpost.vn: awselb/2.0
+
+5. Apache
+   - exp.viettelpost.vn
+
+【应用框架】
+- Express.js: apichat.viettelpost.vn
+- React: admin-global.viettelpost.vn
+- ASP.NET Core: id, finance
+
+【安全头】
+- X-Frame-Options: DENY (多个站点)
+- X-Frame-Options: SAMEORIGIN (exp)
+
+================================================
+🌐 API网关架构分析
+================================================
+
+【发现的API域名】
+1. api-global.viettelpost.vn (主API - AWS ELB)
+   └─ /cdn-service/ (302)
+   └─ /management-service/ (302)
+
+2. auth-global.viettelpost.vn (认证API)
+   └─ 404 根路径，需要具体路径
+
+3. Kong网关集群 (3个)
+   - gw.viettelpost.vn (生产)
+   - dev-wms-gw.viettelpost.vn (开发)
+   - omsapi.viettelpost.vn (订单管理)
+
+【API攻击面】
+✅ 用户管理API
+✅ 文件上传API ⚡️ 高危
+✅ 权限管理API
+✅ 密码重置API
+
+================================================
+🎯 高价值攻击点总结
+================================================
+
+【等级P0 - 立即可测试】
+1. 文件上传漏洞测试
+   https://api-global.viettelpost.vn/management-service/api/file/upload-files
+   → WebShell上传尝试
+
+2. 未授权API访问
+   /management-service/permission-management/get-all
+   /management-service/admin/user-management/search
+   → 无token直接访问
+
+3. 密码重置漏洞
+   /api/user-management/forget-password
+   → 越权重置他人密码
+
+4. id.viettelpost.vn 登录
+   /Account/Login
+   → 弱口令/SQL注入/认证绕过
+
+【等级P1 - Kong网关渗透】
+1. Kong 3.2.2.0 已知漏洞
+2. 路由枚举 (/admin, /__admin, /status)
+3. 认证插件绕过
+
+【等级P2 - 403绕过】
+staging-ecommerce.viettelpost.vn
+→ 需要更多bypass方法
+
+================================================
+🔍 CMS/框架漏洞检测建议
+================================================
+
+【ASP.NET Core应用】 (id, finance)
+- 反序列化漏洞
+- ViewState漏洞
+- 路径遍历
+
+【Express应用】 (apichat)
+- Prototype污染
+- 路径遍历
+- 中间件漏洞
+
+【Kong网关】 (3个)
+- CVE-2023-xxxx 查询
+- 认证绕过
+- Admin API暴露
+
+================================================
+📊 指纹识别统计
+================================================
+
+✅ HTTP头分析: 68个域名
+✅ JS深度分析: admin-global (1.2MB)
+✅ API端点提取: 15+个
+✅ CMS检测: 1个疑似WordPress
+✅ 技术栈识别: 
+   - 5种Web服务器
+   - 3个API网关
+   - 2种应用框架
+
+================================================
+🚀 下一步：第3步 API Hacking
+================================================
+
+建议立即执行:
+1. 测试文件上传API (未授权+绕过)
+2. 枚举用户管理API (IDOR)
+3. Kong网关深度探测
+4. id.viettelpost.vn登录攻击
+5. 密码重置逻辑漏洞测试
+
+================================================
+生成时间: $(date)
+报告版本: v1.0

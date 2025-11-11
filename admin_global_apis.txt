@@ -1,0 +1,4 @@
+https://api-global.viettelpost.vn/cdn-
+https://api-global.viettelpost.vn/management-
+https://auth-global.viettelpost.vn/
+https://cdn.jsdelivr.net/npm/country-flag-emoji-j

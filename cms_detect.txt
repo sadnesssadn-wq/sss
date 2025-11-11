@@ -1,0 +1,2 @@
+admin-global.viettelpost.vn | wp-content
+id.viettelpost.vn | staging-ecommerce.viettelpost.vn | dev.viettelpost.vn | devportal.viettelpost.vn | 
