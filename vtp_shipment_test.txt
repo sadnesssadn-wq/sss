@@ -1,0 +1,19 @@
+=== 测试Shipment运单管理 ===
+
+[Testing: /api/agency/shipment/get-list-shipment]
+
+[Testing: /api/agency/shipment/search]
+
+[Testing: /api/agency/shipment/get/{id}]
+
+[Testing: /api/agency/shipment/import-shipments]
+
+[Testing: /api/agency/shipment/export-shipments]
+
+[Testing: /api/agency/shipment/get-shipment-by-order-id/{orderId}]
+
+[Testing: /api/admin/shipment/search]
+
+[Testing: /api/admin/shipment/get-all]
+
+[导出运单]

@@ -1,0 +1,27 @@
+=== 使用Management Scope获取Token ===
+
+[1] 请求Management scope
+{
+  "error": "invalid_scope",
+  "error_description": "The specified 'scope' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+
+[2] 请求所有scope
+{
+  "error": "invalid_scope",
+  "error_description": "The specified 'scope' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+
+[3] 从OpenID配置看支持的scope:
+[
+  "openid",
+  "offline_access",
+  "email",
+  "profile",
+  "phone",
+  "roles",
+  "address",
+  "Logistek"
+]

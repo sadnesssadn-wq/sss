@@ -1,0 +1,8 @@
+=== 测试文件管理API ===
+
+[1] 测试文件列表
+Testing: /api/file-management/file-descriptor
+Testing: /api/file-management/directory-descriptor
+Testing: /api/admin/line-ship-agency/file-logs
+
+[2] 测试文件上传
