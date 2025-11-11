@@ -1,0 +1,4 @@
+10 mail.aavn-school.ac.th.
+ns1.360advance.com.
+ns2.360advance.com.
+"v=spf1 a mx ip4:112.121.151.15 ~all"

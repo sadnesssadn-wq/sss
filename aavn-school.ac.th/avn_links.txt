@@ -1,0 +1,169 @@
+airaavnc/480b.jpg
+airaavnc/AS550.JPG
+airaavnc/bell-206.jpg
+airaavnc/bell-212.jpg
+airaavnc/ch-47.jpg
+airaavnc/cobra.jpg
+airaavnc/huse-300.jpg
+airaavnc/mi-17.jpg
+airaavnc/mu7.jpg
+airaavnc/New folder/17.jpg
+airaavnc/New folder/1.jpg
+airaavnc/New folder/206.jpg
+airaavnc/New folder/212.jpg
+airaavnc/New folder/300.jpg
+airaavnc/New folder/41.jpg
+airaavnc/New folder/480.jpg
+airaavnc/New folder/550.jpg
+airaavnc/New folder/60.jpg
+airaavnc/New folder/cb.jpg
+airaavnc/New folder/cn.jpg
+airaavnc/New folder/mi17.jpg
+airaavnc/t-41.jpg
+airaavnc/u-17.jpg
+airaavnc/u-200.jpg
+airaavnc/uav.jpg
+airaavnc/uh-1.jpg
+airaavnc/uh-60.jpg
+default.css
+gallery/68/ตรวจเยี่ยมการฝึกบิน ศบ.70/843720.jpg
+gallery/68/ตรวจเยี่ยมการฝึกบิน ศบ.70/ตรวจเยี่ยมการฝึกบิน ศบ.70.html
+gallery/68/ประชุมมอบนโยบายงานประกัน ต.ค.68/IMG_1992.JPG
+gallery/68/ประชุมมอบนโยบายงานประกัน ต.ค.68/ประชุมมอบนโยบายงานประกัน ต.ค.68.html
+gallery/68/พิธิปิด ศบ. 69/IMGC0254.jpg
+gallery/68/พิธิปิด ศบ. 69/พิธิปิด ศบ. 69.html
+gallery/68/พิธีเปิดส.อวุโสรุ่นที่6/IMG_2961.JPG
+gallery/68/พิธีเปิดส.อวุโสรุ่นที่6/พิธีเปิดส.โส รุ่นที่ 6.html
+gallery/68/พิธีเปิดหลักสูตรชั้นนายพันรุ่นที่7/IMG_12.JPG
+gallery/68/พิธีเปิดหลักสูตรชั้นนายพันรุ่นที่7/พิธีเปิดชั้นนายพัน รุ่นที่ 7.html
+gallery/68/พิธีมอบหมวกครูการบิน/837639_0 - Copy.jpg
+gallery/68/พิธีมอบหมวกครูการบิน/พิธีมอบหมวกครูการบิน.html
+gallery/68/รับส่งหน้าที่ ผบ.ศบบ/IMGC0054.jpg
+gallery/68/รับส่งหน้าที่ ผบ.ศบบ/รับส่งหน้าที่ ผบ.ศบบ.html
+hatroom/chatroom.html
+http://aavnc.rta.mi.th/
+http://agdept.rta.mi.th
+http://dop.rta.mi.th/
+http://e-army.rta.mi.th/
+http://iac.npu.ac.th/index.php?route=common/home
+https://aavnc.rta.mi.th/41/index.html
+https://aavn-school.ac.th/learning/
+https://armyprcenter.com/%E0%B8%94%E0%B8%B9%E0%B8%9A%E0%B8%97%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1-75737-%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%95%E0%B8%A3%E0%B8%87-%E0%B8%9C%E0%B8%9A-%E0%B8%97%E0%B8%9A-%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%E0%B8%9B%E0%B8%B1%E0%B8%8D%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%81%E0%B8%B3%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B8%9E%E0%B8%A5%E0%B8%81%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B1%E0%B8%9E%E0%B8%9A%E0%B8%81.html
+https://atcedu.rta.mi.th/4pillars/login.php
+https://drive.google.com/drive/folders/1MglDsfQcuyT6jaqFYI86K-rN8tkyL8HW
+https://drive.google.com/open?id=19u9rXGP3PLtNNT2uMm55onvWsUdsZ3vp
+https://drive.google.com/open?id=1QckhRRHjIsQ-3zFjKfin52MHlzEklvVf
+https://drive.google.com/open?id=1XBs_H89AwATEBQpeFUbelruxOFjYvOeH
+https://engrschool.rta.mi.th/
+https://infantryschool.rta.mi.th/
+https://nco.rta.mi.th/
+https://sites.google.com/view/course-aavns/edms/edms/%E0%B8%95%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9D%E0%B8%81%E0%B8%AD%E0%B8%9A%E0%B8%A3%E0%B8%A1
+https://sites.google.com/view/course-aavns/home
+https://sites.google.com/view/qa-aavns/home
+https://tpad.police.go.th/
+https://www.ba.ac.th/en
+https://www.facebook.com/840000kra
+https://www.facebook.com/Army-United-FC-%E0%B8%AA%E0%B9%82%E0%B8%A1%E0%B8%AA%E0%B8%A3%E0%B8%9F%E0%B8%B8%E0%B8%95%E0%B8%9A%E0%B8%AD%E0%B8%A5%E0%B8%97%E0%B8%AB%E0%B8%B2%E0%B8%A3%E0%B8%9A%E0%B8%81-150703624996148/
+https://www.facebook.com/MilitaryRTA/
+https://www.facebook.com/raptor3rd/
+https://www.facebook.com/กองพันบินที่-2-กรม-บ-ศบบ-2nd-Aviation-Battalion--1974806579435408/
+https://www.oncb.go.th/Pages/main.aspx
+https://www.royaloffice.th/
+https://www.sites.google.com/site/kongbinbao/
+https://www.youtube.com/embed/9JXkpvSgY2w
+https://www.youtube.com/watch?v=Rn0Efw670B4
+http://www2.fleet.navy.mi.th/thaifly/index.php/main/index
+http://www.9airmobile.thaigov.net/
+http://www.aircraft.com/
+http://www.airliners.net/
+http://www.artyschool.org/artyschool/
+http://www.boeing.com/
+http://www.catc.or.th/2015/index.php/th/
+http://www.cavalryschool.com
+http://www.crma.ac.th
+http://www.fts.rtaf.mi.th/
+http://www.gpf.or.th/thai2013/index.asp
+http://www.matulee.com/cms/index.php
+http://www.mod.go.th/
+http://www.navy.mi.th
+http://www.police.go.th/
+http://www.radd-atc.com/
+http://www.rdpb.go.th/th/Projects
+http://www.royalrain.go.th/royalrain/
+http://www.royalsky.co.th/
+http://www.rtaf.mi.th/
+http://www.rta.mi.th/
+http://www.rtarf.mi.th/
+http://www.signalschool.ac.th/
+http://www.sravia.co.th/
+http://www.tgat.co.th/
+http://www.thaiflyingclub.com/indexthai.html
+http://www.thaigov.go.th/
+http://www.wing6.rtaf.mi.th/
+image/no gift policy.jpg
+images/123-0x0.jpg
+images/18-skyS--text-run2.gif
+images/4-8-2022 3-23-23 PM.jpg
+images/army-u2.jpg
+images/banner_4ATC.png
+images/banner_KM.jpg
+images/e_Army_banner-300x75-2.jpg
+images/fightfor-thai.jpg
+images/headประกัน.png
+images/Landing681024-102.png
+images/logo e-learning.jpg
+images/logo-footer-gpf-web-17.jpg
+images/Picture2.png
+images/Picture3.png
+images/pps.jpg
+images/rtaproject.jpg
+images/SMART2.jpg
+images/SMART3.jpg
+images/SMART.jpg
+images/tempอากาศยาน.jpg
+images/webmaster2.gif
+images/จรรยาบรรณครู.jpg
+images/นโยบายฝึกอบรม รร.การบิน ทบ. พ.ศ.66-70.jpg
+images/วิชาแกนกลางของ ทบ. link ยกทบ..jpg
+image/TRICK-vit.jpg
+image/จอมพลป.jpg
+Infoemation/01_8x5.5.jpg
+Infoemation/12.jpg
+Infoemation/ข้อมูลการจัดสอบมาตรฐานภาษาอังกฤษ.pdf
+Infoemation/นโยบายฝึกอบรม รร.การบิน ทบ. พ.ศ. ๒๕๖๖ - ๒๕๗๐.pdf
+Infoemation/ระบบฐานข้อมูลการตัดสินใจ/สนับสนุนการเรียนรู้/Link.html
+Infoemation/วิทยฐานะ/vitayatana.html
+Infoemation/เอกสารการไม่ขอรับเงินรางวัล.pdf
+janyaban.html
+kongbunchakan56.html
+mainmanu/commandder avns/p_command/ผังบังคับบัญชา68/พลตรี เชอดเกียรติ ช.สรพงษ์ 1.1.png
+mainmanu/command_new68.html
+mainmanu_files/cbjscbmainmanu.js
+mainmanu_files/commandnt copy.gif
+mainmanu_files/Ex-commandant copy.gif
+mainmanu_files/historic copy.gif
+mainmanu_files/mission copy.gif
+mainmanu_files/philosophy copy.gif
+mainmanu_files/vision copy.gif
+mainmanu/mission.htm
+mainmanu/oldcom.htm
+mainmanu/org56.html
+mainmanu/pawat.htm
+mainmanu/pt.htm
+mainmanu/visaitud.htm
+Scripts/AC_RunActiveContent.js
+SpryAssets/SpryMenuBarHorizontal.css
+SpryAssets/SpryMenuBar.js
+submanu_files/education.png
+submanu_files/flighttraining.png
+submanu_files/head quater.png
+submanu_files/Organization.png
+submanu_files/servic and mainten.png
+submanu_files/student.png
+Trick KM.html
+webmaster.html
+WEB_นขต/กบรซบร/avn/index_main_kbr7.html
+WEB_นขต/กฝ/avn/index.html
+WEB_นขต/กศ/avn/index_main_Ks.html
+WEB_นขต/พัน.นร/avn/index_main_pnr8.html
+จอมพลป.html

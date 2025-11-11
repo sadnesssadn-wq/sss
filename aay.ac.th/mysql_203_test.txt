@@ -1,0 +1,16 @@
+[*] 测试 root:
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:root
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:admin
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:password
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:123456
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:aay
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:mysql
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.
+[*] 测试 root:mariadb
+Warning: Permanently added '[82.29.71.156]:2233' (ED25519) to the list of known hosts.

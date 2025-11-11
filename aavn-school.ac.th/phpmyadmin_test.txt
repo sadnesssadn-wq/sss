@@ -1,0 +1,16 @@
+[*] 测试密码: 
+[✅ 成功] root:
+[*] 测试密码: root
+[✅ 成功] root:root
+[*] 测试密码: admin
+[✅ 成功] root:admin
+[*] 测试密码: password
+[✅ 成功] root:password
+[*] 测试密码: 123456
+[✅ 成功] root:123456
+[*] 测试密码: toor
+[✅ 成功] root:toor
+[*] 测试密码: aavn
+[✅ 成功] root:aavn
+[*] 测试密码: school
+[❌ 失败] root:school

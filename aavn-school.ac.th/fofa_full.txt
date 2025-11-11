@@ -1,0 +1,11 @@
+mail.aavn-school.ac.th|112.121.151.15:80|403 Forbidden|Apache/2
+www.aavn-school.ac.th|112.121.151.15:80|โรงเรียนการบินทหารบก|Apache/2
+aavn-school.ac.th|112.121.151.15:80|โรงเรียนการบินทหารบก|Apache/2
+https://www.aavn-school.ac.th|112.121.151.15:443|โรงเรียนการบินทหารบก|Apache/2
+https://aavn-school.ac.th|112.121.151.15:443|โรงเรียนการบินทหารบก|Apache/2
+https://mail.aavn-school.ac.th|112.121.151.15:443|403 Forbidden|Apache/2
+smtp.aavn-school.ac.th|112.121.151.15:80||Apache/2
+ftp.aavn-school.ac.th|112.121.151.15:80||Apache/2
+https://pop.aavn-school.ac.th|112.121.151.15:443||Apache/2
+https://ftp.aavn-school.ac.th|112.121.151.15:443||Apache/2
+pop.aavn-school.ac.th|112.121.151.15:80||Apache/2

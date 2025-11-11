@@ -1,0 +1,5 @@
+*.aay.ac.th
+aay.ac.th
+elibrary.aay.ac.th
+eservice.aay.ac.th
+www.aay.ac.th
