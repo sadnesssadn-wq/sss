@@ -13,7 +13,7 @@ _______________________________________________________________
 _______________________________________________________________
 
 [32m[+][0m URL: https://aay.ac.th/ [202.9.90.193]
-[32m[+][0m Started: Tue Nov 11 14:14:02 2025
+[32m[+][0m Started: Tue Nov 11 14:34:45 2025
 
 Interesting Finding(s):
 
@@ -54,24 +54,3 @@ Interesting Finding(s):
  |  - https://aay.ac.th/feed/, <generator>https://wordpress.org/?v=6.8.3</generator>
  |  - https://aay.ac.th/comments/feed/, <generator>https://wordpress.org/?v=6.8.3</generator>
 
-[32m[+][0m WordPress theme in use: Avada
- | Location: https://aay.ac.th/wp-content/themes/Avada/
- | Last Updated: 2025-09-23T23:00:06.000Z
- | [33m[!][0m The version is out of date, the latest version is 7.13.3
- | Style URL: https://aay.ac.th/wp-content/themes/Avada/style.css
- | Style Name: Avada
- | Style URI: https://avada.theme-fusion.com/
- | Description: The Avada Website Builder is the ultimate design and creation suite. Design Anything, Build Everythi...
- | Author: ThemeFusion
- | Author URI: https://themeforest.net/user/ThemeFusion
- |
- | Found By: Urls In Homepage (Passive Detection)
- | Confirmed By: Urls In 404 Page (Passive Detection)
- |
- | Version: 7.8.1 (80% confidence)
- | Found By: Style (Passive Detection)
- |  - https://aay.ac.th/wp-content/themes/Avada/style.css, Match: 'Version: 7.8.1'
-
-[32m[+][0m Enumerating All Plugins (via Aggressive Methods)
-
- Checking Known Locations -: |
