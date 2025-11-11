@@ -1,0 +1,8 @@
+=== apidoc.lightnode.com ===
+=== blog.lightnode.com ===
+=== console.lightcdn.com ===
+=== console.lightnode.com ===
+=== doc.lightnode.com ===
+support@lightcdn.com
+u003esupport@lightcdn.com
+=== www.lightcdn.com ===
