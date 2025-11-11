@@ -1,0 +1,39 @@
+# jtexpress.vn 技术栈指纹汇总
+
+## 核心系统
+
+1. jtexpress.vn (主站)
+   - Server: nginx + PHP/7.4.33
+   - CMS: October CMS (从october_session确认)
+   - 已知漏洞: October CMS < 3.4.15 存在多个RCE
+
+2. bi.jtexpress.vn (BI系统)
+   - Server: Apache/2.4.29 (Ubuntu)
+   - Framework: Laravel
+   - 已知漏洞: Apache 2.4.29存在多个CVE
+
+3. lendon.jtexpress.vn (订单系统)
+   - Server: nginx/1.18.0 (Ubuntu)
+   - Runtime: PHP/8.0.29
+   - 前端: Vue.js
+
+4. trade.jtexpress.vn (交易系统)
+   - Server: IIS 10.0
+   - Runtime: ASP.NET
+   - 高危: IIS短文件名泄露、.NET反序列化
+
+5. demo-tachdiachi.jtexpress.vn
+   - Framework: Express (Node.js)
+   - 高危: Node.js原型链污染
+
+6. shop/khachhang系统
+   - Server: Tengine
+   - 前端: Vue.js + React混合
+   - CDN: 阿里云
+
+## 攻击面优先级
+
+P0: October CMS主站 (CVE-2023-XXXX)
+P1: Laravel BI系统 (调试模式泄露)
+P2: Express框架 (原型链污染)
+P3: ASP.NET系统 (反序列化)

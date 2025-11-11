@@ -1,0 +1,16 @@
+=== shop.jtexpress.vn ===
+--: line 1: whatweb: command not found
+Server: Tengine
+=== bi.jtexpress.vn ===
+--: line 1: whatweb: command not found
+Server: Apache/2.4.29 (Ubuntu)
+=== lendon.jtexpress.vn ===
+--: line 1: whatweb: command not found
+server: nginx/1.18.0 (Ubuntu)
+x-powered-by: PHP/8.0.29
+=== demo-driver.jtexpress.vn ===
+--: line 1: whatweb: command not found
+Server: Tengine
+=== crm.jtexpress.vn ===
+--: line 1: whatweb: command not found
+server: nginx

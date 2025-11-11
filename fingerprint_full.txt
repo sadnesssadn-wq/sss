@@ -1,0 +1,191 @@
+=== https://bi.jtexpress.vn ===
+[Server]  Apache/2.4.29 (Ubuntu)
+[X-Powered-By] 
+[X-Framework] 
+[Laravel] 检测到Laravel框架
+
+=== https://crm.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://demo-carrier.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demo-cgztest-open.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By] 
+[X-Framework] x-frame-options: SAMEORIGIN
+[Vue.js] 前端使用Vue.js
+
+=== https://demo-driver.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demo-h5.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demo-intervene.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demo-ipush.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://demo-tachdiachi.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By] 
+[X-Framework] 
+Express
+Express
+
+=== https://demo-tuyendung.jtexpress.vn ===
+[Server]  nginx/1.27.5
+[X-Powered-By] 
+[X-Framework] 
+[React] 前端使用React
+
+=== https://demo-vipapplets.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demo-vipcustomer.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://demovip.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+[Vue.js] 前端使用Vue.js
+
+=== https://demo-ymssms.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://driver.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://finebi.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://imc.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://jmscms.jtexpress.vn ===
+[Server]  AmazonS3
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://jmsdtcabin.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://jmssms.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By]  PHP/7.4.33
+[X-Framework] 
+Express
+Express
+Express
+
+=== https://khachhang.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://maomao.jtexpress.vn ===
+[Server]  openresty
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://pro-jmsvn-file.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://shop-standby.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://sms.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://trade.jtexpress.vn ===
+[Server]  Microsoft-IIS/10.0
+[X-Powered-By]  ASP.NET
+[X-Framework] 
+
+=== https://uat-jmsvn-file-history.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://uat-jmsvn-file.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://vipapp.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
+=== https://vip.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+[Vue.js] 前端使用Vue.js
+
+=== https://website.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By]  PHP/7.4.33
+[X-Framework] 
+Express
+Express
+Express
+
+=== https://www.jtexpress.vn ===
+[Server]  nginx
+[X-Powered-By]  PHP/7.4.33
+[X-Framework] 
+Express
+Express
+Express
+
+=== https://ylopenadm.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] 
+
+=== https://ymssms.jtexpress.vn ===
+[Server]  Tengine
+[X-Powered-By] 
+[X-Framework] X-Frame-Options: SAMEORIGIN
+
