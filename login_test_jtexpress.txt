@@ -1,0 +1,86 @@
+=== https://bi.jtexpress.vn ===
+[登录] https://bi.jtexpress.vn/api/login
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+[登录] https://bi.jtexpress.vn/api/auth
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+[登录] https://bi.jtexpress.vn/login
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+[登录] https://bi.jtexpress.vn/api/v1/login
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+[登录] https://bi.jtexpress.vn/api/auth/login
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+[登录] https://bi.jtexpress.vn/api/user/login
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+=== https://crm.jtexpress.vn ===
+[登录] https://crm.jtexpress.vn/api/login
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}[登录] https://crm.jtexpress.vn/api/auth
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}[登录] https://crm.jtexpress.vn/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://crm.jtexpress.vn/api/v1/login
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}[登录] https://crm.jtexpress.vn/api/auth/login
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}[登录] https://crm.jtexpress.vn/api/user/login
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}=== https://demo-driver.jtexpress.vn ===
+[登录] https://demo-driver.jtexpress.vn/api/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://demo-driver.jtexpress.vn/api/auth
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://demo-driver.jtexpress.vn/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://demo-driver.jtexpress.vn/api/v1/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://demo-driver.jtexpress.vn/api/auth/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+[登录] https://demo-driver.jtexpress.vn/api/user/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>

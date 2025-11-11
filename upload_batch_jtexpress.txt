@@ -1,0 +1,365 @@
+[上传成功] https://bi.jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://crm.jtexpress.vn/api/upload
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传成功] https://bi.jtexpress.vn/api/file/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://crm.jtexpress.vn/api/file/upload
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传成功] https://crm.jtexpress.vn/api/File/UploadFile
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传成功] https://bi.jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://bi.jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://crm.jtexpress.vn/api/upload.php
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传成功] https://bi.jtexpress.vn/api/upload.php
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://crm.jtexpress.vn/api/v1/upload
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传成功] https://bi.jtexpress.vn/api/v1/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://bi.jtexpress.vn/admin/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传成功] https://jmscms.jtexpress.vn/upload
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>63P3T4MGG4V7MA31</RequestId><HostId>5qPDhhDbaCvWOQEPcOtvUwIvemZnGVXvNYBA5y7WiZaqoDLwn8FxoMgQxLrjywyAZOkc+av1WPAbYKXbKSbVpDErd3RYsyeW</HostId></Error>
+[上传成功] https://jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://jtexpress.vn/api/file/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://trade.jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://trade.jtexpress.vn/api/file/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://jtexpress.vn/api/v1/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://trade.jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://trade.jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://jtexpress.vn/admin/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://trade.jtexpress.vn/api/upload.php
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://trade.jtexpress.vn/api/v1/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://trade.jtexpress.vn/admin/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The resource cannot be found.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+[上传成功] https://website.jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://website.jtexpress.vn/api/file/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/api/file/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://website.jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://website.jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://website.jtexpress.vn/api/v1/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/api/v1/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://website.jtexpress.vn/admin/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">
+[上传成功] https://www.jtexpress.vn/admin/upload
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+    <title>J&T Express - Page Not Found (404)</title>
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="JTExpress">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="JTExpress">

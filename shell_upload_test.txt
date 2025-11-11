@@ -1,0 +1,57 @@
+=== 测试 https://bi.jtexpress.vn ===
+[上传shell] https://bi.jtexpress.vn/api/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传shell] https://bi.jtexpress.vn/api/File/UploadFile
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+[上传shell] https://bi.jtexpress.vn/upload
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>404 | Not Found.</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200&display=swap" rel="stylesheet">
+
+
+        <style>
+            html, body {
+=== 测试 https://crm.jtexpress.vn ===
+[上传shell] https://crm.jtexpress.vn/api/upload
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传shell] https://crm.jtexpress.vn/api/File/UploadFile
+{"success":false,"message":"Internal Server Error","errors":"An unexpected error occurred. Please try again later.","code":500}
+[上传shell] https://crm.jtexpress.vn/upload
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+=== 测试 https://jmscms.jtexpress.vn ===
+[上传shell] https://jmscms.jtexpress.vn/api/upload
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>BWEW5EEMYW3J1RK0</RequestId><HostId>NQ8MRp1gQmCVecGSkYMfxlgDHa2wIx77Qlh8GhdHJrJZFu3fFt+QB9diT84ppAQM4zclZvV+reSfOmBjRZjR6rAZH57B3dfE</HostId></Error>
+[上传shell] https://jmscms.jtexpress.vn/api/File/UploadFile
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>BWEGATHP45QYV6RW</RequestId><HostId>AUYIn2XqW1BmVyPgQ5AQ4XK3pOXwIUel4J5VnGxF3g9Qk5qTDlCDblQW2SYfQ8kYdq9/kmmJgQP/ILWya2VxIVnMdS5FZfwj</HostId></Error>
+[上传shell] https://jmscms.jtexpress.vn/upload
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>MethodNotAllowed</Code><Message>The specified method is not allowed against this resource.</Message><Method>POST</Method><ResourceType>OBJECT</ResourceType><RequestId>P2NGWMWF2QN3FGC6</RequestId><HostId>XcrNhD1JDP3dfg3e/fwNdyIwTBmSKgcyjpI/3php6IwrAyQ72ocxVfipYdXGQKjgF9oqCHe+77dnQgBM/A5OMqzEyARtJmJI</HostId></Error>
