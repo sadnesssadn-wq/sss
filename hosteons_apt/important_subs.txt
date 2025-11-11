@@ -1,0 +1,9 @@
+cpanel.lg.hosteons.com
+dev.my.hosteons.com
+mail.dev.hosteons.com
+mail.lg.hosteons.com
+mail.lg.la.hosteons.com
+my.hosteons.com
+smtp.dev.hosteons.com
+webmail.lg.hosteons.com
+www.my.hosteons.com
