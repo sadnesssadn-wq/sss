@@ -1,0 +1,181 @@
+# ViettelPost 关键发现 - OAuth2认证系统
+
+## 🔴 CRITICAL: OpenID Connect完全暴露
+
+### 发现的认证系统
+**URL**: https://auth-global.viettelpost.vn/
+**类型**: OpenIddict (ASP.NET Core)
+**协议**: OAuth 2.0 + OpenID Connect
+
+### 完整配置文件暴露
+✓ /.well-known/openid-configuration (200 OK)
+✓ 所有端点URL完全泄露
+✓ 支持的Grant Types暴露
+✓ 支持的Scopes暴露
+
+---
+
+## 关键端点
+
+### 1. Token端点
+**URL**: https://auth-global.viettelpost.vn/connect/token
+**功能**: 获取访问令牌
+**支持的Grant Types**:
+- ✅ authorization_code
+- ✅ implicit
+- ✅ password ⚠️ (资源所有者密码模式)
+- ✅ client_credentials
+- ✅ refresh_token
+- ✅ device_code
+- ✅ viettel_idp ⚠️ (自定义Grant)
+
+### 2. 授权端点
+**URL**: https://auth-global.viettelpost.vn/connect/authorize
+
+### 3. 用户信息端点
+**URL**: https://auth-global.viettelpost.vn/connect/userinfo
+
+### 4. JWKS公钥端点
+**URL**: https://auth-global.viettelpost.vn/.well-known/jwks
+**用途**: JWT签名验证
+
+### 5. 内省端点
+**URL**: https://auth-global.viettelpost.vn/connect/introspect
+**用途**: Token验证
+
+### 6. 吊销端点
+**URL**: https://auth-global.viettelpost.vn/connect/revocat
+
+---
+
+## 支持的Scopes
+```
+- openid
+- offline_access ⚠️ (可以获取refresh_token)
+- email
+- profile
+- phone
+- roles ⚠️ (角色信息)
+- address
+- Logistek ⚠️ (业务相关scope)
+```
+
+---
+
+## ⚠️ 高危配置
+
+### 1. Password Grant 启用
+**严重程度**: HIGH
+**风险**: 
+- 可以直接使用用户名密码换取Token
+- 如果存在弱密码，可以暴力破解
+- 典型的不安全Grant Type
+
+**测试方法**:
+```bash
+curl -X POST https://auth-global.viettelpost.vn/connect/token \
+  -d "grant_type=password&username=admin&password=admin123&client_id=web"
+```
+
+### 2. 自定义Grant: viettel_idp
+**严重程度**: MEDIUM-HIGH
+**风险**:
+- 自定义实现可能存在逻辑漏洞
+- 不清楚具体实现细节
+- 可能绕过标准认证流程
+
+### 3. offline_access 支持
+**严重程度**: MEDIUM
+**风险**:
+- 可以获取长期有效的refresh_token
+- 如果Token被窃取，持续时间更长
+
+---
+
+## 攻击向量
+
+### ✅ 可以测试的攻击
+1. **Password Grant暴力破解**
+   - 尝试常见用户名密码组合
+   - admin/admin, admin/Admin123等
+
+2. **Client Credentials暴力破解**
+   - 枚举常见client_id/client_secret
+   - web/web, api/api, mobile/mobile等
+
+3. **viettel_idp Grant逻辑漏洞**
+   - 测试参数注入
+   - 测试认证绕过
+
+4. **Authorization Code劫持**
+   - 测试redirect_uri验证
+   - Open Redirect漏洞
+
+5. **JWT伪造**
+   - 下载JWKS公钥
+   - 尝试算法混淆攻击（alg=none）
+   - 尝试密钥混淆攻击
+
+6. **Scope提权**
+   - 请求roles scope获取角色信息
+   - 请求Logistek scope获取业务权限
+
+---
+
+## 后端API路由
+
+从JS分析发现，这个认证系统为以下服务提供认证：
+
+1. **management-service**
+   - https://api-global.viettelpost.vn/management-service/
+   - 用户管理、文件上传等
+
+2. **cdn-service**
+   - https://api-global.viettelpost.vn/cdn-service/
+   - 内容分发服务
+
+**攻击链**:
+1. 通过OAuth2获取有效Token
+2. 使用Token访问management-service和cdn-service
+3. 测试API未授权访问/权限提升
+
+---
+
+## 当前测试状态
+
+### ✅ 已完成
+- OpenID配置文件获取
+- 端点识别
+- Grant Types识别
+- Scopes识别
+
+### ⏳ 正在进行
+- Password Grant弱密码测试
+- Client Credentials枚举
+- viettel_idp自定义Grant测试
+- JWKS公钥下载
+
+### 📋 待测试
+- JWT伪造攻击
+- Authorization Code劫持
+- Redirect URI验证
+- Scope提权测试
+- 与management-service的集成测试
+
+---
+
+## 风险评级
+
+**当前发现**: 🔴 HIGH
+
+**原因**:
+1. ✅ Password Grant启用（不推荐的认证方式）
+2. ✅ 自定义Grant可能存在漏洞
+3. ✅ 完整认证架构完全暴露
+4. ⚠️ 如果存在弱密码或默认凭据，可以完全接管账户
+
+---
+
+**报告时间**: 2025-11-11
+**测试进度**: 60%
+**下一步**: OAuth2攻击深度测试

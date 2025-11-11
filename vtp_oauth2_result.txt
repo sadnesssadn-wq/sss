@@ -1,0 +1,91 @@
+=== OAuth2/OpenID Connect 攻击测试 ===
+
+[1] JWKS公钥获取
+{
+  "keys": [
+    {
+      "kid": "BED66DF899212846315B92C2EC94D8F8970A0B52",
+      "use": "sig",
+      "kty": "RSA",
+      "alg": "RS256",
+      "e": "AQAB",
+      "n": "n_E8LGhRUR9bfbeAAYB6yERMEAdDeQ2MCXhooY3eDQnANy2zY2SfEb9BY1Al2Mhp5Z_bVnhxYrSxcFyhwLKVtgfmys9hUb3rnKd4r6JTKNirCmwtT3cXw41skZHZF2OIUGep9JsNAsXT8u4JRe7lTrorpZBgRl6vvGdeu3YBKtk1mjNpB-S4Ei6wZvcvwA4HlNjcqlX_yJNtFEM9CGm3vHmr2-uiLoUqQhjtlbpCor1YirzpI3Uegr7kxgHhu2QLO0Bed57IK9y8WNHaXoUP0rkCs89sDAaIh2Mg1YQlKl7q4os95Ic0MUqf8PTOlRiDsEdyV7sRkVwcLAMvmeGI8Q",
+      "x5t": "vtZt-JkhKEYxW5LC7JTY-JcKC1I",
+      "x5c": [
+        "MIICvTCCAaWgAwIBAgIJAMvpNyDJy/T+MA0GCSqGSIb3DQEBCwUAMBQxEjAQBgNVBAMTCWxvY2FsaG9zdDAeFw0yNTAxMDIwMzAxMzBaFw00NTAxMDIwMzAxMzBaMBQxEjAQBgNVBAMTCWxvY2FsaG9zdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ/xPCxoUVEfW323gAGAeshETBAHQ3kNjAl4aKGN3g0JwDcts2NknxG/QWNQJdjIaeWf21Z4cWK0sXBcocCylbYH5srPYVG965yneK+iUyjYqwpsLU93F8ONbJGR2RdjiFBnqfSbDQLF0/LuCUXu5U66K6WQYEZer7xnXrt2ASrZNZozaQfkuBIusGb3L8AOB5TY3KpV/8iTbRRDPQhpt7x5q9vroi6FKkIY7ZW6QqK9WIq86SN1HoK+5MYB4btkCztAXneeyCvcvFjR2l6FD9K5ArPPbAwGiIdjINWEJSpe6uKLPeSHNDFKn/D0zpUYg7BHcle7EZFcHCwDL5nhiPECAwEAAaMSMBAwDgYDVR0PAQH/BAQDAgWgMA0GCSqGSIb3DQEBCwUAA4IBAQB2EzstBxpUbYgepBNl7IDVZy1qBeRP2QDCdxYXsDgcBrMvL4DHETMdAKHcaRmXkDjLuh6QazclQ5mqltfHpS0uw3/Ep1sZAUPhS2ghzuYNIg7G9PhHQa0Wwvt+Zd4DvsJ0GMtA/FuMX4k6rkNlxJywHL6HoYUwFiqOMpB+SCLEfJRn+rTJxzX9DL6LbjaHtiBbZx+nZhZIoIKdtStK/xB1An8HhY8A6pWtmYUTqLz46DZ7RBWIUjsp2Ta1mDtONzfp9fWEiSPMsli8jYoZD0WkFJHaE5j7hlBMzyhoJAClZfIpkiYucTe4JKAeZ7t76jF4qWjqabDtGqd3thHLhB7p"
+      ]
+    }
+  ]
+}
+
+[2] Password Grant - 弱密码测试
+Testing: admin:admin
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing: admin:Admin123
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing: test:test123
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+[3] Client Credentials Grant
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+[4] 无Client Secret测试
+{
+  "error": "invalid_request",
+  "error_description": "The 'client_secret' or 'client_assertion' parameter must be specified when using the client credentials grant.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2057"
+}
+[5] Authorization Endpoint
+error:invalid_request
+error_description:The specified 'client_id' is invalid.
+error_uri:https://documentation.openiddict.com/errors/ID2052
+
+[6] Client ID枚举
+Testing client_id: admin
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: web
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: mobile
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: api
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: postman
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: swagger
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}Testing client_id: public
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}

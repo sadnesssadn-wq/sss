@@ -1,0 +1,31 @@
+=== Fly App测试 [fly.viettelpost.vn] ===
+title>Chào App Viettelpost mới</title
+
+=== SmartBox管理系统 [smb.viettelpost.vn] ===
+title>Hệ thống quản trị SmartBox</title
+
+[SMB登录测试]
+Testing: /api/login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.29.3</center>
+</body>
+</html>
+Testing: /api/auth
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.29.3</center>
+</body>
+</html>
+Testing: /login
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.29.3</center>
+</body>
+</html>

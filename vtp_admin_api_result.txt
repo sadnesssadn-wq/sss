@@ -1,0 +1,274 @@
+=== Admin-Global API深度测试 ===
+
+[1] 测试API端点（GET）
+GET /api/file/upload-files
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/internal/user-management/profile
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/user-management/forget-password
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/user-management/forget-password/send-email
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/user-management/forget-password/verify-signature
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/user-management/re-issue-password
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+GET /api/user-management/seting-language/set
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://viettelpost.com.vn/wp-content/themes/viettel/images/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Arial"
+    />
+    <title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title>
+    <script type="module" crossorigin src="/assets/index-Bxg3004i.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B2GZbEPX.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
+HTTP_CODE:200
+---
+
+[2] 测试忘记密码功能
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+
+[3] 测试用户枚举
+Testing: admin@viettelpost.vn
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+Testing: test@viettelpost.vn
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+Testing: user@viettelpost.vn
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+Testing: administrator@viettelpost.vn
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+
+[4] 文件上传测试
+<html>
+<head><title>405 Not Allowed</title></head>
+<body>
+<center><h1>405 Not Allowed</h1></center>
+<hr><center>nginx/1.26.3</center>
+</body>
+</html>
+
+[5] 搜索更多API
+/api/file/upload-files
+/api/internal/user-management/profile
+/api/user-management/forget-password
+/api/user-management/forget-password/send-email
+/api/user-management/forget-password/verify-signature
+/api/user-management/re-issue-password
+/api/user-management/seting-language/set

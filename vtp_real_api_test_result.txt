@@ -1,0 +1,411 @@
+=== 测试真实Management API（来自Swagger） ===
+
+[1] ABP API Definition
+{
+  "modules": {
+    "abp": {
+      "rootPath": "abp",
+      "remoteServiceName": "abp",
+      "controllers": {
+        "Pages.Abp.MultiTenancy.AbpTenantController": {
+          "controllerName": "AbpTenant",
+          "controllerGroupName": "AbpTenant",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Pages.Abp.MultiTenancy.AbpTenantController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService",
+              "name": "IAbpTenantAppService",
+              "methods": [
+                {
+                  "name": "FindTenantByNameAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "name",
+                      "typeAsString": "System.String, System.Private.CoreLib",
+                      "type": "System.String",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+                  }
+                },
+                {
+                  "name": "FindTenantByIdAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "id",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                    "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "FindTenantByNameAsyncByName": {
+              "uniqueName": "FindTenantByNameAsyncByName",
+              "name": "FindTenantByNameAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/multi-tenancy/tenants/by-name/{name}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "name",
+                  "typeAsString": "System.String, System.Private.CoreLib",
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "name",
+                  "name": "name",
+                  "jsonName": null,
+                  "type": "System.String",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
+            },
+            "FindTenantByIdAsyncById": {
+              "uniqueName": "FindTenantByIdAsyncById",
+              "name": "FindTenantByIdAsync",
+              "httpMethod": "GET",
+              "url": "api/abp/multi-tenancy/tenants/by-id/{id}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "id",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "id",
+                  "name": "id",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto",
+                "typeSimple": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.FindTenantResultDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.MultiTenancy.IAbpTenantAppService"
+            }
+          }
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController": {
+          "controllerName": "AbpApiDefinition",
+          "controllerGroupName": "AbpApiDefinition",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController",
+          "interfaces": [],
+          "actions": {
+            "GetByModel": {
+              "uniqueName": "GetByModel",
+              "name": "Get",
+              "httpMethod": "GET",
+              "url": "api/abp/api-definition",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "model",
+                  "typeAsString": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto, Volo.Abp.Http",
+                  "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
+                  "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModelRequestDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "model",
+                  "name": "IncludeTypes",
+                  "jsonName": null,
+                  "type": "System.Boolean",
+                  "typeSimple": "boolean",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "ModelBinding",
+                  "descriptorName": "model"
+                }
+              ],
+              "returnValue": {
+                "type": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel",
+                "typeSimple": "Volo.Abp.Http.Modeling.ApplicationApiDescriptionModel"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.AspNetCore.Mvc.ApiExploring.AbpApiDefinitionController"
+            }
+          }
+        },
+        "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController": {
+          "controllerName": "AbpApplicationConfiguration",
+          "controllerGroupName": "AbpApplicationConfiguration",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.AbpApplicationConfigurationController",
+          "interfaces": [
+            {
+              "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.IAbpApplicationConfigurationAppService",
+              "name": "IAbpApplicationConfigurationAppService",
+              "methods": [
+                {
+                  "name": "GetAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "options",
+                      "typeAsString": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions, Volo.Abp.AspNetCore.Mvc.Contracts",
+                      "type": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+                      "typeSimple": "Volo.Abp.AspNetCore.Mvc.ApplicationConfigurations.ApplicationConfigurationRequestOptions",
+
+[2] Application Configuration
+{
+  "localization": {
+    "values": {
+      "Default": {},
+      "AbpLocalization": {
+        "DisplayName:Abp.Localization.DefaultLanguage": "Default language",
+        "Description:Abp.Localization.DefaultLanguage": "The default language of the application."
+      },
+      "AbpValidation": {
+        "'{0}' and '{1}' do not match.": "'{0}' and '{1}' do not match.",
+        "The {0} field is not a valid credit card number.": "The {0} field is not a valid credit card number.",
+        "{0} is not valid.": "{0} is not valid.",
+        "The {0} field is not a valid e-mail address.": "The {0} field is not a valid e-mail address.",
+        "The {0} field only accepts files with the following extensions: {1}": "The {0} field only accepts files with the following extensions: {1}",
+        "The field {0} must be a string or array type with a maximum length of '{1}'.": "The field {0} must be a string or array type with a maximum length of '{1}'.",
+        "The field {0} must be a string or array type with a minimum length of '{1}'.": "The field {0} must be a string or array type with a minimum length of '{1}'.",
+        "The {0} field is not a valid phone number.": "The {0} field is not a valid phone number.",
+        "The field {0} must be between {1} and {2}.": "The field {0} must be between {1} and {2}.",
+        "The field {0} must match the regular expression '{1}'.": "The field {0} does not match the requested format.",
+        "The {0} field is required.": "The {0} field is required.",
+        "The field {0} must be a string with a maximum length of {1}.": "The field {0} must be a string with a maximum length of {1}.",
+        "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.": "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.",
+        "The {0} field is not a valid fully-qualified http, https, or ftp URL.": "The {0} field is not a valid fully-qualified http, https, or ftp URL.",
+        "The field {0} is invalid.": "The field {0} is invalid.",
+        "The value '{0}' is invalid.": "The value '{0}' is invalid.",
+        "The field {0} must be a number.": "The field {0} must be a number.",
+        "The field must be a number.": "The field must be a number.",
+        "ThisFieldIsNotAValidCreditCardNumber.": "This field is not a valid credit card number.",
+        "ThisFieldIsNotValid.": "This field is not valid.",
+        "ThisFieldIsNotAValidEmailAddress.": "This field is not a valid e-mail address.",
+        "ThisFieldOnlyAcceptsFilesWithTheFollowingExtensions:{0}": "This field only accepts files with the following extensions: {0}",
+        "ThisFieldMustBeAStringOrArrayTypeWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+        "ThisFieldMustBeAStringOrArrayTypeWithAMinimumLengthOf{0}": "This field must be at least '{0}' characters long.",
+        "ThisFieldIsNotAValidPhoneNumber.": "This field is not a valid phone number.",
+        "ThisFieldMustBeBetween{0}And{1}": "This field must be between {0} and {1}.",
+        "ThisFieldMustBeGreaterThanOrEqual{0}": "This field must be greater than or equal to {0}.",
+        "ThisFieldMustBeLessOrEqual{0}": "This field must be less than or equal to {0}.",
+        "ThisFieldMustMatchTheRegularExpression{0}": "This field must match the regular expression '{0}'.",
+        "ThisFieldIsRequired.": "This field is required.",
+        "ThisFieldMustBeAStringWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+        "ThisFieldMustBeAStringWithAMinimumLengthOf{1}AndAMaximumLengthOf{0}": "This field must be at least {1} and at most {0} characters long.",
+        "ThisFieldIsNotAValidFullyQualifiedHttpHttpsOrFtpUrl": "This field is not a valid fully-qualified http, https, or ftp URL.",
+        "ThisFieldIsInvalid.": "This field is invalid."
+      },
+      "AbpMultiTenancy": {
+        "TenantNotFoundMessage": "Tenant not found!",
+        "TenantNotFoundDetails": "There is no tenant with the tenant id or name: {0}",
+        "TenantNotActiveMessage": "Tenant is not active!",
+        "TenantNotActiveDetails": "The tenant is not active with the tenant id or name: {0}"
+      },
+      "Management": {
+        "'{0}' and '{1}' do not match.": "'{0}' and '{1}' do not match.",
+        "The {0} field is not a valid credit card number.": "The {0} field is not a valid credit card number.",
+        "{0} is not valid.": "{0} is not valid.",
+        "The {0} field is not a valid e-mail address.": "The {0} field is not a valid e-mail address.",
+        "The {0} field only accepts files with the following extensions: {1}": "The {0} field only accepts files with the following extensions: {1}",
+        "The field {0} must be a string or array type with a maximum length of '{1}'.": "The field {0} must be a string or array type with a maximum length of '{1}'.",
+        "The field {0} must be a string or array type with a minimum length of '{1}'.": "The field {0} must be a string or array type with a minimum length of '{1}'.",
+        "The {0} field is not a valid phone number.": "The {0} field is not a valid phone number.",
+        "The field {0} must be between {1} and {2}.": "The field {0} must be between {1} and {2}.",
+        "The field {0} must match the regular expression '{1}'.": "The field {0} does not match the requested format.",
+        "The {0} field is required.": "The {0} field is required.",
+        "The field {0} must be a string with a maximum length of {1}.": "The field {0} must be a string with a maximum length of {1}.",
+        "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.": "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.",
+        "The {0} field is not a valid fully-qualified http, https, or ftp URL.": "The {0} field is not a valid fully-qualified http, https, or ftp URL.",
+        "The field {0} is invalid.": "The field {0} is invalid.",
+        "The value '{0}' is invalid.": "The value '{0}' is invalid.",
+        "The field {0} must be a number.": "The field {0} must be a number.",
+        "The field must be a number.": "The field must be a number.",
+        "ThisFieldIsNotAValidCreditCardNumber.": "This field is not a valid credit card number.",
+        "ThisFieldIsNotValid.": "This field is not valid.",
+        "ThisFieldIsNotAValidEmailAddress.": "This field is not a valid e-mail address.",
+        "ThisFieldOnlyAcceptsFilesWithTheFollowingExtensions:{0}": "This field only accepts files with the following extensions: {0}",
+        "ThisFieldMustBeAStringOrArrayTypeWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+        "ThisFieldMustBeAStringOrArrayTypeWithAMinimumLengthOf{0}": "This field must be at least '{0}' characters long.",
+        "ThisFieldIsNotAValidPhoneNumber.": "This field is not a valid phone number.",
+        "ThisFieldMustBeBetween{0}And{1}": "This field must be between {0} and {1}.",
+        "ThisFieldMustBeGreaterThanOrEqual{0}": "This field must be greater than or equal to {0}.",
+        "ThisFieldMustBeLessOrEqual{0}": "This field must be less than or equal to {0}.",
+        "ThisFieldMustMatchTheRegularExpression{0}": "This field must match the regular expression '{0}'.",
+        "ThisFieldIsRequired.": "This field is required.",
+        "ThisFieldMustBeAStringWithAMaximumLengthOf{0}": "This field must be at most '{0}' characters long.",
+        "ThisFieldMustBeAStringWithAMinimumLengthOf{1}AndAMaximumLengthOf{0}": "This field must be at least {1} and at most {0} characters long.",
+        "ThisFieldIsNotAValidFullyQualifiedHttpHttpsOrFtpUrl": "This field is not a valid fully-qualified http, https, or ftp URL.",
+        "ThisFieldIsInvalid.": "This field is invalid.",
+        "InternalServerErrorMessage": "An internal error occurred during your request!",
+        "ValidationErrorMessage": "Your request is not valid!",
+        "ValidationNarrativeErrorMessageTitle": "The following errors were detected during validation.",
+        "DefaultErrorMessage": "An error has occurred!",
+        "DefaultErrorMessageDetail": "Error detail not sent by the server.",
+        "DefaultErrorMessage401": "You are not authenticated!",
+        "DefaultErrorMessage401Detail": "You should sign in to perform this operation.",
+        "DefaultErrorMessage403": "You are not authorized!",
+        "DefaultErrorMessage403Detail": "You are not allowed to perform this operation!",
+        "DefaultErrorMessage404": "Resource not found!",
+        "DefaultErrorMessage404Detail": "The resource requested could not be found on the server!",
+        "EntityNotFoundErrorMessage": "There is no entity {0} with id = {1}!",
+        "AbpDbConcurrencyErrorMessage": "The data you have submitted has already been changed by another user. Discard your changes and try again.",
+        "Error": "Error",
+        "UnhandledException": "Unhandled exception!",
+        "401Message": "Unauthorized",
+        "403Message": "Forbidden",
+        "404Message": "Page not found",
+        "500Message": "Internal Server Error",
+        "403MessageDetail": "You are not authorized to perform this operation!",
+        "404MessageDetail": "Sorry, there's nothing at this address.",
+        "Unauthorized": "Unauthorized",
+        "invalid_token": "Invalid token",
+        "SessionExpired": "Your session has expired. Please login again to continue in the application.",
+        "Languages": "Languages",
+        "AreYouSure": "Are you sure?",
+        "Cancel": "Cancel",
+        "Clear": "Clear",
+        "Yes": "Yes",
+        "No": "No",
+        "Ok": "Ok",
+        "Close": "Close",
+        "Save": "Save",
+        "SavingWithThreeDot": "Saving...",
+        "Actions": "Actions",
+        "Delete": "Delete",
+        "CreatedSuccessfully": "Created successfully",
+        "SavedSuccessfully": "Saved successfully",
+        "DeletedSuccessfully": "Deleted successfully",
+        "Edit": "Edit",
+        "Refresh": "Refresh",
+        "Language": "Language",
+        "LoadMore": "Load more",
+        "ProcessingWithThreeDot": "Processing...",
+        "LoadingWithThreeDot": "Loading...",
+        "Welcome": "Welcome",
+        "Login": "Login",
+        "Register": "Register",
+        "Logout": "Log out",
+        "Submit": "Submit",
+        "Back": "Back",
+        "PagerSearch": "Search",
+        "PagerNext": "Next",
+        "PagerPrevious": "Previous",
+        "PagerFirst": "First",
+        "PagerLast": "Last",
+        "PagerInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "PagerInfo{0}{1}{2}": "Showing {0} to {1} of {2} entries",
+        "PagerInfoEmpty": "Showing 0 to 0 of 0 entries",
+        "PagerInfoFiltered": "(filtered from _MAX_ total entries)",
+        "NoDataAvailableInDatatable": "No data available",
+        "Total": "total",
+        "Selected": "selected",
+        "PagerShowMenuEntries": "Show _MENU_ entries",
+        "DatatableActionDropdownDefaultText": "Actions",
+        "ChangePassword": "Change password",
+        "PersonalInfo": "My profile",
+        "AreYouSureYouWantToCancelEditingWarningMessage": "You have unsaved changes.",
+        "GoHomePage": "Go to the homepage",
+        "GoBack": "Go back",
+        "Search": "Search",
+        "ItemWillBeDeletedMessageWithFormat": "{0} will be deleted!",
+        "ItemWillBeDeletedMessage": "This item will be deleted!",
+        "ManageYourAccount": "Manage your account",
+        "OthersGroup": "Other",
+        "Today": "Today",
+        "Apply": "Apply",
+        "InternetConnectionInfo": "The operation could not be performed. Your internet connection is not available at the moment.",
+        "CopiedToTheClipboard": "Copied to the clipboard",
+        "AddNew": "Add new",
+        "ProfilePicture": "Profile picture",
+        "Theme": "Theme",
+        "NotAssigned": "Not Assigned",
+        "MyAccount": "My account",
+        "SamplePageMessage": "A sample page for the Management",
+        "UsdPerShipment": "USD/Shipment",
+        "UsdPerKg": "USD/1Kg",
+        "VndPerKg": "VND/1Kg",
+        "ImportError": "The {0} field is missing. Please verify row {1}, column {2}.",
+        "InvalidValue": "The {0} field is invalid. Please verify row {1}, column {2}.",
+        "InvalidWeight": "The weight field is invalid. It must be greater than 0 and less than 10000.",
+        "InvalidWeightUnit": "The weight unit field is invalid. It must be 'oz' or 'lb'. Please verify row {0}, column {1}.",
+        "InvalidToBusinessAddress": "The To business address field is invalid. (Yes/No)",
+        "ImportLineShipNotFound": "Line ship not found or invalid {0}",
+        "ImportInvalidFromPhone": "From Phone number is invalid",
+        "ShipFromCountryNotMatch": "Ship from country not match.",
+        "ShipToCountryNotMatch": "Ship to country not match.",
+        "CountryNotFound": "The 'From Country' not found",
+        "ProvinceNotFound": "The 'From Province' not found",
+        "DistrictNotFound": "The 'From District' not found",
+        "WardNotFound": "The 'From Ward' not found",
+        "AddressNotMatch": "The address not match",
+        "MerchandiseItemNotFound": "Cound not found merchandise item {0}",
+        "WeightDoesNotExceed5kg": "Weight must not exceed 5kg",
+        "CodeExist": "The code already exists.",
+        "NotEnoughBalance": "Your balance is insufficient. Please add more funds to continue.",
+        "AgencyHasShipment": "The agency has shipments. Could not delete.",
+        "SubAgencyHasShipment": "The agency has shipments. Could not delete",
+        "YouHaveShipment": "You have shipments. Could not delete",
+        "ProviderCanNotDelete": "Cannot delete provider: shipment already exists",
+        "ServiceCanNotDelete": "Cannot delete service: shipment already exists",
+        "CouldNotDeleteLineShip": "Could not delete line ship, shipment already exists",
+        "OrderIdFieldIsLimitedTo30Characters": "OrderId field is limited to 30 characters.",
+        "CreateShipmentNote": "Giao dịch trừ tiền từ shipment {0}",
+        "RefundShipmentNote": "Refund shipment {0}",
+
+[3] Permissions (可能列出所有权限)
+
+[4] Identity Users (用户列表)
+
+[5] Identity Roles (角色列表)

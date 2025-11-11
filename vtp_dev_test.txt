@@ -1,0 +1,36 @@
+=== ViettelPost 开发环境测试 [171.244.51.x] ===
+
+=== [171.244.51.249] ===
+[HTTP]
+HTTP Status: 302
+[HTTPS]
+HTTPS Status: 503
+[开放端口]
+
+=== [171.244.51.31] ===
+[HTTP]
+HTTP Status: 302
+[HTTPS]
+HTTPS Status: 503
+[开放端口]
+
+=== [171.244.51.16] ===
+[HTTP]
+HTTP Status: 302
+[HTTPS]
+HTTPS Status: 503
+[开放端口]
+
+=== [171.244.51.61] ===
+[HTTP]
+HTTP Status: 302
+[HTTPS]
+HTTPS Status: 503
+[开放端口]
+
+=== [171.244.51.115] ===
+[HTTP]
+HTTP Status: 302
+[HTTPS]
+HTTPS Status: 503
+[开放端口]

@@ -1,0 +1,49 @@
+=== 测试所有VTP子域名可访问性 ===
+
+[wms-dev.viettelpost.vn]
+Status: 503
+
+[dev-jira.viettelpost.vn]
+Status: 503
+
+[devportal.viettelpost.vn]
+Status: 503
+
+[stag-apichat.viettelpost.vn]
+Status: 503
+
+[staging-ecommerce.viettelpost.vn]
+Status: 403
+
+[receiverchat.viettelpost.vn]
+Status: 404
+
+[partner.viettelpost.vn]
+Status: 200
+✓ 可访问！
+title>Partner's Website - Viettelpost</title
+login
+login
+login
+login
+Login
+
+[gw.viettelpost.vn]
+Status: 404
+
+[fly.viettelpost.vn]
+Status: 200
+✓ 可访问！
+title>Chào App Viettelpost mới</title
+user
+
+[smb.viettelpost.vn]
+Status: 200
+✓ 可访问！
+title>Hệ thống quản trị SmartBox</title
+
+[admin-global.viettelpost.vn]
+Status: 200
+✓ 可访问！
+title>Viettel Post - Tổng Công ty cổ phần bưu chính Viettel</title
+api

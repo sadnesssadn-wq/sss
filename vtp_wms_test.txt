@@ -1,0 +1,22 @@
+=== WMS仓储系统测试 [27.71.229.70/71] ===
+
+[27.71.229.70 - MWMS]
+HTTP/1.1 503 Service Unavailable
+content-length: 107
+cache-control: no-cache
+content-type: text/html
+connection: close
+
+/api/login -> 503
+/api/auth -> 503
+/login -> 503
+/admin -> 503
+/api/user -> 503
+
+[27.71.229.71 - WMS/VGate]
+HTTP/1.1 503 Service Unavailable
+content-length: 107
+cache-control: no-cache
+content-type: text/html
+connection: close
+

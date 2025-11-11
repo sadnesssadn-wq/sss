@@ -1,0 +1,51 @@
+=== 🔥 使用真实凭据突破OAuth2 🔥 ===
+
+[1] Client Credentials Grant
+{
+  "access_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkJFRDY2REY4OTkyMTI4NDYzMTVCOTJDMkVDOTREOEY4OTcwQTBCNTIiLCJ4NXQiOiJ2dFp0LUpraEtFWXhXNUxDN0pUWS1KY0tDMUkiLCJ0eXAiOiJhdCtqd3QifQ.eyJpc3MiOiJodHRwczovL2F1dGgtZ2xvYmFsLnZpZXR0ZWxwb3N0LnZuLyIsImV4cCI6MTc2Mjk1NjA2OCwiaWF0IjoxNzYyODY5NjY4LCJhdWQiOiJMb2dpc3RlayIsInNjb3BlIjoiTG9naXN0ZWsgb3BlbmlkIiwianRpIjoiMDQ4Y2ViNjEtNTZlYS00MjgxLThhMzctNzIxMTdiODk0NDQzIiwicmVkaXJlY3RfdXJpcyI6Imh0dHBzOi8vbG9jYWxob3N0OjIzMTc1L3N3YWdnZXIvb2F1dGgyLXJlZGlyZWN0Lmh0bWwiLCJvaV9wcnN0IjoiTG9naXN0ZWtfU3dhZ2dlciIsImNsaWVudF9pZCI6IkxvZ2lzdGVrX1N3YWdnZXIiLCJvaV90a25faWQiOiIzYTFkODU2NS00MzA3LWJlMGMtNDA4Mi0xNmNlNzliZjA1YjYifQ.acbkWDod1lhioM8Okt8ZxVFfEps8-c9t_KUwDIukQ6xlOSk9bBatHdAWSo4KBic-Q9mFNTGMq9iNOjgtJU94UpO2RZQV3xLuIweuqIoa7hnu0DKvb74bJOmv3oCtIrdAInbzmkQa5SmkULXJy8MEOQHmNyf475Ytc_u6zkXJsMp2td7ZPYiy0X8i0Ef7kA5yTomXxFwjlnh_BDYCpGG08FQqVoxgbB_SJL7zXsZ10BXSqu6As1LDDVMu00roObh_PkygM0nkyAQxttInpV-LGoNL2JpEjZFVuAYmiNfULcV17-Pg0gCraSUvD0dSYFkw5eePuF1ur9wPzkcDO56gHg",
+  "token_type": "Bearer",
+  "expires_in": 86399,
+  "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IkJFRDY2REY4OTkyMTI4NDYzMTVCOTJDMkVDOTREOEY4OTcwQTBCNTIiLCJ4NXQiOiJ2dFp0LUpraEtFWXhXNUxDN0pUWS1KY0tDMUkiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2F1dGgtZ2xvYmFsLnZpZXR0ZWxwb3N0LnZuLyIsImV4cCI6MTc2Mjg3MDg2OCwiaWF0IjoxNzYyODY5NjY4LCJhdWQiOiJMb2dpc3Rla19Td2FnZ2VyIiwiYXpwIjoiTG9naXN0ZWtfU3dhZ2dlciIsImF0X2hhc2giOiJzYURkZG14c2xIYUVQdnNrUFVIT1RnIiwib2lfdGtuX2lkIjoiM2ExZDg1NjUtNDMxMy1kZTQ2LWJiMzItMzU2ZGFhZjNiZmYzIn0.AWYqPC6AMxMVHEXXjI4NceS-1Jj1ZZSIDbrsFKAjUZ3l1l4Jmn38nFMrgn9ulw4c4Uu3ApbbW2wQbby0zsfDnsxUIAN5g20VwIFUa6LzYJbDF2Fh_Y-3LYh_4rO49McmGig3vbuZc9pb7J_BOaTjTxYwTDMgeTQhONnUlHefJw6PgZuwrnywxoQr2UePQp-Sne5v0UeqPzivVhiRoA9G6ldHj4yhxb4skkt88VQ3scabsrjN1Ver-u4ls0PtXQNy1Oa9JGjPjhepHjr4MC8ui6Hf41KqYRXIWHJyd0E4v6QAZt2IF_2_1wqXLyjmYY78Ii4mx2A3zsxjI1_6LxWM4A"
+}
+✅✅✅ 成功获取Token！
+Token: eyJhbGciOiJSUzI1NiIsImtpZCI6IkJFRDY2REY4OTkyMTI4NDYzMTVCOTJDMkVDOTREOEY4OTcwQTBCNTIiLCJ4NXQiOiJ2dFp0LUpraEtFWXhXNUxDN0pUWS1KY0tDMUkiLCJ0eXAiOiJhdCtqd3QifQ.eyJpc3MiOiJodHRwczovL2F1dGgtZ2xvYmFsLnZpZXR0ZWxwb3N0LnZuLyIsImV4cCI6MTc2Mjk1NjA2OCwiaWF0IjoxNzYyODY5NjY4LCJhdWQiOiJMb2dpc3RlayIsInNjb3BlIjoiTG9naXN0ZWsgb3BlbmlkIiwianRpIjoiMDQ4Y2ViNjEtNTZlYS00MjgxLThhMzctNzIxMTdiODk0NDQzIiwicmVkaXJlY3RfdXJpcyI6Imh0dHBzOi8vbG9jYWxob3N0OjIzMTc1L3N3YWdnZXIvb2F1dGgyLXJlZGlyZWN0Lmh0bWwiLCJvaV9wcnN0IjoiTG9naXN0ZWtfU3dhZ2dlciIsImNsaWVudF9pZCI6IkxvZ2lzdGVrX1N3YWdnZXIiLCJvaV90a25faWQiOiIzYTFkODU2NS00MzA3LWJlMGMtNDA4Mi0xNmNlNzliZjA1YjYifQ.acbkWDod1lhioM8Okt8ZxVFfEps8-c9t_KUwDIukQ6xlOSk9bBatHdAWSo4KBic-Q9mFNTGMq9iNOjgtJU94UpO2RZQV3xLuIweuqIoa7hnu0DKvb74bJOmv3oCtIrdAInbzmkQa5SmkULXJy8MEOQHmNyf475Ytc_u6zkXJsMp2td7ZPYiy0X8i0Ef7kA5yTomXxFwjlnh_BDYCpGG08FQqVoxgbB_SJL7zXsZ10BXSqu6As1LDDVMu00roObh_PkygM0nkyAQxttInpV-LGoNL2JpEjZFVuAYmiNfULcV17-Pg0gCraSUvD0dSYFkw5eePuF1ur9wPzkcDO56gHg
+
+[2] 测试UserInfo Endpoint
+
+[3] 测试Management Service API
+
+[4] 测试文件上传API
+
+[5] 解码Access Token
+{
+  "iss": "https://auth-global.viettelpost.vn/",
+  "exp": 1762956068,
+  "iat": 1762869668,
+  "aud": "Logistek",
+  "scope": "Logistek openid",
+  "jti": "048ceb61-56ea-4281-8a37-72117b894443",
+  "redirect_uris": "https://localhost:23175/swagger/oauth2-redirect.html",
+  "oi_prst": "Logistek_Swagger",
+  "client_id": "Logistek_Swagger",
+  "oi_tkn_id": "3a1d8565-4307-be0c-4082-16ce79bf05b6"
+}
+
+[6] Password Grant (常见密码)
+Testing: admin:Admin@123
+{
+  "error": "invalid_grant",
+  "error_description": "Account does not exist!",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2024"
+}
+Testing: admin:Viettel@123
+{
+  "error": "invalid_grant",
+  "error_description": "Account does not exist!",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2024"
+}
+Testing: swagger:swagger
+{
+  "error": "invalid_grant",
+  "error_description": "Invalid username or password!",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2024"
+}

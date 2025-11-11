@@ -1,0 +1,30 @@
+=== 认证中心测试 [27.71.229.36] ===
+
+[1] 认证系统识别
+HTTP/1.1 503 Service Unavailable
+content-length: 107
+cache-control: no-cache
+content-type: text/html
+connection: close
+
+
+[2] 认证端点枚举
+/api/auth -> 503
+/api/login -> 503
+/api/signin -> 503
+/auth/login -> 503
+/oauth2/authorize -> 503
+/oauth2/token -> 503
+/.well-known/openid-configuration -> 503
+/api/user -> 503
+/api/me -> 503
+
+[3] JWT伪造测试
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+[4] OAuth2流程测试
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>

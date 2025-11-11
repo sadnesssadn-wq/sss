@@ -1,0 +1,89 @@
+=== Kong API网关深度测试 [27.71.229.51] ===
+
+[1] Kong版本和配置
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+[2] Kong Admin API
+
+[3] Kong路由枚举
+Testing: /
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /api
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /services
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /routes
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /consumers
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /plugins
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /status
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /metrics
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+Testing: /_health
+✓ 可访问！
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+Status: 503
+
+[4] OAuth/JWT端点
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+[5] 插件绕过测试
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>

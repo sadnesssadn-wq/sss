@@ -1,0 +1,17 @@
+=== Partner网站深度测试 [partner.viettelpost.vn] ===
+
+[1] 登录页面分析
+
+[2] API端点枚举
+Testing: /api/login
+Testing: /api/auth
+Testing: /api/user
+Testing: /api/partner
+Testing: /api/register
+
+[3] 登录弱密码测试
+Testing: admin:admin
+Testing: partner:partner
+Testing: test:test123
+
+[4] 注册功能测试

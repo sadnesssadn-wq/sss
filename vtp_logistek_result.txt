@@ -1,0 +1,78 @@
+=== 使用Logistek_Swagger Client ID测试 ===
+
+[1] Password Grant (弱密码)
+Testing: admin:admin with client=Logistek_Swagger
+{
+  "error": "invalid_client",
+  "error_description": "The 'client_secret' parameter required for this client application is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2054"
+}
+Testing: admin:Admin123 with client=Logistek_Swagger
+{
+  "error": "invalid_client",
+  "error_description": "The 'client_secret' parameter required for this client application is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2054"
+}
+Testing: test:test123 with client=Logistek_Swagger
+{
+  "error": "invalid_client",
+  "error_description": "The 'client_secret' parameter required for this client application is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2054"
+}
+Testing: admin:Viettel123 with client=Logistek_Swagger
+{
+  "error": "invalid_client",
+  "error_description": "The 'client_secret' parameter required for this client application is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2054"
+}
+
+[2] Client Credentials (无secret)
+{
+  "error": "invalid_request",
+  "error_description": "The 'client_secret' or 'client_assertion' parameter must be specified when using the client credentials grant.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2057"
+}
+
+[3] Client Credentials (弱secret)
+Testing secret: secret
+{
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}
+Testing secret: password
+{
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}
+Testing secret: Logistek_Swagger
+{
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}
+Testing secret: swagger
+{
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}
+Testing secret: Viettel123
+{
+  "error": "invalid_client",
+  "error_description": "The specified client credentials are invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2055"
+}
+
+[4] Viettel IDP Grant
+{
+  "error": "invalid_client",
+  "error_description": "The 'client_secret' parameter required for this client application is missing.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2054"
+}
+
+[5] Authorization Endpoint
+error:invalid_request
+error_description:The specified 'redirect_uri' is not valid for this client application.
+error_uri:https://documentation.openiddict.com/errors/ID2043

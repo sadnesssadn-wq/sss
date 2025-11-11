@@ -1,0 +1,31 @@
+=== 财务系统测试 [27.71.229.217] ===
+
+[1] 财务系统指纹
+
+[2] API端点枚举
+/api -> 503
+/api/finance -> 503
+/api/payment -> 503
+/api/transaction -> 503
+/api/account -> 503
+/swagger -> 503
+/swagger.json -> 503
+/api-docs -> 503
+/health -> 503
+/api/user -> 503
+
+[3] .NET Core路径测试
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>
+
+[4] Kestrel错误信息
+<html><body><h1>503 Service Unavailable</h1>
+No server is available to handle this request.
+</body></html>

@@ -1,0 +1,50 @@
+=== ViettelPost 真实后端API测试 ===
+
+[1] 认证API测试 [auth-global.viettelpost.vn]
+---Root---
+HTTP/2 404 
+date: Tue, 11 Nov 2025 13:57:46 GMT
+server: Kestrel
+x-correlation-id: 7293509e228a43b8857093430e027baa
+
+
+[2] Management Service API
+---Root---
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 13:57:47 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+
+
+---API端点测试---
+Testing: https://api-global.viettelpost.vn/management-service/api/user-management/forget-password
+
+HTTP:404
+Testing: https://api-global.viettelpost.vn/management-service/api/user-management/forget-password/send-email
+
+HTTP:404
+Testing: https://api-global.viettelpost.vn/management-service/api/internal/user-management/profile
+
+HTTP:404
+Testing: https://api-global.viettelpost.vn/management-service/api/file/upload-files
+
+HTTP:404
+
+[3] CDN Service API
+---Root---
+HTTP/2 404 
+server: awselb/2.0
+date: Tue, 11 Nov 2025 13:57:49 GMT
+content-type: text/plain; charset=utf-8
+content-length: 0
+
+
+[4] 忘记密码功能测试（POST）
+
+[5] 文件上传测试
+
+[6] 用户枚举测试
+Testing: admin@viettelpost.vn
+Testing: test@viettelpost.vn
+Testing: user@viettelpost.vn

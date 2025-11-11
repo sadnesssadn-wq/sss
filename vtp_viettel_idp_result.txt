@@ -1,0 +1,27 @@
+=== Viettel IDP Grant测试 ===
+[Viettel IDP Grant]
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+
+[Viettel IDP with token]
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+
+[Introspection Endpoint]
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}
+[Device Authorization]
+{
+  "error": "invalid_client",
+  "error_description": "The specified 'client_id' is invalid.",
+  "error_uri": "https://documentation.openiddict.com/errors/ID2052"
+}

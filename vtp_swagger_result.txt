@@ -1,0 +1,19 @@
+=== 测试Swagger/OpenAPI文档 ===
+
+[测试: https://api-global.viettelpost.vn/management-service]
+/swagger -> 301
+/swagger.json -> 404
+/swagger-ui.html -> 404
+/api-docs -> 404
+/v2/api-docs -> 404
+/v3/api-docs -> 404
+/openapi.json -> 404
+
+[测试: https://api-global.viettelpost.vn/cdn-service]
+/swagger -> 301
+/swagger.json -> 404
+/swagger-ui.html -> 404
+/api-docs -> 404
+/v2/api-docs -> 404
+/v3/api-docs -> 404
+/openapi.json -> 404
