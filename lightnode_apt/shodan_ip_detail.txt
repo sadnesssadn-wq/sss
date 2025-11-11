@@ -1,0 +1,2 @@
+80|tcp|OpenResty|1.21.4.1
+443|tcp|OpenResty|1.21.4.1

@@ -1,0 +1,17 @@
+svn.lightnode.com:8080|104.26.14.210:8080|
+www-test.lightnode.com:8080|104.26.14.210:8080|
+jkndmapp.lightnode.com:8080|104.26.14.210:8080|
+ymjhvdoc.lightnode.com:8080|104.26.14.210:8080|
+members.lightnode.com:8080|104.26.14.210:8080|
+media.lightnode.com:8080|104.26.14.210:8080|
+kb.lightnode.com:8080|104.26.14.210:8080|
+bljivwww.w.lightnode.com:8080|104.26.14.210:8080|
+go.lightnode.comgo.lightnode.com:8080|104.26.14.210:8080|
+photos.lightnode.com:8080|104.26.14.210:8080|
+pic.lightnode.com:8080|104.26.14.210:8080|
+nimdnwww.c.lightnode.com:8080|104.26.14.210:8080|
+corporate.lightnode.com:8080|104.26.14.210:8080|
+o69iay0p.au.lightnode.com:8080|104.26.14.210:8080|
+8oc.lightnode.com:8080|104.26.14.210:8080|301 Moved Permanently
+wbsubdomain.a.bb.ccc.dddd.lightnode.com:8080|172.67.74.138:8080|301 Moved Permanently
+www.cons.lightnode.com:8080|104.26.14.210:8080|301 Moved Permanently

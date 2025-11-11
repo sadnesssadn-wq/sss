@@ -1,0 +1,36 @@
+Testing /.git/config
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /.env
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /config.php
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /database.yml
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /wp-config.php
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /.DS_Store
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /backup.zip
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /dump.sql
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';
+Testing /.svn/entries
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                htmlDom.style.fontSize = htmlwidth * 16 / 768 + 'px';

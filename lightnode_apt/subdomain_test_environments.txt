@@ -1,0 +1,33 @@
+=== www-test.lightnode.com ===
+error code: 526
+HTTP: 526
+=== svn.lightnode.com ===
+error code: 526
+HTTP: 526
+=== members.lightnode.com ===
+error code: 526
+HTTP: 526
+=== gitlab.lightnode.com ===
+error code: 526
+HTTP: 526
+=== jenkins.lightnode.com ===
+error code: 526
+HTTP: 526
+=== ci.lightnode.com ===
+error code: 526
+HTTP: 526
+=== cd.lightnode.com ===
+error code: 526
+HTTP: 526
+=== dev.lightnode.com ===
+error code: 526
+HTTP: 526
+=== staging.lightnode.com ===
+error code: 526
+HTTP: 526
+=== uat.lightnode.com ===
+error code: 526
+HTTP: 526
+=== pre.lightnode.com ===
+error code: 526
+HTTP: 526

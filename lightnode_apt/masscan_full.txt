@@ -1,0 +1,4 @@
+[-] FAIL: failed to load libpcap shared library
+    [hint]: you must install libpcap or WinPcap
+FAIL:eth0: can't open adapter: libpcap not loaded
+[-] if:eth0:init: failed
