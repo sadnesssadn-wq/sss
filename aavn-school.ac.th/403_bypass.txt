@@ -1,0 +1,32 @@
+[*] 测试路径: /learning/backup/
+  [-] GET 403
+  [-] POST 404
+  [✅] PUT 405
+  [✅] DELETE 405
+  [✅] OPTIONS 200
+  [✅] TRACE 405
+
+[*] 测试路径: /learning/install/
+  [-] GET 403
+  [-] POST 404
+  [✅] PUT 405
+  [✅] DELETE 405
+  [✅] OPTIONS 200
+  [✅] TRACE 405
+
+[*] 测试路径: /cgi-bin/
+  [-] GET 403
+  [-] POST 404
+  [✅] PUT 405
+  [✅] DELETE 405
+  [✅] OPTIONS 200
+  [✅] TRACE 405
+
+[*] 测试路径: /.env
+  [-] GET 403
+  [-] POST 403
+  [-] PUT 403
+  [-] DELETE 403
+  [-] OPTIONS 403
+  [✅] TRACE 405
+

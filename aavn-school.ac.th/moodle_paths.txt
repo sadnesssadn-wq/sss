@@ -1,0 +1,14 @@
+/learning/admin/tool/installaddon/index.php|303|1691
+/learning/admin/tool/installaddon/|303|1691
+/learning/repository/upload.php|404|251
+/learning/files/|303|1691
+/learning/file.php|404|33962
+/learning/pluginfile.php|404|33962
+/learning/draftfile.php|303|1691
+/learning/admin/roles/assign.php|404|33941
+/learning/admin/user.php|303|1691
+/learning/admin/settings.php|404|33939
+/learning/admin/search.php|303|1691
+/learning/backup/|403|199
+/learning/backup/restorefile.php|404|33941
+/learning/backup/import.php|404|33934

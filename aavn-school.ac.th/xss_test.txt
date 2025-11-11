@@ -1,0 +1,8 @@
+[*] 测试: https://aavn-school.ac.th/avn/index.html
+[-] 未反射
+[-] 未反射
+[-] 未反射
+[*] 测试: https://aavn-school.ac.th/learning/login/index.php
+[-] 未反射
+[-] 未反射
+[-] 未反射
