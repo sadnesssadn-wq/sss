@@ -1,0 +1,37 @@
+# Viettel Post VTP Man App - API端点分析
+
+## 主要API网关
+https://gw.vtpglobal.com.vn/
+
+## 已发现的API端点
+
+### 用户系统
+https://gw.vtpglobal.com.vn/vtp-user/api/v1/
+
+### 运输管理系统 (TMS)
+https://gw.vtpglobal.com.vn/tms-dest/api/v1/
+https://gw.vtpglobal.com.vn/tms-handover/api/v1
+https://gw.vtpglobal.com.vn/tms-pricing/api/v1/
+https://gw.vtpglobal.com.vn/tms-receiving/api/v1/
+https://gw.vtpglobal.com.vn/tms-sorting/api/v1/
+
+### 业务管理系统
+https://gw.vtpglobal.com.vn/bms-debt
+
+### 订单管理系统
+https://oms-api.vtpglobal.com.vn/
+
+### 各国运营系统
+https://ops.vtpcambodia.com/
+https://ops.vtplaos.com/
+https://ops.vtpmyanmar.com.mm/
+https://gw.vtpmyanmar.com.mm/news-web
+
+### Firebase相关
+https://firebaseremoteconfig.googleapis.com/v1/projects/
+https://firebase-settings.crashlytics.com/spi/v2/platforms/android/gmp/
+
+### 第三方服务
+https://codepush.appcenter.ms/
+https://in.appcenter.ms
+https://mobile.events.data.microsoft.com/OneCollector/1.0
