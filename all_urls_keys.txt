@@ -1,0 +1,172 @@
+[🔥] 完整URL、Key、硬编码提取报告
+
+=== 1. 完整API URL列表 ===
+$https://gw.vtpglobal.com.vn/bms-debt
+0https://www.googleapis.com/auth/games.firstparty
+0https://www.googleapis.com/auth/userinfo.profile
+1https://gw.vtpglobal.com.vn/tms-receiving/api/v1/
+2https://accounts.google.com/o/oauth2/revoke?token=
+9https://mobile.events.data.microsoft.com/OneCollector/1.0
+CellRendererComponent outer view should always be CellContainer. Learn more here: https://shopify.github.io/flash-list/docs/usage#cellrenderercomponent.
+Detected camera timebase inconsistent. Please file an issue at https://issuetracker.google.com/issues/new?component=618491&template=1257717 with this error message [Manufacturer: %s, Model: %s, Hardware: %s, API Level: %d%s].
+Exception thrown while checking for flash availability on device not known to throw exceptions during this check. Please file an issue at https://issuetracker.google.com/issues/new?component=618491&template=1257717 with this error message [Manufacturer: %s, Model: %s, API Level: %d].
+http://ns.adobe.com/xap/1.0/
+*http://schemas.android.com/apk/res/android
+'http://schemas.android.com/apk/res-auto
+https://gw.vtpglobal.com.vn
+https://gw.vtpglobal.com.vn/
+,https://gw.vtpglobal.com.vn/tms-dest/api/v1/
+/https://gw.vtpglobal.com.vn/tms-handover/api/v1
+/https://gw.vtpglobal.com.vn/tms-pricing/api/v1/
+/https://gw.vtpglobal.com.vn/tms-sorting/api/v1/
+,https://gw.vtpglobal.com.vn/vtp-user/api/v1/
+%https://gw.vtpmyanmar.com.mm/news-web
+!https://oms-api.vtpglobal.com.vn/
+https://ops.vtpcambodia.com/
+https://ops.vtplaos.com/
+https://ops.vtpmyanmar.com.mm/
+https://plus.google.com/
+(https://www.googleapis.com/auth/appstate
+/https://www.googleapis.com/auth/datastoremobile
+%https://www.googleapis.com/auth/drive
+-https://www.googleapis.com/auth/drive.appdata
+*https://www.googleapis.com/auth/drive.apps
+*https://www.googleapis.com/auth/drive.file
+%https://www.googleapis.com/auth/games
+*https://www.googleapis.com/auth/games_lite
+*https://www.googleapis.com/auth/plus.login
+'https://www.googleapis.com/auth/plus.me
+.https://www.googleapis.com/auth/userinfo.email
+http://www.android.com/
+ihttps://firebaseremoteconfigrealtime.googleapis.com/v1/projects/%s/namespaces/%s:streamFetchInvalidations
+InsetObserverProxy registers on new context while it has not been invalidated on the old one. Please report this as issue at https://github.com/software-mansion/react-native-screens/issues
+kMigrate to use the KTX API from the main module: https://firebase.google.com/docs/android/kotlin-migration.
+Nhttps://firebaseremoteconfig.googleapis.com/v1/projects/%s/namespaces/%s:fetch
+Please set a valid API key. A Firebase API key is required to communicate with Firebase server APIs: It authenticates your project with Google.Please refer to https://firebase.google.com/support/privacy/init-options.
+Please set your Application ID. A valid Firebase App ID is required to communicate with Firebase server APIs: It identifies your application with Firebase.Please refer to https://firebase.google.com/support/privacy/init-options.
+Please set your Project ID. A valid Firebase Project ID is required to communicate with Firebase server APIs: It identifies your application with Firebase.Please refer to https://firebase.google.com/support/privacy/init-options.
+[Reanimated] Java side failed to resolve C++ code version. See https://docs.swmansion.com/react-native-reanimated/docs/guides/troubleshooting#java-side-failed-to-resolve-c-code-version for more information.
+ respectively). See https://docs.swmansion.com/react-native-reanimated/docs/guides/troubleshooting#mismatch-between-java-code-version-and-c-code-version for more information.
+Rhttps://firebase-settings.crashlytics.com/spi/v2/platforms/android/gmp/%s/settings
+[RNScreens] Failed to late-init layout while computing header height. This is most likely a race-condition-bug in react-native-screens, please file an issue at https://github.com/software-mansion/react-native-screens/issues
+Screen fragments should never be restored. Follow instructions from https://github.com/software-mansion/react-native-screens/issues/17#issuecomment-424704067 to properly configure your main activity.
+ScreenStack fragments should never be restored. Follow instructions from https://github.com/software-mansion/react-native-screens/issues/17#issuecomment-424704067 to properly configure your main activity.
+The Crashlytics build ID is missing. This occurs when the Crashlytics Gradle plugin is missing from your app's build configuration. Please review the Firebase Crashlytics onboarding instructions at https://firebase.google.com/docs/crashlytics/get-started?platform=android#add-plugin
+The exception could not be delivered to the consumer because it has already canceled/disposed the flow or the exception has nowhere to go to begin with. Further reading: https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#error-handling | 
+The exception was not handled due to missing onError handler in the subscribe() method call. Further reading: https://github.com/ReactiveX/RxJava/wiki/Error-Handling | 
+The RxJavaPlugins.onSubscribe hook returned a null CompletableObserver. Please check the handler provided to RxJavaPlugins.setOnCompletableSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins
+The RxJavaPlugins.onSubscribe hook returned a null FlowableSubscriber. Please check the handler provided to RxJavaPlugins.setOnFlowableSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins
+The RxJavaPlugins.onSubscribe hook returned a null MaybeObserver. Please check the handler provided to RxJavaPlugins.setOnMaybeSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins
+The RxJavaPlugins.onSubscribe hook returned a null Observer. Please change the handler provided to RxJavaPlugins.setOnObservableSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins
+The RxJavaPlugins.onSubscribe hook returned a null SingleObserver. Please check the handler provided to RxJavaPlugins.setOnSingleSubscribe for invalid null returns. Further reading: https://github.com/ReactiveX/RxJava/wiki/Plugins
+~This is a bug in DataStore. Please file a bug at: https://issuetracker.google.com/issues/new?component=907884&template=1466542
+Your application is configured to use RNGestureHandlerEnabledRootView which is no longer supported. You can see how to migrate to <GestureHandlerRootView /> here: https://docs.swmansion.com/react-native-gesture-handler/docs/guides/migrating-off-rnghenabledroot
+
+=== 2. API端点路径 ===
+1https://gw.vtpglobal.com.vn/tms-receiving/api/v1/
+,https://gw.vtpglobal.com.vn/tms-dest/api/v1/
+/https://gw.vtpglobal.com.vn/tms-pricing/api/v1/
+/https://gw.vtpglobal.com.vn/tms-sorting/api/v1/
+,https://gw.vtpglobal.com.vn/vtp-user/api/v1/
+
+=== 3. Firebase配置 ===
+7()Lcom/google/firebase/sessions/AndroidApplicationInfo;
+;()Lcom/google/firebase/sessions/api/SessionSubscriber$Name;
+6()Lcom/google/firebase/sessions/api/SessionSubscriber;
+(Landroid/content/Context;Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;Lcom/google/firebase/installations/FirebaseInstallationsApi;Lcom/google/firebase/sessions/ApplicationInfo;)V
+((Lcom/google/firebase/inject/Provider;)V
+N(Lcom/google/firebase/sessions/TimeProvider;Lkotlin/jvm/functions/Function0;)V
+7(Lcom/google/firebase/sessions/api/SessionSubscriber;)V
+s(Lcom/google/firebase/sessions/settings/SettingsProvider;Lcom/google/firebase/sessions/settings/SettingsProvider;)V
+(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/google/firebase/sessions/LogEnvironment;Lcom/google/firebase/sessions/AndroidApplicationInfo;)V
+(Lkotlin/coroutines/CoroutineContext;Lcom/google/firebase/installations/FirebaseInstallationsApi;Lcom/google/firebase/sessions/ApplicationInfo;Lcom/google/firebase/sessions/settings/CrashlyticsSettingsFetcher;Landroidx/datastore/core/DataStore;)V
+V(Lkotlinx/coroutines/sync/Mutex;Lcom/google/firebase/sessions/api/SessionSubscriber;)V
+Default FirebaseApp failed to initialize because no default options were found. This usually means that com.google.gms:google-services was not applied to your gradle project.
+(Error getting Firebase installation id .
+'Error getting Firebase installation id.
+/Fetch failed: Firebase installation id is null.
+Firebase Installations can not communicate with Firebase server APIs due to invalid configuration. Please update your Firebase initialization process and set valid Firebase options (API key, Project ID, Application ID) when initializing Firebase.
+FirebaseInitProvider
+1FirebaseInitProvider ProviderInfo cannot be null.
+FirebaseInitProvider.java
+FirebaseInstallationId(fid=
+Installation ID could not be validated with the Firebase servers (maybe it was deleted). Firebase Installations will need to create a new Installation ID and auth token. Please retry your last request.
+SLcom/google/android/datatransport/runtime/firebase/transport/ClientMetrics$Builder;
+KLcom/google/android/datatransport/runtime/firebase/transport/ClientMetrics;
+SLcom/google/android/datatransport/runtime/firebase/transport/GlobalMetrics$Builder;
+KLcom/google/android/datatransport/runtime/firebase/transport/GlobalMetrics;
+ULcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Builder;
+TLcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped$Reason;
+MLcom/google/android/datatransport/runtime/firebase/transport/LogEventDropped;
+VLcom/google/android/datatransport/runtime/firebase/transport/LogSourceMetrics$Builder;
+NLcom/google/android/datatransport/runtime/firebase/transport/LogSourceMetrics;
+
+=== 4. API Key模式 ===
+
+=== 5. 长哈希值（可能是密钥）===
+
+=== 6. Base64编码的可能密钥 ===
+KxZZixZixZixZixZixZixZixZZixZixZixKixKixKixKixKixKixy+
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+KxZZixZixZixZixZixZixZixZZixZixZixKixKixKixKixKixKix
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1093849038073734274511112390766805569936207598951683748994586394495953116150735016013708737573759623248592132296706313309438452531591012912142327488478985984
+N115792089210356248762697446949407573529996955224135760342422259061068512044369
+N115792089210356248762697446949407573530086143415290314195533631308867097853948
+N115792089210356248762697446949407573530086143415290314195533631308867097853951
+N115792089237316195423570985008687907852837564279074904382605163141518161494337
+N115792089237316195423570985008687907853269984665640564039457584007908834671663
+t26247035095799689268623156744566981891852923491109213387815615900925518854738050089022388053975719786650872476732087
+2661740802050217063228768716723360960729859168756973147706671368418802944996427808491545080627771902352094241225065558662157113545570916814161637315895999846
+t27580193559959705877849011840389048093056905856361568521428707301988689241309860865136260764883745107765439761230575
+M32670510020758816978083085130507043184471273380659243275938904335757337482424
+M36134250956749795798585127919587881956611106672985015071877198253568414405109
+3757180025770020463545507224491183603594455134769762486694567779615544477440556316691234405012945539562144444537289428522585666729196580810124344277578376784
+t39402006196394479212279040100143613805079739270465446667946905279627659399113263569398956308152294913554433653942643
+t39402006196394479212279040100143613805079739270465446667948293404245721771496870329047266088258938001861606973112316
+
+=== 7. 证书/密钥标识 ===
+ private key type: 
+-----BEGIN CERTIFICATE-----
+-----BEGIN PUBLIC KEY-----
+-----END CERTIFICATE-----
+-----END PUBLIC KEY-----
+AndroidKeyStore
+AndroidKeyStoreBCWorkaround
+*Cannot use secure keystore on this device.
+&CodePushInvalidPublicKeyException.java
+Could not unwrap certificate
+,Couldn't parse PEM-encoded X.509 certificate
+&Curve / public key parameters mismatch
+ACurve of ephemeral public key does not match curve of private key
+7Curve of public key does not match curve of private key
+ELLIPTIC_CURVE_PRIVATE_KEY
+EPHEMERAL_PUBLIC_KEY
+EEd25519Verifier requires a public key, use OctetKeyPair.toPublicJWK()
+0Ephemeral public key should not be a private key
+Error! Public key was provided but there is no JWT signature within app bundle to verify. Possible reasons, why that might happen: 
+2. You've been released CodePush bundle update without providing --privateKeyPath option.
+
+=== 8. AppCenter/第三方服务 ===
+[ is an unsupported authority. Only com.google.android.gms.phenotype authority is supported.
+1$SwitchMap$com$facebook$react$bridge$ReadableType
+5()Lcom/facebook/react/bridge/ReactApplicationContext;
+7()Lcom/google/firebase/sessions/AndroidApplicationInfo;
+,(IILcom/facebook/react/bridge/WritableMap;)V
+(Landroid/content/Context;Lkotlin/coroutines/CoroutineContext;Lkotlin/coroutines/CoroutineContext;Lcom/google/firebase/installations/FirebaseInstallationsApi;Lcom/google/firebase/sessions/ApplicationInfo;)V
+6(Lcom/facebook/react/bridge/ReactApplicationContext;)V
+*(Lcom/facebook/react/bridge/ReadableMap;)V
+((Lcom/google/firebase/inject/Provider;)V
+N(Lcom/google/firebase/sessions/TimeProvider;Lkotlin/jvm/functions/Function0;)V
+s(Lcom/google/firebase/sessions/settings/SettingsProvider;Lcom/google/firebase/sessions/settings/SettingsProvider;)V
+(Lcom/mrousavy/camera/react/CameraView;Lcom/facebook/react/bridge/ReadableMap;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/google/firebase/sessions/LogEnvironment;Lcom/google/firebase/sessions/AndroidApplicationInfo;)V
+(Lkotlin/coroutines/CoroutineContext;Lcom/google/firebase/installations/FirebaseInstallationsApi;Lcom/google/firebase/sessions/ApplicationInfo;Lcom/google/firebase/sessions/settings/CrashlyticsSettingsFetcher;Landroidx/datastore/core/DataStore;)V
+.  You must have the following declaration within the <application> element:     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+!.*java.*/com/google/android/gms.*
+1.*java.*/com/google/android/gms/common/testing/.*
+..*javatests.*/com/google/android/gms/common/.*
+I.*javatests/com/google/android/gmscore/integ/client/common/robolectric/.*
+$com_google_android_gms-rotation-20200 
