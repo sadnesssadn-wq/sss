@@ -1,0 +1,41 @@
+需要手动搜索的地方（自动化被阻止）：
+
+1. LowEndTalk论坛（被Cloudflare保护）
+   https://lowendtalk.com/search?q=hosteons
+   - 查找Hosteons官方账号的帖子
+   - 查看员工回复中的签名
+
+2. WebHostingTalk论坛
+   https://www.webhostingtalk.com/search.php?searchid=hosteons
+   - 官方公告帖
+   - 员工回复
+
+3. LinkedIn手动搜索
+   https://www.linkedin.com/search/results/people/?keywords=hosteons
+   - 搜索当前/前员工
+   - 查看个人资料
+
+4. Facebook手动搜索
+   https://www.facebook.com/search/top?q=hosteons
+   - 官方页面
+   - 员工账号
+
+5. Twitter手动搜索
+   https://twitter.com/search?q=hosteons
+   - 官方账号
+   - 员工推文
+
+6. Trustpilot手动翻页
+   https://www.trustpilot.com/review/hosteons.com
+   - 官方回复中可能有员工名字
+   - 逐条查看回复
+
+7. Indeed/Glassdoor招聘
+   https://www.indeed.com/cmp/Hosteons
+   - HR联系邮箱
+   - 招聘信息
+
+8. Google手动深度搜索
+   "hosteons" "email" site:reddit.com
+   "hosteons" "support" site:twitter.com
+   "hosteons" "@hosteons.com"
