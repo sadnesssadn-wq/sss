@@ -1,0 +1,8 @@
+=== /api/admin ===
+=== /api/internal ===
+=== /api/debug ===
+=== /api/test ===
+=== /api/dev ===
+=== /api/swagger ===
+=== /api/docs ===
+=== /api/graphql ===

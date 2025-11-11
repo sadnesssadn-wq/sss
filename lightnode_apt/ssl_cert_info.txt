@@ -1,3 +1,0 @@
-        Issuer: C = US, O = Google Trust Services, CN = WE1
-        Subject: CN = lightnode.com
-                DNS:lightnode.com, DNS:*.lightnode.com
