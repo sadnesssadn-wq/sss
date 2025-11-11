@@ -12,3 +12,5 @@ _______________________________________________________________
        @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
 _______________________________________________________________
 
+
+Scan Aborted: The remote website is up, but does not seem to be running WordPress.
