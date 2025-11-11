@@ -1,0 +1,14 @@
+https://aay.ac.th|202.9.90.193:443|โรงเรียนเอกอโยธยา - AKE AYOTHAYA SCHOOL|nginx
+https://www.aay.ac.th|202.9.90.193:443||nginx
+aay.ac.th|202.9.90.193:80|โรงเรียนเอกอโยธยา - AKE AYOTHAYA SCHOOL|nginx
+www.aay.ac.th|202.9.90.193:80||nginx
+elibrary.aay.ac.th|202.9.90.193:80|โรงเรียนเอกอโยธยา - AKE AYOTHAYA SCHOOL|nginx
+https://elibrary.aay.ac.th|202.9.90.193:443|โรงเรียนเอกอโยธยา - AKE AYOTHAYA SCHOOL|nginx
+mail.aay.ac.th|203.170.190.241:80||Apache/2
+https://eservice.aay.ac.th|202.9.90.193:443|AAY eService|nginx
+eservice.aay.ac.th|202.9.90.193:80|AAY eService|nginx
+smtp.aay.ac.th|203.170.190.241:80||Apache/2
+https://imap.aay.ac.th|203.170.190.241:443||Apache/2
+imap.aay.ac.th|203.170.190.241:80||Apache/2
+pop.aay.ac.th|203.170.190.241:80||Apache/2
+aay.ac.th:25|202.9.90.193:25||

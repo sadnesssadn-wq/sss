@@ -1,0 +1,2 @@
+[*] 测试: admin:admin
+[✅ GetShell成功] admin:admin

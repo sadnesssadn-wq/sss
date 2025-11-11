@@ -1,0 +1,9 @@
+HTTP/2 200 
+server: nginx
+date: Tue, 11 Nov 2025 13:10:17 GMT
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding
+wpo-cache-status: not cached
+wpo-cache-message: The request method was not GET (HEAD)
+link: <https://aay.ac.th/wp-json/>; rel="https://api.w.org/", <https://aay.ac.th/wp-json/wp/v2/pages/4205>; rel="alternate"; title="JSON"; type="application/json", <https://aay.ac.th/>; rel=shortlink
+
