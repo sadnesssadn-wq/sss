@@ -1,0 +1,19 @@
+http://bit.ly/redux-logger-options\nimport createLogger from 
+http://localhost:36635/
+http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.
+http://momentjs.com/guides/#/warnings/define-locale/ for more info.
+http://momentjs.com/guides/#/warnings/dst-shifted/ for more information
+http://momentjs.com/guides/#/warnings/js-date/ for more info.
+http://momentjs.com/guides/#/warnings/min-max/
+http://momentjs.com/guides/#/warnings/zone/
+https://api.dev.elearning.viziple.com/
+https://bit.ly/3cXEKWf
+https://npms.io/search?q=ponyfill.
+https://reactjs.org/docs/error-decoder.html?invariant=
+https://redux.js.org/Errors?code=
+https://viettelmanufacturing.vn/check/
+http://www.w3.org/1998/Math/MathML
+http://www.w3.org/1999/xhtml
+http://www.w3.org/1999/xlink
+http://www.w3.org/2000/svg
+http://www.w3.org/XML/1998/namespace

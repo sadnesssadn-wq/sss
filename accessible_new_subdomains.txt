@@ -1,0 +1,6 @@
+static.viettelpost.vn|171.244.51.210|200|
+store.viettelpost.vn|27.71.229.64|200|ViettelPost StoreYou need to enable JavaScript to run this app.
+partner.viettelpost.vn|125.212.138.85|200|Partner's Website - Viettelpost
+api.viettelpost.com.vn|203.113.130.250|403|403 - Forbidden: Access is denied.
+mail.viettelpost.com.vn|125.235.240.40|200|    Viettel Web Client Sign In
+imap.viettelpost.com.vn|125.235.240.40|200|    Viettel Web Client Sign In

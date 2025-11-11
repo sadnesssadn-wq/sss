@@ -1,0 +1,284 @@
+# 新资产深度测试报告
+
+## 执行时间: 2025-11-11 18:15 UTC
+
+---
+
+## 🎯 DNS枚举重大发现
+
+### 新发现的可访问资产
+
+1. **store.viettelpost.vn (27.71.229.64)**
+   - 状态: HTTP 200 ✅
+   - 类型: React电商应用
+   - 价值: **高** - 全新Web应用
+   
+2. **dev-api.viettelpost.vn (171.244.51.249)**
+   - 状态: 存在但端点404
+   - 类型: 开发环境API
+   - 价值: **极高** - 开发环境通常防护较弱
+   
+3. **api.viettelpost.com.vn (203.113.130.250)**
+   - 状态: HTTP 403
+   - 类型: IIS 8.5 + ASP.NET
+   - 价值: **高** - 另一个API系统
+   
+4. **app.viettelpost.vn (27.71.229.65)**
+   - 状态: 404但域名存在
+   - 类型: 移动应用API
+   - 价值: **高** - 可能暴露移动端点
+   
+5. **mail.viettelpost.com.vn (125.235.240.40)**
+   - 状态: HTTP 200 ✅
+   - 类型: Zimbra邮件系统
+   - 价值: **中** - 邮件登录
+
+---
+
+## 🔥 深度测试结果
+
+### store.viettelpost.vn
+
+**测试内容**:
+```
+- React应用分析
+- JS文件下载
+- API端点枚举
+- robots.txt/sitemap检查
+```
+
+**发现**:
+```
+详见: /workspace/new_subdomains_test.txt
+重点: React应用，可能有客户端漏洞
+```
+
+### dev-api.viettelpost.vn
+
+**测试内容**:
+```
+- 常见API路径枚举
+- 与api.viettelpost.vn相同端点测试
+- Swagger/文档端点测试
+```
+
+**发现**:
+```
+详见测试结果
+重点: 开发环境，可能有调试端点开放
+```
+
+### api.viettelpost.com.vn
+
+**测试内容**:
+```
+- ASP.NET WebAPI路径
+- .asmx服务枚举
+- IIS特有路径测试
+```
+
+**发现**:
+```
+HTTP 403但存在
+可能需要特定Header或认证
+```
+
+### app.viettelpost.vn
+
+**测试内容**:
+```
+- 移动API路径测试
+- 与主API相同端点测试
+```
+
+**发现**:
+```
+域名存在，但默认路径404
+可能有隐藏的API端点
+```
+
+---
+
+## 🎯 C段扫描新发现
+
+### 27.71.229.64-70范围
+
+**扫描内容**:
+```
+- store (64) 和 app (65) 附近的IP
+- 端口: 21,22,80,443,3306,6379,8080,8443,9000,27017
+```
+
+**结果文件**:
+```
+- /workspace/store_app_range_scan.txt
+- /workspace/new_ips_port_scan.txt
+```
+
+### 171.244.51.240-255范围
+
+**扫描内容**:
+```
+- dev-api (249) 附近的IP
+- 重点测试开发环境相关服务
+```
+
+**结果文件**:
+```
+- /workspace/dev_api_range_scan.txt
+- /workspace/dev_api_range_valuable.txt
+```
+
+---
+
+## 🏆 最有价值的发现
+
+### P0级别 - 立即测试
+
+```
+1. dev-api.viettelpost.vn (171.244.51.249)
+   → 开发环境，可能有:
+     - 调试端点开放
+     - 更详细的错误信息
+     - 较弱的认证
+     - 测试数据泄露
+     
+2. store.viettelpost.vn (27.71.229.64)
+   → React电商应用，可能有:
+     - XSS
+     - CSRF
+     - 业务逻辑漏洞
+     - 支付相关漏洞
+```
+
+### P1级别 - 深入分析
+
+```
+3. app.viettelpost.vn (27.71.229.65)
+   → 移动API，需要:
+     - 反编译APK获取端点
+     - 测试移动端特有逻辑
+     
+4. api.viettelpost.com.vn (203.113.130.250)
+   → ASP.NET API，需要:
+     - 测试IIS特有漏洞
+     - .NET反序列化
+```
+
+---
+
+## 🎯 下一步计划
+
+### 立即执行
+
+```
+1. [ ] 下载store.viettelpost.vn的所有JS文件
+2. [ ] 分析JS中的API端点和密钥
+3. [ ] 深度测试dev-api的所有可能路径
+4. [ ] 查找ViettelPost的APK获取app API端点
+5. [ ] 测试store的常见Web漏洞
+```
+
+### 中期计划
+
+```
+1. [ ] 对27.71.229.64-70进行完整端口扫描
+2. [ ] 对171.244.51.240-255进行完整扫描
+3. [ ] 测试api.viettelpost.com.vn的所有.asmx服务
+4. [ ] 测试mail系统的弱密码
+```
+
+---
+
+## 📊 对比之前
+
+### 之前的状况
+
+```
+已知资产:
+- api.viettelpost.vn (主API)
+- partner.viettelpost.vn (合作伙伴门户)
+- static, images (静态资源)
+- mapapi (地图API)
+```
+
+### 现在新增
+
+```
+新增资产:
+✅ store.viettelpost.vn (电商)
+✅ dev-api.viettelpost.vn (开发环境!)
+✅ app.viettelpost.vn (移动API)
+✅ api.viettelpost.com.vn (另一个API系统)
+✅ mail.viettelpost.com.vn (邮件系统)
+
+新增IP:
+✅ 27.71.229.64 (store)
+✅ 27.71.229.65 (app)
+✅ 171.244.51.249 (dev-api)
+✅ 203.113.130.250 (api.com.vn)
+```
+
+---
+
+## 🔥 突破点分析
+
+### 为什么dev-api最有价值?
+
+```
+1. 开发环境通常:
+   ✅ 没有WAF
+   ✅ 有调试端点
+   ✅ 错误信息详细
+   ✅ 可能有测试账号
+   ✅ 认证较弱
+   
+2. 常见可利用点:
+   - /debug
+   - /test
+   - /swagger
+   - /health (详细信息)
+   - /actuator (Spring Boot)
+   - /_profiler (Symfony)
+```
+
+### 为什么store有价值?
+
+```
+1. 电商应用常见漏洞:
+   ✅ 支付逻辑漏洞
+   ✅ 优惠券/折扣绕过
+   ✅ 订单篡改
+   ✅ 价格篡改
+   ✅ XSS/CSRF
+   
+2. 可能泄露:
+   - 用户信息
+   - 订单数据
+   - 支付接口
+   - 内部API
+```
+
+---
+
+## 🎯 必须立即做的事
+
+```
+优先级P0:
+1. [ ] 深度分析store的所有JS文件
+2. [ ] 暴力枚举dev-api的所有可能端点
+3. [ ] 查找ViettelPost APK分析移动端点
+4. [ ] 测试store的支付/订单流程
+
+优先级P1:
+5. [ ] 完整扫描新发现IP的C段
+6. [ ] 测试api.com.vn的ASP.NET特有漏洞
+```
+
+---
+
+**报告完成**: 2025-11-11 18:20 UTC
+**核心发现**: 5个新资产，其中2个极高价值
+**下一步**: 深度测试dev-api和store
+
+---

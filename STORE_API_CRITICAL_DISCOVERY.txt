@@ -1,0 +1,27 @@
+# STORE API 重磅发现
+
+## 🎯 发现的可访问API端点（HTTP 200）
+
+```
+✅ /api - HTTP 200
+✅ /api/v1 - HTTP 200
+✅ /api/user - HTTP 200
+✅ /api/order - HTTP 200
+✅ /api/product - HTTP 200
+✅ /graphql - HTTP 200
+✅ /api-docs - HTTP 200
+```
+
+## 🔥 这是重大突破！
+
+### 为什么极其重要？
+
+```
+1. 多个API端点可访问
+2. 有GraphQL端点
+3. 有api-docs文档
+4. 有user/order/product等业务端点
+5. 可能无需认证或认证很弱
+```
+
+---

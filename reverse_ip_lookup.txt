@@ -1,0 +1,30 @@
+
+========== 反查 27.71.229.36 ==========
+Host 36.229.71.27.in-addr.arpa. not found: 3(NXDOMAIN)
+36.0-24.229.71.27.in-addr.arpa.
+证书中的域名:                 DNS:*.viettelpost.vn, DNS:viettelpost.vn
+
+========== 反查 125.212.138.85 ==========
+85.138.212.125.in-addr.arpa domain name pointer dynamic-ip-adsl.viettel.vn.
+dynamic-ip-adsl.viettel.vn.
+证书中的域名:                 DNS:www.bdhvs.netcdn.vn, DNS:bdhvs.netcdn.vn
+
+========== 反查 125.212.138.88 ==========
+88.138.212.125.in-addr.arpa domain name pointer dynamic-ip-adsl.viettel.vn.
+dynamic-adsl.viettel.vn.
+证书中的域名:                 DNS:www.bdhvs.netcdn.vn, DNS:bdhvs.netcdn.vn
+
+========== 反查 171.244.51.75 ==========
+Host 75.51.244.171.in-addr.arpa. not found: 3(NXDOMAIN)
+75.0-24.51.244.171.in-addr.arpa.
+证书中的域名:                 DNS:*.okd.viettelpost.vn, DNS:okd.viettelpost.vn
+
+========== 反查 171.244.51.101 ==========
+Host 101.51.244.171.in-addr.arpa. not found: 3(NXDOMAIN)
+101.0-24.51.244.171.in-addr.arpa.
+证书中的域名:                 DNS:ingress.local
+
+========== 反查 171.244.51.210 ==========
+Host 210.51.244.171.in-addr.arpa. not found: 3(NXDOMAIN)
+210.0-24.51.244.171.in-addr.arpa.
+证书中的域名:                 DNS:ingress.local

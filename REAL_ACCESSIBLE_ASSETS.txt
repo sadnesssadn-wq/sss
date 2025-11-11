@@ -1,0 +1,41 @@
+# 真实可访问资产清单
+
+## 已确认100%可访问的资产
+
+### AWS系统（全球）
+1. admin-global.viettelpost.vn - React应用
+2. api-global.viettelpost.vn - Management API
+3. auth-global.viettelpost.vn - OAuth2服务器
+4. cdn-global.viettelpost.vn - CDN服务
+
+### 越南本地系统
+5. api.viettelpost.vn (27.71.229.36)
+   - ✅ /api/setting/listallprovince (HTTP 200)
+   - ✅ /api/setting/listalldistrict (HTTP 200)
+   - ✅ /api/orders/getCaptcha (HTTP 200)
+   - ✅ /api/user/Login (HTTP 200)
+   
+6. www.viettelpost.vn (125.212.138.88)
+7. partner.viettelpost.vn (125.212.138.85) - ZK Framework
+8. images.viettelpost.vn (171.244.51.75) - Actuator
+9. static.viettelpost.vn (171.244.51.210)
+10. store-locator.okd.viettelpost.vn (171.244.51.101) - React应用
+
+### 内网API（部分可访问）
+11. mapapi.viettelpost.vn (171.244.51.101)
+    - ✅ /geocoding/v5/mapbox.places/{query}.json (HTTP 200)
+
+## 已知真实IP段
+
+### 可能的C段
+1. 27.71.229.0/24 - api.viettelpost.vn
+2. 125.212.138.0/24 - partner, www
+3. 171.244.51.0/24 - images, static, mapapi
+4. 125.212.238.0/24 - okd子域名
+5. 125.235.240.0/24 - 邮件服务器
+
+## AWS IP段
+1. 18.204.186.98/32
+2. 3.95.20.23/32
+3. 54.172.109.173/32
+

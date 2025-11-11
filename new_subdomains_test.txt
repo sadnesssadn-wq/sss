@@ -1,0 +1,88 @@
+测试新发现的子域名...
+
+========== api.viettelpost.vn (27.71.229.36) ==========
+HTTPS: 404
+
+========== app.viettelpost.vn (27.71.229.65) ==========
+HTTPS: 404
+
+========== ftp.viettelpost.vn (10.30.1.91) ==========
+HTTPS: 000
+
+========== sftp.viettelpost.vn (125.212.238.124) ==========
+HTTPS: 000
+
+========== proxy.viettelpost.vn (10.60.117.112) ==========
+HTTPS: 000
+
+========== portal.viettelpost.vn (125.212.238.132) ==========
+HTTPS: 000
+
+========== static.viettelpost.vn (171.244.51.210) ==========
+HTTPS: 200
+✅ 可访问!
+标题: 
+服务器: 
+技术: 
+
+========== images.viettelpost.vn (171.244.51.75) ==========
+HTTPS: 404
+
+========== store.viettelpost.vn (27.71.229.64) ==========
+HTTPS: 200
+✅ 可访问!
+标题: ViettelPost StoreYou need to enable JavaScript to run this app.
+服务器: 
+技术: 
+
+========== partner.viettelpost.vn (125.212.138.85) ==========
+HTTPS: 200
+✅ 可访问!
+标题: Partner's Website - Viettelpost
+服务器: Cloudrity
+技术: 
+
+========== log.viettelpost.vn (10.30.1.90) ==========
+HTTPS: 000
+
+========== dev-api.viettelpost.vn (171.244.51.249) ==========
+HTTPS: 404
+
+========== mobile.viettelpost.vn (10.255.51.151) ==========
+HTTPS: 000
+
+========== grafana.viettelpost.vn (10.255.51.151) ==========
+HTTPS: 000
+
+========== kibana.viettelpost.vn (10.255.51.151) ==========
+HTTPS: 000
+
+========== registry.viettelpost.vn (10.255.51.151) ==========
+HTTPS: 000
+
+========== api.viettelpost.com.vn (203.113.130.250) ==========
+HTTPS: 403
+✅ 可访问!
+标题: 403 - Forbidden: Access is denied.
+服务器: Microsoft-IIS/8.5
+技术: ASP.NET
+
+========== mail.viettelpost.com.vn (125.235.240.40) ==========
+HTTPS: 200
+✅ 可访问!
+标题:     Viettel Web Client Sign In
+服务器: nginx
+技术: 
+
+========== smtp.viettelpost.com.vn (125.235.240.36) ==========
+HTTPS: 000
+
+========== imap.viettelpost.com.vn (125.235.240.40) ==========
+HTTPS: 200
+✅ 可访问!
+标题:     Viettel Web Client Sign In
+服务器: nginx
+技术: 
+
+========== vpn.viettelpost.com.vn (220.231.104.30) ==========
+HTTPS: 404

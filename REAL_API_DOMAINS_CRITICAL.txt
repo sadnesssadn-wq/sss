@@ -1,0 +1,42 @@
+# 真实API域名 - 极其重要！
+
+## ❌ store.viettelpost.vn分析结果
+
+```
+发现: 所有"API端点"都返回相同的HTML (756字节)
+结论: store只是一个React SPA，不是真正的API服务器
+```
+
+## 🔥 从JS文件中发现的真实API域名
+
+### 1. app.viettelpost.vn/api ⭐⭐⭐⭐⭐
+```
+baseURL: "https://app.viettelpost.vn/api"
+状态: 域名已解析 (27.71.229.65)
+价值: 极高 - 移动应用的真实API！
+```
+
+### 2. appv2.viettelpost.vn ⭐⭐⭐⭐⭐
+```
+baseURL: "https://appv2.viettelpost.vn"
+状态: 新发现的域名！
+价值: 极高 - API v2版本！
+```
+
+### 3. devicev2.viettelpost.vn ⭐⭐⭐⭐⭐
+```
+baseURL: "https://devicev2.viettelpost.vn"
+状态: 新发现的域名！
+价值: 极高 - 设备API！
+```
+
+## 🎯 171.244.51.241 - VMC Checking应用
+
+```
+发现: IIS 10.0 + React应用
+标题: VMC Checking
+技术: ASP.NET + React
+价值: 高 - 所有路径都返回HTTP 200
+```
+
+---

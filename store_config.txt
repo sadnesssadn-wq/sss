@@ -1,0 +1,4 @@
+baseURL:l
+baseURL:"https://devicev2.viettelpost.vn"});mx.interceptors.request.use((function(e){return Promise.resolve(function(e){var t={headers:c({Authorization:Dy("access_token")}
+baseURL:"https://app.viettelpost.vn/api"})
+baseURL:"https://appv2.viettelpost.vn"})
