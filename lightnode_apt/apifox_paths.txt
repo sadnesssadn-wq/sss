@@ -1,0 +1,12 @@
+Testing: https://47.238.114.118/web
+  HTTP: 404
+Testing: https://47.238.114.118/api
+  HTTP: 526
+Testing: https://47.238.114.118/docs
+  HTTP: 404
+Testing: https://47.238.114.118/projects
+  HTTP: 404
+Testing: https://47.238.114.118/web/project
+  HTTP: 404
+Testing: https://47.238.114.118/share
+  HTTP: 404
