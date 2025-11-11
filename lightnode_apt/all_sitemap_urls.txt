@@ -1,0 +1,45 @@
+=== https://www.lightnode.com/sitemap.xml ===
+https://www.lightnode.com/
+https://www.lightnode.com/ru-RU
+https://www.lightnode.com/ru-RU/aboutUs
+https://www.lightnode.com/ru-RU/privacyPolicy
+https://www.lightnode.com/ru-RU/product
+https://www.lightnode.com/en-US
+https://www.lightnode.com/en-US/aboutUs
+https://www.lightnode.com/en-US/privacyPolicy
+https://www.lightnode.com/en-US/product
+https://www.lightnode.com/fr-FR
+https://www.lightnode.com/fr-FR/aboutUs
+https://www.lightnode.com/fr-FR/privacyPolicy
+https://www.lightnode.com/fr-FR/product
+https://www.lightnode.com/zh-CN
+https://www.lightnode.com/zh-CN/aboutUs
+https://www.lightnode.com/zh-CN/privacyPolicy
+https://www.lightnode.com/zh-CN/product
+https://www.lightnode.com/zh-HK
+https://www.lightnode.com/zh-HK/aboutUs
+https://www.lightnode.com/zh-HK/privacyPolicy
+=== https://go.lightnode.com/sitemap.xml ===
+https://go.lightnode.com/sitemap-0.xml
+https://go.lightnode.com/sitemap-1.xml
+=== https://www.lightcdn.com/sitemap.xml ===
+https://www.lightcdn.com/
+https://www.lightcdn.com/zh-CN
+https://www.lightcdn.com/zh-HK
+https://www.lightcdn.com/zh-CN/features
+https://www.lightcdn.com/zh-CN/network
+https://www.lightcdn.com/zh-CN/pricing
+https://www.lightcdn.com/zh-CN/notify/c7b1418c1165442094008f2aeee3506b
+https://www.lightcdn.com/zh-CN/notify/7d20239cdb76427b9e6ce756df097055
+https://www.lightcdn.com/zh-CN/notify/ce2c0df5686042449f4f4289504a98e9
+https://www.lightcdn.com/zh-CN/notify/4e200ea42d2049a5b082a42ee41e7a75
+https://www.lightcdn.com/zh-CN/notify/824fdf720a4c40efb8b3e046ed68725f
+https://www.lightcdn.com/zh-CN/notify
+https://www.lightcdn.com/zh-CN/aboutUs
+https://www.lightcdn.com/zh-CN/termsOfService
+https://www.lightcdn.com/zh-CN/privacyPolicy
+https://www.lightcdn.com/zh-CN/GDPR
+https://www.lightcdn.com/zh-CN/notify?type=VERSION_NEW
+https://www.lightcdn.com/zh-HK/features
+https://www.lightcdn.com/zh-HK/network
+https://www.lightcdn.com/zh-HK/pricing

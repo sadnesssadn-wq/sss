@@ -1,0 +1,10 @@
+[Testing] admin@lightnode.com
+[Testing] postmaster@lightnode.com
+[Testing] support@lightnode.com
+[Testing] business@lightnode.com
+[Testing] sales@lightnode.com
+[Testing] info@lightnode.com
+[Testing] contact@lightnode.com
+[Testing] service@lightnode.com
+[Testing] help@lightnode.com
+[Testing] webmaster@lightnode.com

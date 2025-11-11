@@ -1,0 +1,18 @@
+=== /about ===
+info@archive.org
+=== /contact ===
+info@archive.org
+=== /team ===
+info@archive.org
+=== /careers ===
+info@archive.org
+=== /jobs ===
+info@archive.org
+=== /blog ===
+info@archive.org
+=== /support ===
+info@archive.org
+=== /help ===
+info@archive.org
+=== /faq ===
+info@archive.org
