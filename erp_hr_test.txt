@@ -1,0 +1,19 @@
+=== https://erp.jtexpress.vn ===
+[弱口令] admin:admin
+[弱口令] admin:123456
+[弱口令] admin:admin123
+[弱口令] test:test
+[弱口令] root:root
+[API] https://erp.jtexpress.vn/api/users
+[API] https://erp.jtexpress.vn/api/config
+[API] https://erp.jtexpress.vn/api/system
+[API] https://erp.jtexpress.vn/api/info
+[API] https://erp.jtexpress.vn/graphql
+[API] https://erp.jtexpress.vn/api/v1/users
+=== https://hr.jtexpress.vn ===
+[弱口令] admin:admin
+[弱口令] admin:123456
+[弱口令] admin:admin123
+[弱口令] test:test
+[弱口令] root:root
+[API] https://hr.jtexpress.vn/api/users
