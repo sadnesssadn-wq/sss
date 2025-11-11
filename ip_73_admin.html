@@ -1,0 +1,444 @@
+
+
+<!DOCTYPE html>
+<!--
+Template Name:  SmartAdmin Responsive WebApp - Template build with Twitter Bootstrap 4
+Version: 4.6.0
+Author: Sunnyat A.
+Website: http://gootbootstrap.com
+Purchase: https://wrapbootstrap.com/theme/smartadmin-responsive-webapp-WB0573SK0?ref=myorange
+License: You must have a valid license purchased only from wrapbootstrap.com (link above) in order to legally use this theme for your project.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>
+        Silkroad Legend - Admin
+    </title>
+    <meta name="Description" content="SilkroadLegend - SroLegend - Tuổi thơ dữ dội - Map 80 - Talakmakhan, Map 90 - Lạc khắc sơn, Map 100 - Tần lăng huyền bí, Map 110 - Lăng mộ Pharaoh Đền thờ Isis, Đền thờ thủy quái, Đền thờ AP, Map 120 - Thế giới song song" />
+    <meta name="keywords" content="silkroadlegend, silkroadlegend.com, legend, con đường tơ lụa huyền thoại, con đường, con đường tơ lụa, huyen thoai, huyền thoại" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+    <!-- Call App Mode on ios devices -->
+    
+    <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- base css -->
+    
+    <link id="vendorsbundle" rel="stylesheet" media="screen, print" href="/Content/css/vendors.bundle.css">
+    <link id="appbundle" rel="stylesheet" media="screen, print" href="/Content/css/app.bundle.css">
+    <link id="myskin" rel="stylesheet" media="screen, print" href="/Content/css/skins/skin-master.css">
+    <link href="/Content/css/login/fa-brands.css" rel="stylesheet" />
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/Content/img/logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Content/img/logo.png">
+    <link rel="mask-icon" href="/Content/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    
+    <link href="/Content/plugins/toastr/toastr.min.css" rel="stylesheet" />
+</head>
+<!-- BEGIN Body -->
+<!-- Possible Classes
+
+    * 'header-function-fixed'         - header is in a fixed at all times
+    * 'nav-function-fixed'            - left panel is fixed
+    * 'nav-function-minify'			  - skew nav to maximize space
+    * 'nav-function-hidden'           - roll mouse on edge to reveal
+    * 'nav-function-top'              - relocate left pane to top
+    * 'mod-main-boxed'                - encapsulates to a container
+    * 'nav-mobile-push'               - content pushed on menu reveal
+    * 'nav-mobile-no-overlay'         - removes mesh on menu reveal
+    * 'nav-mobile-slide-out'          - content overlaps menu
+    * 'mod-bigger-font'               - content fonts are bigger for readability
+    * 'mod-high-contrast'             - 4.5:1 text contrast ratio
+    * 'mod-color-blind'               - color vision deficiency
+    * 'mod-pace-custom'               - preloader will be inside content
+    * 'mod-clean-page-bg'             - adds more whitespace
+    * 'mod-hide-nav-icons'            - invisible navigation icons
+    * 'mod-disable-animation'         - disables css based animations
+    * 'mod-hide-info-card'            - hides info card from left panel
+    * 'mod-lean-subheader'            - distinguished page header
+    * 'mod-nav-link'                  - clear breakdown of nav links
+
+    >>> more settings are described inside documentation page >>>
+-->
+<body>
+    <!-- DOC: script to save and load page settings -->
+    <script>
+        /**
+         *	This script should be placed right after the body tag for fast execution
+         *	Note: the script is written in pure javascript and does not depend on thirdparty library
+         **/
+        'use strict';
+
+        var htmlRoot = document.getElementsByTagName('HTML')[0],
+            classHolder = document.getElementsByTagName('BODY')[0],
+            head = document.getElementsByTagName('HEAD')[0],
+            themeID = document.getElementById('mytheme'),
+            filterClass = function (t, e) {
+                return String(t).split(/[^\w-]+/).filter(function (t) {
+                    return e.test(t)
+                }).join(' ')
+            },
+            /**
+             * Load theme options
+             **/
+            loadSettings = function () {
+                var t = localStorage.getItem('themeSettings') || '',
+                    e = t ? JSON.parse(t) :
+                        {};
+                return Object.assign(
+                    {
+                        htmlRoot: '',
+                        classHolder: '',
+                        themeURL: ''
+                    }, e)
+            },
+            /**
+             * Save to localstorage
+             **/
+            saveSettings = function () {
+                themeSettings.htmlRoot = filterClass(htmlRoot.className, /^(root)-/i),
+                    themeSettings.classHolder = filterClass(classHolder.className, /^(nav|header|footer|mod|display)-/i),
+                    themeSettings.themeURL = themeID.getAttribute("href") ? themeID.getAttribute("href") : "",
+                    localStorage.setItem("themeSettings", JSON.stringify(themeSettings))
+            },
+            /**
+             * Reset settings
+             **/
+            resetSettings = function () {
+                localStorage.setItem("themeSettings", "")
+            },
+            themeSettings = loadSettings();
+
+        themeID || ((themeID = document.createElement('link')).id = 'mytheme',
+            themeID.rel = 'stylesheet',
+            themeID.href = '',
+            head.appendChild(themeID),
+            themeID = document.getElementById('mytheme')),
+            themeSettings.htmlRoot && (htmlRoot.className = themeSettings.htmlRoot),
+            themeSettings.classHolder && (classHolder.className = themeSettings.classHolder),
+            themeSettings.themeURL && themeID.setAttribute("href", themeSettings.themeURL);
+
+    </script>
+    <div class="page-wrapper auth">
+        <div class="page-inner bg-brand-gradient">
+            <div class="page-content-wrapper bg-transparent m-0">
+                <div class="height-10 w-100 shadow-lg px-4 bg-brand-gradient">
+                    <div class="d-flex align-items-center container p-0">
+                        <div class="page-logo width-mobile-auto m-0 align-items-center justify-content-center p-0 bg-transparent bg-img-none shadow-0 height-9 border-0">
+                            <a href="javascript:void(0)" class="page-logo-link press-scale-down d-flex align-items-center">
+                                <img src="/Content/img/logo.png" alt="Silkroad Legend Administrator" aria-roledescription="logo">
+                                <span class="page-logo-text mr-1">Silkroad Legend Administrator</span>
+                            </a>
+                        </div>
+                        <a href="page_register.html" class="btn-link text-white ml-auto">
+                            Create Account
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-1" style="background: url(../../Content/img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">
+                    <div class="container py-4 py-lg-5 my-lg-5 px-4 px-sm-0">
+                        <div class="row">
+                            <div class="col col-md-6 col-lg-7 hidden-sm-down">
+                                <h2 class="fs-xxl fw-500 mt-4 text-white">
+                                    The simplest UI toolkit for developers &amp; programmers
+                                    <small class="h3 fw-300 mt-3 mb-5 text-white opacity-60">
+                                        Presenting you with the next level of innovative UX design and engineering. The most modular toolkit available with over 600+ layout permutations. Experience the simplicity of SmartAdmin, everywhere you go!
+                                    </small>
+                                </h2>
+                                <a href="#" class="fs-lg fw-500 text-white opacity-70">Learn more &gt;&gt;</a>
+                                <div class="d-sm-flex flex-column align-items-center justify-content-center d-md-block">
+                                    <div class="px-0 py-1 mt-5 text-white fs-nano opacity-50">
+                                        Find us on social media
+                                    </div>
+                                    <div class="d-flex flex-row opacity-70">
+                                        <a href="#" class="mr-2 fs-xxl text-white">
+                                            <i class="fab fa-facebook-square"></i>
+                                        </a>
+                                        <a href="#" class="mr-2 fs-xxl text-white">
+                                            <i class="fab fa-twitter-square"></i>
+                                        </a>
+                                        <a href="#" class="mr-2 fs-xxl text-white">
+                                            <i class="fab fa-google-plus-square"></i>
+                                        </a>
+                                        <a href="#" class="mr-2 fs-xxl text-white">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-5 ml-auto">
+                                <h1 class="text-white fw-300 mb-3 d-sm-block d-md-none">
+                                    Secure login
+                                </h1>
+                                <div class="card p-4 rounded-plus bg-faded">
+<form action="/Admin/Login?Length=5" data-ajax="true" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure" data-ajax-success="OnSucess" id="frmLogin" method="post"><input name="__RequestVerificationToken" type="hidden" value="T8p_Riu6WutnWFrTXeLaFEPI51rvaxZUdgaXalWPYDigOqWK3SXIJ-EA636wvu7WGAd4tfXVXD4RMlvH_AelqlFRcxYEsQhRP2F1zsH_0Do1" />                                        <div class="form-group">
+                                            <label class="form-label" for="UserName">Tài khoản</label>
+                                            <input class="form-control form-control-lg" id="UserName" name="UserName" placeholder="Tên đăng nhập" required="required" type="text" value="" />
+                                            <div class="invalid-feedback">Tên đăng nhập không được để trống</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="Password">Mật khẩu</label>
+                                            <input class="form-control form-control-lg" id="Password" name="Password" placeholder="Mật khẩu" required="required" type="password" />
+                                            <div class="invalid-feedback">Mật khẩu không được để trống</div>
+                                        </div>
+                                        <div class="form-group" id="div-captcha" style="display:none;">
+                                            <label class="form-label" for="Captcha">Mã bảo mật:</label>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-6 pr-1" style="padding-left:0;">
+                                                        <input id="Key" name="Key" type="hidden" value="" />
+                                                        <input class="form-control capcha" id="Captcha" name="Captcha" tabindex="7" type="text" value="" />
+                                                    </div>
+                                                    <div class="col-6 pl-1">
+                                                        <div id="cappcha" class="capchazone">
+                                                            <img id="captcha_img" alt="captcha" src="" style="margin-right: 0; width:80px; height:35px" />
+                                                            <a href="javascript:void(0);" onclick="GetUserCaptcha()" class="btn btn-primary"><i class="fal fa-retweet"> </i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters">
+                                            <div class="col-lg-12">
+                                                <button id="js-login-btn" type="submit" class="btn btn-danger btn-block waves-effect waves-themed">Đăng nhập</button>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters mt-3">
+                                            <div class="col-lg-12">
+                                                <label>Bạn chưa có tài khoản? </label><a href="/Admin/Register" style="color: #584475;"> <strong>Đăng ký</strong> </a>
+                                            </div>
+                                        </div>
+</form>                                </div>
+                            </div>
+                        </div>
+                        <div class="position-absolute pos-bottom pos-left pos-right p-3 text-center text-white">
+                            2025 © SilkroadLegend by &nbsp;<a href='http://silkroadlegend.com' class='text-white opacity-40 fw-500' title='silkroadlegend.com' target='_blank'>silkroadlegend.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="js-color-profile" class="d-none">
+        <span class="color-primary-50"></span>
+        <span class="color-primary-100"></span>
+        <span class="color-primary-200"></span>
+        <span class="color-primary-300"></span>
+        <span class="color-primary-400"></span>
+        <span class="color-primary-500"></span>
+        <span class="color-primary-600"></span>
+        <span class="color-primary-700"></span>
+        <span class="color-primary-800"></span>
+        <span class="color-primary-900"></span>
+        <span class="color-info-50"></span>
+        <span class="color-info-100"></span>
+        <span class="color-info-200"></span>
+        <span class="color-info-300"></span>
+        <span class="color-info-400"></span>
+        <span class="color-info-500"></span>
+        <span class="color-info-600"></span>
+        <span class="color-info-700"></span>
+        <span class="color-info-800"></span>
+        <span class="color-info-900"></span>
+        <span class="color-danger-50"></span>
+        <span class="color-danger-100"></span>
+        <span class="color-danger-200"></span>
+        <span class="color-danger-300"></span>
+        <span class="color-danger-400"></span>
+        <span class="color-danger-500"></span>
+        <span class="color-danger-600"></span>
+        <span class="color-danger-700"></span>
+        <span class="color-danger-800"></span>
+        <span class="color-danger-900"></span>
+        <span class="color-warning-50"></span>
+        <span class="color-warning-100"></span>
+        <span class="color-warning-200"></span>
+        <span class="color-warning-300"></span>
+        <span class="color-warning-400"></span>
+        <span class="color-warning-500"></span>
+        <span class="color-warning-600"></span>
+        <span class="color-warning-700"></span>
+        <span class="color-warning-800"></span>
+        <span class="color-warning-900"></span>
+        <span class="color-success-50"></span>
+        <span class="color-success-100"></span>
+        <span class="color-success-200"></span>
+        <span class="color-success-300"></span>
+        <span class="color-success-400"></span>
+        <span class="color-success-500"></span>
+        <span class="color-success-600"></span>
+        <span class="color-success-700"></span>
+        <span class="color-success-800"></span>
+        <span class="color-success-900"></span>
+        <span class="color-fusion-50"></span>
+        <span class="color-fusion-100"></span>
+        <span class="color-fusion-200"></span>
+        <span class="color-fusion-300"></span>
+        <span class="color-fusion-400"></span>
+        <span class="color-fusion-500"></span>
+        <span class="color-fusion-600"></span>
+        <span class="color-fusion-700"></span>
+        <span class="color-fusion-800"></span>
+        <span class="color-fusion-900"></span>
+    </p>
+    <script src="/Scripts/jquery-3.7.1.js"></script>
+
+    <script src="/Scripts/js/app.init.js"></script>
+
+    <script src="/Scripts/js/vendors.bundle.js"></script>
+<script src="/Scripts/js/app.bundle.js"></script>
+
+    <script src="/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script src="/Scripts/jquery.validate.js"></script>
+<script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="/Scripts/plugins/toastr/toastr.min.js"></script>
+    <script type="text/javascript">
+        /* Activate smart panels */
+        $('#js-page-content').smartPanel();
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            error: function (x, e) {
+                if (x.status === 401) {
+                    window.location.reload();
+                }
+            }
+        });
+
+        $(document).ajaxSuccess(function (event, xhr, settings) {
+            $("form").each(function () {
+                $.validator.unobtrusive.parse(this);
+            });
+        });
+
+        function fallbackCopyTextToClipboard(text) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+
+            // Avoid scrolling to bottom
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                var successful = document.execCommand('copy');
+                if (successful) {
+                    appjs.alert("Copied to clipboard");
+                } else {
+                    appjs.error("Could not copy text");
+                }
+
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        function copyToClipboard(text) {
+            if (!navigator.clipboard) {
+                fallbackCopyTextToClipboard(text);
+                return;
+            }
+            navigator.clipboard.writeText(text).then(function () {
+                appjs.alert("Copied to clipboard");
+            }, function (err) {
+                appjs.error("Could not copy text");
+            });
+        }
+
+        function copySecretToClipboard(id, type) {
+            $.ajax({
+                type: "POST",
+                url: '/Base/SecretPhrase',
+                data: { id: id, type: type },
+                success: function (result) {
+                    if (result) {
+                        if (result.secretphrase === "" || result.secretphrase == null || result.secretphrase == undefined) {
+                            appjs.warning("No Information!");
+                        } else {
+                            copyToClipboard(result.secretphrase);
+                        }
+                    }
+                },
+                error: function (e) {
+                    appjs.error(e);
+                }
+            });
+}
+    </script>
+    <script>
+    $(document).ready(function () {
+        GetUserCaptcha();
+    });
+
+    $("#js-login-btn").click(function (event) {
+        // Fetch form to apply custom Bootstrap validation
+        var form = $("#frmLogin")
+
+        if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+        form.addClass('was-validated');
+        // Perform ajax submit here...
+    });
+
+    function OnFailure(xhr) {
+        toastr.error('Thông tin tài khoản không đúng!', 'Silkroad Legend thông báo');
+    }
+
+    function OnBegin() {
+        console.log('begin');
+    }
+
+    function OnSucess(result) {
+        if (result) {
+            GetUserCaptcha();
+            if (result.status == '1') {
+                window.location.href = '/Admin/CharacterIndex';
+            } else if (result.status == '0') {
+                toastr.error('Thông tin tài khoản không đúng!', 'Silkroad Legend thông báo');
+            } else if (result.status == '-1') {
+                $("#div-captcha").show();
+                toastr.error('Vui lòng nhập Captcha!', 'Silkroad Legend thông báo');
+            }
+            else if (result.status == '-2') {
+                $("#div-captcha").show();
+                toastr.error('Thông tin tài khoản không đúng!', 'Silkroad Legend thông báo');
+            }
+            else if (result.status == '-3') {
+                toastr.error('Tài khoản/mật khẩu không đúng!', 'Silkroad Legend thông báo');
+            }
+        } else {
+            $("#s-notification").text("Thông tin không hợp lệ");
+        }
+    }
+
+    function GetUserCaptcha() {
+        $.ajax({
+            type: "POST",
+            url: '/Captcha/GetCaptcha',
+            data: {},
+            success: function(result) {
+                document.getElementById('captcha_img').setAttribute('src', 'data:image/png;base64,' + result.Data.EncodedData);
+                $("#UserKey").val(result.Data.FileName);
+            },
+            error: function(xhr) {
+                console.log(xhr.responseText);
+            }
+        });
+    }
+
+    </script>
+</body>
+<!-- END Body -->
+</html>

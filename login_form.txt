@@ -1,0 +1,51 @@
+<form action="/Admin/Login?Length=5" data-ajax="true" data-ajax-begin="OnBegin" data-ajax-failure="OnFailure" data-ajax-success="OnSucess" id="frmLogin" method="post"><input name="__RequestVerificationToken" type="hidden" value="T8p_Riu6WutnWFrTXeLaFEPI51rvaxZUdgaXalWPYDigOqWK3SXIJ-EA636wvu7WGAd4tfXVXD4RMlvH_AelqlFRcxYEsQhRP2F1zsH_0Do1" />                                        <div class="form-group">
+                                            <label class="form-label" for="UserName">Tài khoản</label>
+                                            <input class="form-control form-control-lg" id="UserName" name="UserName" placeholder="Tên đăng nhập" required="required" type="text" value="" />
+                                            <div class="invalid-feedback">Tên đăng nhập không được để trống</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="Password">Mật khẩu</label>
+                                            <input class="form-control form-control-lg" id="Password" name="Password" placeholder="Mật khẩu" required="required" type="password" />
+                                            <div class="invalid-feedback">Mật khẩu không được để trống</div>
+                                        </div>
+                                        <div class="form-group" id="div-captcha" style="display:none;">
+                                            <label class="form-label" for="Captcha">Mã bảo mật:</label>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-6 pr-1" style="padding-left:0;">
+                                                        <input id="Key" name="Key" type="hidden" value="" />
+                                                        <input class="form-control capcha" id="Captcha" name="Captcha" tabindex="7" type="text" value="" />
+                                                    </div>
+                                                    <div class="col-6 pl-1">
+                                                        <div id="cappcha" class="capchazone">
+                                                            <img id="captcha_img" alt="captcha" src="" style="margin-right: 0; width:80px; height:35px" />
+                                                            <a href="javascript:void(0);" onclick="GetUserCaptcha()" class="btn btn-primary"><i class="fal fa-retweet"> </i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters">
+                                            <div class="col-lg-12">
+                                                <button id="js-login-btn" type="submit" class="btn btn-danger btn-block waves-effect waves-themed">Đăng nhập</button>
+                                            </div>
+                                        </div>
+                                        <div class="row no-gutters mt-3">
+                                            <div class="col-lg-12">
+                                                <label>Bạn chưa có tài khoản? </label><a href="/Admin/Register" style="color: #584475;"> <strong>Đăng ký</strong> </a>
+                                            </div>
+                                        </div>
+</form>                                </div>
+                            </div>
+                        </div>
+                        <div class="position-absolute pos-bottom pos-left pos-right p-3 text-center text-white">
+                            2025 © SilkroadLegend by &nbsp;<a href='http://silkroadlegend.com' class='text-white opacity-40 fw-500' title='silkroadlegend.com' target='_blank'>silkroadlegend.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p id="js-color-profile" class="d-none">
+        <span class="color-primary-50"></span>
+        <span class="color-primary-100"></span>

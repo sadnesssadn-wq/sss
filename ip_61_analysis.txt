@@ -1,0 +1,42 @@
+# 27.71.229.61 信息泄露分析
+
+## 系统识别
+```
+应用: Ecosystem.EAccountant (生态系统会计)
+框架: ASP.NET Core
+开发模式: 已启用 (DeveloperExceptionPageMiddleware)
+```
+
+## 泄露的命名空间
+```
+Ecosystem.EAccountant.Service
+  - AccountantWorkContext
+  - SetWorkingCurrency(Customer customer)
+
+Ecosystem.Web.Common.Middleware
+  - WorkContextMiddleware
+  - PoweredByMiddleware  
+  - InstallUrlMiddleware
+```
+
+## 中间件栈
+```
+1. DeveloperExceptionPageMiddleware
+2. ExceptionHandlerMiddleware
+3. StatusCodePagesMiddleware
+4. MapWhenMiddleware
+5. RequestLocalizationMiddleware
+6. InstallUrlMiddleware
+7. PoweredByMiddleware
+8. SessionMiddleware (多次)
+9. ResponsiveMiddleware (Wangkanai.Detection)
+10. AuthenticationMiddleware
+11. AuthorizationMiddleware
+12. WorkContextMiddleware
+```
+
+## 攻击向量
+1. 系统未正确初始化Customer对象
+2. 可能是安装/配置问题
+3. 查找安装向导路径
+4. 尝试绕过认证
