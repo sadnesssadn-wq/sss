@@ -1,0 +1,66 @@
+
+========== addr.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== chat-assistant.okd.viettelpost.vn ==========
+IP: 171.244.51.101
+HTTPS: 404
+
+========== evtp-login.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== hawkular-metrics.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== io-dev.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== io.okd.viettelpost.vn ==========
+IP: 171.244.51.101
+HTTPS: 503
+
+========== kpi.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== mapapi.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== osm-dev.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== pusher-dev.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== pusher.okd.viettelpost.vn ==========
+IP: 171.244.51.243
+HTTPS: 404
+
+========== report.okd.viettelpost.vn ==========
+IP: 171.244.51.101
+HTTPS: 404
+
+========== sslio.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== store-locator-dev.okd.viettelpost.vn ==========
+IP: 125.212.238.132
+HTTPS: 000
+
+========== store-locator.okd.viettelpost.vn ==========
+IP: 171.244.51.101
+HTTPS: 200
+✅ 可访问!
+标题: ViettelPost Map:focus{outline:0}.store-list{overflow-y:auto;padding:0!important;grid-column:span 1}.map-view{padding:0!important;grid-column:span 2}@media (max-width:600px){.store-list{display:none}.map-view{padding:0!important;grid-column:span 3}}.matched{text-decoration:underline}.mapboxgl-canvas{position:fixed;left:auto;top:auto;right:0;bottom:0}.selected-location>div.ui-box{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link href="mapbox-gl.css" rel="stylesheet"/><script src="mapbox-gl-directions.js"></script><link rel="stylesheet" href="/mapbox-gl-directions.css"/><title>ViettelPost Map</title><style>:focus{outline:0}.store-list{overflow-y:auto;padding:0!important;grid-column:span 1}.map-view{padding:0!important;grid-column:span 2}@media (max-width:600px){.store-list{display:none}.map-view{padding:0!important;grid-column:span 3}}.matched{text-decoration:underline}.mapboxgl-canvas{position:fixed;left:auto;top:auto;right:0;bottom:0}.selected-location>div.ui-box{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}</style><link href="/static/css/main.2cfcdc3b.css" rel="stylesheet"></head><body><div id="root"></div><script type="text/javascript" src="/static/js/main.c2f83bf1.js"></script></body></html>
+========== webhook.okd.viettelpost.vn ==========
+IP: 171.244.51.101
+HTTPS: 404

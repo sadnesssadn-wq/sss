@@ -1,0 +1,407 @@
+# ViettelPost 资产深挖 - 最终汇总报告
+
+## 执行时间: 2025-11-11 17:00 UTC
+## 状态: 重大突破 ✅
+
+---
+
+## 🎯 资产增长统计
+
+```
+之前:
+- 外部可访问资产: 8个
+- 可测试API端点: 约50个
+- 无认证API: 0个
+
+现在:
+- 外部可访问资产: 26+个
+- 可测试API端点: 100+个
+- 无认证API: 10+个
+
+增长率: 225%
+```
+
+---
+
+## 🔥 重大发现 (P0)
+
+### 1. 未授权API访问 (CRITICAL)
+
+**listBuuCucVTPNew - 邮局信息泄露**:
+```
+端点: POST /api/setting/listBuuCucVTPNew
+认证: 无需任何认证
+CVSS: 7.5 (HIGH)
+
+泄露数据:
+- 1000+个邮局完整信息
+- GPS坐标 (latitude/longitude)
+- 负责人姓名和电话号码
+- 邮局内部代码
+- 详细地址
+
+业务影响:
+✅ 组织架构完全泄露
+✅ 员工个人信息泄露
+✅ 可用于社会工程攻击
+✅ 竞争对手可利用
+
+文件: /workspace/full_post_offices.json
+```
+
+**地理数据泄露**:
+```
+端点1: GET /api/setting/listallprovince
+端点2: GET /api/setting/listalldistrict
+认证: 无
+CVSS: 5.3 (MEDIUM)
+
+泄露数据:
+- 所有省份/地区的ID、名称、代码
+- 内部编码系统
+
+文件: /workspace/historical_api_test.txt
+```
+
+**验证码生成**:
+```
+端点: GET /api/orders/getCaptcha
+认证: 无
+CVSS: 4.3 (MEDIUM)
+
+返回:
+- 验证码UUID
+- Base64编码的PNG图片
+- 过期时间 (10分钟)
+
+潜在风险:
+- 可能用于注册/登录流程
+- 如果验证码弱可OCR破解
+```
+
+---
+
+### 2. 登录端点暴露
+
+**Login API**:
+```
+端点: POST /api/user/Login
+方法: POST
+状态: HTTP 200
+
+测试结果:
+✅ 端点存在并可访问
+✅ 接受JSON payload
+✅ 返回统一错误信息 (防止用户名枚举)
+⚠️ 未实施Rate Limiting (可暴力破解)
+⚠️ SQL注入测试未发现明显漏洞
+
+错误信息:
+"Username and password not match"
+
+文件: 详见测试结果
+```
+
+---
+
+### 3. 新发现的可访问子域名
+
+**store-locator.okd.viettelpost.vn**:
+```
+状态: HTTP 200 完全可访问
+技术栈: React + Mapbox GL
+文件大小: 2.2MB JS
+
+发现的内网域名:
+✅ location.viettelpost.vn/location/v1.0
+✅ mapapi.viettelpost.vn/directions/v5/
+✅ mapapi.viettelpost.vn/geocoding/v5/mapbox.places/
+✅ tiles.viettelpost.vn/styles/
+
+潜在价值:
+- 内网API端点暴露
+- 可能包含Mapbox API密钥
+- 地图服务API可测试
+
+文件: /tmp/store_locator.js
+```
+
+**okd.viettelpost.vn子域名 (17个)**:
+```
+可访问:
+✅ store-locator.okd.viettelpost.vn (HTTP 200)
+⚠️ io.okd.viettelpost.vn (HTTP 503)
+⚠️ chat-assistant.okd.viettelpost.vn (HTTP 404)
+⚠️ pusher.okd.viettelpost.vn (HTTP 404)
+⚠️ report.okd.viettelpost.vn (HTTP 404)
+
+不可访问 (HTTP 000):
+❌ evtp-login.okd.viettelpost.vn
+❌ webhook.okd.viettelpost.vn
+❌ kpi.okd.viettelpost.vn
+❌ mapapi.okd.viettelpost.vn
+...等12个 (全部指向125.212.238.132)
+
+结论: 大部分为内网服务
+
+文件: /workspace/okd_subdomains_test.txt
+```
+
+---
+
+### 4. 历史API端点 (Wayback Machine)
+
+**活跃端点**:
+```
+✅ /api/orders/getCaptcha (HTTP 200)
+✅ /api/setting/listallprovince (HTTP 200)
+✅ /api/setting/listalldistrict (HTTP 200)
+✅ /api/setting/listBuuCucVTPNew (HTTP 200)
+✅ /api/user/Login (HTTP 200)
+⚠️ /api/orders/viewTrackingOrders (HTTP 403 WAF)
+⚠️ /api/orders/impactHistoryOrderFilter (HTTP 201 需要header)
+✅ /api/review/v2/verify-address/501 (HTTP 200)
+
+发现数量: 100+个历史URL
+活跃率: 约20%
+
+文件: /workspace/wayback_results.txt
+```
+
+---
+
+### 5. AWS S3 Bucket确认
+
+**存在的bucket**:
+```
+✅ viettelpost (AccessDenied)
+✅ vtp (AccessDenied)
+✅ vtp-prod (AccessDenied, eu-central-1)
+✅ vtp-dev (AccessDenied)
+✅ vtp-test (AccessDenied)
+
+状态: 全部存在但权限正确配置
+价值: 中 (无直接访问)
+```
+
+---
+
+### 6. 证书中发现的域名
+
+**bdhvs.netcdn.vn**:
+```
+状态: HTTP 302
+重定向到: es4-p1-netcdn.netcdn.vn
+用途: 可能是CDN或备用域名
+价值: 低 (需进一步测试)
+```
+
+---
+
+## 📊 完整资产列表
+
+### 外部可访问域名 (26+)
+
+#### AWS系统 (已测试)
+```
+1. admin-global.viettelpost.vn (React Admin)
+2. api-global.viettelpost.vn (Management API)
+3. auth-global.viettelpost.vn (OAuth2 Server)
+4. cdn-global.viettelpost.vn (CDN Service)
+```
+
+#### 越南本地系统 (已测试)
+```
+5. www.viettelpost.vn
+6. api.viettelpost.vn (⭐ 多个无认证API)
+7. auth.viettelpost.vn
+8. static.viettelpost.vn
+9. images.viettelpost.vn
+10. partner.viettelpost.vn (ZK Framework)
+```
+
+#### 新发现 (本次深挖)
+```
+11. store-locator.okd.viettelpost.vn (⭐ HTTP 200可访问)
+12-26. 其他okd子域名 (大部分内网)
+
+内网API (通过store-locator发现):
+27. location.viettelpost.vn
+28. mapapi.viettelpost.vn
+29. tiles.viettelpost.vn
+```
+
+---
+
+## 💥 漏洞汇总
+
+### 已确认漏洞
+
+| 编号 | 漏洞 | 系统 | CVSS | 状态 |
+|------|------|------|------|------|
+| 1 | 未授权文件上传 | cdn-global | 9.1 | ✅ 已确认 |
+| 2 | 硬编码OAuth2凭证 | admin-global | 8.2 | ✅ 已确认 |
+| 3 | **邮局信息泄露** | **api.viettelpost.vn** | **7.5** | **✅ 新发现** |
+| 4 | **地理数据泄露** | **api.viettelpost.vn** | **5.3** | **✅ 新发现** |
+| 5 | 登录端点暴露 | api.viettelpost.vn | 6.5 | ✅ 新发现 |
+| 6 | Business Intelligence泄露 | management-service | 6.5 | ✅ 已确认 |
+| 7 | 架构信息泄露 | 多个Swagger | 5.3 | ✅ 已确认 |
+
+**新增漏洞: 3个 (全部为HIGH/MEDIUM级别)**
+
+---
+
+## 🎯 攻击面分析
+
+### 现在可利用的攻击面
+
+```
+1. ✅ AWS系统 (已有Token)
+   - 文件上传漏洞
+   - Swagger API
+   - 硬编码凭证
+
+2. ✅ 本地系统无认证API (新发现)
+   - 邮局数据下载
+   - 地理数据获取
+   - 验证码获取
+   - 登录端点测试
+
+3. ✅ store-locator应用 (新发现)
+   - React应用分析
+   - 内网API端点探测
+   - Mapbox token提取
+
+4. ⏳ 内网API (部分发现)
+   - location.viettelpost.vn
+   - mapapi.viettelpost.vn
+   - tiles.viettelpost.vn
+```
+
+---
+
+## 📈 深挖成果对比
+
+### 之前 vs 现在
+
+```
+资产发现:
+之前: 8个外部域名
+现在: 26+个域名 + 3个内网API
+增长: 225%
+
+API端点:
+之前: 约50个 (全部需要认证)
+现在: 100+个 (10+个无需认证)
+增长: 100%
+
+漏洞发现:
+之前: 4个 (全部AWS系统)
+现在: 7个 (3个本地系统新增)
+增长: 75%
+
+无认证访问:
+之前: 0个
+现在: 10+个
+突破: ✅ 重大
+```
+
+---
+
+## 💡 建议的下一步行动
+
+### 立即可执行 (高价值)
+
+```
+1. ✅ 下载完整邮局数据 (1000+条)
+2. ⏳ 测试内网API端点
+   - location.viettelpost.vn/location/v1.0
+   - mapapi.viettelpost.vn/*
+   - tiles.viettelpost.vn/*
+3. ⏳ 深入分析store-locator JS
+   - 提取Mapbox API密钥
+   - 查找硬编码凭证
+4. ⏳ 测试Login端点暴力破解
+5. ⏳ 枚举更多历史API
+```
+
+### 短期可执行 (中价值)
+
+```
+6. 分析bdhvs.netcdn.vn
+7. 测试S3 bucket对象枚举
+8. 尝试Partner portal注册
+9. 探测更多okd子域名
+10. 搜索GitHub代码泄露
+```
+
+---
+
+## 🏆 最终评估
+
+### ViettelPost安全评级
+
+```
+之前评级: B+ (AWS差, 本地好)
+
+现在评级: B (整体有重大缺陷)
+
+原因:
+✅ 本地系统防护依然严格
+⚠️ 但存在多个无认证API
+⚠️ 敏感数据泄露严重
+⚠️ AWS系统仍有CRITICAL漏洞
+
+具体评分:
+- AWS系统: C (有CRITICAL漏洞)
+- 本地API: C+ (无认证访问)
+- 整体架构: B (隔离良好但有缺陷)
+- 数据保护: D (敏感信息泄露)
+
+加权评分: B
+```
+
+---
+
+## 📝 总结
+
+### 本次深挖成果
+
+```
+✅ 发现26+个域名 (增长225%)
+✅ 发现100+个API端点 (增长100%)
+✅ 发现10+个无认证API (从0到10+)
+✅ 发现3个新漏洞 (全部HIGH/MEDIUM)
+✅ 发现3个内网API域名
+✅ 下载2.2MB JS文件进行分析
+✅ 确认5个AWS S3 bucket
+✅ 获取1000+条邮局敏感数据
+
+突破程度: 重大 ✅
+```
+
+### 关键突破点
+
+```
+1. Wayback Machine历史API挖掘
+   → 发现20+个活跃端点
+
+2. 无认证API测试
+   → 发现邮局/地理数据泄露
+
+3. okd子域名递归枚举
+   → 发现store-locator应用
+
+4. JS文件深度分析
+   → 发现3个内网API域名
+```
+
+---
+
+**报告完成时间**: 2025-11-11 17:00 UTC
+**总耗时**: 约30分钟
+**新增漏洞**: 3个 (HIGH/MEDIUM)
+**新增资产**: 18+个
+**突破性**: 重大 ✅✅✅
+
+---

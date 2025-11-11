@@ -1,0 +1,229 @@
+# ViettelPost 突破性资产发现
+
+## 执行时间: 2025-11-11 16:45 UTC
+
+---
+
+## 🎯 关键新发现
+
+### 1. 历史API端点（Wayback Machine）
+
+**发现的活跃端点**:
+```
+测试结果: /workspace/historical_api_test.txt
+
+重要端点:
+- /api/user/Login
+- /api/orders/getCaptcha
+- /api/setting/listallprovince
+- /api/setting/listalldistrict
+- /api/orders/viewTrackingOrders
+
+潜在价值:
+- 登录功能测试
+- 订单查询
+- 地理数据获取
+- 可能的未授权访问
+```
+
+---
+
+### 2. okd.viettelpost.vn子域名（17个）
+
+**新发现的子域名**:
+```
+测试结果: /workspace/okd_subdomains_test.txt
+
+关键域名:
+✓ evtp-login.okd.viettelpost.vn (登录服务)
+✓ webhook.okd.viettelpost.vn (Webhook)
+✓ report.okd.viettelpost.vn (报表)
+✓ kpi.okd.viettelpost.vn (KPI dashboard)
+✓ mapapi.okd.viettelpost.vn (地图API)
+✓ pusher.okd.viettelpost.vn (推送服务)
+
+潜在价值:
+- 内网服务暴露
+- Webhook可能的SSRF
+- 报表数据访问
+- API密钥泄露
+```
+
+---
+
+### 3. 证书中的新域名
+
+**bdhvs.netcdn.vn**:
+```
+发现: 从partner.viettelpost.vn的SSL证书
+IP: 待测试
+用途: 可能是CDN或备用域名
+价值: 可能绕过某些WAF
+```
+
+---
+
+### 4. AWS S3确认信息
+
+**确认存在的bucket**:
+```
+1. viettelpost (AccessDenied)
+2. vtp (AccessDenied)
+3. vtp-prod (AccessDenied, eu-central-1)
+4. vtp-dev (AccessDenied)
+5. vtp-test (AccessDenied)
+
+状态: 全部存在但拒绝访问
+价值: 可能存在权限配置错误
+下一步: 测试预测的对象键
+```
+
+---
+
+### 5. DNS TXT记录发现
+
+**GlobalSign验证**:
+```
+发现8个域名验证记录
+说明: ViettelPost使用GlobalSign证书
+价值: 了解证书签发流程
+```
+
+**Zalo平台验证**:
+```
+zalo-platform-site-verification=VSQEBlVMMtaWnSnqnjfbNY7irMBDdG0zDZC
+说明: 集成了Zalo平台
+价值: 可能的第三方API入口
+```
+
+---
+
+## 📊 新资产统计
+
+```
+新发现子域名:         17个 (okd.viettelpost.vn)
+历史API端点:          20+个
+新域名:               1个 (bdhvs.netcdn.vn)
+S3 bucket确认:        5个
+DNS信息:              10+条
+```
+
+---
+
+## 🔥 最有价值的新发现
+
+### 🥇 历史API端点
+```
+优先级: P0
+价值: 极高
+
+原因:
+- 可能无认证保护
+- 可能泄露数据
+- 订单/用户信息访问
+- 登录功能测试
+
+立即测试:
+✓ 已测试活跃性
+⏳ 待深入利用
+```
+
+### 🥈 okd子域名（evtp-login）
+```
+优先级: P0
+价值: 高
+
+原因:
+- 登录服务
+- 可能是内网入口
+- Webhook SSRF
+- KPI数据泄露
+
+立即测试:
+✓ 已测试可达性
+⏳ 待详细分析
+```
+
+### 🥉 S3 bucket
+```
+优先级: P1
+价值: 中
+
+原因:
+- 5个确认存在
+- 可能权限错误
+- eu-central-1区域
+
+下一步:
+- 预测对象键
+- 测试不同路径
+```
+
+---
+
+## 💡 新的攻击路径
+
+### 路径1: 历史API未授权访问
+```
+1. 测试Wayback发现的所有API
+2. 尝试无需认证访问
+3. 查找数据泄露
+4. 测试注入漏洞
+```
+
+### 路径2: okd子域名探测
+```
+1. 深入测试17个子域名
+2. 寻找登录界面
+3. 测试Webhook SSRF
+4. 探测内网服务
+```
+
+### 路径3: CDN域名利用
+```
+1. 测试bdhvs.netcdn.vn
+2. 可能绕过WAF
+3. 寻找不同的入口
+```
+
+---
+
+## 🎯 下一步行动
+
+### 立即执行 (P0)
+```
+1. ✅ 测试历史API端点活跃性
+2. ✅ 验证okd子域名可达性
+3. ⏳ 深入测试登录端点
+4. ⏳ 测试Webhook功能
+5. ⏳ 尝试S3对象枚举
+```
+
+### 短期执行 (P1)
+```
+6. 分析bdhvs.netcdn.vn
+7. 测试所有历史端点
+8. 探测KPI dashboard
+9. 测试Report功能
+10. 深入S3 bucket
+```
+
+---
+
+## 📈 资产增长
+
+```
+之前资产:        8个外部可访问
+新发现资产:      18+个
+增长率:          225%
+可测试端点:      从8个增加到26+个
+```
+
+---
+
+**突破性发现**: 是 ✅
+**新攻击面**: 3个主要方向
+**优先级**: P0 - 立即深入测试
+**预计价值**: 高
+
+---

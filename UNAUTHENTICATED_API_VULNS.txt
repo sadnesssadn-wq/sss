@@ -1,0 +1,250 @@
+# ViettelPost 未授权API访问漏洞报告
+
+## 执行时间: 2025-11-11 16:50 UTC
+## 漏洞等级: HIGH
+
+---
+
+## 🚨 漏洞概述
+
+发现 **api.viettelpost.vn** 的多个API端点 **无需任何认证** 即可访问，
+泄露大量敏感业务数据。
+
+---
+
+## 🎯 受影响端点
+
+### 1. 邮局信息泄露
+```
+端点: /api/setting/listBuuCucVTPNew
+方法: POST
+认证: 无
+状态: HTTP 200
+
+payload:
+{
+  "keyword": "",
+  "type": "0"
+}
+
+泄露信息:
+- 所有邮局的完整地址
+- GPS坐标（latitude/longitude）
+- 负责人姓名和电话
+- 邮局代码
+- 内部分类信息
+- 预估数据量: 1000+条记录
+
+影响:
+- 组织架构泄露
+- 员工信息泄露
+- 地理位置信息泄露
+- 可用于社会工程
+```
+
+### 2. 地理数据泄露
+```
+端点1: /api/setting/listallprovince
+方法: GET
+认证: 无
+状态: HTTP 200
+
+返回: 所有省份ID、名称、代码
+
+端点2: /api/setting/listalldistrict  
+方法: GET
+认证: 无
+状态: HTTP 200
+
+返回: 所有地区ID、名称、代码
+
+影响:
+- 业务覆盖范围泄露
+- 内部编码系统泄露
+```
+
+### 3. 验证码生成
+```
+端点: /api/orders/getCaptcha
+方法: GET
+认证: 无
+状态: HTTP 200
+
+返回:
+- 验证码ID
+- Base64编码的图片
+- 过期时间
+- 倒计时
+
+潜在风险:
+- 可能用于暴力破解
+- 如果验证码弱，可自动识别
+```
+
+### 4. 登录端点存在
+```
+端点: /api/user/Login
+方法: POST
+状态: HTTP 405 (存在但需要POST)
+
+潜在攻击:
+- 用户名枚举
+- 密码暴力破解
+- SQL注入测试
+```
+
+---
+
+## 🔥 新发现的可访问资产
+
+### store-locator.okd.viettelpost.vn
+```
+状态: HTTP 200 完全可访问
+技术: React + Mapbox GL
+
+内容:
+- /static/js/main.c2f83bf1.js
+- /static/css/main.2cfcdc3b.css
+- Mapbox地图应用
+
+潜在风险:
+- JS文件可能包含API密钥
+- 可能暴露内网API端点
+- Mapbox token泄露
+```
+
+### 其他okd子域名
+```
+可访问:
+- store-locator.okd.viettelpost.vn (HTTP 200)
+- io.okd.viettelpost.vn (HTTP 503)
+- pusher.okd.viettelpost.vn (HTTP 404)
+- chat-assistant.okd.viettelpost.vn (HTTP 404)
+
+大部分指向: 171.244.51.101
+```
+
+---
+
+## 💥 漏洞影响
+
+### 信息泄露 (High)
+```
+CVSS: 7.5
+影响:
+- 1000+邮局详细信息
+- 员工姓名和电话
+- GPS坐标
+- 组织架构
+```
+
+### 未授权访问 (High)
+```
+CVSS: 7.5
+影响:
+- 公开API无需认证
+- 敏感业务数据泄露
+- 可被竞争对手利用
+```
+
+### 账户安全 (Medium)
+```
+CVSS: 6.5
+影响:
+- 登录端点暴露
+- 可能的用户名枚举
+- 可能的暴力破解
+```
+
+---
+
+## 📊 数据样本
+
+### listBuuCucVTPNew返回示例:
+```json
+{
+  "provinceId": 31,
+  "provinceName": "T.Hòa Bình",
+  "districtId": 324,
+  "districtName": "H.Mai Châu",
+  "wardId": 5856,
+  "wardsName": "TT.Mai Châu",
+  "postCode": "HBHBMC",
+  "postName": "Bưu cục Mai Châu - HBH",
+  "address": "TDP 7 Thị trấn Mai Châu, TDP 7",
+  "latitude": "20.6630687",
+  "longtitude": "105.0563354",
+  "phone": "84973942888",
+  "sponsor": "Bùi Quốc Bản",
+  "sponsorPhone": "84973942888",
+  "postPhone": "0334603111"
+}
+```
+
+---
+
+## 🛡️ 修复建议
+
+### 立即修复 (P0)
+```
+1. 为所有/api/setting/*端点添加认证
+2. 限制listBuuCucVTPNew返回的敏感字段
+3. 实施Rate Limiting
+4. 添加WAF规则
+```
+
+### 短期修复 (P1)
+```
+5. 审计所有公开API
+6. 实施API Gateway
+7. 添加日志监控
+8. 员工信息脱敏
+```
+
+---
+
+## 🎯 下一步测试
+
+### 立即执行
+```
+1. ✅ 下载完整邮局数据
+2. ✅ 分析store-locator JS
+3. ⏳ 测试Login端点
+4. ⏳ 枚举更多orders端点
+5. ⏳ 测试验证码破解
+```
+
+### 深入测试
+```
+6. SQL注入测试
+7. 用户名枚举
+8. 暴力破解测试
+9. 业务逻辑漏洞
+10. 内网探测
+```
+
+---
+
+## 📈 突破性发现
+
+```
+之前状态: 
+- 只有AWS系统可测试
+- 本地系统需要Token
+
+现在状态:
+- 发现多个无认证API
+- 可直接访问敏感数据
+- 无需Token或Session
+
+突破程度: 重大 ✅
+```
+
+---
+
+**漏洞评级**: HIGH
+**业务影响**: HIGH
+**修复优先级**: P0 (立即)
+**发现时间**: 2025-11-11 16:50 UTC
+
+---

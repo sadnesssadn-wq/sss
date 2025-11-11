@@ -1,0 +1,12 @@
+
+=== 125.212.138.85 的证书域名 ===
+                DNS:www.bdhvs.netcdn.vn, DNS:bdhvs.netcdn.vn
+
+=== 125.212.138.88 的证书域名 ===
+                DNS:www.bdhvs.netcdn.vn, DNS:bdhvs.netcdn.vn
+
+=== 171.244.51.75 的证书域名 ===
+                DNS:*.okd.viettelpost.vn, DNS:okd.viettelpost.vn
+
+=== 171.244.51.210 的证书域名 ===
+                DNS:ingress.local

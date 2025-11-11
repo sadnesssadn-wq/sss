@@ -1,0 +1,107 @@
+# ViettelPost 深度资产发现报告
+
+## 执行时间: 2025-11-11 16:30 UTC
+
+---
+
+## 🎯 新发现汇总
+
+### 批量域名测试
+```
+测试数量: 50+个子域名
+发现可访问: 查看 /workspace/accessible_domains.txt
+方法: HTTPS快速探测
+```
+
+### DNS记录挖掘
+```
+MX记录: 邮件服务器信息
+TXT记录: SPF/DKIM配置
+NS记录: 名称服务器
+SRV记录: 特殊服务
+```
+
+### 端口扫描扩展
+```
+扫描IP: 4个关键IP
+端口范围: 30+个常见服务端口
+结果: /workspace/port_scan_extended.txt
+```
+
+### GitHub代码搜索
+```
+搜索关键词: 6个
+发现代码: /workspace/github_search.txt
+```
+
+### 历史记录挖掘
+```
+Wayback Machine: 100+个历史URL
+结果: /workspace/wayback_results.txt
+```
+
+### 递归子域名
+```
+oc.viettelpost.vn的子域名
+okd.viettelpost.vn的子域名
+结果: /workspace/recursive_subdomains.txt
+```
+
+### 证书域名挖掘
+```
+从SSL证书提取域名
+结果: /workspace/cert_domains.txt
+```
+
+### 云服务资源
+```
+S3 bucket: 14个变体测试
+CloudFront: 分发测试
+其他AWS区域测试
+```
+
+---
+
+## 📊 测试统计
+
+```
+子域名批量测试:     50个
+DNS记录查询:        6种
+端口扫描:           4个IP × 30端口
+GitHub搜索:         6个关键词
+Wayback URL:        100+个
+递归子域名:         2个主域
+S3 bucket:          14个
+总测试项:           200+个
+```
+
+---
+
+## 💡 潜在新发现
+
+基于上述测试，可能发现:
+- ✅ 新的可访问子域名
+- ✅ 非标准端口上的服务
+- ✅ GitHub泄露的凭证/配置
+- ✅ 历史API端点
+- ✅ 更多云资源
+- ✅ 移动应用API
+- ✅ 邮件服务器信息
+
+---
+
+## 🔍 下一步建议
+
+1. 详细分析新发现的可访问域名
+2. 测试开放的非标准端口
+3. 调查GitHub发现的代码
+4. 尝试Wayback历史端点
+5. 深入测试移动API
+6. 分析邮件服务器配置
+
+---
+
+**生成时间**: 2025-11-11 16:35 UTC
+**新资产状态**: 待分析
+**优先级**: 高
+

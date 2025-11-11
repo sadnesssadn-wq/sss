@@ -1,0 +1,21 @@
+
+========== 枚举 oc.viettelpost.vn 的子域名 ==========
+
+========== 枚举 okd.viettelpost.vn 的子域名 ==========
+addr.okd.viettelpost.vn
+chat-assistant.okd.viettelpost.vn
+evtp-login.okd.viettelpost.vn
+hawkular-metrics.okd.viettelpost.vn
+io-dev.okd.viettelpost.vn
+io.okd.viettelpost.vn
+kpi.okd.viettelpost.vn
+mapapi.okd.viettelpost.vn
+okd.viettelpost.vn
+osm-dev.okd.viettelpost.vn
+pusher-dev.okd.viettelpost.vn
+pusher.okd.viettelpost.vn
+report.okd.viettelpost.vn
+sslio.okd.viettelpost.vn
+store-locator-dev.okd.viettelpost.vn
+store-locator.okd.viettelpost.vn
+webhook.okd.viettelpost.vn
