@@ -1,0 +1,35 @@
+=== ViettelPost 数据库未授权测试 ===
+
+[MySQL 3306未授权]
+Testing: 171.244.51.79
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+Testing: 171.244.51.6
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+Testing: 171.244.51.11
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+Testing: 27.71.229.96
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+Testing: 27.71.229.149
+timeout: failed to run command ‘mysql’: No such file or directory
+timeout: failed to run command ‘mysql’: No such file or directory
+
+[Redis 6379未授权]
+Testing: 171.244.51.168
+timeout: failed to run command ‘redis-cli’: No such file or directory
+timeout: failed to run command ‘redis-cli’: No such file or directory
+Testing: 171.244.51.117
+timeout: failed to run command ‘redis-cli’: No such file or directory
+timeout: failed to run command ‘redis-cli’: No such file or directory
+Testing: 27.71.229.129
+timeout: failed to run command ‘redis-cli’: No such file or directory
+timeout: failed to run command ‘redis-cli’: No such file or directory
+
+[MongoDB 27017未授权]
+Testing: 125.212.138.54
+timeout: failed to run command ‘mongo’: No such file or directory
+Testing: 27.71.229.129
+timeout: failed to run command ‘mongo’: No such file or directory

@@ -1,0 +1,43 @@
+=== 证书验证ViettelPost真实资产 ===
+
+[171.244.51.249]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[171.244.51.101]
+✗ 证书: 
+
+[171.244.51.31]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[171.244.51.16]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[171.244.51.61]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[171.244.51.115]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.36]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.35]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.39]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.51]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.70]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.71]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.72]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn
+
+[27.71.229.217]
+✓ ViettelPost资产: subject=CN = *.viettelpost.vn

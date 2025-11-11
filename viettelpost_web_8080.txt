@@ -1,0 +1,42 @@
+=== ViettelPost 8080端口Web服务识别 ===
+
+[171.244.51.50:8080]
+Headers: 
+Title: 
+
+[171.244.51.187:8080]
+Headers: Server: Apache-Coyote/1.1
+Title: title>Apache Tomcat/7.0.40</title
+
+[171.244.51.188:8080]
+Headers: Server: Microsoft-IIS/8.5
+X-Powered-By: ASP.NET
+Title: title>Home Page</title
+
+[171.244.51.186:8080]
+Headers: 
+Title: 
+
+[171.244.51.44:8080]
+Headers: X-Powered-By: Express
+Title: 
+
+[171.244.51.79:8080]
+Headers: Server: Apache/2.4.6 (CentOS) PHP/5.4.16
+Title: title>Apache HTTP Server Test Page powered by CentOS</title
+
+[27.71.229.88:8080]
+Headers: 
+Title: 
+
+[27.71.229.157:8080]
+Headers: 
+Title: 
+
+[125.212.138.53:8080]
+Headers: Server: Cloudrity
+Title: 
+
+[125.212.138.54:8080]
+Headers: 
+Title: 

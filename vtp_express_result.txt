@@ -1,0 +1,34 @@
+=== Express (Node.js) 漏洞利用 [171.244.51.44:8080] ===
+
+[1] 常见Express路径
+Testing: /
+Testing: /api
+✓ 可能有用的响应
+{"code":"04","status":"error","message":"Cannot GET /api","statusCode":"404","data":null,"path":"/api","timestamp":"2025-11-11T13:41:24.130Z"}
+Status: 404
+Testing: /api/users
+✓ 可能有用的响应
+{"code":"04","status":"error","message":"Cannot GET /api/users","statusCode":"404","data":null,"path":"/api/users","timestamp":"2025-11-11T13:41:24.583Z"}
+Status: 404
+Testing: /api/auth
+✓ 可能有用的响应
+{"code":"04","status":"error","message":"Cannot GET /api/auth","statusCode":"404","data":null,"path":"/api/auth","timestamp":"2025-11-11T13:41:25.030Z"}
+Status: 404
+Testing: /graphql
+Testing: /api-docs
+✓ 可能有用的响应
+{"code":"04","status":"error","message":"Cannot GET /api-docs","statusCode":"404","data":null,"path":"/api-docs","timestamp":"2025-11-11T13:41:25.957Z"}
+Status: 404
+Testing: /swagger.json
+Testing: /.env
+Testing: /config
+Testing: /debug
+Testing: /admin
+✓ 可能有用的响应
+{"code":"04","status":"error","message":"Cannot GET /admin","statusCode":"404","data":null,"path":"/admin","timestamp":"2025-11-11T13:41:28.168Z"}
+Status: 404
+
+[2] 原型链污染测试
+{"code":"04","status":"error","message":"Cannot POST /api/users","statusCode":"404","data":null,"path":"/api/users","timestamp":"2025-11-11T13:41:28.605Z"}
+[3] JWT伪造测试
+{"code":"04","status":"error","message":"Cannot GET /api/auth","statusCode":"404","data":null,"path":"/api/auth","timestamp":"2025-11-11T13:41:29.056Z"}
