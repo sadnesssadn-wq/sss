@@ -1,0 +1,39 @@
+# jtexpress.vn 攻击总结
+
+## 已完成测试
+
+### 1. Shop API未授权测试 - 失败
+- 40个API全部需要认证
+- 返回前端路由页面，非真实API
+
+### 2. October CMS后台攻击 - 部分成功
+- 后台地址：https://jtexpress.vn/backend
+- 版本：80eb90df（无法确定精确版本）
+- Media管理页面可访问（但需登录）
+- CSRF保护：SQL注入被拦截
+- reCAPTCHA保护：弱口令爆破难度大
+- **突破点**：/backend/media和/backend/cms/media返回200
+
+### 3. Laravel系统测试 - 失败
+- artisan文件泄露但无敏感信息
+- 所有配置文件403保护
+- 调试模式未开启
+
+## 当前可行攻击路径
+
+P1: October CMS Combine Controller RCE (CVE-2021-32648)
+- 测试中...
+
+P2: October CMS Media Manager 文件上传绕过
+- 需要有效session
+
+P3: 业务逻辑漏洞深挖
+- 优惠券重复兑换
+- 积分篡改
+- 订单金额篡改
+
+## 下一步行动
+
+1. 继续测试October CMS已知CVE
+2. 尝试Session劫持
+3. 深入业务逻辑测试

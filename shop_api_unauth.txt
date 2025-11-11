@@ -1,0 +1,1024 @@
+=== /api/member/findMemberUserInfo ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/bank-info/account-info ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/member/findSignInInfo ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/member/findProductExchangeByVip ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/member/findGiftVoucherExchangeByVip ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/coupon/findCouponListByVip ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/coupon/findCouponExchangeByVip ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/address/mailing/page ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/appraise/findWeekAppraise ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/im/findOrderListByStaffCode ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/changeDelay/queryPendingByCustomer ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/banner/findBannerList ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/banner/findNoticeBannerList ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/coupon/queryCouponConfig ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/electron/contract/getelectron ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
+=== /api/member/getExpireScoreByCode ===
+[未授权数据泄露] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+[伪造token绕过] 响应12596字节
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      #jt-micro-container {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="jt-micro-container"></div>
+    <script>
+      !(function () {
+        "use strict";
+        const t = !0,
+          e = 15e3,
+          r = new Map();
+        let n = null;
+        const o = "dist";
+        let s = "WebAbGrayVersion",
+          i = "WEB_GRAY_PROJECT_LIST",
+          a = "BACKEND_GRAY_ENABLED",
+          pro_version = "85_20250928135755_8e8acd1d",
+          c = "/";
+        const u = c?.replace(/^\/+|\/+$/g, "");
+        function f(...t) {}
+        async function l() {
+
