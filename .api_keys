@@ -1,0 +1,11 @@
+# API密钥配置文件
+# 最后更新: 2025-11-11
+
+# Shodan
+export SHODAN_API_KEY="8U3fd9BSqyzentffLrhocQm7rSvy44jx"
+
+# Fofa
+export FOFA_EMAIL_1="yangdi985@fofa.so"
+export FOFA_KEY_1="b527aaeb14874660d2df8de6f848a071"
+export FOFA_EMAIL_2="monica001@fofa.so"
+export FOFA_KEY_2="9fd57dad07c47fba6139bc932efd677d"
