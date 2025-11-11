@@ -1,0 +1,480 @@
+================================================================================
+🔑 JWT伪造和自动测试工具
+================================================================================
+签名密钥数量: 18
+Payload变体:  3
+测试端点:     4
+总组合数:     54
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1/18] 测试密钥: Lx90aXyZn4GtRVbT8JpCEm7qUwNdh3...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2/18] 测试密钥: YAaG8ji8TP3I3K6
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3/18] 测试密钥: abc123
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4/18] 测试密钥: vtp-wms-secret
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5/18] 测试密钥: viettelpost-wms
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6/18] 测试密钥: wms-client-secret
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[7/18] 测试密钥: keycloak-secret
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[8/18] 测试密钥: vtp-secret-key
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[9/18] 测试密钥: VTP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[10/18] 测试密钥: YODY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[11/18] 测试密钥: VTP_MM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[12/18] 测试密钥: (空密钥)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[13/18] 测试密钥: secret
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[14/18] 测试密钥: changeit
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[15/18] 测试密钥: THg5MGFYeVpuNEdpUlZiVDhKcENFbT...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[16/18] 测试密钥: viettelpost
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[17/18] 测试密钥: wms-gateway
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[18/18] 测试密钥: jwt-secret-key
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [Payload1] 用户: admin, 角色: ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZ...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload2] 用户: warehouse_user, 角色: WAREHOUSE_ADMIN
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3Y...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+  [Payload3] 用户: user, 角色: N/A
+    🔑 Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c...
+    ℹ️  订单搜索: 资源不存在 (404)
+    ℹ️  订单详情: 资源不存在 (404)
+    ℹ️  入库订单: 资源不存在 (404)
+    ℹ️  用户信息: 资源不存在 (404)
+
+================================================================================
+📊 测试完成汇总
+================================================================================
+总测试次数:     216
+成功Token数:    0
+成功率:         0.00%
+================================================================================
+
+❌ 未发现有效Token
+
+📋 可能的原因:
+   1. 签名密钥不正确
+   2. JWT算法不匹配（使用了RS256而非HS256）
+   3. Payload格式不正确
+   4. API需要额外的认证机制
+
+💡 建议:
+   1. 使用mitmproxy抓取真实token
+   2. 使用Frida hook JWT生成函数
+   3. 尝试从Keycloak公钥验证机制入手
