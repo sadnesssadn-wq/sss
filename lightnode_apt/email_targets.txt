@@ -1,0 +1,32 @@
+# 钓鱼邮件目标列表
+# 格式: 邮箱,优先级,推荐场景
+
+# Tier 1: 主要目标（立即发送）
+support@lightnode.com,P0,LightCDN迁移错误
+business@lightnode.com,P0,Stripe支付失败
+support@lightcdn.com,P0,LightCDN迁移错误
+
+# Tier 2: 高价值目标（第2天发送）
+admin@lightnode.com,P1,阿里云安全警报
+tech@lightnode.com,P1,Apifox验证
+info@lightnode.com,P1,客户投诉
+
+# Tier 3: 潜在目标（分批发送）
+sales@lightnode.com,P2,客户投诉
+contact@lightnode.com,P2,Apifox验证
+service@lightnode.com,P2,LightCDN迁移错误
+help@lightnode.com,P2,客户投诉
+hr@lightnode.com,P2,简历投递
+finance@lightnode.com,P2,Stripe支付失败
+billing@lightnode.com,P2,Stripe支付失败
+marketing@lightnode.com,P2,客户投诉
+ceo@lightnode.com,P2,客户投诉
+cto@lightnode.com,P1,阿里云安全警报
+dev@lightnode.com,P2,Apifox验证
+ops@lightnode.com,P2,阿里云安全警报
+security@lightnode.com,P1,阿里云安全警报
+postmaster@lightnode.com,P2,邮件退信
+webmaster@lightnode.com,P2,网站问题
+
+# 总计: 21个目标邮箱
+# 预期成功: 3-6个（根据发送质量）
