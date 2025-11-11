@@ -1,0 +1,16 @@
+/admin/user-management/create
+/admin/user-management/profile/
+/admin/user-management/search
+/admin/user-management/update
+/api/file/upload-files
+/api/internal/user-management/profile
+/api/user-management/forget-password
+/api/user-management/forget-password/send-email
+/api/user-management/forget-password/verify-signature
+/api/user-management/re-issue-password
+/api/user-management/seting-language/set
+/callback/login/viettel
+/management-service/
+/permission-management/get-all
+/user-management/change-password
+/user-management/connect/logout

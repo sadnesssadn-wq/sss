@@ -1,0 +1,6 @@
+
+Testing gw.viettelpost.vn:
+
+Testing dev-wms-gw.viettelpost.vn:
+
+Testing omsapi.viettelpost.vn:

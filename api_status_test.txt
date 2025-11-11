@@ -1,0 +1,5 @@
+https://api-global.viettelpost.vn/cdn-service/ | 302
+https://api-global.viettelpost.vn/management-service/ | 302
+https://auth-global.viettelpost.vn/ | 404
+https://api-global.viettelpost.vn/management-service/api/user-management/forget-password | 404
+https://api-global.viettelpost.vn/management-service/api/file/upload-files | 404
