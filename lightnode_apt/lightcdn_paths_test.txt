@@ -1,0 +1,18 @@
+Testing: https://lightcdn.com/admin
+  HTTP: 404
+Testing: https://lightcdn.com/login
+  HTTP: 404
+Testing: https://lightcdn.com/manage
+  HTTP: 404
+Testing: https://lightcdn.com/dashboard
+  HTTP: 404
+Testing: https://lightcdn.com/panel
+  HTTP: 404
+Testing: https://lightcdn.com/console
+  HTTP: 404
+Testing: https://lightcdn.com/user
+  HTTP: 404
+Testing: https://lightcdn.com/upload
+  HTTP: 404
+Testing: https://lightcdn.com/api
+  HTTP: 403
