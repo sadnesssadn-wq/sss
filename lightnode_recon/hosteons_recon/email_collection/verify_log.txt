@@ -1,0 +1,19 @@
+[+] === 开始筛选和验证真实邮箱 ===
+[+] === 筛选真实邮箱 ===
+[+] 从GitHub用户信息提取...
+[+] 从GitHub提交历史深度提取...
+[+] 从网站页面提取真实邮箱...
+[+] 候选真实邮箱: 2 个
+[+] === 简单验证邮箱 ===
+[+] 使用MX服务器: aspmx.l.google.com.
+[+] 检查: kapil@hosteons.com
+[+] ✅ 格式有效: kapil@hosteons.com
+[+] 检查: noc@hosteons.com
+[+] ✅ 格式有效: noc@hosteons.com
+[+] === 验证完成 ===
+
+=== 真实可用邮箱列表 ===
+kapil@hosteons.com
+noc@hosteons.com
+
+总数量: 2 个
