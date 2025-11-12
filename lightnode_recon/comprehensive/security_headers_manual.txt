@@ -1,0 +1,6 @@
+=== https://www.lightnode.com ===
+strict-transport-security: max-age=31536000
+
+=== https://console.lightnode.com ===
+strict-transport-security: max-age=31536000
+
