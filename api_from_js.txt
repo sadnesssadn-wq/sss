@@ -1,3 +1,5 @@
 https://maps.googleapis.com/maps/api/js?key=
 https://maps.googleapis.com/maps/api/staticmap?
 https://www.paypalobjects.com/api/checkout
+https://maps.googleapis.com/maps/api/js
+https://maps.googleapis.com/maps/api/staticmap
