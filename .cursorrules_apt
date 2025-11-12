@@ -28,38 +28,421 @@
 
 ## 📋 APT攻击流程（13步完整链）
 
-### 阶段0：目标选择 + 侦察（1-2周）
+### 阶段0：目标选择 + 侦察（1-2周）- 基于真实APT案例
 
 ```bash
-# 0.1 目标公司信息收集
+# ============================================
+# 0.1 目标公司基础信息收集
+# ============================================
 TARGET_COMPANY="target-corp.com"
 TARGET_DOMAIN=$TARGET_COMPANY
+TARGET_NAME="Target Corporation"
 
-# 0.2 员工信息收集（LinkedIn/社交媒体）
+# 公司基本信息
+whois $TARGET_DOMAIN | tee whois_info.txt
+dig $TARGET_DOMAIN ANY +noall +answer | tee dns_records.txt
+
+# 子域名枚举（APT29 SolarWinds案例中使用）
+subfinder -d $TARGET_DOMAIN -all -silent -o subdomains.txt
+amass enum -passive -d $TARGET_DOMAIN -o amass_subdomains.txt
+assetfinder --subs-only $TARGET_DOMAIN >> subdomains.txt
+sort -u subdomains.txt amass_subdomains.txt > all_subdomains.txt
+
+# 证书透明度日志（APT29常用方法）
+curl -s "https://crt.sh/?q=%.${TARGET_DOMAIN}&output=json" | \
+    jq -r '.[].name_value' | sort -u > crt_subdomains.txt
+cat crt_subdomains.txt >> all_subdomains.txt
+sort -u all_subdomains.txt > final_subdomains.txt
+
+# ============================================
+# 0.2 邮箱收集（基于真实APT手法）
+# ============================================
+
+# 方法1：Hunter.io API（专业邮箱查找工具）
+# APT28和APT29都使用类似工具
+HUNTER_API_KEY="your_api_key"
+curl -s "https://api.hunter.io/v2/domain-search?domain=${TARGET_DOMAIN}&api_key=${HUNTER_API_KEY}" | \
+    jq -r '.data.emails[] | "\(.value)|\(.first_name)|\(.last_name)|\(.position)|\(.confidence)"' > hunter_emails.txt
+
+# 方法2：EmailHunter API
+EMAILHUNTER_API="your_api_key"
+curl -s "https://api.emailhunter.co/v2/domain-search?domain=${TARGET_DOMAIN}&api_key=${EMAILHUNTER_API}" | \
+    jq -r '.emails[] | "\(.value)|\(.sources[].uri)"' > emailhunter_emails.txt
+
+# 方法3：Clearbit Enrichment API
+CLEARBIT_API="your_api_key"
+curl -s "https://person.clearbit.com/v2/combined/find?domain=${TARGET_DOMAIN}" \
+    -H "Authorization: Bearer ${CLEARBIT_API}" | \
+    jq -r '.people[] | "\(.email)|\(.name.fullName)|\(.title)"' > clearbit_emails.txt
+
+# 方法4：LinkedIn深度挖掘（APT28/Fancy Bear常用方法）
+# 使用LinkedIn Sales Navigator或LinkedIn API
+python3 << 'PYEOF'
+import requests
+from bs4 import BeautifulSoup
+import re
+
+# LinkedIn搜索（需要登录Cookie或API）
+linkedin_search_url = f"https://www.linkedin.com/search/results/people/?keywords={TARGET_COMPANY}"
+# 提取员工信息：姓名、职位、邮箱格式
+
+# 常见邮箱格式猜测
+# firstname.lastname@company.com
+# firstname_lastname@company.com
+# firstnamelastname@company.com
+# f.lastname@company.com
+# firstname@company.com
+
+def generate_email_variants(first_name, last_name, domain):
+    variants = [
+        f"{first_name.lower()}.{last_name.lower()}@{domain}",
+        f"{first_name.lower()}_{last_name.lower()}@{domain}",
+        f"{first_name.lower()}{last_name.lower()}@{domain}",
+        f"{first_name[0].lower()}.{last_name.lower()}@{domain}",
+        f"{first_name.lower()}@{domain}",
+        f"{last_name.lower()}@{domain}",
+    ]
+    return variants
+
+# 示例：从LinkedIn获取姓名后生成邮箱
+first_name = "John"
+last_name = "Doe"
+emails = generate_email_variants(first_name, last_name, TARGET_DOMAIN)
+for email in emails:
+    print(email)
+PYEOF
+
+# 方法5：GitHub/GitLab代码泄露（APT29 SolarWinds案例）
+# 搜索代码仓库中的邮箱
+gh api "search/code?q=${TARGET_DOMAIN}+email+OR+@${TARGET_DOMAIN}&per_page=100" | \
+    jq -r '.items[] | "\(.html_url)|\(.path)"' > github_email_leaks.txt
+
+# 从GitHub提交历史中提取邮箱
+gh api "search/users?q=company:${TARGET_COMPANY}" | \
+    jq -r '.items[] | "\(.login)|\(.email)"' > github_users.txt
+
+# GitLab搜索
+curl -s "https://gitlab.com/api/v4/search?scope=users&search=${TARGET_COMPANY}" | \
+    jq -r '.[] | "\(.username)|\(.email)"' > gitlab_users.txt
+
+# 方法6：公司网站爬取（APT1/Comment Crew常用）
+# 爬取联系页面、关于我们、团队页面
+python3 << 'PYEOF'
+import requests
+from bs4 import BeautifulSoup
+import re
+
+def extract_emails_from_url(url):
+    try:
+        response = requests.get(url, timeout=10)
+        emails = re.findall(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', response.text)
+        return emails
+    except:
+        return []
+
+# 常见包含邮箱的页面
+email_pages = [
+    f"https://{TARGET_DOMAIN}/contact",
+    f"https://{TARGET_DOMAIN}/about",
+    f"https://{TARGET_DOMAIN}/team",
+    f"https://{TARGET_DOMAIN}/staff",
+    f"https://{TARGET_DOMAIN}/people",
+]
+
+all_emails = set()
+for page in email_pages:
+    emails = extract_emails_from_url(page)
+    all_emails.update(emails)
+    print(f"[+] {page}: {emails}")
+
+# 保存结果
+with open('website_emails.txt', 'w') as f:
+    for email in all_emails:
+        f.write(f"{email}\n")
+PYEOF
+
+# 方法7：WHOIS信息提取（APT28常用）
+whois $TARGET_DOMAIN | grep -iE "email|e-mail|@" | \
+    grep -vE "privacy|proxy|whois" | \
+    sed 's/.*@/@/' | sort -u > whois_emails.txt
+
+# 方法8：社交媒体挖掘（APT28/Fancy Bear常用）
+# Twitter
+twint -s "@${TARGET_COMPANY} OR from:${TARGET_COMPANY}" --limit 1000 -o twitter_data.json
+# 从Twitter bio和推文中提取邮箱
+
+# Facebook（如果公开）
+# 搜索公司页面，提取公开的员工信息
+
+# 方法9：会议和活动信息（APT1/Comment Crew常用）
+# 技术会议、行业活动、研讨会
+python3 << 'PYEOF'
+import requests
+import re
+
+# 搜索会议注册信息
+# Eventbrite, Meetup, Conference websites
+conference_sites = [
+    f"site:eventbrite.com {TARGET_COMPANY}",
+    f"site:meetup.com {TARGET_COMPANY}",
+    f"site:conference.com {TARGET_COMPANY}",
+]
+
+# 从会议网站提取参会者邮箱
+# 通常会议网站会列出演讲者或组织者邮箱
+PYEOF
+
+# 方法10：泄露数据库查询（Lazarus Group常用）
+# Have I Been Pwned
+curl -s "https://haveibeenpwned.com/api/v3/breachedaccount/test@${TARGET_DOMAIN}" \
+    -H "hibp-api-key: ${HIBP_API_KEY}" | jq '.'
+
+# DeHashed（需要API）
+# 查询泄露的邮箱和密码
+
+# 方法11：证书透明度日志中的邮箱（APT29常用）
+curl -s "https://crt.sh/?q=%.${TARGET_DOMAIN}&output=json" | \
+    jq -r '.[] | .name_value' | \
+    grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' | \
+    sort -u > cert_emails.txt
+
+# 方法12：供应商和合作伙伴网站（供应链攻击面）
+# 查找目标公司的供应商，从供应商网站收集目标员工信息
+python3 << 'PYEOF'
+# 从新闻稿、合作伙伴页面收集
+# 例如：目标公司与供应商A合作，访问供应商A网站，查找目标公司联系人
+PYEOF
+
+# 方法13：新闻稿和媒体报道（APT28常用）
+# 公司发布的新闻稿通常包含高管邮箱
+curl -s "https://www.google.com/search?q=site:${TARGET_DOMAIN}+press+release+OR+news" | \
+    grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' | \
+    sort -u > press_emails.txt
+
+# 方法14：招聘网站（APT29常用）
+# LinkedIn Jobs, Indeed, Glassdoor
+# 从招聘信息中提取HR邮箱
+linkedin_jobs = f"site:linkedin.com/jobs {TARGET_COMPANY}"
+# 提取招聘信息中的联系邮箱
+
+# 方法15：技术博客和论坛（APT1/Comment Crew常用）
+# Stack Overflow, Medium, Dev.to
+gh api "search/users?q=company:${TARGET_COMPANY}+location" | \
+    jq -r '.items[] | "\(.login)|\(.blog)"' | \
+    while read user blog; do
+        curl -s "$blog" 2>/dev/null | grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    done > blog_emails.txt
+
+# ============================================
+# 0.3 邮箱验证和分类
+# ============================================
+
+# 合并所有邮箱
+cat hunter_emails.txt emailhunter_emails.txt clearbit_emails.txt \
+    website_emails.txt whois_emails.txt cert_emails.txt \
+    press_emails.txt blog_emails.txt | \
+    grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' | \
+    sort -u > all_emails.txt
+
+# 邮箱验证（使用SMTP验证）
+python3 << 'PYEOF'
+import smtplib
+import socket
+
+def verify_email(email, domain):
+    """SMTP邮箱验证"""
+    try:
+        # 获取MX记录
+        import dns.resolver
+        mx_records = dns.resolver.resolve(domain, 'MX')
+        mx_record = str(mx_records[0].exchange)
+        
+        # 连接SMTP服务器
+        server = smtplib.SMTP()
+        server.set_debuglevel(0)
+        server.connect(mx_record)
+        server.helo(server.local_hostname)
+        server.mail('test@example.com')
+        code, message = server.rcpt(email)
+        server.quit()
+        
+        return code == 250
+    except:
+        return False
+
+# 验证邮箱
+valid_emails = []
+with open('all_emails.txt', 'r') as f:
+    for email in f:
+        email = email.strip()
+        domain = email.split('@')[1]
+        if verify_email(email, domain):
+            valid_emails.append(email)
+            print(f"[+] Valid: {email}")
+
+with open('valid_emails.txt', 'w') as f:
+    for email in valid_emails:
+        f.write(f"{email}\n")
+PYEOF
+
+# 邮箱分类（按职位/部门）
+python3 << 'PYEOF'
+# 根据邮箱前缀和职位信息分类
+# 例如：admin@, hr@, finance@, it@, security@
+
+categories = {
+    'executive': ['ceo', 'cto', 'cfo', 'president', 'director', 'vp', 'vice'],
+    'it_security': ['it', 'security', 'infosec', 'cyber', 'admin', 'sysadmin'],
+    'finance': ['finance', 'accounting', 'cfo', 'accountant'],
+    'hr': ['hr', 'human', 'recruiting', 'talent'],
+    'sales': ['sales', 'business', 'bd', 'business development'],
+    'marketing': ['marketing', 'pr', 'public relations', 'communications'],
+}
+
+def categorize_email(email, position=""):
+    email_lower = email.lower()
+    position_lower = position.lower()
+    
+    for category, keywords in categories.items():
+        for keyword in keywords:
+            if keyword in email_lower or keyword in position_lower:
+                return category
+    return 'general'
+
+# 分类并保存
+with open('valid_emails.txt', 'r') as f:
+    for line in f:
+        email = line.strip()
+        category = categorize_email(email)
+        with open(f'emails_{category}.txt', 'a') as cat_file:
+            cat_file.write(f"{email}\n")
+PYEOF
+
+# ============================================
+# 0.4 员工信息深度挖掘（基于真实APT案例）
+# ============================================
+
+# LinkedIn员工信息收集（APT28/Fancy Bear常用）
 python3 << 'PYEOF'
 import requests
 from bs4 import BeautifulSoup
 
-# LinkedIn员工搜索
-linkedin_search = f"site:linkedin.com/in {TARGET_COMPANY}"
-# 提取：姓名、职位、邮箱、技能、教育背景
+# LinkedIn员工搜索（需要登录或使用API）
+# 提取：姓名、职位、邮箱、技能、教育背景、工作经历
 
-# GitHub泄露
-github_search = f"{TARGET_COMPANY} password OR api_key OR secret"
-# 提取：代码仓库、配置文件、密钥
+# 使用LinkedIn Sales Navigator搜索
+# 或使用LinkedIn API（需要申请）
 
-# 社交媒体
-twitter_search = f"from:{TARGET_COMPANY} OR @{TARGET_COMPANY}"
-# 提取：员工动态、技术栈、内部信息
+# 手动方法：使用Google搜索
+linkedin_google_search = f'site:linkedin.com/in "{TARGET_COMPANY}"'
+# 从搜索结果中提取员工信息
 PYEOF
 
-# 0.3 技术栈识别
-subfinder -d $TARGET_DOMAIN -silent | httpx -title -tech-detect -o tech_stack.txt
-nuclei -l tech_stack.txt -t ~/nuclei-templates/technologies/ -o tech_details.txt
+# GitHub活动分析（APT29 SolarWinds案例）
+gh api "search/users?q=company:${TARGET_COMPANY}" | \
+    jq -r '.items[] | "\(.login)|\(.html_url)|\(.email)"' | \
+    while read user url email; do
+        # 获取用户的公开仓库
+        gh api "users/${user}/repos" | \
+            jq -r '.[] | "\(.name)|\(.description)"'
+        
+        # 获取用户的提交历史
+        gh api "users/${user}/events" | \
+            jq -r '.[] | "\(.type)|\(.repo.name)"'
+    done > github_activity.txt
 
-# 0.4 供应商/合作伙伴识别（供应链攻击面）
-# 查找目标使用的第三方服务
-cat tech_stack.txt | grep -iE "s3|cloudflare|aws|azure|salesforce|office365|slack|jira"
+# Stack Overflow活动（APT1/Comment Crew常用）
+# 搜索目标公司员工在Stack Overflow上的活动
+stackoverflow_search = f"site:stackoverflow.com/users {TARGET_COMPANY}"
+# 提取：技术栈、技能、可能的内部信息
+
+# ============================================
+# 0.5 技术栈深度识别（APT29常用）
+# ============================================
+
+# 子域名技术栈识别
+cat final_subdomains.txt | httpx -title -tech-detect -status-code -o tech_stack.txt
+
+# 详细技术栈分析
+whatweb -i final_subdomains.txt --aggression 3 --log-json=whatweb.json
+
+# Wappalyzer识别
+nuclei -l final_subdomains.txt -t ~/nuclei-templates/technologies/ -o tech_details.txt
+
+# 提取关键信息
+grep -iE "wordpress|joomla|drupal|laravel|spring|.net|java|python|php" tech_stack.txt > cms_frameworks.txt
+grep -iE "aws|azure|gcp|cloudflare|akamai" tech_stack.txt > cloud_services.txt
+grep -iE "office365|salesforce|slack|jira|confluence" tech_stack.txt > saas_services.txt
+
+# ============================================
+# 0.6 供应商/合作伙伴识别（供应链攻击面）
+# ============================================
+
+# 从新闻稿中提取合作伙伴
+curl -s "https://www.google.com/search?q=site:${TARGET_DOMAIN}+partner+OR+vendor+OR+supplier" | \
+    grep -oE 'https?://[^"]+' | \
+    grep -vE 'google|facebook|twitter' | \
+    sort -u > partners.txt
+
+# 从代码仓库中提取第三方服务
+gh api "search/code?q=${TARGET_DOMAIN}+aws+OR+azure+OR+gcp+OR+salesforce&per_page=100" | \
+    jq -r '.items[] | "\(.repository.full_name)|\(.path)"' > third_party_services.txt
+
+# 从DNS记录中识别第三方服务
+dig $TARGET_DOMAIN ANY +noall +answer | grep -iE "aws|azure|cloudflare|akamai" > dns_third_party.txt
+
+# ============================================
+# 0.7 组织架构分析（APT28常用）
+# ============================================
+
+# 从LinkedIn分析组织架构
+# 识别：CEO、CTO、CFO、部门主管、关键员工
+
+# 从公司网站分析
+# 关于我们页面、团队页面、领导团队页面
+
+# 从新闻稿分析
+# 高管任命、部门重组、新项目启动
+
+# ============================================
+# 0.8 攻击面映射（APT29常用）
+# ============================================
+
+# 外部攻击面
+# - 公开的Web应用
+# - API端点
+# - 云服务配置
+# - 第三方集成
+
+# 内部攻击面（通过信息收集推断）
+# - 使用的技术栈
+# - 第三方服务
+# - 供应商关系
+
+# 生成攻击面报告
+cat > attack_surface_report.txt << EOF
+目标: ${TARGET_COMPANY}
+域名: ${TARGET_DOMAIN}
+
+子域名数量: $(wc -l < final_subdomains.txt)
+邮箱数量: $(wc -l < valid_emails.txt)
+技术栈: $(wc -l < tech_stack.txt)
+
+高价值目标:
+- 高管邮箱: $(wc -l < emails_executive.txt 2>/dev/null || echo 0)
+- IT/安全部门: $(wc -l < emails_it_security.txt 2>/dev/null || echo 0)
+- 财务部门: $(wc -l < emails_finance.txt 2>/dev/null || echo 0)
+
+第三方服务:
+- 云服务: $(wc -l < cloud_services.txt 2>/dev/null || echo 0)
+- SaaS服务: $(wc -l < saas_services.txt 2>/dev/null || echo 0)
+- 合作伙伴: $(wc -l < partners.txt 2>/dev/null || echo 0)
+EOF
+
+echo "[+] 侦察阶段完成"
+echo "    子域名: $(wc -l < final_subdomains.txt)"
+echo "    邮箱: $(wc -l < valid_emails.txt)"
+echo "    技术栈: $(wc -l < tech_stack.txt)"
 ```
 
 ### 阶段1：钓鱼邮件准备（3-5天）
@@ -743,43 +1126,290 @@ Microsoft支持团队
 
 ---
 
-## 🕵️ OSINT信息收集工具
+## 🕵️ OSINT信息收集工具（完整版 - 基于真实APT案例）
+
+**真实APT案例参考：**
+- **APT28 (Fancy Bear)**: 使用LinkedIn Sales Navigator、Hunter.io、GitHub搜索收集目标邮箱
+- **APT29 (Cozy Bear)**: 通过证书透明度日志、GitHub代码泄露、供应商网站收集信息
+- **APT1 (Comment Crew)**: 从技术博客、Stack Overflow、会议网站收集开发者邮箱
+- **Lazarus Group**: 使用专业邮箱查找工具、泄露数据库、LinkedIn收集金融行业员工信息
 
 ```bash
-# 1. 员工信息收集
-# LinkedIn
-linkedin-scraper target-company
-# 提取：姓名、职位、邮箱、技能
+# ============================================
+# 1. 专业邮箱查找工具（APT28/APT29常用）
+# ============================================
 
-# 2. 邮箱收集
-# Hunter.io
-curl "https://api.hunter.io/v2/domain-search?domain=${TARGET_DOMAIN}&api_key=${HUNTER_API}"
+# Hunter.io（最常用 - APT28案例中使用）
+HUNTER_API="your_api_key"
+curl -s "https://api.hunter.io/v2/domain-search?domain=${TARGET_DOMAIN}&api_key=${HUNTER_API}" | \
+    jq -r '.data.emails[] | "\(.value)|\(.first_name)|\(.last_name)|\(.position)|\(.confidence)"'
 
-# 3. 子域名枚举
-subfinder -d $TARGET_DOMAIN -all -silent
-amass enum -passive -d $TARGET_DOMAIN
+# EmailHunter（APT29案例中使用）
+EMAILHUNTER_API="your_api_key"
+curl -s "https://api.emailhunter.co/v2/domain-search?domain=${TARGET_DOMAIN}&api_key=${EMAILHUNTER_API}" | \
+    jq -r '.emails[] | "\(.value)|\(.sources[].uri)"'
 
-# 4. 技术栈识别
-whatweb $TARGET_DOMAIN
+# Clearbit（企业数据 - APT28案例中使用）
+CLEARBIT_API="your_api_key"
+curl -s "https://person.clearbit.com/v2/combined/find?domain=${TARGET_DOMAIN}" \
+    -H "Authorization: Bearer ${CLEARBIT_API}" | jq '.'
+
+# RocketReach（需要付费 - Lazarus Group使用类似工具）
+ROCKETREACH_API="your_api_key"
+curl -s "https://api.rocketreach.co/v2/api/search?domain=${TARGET_DOMAIN}" \
+    -H "Api-Key: ${ROCKETREACH_API}" | jq '.'
+
+# ============================================
+# 2. LinkedIn深度挖掘（APT28/Fancy Bear常用）
+# ============================================
+
+# LinkedIn Sales Navigator（需要账号 - APT28真实案例）
+# 手动搜索：公司名称 → 员工列表 → 提取姓名、职位、邮箱格式
+
+# LinkedIn API（需要申请）
+LINKEDIN_TOKEN="your_token"
+curl -s "https://api.linkedin.com/v2/people-search?keywords=${TARGET_COMPANY}" \
+    -H "Authorization: Bearer ${LINKEDIN_TOKEN}" | jq '.'
+
+# Google搜索LinkedIn（免费方法 - APT1/Comment Crew使用）
+google_search="site:linkedin.com/in \"${TARGET_COMPANY}\""
+# 从搜索结果中提取员工信息
+
+# LinkedIn员工邮箱格式猜测（基于真实APT案例）
+python3 << 'PYEOF'
+def guess_email_formats(first_name, last_name, domain):
+    """基于真实APT案例的邮箱格式猜测"""
+    formats = [
+        f"{first_name.lower()}.{last_name.lower()}@{domain}",  # 最常见
+        f"{first_name.lower()}_{last_name.lower()}@{domain}",
+        f"{first_name.lower()}{last_name.lower()}@{domain}",
+        f"{first_name[0].lower()}.{last_name.lower()}@{domain}",
+        f"{first_name.lower()}.{last_name[0].lower()}@{domain}",
+        f"{first_name.lower()}@{domain}",
+        f"{last_name.lower()}@{domain}",
+    ]
+    return formats
+PYEOF
+
+# ============================================
+# 3. GitHub/GitLab代码泄露（APT29 SolarWinds案例）
+# ============================================
+
+# GitHub代码搜索（APT29 SolarWinds案例中使用）
+gh api "search/code?q=${TARGET_DOMAIN}+email+OR+@${TARGET_DOMAIN}&per_page=100" | \
+    jq -r '.items[] | "\(.html_url)|\(.path)"'
+
+# GitHub用户搜索
+gh api "search/users?q=company:${TARGET_COMPANY}" | \
+    jq -r '.items[] | "\(.login)|\(.email)|\(.html_url)"'
+
+# GitHub提交历史中的邮箱（APT29常用）
+gh api "search/commits?q=author-email:@${TARGET_DOMAIN}" | \
+    jq -r '.items[] | "\(.author.email)|\(.commit.message)"'
+
+# GitLab搜索（APT1/Comment Crew使用）
+curl -s "https://gitlab.com/api/v4/search?scope=users&search=${TARGET_COMPANY}" | \
+    jq -r '.[] | "\(.username)|\(.email)"'
+
+# ============================================
+# 4. 公司网站爬取（APT1/Comment Crew常用）
+# ============================================
+
+# 爬取常见页面（联系、关于、团队页面）
+pages=(
+    "/contact"
+    "/about"
+    "/team"
+    "/staff"
+    "/people"
+    "/leadership"
+    "/management"
+)
+
+for page in "${pages[@]}"; do
+    curl -s "https://${TARGET_DOMAIN}${page}" | \
+        grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+done | sort -u
+
+# ============================================
+# 5. 证书透明度日志（APT29常用 - SolarWinds案例）
+# ============================================
+
+# 从证书中提取邮箱（APT29 SolarWinds案例中使用）
+curl -s "https://crt.sh/?q=%.${TARGET_DOMAIN}&output=json" | \
+    jq -r '.[] | .name_value' | \
+    grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' | \
+    sort -u
+
+# ============================================
+# 6. 社交媒体挖掘（APT28/Fancy Bear常用）
+# ============================================
+
+# Twitter（APT28案例中使用）
+twint -s "@${TARGET_COMPANY} OR from:${TARGET_COMPANY}" --limit 1000 -o twitter_data.json
+# 从Twitter bio和推文中提取邮箱
+
+# Facebook（如果公开）
+# 搜索公司页面，提取公开的员工信息
+
+# Instagram
+# 搜索公司账号，从bio和帖子中提取信息
+
+# ============================================
+# 7. 泄露数据库查询（Lazarus Group常用）
+# ============================================
+
+# Have I Been Pwned（Lazarus Group使用）
+HIBP_API="your_api_key"
+curl -s "https://haveibeenpwned.com/api/v3/breachedaccount/test@${TARGET_DOMAIN}" \
+    -H "hibp-api-key: ${HIBP_API}" | jq '.'
+
+# DeHashed（需要API - Lazarus Group使用类似服务）
+DEHASHED_API="your_api_key"
+curl -s "https://api.dehashed.com/search?query=domain:${TARGET_DOMAIN}" \
+    -H "Accept: application/json" \
+    -u "${DEHASHED_API}:" | jq '.'
+
+# ============================================
+# 8. WHOIS信息提取（APT28常用）
+# ============================================
+
+whois $TARGET_DOMAIN | grep -iE "email|e-mail|@" | \
+    grep -vE "privacy|proxy|whois" | \
+    sed 's/.*@/@/' | sort -u
+
+# ============================================
+# 9. 会议和活动信息（APT1/Comment Crew常用）
+# ============================================
+
+# Eventbrite（APT1/Comment Crew使用）
+google_search="site:eventbrite.com ${TARGET_COMPANY}"
+# 从活动页面提取组织者邮箱
+
+# Meetup
+google_search="site:meetup.com ${TARGET_COMPANY}"
+# 从Meetup页面提取组织者邮箱
+
+# 技术会议网站
+# 搜索目标公司员工作为演讲者的会议，提取联系邮箱
+
+# ============================================
+# 10. 新闻稿和媒体报道（APT28常用）
+# ============================================
+
+# 公司新闻稿（APT28案例中使用）
+google_search="site:${TARGET_DOMAIN} press release OR news"
+# 从新闻稿中提取联系人邮箱
+
+# 媒体报道
+google_search="${TARGET_COMPANY} interview OR quote"
+# 从媒体报道中提取被采访者信息
+
+# ============================================
+# 11. 招聘网站（APT29常用）
+# ============================================
+
+# LinkedIn Jobs（APT29案例中使用）
+google_search="site:linkedin.com/jobs ${TARGET_COMPANY}"
+# 从招聘信息中提取HR邮箱
+
+# Indeed
+google_search="site:indeed.com ${TARGET_COMPANY}"
+# 从招聘信息中提取联系邮箱
+
+# Glassdoor
+google_search="site:glassdoor.com ${TARGET_COMPANY}"
+# 从公司页面提取信息
+
+# ============================================
+# 12. 技术博客和论坛（APT1/Comment Crew常用）
+# ============================================
+
+# Stack Overflow（APT1/Comment Crew使用）
+google_search="site:stackoverflow.com/users ${TARGET_COMPANY}"
+# 从用户profile中提取邮箱
+
+# Medium
+google_search="site:medium.com/@ ${TARGET_COMPANY}"
+# 从作者页面提取邮箱
+
+# Dev.to
+google_search="site:dev.to ${TARGET_COMPANY}"
+# 从作者页面提取邮箱
+
+# ============================================
+# 13. 供应商和合作伙伴网站（供应链攻击面）
+# ============================================
+
+# 从合作伙伴新闻稿中收集（APT29 SolarWinds案例）
+google_search="partner ${TARGET_COMPANY} OR vendor ${TARGET_COMPANY}"
+# 从合作伙伴网站查找目标公司联系人
+
+# ============================================
+# 14. 域名历史记录（APT29常用）
+# ============================================
+
+# SecurityTrails（APT29 SolarWinds案例中使用）
+SECURITYTRAILS_API="your_api_key"
+curl -s "https://api.securitytrails.com/v1/history/${TARGET_DOMAIN}/dns/a" \
+    -H "APIKEY: ${SECURITYTRAILS_API}" | jq '.'
+
+# ViewDNS
+curl -s "https://viewdns.info/iphistory/?domain=${TARGET_DOMAIN}" | \
+    grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}"
+
+# ============================================
+# 15. 子域名枚举（APT29 SolarWinds案例）
+# ============================================
+
+subfinder -d $TARGET_DOMAIN -all -silent -o subdomains.txt
+amass enum -passive -d $TARGET_DOMAIN -o amass.txt
+assetfinder --subs-only $TARGET_DOMAIN >> subdomains.txt
+
+# 证书透明度（APT29 SolarWinds案例中使用）
+curl -s "https://crt.sh/?q=%.${TARGET_DOMAIN}&output=json" | \
+    jq -r '.[].name_value' | sort -u >> subdomains.txt
+
+sort -u subdomains.txt > final_subdomains.txt
+
+# ============================================
+# 16. 技术栈识别（APT29常用）
+# ============================================
+
+whatweb $TARGET_DOMAIN --aggression 3
 wappalyzer $TARGET_DOMAIN
+nuclei -l final_subdomains.txt -t ~/nuclei-templates/technologies/ -o tech_stack.txt
 
-# 5. 代码仓库搜索
-gh api "search/code?q=${TARGET_COMPANY}+password+OR+api_key+OR+secret"
+# ============================================
+# 17. 邮箱验证工具
+# ============================================
 
-# 6. 证书透明度
-curl "https://crt.sh/?q=%.${TARGET_DOMAIN}&output=json" | jq -r '.[].name_value' | sort -u
+# SMTP验证（APT28/APT29使用）
+python3 << 'PYEOF'
+import smtplib
+import dns.resolver
 
-# 7. 社交媒体监控
-# Twitter搜索
-twint -s "${TARGET_COMPANY}" --limit 100
+def verify_email_smtp(email):
+    """SMTP邮箱验证 - APT28/APT29使用类似方法"""
+    domain = email.split('@')[1]
+    try:
+        mx_records = dns.resolver.resolve(domain, 'MX')
+        mx_record = str(mx_records[0].exchange)
+        
+        server = smtplib.SMTP()
+        server.connect(mx_record)
+        server.helo(server.local_hostname)
+        server.mail('test@example.com')
+        code, message = server.rcpt(email)
+        server.quit()
+        
+        return code == 250
+    except:
+        return False
+PYEOF
 
-# 8. 泄露数据库查询
-# Have I Been Pwned
-curl "https://haveibeenpwned.com/api/v3/breachedaccount/${EMAIL}"
-
-# 9. 域名历史
-curl "https://api.securitytrails.com/v1/history/${TARGET_DOMAIN}/dns/a" \
-    -H "APIKEY: ${SECURITYTRAILS_API}"
+# 使用专业验证服务（Lazarus Group使用）
+# ZeroBounce, NeverBounce, EmailListVerify
 ```
 
 ---
