@@ -1,0 +1,6 @@
+[!] 可能的信息泄露: https://openapi.lightnode.com/api/test/../../etc/passwd
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] 可能的信息泄露: https://openapi.lightnode.com/api/test/%2e%2e%2f%2e%2e%2fetc%2fpasswd
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---

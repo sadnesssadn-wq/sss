@@ -1,0 +1,50 @@
+=== https://www.lightnode.com ===
+HTTP/2 200 
+date: Wed, 12 Nov 2025 07:22:43 GMT
+content-type: text/html; charset=utf-8
+server: cloudflare
+x-powered-by: Next.js
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+vary: Accept-Encoding
+strict-transport-security: max-age=31536000
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=%2F6UhnelKoyJ5ZxaDFscpqJHuUhiMC6U7G1E%2FMmhi8lqduJjsx6yiu4zImeUET1An77WwXxuQcLVbzxzq6h9VNInTjAQ5%2B%2BNC6U1LUXqj"}]}
+cf-ray: 99d447a0f9f6706c-PDX
+alt-svc: h3=":443"; ma=86400
+
+
+CSP: 未设置
+WAF: 检测到防护
+
+=== https://console.lightnode.com ===
+HTTP/2 200 
+date: Wed, 12 Nov 2025 07:22:44 GMT
+content-type: text/html; charset=UTF-8
+server: cloudflare
+strict-transport-security: max-age=31536000
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=lcZvhJYiYNPOoV7GYhKbbyQ6uFXKP3HdcSzb2dR3egZRopm2xN6PPkHHlRsfhIZHhdXUHJKX9ZfHgo5zSNcNx7XjFwFlAauZftyycqC6Agiy5g%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-ray: 99d447abcc53fef5-PDX
+alt-svc: h3=":443"; ma=86400
+
+
+CSP: 未设置
+WAF: 检测到防护
+
+=== https://openapi.lightnode.com ===
+HTTP/2 401 
+date: Wed, 12 Nov 2025 07:22:45 GMT
+content-type: application/json
+server: cloudflare
+cf-cache-status: DYNAMIC
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Zgbx9n78vOqN0Wm7jabjtyL1KMUFbbspHl2I7XPc3%2B3Fp5YCMf0f%2FN1rGhToTy6XBEjd2L0ovOPWroohBySaKZv3HMAZRbHthu1RAy%2FSHEdIrA%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+cf-ray: 99d447afe9e0ff19-PDX
+alt-svc: h3=":443"; ma=86400
+
+
+CSP: 未设置
+WAF: 未检测到明显防护
+
