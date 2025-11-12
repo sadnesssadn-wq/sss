@@ -1,0 +1,33 @@
+[+] 检查: apidoc.lightnode.com
+HTTP/1.1 200 OK
+[+] 检查: console.lightnode.com
+HTTP/2 200 
+[+] 检查: doc.lightnode.com
+HTTP/2 200 
+[+] 检查: go.lightnode.com
+HTTP/2 103 
+[+] 检查: go-ru.lightnode.com
+HTTP/2 301 
+location: https://go.lightnode.com/ru/
+[+] 检查: openapi.lightnode.com
+HTTP/2 401 
+[+] 检查: t1.lightnode.com
+HTTP/2 526 
+[+] 检查: t2.lightnode.com
+HTTP/2 526 
+[+] 检查: t3.lightnode.com
+HTTP/2 526 
+[+] 检查: t4.lightnode.com
+HTTP/2 526 
+[+] 检查: test1.lightnode.com
+HTTP/2 526 
+[+] 检查: test2.lightnode.com
+HTTP/2 526 
+[+] 检查: ttt.lightnode.com
+HTTP/2 526 
+[+] 检查: vnc.lightnode.com
+HTTP/2 404 
+[+] 检查: wp1.lightnode.com
+HTTP/2 526 
+[+] 检查: www.lightnode.com
+HTTP/2 200 

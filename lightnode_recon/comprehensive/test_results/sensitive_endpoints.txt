@@ -1,0 +1,154 @@
+[!] https://console.lightnode.com/api/admin (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932154039}
+---
+[!] https://openapi.lightnode.com/api/admin (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/users (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932154893}
+---
+[!] https://openapi.lightnode.com/api/users (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/config (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932155707}
+---
+[!] https://openapi.lightnode.com/api/config (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/secrets (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932156165}
+---
+[!] https://openapi.lightnode.com/api/secrets (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/keys (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932156639}
+---
+[!] https://openapi.lightnode.com/api/keys (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/tokens (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932157088}
+---
+[!] https://openapi.lightnode.com/api/tokens (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/auth (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932157561}
+---
+[!] https://openapi.lightnode.com/api/auth (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/v1/admin (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932158027}
+---
+[!] https://openapi.lightnode.com/api/v1/admin (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/api/v1/users (HTTP 400)
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762932158482}
+---
+[!] https://openapi.lightnode.com/api/v1/users (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/admin (HTTP 200)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+---
+[!] https://openapi.lightnode.com/admin (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/internal (HTTP 200)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+---
+[!] https://openapi.lightnode.com/internal (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/debug (HTTP 200)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+---
+[!] https://openapi.lightnode.com/debug (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---
+[!] https://console.lightnode.com/test (HTTP 200)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+---
+[!] https://openapi.lightnode.com/test (HTTP 401)
+{"code":"Authenticated.Error","httpStatus":401,"message":"The current request is not authenticated and access is not allowed"}
+---

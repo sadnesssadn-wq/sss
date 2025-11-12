@@ -1,0 +1,80 @@
+[+] === 深度信息收集开始 ===
+[+] 从GitHub贡献者提取员工信息...
+[+] 检查用户: 0405degrees
+[+] 检查用户: 0xachilles509
+[+] 检查用户: 0xfoobar
+[+] 检查用户: 42piratas
+[+] 检查用户: Abhishekkochar
+[+] 检查用户: alejodosr
+[+] 检查用户: alicjakujawa
+[+] 检查用户: AmitKochar1
+[+] 检查用户: antonyip
+[+] 检查用户: area
+[+] 检查用户: ArmandoGraterol
+[+] 检查用户: arrenv
+[+] 检查用户: bingen
+[+] 检查用户: bjt54
+[+] 检查用户: bpierre
+[+] 检查用户: calebsheridan
+[+] 检查用户: ceolson01
+[+] 检查用户: cfl0ws
+[+] 检查用户: cgewecke
+[+] 检查用户: chefcardano
+[+] 检查用户: chefcardano1
+[+] 检查用户: chinins
+[+] 检查用户: chmanie
+[+] 检查用户: coyotespike
+[+] 检查用户: Cryptocool1
+[+] 检查用户: cryptomanz1
+[+] 检查用户: dan13ram
+[+] 检查用户: danbr
+[+] 检查用户: Davidutro
+[+] 检查用户: dit7ya
+[+] 检查用户: dizzy
+[+] 检查用户: elenadimitrova
+[+] 检查用户: EnoRage
+[+] 检查用户: erience
+[+] 检查用户: ethview
+[+] 检查用户: fallafeljan
+[+] 检查用户: FiberJW
+[+] 检查用户: geleeroyale
+[+] 检查用户: ghettodev
+[+] 检查用户: gichiba
+[+] 检查用户: gonzalaga
+[+] 检查用户: GriffGreen
+[+] 检查用户: hewigovens
+[+] 检查用户: iamchrissmith
+[+] 检查用户: Iamdeadlyz
+[+] 检查用户: igorline
+[+] 员工候选: 0 个
+[+] 从GitHub提交历史提取邮箱...
+[+] 检查仓库: aurora423/next-lightnode-frontend
+[+] 检查仓库: LightNodeStaking/lightnodecontracts
+[+] 从提交历史发现邮箱: 0 个
+[+] API端点深度测试...
+[+] 测试: https://console.lightnode.com/graphql
+[+] 测试: https://console.lightnode.com/openapi.json
+[+] 测试: https://console.lightnode.com/swagger
+[+] 测试: https://openapi.lightnode.com
+[+] 技术栈深度识别...
+[+] 分析: https://www.lightnode.com
+[+] 分析: https://console.lightnode.com
+[+] 发现package.json
+[+] GitHub仓库深度挖掘...
+[+] 发现仓库: 100 个
+[+] 检查仓库: neuecc/LightNode
+[+] 发现.env文件: neuecc/LightNode
+[+] 发现配置文件: neuecc/LightNode/config.json
+[+] 发现配置文件: neuecc/LightNode/config.js
+[+] 发现配置文件: neuecc/LightNode/settings.json
+[+] 发现配置文件: neuecc/LightNode/secrets.json
+[+] 发现配置文件: neuecc/LightNode/.env.example
+[+] 检查仓库: incrementalcode/lightnode
+[+] 发现.env文件: incrementalcode/lightnode
+[+] 发现配置文件: incrementalcode/lightnode/config.json
+[+] 发现配置文件: incrementalcode/lightnode/config.js
+[+] 发现配置文件: incrementalcode/lightnode/settings.json
+[+] 发现配置文件: incrementalcode/lightnode/secrets.json
+[+] 发现配置文件: incrementalcode/lightnode/.env.example
+[+] 检查仓库: renproject/lightnode
+[+] 发现.env文件: renproject/lightnode

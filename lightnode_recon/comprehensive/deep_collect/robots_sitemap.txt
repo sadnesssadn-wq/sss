@@ -1,0 +1,100 @@
+=== https://www.lightnode.com ===
+robots.txt:
+User-agent: *
+Allow: /
+Disallow: /maintenance.html
+Disallow: /zh-CN/contentDetail/170
+
+
+Sitemap:https://www.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap-ru.xml
+Sitemap:https://www.lightnode.com/sitemap-speed.xml
+Sitemap:https://www.lightnode.com/sitemap-news.xml
+sitemap.xml:
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+   xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+   xmlns:xhtml="http://www.w3.org/1999/xhtml"
+   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+   xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+   <url>
+      <loc>https://www.lightnode.com/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://www.lightnode.com/ru-RU</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.9</priority>
+   </url>
+   <url>
+      <loc>https://www.lightnode.com/ru-RU/aboutUs</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://www.lightnode.com/ru-RU/privacyPolicy</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.7</priority>
+   </url>
+   <url>
+      <loc>https://www.lightnode.com/ru-RU/product</loc>
+      <changefreq>daily</changefreq>
+      <priority>0.6</priority>
+---
+=== https://console.lightnode.com ===
+robots.txt:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+
+sitemap.xml:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+    </script>
+    <script>
+      //! umi version: 3.5.22
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-193500388-2"
+      async="true"
+    ></script>
+    <script async="true">
+      if ("UA-193500388-2") {
+---

@@ -1,0 +1,7 @@
+[+] 测试方法: GET
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930741510}[+] 测试方法: POST
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930741752}[+] 测试方法: PUT
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930741985}[+] 测试方法: DELETE
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930742214}[+] 测试方法: PATCH
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930742438}[+] 测试方法: OPTIONS
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930742665}[+] 测试方法: HEAD

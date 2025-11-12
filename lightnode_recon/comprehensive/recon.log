@@ -1,0 +1,100 @@
+[+] === LightNode 全面信息收集开始 ===
+[+] 目标: lightnode.com
+[+] 时间: Wed Nov 12 07:06:28 AM UTC 2025
+[+] === 1. 员工信息深度收集 ===
+[+] 收集LinkedIn员工信息...
+[+] 从GitHub收集员工信息...
+[+] 从证书透明度收集邮箱...
+[+] 从WHOIS收集联系信息...
+[+] 从社交媒体收集信息...
+[+] 员工信息收集完成
+[+] === 2. 子域名全面枚举 ===
+[+] 证书透明度查询...
+[+] 被动DNS查询...
+[+] DNS暴力破解...
+[+] 发现子域名: www.lightnode.com -> 104.26.15.210
+[+] 发现子域名: ftp.lightnode.com -> 104.26.14.210
+[+] 发现子域名: localhost.lightnode.com -> 172.67.74.138
+[+] 发现子域名: webmail.lightnode.com -> 172.67.74.138
+[+] 发现子域名: smtp.lightnode.com -> 104.26.14.210
+[+] 发现子域名: pop.lightnode.com -> 104.26.15.210
+[+] 发现子域名: ns1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: webdisk.lightnode.com -> 104.26.15.210
+[+] 发现子域名: admin.lightnode.com -> 172.67.74.138
+[+] 发现子域名: administrator.lightnode.com -> 104.26.14.210
+[+] 发现子域名: api.lightnode.com -> 172.67.74.138
+[+] 发现子域名: api1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: api2.lightnode.com -> 104.26.15.210
+[+] 发现子域名: apis.lightnode.com -> 104.26.15.210
+[+] 发现子域名: app.lightnode.com -> 172.67.74.138
+[+] 发现子域名: apps.lightnode.com -> 104.26.14.210
+[+] 发现子域名: autodiscover.lightnode.com -> 172.67.74.138
+[+] 发现子域名: backup.lightnode.com -> 172.67.74.138
+[+] 发现子域名: blog.lightnode.com -> 104.26.15.210
+[+] 发现子域名: cdn.lightnode.com -> 104.26.14.210
+[+] 发现子域名: chat.lightnode.com -> 104.26.15.210
+[+] 发现子域名: cpanel.lightnode.com -> 104.26.15.210
+[+] 发现子域名: dev.lightnode.com -> 104.26.14.210
+[+] 发现子域名: dev1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: dev2.lightnode.com -> 104.26.15.210
+[+] 发现子域名: development.lightnode.com -> 172.67.74.138
+[+] 发现子域名: docs.lightnode.com -> 172.67.74.138
+[+] 发现子域名: email.lightnode.com -> 104.26.15.210
+[+] 发现子域名: files.lightnode.com -> 104.26.15.210
+[+] 发现子域名: forum.lightnode.com -> 172.67.74.138
+[+] 发现子域名: git.lightnode.com -> 104.26.14.210
+[+] 发现子域名: gitlab.lightnode.com -> 104.26.15.210
+[+] 发现子域名: github.lightnode.com -> 172.67.74.138
+[+] 发现子域名: help.lightnode.com -> 104.26.15.210
+[+] 发现子域名: host.lightnode.com -> 104.26.14.210
+[+] 发现子域名: imap.lightnode.com -> 172.67.74.138
+[+] 发现子域名: internal.lightnode.com -> 104.26.15.210
+[+] 发现子域名: intranet.lightnode.com -> 104.26.15.210
+[+] 发现子域名: jenkins.lightnode.com -> 104.26.15.210
+[+] 发现子域名: jira.lightnode.com -> 172.67.74.138
+[+] 发现子域名: ldap.lightnode.com -> 104.26.14.210
+[+] 发现子域名: login.lightnode.com -> 104.26.14.210
+[+] 发现子域名: m.lightnode.com -> 104.26.15.210
+[+] 发现子域名: mail1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: mail2.lightnode.com -> 104.26.14.210
+[+] 发现子域名: my.lightnode.com -> 104.26.14.210
+[+] 发现子域名: mx.lightnode.com -> 104.26.14.210
+[+] 发现子域名: new.lightnode.com -> 104.26.14.210
+[+] 发现子域名: news.lightnode.com -> 104.26.14.210
+[+] 发现子域名: ns.lightnode.com -> 172.67.74.138
+[+] 发现子域名: ns1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: ns2.lightnode.com -> 104.26.15.210
+[+] 发现子域名: old.lightnode.com -> 104.26.14.210
+[+] 发现子域名: owa.lightnode.com -> 104.26.15.210
+[+] 发现子域名: panel.lightnode.com -> 104.26.15.210
+[+] 发现子域名: pop3.lightnode.com -> 104.26.15.210
+[+] 发现子域名: portal.lightnode.com -> 172.67.74.138
+[+] 发现子域名: remote.lightnode.com -> 104.26.14.210
+[+] 发现子域名: server.lightnode.com -> 172.67.74.138
+[+] 发现子域名: shop.lightnode.com -> 104.26.15.210
+[+] 发现子域名: sip.lightnode.com -> 104.26.14.210
+[+] 发现子域名: smtp.lightnode.com -> 104.26.14.210
+[+] 发现子域名: smtp1.lightnode.com -> 104.26.14.210
+[+] 发现子域名: smtp2.lightnode.com -> 104.26.15.210
+[+] 发现子域名: sql.lightnode.com -> 104.26.14.210
+[+] 发现子域名: ssh.lightnode.com -> 172.67.74.138
+[+] 发现子域名: ssl.lightnode.com -> 172.67.74.138
+[+] 发现子域名: staging.lightnode.com -> 104.26.15.210
+[+] 发现子域名: staging1.lightnode.com -> 172.67.74.138
+[+] 发现子域名: staging2.lightnode.com -> 104.26.14.210
+[+] 发现子域名: stats.lightnode.com -> 104.26.15.210
+[+] 发现子域名: support.lightnode.com -> 104.26.15.210
+[+] 发现子域名: test.lightnode.com -> 104.26.14.210
+[+] 发现子域名: test1.lightnode.com -> 104.26.15.210
+[+] 发现子域名: test2.lightnode.com -> 104.26.14.210
+[+] 发现子域名: testing.lightnode.com -> 104.26.15.210
+[+] 发现子域名: vpn.lightnode.com -> 104.26.14.210
+[+] 发现子域名: web.lightnode.com -> 104.26.14.210
+[+] 发现子域名: webdisk.lightnode.com -> 104.26.15.210
+[+] 发现子域名: webmail.lightnode.com -> 104.26.14.210
+[+] 发现子域名: wiki.lightnode.com -> 104.26.14.210
+[+] 发现子域名: www1.lightnode.com -> 104.26.14.210
+[+] 发现子域名: www2.lightnode.com -> 104.26.14.210
+[+] 发现子域名: www3.lightnode.com -> 104.26.15.210
+[+] 发现子域名: www4.lightnode.com -> 172.67.74.138
+[+] 发现子域名: www5.lightnode.com -> 104.26.14.210

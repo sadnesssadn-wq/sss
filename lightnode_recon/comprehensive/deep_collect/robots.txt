@@ -1,0 +1,207 @@
+User-agent: *
+Allow: /
+Disallow: /maintenance.html
+Disallow: /zh-CN/contentDetail/170
+
+
+Sitemap:https://www.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap-ru.xml
+Sitemap:https://www.lightnode.com/sitemap-speed.xml
+Sitemap:https://www.lightnode.com/sitemap-news.xml<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+    </script>
+    <script>
+      //! umi version: 3.5.22
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-193500388-2"
+      async="true"
+    ></script>
+    <script async="true">
+      if ("UA-193500388-2") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "UA-193500388-2");
+      }
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=G-7VNLW8B4R0"
+      async="true"
+    ></script>
+    <script async="true">
+      if ("G-7VNLW8B4R0") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-7VNLW8B4R0");
+      }
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=AW-332115241"
+      async="true"
+    ></script>
+    <script async="true">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-332115241");
+    </script>
+    <script
+      src="https://plugin-code.salesmartly.com/js/project_365770_375799_1750315780.js"
+      async="true"
+    ></script>
+    <script async="true">
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-T3VNZML");
+    </script>
+    <script async="true">
+      var _paq = (window._paq = window._paq || []);
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push([
+        "setExcludedReferrers",
+        [
+          "accounts.google.com",
+          "doc.lightnode.com",
+          "go.lightnode.com",
+          "console.lightnode.com",
+          "hooks.stripe.com",
+          "accounts.google.co.jp",
+        ],
+      ]);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "https://matomo.lightnode.com/";
+        _paq.push(["setTrackerUrl", u + "matomo.php"]);
+        _paq.push(["setSiteId", "3"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "matomo.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <script async="true">
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "5749165861779797");
+      fbq("track", "PageView");
+    </script>
+    <script async="true">
+      !(function (w, d) {
+        if (!w.rdt) {
+          var p = (w.rdt = function () {
+            p.sendEvent
+              ? p.sendEvent.apply(p, arguments)
+              : p.callQueue.push(arguments);
+          });
+          p.callQueue = [];
+          var t = d.createElement("script");
+          (t.src = "https://www.redditstatic.com/ads/pixel.js"), (t.async = !0);
+          var s = d.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(t, s);
+        }
+      })(window, document);
+      rdt("init", "a2_hgpsf5x92g4i");
+      rdt("track", "PageVisit");
+    </script>
+  </head>
+  <body>
+    <div id="root-main"></div>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer=""
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "437ca355448e4f47ac4e9270690d7d9d"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <!-- Facebook Pixel Code -->
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=5749165861779797&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    <!--  Google Identity Services library -->
+    <script
+      src="https://accounts.google.com/gsi/client"
+      async=""
+      defer=""
+    ></script>
+    <!-- <script>
+      // Must be defined before using the reCAPTCHA component.​
+      window.recaptchaOptions = { 
+        useRecaptchaNet: true,
+      };
+    </script>
+    //Synchronization configuration global parameters​ 
+    <script>
+        window.recaptchaOptions = {
+          nonce: document.querySelector('meta[name="csp-nonce"]')?.content
+        };
+      </script> -->
+
+    <div id="root-master"></div>
+    <script src="/js/vendors.6fddceba16b0f982a4c2.11070800.async.js"></script>
+    <script src="/js/umi.f24dae2b2b82a236881b.11070800.js"></script>
+  </body>
+</html>

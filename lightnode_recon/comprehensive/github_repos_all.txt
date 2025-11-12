@@ -1,0 +1,100 @@
+neuecc/LightNode|https://github.com/neuecc/LightNode|Micro RPC/REST Framework built on OWIN
+incrementalcode/lightnode|https://github.com/incrementalcode/lightnode|A DOM inspired javascript web server control framework for nodeJS that aims for unprecented control, simplicity and the functionality of traditional servers such as apache or lightnode.
+renproject/lightnode|https://github.com/renproject/lightnode|A simple node used for interacting with Darknodes
+altangent/lightnode-invoice|https://github.com/altangent/lightnode-invoice|Lightning Network invoice protocol library
+PauloPatez/ShaderGraph_LightNodes|https://github.com/PauloPatez/ShaderGraph_LightNodes|Custom Unity Shader Graph nodes for retrieval of light information as well as Lambert and Specular Blinn-Phong with support for additional lights.
+intervalue/intervalue-lightnode-2.0-testnet|https://github.com/intervalue/intervalue-lightnode-2.0-testnet|intervalue light node (wallet) , version 2.0 testnet
+weissn220/LightNode|https://github.com/weissn220/LightNode|LightNode Coupon Codes and 2025 LightNode Latest Deals Compilation Summary
+zh4n7wm/quorum-lightnode-py|https://github.com/zh4n7wm/quorum-lightnode-py|quorum lightnode
+Apollo-Sync/Avail-Lightnode|https://github.com/Apollo-Sync/Avail-Lightnode|null
+LightNodeStaking/lightnodecontracts|https://github.com/LightNodeStaking/lightnodecontracts|null
+intervalue/intervalue-lightnodecore-2.0-testnet|https://github.com/intervalue/intervalue-lightnodecore-2.0-testnet|null
+aurora423/next-lightnode-frontend|https://github.com/aurora423/next-lightnode-frontend|Lightnode frontend Platform
+PrasoonPratham/celestia-lightnode-docker-arabica|https://github.com/PrasoonPratham/celestia-lightnode-docker-arabica|Celestia light node docker image
+0xNineteen/sol-lightnode|https://github.com/0xNineteen/sol-lightnode|null
+EthereumPhone/LightNodeStats|https://github.com/EthereumPhone/LightNodeStats|Simple app that shows the stats of the running light node service on ethOS
+intervalue/intervalue-lightnode-3.0-testnet|https://github.com/intervalue/intervalue-lightnode-3.0-testnet|null
+0xtnpxsgt/L-Edge-LightNode|https://github.com/0xtnpxsgt/L-Edge-LightNode|null
+itn3000/LightNode.Benchmark|https://github.com/itn3000/LightNode.Benchmark|benchmarking for LightNode(https://github.com/neuecc/LightNode)
+lightnode/lightnode.github.io|https://github.com/lightnode/lightnode.github.io|lightnode Personal Site
+testcryptoemail/Nubit_lightnode_test1|https://github.com/testcryptoemail/Nubit_lightnode_test1|Nubit_lightnode_test1
+lightnode/lightnode93|https://github.com/lightnode/lightnode93|lightnode93 is an ecosystem improvement proposal utilizing multiple networks engineered to interoperate with one another so that the different parts make up a bigger and better whole.
+SuelThomasj75/LightNode|https://github.com/SuelThomasj75/LightNode|LightNode怎么样？LightNode介绍和测评
+TEE220/Nubit-lightnode|https://github.com/TEE220/Nubit-lightnode|nubit lightnode testnet
+dollarwise/Avail-lightnode|https://github.com/dollarwise/Avail-lightnode|My avail lightnode
+JonathanPorta/lightnode|https://github.com/JonathanPorta/lightnode|lighttpd, nodejs and couchdb installer.
+shairaz01/lightnode|https://github.com/shairaz01/lightnode|null
+mhafidi/lightnode|https://github.com/mhafidi/lightnode|null
+JorgeMrtnzG/lightnode|https://github.com/JorgeMrtnzG/lightnode|Uploader to s3
+EricMiddleton1/LightNode-RPi|https://github.com/EricMiddleton1/LightNode-RPi|LightNode implementation for Raspberry Pi
+ramdhani101/celestia-lightnode-blockspacerace|https://github.com/ramdhani101/celestia-lightnode-blockspacerace|Celestia lightnode tutorial 
+clarissace/Nubit-lightnode|https://github.com/clarissace/Nubit-lightnode|run nubit lightnode
+TrustlessComputer/lightnode|https://github.com/TrustlessComputer/lightnode|null
+xuio/lightnode|https://github.com/xuio/lightnode|universal lighting controller
+Lambo05/LIGHTNODE-LAYER|https://github.com/Lambo05/LIGHTNODE-LAYER|null
+sambacha/lightnode|https://github.com/sambacha/lightnode|null
+Stride-Labs/lightnode|https://github.com/Stride-Labs/lightnode|zzz, a light node script
+MFornander/LightNode|https://github.com/MFornander/LightNode|Custom PCB as part of LightSwarm
+ledek/lightnode|https://github.com/ledek/lightnode|null
+Rhinozone666/Lightnode|https://github.com/Rhinozone666/Lightnode|null
+latuan1987/nubit_lightnode|https://github.com/latuan1987/nubit_lightnode|null
+Peeliye/avail-lightnode|https://github.com/Peeliye/avail-lightnode|null
+ludolphus/xenblocks-voter|https://github.com/ludolphus/xenblocks-voter|Xenblocks lightnode (NodeJS version)
+berkahyy/avail-lightnode|https://github.com/berkahyy/avail-lightnode|null
+Holyboy9/nubit_lightnode|https://github.com/Holyboy9/nubit_lightnode|null
+Faceless01/NUBIT-LIGHTNODE|https://github.com/Faceless01/NUBIT-LIGHTNODE|null
+sonabtc/lightnode|https://github.com/sonabtc/lightnode|null
+suritri/lightnodenubit|https://github.com/suritri/lightnodenubit|null
+omarAboElWafa/lightNode|https://github.com/omarAboElWafa/lightNode|A light-weight, reusable, and object-oriented, structure (framwork) built with Node.
+walkietalky/lightnodeavail|https://github.com/walkietalky/lightnodeavail|null
+EthereumPhone/lightnodeapp|https://github.com/EthereumPhone/lightnodeapp|The Light Node app, to run a light node as a foreground service
+guitarrapc/LightNodeSample|https://github.com/guitarrapc/LightNodeSample|Owin Selfhost with LightNode Sample
+EricMiddleton1/LightNode-TV|https://github.com/EricMiddleton1/LightNode-TV|null
+EricMiddleton1/LightNode-Bulb|https://github.com/EricMiddleton1/LightNode-Bulb|null
+gorogith/lightnode-edge|https://github.com/gorogith/lightnode-edge|null
+nirvana756/lightnodetest|https://github.com/nirvana756/lightnodetest|null
+TrustlessComputer/lightnode-website|https://github.com/TrustlessComputer/lightnode-website|null
+octariojr/nubit_lightnode|https://github.com/octariojr/nubit_lightnode|null
+hanhmyyh/lightnode-nubit|https://github.com/hanhmyyh/lightnode-nubit|null
+CommanderPaul/lightNode|https://github.com/CommanderPaul/lightNode|Simple auto deploy for an nginx web server with automated tls.
+LibreCash/oracle-lightnode|https://github.com/LibreCash/oracle-lightnode|LibreBank oracle lightnode (rate fetcher && blockchain pusher) repo
+peysbd/avail-lightnode|https://github.com/peysbd/avail-lightnode|null
+Apollo-Sync/Dill-Lightnode|https://github.com/Apollo-Sync/Dill-Lightnode|null
+Lannakin/literallysomecat_lightnodeslists|https://github.com/Lannakin/literallysomecat_lightnodeslists|null
+Sensei-Node/celestia-lightnode|https://github.com/Sensei-Node/celestia-lightnode|Celestia light node
+gemsfinderid/avail-lightnode|https://github.com/gemsfinderid/avail-lightnode|null
+DanielKernyuy/NUBIT-LIGHTNODE|https://github.com/DanielKernyuy/NUBIT-LIGHTNODE|null
+EricMiddleton1/LightNode|https://github.com/EricMiddleton1/LightNode|null
+matrazy47/Avail_lightnode|https://github.com/matrazy47/Avail_lightnode|null
+noisbyboy/lightnode-layeredge|https://github.com/noisbyboy/lightnode-layeredge|null
+JoshuaDimeji/avail_testnet|https://github.com/JoshuaDimeji/avail_testnet|A test repository for Avail lightnode
+sajidvai1/Nubit-lightnode|https://github.com/sajidvai1/Nubit-lightnode|null
+zeshthegreat/Nubit-lightNode|https://github.com/zeshthegreat/Nubit-lightNode|null
+metahashorg/btc-lightnode-client|https://github.com/metahashorg/btc-lightnode-client|Client to work with BTC
+NeilBarns/LightNode-online|https://github.com/NeilBarns/LightNode-online|null
+Boiico/Nubit.LightNode|https://github.com/Boiico/Nubit.LightNode|Nubit LightNode Running Step by Step
+didchain/didchain-lightnode-go|https://github.com/didchain/didchain-lightnode-go|light node for distribute identity chain
+chris2590/LightNodeNubit|https://github.com/chris2590/LightNodeNubit|null
+DaMarkov/iota_lightnode.js|https://github.com/DaMarkov/iota_lightnode.js|A high-level wrapper for the IOTA Javascript Library iota.lib.js
+adaamhd/nubit_lightnode|https://github.com/adaamhd/nubit_lightnode|null
+DarksunNodes/celestia-lightnode|https://github.com/DarksunNodes/celestia-lightnode|null
+Youngdreezzy/New-Avail-lightnode|https://github.com/Youngdreezzy/New-Avail-lightnode|null
+kuzicode/eth.lightnode.scripts|https://github.com/kuzicode/eth.lightnode.scripts|geth scripts for linux
+joycedah12345/LightNodeTest|https://github.com/joycedah12345/LightNodeTest|null
+Josefchizurum/Nubit-lightnode|https://github.com/Josefchizurum/Nubit-lightnode|null
+LightNodes/LightNodes|https://github.com/LightNodes/LightNodes|null
+anishabudha123/LightNodeTestnet|https://github.com/anishabudha123/LightNodeTestnet|null
+computeslaves/Proof-Nubit-Lightnode|https://github.com/computeslaves/Proof-Nubit-Lightnode|Nubit Alpha Testnet Campaign
+EricMiddleton1/LightNode-Visualizer|https://github.com/EricMiddleton1/LightNode-Visualizer|Fullscreen, blurred visualizer implementation of a LightNode matrix
+NeilBarns/LightNode-offline|https://github.com/NeilBarns/LightNode-offline|Arduino/Wemos
+actuallymentor/docker-geth-lightnode|https://github.com/actuallymentor/docker-geth-lightnode|null
+metahashorg/eth-lightnode-client|https://github.com/metahashorg/eth-lightnode-client|Client to work with ETH
+bagusazani93/nubit-lightnode-bagusazani|https://github.com/bagusazani93/nubit-lightnode-bagusazani|null
+keeeli/iota-lightnode-servers-list|https://github.com/keeeli/iota-lightnode-servers-list|null
+sinobili/CelestiaLightnodeUiTask|https://github.com/sinobili/CelestiaLightnodeUiTask|null
+ReguideWIKI/Celetisa-LightNode-PFB|https://github.com/ReguideWIKI/Celetisa-LightNode-PFB|null
+XuWong/UCOT-Android-Lightnode-Demo|https://github.com/XuWong/UCOT-Android-Lightnode-Demo|null
+EricMiddleton1/LightNode-Analog|https://github.com/EricMiddleton1/LightNode-Analog|LightNode implementation supporting 5 analog LED strips on Raspberry Pi
+astastagea/nubit-testnet-lightnode|https://github.com/astastagea/nubit-testnet-lightnode|nubit testnet
+silentnoname/celestia-lightnode-monitor|https://github.com/silentnoname/celestia-lightnode-monitor|null
+hallenDev/LightNode-Staking|https://github.com/hallenDev/LightNode-Staking|null

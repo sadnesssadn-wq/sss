@@ -1,0 +1,4 @@
+https://console.lightnode.com/graphql|GET|200
+https://console.lightnode.com/openapi.json|GET|200
+https://console.lightnode.com/swagger|GET|200
+https://openapi.lightnode.com|GET|401

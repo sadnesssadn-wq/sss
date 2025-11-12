@@ -1,0 +1,20 @@
+a394bd9d360ee1883b69df9ace5041a886c9f90e|modify link url
+7f205683b059988bdfddb592501ec49c9ffa119f|uniswap v3 integration funtions, added uniswap modulles
+aad12cdfbf1f9d082a07efe6f9aa3e955a84b7a7|prettier formatting and update disconnect button
+a0be5357091d04631da329e189aa3658dbe77100|stETH amount calculation and fix error
+96069bc19edf8cb51ef053e5e784ff98440df2e1|add ethers, stake implementation
+883ff3ee4bda5ef7b521864100dcb54d651fba1d|added lightnode smart contract abi
+f63eacdea1fddfe8dba10af83c80157665f7444f|added medium link, remove placeholder
+a4f518520a86b6d49ba7446e9587a3068ae88460|updating landing page contents
+7a09666cf77c19524020c9bca9bdf2fa80d1f428|removing warning
+c83d5858341346695902259eb24d744279c8a6da|added white paper
+b8cf3e27c14d5420cfffc24c78cd76d6f392086a|update telegram link
+173cb2d59b5f050a2eceef9cc81b6ffce3b1256c|add social links
+e0ba93895d4278495262d132055a37f85012f344|connect wallet, web3 integration
+59d67af4b4e4c52d72b96aeb7cfd1c4855d00003|added web3-react
+2eec902106a932cb23701c45768d53fbcdc7d02a|added animation, simplified contents
+a98c0ba9f5e6223018d295368b17ab8e157e20ba|improved farming pool page, table
+49b65ae848db588d05791a80cfd03c3c0f091818|table, modal, farming page, add assets
+a1ff389a90de6c0f8e9697ef3e323b5ceaed1ab5|added stats card, staking pool page & check, input component
+d7cf827e62efad27b460e62038dd445534879c71|update charts, html error, switch button
+86bf19c57cbf788f7b5618ece8cc1514f1a472f1|added recharts module, drawer overlapping issue

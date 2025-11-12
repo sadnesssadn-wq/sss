@@ -1,0 +1,81 @@
+[+] === 开始 hosteons.com 深度邮箱收集 ===
+[+] === 从GitHub深度挖掘邮箱 ===
+[+] 搜索相关仓库...
+[+] 检查仓库: hosteons/Fail2Ban-Auto-Installer-With-Jail
+[+] 检查仓库: hosteons/linux-malware-scanner
+[+] 从提交历史提取...
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从Issues和PRs提取...
+[+] === 从证书透明度提取邮箱 ===
+[+] 获取所有证书...
+[+] 从证书Subject/Issuer提取...
+[+] === 从DNS记录提取邮箱 ===
+[+] 从SPF记录提取...
+[+] 从DMARC记录提取...
+[+] 从MX记录分析...
+[+] === 从网站页面提取邮箱 ===
+[+] 提取: https://www.hosteons.com
+[+] 提取: https://www.hosteons.com/about
+[+] 提取: https://www.hosteons.com/contact
+[+] 提取: https://www.hosteons.com/team
+[+] 提取: https://hosteons.com
+[+] 提取: https://hosteons.com/about
+[+] 提取: https://hosteons.com/contact
+[+] === 从WHOIS记录提取邮箱 ===
+[+] 提取主域名WHOIS...
+[+] 提取子域名WHOIS...
+[+] === 生成邮箱变体 ===
+[+] === 合并所有邮箱 ===
+[+] 总邮箱数: 37 个
+
+所有发现的邮箱:
+abuse@hosteons.com
+accounting@hosteons.com
+admin@hosteons.com
+administrator@hosteons.com
+billing@hosteons.com
+business@hosteons.com
+careers@hosteons.com
+ceo@hosteons.com
+cfo@hosteons.com
+contact@hosteons.com
+cto@hosteons.com
+developers@hosteons.com
+dev@hosteons.com
+devops@hosteons.com
+engineering@hosteons.com
+finance@hosteons.com
+founder@hosteons.com
+founders@hosteons.com
+help@hosteons.com
+hr@hosteons.com
+info@hosteons.com
+it@hosteons.com
+jobs@hosteons.com
+kapil@hosteons.com
+legal@hosteons.com
+marketing@hosteons.com
+media@hosteons.com
+noc@hosteons.com
+partners@hosteons.com
+payments@hosteons.com
+press@hosteons.com
+privacy@hosteons.com
+sales@hosteons.com
+security@hosteons.com
+support@hosteons.com
+tech@hosteons.com
+technical@hosteons.com
+[+] === 邮箱收集完成 ===
+[+] 结果保存在: /workspace/lightnode_recon/hosteons_recon/email_collection/
+=== 邮箱收集汇总 ===
+GitHub: 4 个
+证书: 0 个
+DNS: 1 个
+网站: 0 个
+WHOIS: 0 个
+变体: 35 个
+总计: 37 个
