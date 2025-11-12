@@ -96,34 +96,59 @@ if [ "$SUBDOMAIN_COUNT" -eq 0 ] || [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
         echo "  ⚠️  Fofa查询无结果，使用多源备选方案..."
     fi
     
+    # 优化：先快速完成subfinder，立即进入攻击阶段
+    # 其他工具（amass/crt.sh）在后台运行，后续增量合并
     which subfinder >/dev/null 2>&1 && {
-        echo "  [*] 使用subfinder枚举子域名（并发30）..."
+        echo "  [*] 使用subfinder枚举子域名（并发30，完成后立即进入攻击）..."
         cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "subfinder -d {} -silent 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/subfinder.txt" 2>/dev/null
         SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
         [ "$SUBFINDER_COUNT" -gt 0 ] && echo "  ✅ subfinder找到: $SUBFINDER_COUNT 个子域名"
+        
+        # subfinder完成后立即合并并标记可以开始攻击
+        if [ "$SUBFINDER_COUNT" -gt 0 ]; then
+            cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt 2>/dev/null | \
+                sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
+                grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
+            SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
+            echo "  ✅ 已合并subfinder结果: $SUBDOMAIN_COUNT 个子域名，准备开始攻击..."
+        fi
     }
     
+    # amass和crt.sh在后台运行（不阻塞主流程）
     which amass >/dev/null 2>&1 && {
-        echo "  [*] 使用amass枚举子域名（并发30）..."
-        cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null
-        AMASS_COUNT=$(wc -l < $OUT/subdomains/amass.txt 2>/dev/null || echo 0)
-        [ "$AMASS_COUNT" -gt 0 ] && echo "  ✅ amass找到: $AMASS_COUNT 个子域名"
+        echo "  [*] 使用amass枚举子域名（后台运行，不阻塞主流程）..."
+        (cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null) &
     }
     
-    # 使用crt.sh证书透明度（高覆盖率）
-    echo "  [*] 使用crt.sh证书透明度查询（并发50）..."
-    cat $MAIN_DOMAINS | xargs -P 50 -I {} sh -c "
+    # crt.sh在后台运行
+    echo "  [*] 使用crt.sh证书透明度查询（后台运行，不阻塞主流程）..."
+    (cat $MAIN_DOMAINS | xargs -P 50 -I {} sh -c "
         domain=\"{}\"
         curl -s \"https://crt.sh/?q=%.\${domain}&output=json\" 2>/dev/null | \
             jq -r '.[].name_value' 2>/dev/null | \
             grep -vE '^\\*|^\\$' | \
             sed 's|^|http://|' | \
             sort -u >> \"$OUT/subdomains/crtsh.txt\" 2>/dev/null
-    " 2>/dev/null
-    CRTSH_COUNT=$(wc -l < $OUT/subdomains/crtsh.txt 2>/dev/null || echo 0)
-    [ "$CRTSH_COUNT" -gt 0 ] && echo "  ✅ crt.sh找到: $CRTSH_COUNT 个子域名"
+    " 2>/dev/null) &
     
-    # 合并所有来源（Fofa + subfinder + amass + crt.sh）
+    # 如果subfinder还没完成，等待至少有一些结果
+    if [ "$SUBDOMAIN_COUNT" -eq 0 ]; then
+        echo "  [*] 等待subfinder产生初始结果..."
+        for i in {1..60}; do
+            sleep 5
+            SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
+            if [ "$SUBFINDER_COUNT" -gt 100 ]; then
+                cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt 2>/dev/null | \
+                    sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
+                    grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
+                SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
+                echo "  ✅ 已有 $SUBDOMAIN_COUNT 个子域名，开始攻击（后台继续发现更多）..."
+                break
+            fi
+        done
+    fi
+    
+    # 最终合并所有来源（包括后台完成的amass/crt.sh）
     cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt $OUT/subdomains/amass.txt $OUT/subdomains/crtsh.txt 2>/dev/null | \
         sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
         grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
