@@ -1,0 +1,33 @@
+=== 9to9.co.id 完整攻击面测试汇总 ===
+
+【已发现】
+1. GraphQL端点可用（affiliate.9to9.co.id/graphql, oms.9to9.co.id/graphql）
+   - 可以创建购物车
+   - 需要认证获取敏感数据
+   
+2. Admin后台存在
+   - affiliate.9to9.co.id/admin
+   - oms.9to9.co.id/admin
+   - 需要验证弱口令
+   
+3. REST API端点
+   - 需要认证
+   - 返回"Decoding error"（可能存在注入）
+   
+4. 文件上传端点
+   - 多个端点返回302（需要认证）
+   - webmail.9to9.co.id/upload 存在但返回登录页
+
+【测试结果】
+- SQL注入：未发现明显漏洞
+- SSRF：未发现
+- 任意文件读取：日志文件返回404页面
+- 备份文件：未发现
+- GraphQL：可用但需要认证
+- Admin弱口令：需要详细验证
+
+【建议下一步】
+1. 深入验证Admin弱口令
+2. 测试GraphQL认证绕过
+3. 寻找其他攻击面
+4. 测试已知CVE漏洞

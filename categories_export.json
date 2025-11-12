@@ -1,0 +1,14 @@
+{
+  "data": {
+    "categories": {
+      "items": [
+        {
+          "name": "Default Category",
+          "url_path": null,
+          "level": 1,
+          "position": 1
+        }
+      ]
+    }
+  }
+}

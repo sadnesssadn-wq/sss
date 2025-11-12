@@ -1,0 +1,11 @@
+=== 敏感文件泄露发现 ===
+
+【发现的敏感文件】
+1. https://9to9.co.id/.env ✅
+2. https://webmail.9to9.co.id/.env ✅
+3. https://webmail.9to9.co.id/.git/config ✅
+
+【需要立即读取】
+- .env文件可能包含数据库密码、API密钥等
+- .git/config可能包含仓库信息
+- 需要读取完整内容进行分析

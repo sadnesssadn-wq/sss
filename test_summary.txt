@@ -1,0 +1,33 @@
+=== 9to9.co.id 渗透测试初步报告 ===
+
+【存活目标】
+- https://9to9.co.id (200)
+- https://tr.9to9.co.id (200) - Involve Asia Tracking Services
+- https://affiliate.9to9.co.id (200) - Magento系统
+- https://seller.9to9.co.id (302)
+- https://mail.9to9.co.id (200)
+- https://checkout.9to9.co.id (302) - Next.js应用
+- https://webmail.9to9.co.id (200) - cPanel Webmail
+- https://oms.9to9.co.id (200) - Magento系统
+
+【高价值发现】
+
+1. 403绕过成功
+   - https://tr.9to9.co.id/admin (通过X-Forwarded-For等头绕过)
+   - https://webmail.9to9.co.id/admin (通过X-Forwarded-For等头绕过)
+
+2. Magento系统识别
+   - affiliate.9to9.co.id - Magento版本需进一步确认
+   - oms.9to9.co.id - Magento系统，有登录页面
+
+3. Next.js应用
+   - checkout.9to9.co.id - 有文件上传功能（上传收据图片）
+
+4. cPanel Webmail
+   - webmail.9to9.co.id - cPanel Webmail登录页面
+
+【需要进一步测试】
+- Magento已知CVE漏洞
+- checkout.9to9.co.id的文件上传功能
+- 邮件系统的弱口令
+- GraphQL端点（graphql-proxy.9to9.co.id超时）

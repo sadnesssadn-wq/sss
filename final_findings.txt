@@ -1,0 +1,35 @@
+=== 9to9.co.id 最终发现报告 ===
+
+【重大发现】
+
+1. ✅ GraphQL端点完全开放（高风险）
+   - URL: https://oms.9to9.co.id/graphql
+   - 状态: 200 OK
+   - 内省查询: 完全开放
+   - 可以获取完整的schema信息
+   - 可以查询products、customer、orders等数据
+
+2. ✅ Magento REST API存在
+   - /rest/V1/products (需要认证)
+   - 端点存在但需要有效token
+
+3. ⚠️ 403绕过
+   - tr.9to9.co.id/admin
+   - webmail.9to9.co.id/admin
+   - 绕过方法: HTTP头注入
+
+【未发现】
+- 文件上传漏洞
+- SSRF漏洞  
+- 配置文件泄露
+- 未授权API访问（除了GraphQL）
+
+【风险评级】
+- GraphQL开放: 🔴 高风险 - 可能导致数据泄露
+- 403绕过: 🟡 中风险 - 需要进一步利用
+- Magento REST API: 🟡 中风险 - 需要认证绕过
+
+【建议】
+1. 深入测试GraphQL查询，尝试获取敏感数据
+2. 测试GraphQL批量查询和深度查询
+3. 测试Magento已知CVE漏洞

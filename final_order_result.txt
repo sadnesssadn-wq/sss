@@ -1,0 +1,19 @@
+=== 订单查询最终结果 ===
+
+【测试结果】
+
+1. getOrder查询 - 可以查询订单详情
+   - 需要order_id参数（字符串类型）
+   - 可以获取：grand_total, order_date, order_status, shipping_amount等
+   - 需要枚举订单ID
+
+2. getHistoryOrder查询 - 可以查询历史订单
+   - 需要email和channel_code参数
+   - 返回空数组（可能是邮箱不存在或需要认证）
+
+3. getSalesOrderList - 需要查看字段结构
+4. getShipmentList - 需要查看字段结构
+
+【结论】
+- 可以通过getOrder查询订单详情，但需要知道订单ID
+- 需要枚举订单ID或找到其他方式获取订单ID列表
