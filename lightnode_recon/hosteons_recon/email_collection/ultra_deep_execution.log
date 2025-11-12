@@ -1,0 +1,185 @@
+[+] === 开始 hosteons.com 超深度邮箱收集 ===
+[+] === GitHub超深度挖掘 ===
+[+] 搜索所有相关仓库...
+[+] 搜索: hosteons.com
+[+] 检查仓库: hosteons/Fail2Ban-Auto-Installer-With-Jail
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/linux-malware-scanner
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 搜索: hosteons
+[+] 检查仓库: adonicwd/HostEONS
+[+] 检查仓库: bauhaus19198/HostEONS
+[+] 检查仓库: chujiannuyou/HostEONS
+[+] 检查仓库: gayledejesus100/hostEONS
+[+] 检查仓库: hosteons/Fail2Ban-Auto-Installer-With-Jail
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/hosteons
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Initial-VPS-Setup-Script-for-Linux
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/lamp-lemp-oneclick-installer
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Linux-Hardening-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/linux-malware-scanner
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/SSH-Port-Changer-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/vpn-oneclick-installer
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Windows-RDP-Port-Changer-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: joanf6752/HostEONS
+[+] 检查仓库: lambersonavery093/HostEONS
+[+] 检查仓库: leftwich677/HostEONS
+[+] 检查仓库: meyercarolyn66/HostEONS
+[+] 检查仓库: octaplrexpi/HostEONS
+[+] 检查仓库: yolostarism/vps_Ubuntu
+[+] 搜索: hostEONS
+[+] 检查仓库: adonicwd/HostEONS
+[+] 检查仓库: bauhaus19198/HostEONS
+[+] 检查仓库: chujiannuyou/HostEONS
+[+] 检查仓库: gayledejesus100/hostEONS
+[+] 检查仓库: hosteons/Fail2Ban-Auto-Installer-With-Jail
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/hosteons
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Initial-VPS-Setup-Script-for-Linux
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/lamp-lemp-oneclick-installer
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Linux-Hardening-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/linux-malware-scanner
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/SSH-Port-Changer-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/vpn-oneclick-installer
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: hosteons/Windows-RDP-Port-Changer-Script
+[+] 生成邮箱变体: hosteons.hosteons@hosteons.com
+[+] 检查仓库: joanf6752/HostEONS
+[+] 检查仓库: lambersonavery093/HostEONS
+[+] 检查仓库: leftwich677/HostEONS
+[+] 检查仓库: meyercarolyn66/HostEONS
+[+] 检查仓库: octaplrexpi/HostEONS
+[+] 检查仓库: yolostarism/vps_Ubuntu
+[+] 搜索: hosteons.com email
+[+] 搜索: hosteons.com contact
+[+] 从所有提交历史提取...
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从提交发现: kapil@hosteons.com (hostEONS)
+[+] 从所有Issues和PRs提取...
+[+] 从GitHub Gists提取...
+jq: error (at <stdin>:13): Cannot iterate over null (null)
+[+] 从GitHub Releases提取...
+[+] 从GitHub Stargazers提取...
+[+] === 网站超深度爬取 ===
+[+] 从sitemap.xml获取所有URL...
+[+] 获取sitemap: https://www.hosteons.com/sitemap.xml
+[+] 获取sitemap: https://hosteons.com/sitemap.xml
+[+] 获取sitemap: https://www.hosteons.com/sitemap_index.xml
+[+] 爬取所有URL提取邮箱...
+[+] 从JavaScript文件提取...
+[+] === 证书透明度超深度分析 ===
+[+] 获取所有证书...
+[+] === DNS超深度提取 ===
+[+] 提取所有DNS记录...
+[+] 提取子域名DNS记录...
+[+] === WHOIS超深度提取 ===
+[+] 提取主域名WHOIS...
+[+] 提取所有子域名WHOIS...
+[+] === 生成更多邮箱变体 ===
+[+] === 合并所有邮箱 ===
+[+] 总邮箱数: 77 个
+
+所有发现的邮箱:
+account@hosteons.com
+accounts@hosteons.com
+admin.kapil@hosteons.com
+alerts@hosteons.com
+api@hosteons.com
+apis@hosteons.com
+backup@hosteons.com
+backups@hosteons.com
+cache@hosteons.com
+cdn@hosteons.com
+client@hosteons.com
+clients@hosteons.com
+customer@hosteons.com
+customerservice@hosteons.com
+database@hosteons.com
+databases@hosteons.com
+db@hosteons.com
+dns@hosteons.com
+domain@hosteons.com
+domains@hosteons.com
+hosteons@hosteons.com
+hosteons.hosteons@hosteons.com
+hosteonshosteons@hosteons.com
+host@hosteons.com
+hosting@hosteons.com
+hostmaster@hosteons.com
+infrastructure@hosteons.com
+integration@hosteons.com
+integrations@hosteons.com
+kapil123@hosteons.com
+kapil1@hosteons.com
+kapil2@hosteons.com
+kapil.admin@hosteons.com
+kapil@hosteons.com
+kapil.kapil@hosteons.com
+kapil_kapil@hosteons.com
+kapilkapil@hosteons.com
+kapil.support@hosteons.com
+member@hosteons.com
+members@hosteons.com
+monitoring@hosteons.com
+mysql@hosteons.com
+network@hosteons.com
+networks@hosteons.com
+newsletter@hosteons.com
+noc@hosteons.com
+notifications@hosteons.com
+operations@hosteons.com
+ops@hosteons.com
+partner@hosteons.com
+partners@hosteons.com
+postgres@hosteons.com
+postmaster@hosteons.com
+provider@hosteons.com
+providers@hosteons.com
+redis@hosteons.com
+reseller@hosteons.com
+resellers@hosteons.com
+root@hosteons.com
+server@hosteons.com
+servers@hosteons.com
+service@hosteons.com
+services@hosteons.com
+subscriber@hosteons.com
+subscribers@hosteons.com
+supplier@hosteons.com
+suppliers@hosteons.com
+support.kapil@hosteons.com
+system@hosteons.com
+systems@hosteons.com
+user@hosteons.com
+users@hosteons.com
+vendor@hosteons.com
+vendors@hosteons.com
+webhook@hosteons.com
+webhooks@hosteons.com
+webmaster@hosteons.com
+[+] === 超深度邮箱收集完成 ===
+[+] 结果保存在: /workspace/lightnode_recon/hosteons_recon/email_collection/
+=== 超深度邮箱收集汇总 ===
+GitHub: 64 个
+网站: 0 个
+证书: 0 个
+DNS: 1 个
+WHOIS: 0 个
+变体: 95 个
+总计: 77 个
