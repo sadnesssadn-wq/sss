@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /maintenance.html
+Disallow: /zh-CN/contentDetail/170
+
+
+Sitemap:https://www.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap.xml
+Sitemap:https://go.lightnode.com/sitemap-ru.xml
+Sitemap:https://www.lightnode.com/sitemap-speed.xml
+Sitemap:https://www.lightnode.com/sitemap-news.xml
