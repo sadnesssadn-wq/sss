@@ -1,0 +1,30 @@
+[+] Testing: https://9to9.co.id
+200 0.133479s
+[+] Testing: https://affiliate.9to9.co.id
+200 0.696444s
+[+] Testing: https://amoeba.9to9.co.id
+000 10.002469s
+[+] Testing: https://apim.9to9.co.id
+000 10.002327s
+[+] Testing: https://checkout.9to9.co.id
+302 0.814352s
+[+] Testing: https://graphql-proxy.9to9.co.id
+000 10.002853s
+[+] Testing: https://magento.9to9.co.id
+000 10.002316s
+[+] Testing: https://magento.9to9.co.id:5443
+000 10.002559s
+[+] Testing: https://mail.9to9.co.id
+200 0.827506s
+[+] Testing: https://oms.9to9.co.id
+200 1.128453s
+[+] Testing: https://proxy.9to9.co.id
+000 10.002386s
+[+] Testing: https://seller.9to9.co.id
+302 0.741305s
+[+] Testing: https://tr.9to9.co.id
+200 0.598830s
+[+] Testing: https://webmail.9to9.co.id
+200 1.080339s
+[+] Testing: https://www.9to9.co.id
+301 0.174567s
