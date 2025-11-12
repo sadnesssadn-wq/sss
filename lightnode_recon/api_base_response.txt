@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Control Panel for managing your resources on LightNode."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-ancestors 'self'"
+    />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/umi.ae2c541e.css" />
+    <script>
+      window.routerBase = "/";
+    </script>
+    <script>
+      //! umi version: 3.5.22
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=UA-193500388-2"
+      async="true"
+    ></script>
+    <script async="true">
+      if ("UA-193500388-2") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "UA-193500388-2");
+      }
+    </script>
+    <script
+      src="https://www.googletagmanager.com/gtag/js?id=G-7VNLW8B4R0"
+      async="true"
+    ></script>
+    <script async="true">
+      if ("G-7VNLW8B4R0") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-7VNLW8B4R0");

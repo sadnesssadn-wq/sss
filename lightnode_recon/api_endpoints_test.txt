@@ -1,0 +1,7 @@
+[+] 测试: /api/auth/login
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930721241}[+] 测试: /api/user/register
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930721468}[+] 测试: /api/user/login
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930721694}[+] 测试: /api/auth/register
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930721922}[+] 测试: /api/v1/auth/login
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930722154}[+] 测试: /api/v1/user/register
+{"message":"The interface request is invalid and no authentication information is obtained","timestamp":1762930722378}

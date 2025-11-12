@@ -1,0 +1,32 @@
+[+] 测试: /api
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:45 GMT
+content-type: text/html; charset=UTF-8
+[+] 测试: /api/v1
+HTTP/2 400 
+date: Wed, 12 Nov 2025 06:58:45 GMT
+content-type: application/json;charset=utf-8
+[+] 测试: /api/v2
+HTTP/2 400 
+date: Wed, 12 Nov 2025 06:58:45 GMT
+content-type: application/json;charset=utf-8
+[+] 测试: /v1/api
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:45 GMT
+content-type: text/html; charset=UTF-8
+[+] 测试: /v2/api
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:46 GMT
+content-type: text/html; charset=UTF-8
+[+] 测试: /rest/api
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:46 GMT
+content-type: text/html; charset=UTF-8
+[+] 测试: /graphql
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:46 GMT
+content-type: text/html; charset=UTF-8
+[+] 测试: /graphql/v1
+HTTP/2 200 
+date: Wed, 12 Nov 2025 06:58:46 GMT
+content-type: text/html; charset=UTF-8
