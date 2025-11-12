@@ -1,0 +1,35 @@
+# 代理池文件 - 格式: IP:PORT:USER:PASS 或 IP:PORT
+# v10.7 真实代理池
+
+23.27.184.245:5846:uadkcvtn:uo2rzar814ph
+45.43.70.140:6427:uadkcvtn:uo2rzar814ph
+82.24.233.117:5439:uadkcvtn:uo2rzar814ph
+136.0.188.71:6034:uadkcvtn:uo2rzar814ph
+161.123.130.168:5839:uadkcvtn:uo2rzar814ph
+166.88.224.145:6043:uadkcvtn:uo2rzar814ph
+82.25.215.106:5457:uadkcvtn:uo2rzar814ph
+91.211.87.215:7205:uadkcvtn:uo2rzar814ph
+104.238.36.64:6071:uadkcvtn:uo2rzar814ph
+104.239.40.211:6830:uadkcvtn:uo2rzar814ph
+67.227.37.26:5568:uadkcvtn:uo2rzar814ph
+108.165.218.84:5823:uadkcvtn:uo2rzar814ph
+109.196.160.242:5988:uadkcvtn:uo2rzar814ph
+104.238.38.204:6472:uadkcvtn:uo2rzar814ph
+140.99.203.108:5985:uadkcvtn:uo2rzar814ph
+82.25.224.37:7848:uadkcvtn:uo2rzar814ph
+216.74.118.50:6205:uadkcvtn:uo2rzar814ph
+104.239.13.199:6828:uadkcvtn:uo2rzar814ph
+161.123.152.216:6461:uadkcvtn:uo2rzar814ph
+185.72.240.218:7254:uadkcvtn:uo2rzar814ph
+104.239.43.88:5816:uadkcvtn:uo2rzar814ph
+92.113.115.48:5995:uadkcvtn:uo2rzar814ph
+145.223.44.64:5747:uadkcvtn:uo2rzar814ph
+155.254.34.216:6196:uadkcvtn:uo2rzar814ph
+166.88.169.112:6719:uadkcvtn:uo2rzar814ph
+82.23.223.60:7904:uadkcvtn:uo2rzar814ph
+166.88.235.140:5768:uadkcvtn:uo2rzar814ph
+23.129.252.17:6285:uadkcvtn:uo2rzar814ph
+46.203.134.90:5714:uadkcvtn:uo2rzar814ph
+82.23.227.49:7352:uadkcvtn:uo2rzar814ph
+104.239.13.114:6743:uadkcvtn:uo2rzar814ph
+50.114.98.129:5613:uadkcvtn:uo2rzar814ph
