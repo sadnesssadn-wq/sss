@@ -1,0 +1,55 @@
+=== 9to9.co.id 渗透测试最终报告 ===
+
+【目标信息】
+域名: 9to9.co.id
+测试时间: 2025-11-12
+测试方法: 高价值突破点优先
+
+【存活目标 (8个)】
+✅ https://9to9.co.id (200)
+✅ https://tr.9to9.co.id (200) - Laravel应用
+✅ https://affiliate.9to9.co.id (200) - Magento系统
+✅ https://seller.9to9.co.id (302)
+✅ https://mail.9to9.co.id (200)
+✅ https://checkout.9to9.co.id (302) - Next.js应用
+✅ https://webmail.9to9.co.id (200) - cPanel Webmail
+✅ https://oms.9to9.co.id (200) - Magento系统
+
+【高价值发现】
+
+1. ✅ 403绕过成功
+   - https://tr.9to9.co.id/admin
+   - https://webmail.9to9.co.id/admin
+   - 绕过方法: X-Forwarded-For, X-Real-IP, X-Original-URL, X-Rewrite-URL
+
+2. ⚠️ Webmail弱口令（需进一步验证）
+   - https://webmail.9to9.co.id
+   - 疑似弱口令: admin:admin
+
+3. 🔍 Magento系统识别
+   - affiliate.9to9.co.id - Magento系统
+   - oms.9to9.co.id - Magento系统，有登录页面
+   - 建议: 测试Magento已知CVE
+
+4. 📱 Next.js应用
+   - checkout.9to9.co.id - Next.js应用
+   - 功能: 文件上传（收据图片）
+   - 状态: /api/upload返回404
+
+【未发现】
+❌ 文件上传漏洞（测试的端点都返回404）
+❌ SSRF漏洞
+❌ 未授权API访问
+❌ GraphQL端点（graphql-proxy.9to9.co.id超时）
+
+【建议后续测试】
+1. 深入测试webmail弱口令（验证是否为误报）
+2. Magento CVE扫描（nuclei模板）
+3. 403绕过后的功能测试
+4. 子域名进一步枚举
+5. 端口扫描（发现隐藏服务）
+
+【风险评级】
+- 403绕过: 中风险
+- Webmail弱口令: 高风险（需验证）
+- Magento系统: 中风险（需CVE测试）
