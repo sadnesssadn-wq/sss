@@ -213,32 +213,62 @@ else
 fi
 echo ""
 
-# 4.2 hydra弱口令爆破
-echo "[4.2] hydra弱口令爆破..."
-if command -v hydra &> /dev/null; then
+# 4.2 精确弱口令检测（替代hydra，减少误报）
+echo "[4.2] 精确弱口令检测..."
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+CRACK_SCRIPT="$SCRIPT_DIR/precise_password_crack.sh"
+
+if [ ! -f "$CRACK_SCRIPT" ]; then
+    CRACK_SCRIPT="/root/manual_test/precise_password_crack.sh"
+fi
+
+if [ -f "$CRACK_SCRIPT" ]; then
     # phpMyAdmin弱口令
     if curl -skL -m 3 "$TARGET/phpmyadmin" 2>/dev/null | grep -qi "phpmyadmin"; then
-        echo "  🔍 phpMyAdmin弱口令爆破..."
-        cat > /tmp/passwords.txt << 'PWDEOF'
-root
-admin
-123456
-password
-PWDEOF
-        hydra -l root -P /tmp/passwords.txt -t 4 -f \
-            "$DOMAIN" https-post-form "/phpmyadmin/index.php:pma_username=^USER^&pma_password=^PASS^&server=1:incorrect" \
-            -o "$OUT_DIR/hydra_phpmyadmin.txt" 2>/dev/null &
+        echo "  🔍 phpMyAdmin精确弱口令检测..."
+        bash "$CRACK_SCRIPT" "$TARGET/phpmyadmin" "phpmyadmin" >> "$OUT_DIR/cracked_phpmyadmin.txt" 2>&1 &
     fi
     
     # WordPress弱口令
     if echo "$TARGET" | grep -qiE "wordpress|wp-"; then
-        echo "  🔍 WordPress弱口令爆破..."
-        hydra -l admin -P /tmp/passwords.txt -t 4 -f \
-            "$DOMAIN" http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^:incorrect" \
-            -o "$OUT_DIR/hydra_wordpress.txt" 2>/dev/null &
+        echo "  🔍 WordPress精确弱口令检测..."
+        bash "$CRACK_SCRIPT" "$TARGET" "wordpress" >> "$OUT_DIR/cracked_wordpress.txt" 2>&1 &
     fi
+    
+    # 通用管理后台弱口令
+    if [ -f "$OUT_DIR/key_paths.txt" ]; then
+        while IFS='|' read -r url status; do
+            if echo "$url" | grep -qiE "/admin|/administrator|/manage|/panel"; then
+                echo "  🔍 管理后台精确弱口令检测: $url"
+                bash "$CRACK_SCRIPT" "$url" "admin" >> "$OUT_DIR/cracked_admin.txt" 2>&1 &
+            fi
+        done < "$OUT_DIR/key_paths.txt"
+    fi
+    
+    # HTTP Basic认证弱口令
+    for path in "/admin" "/wp-admin" "/phpmyadmin"; do
+        status=$(curl -skL -m 3 -o /dev/null -w '%{http_code}' "$TARGET$path" 2>/dev/null)
+        if [ "$status" = "401" ]; then
+            echo "  🔍 HTTP Basic认证精确弱口令检测: $path"
+            bash "$CRACK_SCRIPT" "$TARGET$path" "basic" >> "$OUT_DIR/cracked_basic.txt" 2>&1 &
+        fi
+    done
 else
-    echo "  ⚠️  hydra未安装，跳过"
+    echo "  ⚠️  精确弱口令检测脚本未找到，使用手动方法..."
+    # 手动方法：只测试最常见的3-5个密码
+    if curl -skL -m 3 "$TARGET/phpmyadmin" 2>/dev/null | grep -qi "phpmyadmin"; then
+        echo "  🔍 phpMyAdmin手动弱口令测试（仅常见密码）..."
+        for cred in "root:root" "admin:admin" "root:123456" "admin:123456"; do
+            user=$(echo $cred | cut -d: -f1)
+            pass=$(echo $cred | cut -d: -f2)
+            resp=$(curl -skL -m 3 -X POST "$TARGET/phpmyadmin/index.php" \
+                -d "pma_username=$user&pma_password=$pass&server=1" -L 2>/dev/null)
+            if echo "$resp" | grep -qiE 'main|server|database' && \
+               ! echo "$resp" | grep -qiE 'login|error|incorrect|invalid.*login'; then
+                echo "    ✅ 成功: $cred" | tee -a "$OUT_DIR/cracked_phpmyadmin.txt"
+            fi
+        done
+    fi
 fi
 echo ""
 
