@@ -1,0 +1,22 @@
+=== 订单查询最终答案 ===
+
+【测试结果总结】
+
+1. ❌ customerOrders - 需要认证
+2. ❌ getOrderQueueList - 需要登录
+3. ❌ getSalesOrderList - 需要登录
+4. ❌ getOrder - 返回Internal server error（可能需要认证或订单ID不存在）
+5. ✅ getHistoryOrder - 可以查询，但需要email参数，返回空数组
+6. ⚠️ getShipmentList - 包含大量订单相关字段，正在测试
+
+【ShipmentOutput包含的订单字段】
+- order_id, order_increment_id
+- customer_name, email
+- grand_total, order_date, order_status
+- shipping_address, billing_address
+- 等70+个字段
+
+【结论】
+- 大部分订单查询需要认证
+- getHistoryOrder可以查询但需要知道用户邮箱
+- getShipmentList可能可以查询订单数据，需要进一步测试

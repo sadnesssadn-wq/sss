@@ -1,0 +1,17 @@
+=== 订单查询测试结果 ===
+
+【需要认证的查询】
+- customerOrders: "The current customer isn't authorized"
+- getOrderQueueList: "The request is allowed for logged in"
+- exportOrderToCsv: "The request is allowed for logged in"
+
+【可能不需要认证的查询】
+- getSalesOrderList: 可以查询，但需要正确的字段名
+- getShipmentList: 可以查询，但需要正确的字段名
+- getOrder: 需要order_id参数
+- getHistoryOrder: 需要email和channel_code参数
+
+【下一步】
+1. 查看getSalesOrderList和getShipmentList的正确字段结构
+2. 测试这些查询是否能获取订单数据
+3. 尝试枚举订单ID
