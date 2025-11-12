@@ -36,30 +36,87 @@ echo "[0/9] 🔍 Fofa子域名查询（$MAIN_COUNT个主域名，并发10）..."
 export OUT
 export FOFA_EMAIL_1 FOFA_KEY_1
 
-cat $MAIN_DOMAINS | xargs -P 10 -I {} bash -c '
-    domain="{}"
-    query=$(echo -n "domain=\"${domain}\"" | base64 | tr -d "\n")
-    
-    # Fofa API查询
-    resp=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${query}&size=10000&fields=host" 2>/dev/null)
-    
-    # 提取host字段（Fofa返回格式：["host1","host2",...]）
-    echo "$resp" | jq -r ".results[]? | .[0]?" 2>/dev/null | \
-        grep -v "^$" | \
-        sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1 | \
-        grep -E "^[a-zA-Z0-9]" | \
-        sort -u >> "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null
-    
-    # 统计
-    count=$(wc -l < "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null || echo 0)
-    if [ $count -gt 0 ]; then
-        echo "[+] ${domain}: ${count} 个子域名"
+# 先测试一个域名，检查Fofa配额
+TEST_DOMAIN=$(head -1 $MAIN_DOMAINS)
+TEST_QUERY=$(echo -n "domain=\"${TEST_DOMAIN}\"" | base64 | tr -d "\n")
+TEST_RESP=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${TEST_QUERY}&size=1&fields=host" 2>/dev/null)
+
+# 检查是否配额用完
+FOFA_QUOTA_EXCEEDED=0
+if echo "$TEST_RESP" | jq -r ".error // false" 2>/dev/null | grep -q "true"; then
+    ERRMSG=$(echo "$TEST_RESP" | jq -r ".errmsg // \"\"" 2>/dev/null)
+    if echo "$ERRMSG" | grep -qiE "上限|quota|limit"; then
+        echo "  ⚠️  Fofa配额已用完，直接使用subfinder/amass备选方案..."
+        FOFA_QUOTA_EXCEEDED=1
     fi
-'
+fi
+
+if [ "$FOFA_QUOTA_EXCEEDED" -eq 0 ]; then
+    # Fofa可用，正常查询
+    cat $MAIN_DOMAINS | xargs -P 10 -I {} bash -c '
+        domain="{}"
+        query=$(echo -n "domain=\"${domain}\"" | base64 | tr -d "\n")
+        
+        # Fofa API查询
+        resp=$(curl -s "https://fofa.info/api/v1/search/all?email=${FOFA_EMAIL_1}&key=${FOFA_KEY_1}&qbase64=${query}&size=10000&fields=host" 2>/dev/null)
+        
+        # 检查API错误（配额用完等）
+        if echo "$resp" | jq -r ".error // false" 2>/dev/null | grep -q "true"; then
+            errmsg=$(echo "$resp" | jq -r ".errmsg // \"\"" 2>/dev/null)
+            if echo "$errmsg" | grep -qiE "上限|quota|limit"; then
+                echo "[!] Fofa配额用完，跳过: ${domain}" >&2
+                exit 0
+            fi
+        fi
+        
+        # 提取host字段（Fofa返回格式：["host1","host2",...]）
+        echo "$resp" | jq -r ".results[]? | .[0]?" 2>/dev/null | \
+            grep -v "^$" | \
+            sed "s|https\?://||" | cut -d/ -f1 | cut -d: -f1 | \
+            grep -E "^[a-zA-Z0-9]" | \
+            sort -u >> "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null
+        
+        # 统计
+        count=$(wc -l < "$OUT/subdomains/fofa_${domain}.txt" 2>/dev/null || echo 0)
+        if [ $count -gt 0 ]; then
+            echo "[+] ${domain}: ${count} 个子域名"
+        fi
+    '
+fi
 
 # 合并所有子域名
 cat $OUT/subdomains/fofa_*.txt 2>/dev/null | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
 SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
+
+# 如果Fofa查询失败（配额用完），使用subfinder/amass作为备选
+if [ "$SUBDOMAIN_COUNT" -eq 0 ] || [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
+    if [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
+        echo "  ⚠️  Fofa配额已用完，使用subfinder/amass备选方案..."
+    else
+        echo "  ⚠️  Fofa查询无结果，使用subfinder/amass备选方案..."
+    fi
+    
+    which subfinder >/dev/null 2>&1 && {
+        echo "  [*] 使用subfinder枚举子域名（并发20）..."
+        cat $MAIN_DOMAINS | xargs -P 20 -I {} sh -c "subfinder -d {} -silent 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/subfinder.txt" 2>/dev/null
+        SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
+        [ "$SUBFINDER_COUNT" -gt 0 ] && echo "  ✅ subfinder找到: $SUBFINDER_COUNT 个子域名"
+    }
+    
+    which amass >/dev/null 2>&1 && {
+        echo "  [*] 使用amass枚举子域名（并发20）..."
+        cat $MAIN_DOMAINS | xargs -P 20 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null
+        AMASS_COUNT=$(wc -l < $OUT/subdomains/amass.txt 2>/dev/null || echo 0)
+        [ "$AMASS_COUNT" -gt 0 ] && echo "  ✅ amass找到: $AMASS_COUNT 个子域名"
+    }
+    
+    # 合并所有来源（Fofa + subfinder + amass）
+    cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt $OUT/subdomains/amass.txt 2>/dev/null | \
+        sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
+        grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
+    SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
+fi
+
 echo "  ✅ 总子域名: $SUBDOMAIN_COUNT"
 
 # ==========================================
