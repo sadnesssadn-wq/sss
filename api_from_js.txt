@@ -1,8 +1,3 @@
-提取: https://9to9.co.id
-提取: https://affiliate.9to9.co.id
-提取: https://checkout.9to9.co.id
-提取: https://mail.9to9.co.id
-提取: https://oms.9to9.co.id
-提取: https://seller.9to9.co.id
-提取: https://tr.9to9.co.id
-提取: https://webmail.9to9.co.id
+https://maps.googleapis.com/maps/api/js?key=
+https://maps.googleapis.com/maps/api/staticmap?
+https://www.paypalobjects.com/api/checkout
