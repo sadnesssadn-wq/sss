@@ -1,0 +1,25 @@
+=== 9to9.co.id 深度分析报告 ===
+
+【关键发现】
+
+1. ✅ GraphQL端点可访问
+   - https://oms.9to9.co.id/graphql (200)
+   - 需要测试内省查询和未授权访问
+
+2. ✅ Magento REST API存在
+   - /rest/V1/products (401 - 需要认证)
+   - 需要测试认证绕过
+
+3. ⚠️ 403绕过
+   - tr.9to9.co.id/admin
+   - webmail.9to9.co.id/admin
+   - 但绕过后内容有限
+
+4. ❌ 文件上传 - 未发现真实端点
+5. ❌ SSRF - 未发现
+6. ❌ 配置文件泄露 - 都是404页面
+
+【下一步重点】
+1. 深入测试GraphQL内省和查询
+2. 测试Magento REST API认证绕过
+3. 测试Magento已知CVE
