@@ -1,0 +1,15 @@
+das2.ghtk.vn 探测结果
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 确认：Next.js SSR应用
+✅ Build ID: -BREdGF5_3NJk1vLpXXpY
+✅ 版本: c0ffb1c0
+✅ Sentry监控已启用
+
+❌ 需要认证（Next-Auth）
+❌ GraphQL是假端点（返回HTML）
+❌ 所有API端点返回404
+❌ 数据端点需要session
+
+结论：das2需要有效session才能访问数据
+攻击价值：中（需要先拿到其他系统的凭据）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

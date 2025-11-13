@@ -1,0 +1,15 @@
+/api
+/api/v1
+/api/v2
+/api/v1/messages
+/api/v1/users
+/api/v1/rooms
+/api/v1/channels
+/api/health
+/api/status
+/api/info
+/api/config
+/graphql
+/ws
+/socket
+/chat

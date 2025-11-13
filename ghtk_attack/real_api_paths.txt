@@ -1,0 +1,7 @@
+/AdMasterProfile/getDocumentTypes
+/AdMasterProfile/getPhoneNumber
+/AdMasterProfile/getAnalyticList
+/AdHr/getEkycReports
+/AdHrTeams/getTeamOption
+/address-v2/provinces
+/address-v2/districts
