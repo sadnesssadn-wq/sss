@@ -1,0 +1,32 @@
+# Google Dorks for MLNL.HOST
+
+# 查找关键人物
+"millenial.host" (founder OR CEO OR CTO OR "co-founder")
+"mlnl.host" (founder OR CEO OR director)
+
+# 查找员工
+site:linkedin.com "millenial host"
+site:linkedin.com "mlnl.host"
+
+# 查找泄露信息
+"millenial.host" (email OR password OR login OR credentials)
+"millenial.host" filetype:pdf
+"millenial.host" inurl:admin OR inurl:portal
+
+# 社交媒体
+site:twitter.com "millenial host"
+site:facebook.com "millenial host"
+site:reddit.com "millenial.host"
+
+# GitHub代码搜索
+site:github.com "millenial.host"
+site:github.com "mlnl.host"
+site:github.com "@mlnl.host"
+
+# 论坛讨论
+site:webhostingtalk.com "millenial host"
+site:lowendtalk.com "millenial host"
+
+# 新闻/评论
+"millenial host" review
+"mlnl.host" review
