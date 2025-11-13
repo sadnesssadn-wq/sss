@@ -1,0 +1,6 @@
+open.ghtk.vn
+cdn-stream.ghtk.vn
+business.ghtk.vn
+sos.ghtk.vn
+www.ghtk.vn
+goku-tracking-be.ghtk.vn

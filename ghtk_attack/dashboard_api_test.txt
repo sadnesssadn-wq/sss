@@ -1,0 +1,55 @@
+━━━ dashboard.ghtk.vn/fw/shop-admin/api/v1/tool/list ━━━
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-BKy7xAHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+━━━ dashboard.ghtk.vn/fw/shop-admin/api/v1/tool/config ━━━
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-BKy7xAHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+━━━ dashboard.ghtk.vn/fw/shop-admin/api/v1/ff-client/product/list/detail ━━━
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-BKy7xAHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+━━━ dashboard.ghtk.vn/fw/shop-admin/api/v1/scenarios/count ━━━
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-BKy7xAHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+━━━ dashboard.ghtk.vn/fw/shop-admin/api/v1/scenario-template/list ━━━
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-BKy7xAHt.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
