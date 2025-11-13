@@ -1,0 +1,9 @@
+=== vnc.lightnode.com ===
+=== openapi.lightnode.com ===
+=== wp1.lightnode.com ===
+=== t1.lightnode.com ===
+=== t2.lightnode.com ===
+=== t3.lightnode.com ===
+=== t4.lightnode.com ===
+=== ttt.lightnode.com ===
+=== go-ru.lightnode.com ===

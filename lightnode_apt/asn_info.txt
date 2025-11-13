@@ -1,0 +1,22 @@
+AS45102 Alibaba (US) Technology Co., Ltd.
+null
+descr:          Proxy-registered route object
+origin:         AS45102
+remarks:        which is being exported under this origin AS.
+remarks:        route object with the same origin was found.
+descr:          Kaopuyun Cloud via EMIX
+origin:         AS45102
+descr:          Alibaba.com Inc.
+descr:          400 S El Camino Real
+descr:          Suite 400
+descr:          San Mateo, CA94402
+descr:          US
+origin:         AS45102
+descr:          Alibaba.com Inc.
+descr:          400 S El Camino Real
+descr:          Suite 400
+descr:          San Mateo, CA94402
+descr:          US
+origin:         AS134963
+descr:          Proxy-registered route object
+origin:         AS45102

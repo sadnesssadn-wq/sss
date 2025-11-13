@@ -1,0 +1,6 @@
+Testing: admin:admin
+{"code":500403,"requestId":"o7z80utd594754s9b270u7hc","data":null,"msg":"Violating API access!!!"}Testing: admin:123456
+{"code":500403,"requestId":"vt5wcbzd42jtqvc35x0lprva","data":null,"msg":"Violating API access!!!"}Testing: admin:lightcdn
+{"code":500403,"requestId":"1svjgqt1i4s0p9gq3tclo7x0","data":null,"msg":"Violating API access!!!"}Testing: root:root
+{"code":500403,"requestId":"t5qrinvegwd2wvfqn8to3xi6","data":null,"msg":"Violating API access!!!"}Testing: lightcdn:lightcdn
+{"code":500403,"requestId":"s0v2ada1tw27d1wu6lpqfckv","data":null,"msg":"Violating API access!!!"}

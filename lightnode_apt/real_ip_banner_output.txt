@@ -1,0 +1,19 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-11-11 15:07 UTC
+Nmap scan report for 47.238.114.118
+Host is up (0.17s latency).
+
+PORT      STATE    SERVICE  VERSION
+21/tcp    filtered ftp
+22/tcp    filtered ssh
+25/tcp    filtered smtp
+80/tcp    open     http     OpenResty web app server 1.21.4.1
+|_http-server-header: openresty/1.21.4.1
+443/tcp   open     ssl/http OpenResty web app server 1.21.4.1
+|_http-server-header: openresty/1.21.4.1
+3306/tcp  filtered mysql
+6379/tcp  filtered redis
+9200/tcp  filtered wap-wsp
+27017/tcp filtered mongod
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 39.01 seconds

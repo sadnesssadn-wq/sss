@@ -1,0 +1,32 @@
+Testing: /wiki
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /docs/internal
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /confluence
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /jira
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /gitlab
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /admin/docs
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /internal
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];
+Testing: /staff
+<!DOCTYPE html><html lang="en-US"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><meta name="next-head-count" content="2"/><script id="htmlwidth" data-nscript="beforeInteractive">let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth;
+                let htmlDom = document.getElementsByTagName('html')[0];
+                  let htmlDom = document.getElementsByTagName('html')[0];

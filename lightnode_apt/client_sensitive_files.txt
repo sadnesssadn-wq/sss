@@ -1,0 +1,16 @@
+Testing: https://client.lightcdn.com/.env
+  HTTP: 404
+Testing: https://client.lightcdn.com/config.php
+  HTTP: 404
+Testing: https://client.lightcdn.com/database.yml
+  HTTP: 404
+Testing: https://client.lightcdn.com/wp-config.php
+  HTTP: 404
+Testing: https://client.lightcdn.com/.git/config
+  HTTP: 404
+Testing: https://client.lightcdn.com//admin/config.php
+  HTTP: 404
+Testing: https://client.lightcdn.com//api/config
+  HTTP: 503
+Testing: https://client.lightcdn.com//config.json
+  HTTP: 404

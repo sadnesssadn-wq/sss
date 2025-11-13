@@ -1,0 +1,16 @@
+Testing: /ticket
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /support/ticket
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /helpdesk
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+Testing: /customer/support
+<!DOCTYPE html>
+<html lang="en">
+  <head>

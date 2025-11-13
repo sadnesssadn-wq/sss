@@ -1,0 +1,26 @@
+136077650+aleksandar1202@users.noreply.github.com|Aleksandar J|modify link url
+ShinyJohnsonn@gmail.com|shinyjohnson|uniswap v3 integration funtions, added uniswap modulles
+ShinyJohnsonn@gmail.com|shinyjohnson|prettier formatting and update disconnect button
+ShinyJohnsonn@gmail.com|shinyjohnson|stETH amount calculation and fix error
+ShinyJohnsonn@gmail.com|shinyjohnson|add ethers, stake implementation
+ShinyJohnsonn@gmail.com|shinyjohnson|added lightnode smart contract abi
+ShinyJohnsonn@gmail.com|shinyjohnson|added medium link, remove placeholder
+ShinyJohnsonn@gmail.com|shinyjohnson|updating landing page contents
+ShinyJohnsonn@gmail.com|shinyjohnson|removing warning
+ShinyJohnsonn@gmail.com|shinyjohnson|added white paper
+ShinyJohnsonn@gmail.com|shinyjohnson|update telegram link
+ShinyJohnsonn@gmail.com|shinyjohnson|add social links
+ShinyJohnsonn@gmail.com|shinyjohnson|connect wallet, web3 integration
+ShinyJohnsonn@gmail.com|shinyjohnson|added web3-react
+ShinyJohnsonn@gmail.com|shinyjohnson|added animation, simplified contents
+ShinyJohnsonn@gmail.com|shinyjohnson|improved farming pool page, table
+ShinyJohnsonn@gmail.com|shinyjohnson|table, modal, farming page, add assets
+ShinyJohnsonn@gmail.com|shinyjohnson|added stats card, staking pool page & check, input component
+ShinyJohnsonn@gmail.com|shinyjohnson|update charts, html error, switch button
+ShinyJohnsonn@gmail.com|shinyjohnson|added recharts module, drawer overlapping issue
+ShinyJohnsonn@gmail.com|shinyjohnson|staking pool page, client header
+ShinyJohnsonn@gmail.com|shinyjohnson|sidemenu and drawer, styling of drawer
+ShinyJohnsonn@gmail.com|shinyjohnson|fix errors, selected route, logo and drawer, navigation
+ShinyJohnsonn@gmail.com|shinyjohnson|validators, contract us, footer&header, update assets
+ShinyJohnsonn@gmail.com|shinyjohnson|add section one to three in landing page
+ShinyJohnsonn@gmail.com|shinyjohnson|initial commit

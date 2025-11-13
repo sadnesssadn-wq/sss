@@ -1,0 +1,20 @@
+[*] Testing: admin.lightnode.com
+    HTTP: 404
+    [Status: 404]
+---
+[*] Testing: jenkins.lightnode.com
+    HTTP: 404
+    [Status: 404]
+---
+[*] Testing: gitlab.lightnode.com
+    HTTP: 404
+    [Status: 404]
+---
+[*] Testing: crm.lightnode.com
+    HTTP: 404
+    [Status: 404]
+---
+[*] Testing: hr.lightnode.com
+    HTTP: 404
+    [Status: 404]
+---

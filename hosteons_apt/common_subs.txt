@@ -1,0 +1,15 @@
+www.hosteons.com
+mail.hosteons.com
+smtp.hosteons.com
+imap.hosteons.com
+pop.hosteons.com
+cpanel.hosteons.com
+whm.hosteons.com
+webmail.hosteons.com
+admin.hosteons.com
+billing.hosteons.com
+support.hosteons.com
+client.hosteons.com
+my.hosteons.com
+portal.hosteons.com
+api.hosteons.com

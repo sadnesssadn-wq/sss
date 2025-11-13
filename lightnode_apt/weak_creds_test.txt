@@ -1,0 +1,12 @@
+Testing admin:admin
+HTTP: 301
+Testing admin:123456
+HTTP: 301
+Testing root:root
+HTTP: 301
+Testing test:test
+HTTP: 301
+Testing admin:admin123
+HTTP: 301
+Testing administrator:password
+HTTP: 301

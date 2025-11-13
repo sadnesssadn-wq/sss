@@ -1,0 +1,4 @@
+=== svn.lightnode.com:8080 ===
+=== www-test.lightnode.com:8080 ===
+=== members.lightnode.com:8080 ===
+=== corporate.lightnode.com:8080 ===

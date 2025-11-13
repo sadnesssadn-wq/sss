@@ -1,0 +1,15 @@
+Potential: admin@lightnode.com
+Potential: root@lightnode.com
+Potential: tech@lightnode.com
+Potential: hr@lightnode.com
+Potential: finance@lightnode.com
+Potential: billing@lightnode.com
+Potential: marketing@lightnode.com
+Potential: sales@lightnode.com
+Potential: ceo@lightnode.com
+Potential: cto@lightnode.com
+Potential: cfo@lightnode.com
+Potential: founder@lightnode.com
+Potential: dev@lightnode.com
+Potential: ops@lightnode.com
+Potential: security@lightnode.com

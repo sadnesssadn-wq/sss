@@ -1,0 +1,14 @@
+https://www.redditstatic.com/ads/pixel.js
+/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js
+/_next/static/chunks/webpack-c21fd345984bfc83.js
+/_next/static/chunks/framework-467b11a89995b152.js
+/_next/static/chunks/main-7c0e9466ee9ef6e2.js
+/_next/static/chunks/pages/_app-533f9e1458f2c579.js
+/_next/static/chunks/169-7c2becb767ca3fd1.js
+/_next/static/chunks/713-f6380d2a3a0b7e45.js
+/_next/static/chunks/350-e88ed7e7d7f5c352.js
+/_next/static/chunks/pages/index-e9191e8fd6e6574f.js
+/_next/static/etGDucmWiU4fDH5xR-Q7J/_buildManifest.js
+/_next/static/etGDucmWiU4fDH5xR-Q7J/_ssgManifest.js
+/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+/wow.min.js

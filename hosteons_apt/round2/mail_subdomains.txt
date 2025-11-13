@@ -1,0 +1,6 @@
+mail.dev.hosteons.com
+mail.lg.hosteons.com
+mail.lg.la.hosteons.com
+pop.dev.hosteons.com
+smtp.dev.hosteons.com
+webmail.lg.hosteons.com

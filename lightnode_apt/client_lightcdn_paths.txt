@@ -1,0 +1,14 @@
+Testing: https://client.lightcdn.com/login
+  HTTP: 404
+Testing: https://client.lightcdn.com/register
+  HTTP: 404
+Testing: https://client.lightcdn.com/admin
+  HTTP: 404
+Testing: https://client.lightcdn.com/api/login
+  HTTP: 503
+  [✅ 端点存在！]
+<head><title>503 Service Temporarily Unavailable</title></head>
+Testing: https://client.lightcdn.com/user
+  HTTP: 404
+Testing: https://client.lightcdn.com/dashboard
+  HTTP: 404

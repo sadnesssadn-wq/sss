@@ -1,0 +1,3 @@
+Config files for my GitHub profile.
+One-click script to install LAMP or LEMP stack on Ubuntu/Debian VPS
+One-click VPN installer script for OpenVPN and WireGuard — works on Ubuntu, Debian, AlmaLinux, and CentOS

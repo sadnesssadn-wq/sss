@@ -1,0 +1,30 @@
+=== Testing 8080 ===
+
+HTTP_CODE: 000
+=== Testing 8081 ===
+
+HTTP_CODE: 000
+=== Testing 8082 ===
+
+HTTP_CODE: 000
+=== Testing 8088 ===
+
+HTTP_CODE: 000
+=== Testing 8090 ===
+
+HTTP_CODE: 000
+=== Testing 9000 ===
+
+HTTP_CODE: 000
+=== Testing 9090 ===
+
+HTTP_CODE: 000
+=== Testing 3000 ===
+
+HTTP_CODE: 000
+=== Testing 4000 ===
+
+HTTP_CODE: 000
+=== Testing 5000 ===
+
+HTTP_CODE: 000

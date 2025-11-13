@@ -1,0 +1,36 @@
+Testing: test.lightnode.com
+error code: 526HTTP: 526
+Testing: test.lightcdn.com
+HTTP: 000
+Testing: dev.lightnode.com
+error code: 526HTTP: 526
+Testing: dev.lightcdn.com
+HTTP: 000
+Testing: staging.lightnode.com
+error code: 526HTTP: 526
+Testing: staging.lightcdn.com
+HTTP: 000
+Testing: uat.lightnode.com
+error code: 526HTTP: 526
+Testing: uat.lightcdn.com
+HTTP: 000
+Testing: pre.lightnode.com
+error code: 526HTTP: 526
+Testing: pre.lightcdn.com
+HTTP: 000
+Testing: beta.lightnode.com
+error code: 526HTTP: 526
+Testing: beta.lightcdn.com
+HTTP: 000
+Testing: alpha.lightnode.com
+error code: 526HTTP: 526
+Testing: alpha.lightcdn.com
+HTTP: 000
+Testing: demo.lightnode.com
+error code: 526HTTP: 526
+Testing: demo.lightcdn.com
+HTTP: 000
+Testing: sandbox.lightnode.com
+error code: 526HTTP: 526
+Testing: sandbox.lightcdn.com
+HTTP: 000

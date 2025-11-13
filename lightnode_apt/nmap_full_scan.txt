@@ -1,0 +1,10 @@
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-11-11 14:32 UTC
+Nmap scan report for 47.238.114.118
+Host is up (0.17s latency).
+Not shown: 65532 filtered tcp ports (no-response), 1 closed tcp port (conn-refused)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT    STATE SERVICE
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 180.99 seconds

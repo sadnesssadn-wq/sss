@@ -1,0 +1,10 @@
+=== site:lightnode.com filetype:pdf ===
+[需要真实Google搜索，或使用Google API]
+=== site:lightnode.com intitle:"index of" ===
+[需要真实Google搜索，或使用Google API]
+=== "@lightnode.com" -site:lightnode.com ===
+[需要真实Google搜索，或使用Google API]
+=== site:lightnode.com inurl:api ===
+[需要真实Google搜索，或使用Google API]
+=== "lightnode.com" site:linkedin.com ===
+[需要真实Google搜索，或使用Google API]

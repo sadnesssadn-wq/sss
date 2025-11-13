@@ -1,0 +1,13 @@
+abuse@hosteons.com
+admin@hosteons.com
+billing@hosteons.com
+contact@hosteons.com
+help@hosteons.com
+hr@hosteons.com
+info@hosteons.com
+jobs@hosteons.com
+marketing@hosteons.com
+noc@hosteons.com
+sales@hosteons.com
+support@hosteons.com
+tech@hosteons.com

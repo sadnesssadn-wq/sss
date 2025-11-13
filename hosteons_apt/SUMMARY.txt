@@ -1,0 +1,33 @@
+=== Hosteons APT情报收集完成 ===
+
+【确认邮箱】
+noc@hosteons.com (官方WHOIS确认)
+
+【潜在邮箱】
+support@, sales@, info@, admin@, tech@, billing@, hr@, jobs@ @hosteons.com
+
+【公司信息】
+公司：Hosteons Pte. Ltd.
+创始人：Kapil Jain
+地址：新加坡 19 Kim Keat Road #02-07
+电话：+65 3158 4717
+业务：VPS托管服务
+
+【技术架构】
+CDN：Cloudflare保护
+邮件：Google Workspace
+子域名：109个（含dev/beta/cpanel等）
+内网节点：30+个KVM节点暴露
+
+【GitHub】
+https://github.com/hosteons
+8个公开仓库（VPS管理脚本）
+
+【攻击建议】
+最优：发VPS故障邮件到noc@hosteons.com
+备用：GitHub合作邀请
+备用：大客户合作
+
+【文件】
+./FINAL_INTELLIGENCE_REPORT.md - 完整情报
+./BEST_PHISHING_EMAIL.md - 3封钓鱼话术

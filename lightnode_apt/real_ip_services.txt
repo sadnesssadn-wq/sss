@@ -1,0 +1,10 @@
+Testing: console.lightnode.com on real IP
+  HTTP: 404
+Testing: api.lightnode.com on real IP
+  HTTP: 404
+Testing: www.lightnode.com on real IP
+  HTTP: 404
+Testing: docs.lightnode.com on real IP
+  HTTP: 404
+Testing: app.lightnode.com on real IP
+  HTTP: 404
