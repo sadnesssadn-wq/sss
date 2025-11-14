@@ -1,0 +1,105 @@
+━━━ /erp/sos/request-list ━━━
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+
+		<META name="description"
+			  content="Giaohangtietkiem.vn là dịch vụ chuyên nghiệp trong lĩnh vực giao hàng và thu tiền hộ cho các cửa hàng trực tuyến tại Hà Nội. Với tiêu chí phục vụ chuyên nghiệp, uy tín, tiết kiệm, dịch vụ của giaohangtietkiem.vn là trọn gói cả nội thành lẫn chuyển tỉnh, giúp cho các cửa hàng không còn phải băn khoăn về giao nhận hàng, tập trung phát triển kinh doanh"/>
+		<META name="author" content="ECOM-JSC"/>
+		<!--    <META http-equiv="Cache-Control" content="no-cache" />-->
+		<!--    <META http-equiv="Pragma" content="no-cache" />-->
+		<!--    <META http-equiv="Cache" content="no store" />-->
+		<!--    <META http-equiv="Expires" content="0" />-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1"/>
+
+━━━ /erp/sos/get-channel ━━━
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+
+		<META name="description"
+			  content="Giaohangtietkiem.vn là dịch vụ chuyên nghiệp trong lĩnh vực giao hàng và thu tiền hộ cho các cửa hàng trực tuyến tại Hà Nội. Với tiêu chí phục vụ chuyên nghiệp, uy tín, tiết kiệm, dịch vụ của giaohangtietkiem.vn là trọn gói cả nội thành lẫn chuyển tỉnh, giúp cho các cửa hàng không còn phải băn khoăn về giao nhận hàng, tập trung phát triển kinh doanh"/>
+		<META name="author" content="ECOM-JSC"/>
+		<!--    <META http-equiv="Cache-Control" content="no-cache" />-->
+		<!--    <META http-equiv="Pragma" content="no-cache" />-->
+		<!--    <META http-equiv="Cache" content="no store" />-->
+		<!--    <META http-equiv="Expires" content="0" />-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1"/>
+
+━━━ /erp/sos/menu-sos-and-proposal ━━━
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+
+		<META name="description"
+			  content="Giaohangtietkiem.vn là dịch vụ chuyên nghiệp trong lĩnh vực giao hàng và thu tiền hộ cho các cửa hàng trực tuyến tại Hà Nội. Với tiêu chí phục vụ chuyên nghiệp, uy tín, tiết kiệm, dịch vụ của giaohangtietkiem.vn là trọn gói cả nội thành lẫn chuyển tỉnh, giúp cho các cửa hàng không còn phải băn khoăn về giao nhận hàng, tập trung phát triển kinh doanh"/>
+		<META name="author" content="ECOM-JSC"/>
+		<!--    <META http-equiv="Cache-Control" content="no-cache" />-->
+		<!--    <META http-equiv="Pragma" content="no-cache" />-->
+		<!--    <META http-equiv="Cache" content="no store" />-->
+		<!--    <META http-equiv="Expires" content="0" />-->
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,maximum-scale=1"/>
+
+━━━ /api/gchat/green-box/get-box-overview-by-alias ━━━
+<!doctype html><html><head><title>Giao Hàng Tiết Kiệm</title><meta charset="utf-8"/><link rel="shortcut icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><meta property="og:title" content="Giao Hàng Tiết Kiệm"><meta property="title" content="Giao Hàng Tiết Kiệm"><meta property="twitter:title" content="Giao Hàng Tiết Kiệm"><meta content="Hơn cả nhanh. Vì bạn." name="description"><meta name="theme-color" content="#000000"/><meta app-version="2025-10-24,09:45:24"/><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/><link rel="manifest" href="/manifest.json"/><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&amp;subset=vietnamese" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600&amp;subset=vietnamese" rel="stylesheet"/><script type="text/javascript">(function () {
+      var gt = document.createElement('script'); gt.type = 'text/javascript'; gt.async = true;
+      if (window?.origin?.includes("ghtklab.com")) {
+        gt.src = "https://web-analytic.ghtklab.com/tracing.js";
+      } else {
+        gt.src = 'https://web-analytic-nl.ghtk.vn/tracing.js';
+      }
+      var gt_s = document.getElementsByTagName('script')[0]; gt_s.parentNode.insertBefore(gt, gt_s);
+    }());
+
+    try {
+      let path = 'https://goku-tracking-be.ghtk.vn/v1/tracking.js?project_id=ghtk-gchatweb-p2407101402';
+      if (window?.origin?.includes("ghtklab.com")) {
+        path = 'https://goku-tracking-be.ghtklab.com/v1/tracking.js?project_id=ghtk-gchatweb-2407050932';
+      }
+      !function (name, path, ctx) {
+      let latest, prev = name !== "GokuTracking" && window.GokuTracking ? window.GokuTracking : false; ctx[name] = ctx[name] || { ready: function (fn) { var h = document.getElementsByTagName("head")[0], s = document.createElement("script"), w = window, loaded; s.onload = s.onreadystatechange = function () { if ((s.readyState && !(/^c|loade/.test(s.readyState))) || loaded) { return } s.onload = s.onreadystatechange = null; loaded = 1; latest = w.GokuTracking; if (prev) { w.GokuTracking = prev } else { try { delete w.GokuTracking } catch (e) { w.GokuTracking = void 0 } } ctx[name] = latest; ctx[name].ready(fn) }; s.async = 1; s.src = path; h.parentNode.insertBefore(s, h) } }
+    }("GokuTracking", `${path}`, this);
+  
+    GokuTracking.ready(function () {
+━━━ /gchat-admin/campaign/list ━━━
+<!doctype html><html><head><title>Giao Hàng Tiết Kiệm</title><meta charset="utf-8"/><link rel="shortcut icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"/><meta property="og:title" content="Giao Hàng Tiết Kiệm"><meta property="title" content="Giao Hàng Tiết Kiệm"><meta property="twitter:title" content="Giao Hàng Tiết Kiệm"><meta content="Hơn cả nhanh. Vì bạn." name="description"><meta name="theme-color" content="#000000"/><meta app-version="2025-10-24,09:45:24"/><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"/><link rel="manifest" href="/manifest.json"/><link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&amp;subset=vietnamese" rel="stylesheet"/><link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,600&amp;subset=vietnamese" rel="stylesheet"/><script type="text/javascript">(function () {
+      var gt = document.createElement('script'); gt.type = 'text/javascript'; gt.async = true;
+      if (window?.origin?.includes("ghtklab.com")) {
+        gt.src = "https://web-analytic.ghtklab.com/tracing.js";
+      } else {
+        gt.src = 'https://web-analytic-nl.ghtk.vn/tracing.js';
+      }
+      var gt_s = document.getElementsByTagName('script')[0]; gt_s.parentNode.insertBefore(gt, gt_s);
+    }());
+
+    try {
+      let path = 'https://goku-tracking-be.ghtk.vn/v1/tracking.js?project_id=ghtk-gchatweb-p2407101402';
+      if (window?.origin?.includes("ghtklab.com")) {
+        path = 'https://goku-tracking-be.ghtklab.com/v1/tracking.js?project_id=ghtk-gchatweb-2407050932';
+      }
+      !function (name, path, ctx) {
+      let latest, prev = name !== "GokuTracking" && window.GokuTracking ? window.GokuTracking : false; ctx[name] = ctx[name] || { ready: function (fn) { var h = document.getElementsByTagName("head")[0], s = document.createElement("script"), w = window, loaded; s.onload = s.onreadystatechange = function () { if ((s.readyState && !(/^c|loade/.test(s.readyState))) || loaded) { return } s.onload = s.onreadystatechange = null; loaded = 1; latest = w.GokuTracking; if (prev) { w.GokuTracking = prev } else { try { delete w.GokuTracking } catch (e) { w.GokuTracking = void 0 } } ctx[name] = latest; ctx[name].ready(fn) }; s.async = 1; s.src = path; h.parentNode.insertBefore(s, h) } }
+    }("GokuTracking", `${path}`, this);
+  
+    GokuTracking.ready(function () {

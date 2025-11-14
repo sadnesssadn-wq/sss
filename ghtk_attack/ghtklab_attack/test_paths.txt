@@ -1,0 +1,16 @@
+/
+/api
+/api/v1
+/api/v2
+/health
+/actuator
+/swagger
+/graphql
+/admin
+/login
+/debug
+/test
+/dev
+/status
+/info
+/metrics

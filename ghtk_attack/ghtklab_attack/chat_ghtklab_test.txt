@@ -1,0 +1,32 @@
+[chat.ghtklab.com/]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"KRLE6XATVHQS","timestamp":"2025-11-13T19:35:35.176Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/api]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"EUYEJXFWEOVX","timestamp":"2025-11-13T19:35:35.786Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/api/v1]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"ERXAMTRWKNXZ","timestamp":"2025-11-13T19:35:36.404Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/api/v2]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"S6HRLKWBJWA2","timestamp":"2025-11-13T19:35:37.018Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/health]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"ZFRTIBKD0JST","timestamp":"2025-11-13T19:35:37.622Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/actuator]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"MQPDDCUGWTCT","timestamp":"2025-11-13T19:35:38.246Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/swagger]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"H1NMIHGOIHNC","timestamp":"2025-11-13T19:35:38.855Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/graphql]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"TJVRSTYB8PHR","timestamp":"2025-11-13T19:35:39.465Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/admin]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"VVYIDSTW4J3T","timestamp":"2025-11-13T19:35:40.067Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/login]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"ZFURGPCT82M9","timestamp":"2025-11-13T19:35:40.672Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/debug]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"JDQ3RLIN3NIO","timestamp":"2025-11-13T19:35:41.286Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/test]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"YOTSYAQQDXME","timestamp":"2025-11-13T19:35:41.897Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/dev]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"LESSU1FHVXHC","timestamp":"2025-11-13T19:35:42.479Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━
+[chat.ghtklab.com/status]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"I9WF8NK1RHNH","timestamp":"2025-11-13T19:35:43.084Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/info]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"KUCLPCPBQJHN","timestamp":"2025-11-13T19:35:43.694Z","host":"chat-backend-6bf7c9595d-mbthz"}━━━
+[chat.ghtklab.com/metrics]
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"9MPYT7JGPPW2","timestamp":"2025-11-13T19:35:44.319Z","host":"chat-backend-jmx-b7595b4bf-dm7x5"}━━━

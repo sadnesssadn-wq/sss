@@ -1,0 +1,13 @@
+[*] 深度提取所有JS文件中的密钥...
+【格式1：普通字符串 api_key=xxx】
+
+【格式2：Base64编码】
+
+【格式3：Bearer Token】
+
+【格式4：JWT Token】
+
+【格式5：URL中的token参数】
+
+【格式6：AWS/GCP密钥格式】
+./fofa_discovery/sos_main.js:AIzaSyBVU8jzE73g9KRX0geEb5n7xxth0i8vpN0

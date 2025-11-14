@@ -1,0 +1,253 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 大规模Fuzz - 所有系统所有端点
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 批量Fuzz所有目标...
+
+━━━ admin.giaohangtietkiem.vn ━━━
+
+━━━ dashboard.ghtk.vn ━━━
+  ✅ /phpinfo.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /info.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /test.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /1.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /shell.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /config.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /db.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /database.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /connect.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /admin.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /login.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /upload.php → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /.DS_Store → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /desktop.ini → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /Thumbs.db → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /.idea/workspace.xml → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /.vscode/sftp.json → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /debug.log → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /error.log → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+  ✅ /access.log → 200
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/logo.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Admin</title>
+    <script src="/gmjs.min.js"></script>
+    <script type="module" crossorigin src="/assets/index-hBk7cUaU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BfIIte_w.css">
+  ━━━
+
+━━━ inter.ghtk.vn ━━━
+
+━━━ hrm-api.ghtk.vn ━━━
+

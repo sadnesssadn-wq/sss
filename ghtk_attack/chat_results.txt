@@ -1,0 +1,30 @@
+[chat] /api
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"QQVR7AKHEWTJ","timestamp":"2025-11-13T19:27:08.145Z","host":"chat-backend-594f46588f-5lgv7"}---
+[chat] /api/v1
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"OINSBURRI5CI","timestamp":"2025-11-13T19:27:08.812Z","host":"chat-backend-896944d87-xwkdk"}---
+[chat] /api/v2
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"CEMRPJESN1QU","timestamp":"2025-11-13T19:27:09.389Z","host":"chat-backend-594f46588f-cgn9r"}---
+[chat] /api/v1/messages
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"PALDJNJKLY6H","timestamp":"2025-11-13T19:27:10.003Z","host":"chat-backend-896944d87-txc5n"}---
+[chat] /api/v1/users
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"HARGQJN24XP0","timestamp":"2025-11-13T19:27:10.618Z","host":"chat-backend-896944d87-zw7r8"}---
+[chat] /api/v1/rooms
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"FMNOIO2R5A3W","timestamp":"2025-11-13T19:27:11.222Z","host":"chat-backend-594f46588f-cc6k9"}---
+[chat] /api/v1/channels
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"H9ZHBKYDRUV4","timestamp":"2025-11-13T19:27:11.844Z","host":"chat-backend-896944d87-jltsn"}---
+[chat] /api/health
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"ZZ6IJARXWK9Z","timestamp":"2025-11-13T19:27:12.459Z","host":"chat-backend-896944d87-fh2dj"}---
+[chat] /api/status
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"ASI9M6CK2HTV","timestamp":"2025-11-13T19:27:13.066Z","host":"chat-backend-apm-674b6889bc-ds46f"}---
+[chat] /api/info
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"RFDQXZT4OGKP","timestamp":"2025-11-13T19:27:13.671Z","host":"chat-backend-594f46588f-d4cb4"}---
+[chat] /api/config
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"US1USESHRMYZ","timestamp":"2025-11-13T19:27:14.278Z","host":"chat-backend-896944d87-zw7r8"}---
+[chat] /graphql
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"WEKOCRJMIYFI","timestamp":"2025-11-13T19:27:14.890Z","host":"chat-backend-594f46588f-5lgv7"}---
+[chat] /ws
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"YFNR0X33UQPC","timestamp":"2025-11-13T19:27:15.508Z","host":"chat-backend-594f46588f-xd9xm"}---
+[chat] /socket
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"PYWOH8PMUIWH","timestamp":"2025-11-13T19:27:16.122Z","host":"chat-backend-896944d87-lhtg4"}---
+[chat] /chat
+{"code":-1,"sub_code":0,"success":false,"message":"Đường dẫn không hợp lệ","nonce":"PDSCRX1WDHD4","timestamp":"2025-11-13T19:27:16.702Z","host":"chat-backend-896944d87-jltsn"}---

@@ -1,0 +1,39 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 测试真实业务API（从文档提取）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[*] 从API文档发现的真实端点...
+
+━━━ 测试基础URL: https://services.giaohangtietkiem.vn ━━━
+  /services/shipment/fee → ⚠️  401（API存在！）
+{"success":false,"message":"C\u1ea7n cung c\u1ea5p token h\u1ee3p l\u1ec7","error_code":"20101","log_id":"r26916c5afacb4c"}━━━
+  /services/shipment/list → ❌ 404
+  /services/shipment/cancel → ❌ 404
+  /services/address/list → ❌ 404
+  /api/v1/shipment/fee → ❌ 404
+  /api/v1/order/create → ❌ 404
+  /api/v1/tracking → ❌ 404
+
+━━━ 测试基础URL: https://khachhang.giaohangtietkiem.vn ━━━
+  /services/shipment/fee → ❌ 500
+  /services/shipment/list → ❌ 500
+  /services/shipment/cancel → ❌ 500
+  /services/address/list → ❌ 404
+  /api/v1/shipment/fee → ❌ 404
+  /api/v1/order/create → ❌ 404
+  /api/v1/tracking → ❌ 404
+
+━━━ 测试基础URL: https://admin.giaohangtietkiem.vn ━━━
+  /services/shipment/fee → ❌ 500
+  /services/shipment/list → ❌ 500
+  /services/shipment/cancel → ❌ 500
+  /services/address/list → ❌ 404
+  /api/v1/shipment/fee → ❌ 404
+  /api/v1/order/create → ❌ 404
+  /api/v1/tracking → ❌ 404
+
+
+[*] 测试公开API（可能无需认证）...
+  https://khachhang.giaohangtietkiem.vn/api/address/provinces → ✅ 返回数据！
+  https://khachhang.giaohangtietkiem.vn/api/address/districts → ✅ 返回数据！
+  https://admin.giaohangtietkiem.vn/address-v2/provinces → ❌

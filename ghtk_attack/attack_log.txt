@@ -1,0 +1,12 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GHTK渗透测试攻击日志
+目标: admin.giaohangtietkiem.vn
+开始时间: $(date)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[阶段1] 信息收集 - 完成
+✅ /adm/index.aspx - Vue.js SPA后台
+✅ /healthcheck.php - 探活端点
+✅ robots.txt - 泄露/wp-admin和/admin
+
+[阶段2] 攻击面扩展 - 进行中...

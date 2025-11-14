@@ -1,0 +1,15 @@
+# 从JS和探测中已发现的子域名
+admin.giaohangtietkiem.vn
+auth.ghtk.vn
+auth.giaohangtietkiem.vn
+inter.ghtk.vn
+hrm-api.ghtk.vn
+hrm.ghtk.vn
+das2.ghtk.vn
+chat.ghtk.vn
+app.ghtk.vn
+cache.giaohangtietkiem.vn
+gs.giaohangtietkiem.vn
+s.giaohangtietkiem.vn
+web-analytic.ghtk.vn
+goku-tracking-be.ghtk.vn
