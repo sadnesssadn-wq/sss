@@ -1,0 +1,42 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 深度API枚举 - 测试所有可能的参数组合
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 测试常见API路径...
+  GET /api/v1/user → ❌ 404
+  POST /api/v1/user → ❌ 404
+  GET /api/v1/users → ❌ 404
+  POST /api/v1/users → ❌ 404
+  GET /api/v1/user/me → ❌ 404
+  POST /api/v1/user/me → ❌ 404
+  GET /api/v1/profile → ❌ 404
+  POST /api/v1/profile → ❌ 404
+  GET /api/v1/admin/users → ❌ 404
+  POST /api/v1/admin/users → ❌ 404
+  GET /api/v1/config → ❌ 404
+  POST /api/v1/config → ❌ 404
+  GET /api/v1/settings → ❌ 404
+  POST /api/v1/settings → ❌ 404
+  GET /api/v1/debug → ❌ 404
+  POST /api/v1/debug → ❌ 404
+  GET /api/v1/test → ❌ 404
+  POST /api/v1/test → ❌ 404
+  GET /api/v1/health → ❌ 404
+  POST /api/v1/health → ❌ 404
+  GET /api/v1/status → ❌ 404
+  POST /api/v1/status → ❌ 404
+  GET /api/v2/user → ❌ 404
+  POST /api/v2/user → ❌ 404
+  GET /api/internal/user → ❌ 404
+  POST /api/internal/user → ❌ 404
+  GET /api/admin/user → ❌ 404
+  POST /api/admin/user → ❌ 404
+  GET /.well-known/config → ❌ 404
+  POST /.well-known/config → ❌ 404
+
+[*] 测试参数注入...
+  /api/v1/user?debug=true → ❌ 404
+  /api/v1/user?test=1 → ❌ 404
+  /api/v1/user?admin=1 → ❌ 404
+  /api/v1/user?id=1 → ❌ 404
+  /api/v1/user?user_id=1 → ❌ 404
+  /api/v1/user?limit=999999 → ❌ 404
