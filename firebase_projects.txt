@@ -1,0 +1,7 @@
+csdl-kh.firebaseio.com
+dingdong-1524126013190.firebaseio.com
+dingdong-3e5cb.firebaseio.com
+ems-khl-app-notify.firebaseio.com
+my-vnpost.firebaseio.com
+viettel-post-8cb80.firebaseio.com
+viettelpost-evtman.firebaseio.com

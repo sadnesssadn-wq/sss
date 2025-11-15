@@ -1,0 +1,9 @@
+/api/Comment/GetListCommentByItemCode?itemCode=
+/api/DailyOrder/CancelDailyOrder?orderId=
+/api/DanhGiaBuuTa/GetDanhGiaByItemCodeAndNguoiDanhGia?itemCode=
+/api/DanhGiaBuuTa/GetListDanhGiaBuuTaByItemCode?itemCode=
+/api/Order/CancelOrder?orderId=
+/api/Order/GetBarCode?itemCode=
+/api/Order/GetFullQrCode?itemCode=
+/api/Order/GetQrCode?itemCode=
+/api/ThongTinChuyenPhatDonHang/GetThongTinChuyenPhatDonHangByItemCode?itemCode=
