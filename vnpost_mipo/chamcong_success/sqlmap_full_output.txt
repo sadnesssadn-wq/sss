@@ -1,0 +1,1 @@
+final_sqlmap_test.sh: line 22: sqlmap: command not found
