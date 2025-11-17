@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>&#x110;&#x103;ng nh&#x1EAD;p h&#x1EC7; th&#x1ED1;ng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+
+    <link href="/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    <link href="/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/libs/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" rel="stylesheet" />
+    <link href="/libs/tabulator-master/dist/css/tabulator.css" rel="stylesheet" />
+    <link href="/css/tabulator.css" rel="stylesheet" />
+    
+
+    <link href="/css/0-layouts-manage-v1.css" rel="stylesheet" />
+    <link href="/css/bootstrap-creative.min.css" rel="stylesheet" type="text/css" id="bs-default-stylesheet" />
+    <link href="/css/app-creative.min.css" rel="stylesheet" type="text/css" id="app-default-stylesheet" />
+    <link href="/css/site/site.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="auth-fluid">
+        
+<!-- Auth fluid right content -->
+<div class="auth-fluid-right">
+    <div class="auth-user-testimonial">
+    </div> <!-- end auth-user-testimonial-->
+</div>
+<!-- end Auth fluid right content -->
+<!--Auth fluid left content -->
+<div class="auth-fluid-form-box">
+    <div class="align-items-center d-flex h-100">
+        <div class="card-body">
+
+            <!-- Logo -->
+            <div class="auth-brand text-center text-lg-left">
+                <div class="auth-logo">
+                    <a href="index.html" class="logo logo-dark text-center">
+                        <span class="logo-lg">
+                            <img src="/images/vnpost-logo.png" alt="" height="50">
+                        </span>
+                    </a>
+
+                    <a href="index.html" class="logo logo-light text-center">
+                        <span class="logo-lg">
+                            <img src="/images/vnpost-logo.png" alt="" height="50">
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- title-->
+            <p class="text-muted mb-4"></p>
+
+            <!-- form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userName">Tên tài khoản</label>
+                    <input class="form-control" id="userName" name="userName" required="required"
+                        placeholder="Enter your user name">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <div class="input-group input-group-merge">
+                        <input type="password" id="password" class="form-control" required="required" name="password"
+                            placeholder="Enter your password">
+                        <div class="input-group-append" data-password="false">
+                            <div class="input-group-text">
+                                <span class="password-eye"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <!-- <div class="g-recaptcha" data-sitekey="6LfK6gkpAAAAAGOpkynMmRQ53ljJjhz7v4lIHA2j"></div> -->
+                    <div id="example3"></div>
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+                    <br>
+
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe"
+                            value="true">
+                        <label class="custom-control-label" for="rememberMe">Ghi nhớ mật khẩu</label>
+                        <a href="auth-recoverpw-2.html" class="text-muted float-right"><small>Quên mật khẩu?</small></a>
+
+                    </div>
+                </div>
+                <div class="form-group mb-0 text-center">
+                    <button class="btn btn-warning btn-block" type="button" id="btnAction">Đăng nhập
+                    </button>
+                </div>
+            </form>
+        </div> <!-- end .card-body -->
+    </div> <!-- end .align-items-center.d-flex.h-100-->
+</div>
+<!-- end auth-fluid-form-box-->
+
+
+    </div>
+    <!-- end auth-fluid-->
+    <script src="/js/vendor.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <script src="/libs/moment/min/moment.min.js"></script>
+    <script src="/libs/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js"
+            integrity="sha512-lVOhRiSNKsseQXm0MgoEOV7efl7ET2+iBw5tRgKsX2BPA2LlkW2WUCsSYVwrrujEsbqNf+tN70z5pEnpnUtqUg=="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="/libs/Parsley/parsley.min.js"></script>
+    <script type="text/javascript" src="/libs/tabulator-master/dist/js/tabulator.js"></script>
+
+    <script src="/js/common/swal.init.js"></script>
+
+    <script src="/js/app.min.js"></script>
+    <script src="/js/common/constant.js"></script>
+    <script src="/js/common/helpers.js"></script>
+    <script src="/js/common/utils.js"></script>
+    <script src="/js/common/validation.js"></script>
+    <script src="/js/common/converter.js"></script>
+    <script src="/js/common/ajax.common.js"></script>
+    <script src="/js/common/permission.js"></script>
+    <script src="/js/site/site.js"></script>
+    <script src="/js/js/vivalidation.js"></script>
+    
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+</script>
+
+<script src="/js/js/buuta/md5/aes.js"></script>
+<script src="/js/js/buuta/createToken.js"></script>
+<script src="/js/pages/auth/Auth.js"></script>
+
+
+    <script id="tenant-filter-items-tmpl" type="x-tmpl-mustache">
+        {{#data}}
+        <option id="{{id}}" data-code="{{code}}" data-parentId="{{parentId}}" data-parentCode="{{parentCode}}" value="{{id}}">{{name}}</option>
+        {{/data}}
+    </script>
+
+    <script id="tenant-filter-items-tmpl-1" type="x-tmpl-mustache">
+        {{#data}}
+        <option id="{{id}}" data-code="{{code}}" data-parentId="{{parentId}}" data-parentCode="{{parentCode}}" value="{{id}}">{{name}}</option>
+        {{/data}}
+    </script>
+
+    <script id="tenant-filter-item-all-tmpl" type="x-tmpl-mustache">
+        <option class="tenant-select-all-item"></option>
+    </script>
+</body>
+</html>
