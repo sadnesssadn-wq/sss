@@ -1,0 +1,7 @@
+# Netscape HTTP Cookie File
+vps.vnpost.vn	FALSE	/	FALSE	0	ASP.NET_SessionId	omtonrrfveu055ojf1dnmgwx
+vps.vnpost.vn	FALSE	/	FALSE	0	__utmc	262803147
+vps.vnpost.vn	FALSE	/	FALSE	0	__utmz	262803147.1763391731.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)
+vps.vnpost.vn	FALSE	/	FALSE	0	__utma	262803147.481587937.1763391731.1763391731.1763394215.2
+vps.vnpost.vn	FALSE	/	FALSE	0	__utmt	1
+vps.vnpost.vn	FALSE	/	FALSE	0	__utmb	262803147.11.10.1763394215
