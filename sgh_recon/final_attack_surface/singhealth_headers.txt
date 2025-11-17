@@ -1,0 +1,9 @@
+HTTP/1.1 404 Not Found
+Content-Length: 1911
+Content-Type: text/html; charset=utf-8
+Date: Mon, 17 Nov 2025 17:17:07 GMT
+Cache-Control: private
+Set-Cookie: ARRAffinity=01bbe5bef8be6b3bd48667c5ac539b6a4ffc62f6464dd0bd98adcd189e77ef8e;Path=/;HttpOnly;Secure;Domain=singhealth.azurewebsites.net
+Set-Cookie: ARRAffinitySameSite=01bbe5bef8be6b3bd48667c5ac539b6a4ffc62f6464dd0bd98adcd189e77ef8e;Path=/;HttpOnly;SameSite=None;Secure;Domain=singhealth.azurewebsites.net
+X-Powered-By: ASP.NET
+

@@ -1,0 +1,14 @@
+sgh-api.azurewebsites.net|000000
+sgh-app.azurewebsites.net|000000
+sgh-web.azurewebsites.net|000000
+sgh-mobile.azurewebsites.net|000000
+sgh-admin.azurewebsites.net|000000
+sgh-backend.azurewebsites.net|000000
+sgh-service.azurewebsites.net|000000
+sgh-portal.azurewebsites.net|000000
+sghprd.azurewebsites.net|000000
+sghuat.azurewebsites.net|000000
+sghdev.azurewebsites.net|000000
+sghtest.azurewebsites.net|000000
+singapore-hospital.azurewebsites.net|000000
+singhealth.azurewebsites.net|200
