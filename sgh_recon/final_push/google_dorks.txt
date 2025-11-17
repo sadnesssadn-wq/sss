@@ -1,0 +1,11 @@
+# 如果有Google API可以执行这些搜索：
+site:sgh.com.sg "api key"
+site:sgh.com.sg "X-API-Key"
+site:sgh.com.sg "Ocp-Apim-Subscription-Key"
+site:github.com "sgh.com.sg" api
+site:github.com "Singapore General Hospital" api key
+site:pastebin.com "sgh.com.sg"
+inurl:sgh.com.sg filetype:env
+inurl:sgh.com.sg filetype:config
+"customercare-webapi.azurewebsites.net"
+"Singapore General Hospital" "api key" site:github.com
