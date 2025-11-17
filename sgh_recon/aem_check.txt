@@ -1,0 +1,12 @@
+[*] 检查: /system/console
+HTTP/2 403 
+---
+[*] 检查: /crx/de
+HTTP/2 404 
+---
+[*] 检查: /etc/designs
+HTTP/2 404 
+---
+[*] 检查: /bin/querybuilder.json
+HTTP/2 404 
+---
