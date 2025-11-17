@@ -1,0 +1,13 @@
+chamcong/TaoBCC_To.aspx
+/inBCC.aspx?ID=MAU2
+/leftmenu.aspx
+leftmenu.aspx
+leftmenu.aspx?ID=CC
+/login.aspx
+logout.aspx
+report/inBCC.aspx?ID=BC01&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=BC02&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=BC03&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=MAU2&#39;,&#39;right&#39;);
+/top.aspx
+top.aspx

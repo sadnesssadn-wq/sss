@@ -1,0 +1,4 @@
+./inBCC.aspx?ID=MAU2
+./leftmenu.aspx
+./login.aspx
+./top.aspx

@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Menu
+</title><link href="style.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        #table1
+        {
+            width: 29%;
+        }
+    </style>
+</head>
+<body style="margin:0;" bgcolor="#FFFFFF" >
+    <form method="post" action="./leftmenu.aspx?ID=CC" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTEwMzYzNzE4Nw9kFgICAw9kFgQCAQ8PFgIeBFRleHQFEU1lbnUgQ2jhuqVtIGPDtG5nZGQCAw88KwAFAQMUKwAFEBYIHghJdGVtVGV4dAUMQ2jhuqVtIGPDtG5nHgdJdGVtVVJMBRdjaGFtY29uZy9UYW9CQ0NfVG8uYXNweB4KSXRlbVRhcmdldAUFcmlnaHQeBkl0ZW1JRAURTWVudTEtbWVudUl0ZW0wMDBkZBAWCB8BBQZJbiBCQ0MfAgUZcmVwb3J0L2luQkNDLmFzcHg/SUQ9TUFVMh8DBQVyaWdodB8EBRFNZW51MS1tZW51SXRlbTAwMWRkEBYIHwEFIkJDMDE6IE5o4bqtcCBz4buRIGNodXnhur9uIMSQVkMgDQofAgUZcmVwb3J0L2luQkNDLmFzcHg/SUQ9QkMwMR8DBQVyaWdodB8EBRFNZW51MS1tZW51SXRlbTAwMmRkEBYIHwEFNkJDMDI6IEJJ4buCVSBUw41OSCBMxq/GoE5HIFZDIFRIRU8gxJDGoE4gR0nDgSBDSFVZ4bq+Th8CBRlyZXBvcnQvaW5CQ0MuYXNweD9JRD1CQzAyHwMFBXJpZ2h0HwQFEU1lbnUxLW1lbnVJdGVtMDAzZGQQFggfAQUnQkMwMzogQuG6ok5HIFThu5RORyBI4buiUCBDSFVZ4bq+TiBUSMavHwIFGXJlcG9ydC9pbkJDQy5hc3B4P0lEPUJDMDMfAwUFcmlnaHQfBAURTWVudTEtbWVudUl0ZW0wMDRkZGRkyl9v24WV6VlJzYCgP8inoWPf22m8GSpSY0sguBZ+UrU=" />
+
+
+<script language='javascript'>
+<!--
+//Region Global Variables
+var skm_SelectedMenuStyleInfos=new Object();
+var skm_UnselectedMenuStyleInfos=new Object();
+var skm_MenuFadeDelays=new Object();
+var skm_clockValue=0;
+var skm_ticker;
+var skm_highlightTopMenus=new Object();
+var skm_images=new Array();
+var skm_OpenMenuItems = new Array();
+//EndRegion
+//Region Methods to hook up a menu to the global variables
+function skm_registerMenu(menuID, selectedStyleInfo, unselectedStyleInfo, menuFadeDelay, highlightTopMenu){
+	skm_SelectedMenuStyleInfos[menuID]=selectedStyleInfo;
+	skm_UnselectedMenuStyleInfos[menuID]=unselectedStyleInfo;
+	skm_MenuFadeDelays[menuID]=menuFadeDelay;
+	skm_highlightTopMenus[menuID]=highlightTopMenu;
+}
+//Region The methods and contructor of the skm_styleInfo object.
+function skm_applyStyleInfoToElement(element){
+	element.style.backgroundColor=this.backgroundColor;
+	element.style.borderColor=this.borderColor;
+	element.style.borderStyle=this.borderStyle;
+	element.style.borderWidth=this.borderWidth;
+	element.style.color=this.color;
+	if (this.fontFamily!='')
+		element.style.fontFamily=this.fontFamily;
+	element.style.fontSize=this.fontSize;
+	element.style.fontStyle=this.fontStyle;
+	element.style.fontWeight=this.fontWeight;
+	if (this.className!='')
+		element.style.className=this.className;
+}
+function skm_styleInfo(backgroundColor,borderColor,borderStyle,borderWidth,color,fontFamily,fontSize,fontStyle,fontWeight,className){
+	this.backgroundColor=backgroundColor;
+	this.borderColor=borderColor;
+	this.borderStyle=borderStyle;
+	this.borderWidth=borderWidth;
+	this.color=color;
+	this.fontFamily=fontFamily;
+	this.fontSize=fontSize;
+	this.fontStyle=fontStyle;
+	this.fontWeight=fontWeight;
+	this.className=className;
+	this.applyToElement=skm_applyStyleInfoToElement;
+}
+//Region MouseEventHandlers
+function skm_mousedOverMenu(menuID,elem,parent,displayedVertically,imageSource){
+	skm_stopTick();
+	skm_closeSubMenus(elem);
+	var childID=elem.id+"-subMenu";  // Display child menu if needed
+	if (document.getElementById(childID)!=null){  // make the child menu visible and specify that its position is specified in absolute coordinates
+		document.getElementById(childID).style.display='block';
+		document.getElementById(childID).style.position='absolute';
+		skm_OpenMenuItems = skm_OpenMenuItems.concat(childID);
+		if (displayedVertically){ // Set the child menu's left and top attributes according to the menu's offsets
+			document.getElementById(childID).style.left=skm_getAscendingLefts(parent)+parent.offsetWidth;
+			document.getElementById(childID).style.top=skm_getAscendingTops(elem);
+			var visibleWidth=parseInt(window.outerWidth?window.outerWidth-9:document.body.clientWidth,10);
+			if ((parseInt(document.getElementById(childID).offsetLeft,10)+parseInt(document.getElementById(childID).offsetWidth,10))>visibleWidth) {
+				document.getElementById(childID).style.left=visibleWidth-parseInt(document.getElementById(childID).offsetWidth,10);
+			}
+		}else{  // Set the child menu's left and top attributes according to the menu's offsets
+			document.getElementById(childID).style.left=skm_getAscendingLefts(elem);
+			document.getElementById(childID).style.top=skm_getAscendingTops(parent)+parent.offsetHeight;
+			if (document.getElementById(childID).offsetWidth<elem.offsetWidth)
+				document.getElementById(childID).style.width=elem.offsetWidth;
+		}
+	}
+	if (skm_SelectedMenuStyleInfos[menuID] != null) skm_SelectedMenuStyleInfos[menuID].applyToElement(elem);
+	if (skm_highlightTopMenus[menuID]){
+		var eId=elem.id+'';
+		while (eId.indexOf('-subMenu')>=0){
+			eId=eId.substring(0, eId.lastIndexOf('-subMenu'));
+			skm_SelectedMenuStyleInfos[menuID].applyToElement(document.getElementById(eId));
+		}
+	}	
+	if (imageSource!=''){
+		setimage(elem,imageSource)
+	}
+}
+function skm_mousedOverClickToOpen(menuID,elem,parent,imageSource){
+	skm_stopTick();
+	if (skm_SelectedMenuStyleInfos[menuID] != null) skm_SelectedMenuStyleInfos[menuID].applyToElement(elem);
+	if (skm_highlightTopMenus[menuID]){
+		var eId=elem.id+'';
+		while (eId.indexOf('-subMenu')>=0){
+			eId=eId.substring(0, eId.lastIndexOf('-subMenu'));
+			skm_SelectedMenuStyleInfos[menuID].applyToElement(document.getElementById(eId));
+		}
+	}	
+	if (imageSource!=''){
+		setimage(elem,imageSource)
+	}
+}
+function skm_mousedOverSpacer(menuID,elem,parent){
+	skm_stopTick();
+}
+function skm_mousedOutMenu(menuID,elem,imageSource){
+	skm_doTick(menuID);
+	if (skm_UnselectedMenuStyleInfos[menuID] != null) skm_UnselectedMenuStyleInfos[menuID].applyToElement(elem);
+	if (skm_highlightTopMenus[menuID]){
+		var eId=elem.id+'';
+		while (eId.indexOf('-subMenu')>=0){
+			eId=eId.substring(0, eId.lastIndexOf('-subMenu'));
+			skm_UnselectedMenuStyleInfos[menuID].applyToElement(document.getElementById(eId));
+		}
+	}
+	if (imageSource!=''){
+		setimage(elem,imageSource)
+	}
+}
+function skm_mousedOutSpacer(menuID, elem){
+	skm_doTick(menuID);
+}
+//Region Utility Functions
+function skm_closeSubMenus(parent){
+	if (skm_OpenMenuItems == "undefined") return;
+	for (var i=skm_OpenMenuItems.length-1; i>-1;i--) {
+		if (parent.id.indexOf(skm_OpenMenuItems[i]) != 0) {
+			document.getElementById(skm_OpenMenuItems[i]).style.display = 'none';
+			skm_shimSetVisibility(false, skm_OpenMenuItems[i]);			
+			skm_OpenMenuItems = new Array().concat(skm_OpenMenuItems.slice(0,i), skm_OpenMenuItems.slice(i+1));
+  		} 
+	}
+}
+function skm_shimSetVisibility(makevisible, tableid){
+	var tblRef=document.getElementById(tableid);
+	var IfrRef=document.getElementById('shim'+tableid);
+	if (tblRef!=null && IfrRef!=null){
+		if(makevisible){
+			IfrRef.style.width=tblRef.offsetWidth;
+			IfrRef.style.height=tblRef.offsetHeight;
+			IfrRef.style.top=tblRef.style.top;
+			IfrRef.style.left=tblRef.style.left;
+			IfrRef.style.zIndex=tblRef.style.zIndex-1;
+			IfrRef.style.display="block";
+		}else{
+			IfrRef.style.display="none";
+		}
+	}
+}
+function skm_IsSubMenu(id){
+	if (skm_subMenuIDs == "undefined") return false;
+	for (var i=0;i<skm_subMenuIDs.length;i++)
+	  if (id==skm_subMenuIDs[i]) return true;
+	return false;
+}
+function skm_getAscendingLefts(elem){
+	if (elem==null)
+		return 0;
+	else
+	{
+		if ((elem.style.position=='absolute' || elem.style.position=='relative') && !skm_IsSubMenu(elem.id)) return 0;
+		return elem.offsetLeft+skm_getAscendingLefts(elem.offsetParent);
+	}
+}
+function skm_getAscendingTops(elem){
+	if (elem==null)
+		return 0;
+	else {
+		if ((elem.style.position=='absolute' || elem.style.position=='relative') && !skm_IsSubMenu(elem.id)) return 0;
+		return elem.offsetTop+skm_getAscendingTops(elem.offsetParent);
+	}
+}
+//Region Fade Functions
+function skm_doTick(menuID){
+	if (skm_clockValue>=skm_MenuFadeDelays[menuID]){
+		skm_stopTick();
+		skm_closeSubMenus(document.getElementById(menuID));
+	} else {
+		skm_clockValue++;
+		skm_ticker=setTimeout("skm_doTick('"+menuID+"');", 500);
+	}
+}
+function skm_stopTick(){
+	skm_clockValue=0;
+	clearTimeout(skm_ticker);
+}
+function preloadimages(){
+	for (i=0;i<preloadimages.arguments.length;i++){
+		skm_images[i]=new Image();
+		skm_images[i].src=preloadimages.arguments[i];
+	}
+}
+function setimage(elem,imageSource){
+	var i=elem.getElementsByTagName("img")[0];
+	i.src=imageSource;
+}
+//-->
+</script>
+		
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="22AD2CA0" />
+    
+    <table border="0" id="table1" cellspacing="0" cellpadding="0" width="200">
+	<tr>
+		<td colspan="2" height="131" width="200"><img border="0" src="images/pictop.gif" width="200" height="131"></td>
+	</tr>
+	<tr>
+		<td background="images/topleft.gif" width="14" height="25">&nbsp;</td>
+		<td background="images/subnavbg.gif" width="186" height="25" style="padding:0 10 0 10;"><b>
+		<font color="#FFFFFF">&nbsp; 
+            <span id="lblModule">Menu Chấm công</span></font></b>
+                </td>
+	</tr>
+	<tr>
+		<td width="14" valign="top">
+		<img border="0" src="images/sidebg2.gif" width="14"></td>
+		<td width="186" valign="top"> <table class="menuItem" cellspacing="3" cellpadding="5" id="Menu1" style="z-index:1000;">
+	<tr>
+		<td class="menuItem" id="Menu1-menuItem000" onclick="javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;chamcong/TaoBCC_To.aspx&#39;,&#39;right&#39;);" onmouseover="javascript:skm_mousedOverMenu(&#39;Menu1&#39;,this, document.getElementById(&#39;Menu1&#39;), true, &#39;&#39;);this.className=&#39;highlighteditem&#39;;" onmouseout="javascript:skm_mousedOutMenu(&#39;Menu1&#39;, this, &#39;&#39;);this.className=&#39;menuItem&#39;;" width="184" style="cursor:pointer;">Chấm công</td>
+	</tr><tr>
+		<td class="menuItem" id="Menu1-menuItem001" onclick="javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=MAU2&#39;,&#39;right&#39;);" onmouseover="javascript:skm_mousedOverMenu(&#39;Menu1&#39;,this, document.getElementById(&#39;Menu1&#39;), true, &#39;&#39;);this.className=&#39;highlighteditem&#39;;" onmouseout="javascript:skm_mousedOutMenu(&#39;Menu1&#39;, this, &#39;&#39;);this.className=&#39;menuItem&#39;;" width="184" style="cursor:pointer;">In BCC</td>
+	</tr><tr>
+		<td class="menuItem" id="Menu1-menuItem002" onclick="javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC01&#39;,&#39;right&#39;);" onmouseover="javascript:skm_mousedOverMenu(&#39;Menu1&#39;,this, document.getElementById(&#39;Menu1&#39;), true, &#39;&#39;);this.className=&#39;highlighteditem&#39;;" onmouseout="javascript:skm_mousedOutMenu(&#39;Menu1&#39;, this, &#39;&#39;);this.className=&#39;menuItem&#39;;" width="184" style="cursor:pointer;">BC01: Nhập số chuyến ĐVC 
+</td>
+	</tr><tr>
+		<td class="menuItem" id="Menu1-menuItem003" onclick="javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC02&#39;,&#39;right&#39;);" onmouseover="javascript:skm_mousedOverMenu(&#39;Menu1&#39;,this, document.getElementById(&#39;Menu1&#39;), true, &#39;&#39;);this.className=&#39;highlighteditem&#39;;" onmouseout="javascript:skm_mousedOutMenu(&#39;Menu1&#39;, this, &#39;&#39;);this.className=&#39;menuItem&#39;;" width="184" style="cursor:pointer;">BC02: BIỂU TÍNH LƯƠNG VC THEO ĐƠN GIÁ CHUYẾN</td>
+	</tr><tr>
+		<td class="menuItem" id="Menu1-menuItem004" onclick="javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC03&#39;,&#39;right&#39;);" onmouseover="javascript:skm_mousedOverMenu(&#39;Menu1&#39;,this, document.getElementById(&#39;Menu1&#39;), true, &#39;&#39;);this.className=&#39;highlighteditem&#39;;" onmouseout="javascript:skm_mousedOutMenu(&#39;Menu1&#39;, this, &#39;&#39;);this.className=&#39;menuItem&#39;;" width="184" style="cursor:pointer;">BC03: BẢNG TỔNG HỢP CHUYẾN THƯ</td>
+	</tr>
+</table></td>
+	</tr>
+</table>
+
+
+    
+<script language="javascript">skm_registerMenu('Menu1',new skm_styleInfo('','','','','','','','','','highlighteditem'),new skm_styleInfo('','','','','','','','','','menuItem'),2,true);</script></form>
+</body>
+</html>

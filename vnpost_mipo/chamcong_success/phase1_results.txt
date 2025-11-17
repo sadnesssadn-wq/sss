@@ -1,0 +1,68 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 Phase 1: JS深度分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 提取所有JS文件链接...
+  抓取: /index.aspx
+  抓取: /login.aspx
+  抓取: /top.aspx
+  抓取: /leftmenu.aspx
+  抓取: /report/inBCC.aspx?ID=MAU2
+
+[2] 提取JS文件URL...
+  发现 0 个JS文件
+  完整URL: 0 个
+
+[3] 下载所有JS文件...
+
+[4] JS内容深度分析...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [4.1] 提取API端点...
+    发现 0 个URL
+
+  [4.2] 查找敏感信息...
+    无明显敏感信息
+
+  [4.3] 查找AJAX/API调用...
+
+  [4.4] 查找隐藏功能...
+
+  [4.5] 提取.aspx文件引用...
+    发现 13 个.aspx引用
+chamcong/TaoBCC_To.aspx
+/inBCC.aspx?ID=MAU2
+/leftmenu.aspx
+leftmenu.aspx
+leftmenu.aspx?ID=CC
+/login.aspx
+logout.aspx
+report/inBCC.aspx?ID=BC01&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=BC02&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=BC03&#39;,&#39;right&#39;);
+report/inBCC.aspx?ID=MAU2&#39;,&#39;right&#39;);
+/top.aspx
+top.aspx
+
+[5] 检查HTML隐藏元素...
+  隐藏字段: 3
+__EVENTVALIDATION
+__VIEWSTATE
+__VIEWSTATEGENERATOR
+
+[6] 提取所有表单action...
+  表单action: 4
+./inBCC.aspx?ID=MAU2
+./leftmenu.aspx
+./login.aspx
+./top.aspx
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Phase 1 完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 发现总结:
+  - JS文件: 0 个
+  - URL端点: 0 个
+  - .aspx引用: 13 个
+  - 隐藏字段: 3 个
+  - 表单action: 4 个

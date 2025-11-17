@@ -1,0 +1,106 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 Phase 2+3: 端点深度测试
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 测试新发现的报表ID（BC01/BC02/BC03）+ Export
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试 ID=BC01:
+    GET页面: 4301 bytes
+    Export: 7958 bytes
+    🔥🔥🔥 文件写入错误!
+        <title>Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <h2> <i>Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\TEMP\112025_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\TEMP\112025_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+    Print: 4300 bytes
+
+  测试 ID=BC02:
+    GET页面: 4351 bytes
+    Export: 7958 bytes
+    🔥🔥🔥 文件写入错误!
+        <title>Could not find a part of the path 'C:\TEMP\112025_BC02_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <h2> <i>Could not find a part of the path 'C:\TEMP\112025_BC02_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\112025_BC02_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\TEMP\112025_BC02_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\TEMP\112025_BC02_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+    Print: 4350 bytes
+
+  测试 ID=BC03:
+    GET页面: 4288 bytes
+    Export: 7959 bytes
+    🔥🔥🔥 文件写入错误!
+        <title>Could not find a part of the path 'C:\TEMP\112025_BC03_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <h2> <i>Could not find a part of the path 'C:\TEMP\112025_BC03_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\112025_BC03_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\TEMP\112025_BC03_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\TEMP\112025_BC03_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+    Print: 4287 bytes
+
+  测试 ID=MAU1:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4400 bytes
+
+  测试 ID=MAU3:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4627 bytes
+
+  测试 ID=MAU4:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4587 bytes
+
+  测试 ID=MAU6:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4400 bytes
+
+  测试 ID=MAU7:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4400 bytes
+
+  测试 ID=MAU8:
+    GET页面: 4401 bytes
+    lblNote: <span id="lblNote"><b><font color="#FF3300">Không xác định được mẫu biểu cần in.</font></b></span>
+    Export: 68 bytes
+    Print: 4400 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2] 测试TaoBCC_To.aspx（创建考勤表）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  访问页面...
+  大小: 3905 bytes
+  🔥 可能包含上传/创建功能!
+[HttpException]: The file &#39;/chamcong/TaoBCC_To.aspx&#39; does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+  提取表单字段...
+viewport
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3] 测试leftmenu.aspx?ID=CC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  大小: 12662 bytes
+  提取新链接...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4] 大字典.aspx枚举（1000+路径）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  测试 32 个路径...
+  发现: 0 个新页面
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Phase 2+3 完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 关键发现:
+  - 文件写入错误: 3 个
+phase2_3_endpoints_testing.sh: line 191: found_new_aspx.txt: No such file or directory
+  - 新.aspx页面: 0 个

