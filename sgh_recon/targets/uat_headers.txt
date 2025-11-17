@@ -1,0 +1,13 @@
+HTTP/2 401 
+retry-after: 0
+content-type: text/html; charset=utf-8
+www-authenticate: Basic realm=Secured
+accept-ranges: bytes
+date: Mon, 17 Nov 2025 15:51:30 GMT
+strict-transport-security: max-age=31557600
+x-served-by: cache-cmh1290053-CMH
+x-cache: MISS
+x-timer: S1763394690.767085,VS0,VE375
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://translate.googleapis.com https://www.gstatic.com https://ndcs.app.keyreply.com *.google-analytics.com *.googletagmanager.com *.youtube.com; style-src 'self' 'unsafe-inline' https://www.gstatic.com; img-src 'self' data: https://www.google.com https://www.gstatic.com https://www.google.co.in https://keyreplyndcs.blob.core.windows.net https://keyreply.blob.core.windows.net https://assets.uat-hhm.hhtest.sg https://ch-api.healthhub.sg *.google-analytics.com *.googletagmanager.com *.youtube.com; connect-src 'self' https://www.google.com https://analytics.google.com https://stats.g.doubleclick.net https://www.gstatic.com https://translate.googleapis.com https://*.keyreply.com https://customercare-webapi.azurewebsites.net wss://customercare-webapi.azurewebsites.net wss://ndcs.app.keyreply.com *.google-analytics.com *.googletagmanager.com *.youtube.com; font-src 'self' data: https://webchat.keyreply.com; media-src 'self' https://keyreply.blob.core.windows.net; object-src 'none'; frame-src 'self' https://www.google.com *.google-analytics.com *.googletagmanager.com *.youtube.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content;
+content-length: 328
+

@@ -1,0 +1,20 @@
+HTTP/2 200 
+date: Mon, 17 Nov 2025 15:51:37 GMT
+content-type: text/html; charset=utf-8
+cache-control: private,no-store, no-cache, must-revalidate
+pragma: no-cache
+x-frame-options: SAMEORIGIN
+p3p: CP=None
+access-control-allow-methods: GET,POST,PUT,DELETE,OPTIONS
+access-control-allow-headers: X-Requested-With,Content-Type,Range
+access-control-expose-headers: Content-Range
+access-control-allow-credentials: true
+x-permitted-cross-domain-policies: none
+x-content-type-options: nosniff
+strict-transport-security: max-age=16070400; includeSubDomains
+cf-cache-status: DYNAMIC
+server: cloudflare
+set-cookie: __cf_bm=9upY.Z5nRKQ0_siXovwjctrgyahrFvp55U8zLiSmoKg-1763394696.0126429-1.0.1.1-mYGsP.L3d67kIlKhW5.XrzyUm5AlapmUqxEjICf.oexzSgSpWCMQ3ScHqjwfM7eCuoZaXI4EEWV92gmiQxEJ9eYoW1cVi3RskqABE285Ck0d7PS0U1bYYQ9xlxqdqZTF; HttpOnly; Secure; Path=/; Domain=sgh.com.sg; Expires=Mon, 17 Nov 2025 16:21:37 GMT
+set-cookie: _cfuvid=f8MsJJOZqXFRQaxYFZhC_lwp.PwzVN4O9_Gh.rx6n30-1763394696.0126429-1.0.1.1-fPqhYka3k4dkWmy2pfZLtxqFufH31Ab1vshJYeCnt_w; HttpOnly; SameSite=None; Secure; Path=/; Domain=dpscp.sgh.com.sg
+cf-ray: 9a0063f21a5ea53e-CMH
+

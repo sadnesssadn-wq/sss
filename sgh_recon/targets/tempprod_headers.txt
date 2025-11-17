@@ -1,0 +1,11 @@
+HTTP/2 500 
+server: Varnish
+retry-after: 0
+content-type: text/html
+cache-control: private, no-cache
+x-served-by: cache-cmh1290020-CMH
+accept-ranges: bytes
+date: Mon, 17 Nov 2025 15:51:32 GMT
+via: 1.1 varnish
+content-length: 276
+
