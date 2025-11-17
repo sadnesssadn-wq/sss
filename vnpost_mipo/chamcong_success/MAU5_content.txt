@@ -1,0 +1,36 @@
+<span id="lblReport" style="color:#FF3300;font-weight:bold;"><table border='0' width='1388' id='tbtTieude' cellspacing='0' cellpadding='0'><tr><td width='50%' align='center' colspan='17'> C
+NG TY V
+N CHUY
+ KHO V
+N</td><td width='50%' align='center' colspan='18'><b></b></td></tr><tr><td width='50%' align='center' colspan='17'><b>Kho v
+n mi
+c</b></td><td width='50%' align='center' colspan='18'><b></b></td></tr><tr><td width='50%' align='center' colspan='17'><b>V
+n ph
+ng</b></td><td width='50%' align='center' colspan='18'><b></b></td></tr><tr><td colspan='35' width='100%'>&nbsp;</td></tr><tr><td colspan='35' width='100%' align='right'><i> 17 th
+ng 11 n
+m 2025</i></td></tr><tr><td colspan='35' width='100%'>&nbsp;</td></tr><tr><td colspan='35' width='100%'>&nbsp;</td></tr><tr><td colspan='35' width='100%' align='center'><b><font size='5'>B
+NG CH
+NG TH
+NG 11 N
+M 2025</font></b></td></tr><tr><td colspan='35' width='100%'>&nbsp;</td></tr><tr><td colspan='35' width='100%'>&nbsp;</td></tr></table><table border='1' width='1288' id='tblnoidung' bordercolorlight='#808080' cellspacing='0' cellpadding='0' bordercolordark='#808080' style='border-collapse: collapse'><tr><td align='center' width='32' rowspan='2'><b>Stt</b></td><td align='center' width='64' rowspan='2'><b>M
+ NV</b></td><td align='center' rowspan='2' width='200'><b>H
+n</b></td><td align='center' width='100' rowspan='2'><b>Ng
+y</b></td><td align='center' colspan='5'><b>Chuy
+n th
+</b></td></tr><tr><td align='center'><b>
+ng th
+</b></td><td align='center'><b>Xe</b></td><td align='center'><b>Lo
+i</b></td><td align='center'><b>Ng
+y</b></td><td align='center'><b>Th
+nh ti
+n</b></td></tr></table><br><br><br><table border='0' width='1388' id='tblfooter' cellspacing='0' cellpadding='0'><tr><td align='center' colspan='17'><b></b></td><td align='center' colspan='6'><b></b></t><td align='center' colspan='6'><b></b></t><td align='center' colspan='6'><b> 17 th
+ng 11 n
+m 2025</b></t></tr><tr><td align='center' colspan='17'><i>Ng
+i duy
+t</i></t><td align='center' colspan='6'><b>Ph
+ch b
+n</b></t><td align='center' colspan='6'><b></b></t><td align='center' colspan='6'><i>Ng
+i ch
+ng</i></t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'>V
+n ph
+ng </t></tr><tr><td align='center' colspan='17'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t><td align='center' colspan='6'></t></tr></table></span>

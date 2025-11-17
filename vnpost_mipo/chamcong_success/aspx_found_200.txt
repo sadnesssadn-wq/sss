@@ -1,0 +1,3 @@
+/login.aspx|200|5038
+/index.aspx|200|1520
+/default.aspx|200|1361

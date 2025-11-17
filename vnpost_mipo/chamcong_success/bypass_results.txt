@@ -1,0 +1,32 @@
+🔥 死磕策略2: 绕过前端disabled限制
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 获取最新ViewState...
+  ViewState: /wEPDwULLTE4MzUzOTEyODUPZBYCAgMPZBYKAgEPDxYCHgRUZX...
+  ViewStateGen: 1C7806B8
+  EventVal: /wEdAAV2NXNRvLs+cmLvzJu5TWAhcz6XD9a28VmUw4flRkU+ge...
+
+[2] 强制POST Export（忽略disabled）...
+  响应大小: 8271 bytes
+  ✅ Excel文件!
+
+[3] 测试btnIn（打印）...
+  响应大小: 4428 bytes
+
+[4] 测试下拉框选项（强制填充）...
+  ListDV=01: ✅ 异常: 8271 bytes
+  ListDV=02: ✅ 异常: 8271 bytes
+  ListDV=ADMIN: ✅ 异常: 8271 bytes
+  ListDV=HR: ✅ 异常: 8271 bytes
+  ListDV=IT: ✅ 异常: 8271 bytes
+  ListDV=FINANCE: ✅ 异常: 8271 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 结果文件:
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 force_export_response.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:21 force_print_response.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_01.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_02.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_ADMIN.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_FINANCE.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_HR.html
+-rw-r--r-- 1 ubuntu ubuntu 8.1K Nov 17 16:21 test_dv_IT.html

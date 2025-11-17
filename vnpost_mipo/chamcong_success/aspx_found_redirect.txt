@@ -1,0 +1,1 @@
+/admin/nguoidung.aspx|302|redirect

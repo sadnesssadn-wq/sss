@@ -1,0 +1,35 @@
+🔥 死磕：完整.aspx文件枚举
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[1] 枚举所有目录下的.aspx文件...
+
+[*] 扫描: /chamcong/*.aspx
+  ✅ login.aspx: 200 (5038 bytes)
+  ✅ index.aspx: 200 (1520 bytes)
+  ✅ default.aspx: 200 (1361 bytes)
+
+[*] 扫描: /chamcong/admin/*.aspx
+  🔄 nguoidung.aspx: 302 (重定向)
+
+[*] 扫描: /chamcong/common/*.aspx
+
+[*] 扫描: /chamcong/report/*.aspx
+
+[*] 扫描: /chamcong/user/*.aspx
+
+[*] 扫描: /chamcong/api/*.aspx
+
+[*] 扫描: /chamcong/service/*.aspx
+
+[*] 扫描: /chamcong/data/*.aspx
+
+[*] 扫描: /chamcong/file/*.aspx
+
+[*] 扫描: /chamcong/upload/*.aspx
+
+[*] 扫描: /chamcong/import/*.aspx
+
+[*] 扫描: /chamcong/export/*.aspx
+
+[*] 扫描: /chamcong/backup/*.aspx
+
+[*] 扫描: /chamcong/log/*.aspx

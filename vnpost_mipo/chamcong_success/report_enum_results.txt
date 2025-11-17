@@ -1,0 +1,54 @@
+🔥 死磕到底：完整报表ID枚举
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 测试 40 个报表ID...
+  ID=MAU1: - 无权限
+  ID=MAU2: ✅ 5614 bytes (有效报表!)
+  ID=MAU3: - 无权限
+  ID=MAU4: - 无权限
+  ID=MAU5: ✅ 3198 bytes (有效报表!)
+  ID=MAU6: - 无权限
+  ID=MAU7: - 无权限
+  ID=MAU8: - 无权限
+  ID=MAU9: - 无权限
+  ID=MAU10: - 无权限
+  ID=BCC1: - 无权限
+  ID=BCC2: - 无权限
+  ID=BCC3: - 无权限
+  ID=BCC4: - 无权限
+  ID=BCC5: - 无权限
+  ID=LUONG1: - 无权限
+  ID=LUONG2: - 无权限
+  ID=LUONG3: - 无权限
+  ID=NHANSU1: - 无权限
+  ID=NHANSU2: - 无权限
+  ID=BAOCAO1: - 无权限
+  ID=BAOCAO2: - 无权限
+  ID=BAOCAO3: - 无权限
+  ID=CHAMCONG1: - 无权限
+  ID=CHAMCONG2: - 无权限
+  ID=THONGKE1: - 无权限
+  ID=THONGKE2: - 无权限
+  ID=RPT1: - 无权限
+  ID=RPT2: - 无权限
+  ID=RPT3: - 无权限
+  ID=REPORT1: - 无权限
+  ID=REPORT2: - 无权限
+  ID=ALL: - 无权限
+  ID=TOTAL: - 无权限
+  ID=SUMMARY: - 无权限
+  ID=DETAIL: - 无权限
+  ID=MASTER: - 无权限
+  ID=ADMIN: - 无权限
+  ID=TEST: - 无权限
+  ID=EOF: - 无权限
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 枚举结果:
+  成功: 2 个
+  失败: 38 个
+
+🔥 有效报表清单:
+MAU2|5614|SUCCESS
+MAU5|3198|SUCCESS
+
+📄 报表标题:
