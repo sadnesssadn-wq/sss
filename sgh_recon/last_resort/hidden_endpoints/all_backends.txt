@@ -1,0 +1,10 @@
+https://customercare-webapi.azurewebsites.net
+https://ndcs.app.keyreply.com
+https://classifier3.app.keyreply.com
+https://assets.uat-hhm.hhtest.sg
+https://ch-api.healthhub.sg
+https://keyreplyndcs.blob.core.windows.net
+https://keyreply.blob.core.windows.net
+https://dpscp.sgh.com.sg
+https://uat.sgh.com.sg
+https://mobile.sgh.com.sg
