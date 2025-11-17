@@ -1,0 +1,69 @@
+[*] 检查: uat.sgh.com.sg
+HTTP/2 401 
+retry-after: 0
+content-type: text/html; charset=utf-8
+www-authenticate: Basic realm=Secured
+accept-ranges: bytes
+date: Mon, 17 Nov 2025 15:48:52 GMT
+strict-transport-security: max-age=31557600
+x-served-by: cache-cmh1290072-CMH
+x-cache: MISS
+x-timer: S1763394532.924866,VS0,VE135
+content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://translate.googleapis.com https://www.gstatic.com https://ndcs.app.keyreply.com *.google-analytics.com *.googletagmanager.com *.youtube.com; style-src 'self' 'unsafe-inline' https://www.gstatic.com; img-src 'self' data: https://www.google.com https://www.gstatic.com https://www.google.co.in https://keyreplyndcs.blob.core.windows.net https://keyreply.blob.core.windows.net https://assets.uat-hhm.hhtest.sg https://ch-api.healthhub.sg *.google-analytics.com *.googletagmanager.com *.youtube.com; connect-src 'self' https://www.google.com https://analytics.google.com https://stats.g.doubleclick.net https://www.gstatic.com https://translate.googleapis.com https://*.keyreply.com https://customercare-webapi.azurewebsites.net wss://customercare-webapi.azurewebsites.net wss://ndcs.app.keyreply.com *.google-analytics.com *.googletagmanager.com *.youtube.com; font-src 'self' data: https://webchat.keyreply.com; media-src 'self' https://keyreply.blob.core.windows.net; object-src 'none'; frame-src 'self' https://www.google.com *.google-analytics.com *.googletagmanager.com *.youtube.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests; block-all-mixed-content;
+content-length: 328
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: uatsite01.sgh.com.sg
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: tempprod.sgh.com.sg
+HTTP/2 500 
+server: Varnish
+retry-after: 0
+content-type: text/html
+cache-control: private, no-cache
+x-served-by: cache-cmh1290054-CMH
+accept-ranges: bytes
+date: Mon, 17 Nov 2025 15:49:02 GMT
+via: 1.1 varnish
+content-length: 276
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: mobile.sgh.com.sg
+HTTP/2 200 
+date: Mon, 17 Nov 2025 15:49:03 GMT
+content-type: text/html
+last-modified: Mon, 04 Feb 2019 04:22:20 GMT
+accept-ranges: bytes
+server: cloudflare
+x-powered-by: ASP.NET
+cf-cache-status: DYNAMIC
+set-cookie: __cf_bm=en_Ft6hVMsyS97LkSZCA3YYNR2rf8Pt8WAK5agynges-1763394542.1693237-1.0.1.1-0yJU1QrUJKl.j_QgS9LwVz0q4za7Vpm5nTHFaFjRjim9WluSvLWyKOhDzKzsJ3AcUWnI2nLySL8kQf9gNnHhp7YxGJaKaL9OaGdEfOuw95y3vUmLxUN.V5NFoW1tDVX2; HttpOnly; Secure; Path=/; Domain=sgh.com.sg; Expires=Mon, 17 Nov 2025 16:19:03 GMT
+set-cookie: _cfuvid=9XGDE2EvGWw537IFreZ.aCu.nLd.x9rANAlokGk89iw-1763394542.1693237-1.0.1.1-TSPElAeuu1t1hD7f2Ldl.Hw5dItBU7IzHPV_p2Uinm0; HttpOnly; SameSite=None; Secure; Path=/; Domain=mobile.sgh.com.sg
+cf-ray: 9a0060308f5ecf6e-CMH
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: mobilecare.sgh.com.sg
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: dpscp.sgh.com.sg
+HTTP/2 200 
+date: Mon, 17 Nov 2025 15:49:04 GMT
+content-type: text/html; charset=utf-8
+cache-control: private,no-store, no-cache, must-revalidate
+pragma: no-cache
+x-frame-options: SAMEORIGIN
+p3p: CP=None
+access-control-allow-methods: GET,POST,PUT,DELETE,OPTIONS
+access-control-allow-headers: X-Requested-With,Content-Type,Range
+access-control-expose-headers: Content-Range
+access-control-allow-credentials: true
+x-permitted-cross-domain-policies: none
+x-content-type-options: nosniff
+strict-transport-security: max-age=16070400; includeSubDomains
+cf-cache-status: DYNAMIC
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: dpsedu.sgh.com.sg
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: dpsweb.sgh.com.sg
+━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 检查: hcc.sgh.com.sg
+━━━━━━━━━━━━━━━━━━━━━━━━
