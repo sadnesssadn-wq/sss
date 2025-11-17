@@ -1,0 +1,5 @@
+whoami
+hostname
+ipconfig
+dir C:\inetpub\wwwroot\chamcong
+exit

