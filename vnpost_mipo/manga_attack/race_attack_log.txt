@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/workspace/vnpost_mipo/manga_attack/race_condition_attack.py", line 4, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
