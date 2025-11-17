@@ -1,0 +1,83 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔥🔥🔥 Phase 3: 深度.aspx文件枚举
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[*] 枚举 59 个.aspx文件...
+  /admin.aspx: - 404
+  /admin/default.aspx: - 404
+  /admin/index.aspx: - 404
+  /admin/login.aspx: - 404
+  /upload.aspx: - 404
+  /fileupload.aspx: - 404
+  /Upload.aspx: - 404
+  /FileUpload.aspx: - 404
+  /import.aspx: - 404
+  /Import.aspx: - 404
+  /export.aspx: - 404
+  /Export.aspx: - 404
+  /backup.aspx: - 404
+  /Backup.aspx: - 404
+  /download.aspx: - 404
+  /Download.aspx: - 404
+  /manage.aspx: - 404
+  /Manage.aspx: - 404
+  /manager.aspx: - 404
+  /config.aspx: - 404
+  /Config.aspx: - 404
+  /settings.aspx: - 404
+  /Settings.aspx: - 404
+  /test.aspx: - 404
+  /Test.aspx: - 404
+  /debug.aspx: - 404
+  /Debug.aspx: - 404
+  /default.aspx: ✅ 200 (1361 bytes) 🔥
+  /Default.aspx: ✅ 200 (1361 bytes) 🔥
+  /api.aspx: - 404
+  /API.aspx: - 404
+  /service.aspx: - 404
+  /webservice.aspx: - 404
+  /report/default.aspx: - 404
+  /report/index.aspx: - 404
+  /report/admin.aspx: - 404
+  /report/Upload.aspx: - 404
+  /common/upload.aspx: - 404
+  /common/fileupload.aspx: - 404
+  /admin/Upload.aspx: - 404
+  /admin/FileUpload.aspx: - 404
+  /admin/Import.aspx: - 404
+  /system/admin.aspx: - 404
+  /system/config.aspx: - 404
+  /nhansu/default.aspx: - 404
+  /nhansu/admin.aspx: - 404
+  /luong/default.aspx: - 404
+  /luong/admin.aspx: - 404
+  /baocao/default.aspx: - 404
+  /baocao/admin.aspx: - 404
+  /TaoB CC.aspx: deep_aspx_enumeration.sh: line 86: aspx_TaoB CC.aspx.html: No such file or directory
+⚠️  000
+  /TaoBCC.aspx: - 404
+  /UploadFile.aspx: - 404
+  /ImportData.aspx: - 404
+  /ExportData.aspx: - 404
+  /UserManage.aspx: - 404
+  /AdminPanel.aspx: - 404
+  /SystemConfig.aspx: - 404
+  /DatabaseBackup.aspx: - 404
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 枚举结果:
+  200 OK: 2
+deep_aspx_enumeration.sh: line 134: found_aspx_403.txt: No such file or directory
+  403 Forbidden: 0
+deep_aspx_enumeration.sh: line 135: found_aspx_401.txt: No such file or directory
+  401 Auth: 0
+deep_aspx_enumeration.sh: line 136: found_aspx_500.txt: No such file or directory
+  500 Error: 0
+deep_aspx_enumeration.sh: line 137: found_aspx_redirect.txt: No such file or directory
+  重定向: 0
+
+🔥 高价值发现:
+  无
+
+📄 所有200页面:
+default.aspx|200|1361
+Default.aspx|200|1361
