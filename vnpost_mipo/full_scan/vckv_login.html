@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="ctl00_Head1"><title>
+	Hệ thống thống kê sản lượng - Công ty Vận chuyển và Kho vận Bưu điện
+</title><link id="ctl00_Link1" rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link id="ctl00_Link2" rel="icon" href="favicon.ico" type="image/ico" />
+     <!-- Global CSS -->
+    <link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/master.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/Menu.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/topnav.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/body.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/tier2-page.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/sticky-footer.css" /><link rel="Stylesheet" type="text/css" media="all" href="/App_Themes/Default/Styles/campaign.master.css" />
+    <!--work when deploy-->
+    <link href="App_Themes/Default/Styles/body.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/campaign.master.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/ie7.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/master.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/Menu.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/sticky-footer.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/tier2-page.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/topnav.css" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Styles/mymenu.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+		#vnpNav a {
+			display: block;
+			text-decoration: none;
+			font-size: 13px;
+			font-family: "Arial";
+			color: #f2f2f2;
+			padding: 10px 18px;
+			
+		}
+
+		#vnpNav li:hover > a {
+			color: white;
+			background-color: #0059b3;
+		}
+
+		#vnpNav > li > a {font-weight: bold;}
+
+		#vnpNav, #vnpNav ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			background-color: #00458A;
+		}
+
+		#vnpNav > li {display: inline-block;}
+
+		#vnpNav li li {width: 200px;}
+		
+		#vnpNav li li li {width: 250px;}
+
+		#vnpNav li {position: relative; margin: 0;}
+
+		#vnpNav ul {
+			position: absolute;
+			border: 1px solid white;
+			left: 0;
+		}
+		
+		#vnpNav ul ul {
+			top: 0;
+			left: 200px;
+		}
+
+		#vnpNav li ul,
+		#vnpNav li:hover li ul {display: none;}
+
+		#vnpNav li:hover ul,
+		#vnpNav li li:hover ul {display: block;}
+	</style>
+    <script src="App_Themes/Default/Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/App_Themes/Default/Scripts/jquery-1.3.2.min.js"></script>
+
+    <script type="text/javascript" src="/App_Themes/Default/Scripts/jquery.query-2.1.6.js"></script>
+
+    <script type="text/javascript" src="/App_Themes/Default/Scripts/broker.js"></script>
+
+    <script type="text/javascript" src="/App_Themes/Default/Scripts/azure.js"></script>   
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-2101276-13']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+
+
+    
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./Login.aspx" id="aspnetForm">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE0MjYwNjQ1NDEPZBYCZg9kFgICAw9kFgICDQ8PFgIeBFRleHQFUFhpbiBt4budaSA8Zm9udCBjb2xvcj0ncmVkJz48Yj48YSBocmVmPSdMb2dpbi5hc3B4Jz7EkMSDbmcgbmjhuq1wPC9hPjwvYj48L2ZvbnQ+ZGRkArAjeiYkGe+aYJP+FBPTw5pd9jK9nvGt/5Um0Ycj3js=" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="EB52B547" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAQ7clXxHM6wIi1+8W8MkWeh5Zken35TfMCr1CBdFx6iImtQgWy8LYWWoXaMcnwFH0uoIatKanHO+uhiF/QUpC21oYhNRiH7S35fYxBfeR2p2FtS+dAF2UkqwwYLBBtANDY=" />
+    
+    <a name="top"></a>
+    <div id="outerWrapper">
+        <div id="wrapper" class="landingPage getStartedPage">
+            <div id="whiteBkgdStrip">
+            </div>
+            <div class="header">
+                <div class="mainHomepageTitle">
+                    <a href="http://vnpost.vn" target="_blank"><img src="App_Themes/Default/Images/logo/vckvlogo1.jpg" alt="Công ty Vận chuyển và Kho vận Bưu điện"/></a>
+                    
+                </div>
+                <!--<div class="mainHomepageMenuBar">-->
+                <ul id="vnpNav">
+                 <li><a href="Index.aspx?act=Home">Trang chủ</a></li>
+                 <li id="ctl00_subMnuSanluongPHBC"><a href="Index.aspx#">Sản lượng KT Quốc tế</a>
+                  <ul>
+                   <!--<li id="ctl00_mnuTonghop"><a href="Index.aspx?act=TKPHBC">Tổng hợp PHBC</a></li>
+                   <li id="ctl00_mnuChitiet"><a href="Index.aspx?act=DetailPHBC">Chi tiết PHBC</a></li>-->
+                      <li id="ctl00_qtDi"><a href="Index.aspx?act=HangXuat_BayBo">Sản lượng Quốc tế chiều đi</a></li>
+                      <li id="ctl00_qtDen"><a href="Index.aspx?act=HangNhap_BayBo">Sản lượng Quốc tế chiều đến</a></li>
+                      <li id="ctl00_qtCT"><a href="Index.aspx?act=HangDoiTac">Sản lượng Quốc tế chuyển tiếp</a></li>
+                  </ul>
+                 </li>
+                 <li id="ctl00_subMnuChatluong"><a href="Index.aspx#">Chất lượng</a>
+                  <ul>
+<li><a href='#'>Báo cáo Thống kê chuyến hạ tải chậm</a>
+                          <ul>
+                            <li id="ctl00_cham2h"><a href="Index.aspx?act=HaTaiCham">Báo cáo Thống kê chuyến hạ tải chậm trên 2h</a></li>
+                            <!--<li id="ctl00_chamca3"><a href="Index.aspx?act=HieuSuatVC_Tonghop">Báo cáo Tổng hợp Hiệu suất vận chuyển</a></li>
+                            -->
+                          </ul>
+                          </li>
+                      <li><a href='#'>Báo cáo Hiệu suất vận chuyển</a>
+                          <ul>
+                            <li id="ctl00_hvc_1"><a href="Index.aspx?act=HieuSuatVC_Chitiet">Báo cáo Chi tiết Hiệu suất vận chuyển</a></li>
+                            <li id="ctl00_hvc_2"><a href="Index.aspx?act=HieuSuatVC_Tonghop">Báo cáo Tổng hợp Hiệu suất vận chuyển</a></li>
+                         </ul>
+                          </li>
+                      <li><a href='#'>Báo cáo Đo kiểm chất lượng</a>
+                          <ul> 
+                              <li id="ctl00_dk_bckhopnoi"><a href="Index.aspx?act=Dokiem_KhopNoi">Đo kiểm thời gian khai thác bưu gửi theo lược đồ</a></li>
+                             <li id="ctl00_dk_bc1"><a href="Index.aspx?act=Dokiem_BC">Đo kiểm thời gian bưu gửi qua KT</a></li>
+                             <li id="ctl00_dk_bc2"><a href="Index.aspx?act=Dokiem_BC1">Đo kiểm thời gian bưu gửi qua TC</a></li>
+                             <li id="ctl00_dk_bc3"><a href="Index.aspx?act=Dokiem_BC2">Đo kiểm thời gian bưu gửi qua Trung tâm</a></li>
+                          </ul>
+                      </li>                      
+                         
+                    
+                      <li><a href='#'>Chất lượng khai thác Túi quá giang</a>
+                          <ul> 
+                             <li id="ctl00_Li1"><a href="Index.aspx?act=SLQG31">Chất lượng khai thác túi quá giang tổng hợp</a></li>
+                             <!--TẠM BỎ <li id="ctl00_Li2"><a href="Index.aspx?act=SLQG3">Chất lượng khai thác túi quá giang tổng hợp theo ngày</a></li>-->
+                             <li id="ctl00_Li3"><a href="Index.aspx?act=DetailSLQG31">Chất lượng khai thác túi quá giang chi tiết</a></li>
+                          </ul>
+                      </li>
+                          <li><a href='#'>Chất lượng khai thác Bưu gửi</a>
+                          <ul> 
+                              <li id="ctl00_Li20"><a href="Index.aspx?act=CLKT_TH">Chất lượng khai thác bưu gửi tổng hợp</a></li>
+                            <!--<li id="ctl00_Li4"><a href="Index.aspx?act=CLKT_R1">Chất lượng khai thác bưu gửi theo ca</a></li>-->
+                          </ul>
+                      </li>
+                  </ul>
+                 </li>
+
+               <li id="ctl00_subMnuTontui"><a href="Index.aspx#">Thống kê Tồn</a>
+                  <ul>
+                          <li><a href='#'>Thống kê Túi tồn</a>
+                          <ul> 
+                             <li id="ctl00_Li19"><a href="Index.aspx?act=PostBagDelay">Thống kê tồn túi hiện tại theo bưu cục nhận</a></li>
+                             <li id="ctl00_Li18"><a href="Index.aspx?act=PostBagDelay1">Thống kê tồn túi hiện tại theo thời gian tồn</a></li>
+                             <li id="ctl00_Li21"><a href="Index.aspx?act=PostBagDelay2">Thống kê tồn túi cuối ca</a></li>
+                             <li id="ctl00_Li211"><a href="Index.aspx?act=PostBagDelay3">Thống kê tồn túi theo khung giờ tùy chọn</a></li>
+                             <!--<li id="ctl00_Li12"><a href="Index.aspx?act=CLKT_QG_Report1">Thống kê tồn túi quá giang theo ca</a></li>
+                             <li id="ctl00_Li14"><a href="Index.aspx?act=CLKT_QG_ByHour">Thống kê tồn túi quá giang theo giờ</a></li>
+                             <li id="ctl00_Li13"><a href="Index.aspx?act=CLKT_KT_Report1">Thống kê tồn túi khai thác theo ca</a></li>
+                             <li id="ctl00_Li15"><a href="Index.aspx?act=CLKT_KT_ByHour">Thống kê tồn túi khai thác theo giờ</a></li> -->
+                           </ul>
+                           </li>
+                           <li><a href='#'>Thống kê Bưu gửi tồn</a>
+                           <ul>
+                            <li id="ctl00_Li17"><a href="Index.aspx?act=CLKT_R3">Thống kê Bưu gửi tồn theo ca</a></li>
+                            <li id="ctl00_Li16"><a href="Index.aspx?act=CLKT_R2">Thống kê Bưu gửi tồn hiện tại - theo giờ</a></li>
+                            <li id="ctl00_Li161"><a href="Index.aspx?act=CLKT_R2_15day">Thống kê Bưu gửi tồn hiện tại - theo ngày</a></li>
+                           </ul>
+                           </li>
+                     </ul>
+                 </li>
+                     <li id="ctl00_Li22"><a href="Index.aspx#">Báo cáo thống kê</a>
+                  <ul>
+                     <li id="ctl00_Li221"><a href="Index.aspx?act=BCN">Báo cáo nhanh</a></li>
+  		<li id="ctl00_DieuHanh"><a href="Index.aspx#"">Báo cáo điều hành</a>
+                          <ul>
+                              <li id="ctl00_DieuHanh1"><a href="Index.aspx?act=DieuHanh_BaoCao1">Tổng hợp sản lượng theo loại PTVC - Xe CN</a></li>
+ <li id="ctl00_KHDT1"><a href="Index.aspx?act=KHDT_Report1">Tổng hợp chuyến TMS theo Mã đường thư</a></li>
+                          </ul>
+		</li>
+                       <li id="ctl00_KHdiHN"><a href="Index.aspx?act=KHDiBDHN">Sản lượng Kim Hoa đi BĐHN trước 6h</a></li>
+		      <li id="ctl00_KHDongThuCong"><a href="Index.aspx?act=GetDataManual">Sản lượng bưu gửi Kim Hoa đóng thủ công</a></li>
+		
+                      <li id="ctl00_subMenuSLKTTC"><a href="Index.aspx#">Thống kê Sản lượng đến Hub</a>
+                          <ul>
+                              <li id="ctl00_SLKTTC3N"><a href="Index.aspx?act=SLKT_Mau3_N">Sản lượng bưu gửi đến hub theo loại dịch vụ</a></li>
+                              <li id="ctl00_SLKTTC1"><a href = "Index.aspx?act=SLKT1">Sản lượng khai thác + chuyển tiếp đến hub</a></li>
+                       <li id="ctl00_SLKTTC2"><a href="Index.aspx?act=SLKT2">Sản lượng bưu gửi đến hub theo nấc trọng lượng</a></li>
+                      <li id="ctl00_SLKTTC3"><a href="Index.aspx?act=SLKT3">Báo cáo tuần: sản lượng bưu gửi đến hub theo nấc trọng lượng</a></li>
+                     <li id="ctl00_SLKTTC4"><a href="Index.aspx?act=SLKTTC1">Báo cáo tuần: sản lượng bưu gửi đến hub theo loại túi/kiện</a></li>
+                              <li id="ctl00_SLKTTC_TH"><a href="Index.aspx?act=BCN1">Báo cáo Tổng hợp SL túi kiện đến Hub</a></li>                      
+                     <li id="ctl00_SLKTTC_DenKT"><a href="Index.aspx?act=BCN2">Báo cáo SL túi đến KT tại Hub</a></li>
+                              </ul>
+                          </li>
+                      <li id="ctl00_KTTC"><a href="Index.aspx?act=KTTC">Thống kê sản lượng KTTC từ hệ thống TKSLVC và BCCP</a></li>
+                      <li id="ctl00_Li227"><a href="Index.aspx?act=BCLuuThoatBuuGui">Báo cáo Lưu thoát bưu gửi theo khung giờ</a></li>
+                       </ul>
+                 </li>
+                <li id="ctl00_subMnuTraCuu"><a href="Index.aspx#">Tra cứu</a>
+                  <ul>
+                     <li id="ctl00_tracuuTMS_BD10"><a href="Index.aspx?act=TraCuuTMS">Tra cứu Chuyến TMS theo mã BĐ10</a></li>
+                    <li id="ctl00_tracuuTMS_MaChuyen"><a href="Index.aspx?act=tracuuTMS_MaDI">Tra cứu danh sách BD10 theo Mã chuyến</a></li>
+                   <li id="ctl00_tracuuBCCP_TuiKien"><a href="Index.aspx?act=TraCuuTrangThaiTui">Tra cứu Trạng thái túi gói</a></li>
+                     <li id="ctl00_tracuuTMS_BD10Miss"><a href="Index.aspx?act=BD10MissTMS">Tra cứu danh sách BD10 chưa quét TMS</a></li>
+                     <!--<li id="ctl00_qlcl_updateTMS"><a href="Index.aspx?act=QLCL_UpdateTMS">Cập nhật thông tin TMS cho BD10 QLCL</a></li>  
+                      -->
+                  </ul>
+                 </li>
+                <!-- <li id="ctl00_subMnuPTVC"><a href="Index.aspx#">Phương tiện vận chuyển</a>
+                  <ul>
+                     <li id="ctl00_Li5"><a href="Index.aspx?act=ListVehicle">Danh sách xe</a></li>
+                     <li id="ctl00_Li6"><a href="Index.aspx?act=ServicesInfo">Quản lý bảo dưỡng</a></li>
+                     <li id="ctl00_Li7"><a href="Index.aspx?act=Schedule">Kế hoạch bảo dưỡng</a></li>                      
+                     <li id="ctl00_Li8"><a href="Index.aspx?act=GPS">Theo dõi km vận hành</a></li>
+                     <li id="ctl00_Li9"><a href="Index.aspx?act=VehicleReport1">Báo cáo đánh giá mức độ sử dụng</a></li>
+                     <li id="ctl00_Li10"><a href="Index.aspx?act=VehicleReport2">Thống kê danh sách xe ít sử dụng theo ngày</a></li>
+                     <li id="ctl00_Li11"><a href="Index.aspx?act=VehicleReport3">Thống kê danh sách xe ít sử dụng theo km</a></li>
+                  </ul>
+                 </li> -->
+
+                
+                 
+                </ul>
+                <!--</div>-->
+                <div class="mainHomepageUserLogin">
+                <span id="ctl00_lblUser">Xin mời <font color='red'><b><a href='Login.aspx'>Đăng nhập</a></b></font></span>
+                </div>
+                
+                
+              
+                <br />
+                <table cellpadding="0" cellspacing="0" width="100%" style="border-left-style:none;border-right-style:none;border-bottom-style:none">
+                <tr>
+                <td>
+                
+    <center>
+
+<table width="300px" border="0" cellpadding="0" cellspacing="0" >
+<tr>
+<td colspan="2" align="center"><h2>ĐĂNG NHẬP HỆ THỐNG</h2></td>
+
+</tr>
+<tr>
+<td style="padding:10px";>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="right" class="text_input">Tên đăng nhập&nbsp;&nbsp;&nbsp;</td>
+<td align="left" class="text_input" width="55%"><input name="ctl00$MainContent$txtUser" type="text" id="ctl00_MainContent_txtUser" class="txt_input" />
+&nbsp;
+</td>
+
+</tr>
+<tr>
+<td align="right" class="text_input" width="45%" >Mật khẩu&nbsp;&nbsp;&nbsp;</td>
+<td align="left" class="text_input" width="55%"><input name="ctl00$MainContent$txtPassword" type="password" id="ctl00_MainContent_txtPassword" class="txt_input" />
+&nbsp;
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><span id="ctl00_MainContent_lblAlert"><b><font color="Red"></font></b></span></td>
+
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" name="ctl00$MainContent$btnLogin" value="Đăng nhập" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$MainContent$btnLogin&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="ctl00_MainContent_btnLogin" class="buttonSearchStyle" /></td>
+</tr>
+
+        
+
+</table>
+</td>
+</tr>
+
+</table>
+
+
+</center>
+
+                <br />
+                </td>
+                </tr>
+                </table>
+                
+            </div>
+            <!--contentWarpper -->
+            
+        </div>
+    </div>
+    <div class="footer">
+         <div class="microsoftLink">
+            <a href="http://www.vnpost.vn/" title="IT Div.,VNPostLogistics">
+                2020  &copy; E&T Dep't, VietNam Post Logistics</a>
+            
+        </div>
+        <div class="leftSideLinks">
+            <span>Hệ thống thống kê sản lượng - Công ty Vận chuyển và Kho vận Bưu điện</span>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
