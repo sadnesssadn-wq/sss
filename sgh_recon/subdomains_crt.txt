@@ -1,0 +1,16 @@
+dpscp.sgh.com.sg
+dpsedu.sgh.com.sg
+dpsweb.sgh.com.sg
+hcc.sgh.com.sg
+mobilecare.sgh.com.sg
+mobile.sgh.com.sg
+*.sgh.com.sg
+sgh.com.sg
+tempprod.sgh.com.sg
+uat.sgh.com.sg
+uatsite01.sgh.com.sg
+www.dpscp.sgh.com.sg
+www.dpsedu.sgh.com.sg
+www.dpsweb.sgh.com.sg
+www.sgh.com.sg
+www.uatsite01.sgh.com.sg

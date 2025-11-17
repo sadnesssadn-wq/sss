@@ -1,0 +1,1 @@
+singhealth.azurewebsites.net/swagger|301|redirect/auth

@@ -1,0 +1,13 @@
+{
+  "host": "0.0.0.0",
+  "port": 5000,
+  "name": "KeyReply AI module Fastapi",
+  "version": "1.0.1",
+  "log_level": "debug",
+  "env": 1,
+  "use_cuda": false,
+  "default_index": "Quantizer",
+  "authkey": "",
+  "eval_treshold": 0.8,
+  "server_timezone": "Asia/Singapore"
+}

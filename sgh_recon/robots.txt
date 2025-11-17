@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /libs
+Disallow: /content/singhealth
+Disallow: /content/dam
+
+Sitemap: https://www.sgh.com.sg/sitemap-index.xml

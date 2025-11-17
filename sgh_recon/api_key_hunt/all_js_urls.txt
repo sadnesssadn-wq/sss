@@ -1,0 +1,6 @@
+https://www.sgh.com.sg/etc.clientlibs/clientlibs/granite/jquery/granite/csrf.lc-652a558c3774088b61b0530c184710d1-lc.min.js
+https://www.sgh.com.sg/etc.clientlibs/core/wcm/components/commons/site/clientlibs/container.lc-0a6aff292f5cc42142779cde92054524-lc.min.js
+https://www.sgh.com.sg/etc.clientlibs/singhealth/clientlibs/clientlib-base.lc-672c20312ebb7dda1fdabd083b485141-lc.min.js
+https://www.sgh.com.sg/etc.clientlibs/singhealth/clientlibs/clientlib-dependencies.lc-d41d8cd98f00b204e9800998ecf8427e-lc.min.js
+https://www.sgh.com.sg/etc.clientlibs/singhealth/clientlibs/clientlib-site.lc-f59582770066f68bed867f80673a1358-lc.min.js
+https://www.sgh.com.sg/.rum/@adobe/helix-rum-js@%5E2/dist/rum-standalone.js

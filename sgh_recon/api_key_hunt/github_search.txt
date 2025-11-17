@@ -1,0 +1,5 @@
+[*] 搜索: customercare-webapi.azurewebsites.net
+[*] 搜索: sgh.com.sg api
+[*] 搜索: singapore general hospital api key
+[*] 搜索: X-API-Key sgh
+[*] 搜索: Ocp-Apim-Subscription-Key azure

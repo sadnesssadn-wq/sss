@@ -1,0 +1,5 @@
+https://www.sgh.com.sg/news-sitemap.sitemap.xml
+https://www.sgh.com.sg/events-sitemap.sitemap.xml
+https://www.sgh.com.sg/profiles-sitemap.sitemap.xml
+https://www.sgh.com.sg/clinical-trial-sitemap.sitemap.xml
+https://www.sgh.com.sg/en.sitemap.xml

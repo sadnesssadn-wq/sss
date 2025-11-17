@@ -1,0 +1,4 @@
+singhealth.app.keyreply.com|200
+dashboard.keyreply.com|400
+admin.keyreply.com|000000
+manage.keyreply.com|000000

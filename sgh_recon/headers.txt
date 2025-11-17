@@ -1,0 +1,21 @@
+HTTP/2 200 
+referrer-policy: no-referrer-when-downgrade
+strict-transport-security: max-age=63072000; includeSubdomains;
+x-frame-options: SAMEORIGIN
+cache-control: max-age=300,stale-while-revalidate=300
+last-modified: Mon, 17 Nov 2025 13:38:24 GMT
+etag: "77b6e-643ca761f432f"
+expires: Mon, 17 Nov 2025 15:51:56 GMT
+x-vhost: www-sgh-com-sg
+content-type: text/html;charset=utf-8
+x-content-type-options: nosniff
+accept-ranges: bytes
+age: 1
+date: Mon, 17 Nov 2025 15:46:57 GMT
+set-cookie: affinity="b3d7afc1f9fdad8e"; Path=/; HttpOnly; secure
+x-served-by: cache-cmh1290126-CMH
+x-cache: MISS
+x-timer: S1763394415.358247,VS0,VS0,VE1976
+vary: Accept-Encoding,Origin
+content-length: 490350
+

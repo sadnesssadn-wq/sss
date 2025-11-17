@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Mon, 17 Nov 2025 15:51:35 GMT
+content-type: text/html
+last-modified: Mon, 04 Feb 2019 04:22:20 GMT
+accept-ranges: bytes
+server: cloudflare
+x-powered-by: ASP.NET
+cf-cache-status: DYNAMIC
+set-cookie: __cf_bm=aOo6Rw3.z12WMabmgdBHpk1.kUvq5Iu3yjIamdZZKck-1763394694.1806839-1.0.1.1-M8l62O25aX3b.BWWFCUcDYm1DVjm1jTFXeHEr9hoUSLKaWXFQ1P610bWc8ATA0DEIuAa1VfHPi164vnZzwOezFLo1O0UjioOFLRNH81CagqbBMK4J2xjGQJUak9UCfdU; HttpOnly; Secure; Path=/; Domain=sgh.com.sg; Expires=Mon, 17 Nov 2025 16:21:35 GMT
+set-cookie: _cfuvid=HGHaC.81Bmjxf9WE_dGCVwMbBPLdRIUFn9GYjQl1Xws-1763394694.1806839-1.0.1.1-EhLmVdcb_h.65fXoDWFmu9mLMbJreE2eiDjroqWpAdc; HttpOnly; SameSite=None; Secure; Path=/; Domain=mobile.sgh.com.sg
+cf-ray: 9a0063e69e07ceb4-CMH
+
