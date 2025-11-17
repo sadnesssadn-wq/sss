@@ -1,0 +1,6 @@
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;chamcong/TaoBCC_To.aspx&#39;,&#39;right&#39;);
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC01&#39;,&#39;right&#39;);
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC02&#39;,&#39;right&#39;);
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=BC03&#39;,&#39;right&#39;);
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;report/inBCC.aspx?ID=MAU2&#39;,&#39;right&#39;);
+style.css

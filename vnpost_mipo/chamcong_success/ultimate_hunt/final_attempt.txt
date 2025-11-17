@@ -1,0 +1,55 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 最后尝试：写入到已存在的目录
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+已知信息:
+  - Web根目录: C:\inetpub\wwwroot\chamcong\
+  - 目标目录不存在: C:\TEMP\
+
+策略: 尝试写入到Web根目录或其子目录
+
+[尝试1] 写入到chamcong目录本身
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Could not find a part of the path 'C:\inetpub\wwwroot\chamcong\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+
+[尝试2] 写入到report子目录
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Could not find a part of the path 'C:\inetpub\wwwroot\chamcong\report\x.aspx_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+
+[尝试3] 使用空字符串绕过路径
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  响应大小: 7928 bytes
+
+[尝试4] 使用Windows环境变量
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  测试: %TEMP%
+    Could not find a part of the path 'C:\TEMP\%TEMP%\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+  测试: %TMP%
+    Could not find a part of the path 'C:\TEMP\%TMP%\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+  测试: %USERPROFILE%
+    Could not find a part of the path 'C:\TEMP\%USERPROFILE%\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+  测试: %APPDATA%
+    Could not find a part of the path 'C:\TEMP\%APPDATA%\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+
+[尝试5] 测试Print功能（可能不同的文件处理）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+  🔥🔥🔥 Print功能没有错误！
+  响应大小: 4334 bytes
+
+[尝试6] 极限测试：空路径
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  响应大小: 7928 bytes
+  Could not find a part of the path 'C:\TEMP\_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 所有最后尝试完成
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+总结:
+  - 测试了写入到已存在目录
+  - 测试了环境变量
+  - 测试了Print功能
+  - 测试了空路径
+
+检查是否有成功写入的迹象...

