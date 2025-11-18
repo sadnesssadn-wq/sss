@@ -1,0 +1,3 @@
+/|403|需要认证
+/chamcong|301
+/xemluong|301
