@@ -1,0 +1,4 @@
+SELECT SERVERPROPERTY('MachineName') AS Hostname, SERVERPROPERTY('ServerName') AS ServerName: 'APP02,APP02'
+
+[*] ending @ 03:35:15 /2025-11-18/
+

