@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🔍 Omada Controller 5.15.24 漏洞搜索"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo ""
+
+echo "[1] searchsploit本地搜索"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+searchsploit "omada" 2>/dev/null || echo "❌ searchsploit未安装"
+searchsploit "tp-link omada" 2>/dev/null || true
+echo ""
+
+echo "[2] GitHub POC搜索建议"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🔗 https://github.com/search?q=omada+controller+exploit"
+echo "🔗 https://github.com/search?q=omada+rce"
+echo "🔗 https://github.com/search?q=tp-link+omada+vulnerability"
+echo ""
+
+echo "[3] Google Dorks建议"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "📌 \"Omada Controller 5.15\" RCE"
+echo "📌 \"Omada Controller\" unauthenticated exploit"
+echo "📌 CVE-2024 \"Omada Controller\""
+echo "📌 CVE-2023 \"Omada Controller\""
+echo "📌 \"TP-Link Omada\" exploit github"
+echo ""
+
+echo "[4] 已知漏洞数据库"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "🔗 NVD: https://nvd.nist.gov/vuln/search/results?query=omada"
+echo "🔗 CVE Details: https://www.cvedetails.com/vulnerability-list/vendor_id-11301/product_id-75757/"
+echo "🔗 Exploit-DB: https://www.exploit-db.com/search?q=omada"
+echo ""
+
+echo "[5] 关键组件CVE（可能影响Omada）"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Jackson 2.16.1:"
+echo "  🔗 https://nvd.nist.gov/vuln/search/results?query=jackson+2.16"
+echo ""
+echo "Apache Shiro:"
+echo "  🔗 https://nvd.nist.gov/vuln/search/results?query=apache+shiro"
+echo ""
+echo "Commons-Collections 3.2.2:"
+echo "  🔗 https://nvd.nist.gov/vuln/search/results?query=commons-collections"
+echo ""
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "✅ 搜索完成"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
