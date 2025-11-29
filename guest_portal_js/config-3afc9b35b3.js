@@ -1,0 +1,1 @@
+window.WEB_TYPE="standalone",window.CLOUD_TYPE="localAccess";
