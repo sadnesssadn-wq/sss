@@ -1,0 +1,443 @@
+# ===== 更多已知越南本土网站 =====
+
+# 二手交易平台
+muadocu.vn
+chodocu.net
+banthaido.com
+muabancu.vn
+chocunhat.vn
+360.vn
+
+# 拼团/团购
+hotdeal.vn
+nhommua.vn
+muachung.vn
+deal.vn
+voucher.vn
+khuyenmai.org
+uudai.vn
+giamgia.vn
+
+# 分类信息
+muaban.net
+rao-vat.vn
+raovat.vn
+tinrao.vn
+muabantot.com
+
+# 直播/社交电商
+live.vn
+streamshop.vn
+
+# 奢侈品/高端
+luxury.vn
+xachtaymy.com
+xachtayuc.vn
+xachtay.net
+
+# 批发市场
+sihanoi.vn
+sihcm.vn
+cholon.vn
+bandansi.vn
+sionline.vn
+
+# 农产品/有机食品
+nongsanviet.vn
+rucsach.vn
+huu-co.vn
+farmvn.vn
+traicaysach.vn
+
+# 建材家装
+vatlieu.vn
+noithat.vn
+saigonhome.vn
+xaydung.com.vn
+go.vn
+
+# 办公用品
+vanphongpham.vn
+thienlong.vn
+biasua.vn
+
+# 鲜花礼品
+hoatuoi.vn
+dienhoa.vn
+quatang.vn
+hoa365.vn
+
+# 婚庆服务
+cuoi.vn
+damcuoi.vn
+aocuoi.vn
+tieccuoi.vn
+
+# 餐饮/咖啡
+cafe.vn
+caphe.vn
+trung-nguyen.vn
+highlands.vn
+phocafe.vn
+
+# 酒店/民宿
+khachsan.vn
+homestay.vn
+booking.vn
+datphong.vn
+
+# 租赁服务
+thue.vn
+chothue.vn
+thuexe.vn
+thuenhà.vn
+
+# 维修服务
+suachua.vn
+baotri.vn
+dienlanh.vn
+
+# 清洁服务
+giupviec.vn
+vesinh.vn
+dongnha.vn
+
+# 搬家物流
+chuyennha.vn
+vanchuyen.com.vn
+vantai.vn
+
+# 印刷/设计
+inanhinhannhanh.vn
+thietkeweb.vn
+marketing.vn
+
+# 法律/财务
+luat.vn
+ketoan.vn
+thuevat.vn
+
+# 招聘求职
+vieclam.vn
+timviec.vn
+careerlink.vn
+vietnamworks.com
+
+# 珠宝首饰
+trangsucvang.vn
+kimcuong.vn
+pnj.com.vn
+doji.vn
+
+# 眼镜
+kinhmat.vn
+matkinh.vn
+
+# 钟表
+donghohaitrieu.com
+donghothongminh.vn
+
+# 箱包皮具
+balo.vn
+tui.vn
+vali.vn
+
+# 运动器材
+thethao.vn
+gym.vn
+yoga.vn
+
+# 乐器
+nhaccu.vn
+guitar.vn
+
+# 游戏/手办
+game.vn
+choidigital.vn
+
+# 办公家具
+noithatvanphong.vn
+ghevăn-phong.vn
+
+# 工业设备
+maymoc.vn
+thietbi.vn
+congnghe.vn
+
+# 医疗器械
+thietbiytkythiethy.vn
+yteviet.vn
+
+# 实验室设备
+hoachat.vn
+thietbithonghiem.vn
+
+# 酒类专营
+ruou.vn
+vang.vn
+bia.vn
+
+# 茶叶
+che.vn
+trache.vn
+
+# 咖啡豆
+caphenguyen.vn
+caphehatcaph.vn
+
+# 特产
+dacsan.vn
+quatangviet.vn
+
+# 手工艺品
+myHapme.vn
+langnghe.vn
+
+# 画/艺术品
+tranh.vn
+mynghethuat.vn
+
+# 古董收藏
+codo.vn
+sưutam.vn
+
+# 邮票/钱币
+tembu.vn
+tienco.vn
+
+# 数码配件
+phukien.vn
+opdienop-thoai.vn
+oplaptop.vn
+
+# 网络设备
+mang.vn
+wifi.vn
+modem.vn
+
+# 安防监控
+camera.vn
+baotrì.com.vn
+
+# 能源/太阳能
+nangluong.vn
+pinmattroi.vn
+
+# 环保产品
+moitruong.vn
+xanh.vn
+
+# 宠物食品
+thucanthucanu.vn
+petthatpet.vn
+
+# 宠物医院
+benhvienthú.vn
+bacsi-thu-y.vn
+
+# 水产
+haisan.vn
+cacanh.vn
+
+# 家禽
+ga.vn
+vit.vn
+
+# 饲料
+thucanuoi.vn
+thucanchannuoi.vn
+
+# 种子/农具
+giong.vn
+nongcu.vn
+
+# 化肥/农药
+phanbonphanbonphan.vn
+thuoctru-sau.vn
+
+# 物业管理
+quanly.vn
+bds-management.vn
+
+# 保安服务
+baove.vn
+bảove-vệ.vn
+
+# 驾校/驾驶
+hoclai.vn
+banglaibang-lai-xe.vn
+
+# 留学/签证
+duhoc.vn
+visa.com.vn
+
+# 翻译服务
+dich.vn
+dichthuat.vn
+
+# 活动策划
+sukien.vn
+tothevent.vn
+
+# 摄影摄像
+chupanhchup-anh.vn
+quayphim.vn
+
+# 音响灯光
+amthanh.com.vn
+densan-khau.vn
+
+# 舞台设备
+sankhaumnh.vn
+
+# 广告制作
+quangcao.vn
+bienquang-cao.vn
+
+# 包装材料
+baobibaon.vn
+hopgiay.vn
+
+# 工作服
+dongphuc.vn
+aothuong.vn
+
+# 劳保用品
+baoholao-dong.vn
+antoanantoan-laolao-dong.vn
+
+# 消防器材
+pccc.vn
+chuachachaythayy.vn
+
+# 电梯
+thangmay.vn
+
+# 空调工程
+dieuhoa.vn
+maylanh.com.vn
+
+# 水电安装
+dienunoc.vn
+thosaothơ.vn
+
+# 油漆涂料
+son.vn
+tuoilieu.vn
+
+# 瓷砖地板
+gach.vn
+san.vn
+sango.vn
+
+# 门窗
+cua.vn
+cuanhom.vn
+
+# 五金工具
+ngokim.vn
+dungcu.com.vn
+
+# 电线电缆
+day-dien.vn
+cap-dien.vn
+
+# 管道阀门
+ong.vn
+vanvon.vn
+
+# 泵/马达
+bom.vn
+may-bom.vn
+
+# 发电机
+may-phat-dien.vn
+
+# 变压器
+bien-the.vn
+
+# UPS/稳压器
+ups.vn
+on-ap.vn
+
+# 电池/蓄电池
+pin.vn
+ac-quy.vn
+
+# 充电器
+sac.vn
+bo-sac.vn
+
+# SIM卡/充值
+sim.vn
+the-cao.vn
+nap-tien.vn
+
+# 域名/主机
+domain.vn
+hosting.vn
+tenmien.vn
+
+# SSL/安全
+ssl.vn
+baomat.vn
+
+# 云服务
+cloud.vn
+may-chu.vn
+
+# VPS/Server
+vps.vn
+server.vn
+
+# CDN/加速
+cdn.vn
+tangfangtoc.vn
+
+# Email营销
+email-marketing.vn
+guiemail.vn
+
+# CRM软件
+crm.vn
+quanhekh.vn
+
+# ERP系统
+erp.vn
+quanlydn.vn
+
+# 财务软件
+kế-toanketo.vn
+phan-mem-ke-toan.vn
+
+# 仓储管理
+kho.vn
+quanlykho.vn
+
+# 物流软件
+logisticslogistics-software.vn
+
+# 餐饮软件
+quanlynhang-hang.vn
+
+# 酒店软件
+pms.vn
+quanlyhotel.vn
+
+# 美容院软件
+spa-software.vn
+
+# 健身房软件
+gymsoftware.vn
+
+# 诊所软件
+phongkham.vn
+emr.vn
+
+# 教育软件
+lms.vn
+hoc-online.vn
+
+# 考试系统
+thi-online.vn
+tracnghiem.vn
