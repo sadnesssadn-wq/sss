@@ -26,4 +26,14 @@
     <!-- 状态提示 -->
     <string name="current_preset">当前：%s</string>
     <string name="latency_info">预计延迟：%dms</string>
+    
+    <!-- activity_main.xml 需要的字符串 -->
+    <string name="pitch_control">音调控制</string>
+    <string name="voice_preset">预设音效</string>
+    <string name="male_low">低沉男声</string>
+    <string name="male_normal">标准男声</string>
+    <string name="female_normal">标准女声</string>
+    <string name="female_high">高亢女声</string>
+    <string name="cartoon">卡通音效</string>
+    <string name="robot">机器人</string>
 </resources>
