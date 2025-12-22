@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">游戏陪玩变声器</string>
+    <string name="subtitle">高质量实时变声</string>
     <string name="start_service">开始变声</string>
     <string name="stop_service">停止变声</string>
     <string name="service_running">● 变声中</string>
@@ -9,23 +10,27 @@
     <string name="grant_permission">授予权限</string>
     
     <!-- 游戏模式 -->
-    <string name="game_mode">游戏模式</string>
+    <string name="game_mode">游戏模式（超低延迟）</string>
     <string name="game_mode_desc">超低延迟，适合游戏语音</string>
     <string name="low_latency_enabled">已启用低延迟模式</string>
     
     <!-- 音效预设 -->
-    <string name="sweet_female">甜美女声</string>
+    <string name="sweet_female">🎀 甜美女声\n(男→女)</string>
     <string name="sweet_female_desc">男→女，温柔可人</string>
-    <string name="magnetic_male">磁性男声</string>
+    <string name="magnetic_male">💪 磁性男声\n(女→男)</string>
     <string name="magnetic_male_desc">女→男，低沉有力</string>
-    <string name="cute_loli">可爱萝莉</string>
+    <string name="cute_loli">👶 可爱萝莉\n(超萌)</string>
     <string name="cute_loli_desc">超萌童声</string>
-    <string name="original">原声模式</string>
+    <string name="original">🎵 原声模式\n(不变调)</string>
     <string name="original_desc">不变调</string>
     
     <!-- 状态提示 -->
     <string name="current_preset">当前：%s</string>
     <string name="latency_info">预计延迟：%dms</string>
+    
+    <!-- 测试和使用 -->
+    <string name="test_voice">🎧 测试效果（戴耳机）</string>
+    <string name="usage_instructions">使用说明：\n1. 戴上耳机，点击"测试效果"试听变声\n2. 满意后点击"开始变声"\n3. 打开王者/微信/QQ使用语音\n4. 通过耳机听到自己的变声效果</string>
     
     <!-- activity_main.xml 需要的字符串 -->
     <string name="pitch_control">音调控制</string>

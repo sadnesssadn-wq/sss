@@ -1,47 +1,58 @@
 package com.voicechanger
 
 import android.app.*
-import android.content.Context
 import android.content.Intent
 import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
 
 /**
- * 变声器前台服务
- * 负责管理音频处理的生命周期
+ * 变声服务 - 前台服务，确保持续运行
+ * 支持实时预览和录制模式
  */
 class VoiceChangerService : Service() {
     
     private val binder = LocalBinder()
-    private var audioProcessor: AudioProcessor? = null
-    private var currentPitchShift: Float = 0f
-    private val serviceScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+    private var audioProcessor: RealtimeAudioProcessor? = null
+    private var audioEffectManager: AudioEffectManager? = null
+    private var isProcessing = false
+    private var isPreviewMode = true // 默认预览模式
     
     companion object {
         private const val TAG = "VoiceChangerService"
-        private const val NOTIFICATION_ID = 1
+        private const val NOTIFICATION_ID = 1001
         private const val CHANNEL_ID = "voice_changer_channel"
         
         const val ACTION_START = "com.voicechanger.START"
         const val ACTION_STOP = "com.voicechanger.STOP"
         const val ACTION_UPDATE_PITCH = "com.voicechanger.UPDATE_PITCH"
+        const val ACTION_START_PREVIEW = "com.voicechanger.START_PREVIEW"
+        const val ACTION_TOGGLE_MODE = "com.voicechanger.TOGGLE_MODE"
         
         const val EXTRA_PITCH_SHIFT = "pitch_shift"
+        const val EXTRA_PREVIEW_MODE = "preview_mode"
     }
     
     inner class LocalBinder : Binder() {
         fun getService(): VoiceChangerService = this@VoiceChangerService
     }
     
+    override fun onBind(intent: Intent?): IBinder = binder
+    
     override fun onCreate() {
         super.onCreate()
         createNotificationChannel()
+        audioEffectManager = AudioEffectManager()
+        
+        // 检查系统是否支持音频效果
+        if (audioEffectManager?.isSystemAudioEffectSupported() == true) {
+            Log.i(TAG, "System audio effects are supported")
+        } else {
+            Log.w(TAG, "System audio effects are NOT supported on this device")
+        }
+        
         Log.d(TAG, "Service created")
     }
     
@@ -49,103 +60,148 @@ class VoiceChangerService : Service() {
         when (intent?.action) {
             ACTION_START -> {
                 val pitchShift = intent.getFloatExtra(EXTRA_PITCH_SHIFT, 0f)
-                startProcessing(pitchShift)
+                val previewMode = intent.getBooleanExtra(EXTRA_PREVIEW_MODE, true)
+                startProcessing(pitchShift, previewMode)
             }
-            ACTION_STOP -> {
-                stopProcessing()
+            ACTION_START_PREVIEW -> {
+                val pitchShift = intent.getFloatExtra(EXTRA_PITCH_SHIFT, 0f)
+                startProcessing(pitchShift, previewMode = true)
             }
             ACTION_UPDATE_PITCH -> {
                 val pitchShift = intent.getFloatExtra(EXTRA_PITCH_SHIFT, 0f)
                 updatePitchShift(pitchShift)
             }
+            ACTION_TOGGLE_MODE -> {
+                toggleMode()
+            }
+            ACTION_STOP -> {
+                stopProcessing()
+                stopSelf()
+            }
         }
         return START_STICKY
     }
     
-    override fun onBind(intent: Intent?): IBinder {
-        return binder
-    }
-    
-    override fun onDestroy() {
-        super.onDestroy()
-        stopProcessing()
-        Log.d(TAG, "Service destroyed")
-    }
-    
     /**
-     * 启动音频处理
+     * 开始音频处理
      */
-    fun startProcessing(pitchShift: Float = 0f) {
-        if (audioProcessor != null) {
-            Log.w(TAG, "Audio processing already started")
+    private fun startProcessing(pitchShift: Float, previewMode: Boolean) {
+        if (isProcessing) {
+            Log.w(TAG, "Already processing")
             return
         }
         
         try {
-            currentPitchShift = pitchShift
-            audioProcessor = AudioProcessor(
+            isPreviewMode = previewMode
+            
+            // 尝试系统级音频效果（如果支持）
+            if (!previewMode) {
+                val systemSuccess = audioEffectManager?.applySystemPitchShift(pitchShift) ?: false
+                if (systemSuccess) {
+                    Log.i(TAG, "Using system-level audio effect")
+                    isProcessing = true
+                    startForeground(NOTIFICATION_ID, createNotification("系统级变声已启用"))
+                    return
+                }
+            }
+            
+            // 回退到实时处理器
+            val modeText = if (previewMode) "预览模式" else "录制模式"
+            startForeground(NOTIFICATION_ID, createNotification("正在变声中... ($modeText)"))
+            
+            // 创建并启动音频处理器
+            audioProcessor = RealtimeAudioProcessor(
                 pitchShift = pitchShift,
-                onError = { error ->
-                    Log.e(TAG, "Audio processing error", error)
-                    stopSelf()
+                previewMode = previewMode,
+                onError = { exception ->
+                    Log.e(TAG, "Audio processing error", exception)
+                    stopProcessing()
                 }
             )
-            
             audioProcessor?.start()
-            startForeground(NOTIFICATION_ID, createNotification())
-            Log.d(TAG, "Audio processing started with pitch shift: $pitchShift")
+            isProcessing = true
+            
+            Log.i(TAG, "Processing started - Pitch: $pitchShift, Mode: $modeText")
+            
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to start audio processing", e)
-            stopSelf()
+            Log.e(TAG, "Failed to start processing", e)
+            stopProcessing()
         }
     }
     
     /**
      * 停止音频处理
      */
-    fun stopProcessing() {
-        audioProcessor?.stop()
-        audioProcessor?.release()
-        audioProcessor = null
-        stopForeground(true)
-        Log.d(TAG, "Audio processing stopped")
+    private fun stopProcessing() {
+        if (!isProcessing) return
+        
+        try {
+            audioProcessor?.stop()
+            audioProcessor?.release()
+            audioProcessor = null
+            isProcessing = false
+            
+            Log.i(TAG, "Processing stopped")
+            
+        } catch (e: Exception) {
+            Log.e(TAG, "Error stopping processing", e)
+        }
+    }
+    
+    /**
+     * 切换模式
+     */
+    private fun toggleMode() {
+        if (isProcessing) {
+            val currentPitch = audioProcessor?.let { 0f } ?: 0f
+            stopProcessing()
+            startProcessing(currentPitch, !isPreviewMode)
+        }
     }
     
     /**
      * 更新变调参数
      */
     fun updatePitchShift(semiTones: Float) {
-        currentPitchShift = semiTones
-        
-        // 如果服务正在运行，直接更新参数
         audioProcessor?.updatePitchShift(semiTones)
+        
+        // 更新通知
+        val modeText = if (isPreviewMode) "预览" else "录制"
+        val notification = createNotification("正在变声中... ($modeText, ${semiTones.toInt()}半音)")
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(NOTIFICATION_ID, notification)
+        
+        Log.d(TAG, "Pitch updated to: $semiTones")
     }
     
     /**
-     * 检查服务是否正在运行
+     * 设置监听音量
      */
-    fun isProcessing(): Boolean {
-        return audioProcessor != null
+    fun setMonitorVolume(volume: Float) {
+        audioProcessor?.setMonitorVolume(volume)
     }
     
     /**
-     * 获取当前变调参数
+     * 检查是否正在处理
      */
-    fun getCurrentPitchShift(): Float {
-        return currentPitchShift
-    }
+    fun isProcessing(): Boolean = isProcessing
     
     /**
-     * 创建通知渠道（Android 8.0+）
+     * 检查当前模式
+     */
+    fun isPreviewMode(): Boolean = isPreviewMode
+    
+    /**
+     * 创建通知渠道
      */
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
-                "变声器服务",
+                "变声服务",
                 NotificationManager.IMPORTANCE_LOW
             ).apply {
-                description = "变声器前台服务通知"
+                description = "保持变声功能运行"
                 setShowBadge(false)
             }
             
@@ -155,25 +211,31 @@ class VoiceChangerService : Service() {
     }
     
     /**
-     * 创建前台服务通知
+     * 创建通知
      */
-    private fun createNotification(): Notification {
+    private fun createNotification(text: String): Notification {
         val intent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(
             this,
             0,
             intent,
-            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_IMMUTABLE
         )
         
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("变声器运行中")
-            .setContentText("点击返回应用")
-            .setSmallIcon(android.R.drawable.ic_media_play)
+            .setContentTitle("王者陪玩变声器")
+            .setContentText(text)
+            .setSmallIcon(android.R.drawable.ic_btn_speak_now)
             .setContentIntent(pendingIntent)
             .setOngoing(true)
-            .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
     }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        stopProcessing()
+        audioEffectManager?.release()
+        audioEffectManager = null
+        Log.d(TAG, "Service destroyed")
+    }
 }
-

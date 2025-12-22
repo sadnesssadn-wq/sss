@@ -134,3 +134,4 @@ adb logcat | grep -E "VoiceChanger|AudioProcessor|PitchShifter"
 4. **添加录音功能**：支持保存变声后的音频
 5. **UI优化**：添加波形可视化、动画效果等
 
+
