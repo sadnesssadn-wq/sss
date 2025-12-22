@@ -8,19 +8,18 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * 声音预设适配器
- * 用于 RecyclerView 显示所有专业声音预设
+ * 音色预设适配器
  */
 class VoicePresetAdapter(
-    private val presets: List<ProfessionalVoicePreset>,
-    private val onPresetSelected: (ProfessionalVoicePreset) -> Unit
+    private val presets: List<VoicePreset>,
+    private val onPresetSelected: (VoicePreset) -> Unit
 ) : RecyclerView.Adapter<VoicePresetAdapter.PresetViewHolder>() {
     
-    private var selectedPosition = -1
+    private var selectedPosition = 0
     
     inner class PresetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvName: TextView = view.findViewById(android.R.id.text1)
-        val tvDescription: TextView = view.findViewById(android.R.id.text2)
+        val tvEmoji: TextView = view.findViewById(android.R.id.text1)
+        val tvName: TextView = view.findViewById(android.R.id.text2)
         
         init {
             view.setOnClickListener {
@@ -45,28 +44,21 @@ class VoicePresetAdapter(
     override fun onBindViewHolder(holder: PresetViewHolder, position: Int) {
         val preset = presets[position]
         
-        holder.tvName.text = preset.getShortName()
-        holder.tvDescription.text = preset.description
-        
-        // 设置颜色
-        val categoryColor = Color.parseColor(preset.category.color)
-        holder.tvName.setTextColor(categoryColor)
+        holder.tvEmoji.text = preset.emoji
+        holder.tvEmoji.textSize = 32f
+        holder.tvName.text = preset.name
         
         // 高亮选中项
         if (position == selectedPosition) {
-            holder.itemView.setBackgroundColor(Color.parseColor("#2A2A3E"))
-            holder.tvName.textSize = 18f
+            holder.itemView.setBackgroundColor(Color.parseColor("#3A3A5A"))
+            holder.tvEmoji.alpha = 1.0f
+            holder.tvName.alpha = 1.0f
         } else {
             holder.itemView.setBackgroundColor(Color.TRANSPARENT)
-            holder.tvName.textSize = 16f
+            holder.tvEmoji.alpha = 0.6f
+            holder.tvName.alpha = 0.6f
         }
     }
     
     override fun getItemCount(): Int = presets.size
-    
-    fun setSelectedPreset(preset: ProfessionalVoicePreset) {
-        selectedPosition = presets.indexOf(preset)
-        notifyDataSetChanged()
-    }
 }
-
