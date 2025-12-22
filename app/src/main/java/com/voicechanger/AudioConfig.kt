@@ -16,6 +16,7 @@ object AudioConfig {
     
     // 声道配置（单声道，处理更快）
     const val CHANNEL_CONFIG = AudioFormat.CHANNEL_IN_MONO
+    const val CHANNELS = 1  // 单声道
     
     // 音频格式（16位 PCM，标准高质量格式）
     const val AUDIO_FORMAT = AudioFormat.ENCODING_PCM_16BIT
