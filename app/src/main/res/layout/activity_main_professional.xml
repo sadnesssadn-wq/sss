@@ -1,67 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#0F0F1E"
-    android:padding="16dp">
+    android:background="@drawable/bg_gradient">
 
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="24dp" />
+        android:background="@color/transparent"
+        app:elevation="0dp">
 
-    <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- 标题 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎤 VoiceChanger"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- 副标题 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Professional Voice Transformer"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 状态卡片 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="@color/surface"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- 状态指示器 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <View
+                            android:id="@+id/statusIndicator"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/bg_status_indicator"/>
+
+                        <TextView
+                            android:id="@+id/tvStatus"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="● 待机中"
+                            android:textColor="@color/on_surface_variant"
+                            android:textSize="16sp"
+                            android:layout_marginStart="12dp"/>
+
+                    </LinearLayout>
+
+                    <!-- 当前音色 -->
+                    <TextView
+                        android:id="@+id/tvCurrentPreset"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🎵 原声"
+                        android:textColor="@color/primary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center"/>
+
+                    <!-- 实时监听开关 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="16dp"
+                        android:padding="12dp"
+                        android:background="@drawable/bg_card">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_btn_speak_now"
+                            app:tint="@color/on_surface_variant"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="实时监听（戴耳机）"
+                            android:textColor="@color/on_surface"
+                            android:textSize="16sp"
+                            android:layout_marginStart="12dp"/>
+
+                        <com.google.android.material.switchmaterial.SwitchMaterial
+                            android:id="@+id/switchMonitor"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:trackTint="@color/surface_variant"
+                            app:thumbTint="@color/primary"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 音色选择标题 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎨 选择音色"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- 音色网格 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPresets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginBottom="100dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- 底部控制按钮 -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/subtitle"
-        android:textColor="#8E8E93"
-        android:textSize="14sp"
-        android:gravity="center"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="32dp" />
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="0dp"
+        app:cardBackgroundColor="@color/surface"
+        app:cardElevation="8dp">
 
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="● 未启动"
-        android:textColor="#8E8E93"
-        android:textSize="16sp"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvCurrentPreset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🎵 原声"
-        android:textColor="#FFD700"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_marginBottom="32dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToggle"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:text="▶ 开始变声"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp"
+                app:icon="@android:drawable/ic_media_play"
+                app:iconGravity="textStart"
+                app:iconSize="28dp"
+                app:backgroundTint="@color/success"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewPresets"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#1A1A2E" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/btnToggle"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="▶ 开始变声"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:backgroundTint="#00C853"
-        android:layout_marginTop="24dp" />
+    </com.google.android.material.card.MaterialCardView>
 
-</LinearLayout>
-
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

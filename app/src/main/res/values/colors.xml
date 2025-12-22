@@ -30,4 +30,19 @@
     <color name="warning">#FF9500</color>
     <color name="error">#FF3B30</color>
     <color name="info">#00B8D4</color>
+    
+    <!-- 新增 Material Design 3 颜色 -->
+    <color name="surface">@color/background_card</color>
+    <color name="surface_variant">@color/background_elevated</color>
+    <color name="on_surface">@color/text_primary</color>
+    <color name="on_surface_variant">@color/text_secondary</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="female">@color/category_female</color>
+    <color name="male">@color/category_male</color>
+    <color name="special">@color/category_special</color>
+    <color name="primary_container">@color/primary_dark</color>
+    <color name="secondary">@color/accent</color>
+    <color name="secondary_container">@color/accent_light</color>
 </resources>

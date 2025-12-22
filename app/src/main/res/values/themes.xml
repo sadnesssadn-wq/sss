@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 主题 -->
-    <style name="Theme.VoiceChanger" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Material Design 3 主题 -->
+    <style name="Theme.VoiceChanger" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- 主色调 -->
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
-        <item name="android:windowBackground">@color/background</item>
-        <item name="android:statusBarColor">@color/background</item>
-        <item name="android:navigationBarColor">@color/background</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        
+        <!-- 次要色 -->
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <!-- 背景色 -->
+        <item name="android:colorBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        
+        <!-- 状态栏 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        
+        <!-- 圆角 -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
     </style>
     
-    <!-- 圆角按钮 -->
-    <style name="RoundedButton" parent="Widget.MaterialComponents.Button">
-        <item name="cornerRadius">16dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:paddingTop">16dp</item>
-        <item name="android:paddingBottom">16dp</item>
-        <item name="android:elevation">4dp</item>
+    <!-- 圆角样式 -->
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
     </style>
     
-    <!-- 音色卡片 -->
-    <style name="PresetCard">
-        <item name="android:layout_margin">8dp</item>
-        <item name="android:padding">16dp</item>
-        <item name="android:background">@color/background_card</item>
-        <item name="android:elevation">4dp</item>
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 </resources>
