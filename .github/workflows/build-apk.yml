@@ -10,65 +10,26 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: 检出代码
-      uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v4
     
-    - name: 设置 JDK 17
-      uses: actions/setup-java@v3
+    - name: Setup JDK
+      uses: actions/setup-java@v4
       with:
-        distribution: 'zulu'
+        distribution: 'temurin'
         java-version: '17'
     
-    - name: 安装 Android SDK
-      uses: android-actions/setup-android@v3
-        
-    - name: 生成 Gradle Wrapper
-      run: |
-        gradle wrapper --gradle-version 8.2 --distribution-type bin
-        
-    - name: 赋予执行权限
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+      
+    - name: Make gradlew executable
       run: chmod +x ./gradlew
       
-    - name: 构建 Debug APK
-      run: ./gradlew assembleDebug --no-daemon --stacktrace --info
+    - name: Build with Gradle
+      run: ./gradlew assembleDebug --stacktrace
       
-    - name: 上传 APK
-      uses: actions/upload-artifact@v3
-      if: success()
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
       with:
-        name: VoiceChanger-Debug
-        path: app/build/outputs/apk/debug/*.apk
-        
-    - name: 创建 Release
-      if: success()
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        name: 王者荣耀陪玩变声器 v1.0.${{ github.run_number }}
-        body: |
-          🎮 **王者荣耀陪玩专用变声器**
-          
-          ## 🎤 音效预设
-          - 🎀 甜美女声（男→女）
-          - 💪 磁性男声（女→男）
-          - 👶 可爱萝莉（超萌）
-          - 🎯 原声模式
-          
-          ## ⚡ 性能
-          - 延迟：60-80ms
-          - 音质：8/10
-          - CPU：12-18%
-          
-          ## 📱 使用方法
-          1. 下载并安装 APK
-          2. 授予录音权限
-          3. 选择音效预设
-          4. 点击"开始变声"
-          5. 打开王者荣耀使用语音
-          
-          自动构建 #${{ github.run_number }}
-        files: app/build/outputs/apk/debug/*.apk
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: app-debug
+        path: app/build/outputs/apk/debug/app-debug.apk
