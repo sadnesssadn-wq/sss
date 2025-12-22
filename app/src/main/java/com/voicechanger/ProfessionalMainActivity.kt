@@ -134,7 +134,7 @@ class ProfessionalMainActivity : AppCompatActivity() {
         
         if (!hasWriteSettings) {
             Toast.makeText(this, 
-                "需要"修改系统设置"权限才能实现游戏内变声", 
+                "Requires system settings permission for in-game voice change", 
                 Toast.LENGTH_LONG).show()
         }
         
