@@ -116,7 +116,7 @@ class AudioProcessor(
     /**
      * 音频处理循环
      */
-    private suspend fun processAudio() {
+    private suspend fun processAudio() = withContext(Dispatchers.IO) {
         val bufferSize = AudioConfig.FRAME_SIZE * AudioConfig.BYTES_PER_SAMPLE
         val buffer = ByteArray(bufferSize)
         
@@ -129,7 +129,7 @@ class AudioProcessor(
         
         Log.d(TAG, "Audio processing started with SoundTouch engine v${soundTouch.getVersion()}")
         
-        while (isProcessing && coroutineContext.isActive) {
+        while (isProcessing && isActive) {
             try {
                 // 更新变调参数（如果发生变化）
                 if (soundTouch.getPitchSemiTones() != currentPitchShift) {
@@ -184,5 +184,5 @@ class AudioProcessor(
         stop()
         scope.cancel()
     }
-}
+}  // 添加结束大括号以匹配 withContext
 
