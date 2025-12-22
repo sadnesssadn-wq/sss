@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- 标题区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="20dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🎤 游戏陪玩变声器"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王者荣耀语音专用"
+                android:textSize="14sp"
+                android:textColor="#999999"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 状态显示 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● 未启动"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#999999"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvSelectedPreset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前：未选择"
+                android:textSize="14sp"
+                android:textColor="#666666"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- 音效预设按钮组 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择音效"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 甜美女声 -->
+        <Button
+            android:id="@+id/btnSweetFemale"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🎀 甜美女声\n男→女，温柔可人"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#FF69B4"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp" />
+
+        <!-- 磁性男声 -->
+        <Button
+            android:id="@+id/btnMagneticMale"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="💪 磁性男声\n女→男，低沉有力"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4169E1"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp" />
+
+        <!-- 可爱萝莉 -->
+        <Button
+            android:id="@+id/btnCuteLoli"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="👶 可爱萝莉\n超萌童声"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#FFB6C1"
+            android:layout_marginBottom="12dp"
+            android:elevation="4dp" />
+
+        <!-- 原声模式 -->
+        <Button
+            android:id="@+id/btnOriginal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="🎯 原声模式\n不变调"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#9E9E9E"
+            android:layout_marginBottom="24dp"
+            android:elevation="4dp" />
+
+        <!-- 游戏模式开关 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            android:padding="16dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="2dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="🎮 游戏模式\n超低延迟"
+                android:textSize="14sp"
+                android:textColor="#333333" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switchGameMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <!-- 启动按钮 -->
+        <Button
+            android:id="@+id/btnToggleService"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="▶ 开始变声"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:backgroundTint="#4CAF50"
+            android:elevation="8dp" />
+
+        <!-- 提示信息 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💡 使用提示：\n1. 选择音效\n2. 开启变声\n3. 打开王者荣耀\n4. 开始语音聊天"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@android:color/white"
+            android:elevation="1dp" />
+
+    </LinearLayout>
+</ScrollView>
+

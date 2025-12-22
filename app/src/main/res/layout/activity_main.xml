@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <!-- 标题 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/primary" />
+
+    <!-- 服务状态 -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/service_stopped"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black" />
+
+    <!-- 服务控制按钮 -->
+    <Button
+        android:id="@+id/btnToggleService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_service"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/primary" />
+
+    <!-- 变调控制标题 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pitch_control"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/black" />
+
+    <!-- 变调滑块 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-12"
+            android:textSize="14sp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/black" />
+
+        <SeekBar
+            android:id="@+id/seekBarPitch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="24"
+            android:progress="12"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+12"
+            android:textSize="14sp"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <!-- 当前变调值显示 -->
+    <TextView
+        android:id="@+id/tvPitchValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0 半音"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/primary"
+        android:textStyle="bold" />
+
+    <!-- 音效预设标题 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/voice_preset"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/black" />
+
+    <!-- 音效预设按钮组 -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="4"
+        android:alignmentMode="alignMargins"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnPresetMaleLow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/male_low"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPresetMaleNormal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/male_normal"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPresetFemaleNormal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/female_normal"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPresetFemaleHigh"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/female_high"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPresetCartoon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/cartoon"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btnPresetRobot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            android:text="@string/robot"
+            android:textSize="14sp" />
+    </GridLayout>
+
+    <!-- 说明文字 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提示：启动变声后，其他应用需要使用虚拟音频输入源才能听到变声效果"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:padding="8dp" />
+
+</LinearLayout>
+
