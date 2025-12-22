@@ -129,7 +129,7 @@ class AudioProcessor(
         
         Log.d(TAG, "Audio processing started with SoundTouch engine v${soundTouch.getVersion()}")
         
-        while (isProcessing && isActive) {
+        while (isProcessing && coroutineContext.isActive) {
             try {
                 // 更新变调参数（如果发生变化）
                 if (soundTouch.getPitchSemiTones() != currentPitchShift) {
